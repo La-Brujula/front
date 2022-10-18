@@ -1,4 +1,8 @@
 {
     "createUser": "Create a new user",
-    "forgotPassword": "Forget your password?"
+    "forgotPassword": "Forget your password?",
+    "alreadyHaveAccount": "Already have an account?",
+    "personTypeQuestion": "Are you a fiscal or moral person?",
+    "fiscalPerson": "Fiscal Person",
+    "moralPerson": "Moral Person"
 }

@@ -1,7 +1,10 @@
+import { useTranslation } from "react-i18next";
+
 export const Footer = () => {
+  const { t } = useTranslation('navigation')
   return (
     <div className="w-full text-center flex flex-col justify-center gap-4 py-4 px-2">
-      Se parte de nuestra comunidad
+      {t("")}
       <div className="flex flex-row gap-8 mx-auto">
         <a href="BRUJULA_FACEBOOK">
           <img src="/fb.svg" alt="Facebook" className="h-10" />
@@ -15,19 +18,19 @@ export const Footer = () => {
       </div>
       <div className="">
         <a href="/contacto" className="text-primary">
-          Contáctanos
+          {t("contactUs")}
         </a>
         <p>
-          Conoce nuestro&nbsp;
+          {t("seeOur")}&nbsp;
           <a href="/contacto" className="text-primary">
-            aviso de privacidad
+            {("privacy")}
           </a>
           &nbsp;y&nbsp;
           <a href="/contacto" className="text-primary">
-            aviso legal
+            {("legal")}
           </a>
         </p>
-        <p>La Brújula es una marca registrada.</p>
+        <p>{t("trademark")}</p>
       </div>
     </div>
   );

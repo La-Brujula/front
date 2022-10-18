@@ -1,4 +1,8 @@
 {
     "createUser": "Creàr nuevo usuariò",
-    "forgotPassword": "¿Olvidò contraseñà?"
+    "forgotPassword": "¿Olvidò contraseñà?",
+    "personTypeQuestion": "C'est une persone moral o fisiquè?",
+    "fiscalPerson": "Personè Fisiquè",
+    "moralPerson": "Personè Moralè",
+    "alreadyHaveAccount": "Vous tenez une usuariò?"
 }

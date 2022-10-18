@@ -13,7 +13,7 @@ export const LoginForm = () => {
             id="email"
             type="email"
             placeholder={t("email")}
-            autocomplete="email"
+            autoComplete="email"
           />
         </div>
         <div className="flex flex-col gap-2 items-start">
@@ -22,7 +22,7 @@ export const LoginForm = () => {
             id="password"
             type="password"
             placeholder={t("email")}
-            autocomplete="password"
+            autoComplete="password"
           />
         </div>
       </div>

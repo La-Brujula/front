@@ -18,6 +18,7 @@ export const Container = ({ children, bg }) => {
         })(),
         "w-full",
         "px-4",
+        "md:px-8",
         "py-8",
         "text-center",
         "flex",

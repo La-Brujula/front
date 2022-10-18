@@ -1,8 +1,12 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import LocalizationMenu from "../components/localizationMenu";
+import { useTranslation } from "react-i18next";
+
+
 export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const { t } = useTranslation('navigation')
 
     const toggleOpen = () => {
         return setIsOpen(!isOpen);
@@ -58,63 +62,63 @@ export const Navbar = () => {
                             to="/iniciar-sesion"
                             className="font-bold leading-relaxed text-white"
                         >
-                            Iniciar Sesión
+                            {t("login")}
                         </NavLink>
                         <NavLink
                             onClick={() => toggleOpen()}
                             to="/crear-usuario"
                             className="font-bold leading-relaxed text-white"
                         >
-                            Crear Usuario
+                            {t("createUser")}
                         </NavLink>
                         <NavLink
                             onClick={() => toggleOpen()}
                             to="/"
                             className="font-bold leading-relaxed text-white"
                         >
-                            Inicio
+                            {t("home")}
                         </NavLink>
                         <NavLink
                             onClick={() => toggleOpen()}
                             to="/perfil"
                             className="font-bold leading-relaxed text-white"
                         >
-                            Mi Usuaio
+                            {t("myUser")}
                         </NavLink>
                         <NavLink
                             onClick={() => toggleOpen()}
                             to="/buscar"
                             className="font-bold leading-relaxed text-white"
                         >
-                            Buscador
+                            {t("search")}
                         </NavLink>
                         <NavLink
                             onClick={() => toggleOpen()}
                             to="/guias"
                             className="font-bold leading-relaxed text-white"
                         >
-                            Guías en PDF
+                            {t("pdfGuides")}
                         </NavLink>
                         <NavLink
                             onClick={() => toggleOpen()}
                             to="/nosotros"
                             className="font-bold leading-relaxed text-white"
                         >
-                            Nosotros
+                            {t("aboutUs")}
                         </NavLink>
                         <NavLink
                             onClick={() => toggleOpen()}
                             to="/contacto"
                             className="font-bold leading-relaxed text-white"
                         >
-                            Contacto
+                            {t("contact")}
                         </NavLink>
                         <NavLink
                             onClick={() => toggleOpen()}
                             to="/cerrar-sesion"
                             className="font-bold leading-relaxed text-white block mt-6"
                         >
-                            Cerrar Sesión
+                            {t("logout")}
                         </NavLink>
                         <LocalizationMenu />
                     </nav>

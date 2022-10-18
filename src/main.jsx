@@ -1,12 +1,18 @@
-import React from "react";
+import { CircularProgress } from "@mui/material";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, RouterProvider } from "react-router-dom";
-import App from "./App";
+import { RouterProvider } from "react-router-dom";
 import "./index.css";
 import { AppRouter } from "./routes";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <RouterProvider router={AppRouter} />
-  </React.StrictMode>
+    <React.StrictMode>
+        <Suspense
+            fallback={
+                <CircularProgress className="absolute right-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
+            }
+        >
+            <RouterProvider router={AppRouter} />
+        </Suspense>
+    </React.StrictMode>
 );

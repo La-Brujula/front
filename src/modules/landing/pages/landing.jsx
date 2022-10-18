@@ -19,19 +19,17 @@ export const LandingPage = () => {
             <Container bg="lightblue">
                 <h2 className="mb-4">{t("searchByCategory")}</h2>
                 <PorCategorias
-                    categorias={Promise.all(
-                        [
-                            "Preproducción",
-                            "Talento",
-                            "Equipo Humano",
-                            "Producción",
-                            "Producción",
-                            "Producción",
-                            "Producción",
-                            "Producción",
-                            "Producción",
-                        ].map(async (v) => t(v))
-                    )}
+                    categorias={[
+                        "Preproducción",
+                        "Talento",
+                        "Equipo Humano",
+                        "Producción",
+                        "Producción",
+                        "Producción",
+                        "Producción",
+                        "Producción",
+                        "Producción",
+                    ].map((v) => t(v))}
                 />
             </Container>
         </>

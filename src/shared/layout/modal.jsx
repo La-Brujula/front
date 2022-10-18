@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ReactDOM from 'react-dom/client'
 
 export const Modal = ({ children, defaultState }) => {
   const [isOpen, setIsOpen] = useState(defaultState && true);

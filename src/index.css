@@ -6,7 +6,7 @@
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-text-size-adjust: 100%;
-  @apply font-normal text-blue antialiased;
+  @apply font-normal text-blue antialiased font;
 }
 
 @layer base {
@@ -16,7 +16,6 @@
   h4,
   h5,
   h6,
-  a,
   button,
   input[type="submit"],
   label {
@@ -33,17 +32,21 @@
 
   input,
   select {
-    @apply px-2 py-1 rounded-md;
+    @apply px-2 py-1 rounded-md border border-solid border-black;
+  }
+
+  option {
+    @apply border
   }
 
   button,
   input[type="submit"],
   .button {
-    @apply bg-secondary text-white rounded-lg text-base
+    @apply bg-primary text-white rounded-lg text-base
     px-5 py-3 cursor-pointer;
   }
 
   a {
-    @apply font-bold text-primary;
+    @apply text-primary;
   }
 }
