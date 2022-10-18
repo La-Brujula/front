@@ -1,35 +1,37 @@
+import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 export const LoginForm = () => {
+  const { t } = useTranslation("auth")
   return (
     <>
       <div className="flex flex-col md:flex-row md:items-baseline gap-8 justify-center">
         <div className="flex flex-col gap-2 items-start">
           <label htmlFor="email" className="block">
-            Correo
+            {t("email")}
           </label>
           <input
             id="email"
             type="email"
-            placeholder="Correo"
+            placeholder={t("email")}
             autocomplete="email"
           />
         </div>
         <div className="flex flex-col gap-2 items-start">
-          <label htmlFor="email">Contraseña</label>
+          <label htmlFor="email">{t("password")}</label>
           <input
             id="password"
             type="password"
-            placeholder="Password"
+            placeholder={t("email")}
             autocomplete="password"
           />
         </div>
       </div>
       <button className="max-w-xs mx-auto mt-8 bg-primary">
-        Iniciar Sesión
+      {t("login")}
       </button>
       <div className="flex flex-col gap-2 mt-4 text-primary">
-        <NavLink to="/crear-usuario">Crear usuario</NavLink>
-        <NavLink to="/reiniciar-contraseña">Olvide mi contraseña</NavLink>
+        <NavLink to="/crear-usuario">{t("createUser")}</NavLink>
+        <NavLink to="/reiniciar-contraseña">{t("forgotPassword")}</NavLink>
       </div>
     </>
   );
