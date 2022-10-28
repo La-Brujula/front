@@ -4,7 +4,7 @@ export const LoginForm = () => {
   const { t } = useTranslation("auth")
   return (
     <>
-      <div className="flex flex-col md:flex-row md:items-baseline gap-8 justify-center">
+      <div className="flex flex-col md:flex-row md:items-baseline gap-8 justify-center items-stretch w-full">
         <div className="flex flex-col gap-2 items-start">
           <label htmlFor="email" className="block">
             {t("email")}
@@ -14,6 +14,7 @@ export const LoginForm = () => {
             type="email"
             placeholder={t("email")}
             autoComplete="email"
+            className="w-full"
           />
         </div>
         <div className="flex flex-col gap-2 items-start">
@@ -23,6 +24,7 @@ export const LoginForm = () => {
             type="password"
             placeholder={t("email")}
             autoComplete="password"
+            className="w-full"
           />
         </div>
       </div>

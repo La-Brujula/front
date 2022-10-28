@@ -9,7 +9,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
         <Suspense
             fallback={
-                <CircularProgress className="absolute right-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
+                <CircularProgress className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
             }
         >
             <RouterProvider router={AppRouter} />

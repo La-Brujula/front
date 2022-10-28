@@ -1,9 +1,9 @@
-import { Container } from "@shared/layout/container";
-import { useTranslation } from "react-i18next";
-import { SignupForm } from "../components/signupForm";
+import { Container } from '@shared/layout/container';
+import { useTranslation } from 'react-i18next';
+import { SignupForm } from '../components/signupForm';
 
-export const SignupPage = () => {
-  const { t } = useTranslation("auth")
+export default () => {
+  const { t } = useTranslation('auth');
   return (
     <>
       <Container bg="lightblue">
@@ -18,7 +18,7 @@ export const SignupPage = () => {
         </p>
       </Container>
       <Container>
-        <h1 className="mb-8">{t("createUser")}</h1>
+        <h1 className="mb-8">{t('createUser')}</h1>
         <SignupForm />
       </Container>
     </>

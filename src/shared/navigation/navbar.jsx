@@ -20,7 +20,7 @@ export const Navbar = () => {
             >
                 <NavLink to="/">
                     <img
-                        src="./Logotipo.svg"
+                        src="/Logotipo.svg"
                         alt="La Brújula Audiovisual"
                         className="h-16"
                     />
