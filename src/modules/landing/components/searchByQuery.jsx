@@ -1,7 +1,9 @@
 import { Container } from '@shared/layout/container';
+import { useTranslation } from 'react-i18next';
 import { PorFiltros } from '../../search/components/filtros';
 
 function SearchByQuery() {
+  const { t } = useTranslation('landing');
   return (
     <Container bg="whitetoblue">
       <h2 className="mb-2">{t('searchInBrujula')}</h2>

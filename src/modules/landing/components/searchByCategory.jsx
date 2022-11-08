@@ -1,7 +1,9 @@
 import { Container } from '@shared/layout/container';
+import { useTranslation } from 'react-i18next';
 import { PorCategorias } from '../../search/components/categorias';
 
 function SearchByCategory() {
+  const { t } = useTranslation('landing');
   return (
     <Container bg="lightblue">
       <h2 className="mb-4">{t('searchByCategory')}</h2>

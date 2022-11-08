@@ -1,6 +1,8 @@
 import { Container } from '@shared/layout/container';
+import { useTranslation } from 'react-i18next';
 
 function HeroSection() {
+  const { t } = useTranslation('landing');
   return (
     <Container bg="primary">
       <div className="flex flex-col lg:flex-row gap-16 text-left text-white max-w-5xl mx-auto py-8">
