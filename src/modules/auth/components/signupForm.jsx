@@ -1,19 +1,45 @@
 import { useForm } from 'react-hook-form';
+import { useContext, useState } from "react";
+import { AuthContext, StoreContext } from "../../../context/firebaseContext";
 import { useTranslation } from 'react-i18next';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { brujulaUtils } from '../../../shared/utils/brujulaUtils';
 
 export const SignupForm = () => {
+  const auth = useContext(AuthContext)
+  const brujula = brujulaUtils();
   const { register, handleSubmit, setValue, watch, formState } = useForm();
   const tipoDePersona = watch('persona', 'fisica');
   const { t } = useTranslation('auth');
   const navigate = useNavigate()
+  const [errorMsg, setErrorMsg] = useState("")
+
+
+  const onSubmit = async (data) => {
+    setErrorMsg("")
+    if(await auth.register(data.email, data.password, onError)){
+      brujula.updateUserInfo({"tipo": tipoDePersona})
+      navigate('basica')
+    }
+  }
+
+  const onError = (err) => {
+    switch(err.code){
+      case 'auth/invalid-email':
+        setErrorMsg("Ingresa un correo valido.")
+        break;
+      case "auth/email-already-in-use":
+        setErrorMsg("El correo ya esta registrado.")
+        break;
+      case "auth/weak-password":
+        setErrorMsg("La contraserña tiene que tener como minimo 6 caracteres.")
+        break;
+    }
+  }
+
   return (
     <form
-      onSubmit={handleSubmit(() => {
-        try {
-            navigate('basica')
-        } catch (e) {}
-      })}
+      onSubmit={handleSubmit(onSubmit)}
       className="flex flex-col gap-4"
     >
       <input type="hidden" {...register('persona')} required />
@@ -86,6 +112,7 @@ export const SignupForm = () => {
           />
         </div>
       </div>
+      {errorMsg===""?<></>:<p style={{color:"red"}}>{errorMsg}</p>}
       <input
         type="submit"
         className="max-w-xs mx-auto mt-8 bg-primary"

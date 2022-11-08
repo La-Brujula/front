@@ -4,15 +4,23 @@ import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import "./index.css";
 import { AppRouter } from "./routes";
+import { fireauth, firestorage, firestore, AuthContext, StorageContext, StoreContext } from "./context/firebaseContext";
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <Suspense
-            fallback={
-                <CircularProgress className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
-            }
-        >
-            <RouterProvider router={AppRouter} />
-        </Suspense>
+        <AuthContext.Provider value={fireauth}>
+            <StorageContext.Provider value={firestorage}>
+                <StoreContext.Provider value={firestore}>
+                    <Suspense
+                        fallback={
+                            <CircularProgress className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
+                        }
+                    >   
+                        <RouterProvider router={AppRouter} />
+                    </Suspense>
+                </StoreContext.Provider>
+            </StorageContext.Provider>
+        </AuthContext.Provider>
     </React.StrictMode>
 );
