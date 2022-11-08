@@ -26,7 +26,9 @@ export const BasicInfo = () => {
     const email = auth.getUserEmail()
     await brujula.updateUserInfo(data);
     await brujula.saveProfilePicture(profilePicture);
-    navigate('../area');
+    setTimeout(() => {
+      navigate('../area');      
+    }, 250);
   }
 
   return (
