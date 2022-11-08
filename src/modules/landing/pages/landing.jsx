@@ -28,6 +28,8 @@ export default () => {
       <SearchByCategory />
       <DownloadGuides />
       <QuotesSlider />
+      {/* TODO Banner con anuncios */}
+      {/* TODO Aliados */}
     </>
   );
 };
