@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 
 export const LandingPage = () => {
   const user = {
-    profilePicture: './placeholder.svg',
+    profilePicture: '/placeholder.svg',
     username: 'La Quina',
     location: 'Acapulco, Gro',
     title: 'Actor de Voz',

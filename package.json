@@ -5,7 +5,7 @@
   "type": "commonjs",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && mv -u ./dist ..",
+    "build": "vite build --base=/production/dist/",
     "preview": "vite preview"
   },
   "dependencies": {

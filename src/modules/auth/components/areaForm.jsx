@@ -1,11 +1,13 @@
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { ButtonSelect } from '@shared/components/buttonSelect';
 
 export const AreaForms = () => {
   const { register, handleSubmit, getValues, setValue } = useForm();
   const { t } = useTranslation('auth');
+
+  const navigate = useNavigate();
 
   const options = [
     'preproduction',
@@ -16,7 +18,14 @@ export const AreaForms = () => {
     'industry',
   ];
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+    <form
+      onSubmit={handleSubmit((values) => {
+        try {
+          navigate(`./${values.area}`);
+        } catch {}
+      })}
+      className="flex flex-col gap-4"
+    >
       <p>*{t('areaForInPersonActivity')}</p>
       <input type="hidden" {...register('area')} />
       <ButtonSelect

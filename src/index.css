@@ -6,7 +6,7 @@
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-text-size-adjust: 100%;
-  @apply font-normal text-blue antialiased font;
+  @apply font-medium text-blue antialiased font;
 }
 
 @layer components {

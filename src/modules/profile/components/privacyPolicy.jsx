@@ -8,7 +8,7 @@ export const PrivacyPolicy = () => {
   return (
     <div className="flex flex-col gap-4">
       <p>{t('readPrivacyPolicy')}:</p>
-      <NavLink to="/aviso-privacidad" className="self-center">
+      <NavLink to={import.meta.env.BASE_URL + "aviso-privacidad"} className="self-center">
         <div
           className="button bg-secondary"
         >

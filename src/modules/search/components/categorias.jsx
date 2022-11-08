@@ -1,6 +1,8 @@
+import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 
 export const PorCategorias = ({ categorias }) => {
+  const { t } = useTranslation('categorias');
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
       {categorias.length > 0 &&
@@ -8,11 +10,17 @@ export const PorCategorias = ({ categorias }) => {
           <NavLink
             key={i}
             className={[
-              'button font-bold flex items-center justify-center',
+              'button font-bold flex flex-col items-center justify-center',
               !(i % 2) ? 'bg-primary' : 'bg-secondary',
             ].join(' ')}
           >
-            <span>{cat}</span>
+            <img
+              src={`${import.meta.env.BASE_URL}img/${cat.iconUrl}.svg`}
+              alt={cat.label}
+              className="h-16 mb-6 hidden lg:block"
+              loading='lazy'
+            />
+            <span>{t(cat.label)}</span>
           </NavLink>
         ))}
     </div>

@@ -12,7 +12,7 @@ i18n
     load: 'languageOnly', // all, languageOnly
 
     backend: {
-      loadPath: '/locales/{{ns}}/{{lng}}.json',
+      loadPath: import.meta.env.BASE_URL + 'locales/{{ns}}/{{lng}}.json',
     },
 
     defaultNS: 'common',

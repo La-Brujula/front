@@ -10,14 +10,14 @@ const SearchRouter = lazy(() => import('./modules/search/router'));
 
 export const AppRouter = createBrowserRouter([
   {
-    path: '/',
+    path: import.meta.env.BASE_URL,
     element: <App />,
     children: [
       { path: '', element: <LandingPage /> },
       { path: 'iniciar-sesion', element: <LoginPage /> },
-      { path: 'crear-usuario*', element: <SignupRouter /> },
-      { path: 'perfil*', element: <ProfileRouter /> },
-      { path: 'buscar*', element: <SearchRouter /> },
+      { path: 'crear-usuario/*', element: <SignupRouter /> },
+      { path: 'perfil/*', element: <ProfileRouter /> },
+      { path: 'buscar/*', element: <SearchRouter /> },
       { path: 'guias', element: <h1>Guias</h1> },
       { path: 'nosotros', element: <h1>Nosostros</h1> },
       { path: 'contacto', element: <h1>Contacto</h1> },
@@ -28,7 +28,7 @@ export const AppRouter = createBrowserRouter([
         element: <h1>Reiniciar Contraseña</h1>,
       },
       {
-        path: '/*',
+        path: '*',
         element: (
           <h1 className="leading-[25vh] text-center">
             uwu

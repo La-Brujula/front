@@ -1,8 +1,6 @@
-import {
-  AccountCircleOutlined,
-  EditOutlined,
-  SettingsOutlined,
-} from '@mui/icons-material';
+import AccountCircleOutlined from '@mui/icons-material/AccountCircleOutlined'
+import EditOutlined from '@mui/icons-material/EditOutlined'
+import SettingsOutlined from '@mui/icons-material/SettingsOutlined'
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 
@@ -16,10 +14,10 @@ export const ProfileBar = ({ user }) => {
     <div className="flex flex-col">
       <div className="flex flex-row gap-4 bg-black-light items-center px-4 py-3">
         <div className="max-w-5xl flex flex-row mx-auto w-full gap-6">
-          <NavLink to="/perfil">
+          <NavLink to={import.meta.env.BASE_URL + "perfil"}>
             <AccountCircleOutlined className="!h-8 !w-8" />
           </NavLink>
-          <form action="/buscar" className="grow">
+          <form action={import.meta.env.BASE_URL + "buscar"} className="grow">
             <input
               name="keyword"
               placeholder={t('searchWork')}

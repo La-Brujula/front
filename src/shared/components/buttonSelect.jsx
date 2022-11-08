@@ -1,8 +1,18 @@
-export const ButtonSelect = ({ fieldName, values, labels , setValue, getValue }) => {
+import { useState } from 'react';
+
+export const ButtonSelect = ({
+  fieldName,
+  values,
+  labels,
+  setValue,
+  getValue,
+}) => {
+  const [_, forceRerender] = useState();
+
   return (
     <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-center mb-4">
       {values.map((value, i) => (
-        <button
+        <div
           key={value}
           className={[
             'outline outline-primary outline-1 px-8 py-4 rounded-lg cursor-pointer',
@@ -17,10 +27,11 @@ export const ButtonSelect = ({ fieldName, values, labels , setValue, getValue })
               shouldValidate: true,
             });
             ev.preventDefault();
+            forceRerender(value);
           }}
         >
           {labels[i]}
-        </button>
+        </div>
       ))}
     </div>
   );

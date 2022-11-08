@@ -93,7 +93,7 @@ export const SignupForm = () => {
       />
       <p>
         {t('alreadyHaveAccount')}&nbsp;
-        <NavLink to="/iniciar-sesion" className="mt-4">
+        <NavLink to={import.meta.env.BASE_URL + "iniciar-sesion"} className="mt-4">
           {t('login')}
         </NavLink>
       </p>
