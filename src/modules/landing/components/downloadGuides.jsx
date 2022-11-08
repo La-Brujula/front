@@ -15,8 +15,8 @@ function DownloadGuides() {
         </div>
       </div>
       <div
-        className="grow flex flex-row font-bold text-lg
-    text-right isolate transform overflow-hidden w-full"
+        className="grow flex flex-row font-bold text-lg bg-blue
+    text-right isolate transform overflow-hidden w-full gap-0"
       >
         <Strip
           bgColor="bg-secondary"
@@ -55,7 +55,7 @@ function DownloadGuides() {
         />
         <img
           src={`${import.meta.env.BASE_URL}img/HalfLogo.svg`}
-          className="absolute left-1/2 bottom-0 -translate-x-1/2 h-1/2 pointer-events-none"
+          className="absolute left-1/2 bottom-0 -translate-x-1/2 h-1/3 lg:h-1/2 pointer-events-none"
         />
       </div>
     </div>

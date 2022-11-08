@@ -1,7 +1,7 @@
 function Strip({ bgColor, textColor, link, label }) {
   return (
     <a
-      className={`grow ${bgColor} ${textColor} py-8 px-4 cursor-pointer
+      className={`grow ${bgColor} ${textColor} py-8 cursor-pointer
     flex flex-col justify-center -scale-100 hover:-scale-110 transition-transform`}
       style={{ writingMode: 'vertical-rl' }}
       href={link}
