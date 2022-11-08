@@ -20,12 +20,12 @@ export const BasicInfo = () => {
   }, [])
   
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) =>  {
     const profilePicture = data.profilePicture[0]
     delete data.profilePicture
     const email = auth.getUserEmail()
-    brujula.updateUserInfo(data);
-    brujula.saveProfilePicture(profilePicture);
+    await brujula.updateUserInfo(data);
+    await brujula.saveProfilePicture(profilePicture);
     navigate('../area');
   }
 
