@@ -1,5 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { LoginForm } from '../../auth/components/loginForm';
+import { SeccionAliades } from '../components/aliados';
+import { BannerAnuncios } from '../components/bannerAnuncios';
 import DownloadGuides from '../components/downloadGuides';
 import HeroSection from '../components/heroSection';
 import QuotesSlider from '../components/quotesSlider';
@@ -28,8 +30,8 @@ export default () => {
       <SearchByCategory />
       <DownloadGuides />
       <QuotesSlider />
-      {/* TODO Banner con anuncios */}
-      {/* TODO Aliados */}
+      <BannerAnuncios />
+      <SeccionAliades />
     </>
   );
 };

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Carusel({ children }) {
+function Carusel({ children, dotColor }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [translation, setTranslation] = useState('0%');
   const changeSlide = (i) => {
@@ -21,10 +21,10 @@ function Carusel({ children }) {
         {Object.keys(children).map((i) => (
           <div
             key={i}
-            className={
-              'rounded-full h-6 w-6 bg-secondary cursor-pointer transition-colors' +
-              (currentSlide != i ? ' bg-opacity-20' : '')
-            }
+            className={[
+              'rounded-full h-6 w-6 cursor-pointer transition-colors',
+              currentSlide != i ? 'bg-white' : dotColor || 'bg-secondary',
+            ].join(' ')}
             onClick={() => changeSlide(i)}
           ></div>
         ))}

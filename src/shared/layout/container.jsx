@@ -15,7 +15,7 @@ export const Container = ({ children, bg }) => {
             case 'lightblue':
               return 'bg-primary bg-opacity-20';
             case 'whitetoblue':
-              return 'from-white to-[#2D7BBF40] bg-gradient-to-b bg-opacity-20'
+              return 'bg-[linear-gradient(180deg,_#0000_80%,_#2d7bbf33_80%)]'
             default:
               return 'bg-transparent';
           }
