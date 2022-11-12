@@ -29,7 +29,7 @@ export const Navbar = () => {
           <NavLink to="search" className="font-bold text-white">{t('search')}</NavLink>
           <NavLink to="noticias" className="font-bold text-white">{t('news')}</NavLink>
         </div>
-        <div>
+        <div className='z-100'>
           <button
             onClick={toggleOpen}
             className="flex flex-col
@@ -45,7 +45,7 @@ export const Navbar = () => {
                 ? 'opacity-1 translate-x-0'
                 : 'opacity-0 translate-x-64 pointer-events-none',
               '¡transition-all duration-300 fixed w-full max-w-md',
-              'right-0 px-16 py-4 top-0 h-screen bg-blue flex',
+              'right-0 px-16 py-4 top-0 h-screen bg-blue flex z-100',
               'flex-col gap-4 z-10 !text-white max-h-[100vh] overflow-y-auto',
             ].join(' ')}
           >
@@ -134,8 +134,8 @@ export const Navbar = () => {
             ? 'opacity-100 left-0'
             : 'opacity-0 left-100 pointer-events-none'
         } transition-all
-        duration-300 fixed top-0 h-screen w-full left-0 bg-white
-        bg-opacity-60 z-0 backdrop-blur-sm`}
+        duration-300 fixed top-4 h-screen w-full left-0 bg-white
+        bg-opacity-20 z-0 backdrop-blur-sm`}
         onClick={toggleOpen}
       />
     </>

@@ -1,47 +1,43 @@
 import { useForm } from 'react-hook-form';
-import { useContext, useState } from "react";
-import { AuthContext, StoreContext } from "../../../context/firebaseContext";
+import { useContext, useState } from 'react';
+import { AuthContext, StoreContext } from '../../../context/firebaseContext';
 import { useTranslation } from 'react-i18next';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { brujulaUtils } from '../../../shared/utils/brujulaUtils';
 
 export const SignupForm = () => {
-  const auth = useContext(AuthContext)
+  const auth = useContext(AuthContext);
   const brujula = brujulaUtils();
   const { register, handleSubmit, setValue, watch, formState } = useForm();
   const tipoDePersona = watch('persona', 'fisica');
   const { t } = useTranslation('auth');
-  const navigate = useNavigate()
-  const [errorMsg, setErrorMsg] = useState("")
-
+  const navigate = useNavigate();
+  const [errorMsg, setErrorMsg] = useState('');
 
   const onSubmit = async (data) => {
-    setErrorMsg("")
-    if(await auth.register(data.email, data.password, onError)){
-      brujula.updateUserInfo({"tipo": tipoDePersona})
-      navigate('basica')
+    setErrorMsg('');
+    if (await auth.register(data.email, data.password, onError)) {
+      brujula.updateUserInfo({ tipo: tipoDePersona });
+      navigate('basica');
     }
-  }
+  };
 
   const onError = (err) => {
-    switch(err.code){
+    switch (err.code) {
       case 'auth/invalid-email':
-        setErrorMsg("Ingresa un correo valido.")
+        setErrorMsg('Ingresa un correo valido.');
         break;
-      case "auth/email-already-in-use":
-        setErrorMsg("El correo ya esta registrado.")
+      case 'auth/email-already-in-use':
+        setErrorMsg('El correo ya esta registrado.');
         break;
-      case "auth/weak-password":
-        setErrorMsg("La contraserña tiene que tener como minimo 6 caracteres.")
+      case 'auth/weak-password':
+        setErrorMsg('La contraseña tiene que tener como minimo 6 caracteres.');
         break;
     }
-  }
+  };
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-4"
-    >
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
       <input type="hidden" {...register('persona')} required />
       <div className="flex flex-col gap-4">
         <label>{t('personTypeQuestion')}</label>
@@ -112,7 +108,7 @@ export const SignupForm = () => {
           />
         </div>
       </div>
-      {errorMsg===""?<></>:<p style={{color:"red"}}>{errorMsg}</p>}
+      {errorMsg === '' ? <></> : <p style={{ color: 'red' }}>{errorMsg}</p>}
       <input
         type="submit"
         className="max-w-xs mx-auto mt-8 bg-primary"
@@ -120,7 +116,10 @@ export const SignupForm = () => {
       />
       <p>
         {t('alreadyHaveAccount')}&nbsp;
-        <NavLink to={import.meta.env.BASE_URL + "iniciar-sesion"} className="mt-4">
+        <NavLink
+          to={import.meta.env.BASE_URL + 'iniciar-sesion'}
+          className="mt-4"
+        >
           {t('login')}
         </NavLink>
       </p>

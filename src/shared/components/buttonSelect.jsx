@@ -10,7 +10,10 @@ export const ButtonSelect = ({
   const [_, forceRerender] = useState();
 
   return (
-    <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-center mb-4">
+    <div
+      className="flex flex-col md:flex-row md:flex-wrap gap-4
+    items-stretch md:items-center justify-center mb-4"
+    >
       {values.map((value, i) => (
         <div
           key={value}

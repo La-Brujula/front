@@ -5,6 +5,7 @@ import { AreaActivity } from './components/areaActivityForm';
 import { BaseStepPage } from './pages/base';
 import { BasicInfo } from './pages/basicInfo';
 import Signup from './pages/signup';
+import { ProfileSummary } from './pages/summary';
 
 export default () => (
   <Routes>
@@ -15,6 +16,7 @@ export default () => (
         <Route path="area" element={<AreaForms />} />
         <Route path="area/:area" element={<AreaActivity />} />
       </Route>
+      <Route path="summary" element={<ProfileSummary />} />
     </Route>
   </Routes>
 );

@@ -8,38 +8,33 @@ import { AuthContext } from '../../../context/firebaseContext';
 import { brujulaUtils } from '../../../shared/utils/brujulaUtils';
 
 export const BasicInfo = () => {
-  const auth = useContext(AuthContext)
-  const brujula = brujulaUtils()
+  const auth = useContext(AuthContext);
+  const brujula = brujulaUtils();
   const { register, handleSubmit } = useForm();
   const { t } = useTranslation('auth');
   const navigate = useNavigate();
 
   useEffect(() => {
-    if(!auth.isLoggedIn())
-      navigate("/iniciar-sesion")
-  }, [])
-  
+    if (!auth.isLoggedIn()) navigate('/iniciar-sesion');
+  }, []);
 
-  const onSubmit = async (data) =>  {
-    const profilePicture = data.profilePicture[0]
-    delete data.profilePicture
-    const email = auth.getUserEmail()
+  const onSubmit = async (data) => {
+    const profilePicture = data.profilePicture[0];
+    delete data.profilePicture;
+    const email = auth.getUserEmail();
     await brujula.updateUserInfo(data);
     await brujula.saveProfilePicture(profilePicture);
     setTimeout(() => {
-      navigate('../area');      
+      navigate('../area');
     }, 250);
-  }
+  };
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-4"
-    >
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
       <p>*{t('requiredInformation')}</p>
-      <label htmlFor="picture">{t('selectOrUploadPicture')}</label>
-      <input type="file" {...register('profilePicture')} required />
       <div className="grid grid-cols-[min-content_minmax(12rem,_24rem)] text-right gap-4 mx-auto">
+        <label htmlFor="picture">{t('selectOrUploadPicture')}</label>
+        <input type="file" {...register('profilePicture')} required />
         <label htmlFor="name" className="col-span-1">
           {t('name')}*
         </label>

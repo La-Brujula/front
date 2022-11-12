@@ -41,6 +41,8 @@ export function brujulaUtils() {
         })
     }
 
+    // TODO Generalizar métodos para usuario general y no sólo usuario actual
+
     const updateUserInfo = async(userInfo) => {
         const data = await store.getInfo("users", auth.getUserEmail())
         const newData = {...data, ...userInfo};

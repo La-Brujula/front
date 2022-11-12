@@ -3,7 +3,7 @@ export const ProgressBar = ({ progress }) => {
     <div className="flex flex-row gap-6 items-center">
       <div className="w-full border border-black-light rounded-md overflow-hidden h-8">
         <div
-          className="bg-blue-light rounded-md h-full"
+          className="bg-primary bg-opacity-20 rounded-md h-full"
           style={{ width: `${progress}%` }}
         />
       </div>
