@@ -14,7 +14,7 @@ export const ProfileBar = ({ user }) => {
     <div className="flex flex-col">
       <div className="flex flex-row gap-4 bg-black-light items-center px-4 py-3">
         <div className="max-w-5xl flex flex-row mx-auto w-full gap-6">
-          <NavLink to={import.meta.env.BASE_URL + "perfil"}>
+          <NavLink to="perfil">
             <AccountCircleOutlined className="!h-8 !w-8" />
           </NavLink>
           <form action={import.meta.env.BASE_URL + "buscar"} className="grow">
@@ -24,7 +24,7 @@ export const ProfileBar = ({ user }) => {
               className="w-full"
             />
           </form>
-          <NavLink to="/perfil/ajustes">
+          <NavLink to="/crear-usuario/basica">
             <SettingsOutlined className="!h-8 !w-8" />
           </NavLink>
         </div>

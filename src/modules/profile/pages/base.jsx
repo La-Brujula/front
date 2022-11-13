@@ -5,9 +5,7 @@ export const BaseProfilePage = () => {
   return (
     <>
       <ProfileBar />
-      <Container>
-        <Outlet />
-      </Container>
+      <Outlet />
     </>
   );
 };

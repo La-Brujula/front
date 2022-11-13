@@ -9,6 +9,7 @@ function QuoteSlide({ imageUrl, name, quote }) {
         <img
           src={`${import.meta.env.BASE_URL}img/Apostrofe.svg`}
           className="absolute left-0 top-0 h-12"
+          loading="lazy"
         />
       </div>
     </div>

@@ -2,48 +2,30 @@ import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { ButtonSelect } from '@shared/components/buttonSelect';
-import { brujulaUtils } from '../../../shared/utils/brujulaUtils';
+import { brujulaUtils } from '@shared/utils/brujulaUtils';
+import areas from '@shared/constants/areas.json';
 
 export const AreaForms = () => {
-  const brujula = brujulaUtils()
+  const brujula = brujulaUtils();
   const { register, handleSubmit, getValues, setValue } = useForm();
   const { t } = useTranslation('auth');
 
   const navigate = useNavigate();
 
-  const options = [
-    'preproduction',
-    'talent',
-    'humanResources',
-    'supportServices',
-    'digitalDevelopment',
-    'industry',
-  ];
-
   const onSubmit = async (data) => {
-    await brujula.updateUserInfo({"area": data.area})
+    await brujula.updateUserInfo({ area: data.area });
 
-    navigate(`./${data.area}`);
-  }
+    navigate(data.area);
+  };
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-4"
-    >
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-8">
       <p>*{t('areaForInPersonActivity')}</p>
       <input type="hidden" {...register('area')} />
       <ButtonSelect
         fieldName={'area'}
-        labels={[
-          'preproduction',
-          'talent',
-          'humanResources',
-          'supportServices',
-          'digitalDevelopment',
-          'industry',
-        ].map((opt) => t(opt))}
-        values={options}
+        labels={Object.values(areas).map((opt) => t(opt.label))}
+        values={Object.keys(areas)}
         getValue={getValues}
         setValue={setValue}
       />
@@ -57,3 +39,5 @@ export const AreaForms = () => {
     </form>
   );
 };
+
+export default AreaForms;

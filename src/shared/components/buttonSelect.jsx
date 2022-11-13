@@ -11,7 +11,7 @@ export const ButtonSelect = ({
 
   return (
     <div
-      className="flex flex-col md:flex-row md:flex-wrap gap-4
+      className="flex flex-col md:flex-row flex-wrap gap-4
     items-stretch md:items-center justify-center mb-4"
     >
       {values.map((value, i) => (

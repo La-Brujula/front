@@ -1,17 +1,17 @@
 import { useTranslation } from 'react-i18next';
+import { NavLink } from 'react-router-dom';
 
 export const Footer = () => {
   const { t } = useTranslation('navigation');
   return (
     <div className="w-full text-center flex flex-col justify-center gap-4 py-8 px-6">
-      <div className="grid grid-cols-1 md:grid-cols-[min-content_1fr_min-content]
-      max-w-3xl mx-auto w-full">
-        <a
-          href={import.meta.env.BASE_URL + 'contacto'}
-          className="text-primary font-bold"
-        >
+      <div
+        className="grid grid-cols-1 md:grid-cols-[1fr,_3fr,_1fr]
+      max-w-6xl mx-auto w-full items-center"
+      >
+        <NavLink to="contacto" className="text-primary font-bold">
           {t('contactUs')}
-        </a>
+        </NavLink>
         <div className="flex flex-col gap-4">
           <div className="flex flex-row gap-8 mx-auto">
             <a href="BRUJULA_FACEBOOK">
@@ -47,19 +47,13 @@ export const Footer = () => {
         </div>
         <p>
           {t('seeOur')}&nbsp;
-          <a
-            href={import.meta.env.BASE_URL + 'contacto'}
-            className="text-primary"
-          >
-            {'privacy'}
-          </a>
-          &nbsp;y&nbsp;
-          <a
-            href={import.meta.env.BASE_URL + 'contacto'}
-            className="text-primary"
-          >
-            {'legal'}
-          </a>
+          <NavLink to="privacy" className="text-primary">
+            {t('legal')}
+          </NavLink>
+          &nbsp;{t('y')}&nbsp;
+          <NavLink to="legal" className="text-primary">
+            {t('legal')}
+          </NavLink>
         </p>
       </div>
       <p>{t('trademark')}</p>

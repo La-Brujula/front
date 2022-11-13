@@ -4,8 +4,8 @@ import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../../context/firebaseContext';
-import { brujulaUtils } from '../../../shared/utils/brujulaUtils';
+import { AuthContext } from '@shared/context/firebaseContext';
+import { brujulaUtils } from '@shared/utils/brujulaUtils';
 
 export const BasicInfo = () => {
   const auth = useContext(AuthContext);
@@ -50,14 +50,16 @@ export const BasicInfo = () => {
         </label>
         <input
           type="text"
-          id="lastName"
+          id="lastname"
           {...register('lastname')}
           autoComplete="family-name"
           required
         />
         <label htmlFor="gender">{t('gender')}*</label>
-        <select id="gender" {...register('gender')} required>
-          <option value="" disabled selected></option>
+        <select id="gender" {...register('gender')} required defaultValue={''}>
+          <option value="" disabled>
+            {t('gender')}
+          </option>
           <option value="male">{t('male')}</option>
           <option value="female">{t('female')}</option>
           <option value="other">{t('other')}</option>
@@ -102,3 +104,5 @@ export const BasicInfo = () => {
     </form>
   );
 };
+
+export default BasicInfo;

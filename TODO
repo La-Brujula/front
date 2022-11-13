@@ -1,0 +1,13 @@
+Pantallas
+- perfil final
+- registro -> destaca -> autoComplete
+- registro -> contacto
+- registro -> características
+- búsqueda
+- registro persona moral
+- contacto
+- cargar data de áreas
+
+Backend
+- hooks
+- peticiones generalizadas por id de usuario

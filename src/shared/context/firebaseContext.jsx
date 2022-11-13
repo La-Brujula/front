@@ -2,7 +2,7 @@ import { initializeApp } from 'firebase/app'
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth'
 import { getFirestore, doc, setDoc, getDoc, getDocs, deleteDoc, collection } from 'firebase/firestore'
 import { getBlob, getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
-import React from 'react';
+import React, { useContext } from 'react';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDxD3hf4Vmiea-GZUW27GABNAlUlemw4i0",
@@ -27,6 +27,7 @@ export const fireauth = (() => {
     const _userAuth = async (email, password, method, handleError) => {
         try {
             const result = await method(auth, email, password)
+            console.log(result);
             return true
         } catch (err) {
             handleError(err)
@@ -201,3 +202,7 @@ export const firestorage = (() => {
 export const AuthContext = React.createContext(fireauth)
 export const StoreContext = React.createContext(firestore) 
 export const StorageContext = React.createContext(firestorage)
+
+export function useAuth() {
+    return useContext(AuthContext);
+  }

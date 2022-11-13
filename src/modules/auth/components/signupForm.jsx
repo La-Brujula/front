@@ -1,14 +1,15 @@
 import { useForm } from 'react-hook-form';
 import { useContext, useState } from 'react';
-import { AuthContext, StoreContext } from '../../../context/firebaseContext';
+import { AuthContext } from '@shared/context/firebaseContext';
 import { useTranslation } from 'react-i18next';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { brujulaUtils } from '../../../shared/utils/brujulaUtils';
+import { brujulaUtils } from '@shared/utils/brujulaUtils';
+import { PrivacyPolicy } from './privacyPolicy';
 
 export const SignupForm = () => {
   const auth = useContext(AuthContext);
   const brujula = brujulaUtils();
-  const { register, handleSubmit, setValue, watch, formState } = useForm();
+  const { register, handleSubmit, setValue, watch } = useForm();
   const tipoDePersona = watch('persona', 'fisica');
   const { t } = useTranslation('auth');
   const navigate = useNavigate();
@@ -109,6 +110,8 @@ export const SignupForm = () => {
         </div>
       </div>
       {errorMsg === '' ? <></> : <p style={{ color: 'red' }}>{errorMsg}</p>}
+      <input type="hidden" {...register('acceptPrivacy', { required: true })} />
+      <PrivacyPolicy />
       <input
         type="submit"
         className="max-w-xs mx-auto mt-8 bg-primary"
@@ -116,10 +119,7 @@ export const SignupForm = () => {
       />
       <p>
         {t('alreadyHaveAccount')}&nbsp;
-        <NavLink
-          to={import.meta.env.BASE_URL + 'iniciar-sesion'}
-          className="mt-4"
-        >
+        <NavLink to="iniciar-sesion" className="mt-4">
           {t('login')}
         </NavLink>
       </p>

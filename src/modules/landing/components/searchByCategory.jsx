@@ -1,6 +1,6 @@
 import { Container } from '@shared/layout/container';
 import { useTranslation } from 'react-i18next';
-import { PorCategorias } from '../../search/components/categorias';
+import { PorCategorias } from '@modules/search/components/categorias';
 
 function SearchByCategory() {
   const { t } = useTranslation('landing');

@@ -8,7 +8,7 @@ function HeroSection() {
       <div className="flex flex-col lg:flex-row gap-16 text-left text-white
       max-w-5xl mx-auto py-8 items-center">
         <div className="grow w-full flex flex-col gap-12">
-          <h1 className="font-bold text-3xl lg:text-5xl leading-tight">
+          <h1 className="font-bold text-3xl md:text-6xl lg:text-5xl leading-tight">
             La Brujula,
             <br />
             guía de producción <br />

@@ -1,49 +1,56 @@
 import { useState } from 'react';
 import { useContext } from 'react';
+import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../../context/firebaseContext';
+import { AuthContext } from '@shared/context/firebaseContext';
+
 export const LoginForm = () => {
   const { t } = useTranslation('auth');
-  const navigate = useNavigate()
-  
-  const auth = useContext(AuthContext)
-  const [errorMsg, setErrorMsg] = useState("")
+  const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
 
-  const onError = (err)=>{
-    switch(err.code){
-      case "auth/user-not-found":
-        setErrorMsg("Las credenciales estan erroneas.")
+  const auth = useContext(AuthContext);
+  const [errorMsg, setErrorMsg] = useState('');
+
+  const onError = (err) => {
+    switch (err.code) {
+      case 'auth/user-not-found':
+        setErrorMsg('Las credenciales estan erroneas.');
         break;
     }
-  }
+  };
 
-  const login = async () => {
-    const email = document.getElementById("email").value
-    const pwd = document.getElementById("password").value
-    if(await auth.login(email, pwd, onError)){
-      navigate("/")
+  const login = async (values) => {
+    if (!values.email || !values.password) return;
+    if (await auth.login(values.email, values.password, onError)) {
+      navigate('/perfil');
     }
-  }
+  };
 
   return (
     <>
-      <div className="flex flex-col md:flex-row md:items-baseline gap-8 justify-center items-stretch w-full">
-        <div className="flex flex-col gap-2 items-start">
+      <form
+        className="flex flex-col gap-8 justify-center items-center max-w-xs w-full mx-auto"
+        onSubmit={handleSubmit(login)}
+      >
+        <div className="flex flex-col gap-2 items-start w-full">
           <label htmlFor="email" className="block">
             {t('email')}
           </label>
           <input
-            id="email"
+            {...register('email')}
             type="email"
+            id="email"
             placeholder={t('email')}
             autoComplete="email"
             className="w-full"
           />
         </div>
-        <div className="flex flex-col gap-2 items-start">
+        <div className="flex flex-col gap-2 items-start w-full">
           <label htmlFor="email">{t('password')}</label>
           <input
+            {...register('password')}
             id="password"
             type="password"
             placeholder={t('email')}
@@ -51,16 +58,17 @@ export const LoginForm = () => {
             className="w-full"
           />
         </div>
-      </div>
-      {errorMsg===""? <></>: <p style={{color:"red"}}>{errorMsg}</p>}
-      <button className="max-w-xs mx-auto mt-8 bg-primary" onClick={login}>{t('login')}</button>
+        {errorMsg === '' ? <></> : <p style={{ color: 'red' }}>{errorMsg}</p>}
+        <input
+          type="submit"
+          className="max-w-xs mx-auto mt-8 bg-primary"
+          onClick={login}
+          value={t('login')}
+        />
+      </form>
       <div className="flex flex-col gap-2 mt-4 text-primary">
-        <NavLink to={import.meta.env.BASE_URL + 'crear-usuario'}>
-          {t('createUser')}
-        </NavLink>
-        <NavLink to={import.meta.env.BASE_URL + 'reiniciar-contraseña'}>
-          {t('forgotPassword')}
-        </NavLink>
+        <NavLink to="/crear-usuario">{t('createUser')}</NavLink>
+        <NavLink to="/reiniciar-contraseña">{t('forgotPassword')}</NavLink>
       </div>
     </>
   );

@@ -2,15 +2,15 @@ import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import App from './App';
 
-const LoginPage = lazy(() => import('./modules/auth/pages/login'));
-const SignupRouter = lazy(() => import('./modules/auth/router'));
-const LandingPage = lazy(() => import('./modules/landing/pages/landing'));
-const ProfileRouter = lazy(() => import('./modules/profile/router'));
-const SearchRouter = lazy(() => import('./modules/search/router'));
+const LoginPage = lazy(() => import('@modules/auth/pages/login'));
+const SignupRouter = lazy(() => import('@modules/auth/router'));
+const LandingPage = lazy(() => import('@modules/landing/pages/landing'));
+const ProfileRouter = lazy(() => import('@modules/profile/router'));
+const SearchRouter = lazy(() => import('@modules/search/router'));
 
 export const AppRouter = createBrowserRouter([
   {
-    path: import.meta.env.BASE_URL,
+    base: import.meta.env.BASE_URL,
     element: <App />,
     children: [
       { path: '', element: <LandingPage /> },

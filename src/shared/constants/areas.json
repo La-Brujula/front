@@ -1,0 +1,66 @@
+{
+    "101": {
+        "iconUrl": "PreprodIcon",
+        "label": "preproduccion"
+    },
+    "102": {
+        "iconUrl": "TalentIcon",
+        "label": "talento"
+    },
+    "103": {
+        "iconUrl": "PeopleIcon",
+        "label": "equipoHumano"
+    },
+    "104": {
+        "iconUrl": "ProductionIcon",
+        "label": "companiaProd"
+    },
+    "105": {
+        "iconUrl": "RentalIcon",
+        "label": "rentaEquipo"
+    },
+    "106": {
+        "iconUrl": "SupportIcon",
+        "label": "servicioSoporte"
+    },
+    "107": {
+        "iconUrl": "PostprodIcon",
+        "label": "companiaPostprod"
+    },
+    "108": {
+        "iconUrl": "DistIcon",
+        "label": "distExhib"
+    },
+    "109": {
+        "iconUrl": "ITIcon",
+        "label": "tecnologiasInfo"
+    },
+    "110": {
+        "iconUrl": "MktIcon",
+        "label": "mercaPubl"
+    },
+    "111": {
+        "iconUrl": "AnimationIcon",
+        "label": "animacion"
+    },
+    "112": {
+        "iconUrl": "EducationIcon",
+        "label": "escuelasUniv"
+    },
+    "113": {
+        "iconUrl": "CommisionIcon",
+        "label": "comisionesFilm"
+    },
+    "114": {
+        "iconUrl": "FestivalIcon",
+        "label": "festivalesMex"
+    },
+    "115": {
+        "iconUrl": "IntFestIcon",
+        "label": "festivalesInt"
+    },
+    "116": {
+        "iconUrl": "AssocIcon",
+        "label": "asociaciones"
+    }
+}
