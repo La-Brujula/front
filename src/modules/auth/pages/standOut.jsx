@@ -1,6 +1,4 @@
-import { Switch } from '@mui/material';
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
-import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { NavLink, useNavigate } from 'react-router-dom';

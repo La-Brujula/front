@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { ProgressBar } from '@shared/components/progressBar';
-import { ProfileBadge } from '../components/profileBadge';
+import { ProfileBadge } from '@modules/profile/components/profileBadge';
 import { PrivacyPolicy } from '../components/privacyPolicy';
 import { NavLink } from 'react-router-dom';
 import { useCurrentUser } from '@shared/hooks/useCurrentUser';
