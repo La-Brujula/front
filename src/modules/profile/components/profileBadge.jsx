@@ -1,7 +1,6 @@
 import { ErrorMessage } from '@shared/components/errorMessage';
 
 export const ProfileBadge = ({ user }) => {
-  console.log(user);
   return !!user ? (
     <div className="flex flex-row gap-6 max-w-xs mx-auto items-center">
       {!!user.profilePictureUrl ? (

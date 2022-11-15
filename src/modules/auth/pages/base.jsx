@@ -1,11 +1,11 @@
 import { Outlet } from 'react-router-dom';
-import { useCurrentUser } from '@shared/hooks/useCurrentUser';
+import { useUserInfo } from '@shared/hooks/useUserInfo';
 import { ProfileBadge } from '@modules/profile/components/profileBadge';
 import { LoadingSpinner } from '@shared/components/loadingSpinner';
 import { ErrorMessage } from '@shared/components/errorMessage';
 
 export const BaseStepPage = () => {
-  const { user, loading, error } = useCurrentUser();
+  const { user, loading, error } = useUserInfo();
   return loading ? (
     <LoadingSpinner />
   ) : error ? (

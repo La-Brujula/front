@@ -18,7 +18,7 @@ export const SignupForm = () => {
   const onSubmit = async (data) => {
     setErrorMsg('');
     if (await auth.register(data.email, data.password, onError)) {
-      brujula.updateUserInfo({ tipo: tipoDePersona });
+      brujula.updateUserInfo({ type: tipoDePersona });
       navigate('basica');
     }
   };

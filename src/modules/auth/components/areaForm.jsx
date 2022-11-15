@@ -13,7 +13,7 @@ export const AreaForms = () => {
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
-    await brujula.updateUserInfo({ area: data.area });
+    await brujula.updateUserInfo({ category: data.area });
 
     navigate(data.area);
   };

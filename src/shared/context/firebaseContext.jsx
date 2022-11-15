@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app'
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth'
-import { getFirestore, doc, setDoc, getDoc, getDocs, deleteDoc, collection } from 'firebase/firestore'
+import { getFirestore, doc, setDoc, getDoc, getDocs, deleteDoc, collection, query } from 'firebase/firestore'
 import { getBlob, getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import React, { useContext } from 'react';
 
@@ -27,7 +27,6 @@ export const fireauth = (() => {
     const _userAuth = async (email, password, method, handleError) => {
         try {
             const result = await method(auth, email, password)
-            console.log(result);
             return true
         } catch (err) {
             handleError(err)
@@ -135,6 +134,12 @@ export const firestore = (() => {
         
     }
 
+    const queryInfo = async (queries) => {
+        const q = query(collection(db, "users"), ...queries)
+        const querySnapshot = await getDocs(q);
+        return querySnapshot;
+    }
+
     const deleteInfoByDocRef = async (docRef) => {
         try {
             await deleteDoc(docRef);
@@ -152,7 +157,8 @@ export const firestore = (() => {
         saveInfoByDocRef: saveInfoByDocRef,
         retriveInfoByDocRef: retriveInfoByDocRef,
         retriveInfoByColRef: retriveInfoByColRef,
-        deleteInfoByDocRef: deleteInfoByDocRef
+        deleteInfoByDocRef: deleteInfoByDocRef,
+        queryInfo
     }
 })()
 

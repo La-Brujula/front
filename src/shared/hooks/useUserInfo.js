@@ -2,17 +2,19 @@ import { useEffect, useState } from "react"
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
 
 
-export const useCurrentUser = () => {
+export const useUserInfo = (email = "") => {
     const brujula = brujulaUtils()
     const [user, setUser] = useState({})
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(undefined)
+    
 
     useEffect(() => {
         (async () => {
             try {
                 setLoading(true)
-                const data = await brujula.getCurrentUserInfo()
+                email = email === ""? brujula.getCurrentUserEmail(): email;
+                const data = await brujula.getCurrentUserInfo(email)
                 setUser({
                     ...data,
                     username: data.nickname,

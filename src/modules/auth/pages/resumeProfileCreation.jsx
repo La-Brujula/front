@@ -1,8 +1,8 @@
-import { useCurrentUser } from '@shared/hooks/useCurrentUser';
+import { useUserInfo } from '@shared/hooks/useUserInfo';
 import { ProfileHeader } from '@modules/profile/components/profileHeader';
 
 export const ResumeProfile = () => {
-  const { user, loading, error } = useCurrentUser();
+  const { user, loading, error } = useUserInfo();
   return (
     <>
       <ProfileHeader user={user} />

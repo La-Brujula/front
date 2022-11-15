@@ -24,7 +24,6 @@ export function brujulaUtils() {
   const getReviews = async (user) => {
     const docRef = store.getSubcollection('user', user, 'reviews');
     let reviews_snapshot = await store.retriveInfoByColRef(docRef);
-    console.log(reviews_snapshot);
     return reviews_snapshot.docs.map((doc) => doc.data());
   };
 
@@ -54,25 +53,35 @@ export function brujulaUtils() {
 
   // TODO Generalizar métodos para usuario general y no sólo usuario actual
 
-  const updateUserInfo = async (userInfo) => {
-    const data = await store.getInfo('users', auth.getUserEmail());
+  const queryUsers = async (queries) => {
+    const data = await store.queryInfo(queries);
+    const list = []
+    data.forEach(doc=>list.push({...doc.data(), ...{email: doc.id}}))
+    return await Promise.all(list.map(async (doc)=> {
+      const reviews = await getReviews(doc.email)
+      return {...doc, ...{reviews: reviews}};
+    } ))
+  }
+
+  const updateUserInfo = async (userInfo, email = auth.getUserEmail()) => {
+    const data = await store.getInfo('users', email );
     const newData = { ...data, ...userInfo };
-    return await store.saveInfo('users', auth.getUserEmail(), newData);
+    return await store.saveInfo('users', email, newData);
   };
 
-  const getUserInfo = async () => {
-    return await store.getInfo('users', auth.getUserEmail());
+  const getUserInfo = async (email = auth.getUserEmail()) => {
+    return await store.getInfo('users', email);
   };
 
-  const getCurrentUserInfo = async () => {
+  const getCurrentUserInfo = async (email = auth.getUserEmail()) => {
     return {
-      ...(await store.getInfo('users', auth.getUserEmail())),
-      email: auth.getUserEmail(),
+      ...(await store.getInfo('users', email)),
+      email: email
     };
   };
 
-  const saveUserPicture = async (file, key) => {
-    return await storage.uploadFileBytes(key, file, auth.getUserEmail() + '/');
+  const saveUserPicture = async (file, key, email = auth.getUserEmail()) => {
+    return await storage.uploadFileBytes(key, file, email + '/');
   };
 
   const saveProfilePicture = async (file) => {
@@ -81,18 +90,26 @@ export function brujulaUtils() {
 
   // Hay manera de guardar el URL directo con el objeto de usuario en el store para no estar pidiendo el url a cada rato?
 
-  const getUserPictureUrl = async (key) => {
-    return await storage.getFileUrl(key, auth.getUserEmail() + '/');
+  const getUserPictureUrl = async (key, email = auth.getUserEmail()) => {
+    const url = await storage.getFileUrl(key, email + '/');
+    updateUserInfo({profilePicture: url});
+    return url;
   };
 
   const getProfilePictureUrl = async () => {
     return await getUserPictureUrl('profilePicture');
   };
 
+  const getCurrentUserEmail = () => {
+    return auth.getUserEmail();
+  }
+  
   return {
     getReviews,
     addReview,
     removeReviews,
+
+    queryUsers,
 
     updateUserInfo,
     getUserInfo,
@@ -102,5 +119,6 @@ export function brujulaUtils() {
     saveUserPicture,
     getProfilePictureUrl,
     getUserPictureUrl,
+    getCurrentUserEmail,
   };
 }

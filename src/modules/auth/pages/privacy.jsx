@@ -3,14 +3,14 @@ import { ProgressBar } from '@shared/components/progressBar';
 import { ProfileBadge } from '@modules/profile/components/profileBadge';
 import { PrivacyPolicy } from '../components/privacyPolicy';
 import { NavLink } from 'react-router-dom';
-import { useCurrentUser } from '@shared/hooks/useCurrentUser';
+import { useUserInfo } from '@shared/hooks/useUserInfo';
 import { LoadingSpinner } from '@shared/components/loadingSpinner';
 import { ErrorMessage } from '@shared/components/errorMessage';
 import { Container } from '@shared/layout/container';
 
 export const PrivacyStep = () => {
   const { t } = useTranslation('profile');
-  const { user, loading, error } = useCurrentUser();
+  const { user, loading, error } = useUserInfo();
 
   return loading ? (
     <LoadingSpinner />

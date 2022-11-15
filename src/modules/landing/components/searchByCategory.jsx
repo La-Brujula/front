@@ -1,12 +1,25 @@
 import { Container } from '@shared/layout/container';
 import { useTranslation } from 'react-i18next';
 import { PorCategorias } from '@modules/search/components/categorias';
+import { useSearch } from '../../../shared/hooks/useSearch';
+import { useEffect } from 'react';
 
 function SearchByCategory() {
+  const {results, setFilterObject} = useSearch();
+
   const { t } = useTranslation('landing');
+  
+  useEffect(() => {
+    setFilterObject({
+      name: "Emiliano Heredia Garcia"
+    })
+  }, [])
+  
+
   return (
     <Container bg="lightblue">
       <h2 className="mb-4">{t('searchByCategory')}</h2>
+      
       <PorCategorias
         categorias={[
           { iconUrl: 'PreprodIcon', label: 'preproduccion' },

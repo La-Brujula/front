@@ -3,15 +3,15 @@ import { ProgressBar } from '@shared/components/progressBar';
 import { ProfileHeader } from '../components/profileHeader';
 import { PrivacyPolicy } from '../../auth/components/privacyPolicy';
 import { NavLink } from 'react-router-dom';
-import { useCurrentUser } from '@shared/hooks/useCurrentUser';
+import { useUserInfo } from '@shared/hooks/useUserInfo';
 import { LoadingSpinner } from '@shared/components/loadingSpinner';
 import { ErrorMessage } from '@shared/components/errorMessage';
 import { Container } from '@shared/layout/container'
 
 export const LandingPage = () => {
   const { t } = useTranslation('profile');
-  const { user, loading, error } = useCurrentUser();
-
+  const { user, loading, error } = useUserInfo();
+  
   return loading ? (
     <LoadingSpinner />
   ) : error ? (

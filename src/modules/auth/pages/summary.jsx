@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { useCurrentUser } from '@shared/hooks/useCurrentUser';
+import { useUserInfo } from '@shared/hooks/useUserInfo';
 import { LoadingSpinner } from '@shared/components/loadingSpinner';
 import { ErrorMessage } from '@shared/components/errorMessage';
 import { NavLink } from 'react-router-dom';
@@ -9,7 +9,7 @@ import PhoneOutlined from '@mui/icons-material/PhoneOutlined';
 
 export const ProfileSummary = () => {
   const { t } = useTranslation('auth');
-  const { user, loading, error } = useCurrentUser();
+  const { user, loading, error } = useUserInfo();
 
   return loading ? (
     <LoadingSpinner />
