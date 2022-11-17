@@ -7,7 +7,7 @@ export const ButtonSelect = ({
   setValue,
   getValue,
 }) => {
-  const [_, forceRerender] = useState();
+  const [currValue, forceRerender] = useState(getValue(fieldName));
 
   return (
     <div
@@ -19,7 +19,7 @@ export const ButtonSelect = ({
           key={value}
           className={[
             'outline outline-primary outline-1 px-8 py-4 rounded-lg cursor-pointer',
-            getValue(fieldName) == value
+            currValue == value
               ? 'bg-primary text-white'
               : 'bg-transparent text-primary',
           ].join(' ')}

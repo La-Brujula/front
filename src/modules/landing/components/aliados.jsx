@@ -7,7 +7,7 @@ export const SeccionAliades = () => {
   return (
     <Container bg="primary">
       <div className="text-center">
-        <h2>{t('aliades')}</h2>
+        <h2>{t('aliad@s')}</h2>
         <p className="text-xl font-bold">{t('graciasPorHacerPosible')}</p>
       </div>
       <div

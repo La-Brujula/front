@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 
-export const PrivacyPolicy = ({setValues}) => {
+export const PrivacyPolicy = ({ setValues }) => {
   const { t } = useTranslation('profile');
 
   return (
@@ -11,17 +11,15 @@ export const PrivacyPolicy = ({setValues}) => {
         <div className="button bg-primary">{t('privacyPolicy')}</div>
       </NavLink>
       <p>{t('privacyPolicyConfirmation')}:</p>
-      <div
-        className="flex flex-row gap-4 py-8 text-secondary items-center h-48"
-      >
+      <div className="flex flex-row gap-4 py-8 text-secondary items-center h-48">
         <div className="absolute left-0 -z-10 bg-black bg-opacity-20 w-full h-48 overflow-hidden"></div>
         <p className="grow text-left">{t('privacyAgree')}</p>
         <div
           className="w-24 h-24 font-bold text-white flex text-xl
-        items-center justify-center rounded-full bg-primary"
+        items-center justify-center rounded-full bg-primary cursor-pointer"
           onClick={(ev) => {
-            ev.preventDefault()
-            setValues('acceptPrivacy', true)
+            ev.preventDefault();
+            setValues('acceptPrivacy', true);
           }}
         >
           {t('yes')}

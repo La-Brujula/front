@@ -1,11 +1,10 @@
-import { Outlet } from 'react-router-dom';
 import { useUserInfo } from '@shared/hooks/useUserInfo';
+import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import { ProfileBadge } from '@modules/profile/components/profileBadge';
 import { LoadingSpinner } from '@shared/components/loadingSpinner';
 import { ErrorMessage } from '@shared/components/errorMessage';
-import { brujulaUtils } from '../../../shared/utils/brujulaUtils';
 
-export const BaseStepPage = () => {
+export const CurrentUserBadge = () => {
   const brujula = brujulaUtils();
   const { user, loading, error } = useUserInfo(brujula.getCurrentUserEmail());
   return loading ? (
@@ -13,12 +12,6 @@ export const BaseStepPage = () => {
   ) : error ? (
     <ErrorMessage message={error.toString()} />
   ) : (
-    <div className="max-w-3xl mx-auto">
-      <ProfileBadge user={user} />
-      <div className="mb-8"></div>
-      <Outlet />
-    </div>
+    <ProfileBadge user={user} />
   );
 };
-
-export default BaseStepPage;

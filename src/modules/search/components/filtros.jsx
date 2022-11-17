@@ -5,13 +5,14 @@ export const PorFiltros = () => {
   return (
     <form
       action={import.meta.env.BASE_URL + 'buscar'}
-      className="flex flex-row flex-wrap gap-4 justify-items-stretch
+      className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_1fr_min-content]
+      gap-4 justify-items-stretch
       bg-primary px-4 py-8 rounded-lg lg:-mx-4"
     >
       <input
         type="text"
-        placeholder={t('name')}
-        name="nombre"
+        placeholder={t('search')}
+        name="search"
         autoComplete="none"
         className="font-bold border-2 border-white bg-transparent
         text-white placeholder:text-white grow"
@@ -36,13 +37,6 @@ export const PorFiltros = () => {
           {t('region')}
         </option>
       </select>
-      <input
-        type="text"
-        placeholder={t('keyword')}
-        className="font-bold border-2 border-white bg-transparent
-          text-white placeholder:text-white grow"
-        name="keyword"
-      />
       <input
         type="submit"
         value={t('search')}

@@ -1,7 +1,7 @@
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ButtonSelect } from '@shared/components/buttonSelect';
 import { getValue } from '@mui/system';
 import { useMemo } from 'react';
@@ -40,9 +40,7 @@ export const StandoutPage = () => {
     delete data.profilePicture;
     delete data.coverPicture;
     await brujula.updateUserInfo(data);
-    setTimeout(() => {
-      navigate('../contacto');
-    }, 250);
+    navigate('../contacto');
   };
 
   return (
@@ -83,33 +81,44 @@ export const StandoutPage = () => {
         <input
           type="text"
           {...register('zipCode')}
-          autoComplete="zip-code"
+          autoComplete="postal-code"
           required
         />
         <label htmlFor="city">{t('city')}</label>
-        <input type="text" {...register('city')} autoComplete="city" required />
+        <input
+          type="text"
+          {...register('city')}
+          autoComplete="address-level2"
+          required
+        />
         <label htmlFor="state">{t('state')}</label>
         <input
           type="text"
           {...register('state')}
-          autoComplete="state"
+          autoComplete="address-level1"
           required
         />
         <label htmlFor="country">{t('country')}</label>
         <input
           type="text"
           {...register('country')}
-          autoComplete="country"
+          autoComplete="country-name"
           required
         />
         <label htmlFor="googleMapsLink">{t('googleMapsLink')}</label>
-        <input type="text" {...register('googleMapsLink')} required />
+        <input type="text" {...register('googleMapsLink')} />
         <hr className="col-span-2 my-2" />
         <div className="col-span-2 flex flex-col gap-4 text-center items-center">
           <label htmlFor="workRadius">{t('workRadius')}</label>
-          <input type="text" {...register('workRadius')} required />
+          <select {...register('workRadius')} className="w-full">
+            <option value="">{t('selectOne')}</option>
+            <option value="local">{t('local')}</option>
+            <option value="state">{t('estatal')}</option>
+            <option value="national">{t('nacional')}</option>
+            <option value="internacional">{t('internacional')}</option>
+          </select>
           <label htmlFor="remoteWork">{t('remoteWork')}</label>
-          <input type="hidden" {...register('remoteWork')} />
+          <input type="hidden" {...register('remoteWork')} required />
           <ButtonSelect
             fieldName="remoteWork"
             values={[true, false]}
@@ -120,9 +129,9 @@ export const StandoutPage = () => {
         </div>
       </div>
       <div className="flex flex-row gap-4 self-center">
-        <NavLink to="../">
-          <div className="button font-bold">{t('back')}</div>
-        </NavLink>
+        <div className="button font-bold" onClick={() => navigate(-1)}>
+          {t('back')}
+        </div>
         <input type="submit" className="border-none" value={t('next')} />
       </div>
     </form>

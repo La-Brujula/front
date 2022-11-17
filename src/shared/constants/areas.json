@@ -1,7 +1,17 @@
 {
     "101": {
         "iconUrl": "PreprodIcon",
-        "label": "preproduccion"
+        "label": "preproduccion",
+        "subareas": [
+            {
+                "id": "1",
+                "label": "animacion"
+            },
+            {
+                "id": "2",
+                "label": "disanimacion"
+            }
+        ]
     },
     "102": {
         "iconUrl": "TalentIcon",

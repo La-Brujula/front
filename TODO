@@ -7,7 +7,9 @@ Pantallas
 - registro persona moral
 - contacto
 - cargar data de áreas
+- style auth errors
+- profile badge duplicado
 
 Backend
 - hooks
-- peticiones generalizadas por id de usuario
+- login form check

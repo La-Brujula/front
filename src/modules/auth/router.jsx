@@ -10,6 +10,7 @@ const ProfileSummary = lazy(() => import('./pages/summary'));
 const BasicInfo = lazy(() => import('./pages/basicInfo'));
 const Privacy = lazy(() => import('./pages/privacy'));
 const StandoutPage = lazy(() => import('./pages/standOut'));
+const ContactPage = lazy(() => import('./pages/contact'));
 
 export default () => (
   <Routes>
@@ -21,7 +22,7 @@ export default () => (
         <Route path="area/:area" element={<AreaActivity />} />
         <Route path="privacy" element={<Privacy />} />
         <Route path="destaca" element={<StandoutPage />} />
-        <Route path="contacto" element={<h1>Contacto</h1>} />
+        <Route path="contacto" element={<ContactPage />} />
         <Route path="características" element={<h1>Características</h1>} />
       </Route>
     </Route>

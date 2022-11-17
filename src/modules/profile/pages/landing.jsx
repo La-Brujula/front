@@ -1,17 +1,20 @@
 import { useTranslation } from 'react-i18next';
 import { ProgressBar } from '@shared/components/progressBar';
 import { ProfileHeader } from '../components/profileHeader';
-import { PrivacyPolicy } from '../../auth/components/privacyPolicy';
-import { NavLink } from 'react-router-dom';
 import { useUserInfo } from '@shared/hooks/useUserInfo';
 import { LoadingSpinner } from '@shared/components/loadingSpinner';
 import { ErrorMessage } from '@shared/components/errorMessage';
-import { Container } from '@shared/layout/container'
+import { Container } from '@shared/layout/container';
+import { useAuth } from '@shared/context/firebaseContext';
+import { brujulaUtils } from '@shared/utils/brujulaUtils';
+
 
 export const LandingPage = () => {
   const { t } = useTranslation('profile');
-  const { user, loading, error } = useUserInfo();
-  
+  const { getUserEmail } = useAuth();
+  const brujula = brujulaUtils()
+  const { user, loading, error } = useUserInfo(brujula.getCurrentUserEmail(getUserEmail));
+
   return loading ? (
     <LoadingSpinner />
   ) : error ? (

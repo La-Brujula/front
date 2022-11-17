@@ -31,9 +31,9 @@ export const AreaForms = () => {
       />
 
       <div className="flex flex-row gap-4 self-center">
-        <NavLink to="../">
-          <div className="button font-bold">{t('back')}</div>
-        </NavLink>
+        <div className="button font-bold" onClick={() => navigate(-1)}>
+          {t('back')}
+        </div>
         <input type="submit" className="border-none" value={t('next')} />
       </div>
     </form>

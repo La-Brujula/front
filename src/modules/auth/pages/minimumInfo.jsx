@@ -1,4 +1,4 @@
-import { ProfileBadge } from "@modules/profile/components/profileBadge";
+import { ProfileBadge } from '@modules/profile/components/profileBadge';
 
 export const MinimumInfo = () => {
   return (

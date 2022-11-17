@@ -6,11 +6,14 @@ import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '@shared/context/firebaseContext';
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
+import { useUserInfo } from '../../../shared/hooks/useUserInfo';
+import { LoadingSpinner } from '@shared/components/loadingSpinner';
+import { ErrorMessage } from '@shared/components/errorMessage';
+import { useMemo } from 'react';
 
 export const BasicInfo = () => {
   const auth = useContext(AuthContext);
   const brujula = brujulaUtils();
-  const { register, handleSubmit } = useForm();
   const { t } = useTranslation('auth');
   const navigate = useNavigate();
 
@@ -18,23 +21,30 @@ export const BasicInfo = () => {
     if (!auth.isLoggedIn()) navigate('/iniciar-sesion');
   }, []);
 
+  const { user, loading, error } = useUserInfo(auth.getUserEmail());
+
+  const { register, handleSubmit, setValue } = useForm();
+
+  useMemo(() => {
+    Object.entries(user).forEach(([key, value]) => setValue(key, value));
+  }, [user]);
+
   const onSubmit = async (data) => {
-    const profilePicture = data.profilePicture[0];
-    delete data.profilePicture;
-    const email = auth.getUserEmail();
     await brujula.updateUserInfo(data);
-    await brujula.saveProfilePicture(profilePicture);
     setTimeout(() => {
       navigate('../area');
     }, 250);
   };
 
-  return (
+  return loading ? (
+    <LoadingSpinner />
+  ) : (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
       <p>*{t('requiredInformation')}</p>
-      <div className="grid grid-cols-[min-content_minmax(12rem,_24rem)] text-right gap-4 mx-auto">
-        <label htmlFor="picture">{t('selectOrUploadPicture')}</label>
-        <input type="file" {...register('profilePicture')} required />
+      <div
+        className="grid grid-cols-[min-content_minmax(12rem,_24rem)]
+      text-right gap-4 mx-auto"
+      >
         <label htmlFor="name" className="col-span-1">
           {t('name')}*
         </label>
@@ -67,14 +77,13 @@ export const BasicInfo = () => {
         </select>
         <div className="col-span-2 flex flex-col gap-4 text-center">
           <label htmlFor="nickname" className="col-span-1">
-            {t('nickname')}*
+            {t('nickname')}
           </label>
           <input
             type="text"
             id="nickname"
             {...register('nickname')}
             autoComplete="nickname"
-            required
           />
         </div>
         <p className="col-span-2 text-center">{t('currentResidence')}</p>
@@ -91,14 +100,15 @@ export const BasicInfo = () => {
         </label>
         <input type="text" id="country" {...register('country')} required />
         <label htmlFor="phone" className="col-span-1">
-          {t('phone')}*
+          {t('phone')}
         </label>
-        <input type="phone" id="phone" {...register('phone')} required />
+        <input type="phone" id="phone" {...register('phone')} />
       </div>
+      {!!error && <ErrorMessage message={error.toString()} />}
       <div className="flex flex-row gap-4 self-center">
-        <NavLink to="../">
-          <div className="button font-bold">{t('back')}</div>
-        </NavLink>
+        <div className="button font-bold" onClick={() => navigate(-1)}>
+          {t('back')}
+        </div>
         <input type="submit" className="border-none" value={t('next')} />
       </div>
     </form>
