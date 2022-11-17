@@ -1,14 +1,10 @@
 Pantallas
-- perfil final
-- registro -> destaca -> autoComplete
-- registro -> contacto
 - registro -> características
-- búsqueda
 - registro persona moral
+- perfil final
+- búsqueda
 - contacto
 - cargar data de áreas
-- style auth errors
-- profile badge duplicado
 
 Backend
 - hooks
