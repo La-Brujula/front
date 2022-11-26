@@ -6,10 +6,14 @@ import { NavLink } from 'react-router-dom';
 import { ProfileHeader } from '@modules/profile/components/profileHeader';
 import EmailOutlined from '@mui/icons-material/EmailOutlined';
 import PhoneOutlined from '@mui/icons-material/PhoneOutlined';
+import { useAuth } from '@shared/context/firebaseContext';
 
 export const ProfileSummary = () => {
   const { t } = useTranslation('auth');
-  const { user, loading, error } = useUserInfo();
+  const { getUserEmail } = useAuth();
+  const { user, loading, error } = useUserInfo(getUserEmail());
+
+  console.log(user);
 
   return loading ? (
     <LoadingSpinner />
@@ -32,6 +36,24 @@ export const ProfileSummary = () => {
           {user.email}
         </a>
         <div className="col-span-2"></div>
+        <h3>{t('Nombre (s)')}</h3>
+        <p className="text-left text-primary">{user.name}</p>
+        <h3>{t('Apellido (s)')}</h3>
+        <p className="text-left text-primary">{user.lastname}</p>
+        <h3>{t('Nickname')}</h3>
+        <p className="text-left text-primary">{user.nickname}</p>
+        <h3>{t('Género')}</h3>
+        <p className="text-left text-primary">{user.gender}</p>
+        <div className="col-span-2"></div>
+        <h3>{t('Actividad Principal')}</h3>
+        <p className="text-left text-primary">{user.subarea}</p>
+        <div className="col-span-2"></div>
+        <h3>{t('Ciudad')}</h3>
+        <p className="text-left text-primary">{user.city}</p>
+        <h3>{t('Estado')}</h3>
+        <p className="text-left text-primary">{user.state}</p>
+        <h3>{t('País')}</h3>
+        <p className="text-left text-primary">{user.country}</p>
         <h3>
           <PhoneOutlined />
         </h3>
@@ -43,8 +65,8 @@ export const ProfileSummary = () => {
         </a>
       </div>
       <div className="flex flex-row gap-4 self-center justify-center mt-8">
-        <NavLink to="../basica">
-          <div className="button font-bold">{t('continue')}</div>
+        <NavLink to="../destaca">
+          <div className="button font-bold">{t('Continuar')}</div>
         </NavLink>
       </div>
     </>

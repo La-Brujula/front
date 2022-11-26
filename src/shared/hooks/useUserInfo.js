@@ -18,7 +18,6 @@ export const useUserInfo = (email = "") => {
                 const data = await brujula.getCurrentUserInfo(email)
                 setUser({
                     ...data,
-                    username: data.nickname,
                     location: `${data.city}, ${data.state}`,
                 });
                 setLoading(false)
@@ -27,7 +26,7 @@ export const useUserInfo = (email = "") => {
                 setLoading(false)
             }
         })();
-    }, [])
+    }, [email])
 
     return { user, loading, error }
 }

@@ -23,7 +23,7 @@ export const ProfileHeader = ({ user }) => {
           <img
             src={user.profilePictureUrl}
             alt={`${user.username || user.name} profile picture`}
-            className="w-48 h-48 bg-blue rounded-[50%]"
+            className="w-48 h-48 bg-blue rounded-[50%] object-cover object-center"
             loading="eager"
           />
         ) : (
@@ -36,7 +36,7 @@ export const ProfileHeader = ({ user }) => {
         </h3>
         <p className="text-sm">{user.location}</p>
         <p className="text-xs">{t(user.area)}</p>
-        <p className="text-xs">{t(`${user.title}.${user.gender}`)}</p>
+        <p className="text-xs">{t(`${user.subarea}.${user.gender}`)}</p>
       </div>
     </div>
   ) : (

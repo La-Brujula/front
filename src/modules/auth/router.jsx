@@ -8,9 +8,9 @@ const SearchBasePage = lazy(() => import('../search/pages/base'));
 const BaseStepPage = lazy(() => import('./pages/base'));
 const ProfileSummary = lazy(() => import('./pages/summary'));
 const BasicInfo = lazy(() => import('./pages/basicInfo'));
-const Privacy = lazy(() => import('./pages/privacy'));
 const StandoutPage = lazy(() => import('./pages/standOut'));
 const ContactPage = lazy(() => import('./pages/contact'));
+const CaracteristicasPage = lazy(() => import('./pages/caracteristicas'));
 
 export default () => (
   <Routes>
@@ -20,10 +20,9 @@ export default () => (
       <Route path="" element={<BaseStepPage />}>
         <Route path="area" element={<AreaForms />} />
         <Route path="area/:area" element={<AreaActivity />} />
-        <Route path="privacy" element={<Privacy />} />
         <Route path="destaca" element={<StandoutPage />} />
         <Route path="contacto" element={<ContactPage />} />
-        <Route path="características" element={<h1>Características</h1>} />
+        <Route path="caracteristicas" element={<CaracteristicasPage />} />
       </Route>
     </Route>
     <Route path="resumen" element={<ProfileSummary />} />

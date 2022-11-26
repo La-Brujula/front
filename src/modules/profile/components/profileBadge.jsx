@@ -1,6 +1,8 @@
 import { ErrorMessage } from '@shared/components/errorMessage';
+import { useCategory } from '@shared/hooks/useCategory';
 
 export const ProfileBadge = ({ user }) => {
+  const { toCategory } = useCategory();
   return !!user ? (
     <div className="flex flex-row gap-6 max-w-xs mx-auto items-center">
       {!!user.profilePictureUrl ? (
@@ -17,8 +19,8 @@ export const ProfileBadge = ({ user }) => {
           {user.nickname ? user.nickname : [user.name, user.lastname].join(' ')}
         </h3>
         <p className="text-sm">{user.location}</p>
-        <p className="text-sm">{user.title}</p>
-        <p className="text-xs">{user.area}</p>
+        <p className="text-sm">{user.subarea}</p>
+        <p className="text-xs">{toCategory(user.area)}</p>
       </div>
     </div>
   ) : (

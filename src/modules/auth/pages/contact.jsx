@@ -19,7 +19,7 @@ export const ContactPage = () => {
 
   const onSubmit = async (data) => {
     await brujula.updateUserInfo(data);
-    navigate('../características');
+    navigate('../caracteristicas');
   };
 
   return (
@@ -27,7 +27,10 @@ export const ContactPage = () => {
       onSubmit={handleSubmit(onSubmit)}
       className="flex flex-col gap-8 w-full items-stretch"
     >
-      <p>*{t('requiredInformation')}</p>
+      <div className="mb-8">
+        <div className="absolute left-0 -z-10 bg-black bg-opacity-20 w-full h-16 overflow-hidden"></div>
+        <h2>{t('Contacto')}</h2>
+      </div>
       <div
         className="grid grid-cols-[min-content_1fr]
       text-right gap-4 mx-auto items-center gap-x-8"
@@ -73,9 +76,9 @@ export const ContactPage = () => {
       </div>
       <div className="flex flex-row gap-4 self-center">
         <div className="button font-bold" onClick={() => navigate(-1)}>
-          {t('back')}
+          {t('Regresar')}
         </div>
-        <input type="submit" className="border-none" value={t('next')} />
+        <input type="submit" className="border-none" value={t('Continuar')} />
       </div>
     </form>
   );

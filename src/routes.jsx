@@ -7,6 +7,7 @@ const SignupRouter = lazy(() => import('@modules/auth/router'));
 const LandingPage = lazy(() => import('@modules/landing/pages/landing'));
 const ProfileRouter = lazy(() => import('@modules/profile/router'));
 const SearchRouter = lazy(() => import('@modules/search/router'));
+const LogoutPage = lazy(() => import("@modules/auth/pages/logout"))
 
 export const AppRouter = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ export const AppRouter = createBrowserRouter([
       { path: 'guias', element: <h1>Guias</h1> },
       { path: 'nosotros', element: <h1>Nosostros</h1> },
       { path: 'contacto', element: <h1>Contacto</h1> },
-      { path: 'cerrar-sesion', element: <h1>Cerrar sesión</h1> },
+      { path: 'cerrar-sesion', element: <LogoutPage/>},
       { path: 'aviso-privacidad', element: <h1>Aviso Privacidad</h1> },
       {
         path: 'reiniciar-contraseña',

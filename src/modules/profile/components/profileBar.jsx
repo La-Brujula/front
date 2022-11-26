@@ -1,6 +1,6 @@
-import AccountCircleOutlined from '@mui/icons-material/AccountCircleOutlined'
-import EditOutlined from '@mui/icons-material/EditOutlined'
-import SettingsOutlined from '@mui/icons-material/SettingsOutlined'
+import AccountCircleOutlined from '@mui/icons-material/AccountCircleOutlined';
+import EditOutlined from '@mui/icons-material/EditOutlined';
+import SettingsOutlined from '@mui/icons-material/SettingsOutlined';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 
@@ -17,10 +17,10 @@ export const ProfileBar = ({ user }) => {
           <NavLink to="perfil">
             <AccountCircleOutlined className="!h-8 !w-8" />
           </NavLink>
-          <form action={import.meta.env.BASE_URL + "buscar"} className="grow">
+          <form action={import.meta.env.BASE_URL + 'buscar'} className="grow">
             <input
               name="keyword"
-              placeholder={t('searchWork')}
+              placeholder={t('Buscar empleos')}
               className="w-full"
             />
           </form>
@@ -32,17 +32,17 @@ export const ProfileBar = ({ user }) => {
       <div className="flex flex-row w-full items-center px-2 py-2">
         <NavLink className="px-2 flex flex-col items-center justify-center grow text-center text-blue">
           <h2 className="text-xl">{savedJobs}</h2>
-          <p className="font-normal text-sm">{t('savedJobs')}</p>
+          <p className="font-normal text-sm">{t('Empleos guardados')}</p>
         </NavLink>
         <div className="bg-black w-[1px] self-stretch" />
         <NavLink className="px-2 flex flex-col items-center justify-center grow text-center text-blue">
           <h2 className="text-xl">{jobsApplied}</h2>
-          <p className="font-normal text-sm">{t('appliedJobs')}</p>
+          <p className="font-normal text-sm">{t('Empleos solicitados')}</p>
         </NavLink>
         <div className="bg-black w-[1px] self-stretch" />
         <NavLink className="px-2 flex flex-col items-center justify-center grow text-center text-blue">
           <EditOutlined className="!h-8 !w-8" />
-          <p className="font-normal text-sm">{t('jobInterests')}</p>
+          <p className="font-normal text-sm">{t('Intereses de empleos')}</p>
         </NavLink>
       </div>
       <div className="bg-black h-[1px] mx-3 self-stretch" />

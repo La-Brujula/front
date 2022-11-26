@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { NavLink } from 'react-router-dom';
+import { ButtonSelect } from '@shared/components/buttonSelect';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '@shared/context/firebaseContext';
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
@@ -10,6 +10,7 @@ import { useUserInfo } from '../../../shared/hooks/useUserInfo';
 import { LoadingSpinner } from '@shared/components/loadingSpinner';
 import { ErrorMessage } from '@shared/components/errorMessage';
 import { useMemo } from 'react';
+import { UniversidadesSelect } from '../components/universidadesSelect';
 
 export const BasicInfo = () => {
   const auth = useContext(AuthContext);
@@ -20,16 +21,15 @@ export const BasicInfo = () => {
   useEffect(() => {
     if (!auth.isLoggedIn()) navigate('/iniciar-sesion');
   }, []);
+  const { register, handleSubmit, setValue, getValues } = useForm();
 
   const { user, loading, error } = useUserInfo(auth.getUserEmail());
-
-  const { register, handleSubmit, setValue } = useForm();
-
   useMemo(() => {
     Object.entries(user).forEach(([key, value]) => setValue(key, value));
   }, [user]);
 
   const onSubmit = async (data) => {
+    console.log(data);
     await brujula.updateUserInfo(data);
     setTimeout(() => {
       navigate('../area');
@@ -40,13 +40,13 @@ export const BasicInfo = () => {
     <LoadingSpinner />
   ) : (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
-      <p>*{t('requiredInformation')}</p>
+      <p>*{t('información obligatoria')}</p>
       <div
         className="grid grid-cols-[min-content_minmax(12rem,_24rem)]
       text-right gap-4 mx-auto"
       >
         <label htmlFor="name" className="col-span-1">
-          {t('name')}*
+          {t('Nombre (s)')} *
         </label>
         <input
           type="text"
@@ -56,7 +56,7 @@ export const BasicInfo = () => {
           required
         />
         <label htmlFor="lastname" className="col-span-1">
-          {t('lastname')}*
+          {t('Apellido (s)')} *
         </label>
         <input
           type="text"
@@ -66,9 +66,14 @@ export const BasicInfo = () => {
           required
         />
         <label htmlFor="gender">{t('gender')}*</label>
-        <select id="gender" {...register('gender')} required defaultValue={''}>
+        <select
+          id="gender"
+          {...register('gender', { required: true })}
+          required
+          defaultValue={''}
+        >
           <option value="" disabled>
-            {t('gender')}
+            {t('Género')} *
           </option>
           <option value="male">{t('male')}</option>
           <option value="female">{t('female')}</option>
@@ -77,39 +82,57 @@ export const BasicInfo = () => {
         </select>
         <div className="col-span-2 flex flex-col gap-4 text-center">
           <label htmlFor="nickname" className="col-span-1">
-            {t('nickname')}
+            {t('Nombre con el que quieres apaecer')} *
           </label>
           <input
             type="text"
             id="nickname"
-            {...register('nickname')}
+            {...register('nickname', { required: true })}
             autoComplete="nickname"
           />
         </div>
-        <p className="col-span-2 text-center">{t('currentResidence')}</p>
+        <p className="col-span-2 text-center">
+          {t('¿Dónde resides actualmente?')}
+        </p>
         <label htmlFor="city" className="col-span-1">
-          {t('city')}*
+          {t('Ciudad')}*
         </label>
         <input type="text" id="city" {...register('city')} required />
         <label htmlFor="state" className="col-span-1">
-          {t('state')}*
+          {t('Estado')}*
         </label>
         <input type="text" id="state" {...register('state')} required />
         <label htmlFor="country" className="col-span-1">
-          {t('country')}*
+          {t('País')}*
         </label>
         <input type="text" id="country" {...register('country')} required />
         <label htmlFor="phone" className="col-span-1">
-          {t('phone')}
+          {t('Teléfono')}
         </label>
         <input type="phone" id="phone" {...register('phone')} />
       </div>
+      <input type="hidden" {...register('probono')} />
+      <label htmlFor="phone" className="col-span-1">
+        {t('¿Te interesa ser becario o hacer servicio social?')}
+      </label>
+      <input type="hidden" {...register('probono')} />
+      <ButtonSelect
+        fieldName={'probono'}
+        values={[true, false]}
+        labels={['SÍ', 'NO']}
+        setValue={setValue}
+        getValue={getValues}
+      />
+      <label htmlFor="university" className="col-span-1">
+        {t('¿Pertences a una de estas universidades?')}
+      </label>
+      <UniversidadesSelect fieldname="university" register={register} />
       {!!error && <ErrorMessage message={error.toString()} />}
       <div className="flex flex-row gap-4 self-center">
         <div className="button font-bold" onClick={() => navigate(-1)}>
-          {t('back')}
+          {t('Regresar')}
         </div>
-        <input type="submit" className="border-none" value={t('next')} />
+        <input type="submit" className="border-none" value={t('Continuar')} />
       </div>
     </form>
   );

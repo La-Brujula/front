@@ -1,7 +1,27 @@
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSearch } from '../../../shared/hooks/useSearch';
+import RefList from '@shared/constants/RefList.json';
+import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 
 export const PorFiltros = () => {
   const { t } = useTranslation('search');
+  const {results, setFilterObject} = useSearch();
+
+  const [search, setSearch] = useState("");
+  const [activity, setActivity] = useState("");
+  const [region, setRegion] = useState("");
+
+  useEffect(() => {
+    let filters = {}
+    if(activity.length !== 0)
+      filters["palabraClave"] = activity
+    else if(search.length !== 0)
+      filters["search"] = search
+    setFilterObject(filters)
+  }, [search, activity])
+  
+
   return (
     <form
       action={import.meta.env.BASE_URL + 'buscar'}
@@ -14,19 +34,27 @@ export const PorFiltros = () => {
         placeholder={t('search')}
         name="search"
         autoComplete="none"
+        value={search}
+        onChange={(e)=>setSearch(e.target.value)}
         className="font-bold border-2 border-white bg-transparent
         text-white placeholder:text-white grow"
       />
-      <select
+
+
+      <ReactSearchAutocomplete
         className="font-bold border-2 border-white bg-transparent
           text-white placeholder:text-white grow"
         name="actividad"
         defaultValue=""
+        items={RefList && RefList.map((ref, i)=>{return {id: ref, name: ref}})}
+        onSelect={(item) => {
+          setActivity(item.name);
+        }}
       >
-        <option value="" disabled>
-          {t('activity')}
-        </option>
-      </select>
+        
+      </ReactSearchAutocomplete>
+
+
       <select
         className="font-bold border-2 border-white bg-transparent
           text-white placeholder:text-white grow"

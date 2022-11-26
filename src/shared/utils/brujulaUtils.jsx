@@ -22,14 +22,14 @@ export function brujulaUtils() {
    */
 
   const getReviews = async (user) => {
-    const docRef = store.getSubcollection('user', user, 'reviews');
+    const docRef = store.getSubcollection('users', user, 'reviews');
     let reviews_snapshot = await store.retriveInfoByColRef(docRef);
     return reviews_snapshot.docs.map((doc) => doc.data());
   };
 
   const removeReviews = async (userRecommending, userRecomended) => {
     const docRef = store.getSubcollection(
-      'user',
+      'users',
       userRecomended,
       'reviews',
       userRecommending
@@ -40,7 +40,7 @@ export function brujulaUtils() {
   const addReview = async (userRecommending, userRecomended, rating) => {
     //se guarda dentro del usuario que esta siendo recomendado
     const docRef = store.getSubcollection(
-      'user',
+      'users',
       userRecomended,
       'reviews',
       userRecommending
@@ -61,6 +61,14 @@ export function brujulaUtils() {
       const reviews = await getReviews(doc.email)
       return {...doc, ...{reviews: reviews}};
     } ))
+  }
+
+  const deleteUser = async (email) => {
+    const docRef = store.getSubcollection(
+      'users',
+      email
+    );
+    await store.deleteInfoByDocRef(docRef);
   }
 
   const updateUserInfo = async (userInfo, email = auth.getUserEmail()) => {
@@ -110,6 +118,7 @@ export function brujulaUtils() {
     removeReviews,
 
     queryUsers,
+    deleteUser,
 
     updateUserInfo,
     getUserInfo,
