@@ -89,6 +89,7 @@ export function brujulaUtils() {
   };
 
   const saveUserPicture = async (file, key, email = auth.getUserEmail()) => {
+    if (!file.size) throw Error("File has no size")
     return await storage.uploadFileBytes(key, file, email + '/');
   };
 

@@ -26,23 +26,26 @@ export const StandoutPage = () => {
 
   const { user } = useUserInfo(getUserEmail());
   useMemo(() => {
-    Object.entries(user).forEach(([key, value]) => setValue(key, value));
+    !!user &&
+      Object.entries(user).forEach(([key, value]) => setValue(key, value));
   }, [user]);
 
   // Profile Picture Preview Functionality
   useMemo(() => {
     (async () => {
-      if (!profilePicture || !profilePicture[0]) return;
+      if (!profilePicture || !profilePicture[0] || profilePicture[0].size == 0)
+        return;
       await brujula.saveUserPicture(profilePicture[0], '/profilePicture');
-      const profilePictureUrl = await brujula.getUserPictureUrl('/profilePicture');
-      setValue('profilePictureUrl', profilePictureUrl);
+      const url = await brujula.getUserPictureUrl('/profilePicture');
+      setValue('profilePictureUrl', url);
     })();
   }, [profilePicture]);
 
   // Cover Picture Preview Functionality
   useMemo(() => {
     (async () => {
-      if (!coverPicture || !coverPicture[0]) return;
+      if (!coverPicture || !coverPicture[0] || coverPicture[0].size == 0)
+        return;
       await brujula.saveUserPicture(coverPicture[0], '/coverPicture');
       const url = await brujula.getUserPictureUrl('/coverPicture');
       setValue('coverPictureUrl', url);
@@ -60,22 +63,32 @@ export const StandoutPage = () => {
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
       <p>*{t('requiredInformation')}</p>
       <div
-        className="grid grid-cols-[min-content_minmax(12rem,_24rem)_max-content]
+        className="flex flex-col max-w-lg
       text-right gap-4 mx-auto items-center gap-x-8"
       >
-        <label htmlFor="profilePicture">{t('Cambia tu foto de usuario')}</label>
-        <input type="file" {...register('profilePicture')} />
-        <img src={profilePictureUrl} className="w-32 rounded-full" />
-        <label htmlFor="coverPicture">{t('Cambia tu foto de portada')}</label>
-        <input type="file" {...register('coverPicture')} />
-        <img src={coverPictureUrl} className="w-32" />
+        <div className="grid grid-cols-2 w-full col-span-2 gap-8">
+          <div className="flex flex-col gap-4 text-left">
+            <label htmlFor="profilePicture">
+              {t('Cambia tu foto de usuario')}
+            </label>
+            <input type="file" {...register('profilePicture')} />
+            <img src={profilePictureUrl} className="w-32 rounded-full" />
+          </div>
+          <div className="flex flex-col gap-4 text-left">
+            <label htmlFor="coverPicture">
+              {t('Cambia tu foto de portada')}
+            </label>
+            <input type="file" {...register('coverPicture')} />
+            <img src={coverPictureUrl} className="w-32" />
+          </div>
+        </div>
         <label htmlFor="headline">{t('Agrega un lema o mensaje corto')}</label>
         <textarea
           rows="3"
           maxLength={280}
           {...register('headline')}
           required
-          className="rounded-md bg-black bg-opacity-20 resize-none col-span-2 p-4"
+          className="rounded-md bg-black bg-opacity-20 resize-none col-span-2 p-4 w-full"
         />
       </div>
       <div className="mb-8">
@@ -119,19 +132,29 @@ export const StandoutPage = () => {
           required
         />
         <label htmlFor="googleMapsLink">{t('🌐')}</label>
-        <input type="text" {...register('googleMapsLink')} />
+        <input
+          type="text"
+          {...register('googleMapsLink')}
+          placeholder="Link de google maps"
+        />
         <hr className="col-span-2 my-2" />
         <div className="col-span-2 flex flex-col gap-4 text-center items-center">
-          <h3 className="text-primary text-base">{t('Disponibilidad para viajar')}</h3>
-          <label htmlFor="workRadius">{t('¿Cuál es tu radio de trabajo?')}</label>
+          <h3 className="text-primary text-base">
+            {t('Disponibilidad para viajar')}
+          </h3>
+          <label htmlFor="workRadius">
+            {t('¿Cuál es tu radio de trabajo?')}
+          </label>
           <select {...register('workRadius')} className="w-full">
-            <option value="">{t('selectOne')}</option>
-            <option value="local">{t('local')}</option>
-            <option value="state">{t('estatal')}</option>
-            <option value="national">{t('nacional')}</option>
-            <option value="internacional">{t('internacional')}</option>
+            <option value="">{t('Por favor selecciona una opción')}</option>
+            <option value="local">{t('Local')}</option>
+            <option value="state">{t('Estatal')}</option>
+            <option value="national">{t('Nacional')}</option>
+            <option value="internacional">{t('Internacional')}</option>
           </select>
-          <h3 className="text-primary text-base">{t('Servicios a distancia')}</h3>
+          <h3 className="text-primary text-base">
+            {t('Servicios a distancia')}
+          </h3>
           <label htmlFor="remoteWork">{t('¿Trabajas online?')}</label>
           <input type="hidden" {...register('remoteWork')} required />
           <ButtonSelect

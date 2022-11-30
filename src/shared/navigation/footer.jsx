@@ -43,7 +43,7 @@ export const Footer = () => {
               />
             </a>
           </div>
-          <p className="font-bold text-primary">{t('siguenosCTA')}</p>
+          <p className="font-bold text-primary">{t('¡Siguenos en nuestras redes sociales!')}</p>
         </div>
         <p>
           {t('seeOur')}&nbsp;

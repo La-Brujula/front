@@ -4,7 +4,7 @@ export const UniversidadesSelect = ({ register, fieldname, options }) => {
   return (
     <select {...register(fieldname, options)}>
       {universidades.map((uni) => (
-        <option value={uni}>{uni}</option>
+        <option value={uni} key={uni}>{uni}</option>
       ))}
     </select>
   );

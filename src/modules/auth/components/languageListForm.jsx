@@ -63,17 +63,27 @@ export const LanguageListForm = ({ name, setValue, getValues }) => {
           state.map((lang, i) => (
             <div key={i} className="mb-8">
               <div className="mb-4 flex flex-col md:flex-row gap-4">
-                <select
-                  onChange={updateValue(i, 'lang')}
-                  className="w-full"
-                  value={lang.lang}
-                >
-                  {languages.map((defLang) => (
-                    <option value={defLang} key={defLang}>
-                      {defLang}
-                    </option>
-                  ))}
-                </select>
+                <div className="flex flex-col gap-4 w-full">
+                  <select
+                    onChange={updateValue(i, 'lang')}
+                    className="w-full"
+                    value={lang.lang}
+                  >
+                    <option value="other">Otro</option>
+                    {languages.map((defLang) => (
+                      <option value={defLang} key={defLang}>
+                        {defLang}
+                      </option>
+                    ))}
+                  </select>
+                  {!languages.includes(getValues().languages[i].lang) && (
+                    <input
+                      type="text"
+                      onChange={updateValue(i, 'lang')}
+                      placeholder="Escribe aquí el nombre de tu idioma"
+                    />
+                  )}
+                </div>
                 {state.length > 1 && (
                   <IconButton
                     onClick={() => dispatch({ type: 'remove', index: i })}
@@ -84,7 +94,7 @@ export const LanguageListForm = ({ name, setValue, getValues }) => {
               </div>
               <div className="grow">
                 <ButtonSelect
-                  fieldName={'languages.' + i + '.proficiency'}
+                  fieldName={'languages[' + i + '].proficiency'}
                   values={['basic', 'intermediate', 'advanced', 'native']}
                   labels={[
                     'Básico',

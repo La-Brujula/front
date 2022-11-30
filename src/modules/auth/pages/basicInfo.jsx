@@ -25,7 +25,8 @@ export const BasicInfo = () => {
 
   const { user, loading, error } = useUserInfo(auth.getUserEmail());
   useMemo(() => {
-    Object.entries(user).forEach(([key, value]) => setValue(key, value));
+    !!user &&
+      Object.entries(user).forEach(([key, value]) => setValue(key, value));
   }, [user]);
 
   const onSubmit = async (data) => {
@@ -39,11 +40,14 @@ export const BasicInfo = () => {
   return loading ? (
     <LoadingSpinner />
   ) : (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex flex-col gap-4 mx-auto max-w-lg"
+    >
       <p>*{t('información obligatoria')}</p>
       <div
-        className="grid grid-cols-[min-content_minmax(12rem,_24rem)]
-      text-right gap-4 mx-auto"
+        className="grid grid-cols-[max-content_minmax(12rem,_24rem)]
+      text-right gap-4"
       >
         <label htmlFor="name" className="col-span-1">
           {t('Nombre (s)')} *
@@ -65,7 +69,7 @@ export const BasicInfo = () => {
           autoComplete="family-name"
           required
         />
-        <label htmlFor="gender">{t('gender')}*</label>
+        <label htmlFor="gender">{t('Género')}*</label>
         <select
           id="gender"
           {...register('gender', { required: true })}
@@ -75,10 +79,10 @@ export const BasicInfo = () => {
           <option value="" disabled>
             {t('Género')} *
           </option>
-          <option value="male">{t('male')}</option>
-          <option value="female">{t('female')}</option>
-          <option value="other">{t('other')}</option>
-          <option value="not">{t('preferNotToSay')}</option>
+          <option value="male">{t('Masculino')}</option>
+          <option value="female">{t('Femenino')}</option>
+          <option value="other">{t('No Binari@')}</option>
+          <option value="not">{t('Prefiero no especificar')}</option>
         </select>
         <div className="col-span-2 flex flex-col gap-4 text-center">
           <label htmlFor="nickname" className="col-span-1">
@@ -124,7 +128,7 @@ export const BasicInfo = () => {
         getValue={getValues}
       />
       <label htmlFor="university" className="col-span-1">
-        {t('¿Pertences a una de estas universidades?')}
+        {t('¿Pertences a una de estas escuelas?')}
       </label>
       <UniversidadesSelect fieldname="university" register={register} />
       {!!error && <ErrorMessage message={error.toString()} />}

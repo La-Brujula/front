@@ -29,7 +29,7 @@ export const Navbar = () => {
           />
         </NavLink>
         <div className="hidden md:flex grow flex-row gap-8 justify-end mr-8">
-          {!isLoggedIn ? (
+          {!isLoggedIn() ? (
             <NavLink to="iniciar-sesion" className="font-bold text-white">
               {t('login')}
             </NavLink>
@@ -42,7 +42,7 @@ export const Navbar = () => {
             {t('search')}
           </NavLink>
           <NavLink to="noticias" className="font-bold text-white">
-            {t('news')}
+            {t('Noticias')}
           </NavLink>
         </div>
         <div className="z-100">

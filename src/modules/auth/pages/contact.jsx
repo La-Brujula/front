@@ -2,14 +2,15 @@ import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import PhoneOutlined from '@mui/icons-material/PhoneOutlined';
 import Instagram from '@mui/icons-material/Instagram';
 import LinkedIn from '@mui/icons-material/LinkedIn';
 import Twitter from '@mui/icons-material/Twitter';
 import YouTube from '@mui/icons-material/YouTube';
 import WhatsApp from '@mui/icons-material/WhatsApp';
 import FacebookOutlined from '@mui/icons-material/FacebookOutlined';
-import EmailOutlined from '@mui/icons-material/EmailOutlined';
+import { useUserInfo } from '../../../shared/hooks/useUserInfo';
+import { useAuth } from '../../../shared/context/firebaseContext';
+import { useMemo } from 'react';
 
 export const ContactPage = () => {
   const brujula = brujulaUtils();
@@ -21,6 +22,14 @@ export const ContactPage = () => {
     await brujula.updateUserInfo(data);
     navigate('../caracteristicas');
   };
+
+  const { getUserEmail } = useAuth();
+
+  const { user } = useUserInfo(getUserEmail());
+  useMemo(() => {
+    !!user &&
+      Object.entries(user).forEach(([key, value]) => setValue(key, value));
+  }, [user]);
 
   return (
     <form
@@ -35,44 +44,36 @@ export const ContactPage = () => {
         className="grid grid-cols-[min-content_1fr]
       text-right gap-4 mx-auto items-center gap-x-8"
       >
-        <label htmlFor="phone">
-          <PhoneOutlined />
-        </label>
-        <input type="phone" {...register('phone')} autoComplete="phone" />
         <label htmlFor="whatsapp">
           <WhatsApp />
         </label>
         <input type="phone" {...register('whatsapp')} autoComplete="phone" />
-        <label htmlFor="email">
-          <EmailOutlined />
-        </label>
-        <input type="email" {...register('email')} autoComplete="email" />
         <label htmlFor="imdb">{t('imdb')}</label>
-        <input type="url" {...register('imdb')} autoComplete="imdb" />
+        <input type="text" {...register('imdb')} autoComplete="imdb" />
         <label htmlFor="facebook">
           <FacebookOutlined />
         </label>
-        <input type="url" {...register('facebook')} autoComplete="facebook" />
+        <input type="text" {...register('facebook')} autoComplete="facebook" />
         <label htmlFor="instagram">
           <Instagram />
         </label>
-        <input type="url" {...register('instagram')} autoComplete="instagram" />
+        <input type="text" {...register('instagram')} autoComplete="instagram" />
         <label htmlFor="vimeo">{t('vimeo')}</label>
-        <input type="url" {...register('vimeo')} autoComplete="vimeo" />
+        <input type="text" {...register('vimeo')} autoComplete="vimeo" />
         <label htmlFor="youtube">
           <YouTube />
         </label>
-        <input type="url" {...register('youtube')} autoComplete="youtube" />
+        <input type="text" {...register('youtube')} autoComplete="youtube" />
         <label htmlFor="linkedin">
           <LinkedIn />
         </label>
-        <input type="url" {...register('linkedin')} autoComplete="linkedin" />
+        <input type="text" {...register('linkedin')} autoComplete="linkedin" />
         <label htmlFor="twitter">
           <Twitter />
         </label>
-        <input type="url" {...register('twitter')} autoComplete="twitter" />
+        <input type="text" {...register('twitter')} autoComplete="twitter" />
         <label htmlFor="tiktok">{t('tiktok')}</label>
-        <input type="url" {...register('tiktok')} autoComplete="tiktok" />
+        <input type="text" {...register('tiktok')} autoComplete="tiktok" />
       </div>
       <div className="flex flex-row gap-4 self-center">
         <div className="button font-bold" onClick={() => navigate(-1)}>

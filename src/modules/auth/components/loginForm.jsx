@@ -42,18 +42,18 @@ export const LoginForm = () => {
             {...register('email')}
             type="email"
             id="email"
-            placeholder={t('email')}
+            placeholder={t('ejemplo@labrujula.com')}
             autoComplete="email"
             className="w-full"
           />
         </div>
         <div className="flex flex-col gap-2 items-start w-full">
-          <label htmlFor="email">{t('password')}</label>
+          <label htmlFor="password">{t('password')}</label>
           <input
             {...register('password')}
             id="password"
             type="password"
-            placeholder={t('email')}
+            placeholder={t('password')}
             autoComplete="password"
             className="w-full"
           />
@@ -63,7 +63,7 @@ export const LoginForm = () => {
           type="submit"
           className="max-w-xs mx-auto mt-8 bg-primary"
           onClick={login}
-          value={t('login')}
+          value={t('Iniciar Sesión')}
         />
       </form>
       <div className="flex flex-col gap-2 mt-4 text-primary">

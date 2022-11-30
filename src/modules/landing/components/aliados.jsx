@@ -6,9 +6,9 @@ export const SeccionAliades = () => {
   const { t } = useTranslation('landing');
   return (
     <Container bg="primary">
-      <div className="text-center">
-        <h2>{t('aliad@s')}</h2>
-        <p className="text-xl font-bold">{t('graciasPorHacerPosible')}</p>
+      <div className="text-center text-white">
+        <h2>{t('Aliad@s')}</h2>
+        <p className="text-xl font-bold">{t('Gracias por hacer posible La Brújula')}</p>
       </div>
       <div
         className="max-w-6xl grid grid-cols-3

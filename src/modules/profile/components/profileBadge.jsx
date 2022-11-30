@@ -8,7 +8,7 @@ export const ProfileBadge = ({ user }) => {
       {!!user.profilePictureUrl ? (
         <img
           src={user.profilePictureUrl}
-          alt={`${user.username} profile picture`}
+          alt={`${user.nickname || user.name} profile picture`}
           className="w-28 h-28 rounded-[50%]"
         />
       ) : (

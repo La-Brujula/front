@@ -20,7 +20,8 @@ export const CaracteristicasPage = () => {
 
   const { user } = useUserInfo(getUserEmail());
   useMemo(() => {
-    Object.entries(user).forEach(([key, value]) => setValue(key, value));
+    !!user &&
+      Object.entries(user).forEach(([key, value]) => setValue(key, value));
   }, [user]);
 
   const onSubmit = async (data) => {
@@ -44,7 +45,7 @@ export const CaracteristicasPage = () => {
         <textarea
           rows="5"
           maxLength={280}
-          {...register('characteristics', { required: true })}
+          {...register('characteristics')}
           placeholder={t(
             'Escribe aqui las características que te identifican dentro de la industria'
           )}
@@ -62,7 +63,7 @@ export const CaracteristicasPage = () => {
         <textarea
           rows="5"
           maxLength={280}
-          {...register('asociations', { required: true })}
+          {...register('asociations')}
           placeholder={t(
             'Escibe aquí a que asociaciones de la industria perteneces'
           )}
@@ -72,7 +73,7 @@ export const CaracteristicasPage = () => {
         <textarea
           rows="5"
           maxLength={280}
-          {...register('certifications', { required: true })}
+          {...register('certifications')}
           required
           placeholder={t('Escribe aquí las certificaciónes que haz concluido')}
           className="rounded-md bg-black bg-opacity-20 resize-none col-span-2 p-4"
@@ -81,7 +82,7 @@ export const CaracteristicasPage = () => {
         <textarea
           rows="5"
           maxLength={280}
-          {...register('awards', { required: true })}
+          {...register('awards')}
           required
           placeholder={t('Escribe aquí los reconocimientos que has obtenido')}
           className="rounded-md bg-black bg-opacity-20 resize-none col-span-2 p-4"

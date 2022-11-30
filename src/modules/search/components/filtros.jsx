@@ -16,7 +16,7 @@ export const PorFiltros = () => {
     let filters = {}
     if(activity.length !== 0)
       filters["palabraClave"] = activity
-    else if(search.length !== 0)
+    if(search.length !== 0)
       filters["search"] = search
     setFilterObject(filters)
   }, [search, activity])
