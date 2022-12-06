@@ -17,7 +17,7 @@
   h5,
   h6,
   button,
-  input[type="submit"],
+  input[type='submit'],
   label {
     @apply font-bold;
   }
@@ -32,22 +32,23 @@
 
   input,
   select {
-    -webkit-appearance: none;
-    @apply px-2 py-1 rounded-md border border-solid border-black relative;
+    @apply px-2 py-1 rounded-md border border-solid border-black relative appearance-none;
   }
 
-  select::before {
-    content: '';
-    background-image: url('/img/DropIcon.svg')
-    @apply absolute right-1 h-2 w-2;
+  select {
+    background-image: url('/img/DropIcon.svg');
+    background-position: calc(100% - .5rem) calc(1em - .7rem),
+      calc(100% - .5rem) calc(1em - .7rem), 100% 0;
+    background-size: 1.5rem 1.5rem, 1.5rem 1.5rem, 2.5em 2.5em;
+    background-repeat: no-repeat;
   }
 
   option {
-    @apply border
+    @apply border;
   }
 
   button,
-  input[type="submit"],
+  input[type='submit'],
   .button {
     @apply bg-primary text-white rounded-lg text-base
     px-5 py-3 cursor-pointer border-none font-bold;

@@ -18,7 +18,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <AuthContext.Provider value={fireauth}>
       <StorageContext.Provider value={firestorage}>
         <StoreContext.Provider value={firestore}>
-          <Suspense fallback={<LoadingSpinner />}>
+          <Suspense
+            fallback={
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                <LoadingSpinner />
+              </div>
+            }
+          >
             <RouterProvider router={AppRouter} />
           </Suspense>
         </StoreContext.Provider>

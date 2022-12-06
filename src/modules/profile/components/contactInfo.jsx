@@ -10,7 +10,7 @@ export const ContactSection = ({ user }) => {
   return (
     <div
       className="grid grid-cols-[max-content_max-content] max-w-md
-      text-left gap-4 mx-auto items-center gap-x-8"
+      text-left gap-4 mx-auto xl:mx-0 items-center gap-x-6"
     >
       {!!user.phone && (
         <>

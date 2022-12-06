@@ -54,6 +54,7 @@ export const LanguageListForm = ({ name, setValue, getValues }) => {
 
   useEffect(() => {
     setValue(name, state);
+    console.log(getValues())
   }, [state]);
 
   return (
@@ -76,7 +77,7 @@ export const LanguageListForm = ({ name, setValue, getValues }) => {
                       </option>
                     ))}
                   </select>
-                  {!languages.includes(getValues().languages[i].lang) && (
+                  {!languages.includes(lang.lang) && (
                     <input
                       type="text"
                       onChange={updateValue(i, 'lang')}
@@ -102,6 +103,7 @@ export const LanguageListForm = ({ name, setValue, getValues }) => {
                     'Avanzado',
                     'Lengua Materna',
                   ]}
+                  onClick={updateValue(i, 'proficiency')}
                   setValue={setValue}
                   getValue={getValues}
                 />

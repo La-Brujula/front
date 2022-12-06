@@ -13,6 +13,7 @@ export const SignupForm = () => {
   const tipoDePersona = watch('persona', 'fisica');
   const { t } = useTranslation('auth');
   const navigate = useNavigate();
+  const acceptedPrivacy = watch('acceptPrivacy');
   const [errorMsg, setErrorMsg] = useState('');
 
   const onSubmit = async (data) => {
@@ -117,10 +118,10 @@ export const SignupForm = () => {
       </div>
       {errorMsg === '' ? <></> : <p style={{ color: 'red' }}>{errorMsg}</p>}
       <input type="hidden" {...register('acceptPrivacy', { required: true })} />
-      <PrivacyPolicy setValues={setValue} />
+      {acceptedPrivacy !== true && <PrivacyPolicy setValues={setValue} />}
       <input
         type="submit"
-        className="max-w-xs mx-auto mt-8 bg-primary"
+        className="max-w-xs mx-auto bg-primary"
         value={t('Crear usuario')}
       />
       <p>

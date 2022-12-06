@@ -20,7 +20,7 @@ export const useSearch = () => {
         socialService: false,
         sortByReviews: true,
         palabraClave: "",
-        state: []
+        state: ""
         //region
     })
     const [results, setResults] = useState([])
@@ -42,10 +42,12 @@ export const useSearch = () => {
                 case "type":
                 case "city":
                 case "country":
-                case "state":
                 case "gender":
                     queries.push(where(property, "==", filters[property].toLowerCase()))
-                    break;                    
+                    break;    
+                case "state":
+                    queries.push(where(property, "==", filters[property]))
+                    break;                                    
                 case "language":
                     queries.push(where(property, "array-contains", filters[property].toLowerCase()))
                     break;

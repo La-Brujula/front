@@ -8,6 +8,7 @@ export const ButtonSelect = ({
   getValue,
   classname,
   itemClassname,
+  onClick,
 }) => {
   const [currValue, forceRerender] = useState(getValue(fieldName));
 
@@ -29,15 +30,22 @@ export const ButtonSelect = ({
               ? 'bg-primary text-white'
               : 'bg-transparent text-primary',
           ].join(' ')}
-          onClick={(ev) => {
-            setValue(fieldName, value, {
-              shouldDirty: true,
-              shouldTouch: true,
-              shouldValidate: true,
-            });
-            ev.preventDefault();
-            forceRerender(value);
-          }}
+          onClick={
+            ((ev) => {
+              ev.currentTarget.value = value
+              onClick(ev);
+              forceRerender(value);
+            }) ||
+            ((ev) => {
+              setValue(fieldName, value, {
+                shouldDirty: true,
+                shouldTouch: true,
+                shouldValidate: true,
+              });
+              ev.preventDefault();
+              forceRerender(value);
+            })
+          }
         >
           {labels[i]}
         </div>

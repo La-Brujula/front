@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -17,6 +17,7 @@ export const BasicInfo = () => {
   const brujula = brujulaUtils();
   const { t } = useTranslation('auth');
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     if (!auth.isLoggedIn()) navigate('/iniciar-sesion');
@@ -30,14 +31,15 @@ export const BasicInfo = () => {
   }, [user]);
 
   const onSubmit = async (data) => {
-    console.log(data);
+    setIsLoading(true)
     await brujula.updateUserInfo(data);
     setTimeout(() => {
       navigate('../area');
     }, 250);
+    setIsLoading(false)
   };
 
-  return loading ? (
+  return (loading || isLoading) ? (
     <LoadingSpinner />
   ) : (
     <form
@@ -86,12 +88,12 @@ export const BasicInfo = () => {
         </select>
         <div className="col-span-2 flex flex-col gap-4 text-center">
           <label htmlFor="nickname" className="col-span-1">
-            {t('Nombre con el que quieres apaecer')} *
+            {t('Nombre con el que quieres apaecer')}
           </label>
           <input
             type="text"
             id="nickname"
-            {...register('nickname', { required: true })}
+            {...register('nickname')}
             autoComplete="nickname"
           />
         </div>

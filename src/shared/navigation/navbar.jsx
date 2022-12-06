@@ -30,7 +30,7 @@ export const Navbar = () => {
         </NavLink>
         <div className="hidden md:flex grow flex-row gap-8 justify-end mr-8">
           {!isLoggedIn() ? (
-            <NavLink to="iniciar-sesion" className="font-bold text-white">
+            <NavLink to="/iniciar-sesion" className="font-bold text-white">
               {t('login')}
             </NavLink>
           ) : (
@@ -38,10 +38,10 @@ export const Navbar = () => {
               <PersonOutline />
             </NavLink>
           )}
-          <NavLink to="search" className="font-bold text-white">
+          <NavLink to="/buscar" className="font-bold text-white">
             {t('search')}
           </NavLink>
-          <NavLink to="noticias" className="font-bold text-white">
+          <NavLink to="/noticias" className="font-bold text-white">
             {t('Noticias')}
           </NavLink>
         </div>
