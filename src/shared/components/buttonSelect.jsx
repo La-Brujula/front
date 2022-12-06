@@ -31,11 +31,12 @@ export const ButtonSelect = ({
               : 'bg-transparent text-primary',
           ].join(' ')}
           onClick={
-            ((ev) => {
-              ev.currentTarget.value = value
-              onClick(ev);
-              forceRerender(value);
-            }) ||
+            (onClick !== undefined &&
+              ((ev) => {
+                ev.currentTarget.value = value;
+                onClick(ev);
+                forceRerender(value);
+              })) ||
             ((ev) => {
               setValue(fieldName, value, {
                 shouldDirty: true,
