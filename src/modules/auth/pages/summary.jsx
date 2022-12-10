@@ -13,8 +13,6 @@ export const ProfileSummary = () => {
   const { getUserEmail } = useAuth();
   const { user, loading, error } = useUserInfo(getUserEmail());
 
-  console.log(user);
-
   return loading ? (
     <LoadingSpinner />
   ) : error ? (

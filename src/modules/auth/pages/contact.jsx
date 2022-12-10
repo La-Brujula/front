@@ -11,6 +11,7 @@ import FacebookOutlined from '@mui/icons-material/FacebookOutlined';
 import { useUserInfo } from '../../../shared/hooks/useUserInfo';
 import { useAuth } from '../../../shared/context/firebaseContext';
 import { useMemo } from 'react';
+import useSocials from '../../../shared/hooks/useSocials';
 
 export const ContactPage = () => {
   const brujula = brujulaUtils();
@@ -18,7 +19,12 @@ export const ContactPage = () => {
   const { t } = useTranslation('auth');
   const navigate = useNavigate();
 
+
   const onSubmit = async (data) => {
+    for( const property in data) {
+      data[property] = useSocials(property, data[property])
+    }
+
     await brujula.updateUserInfo(data);
     navigate('../caracteristicas');
   };

@@ -1,10 +1,13 @@
 import { useTranslation } from 'react-i18next';
 import { ProfileHeader } from '../components/profileHeader';
 import { ContactSection } from '../components/contactInfo';
+import { useReviews } from '../../../shared/hooks/useReviews'
+import { useAuth } from '../../../shared/context/firebaseContext';
 
 export const UserProfilePage = ({ user }) => {
   const { t } = useTranslation('profile');
-
+  const auth = useAuth();
+  const {reviews, avarage, count, addReview, removeReview} = useReviews(user.email);
   return (
     <div>
       <ProfileHeader user={user} />
@@ -45,7 +48,13 @@ export const UserProfilePage = ({ user }) => {
               </p>
             )}
 
-            <h4 className="font-normal text-primary">Recomendar</h4>
+            <div>
+              <h4 className="font-normal text-primary" >Recomendaciones: </h4>
+              
+              <p>{avarage}</p>              
+              <h4 style={{display: reviews.find(e=> e.from == auth.getUserEmail()) != undefined? 'none':'block' }} className="font-normal text-primary cursor-pointer"onClick={()=>addReview(auth.getUserEmail(), 5)}>Click para recomendar</h4>
+              <h4 style={{display: reviews.find(e=> e.from == auth.getUserEmail()) == undefined? 'none':'block' }} className="font-normal text-primary cursor-pointer"onClick={()=>removeReview(auth.getUserEmail())}>Remover recomendacion</h4>
+            </div>
             {!!user.characteristics && (
               <div>
                 <h4 className="font-normal text-primary">

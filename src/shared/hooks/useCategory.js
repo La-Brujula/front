@@ -11,9 +11,7 @@ export const useCategory = () => {
         return undefined
     }
 
-    const toCategory = (id) => {
-        console.log(id)
-        
+    const toCategory = (id) => {      
         let area = areas[id]
         return (area)? area.label : ""
     }

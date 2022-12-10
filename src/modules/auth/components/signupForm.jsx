@@ -18,7 +18,6 @@ export const SignupForm = () => {
 
   const onSubmit = async (data) => {
     setErrorMsg('');
-    console.log('submit');
     if (await auth.register(data.email, data.password, onError)) {
       await brujula.updateUserInfo({ type: tipoDePersona });
       navigate('basica');
@@ -42,7 +41,7 @@ export const SignupForm = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit, (err) => {
-        console.log(err);
+        console.error(err);
       })}
       className="flex flex-col gap-4"
     >

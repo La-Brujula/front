@@ -34,6 +34,7 @@ export const useSearch = () => {
 
     const getResultsWithFilters = async (filters) => {
         const queries = []
+        
         for (const property in filters) {
             if (filters[property] === "" || property === 'sortByReviews' || filters[property].length === 0 )
                 continue;
@@ -46,7 +47,8 @@ export const useSearch = () => {
                     queries.push(where(property, "==", filters[property].toLowerCase()))
                     break;    
                 case "state":
-                    queries.push(where(property, "==", filters[property]))
+                    if(filters["palabraClave"] == "")
+                        queries.push(where(property, "==", filters[property]))
                     break;                                    
                 case "language":
                     queries.push(where(property, "array-contains", filters[property].toLowerCase()))
@@ -74,17 +76,19 @@ export const useSearch = () => {
         }
         let data = await brujula.queryUsers(queries);
         //name, lastname, nickname, search
-        if(filters['search'].length !== 0) 
+        if(filters['search'].length !== 0 || filters['state'].length !== 0 ) 
             data = data.filter(user => {
                 for(const property of incompleteSearch){
-                    if(user[property] && (user[property].toLowerCase()).includes(filters['search'].toLowerCase()))
+                    if(user[property] && filters['search'].length !== 0 && (user[property].toLowerCase()).includes(filters['search'].toLowerCase()))
                         return true;
+                }
+                if(user['state'] && filters['state'].length !== 0 && (user['state']) === (filters['state'])){
+                    return true;
                 }
                 return false;
             })
         if(filters['sortByReviews']){
         }
-        console.log("Results: ", data);
         setResults(data);
     }
 

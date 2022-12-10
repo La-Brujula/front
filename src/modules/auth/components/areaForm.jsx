@@ -24,7 +24,7 @@ export const AreaForms = () => {
       <input type="hidden" {...register('area')} />
       <ButtonSelect
         fieldName={'area'}
-        labels={Object.values(areas).map((opt) => t(opt.label))}
+        labels={Object.keys(areas)}
         values={Object.keys(areas)}
         getValue={getValues}
         setValue={setValue}

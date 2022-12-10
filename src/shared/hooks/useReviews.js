@@ -4,27 +4,42 @@ import { brujulaUtils } from '@shared/utils/brujulaUtils';
 export const useReviews = (email) => {
     const brujula = brujulaUtils();
     const [reviews, setReviews] = useState([])
+    const [avarage, setAvarage] = useState(0)
+    const [count, setCount] = useState(0)
     
     const getReviews = async () => {
-        const data = await brujula.getReviews(email);
-        setReviews([...data]);
+        if(email !== ''){
+            const data = await brujula.getReviews(email);
+            setReviews([...data]);
+            if(data.length !== 0){
+                let sum = 0;
+                data.forEach(e=>{
+                    sum += e.rating
+                })
+                setCount(data.length)
+                setAvarage(sum/data.length)
+            }else {
+                setCount(0)
+                setAvarage('~')
+            }
+        }
     }
 
     useEffect(() => {
       getReviews()
     }, [])
 
-    const addReview = async (userRecomended, rating) => {
-        await brujula.addReview(email, userRecomended, rating);
+    const addReview = async (userRecomending, rating) => {
+        await brujula.addReview(userRecomending, email, rating);
         getReviews();
     }
 
-    const removeReview = async(userRecomended) => {
-        await brujula.removeReview(email, userRecomended)
+    const removeReview = async(userRecomending) => {
+        await brujula.removeReviews(userRecomending, email)
         getReviews();
     }
 
-    return {reviews, addReview, removeReview}
+    return {reviews, count, avarage, addReview, removeReview}
     
 
 }

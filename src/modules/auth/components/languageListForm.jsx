@@ -54,7 +54,6 @@ export const LanguageListForm = ({ name, setValue, getValues }) => {
 
   useEffect(() => {
     setValue(name, state);
-    console.log(getValues())
   }, [state]);
 
   return (
