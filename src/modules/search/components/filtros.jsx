@@ -13,8 +13,7 @@ export const PorFiltros = ({
   defaultState,
 }) => {
   const { t } = useTranslation('search');
-  const navigate = useNavigate();
-  const { register, setValue, handleSubmit } = useForm({
+  const { register, setValue } = useForm({
     defaultValues: {
       search: defaultSearch || '',
       actividad: defaultActividad || '',
@@ -24,15 +23,9 @@ export const PorFiltros = ({
 
   const regionBoldIds = [0, 3];
 
-  const onSubmit = (data) => {
-    console.log("T",data)
-    navigate(`/buscar?search=${data.search}&activity=${data.actividad}&region=${data.state}`)
-  }
-
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
-      // action={import.meta.env.BASE_URL + 'buscar'}
+      action={import.meta.env.BASE_URL + 'buscar'}
       className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_1fr_min-content]
       gap-4 justify-items-stretch
       bg-primary px-4 py-8 rounded-lg lg:-mx-4"
@@ -70,9 +63,11 @@ export const PorFiltros = ({
             return { id: ref, name: ref };
           })
         }
+        inputSearchString={defaultActividad || ''}
         onSelect={(item) => {
           setValue('actividad', item.name);
         }}
+        onClear={() => setValue('actividad', '')}
       />
 
       <select

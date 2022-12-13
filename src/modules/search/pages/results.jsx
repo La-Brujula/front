@@ -1,8 +1,7 @@
 import { useMemo } from 'react';
-import { NavLink, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { useSearch } from '@shared/hooks/useSearch';
 import { UsersList } from '../components/userList';
-import { Container } from '@shared/layout/container';
 import { PorFiltros } from '../components/filtros';
 
 export const SearchResultsPage = () => {
