@@ -1,28 +1,12 @@
 Pantallas
+
 - registro persona moral
-- perfil final
 - búsqueda
 - contacto
-- cargar data de actividades
 
-Basica 
-- whitespace no-wrap
-- gender 
-
-Destaca
-- whitespace no-wrap
-
-
-- privacidad crear cuenta botón
-
-
-siguenos cta
-
-caracterísitcas
 - placeholder link google maps
 
-
-
 Backend
+
 - hooks
 - login form check

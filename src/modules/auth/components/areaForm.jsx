@@ -14,8 +14,7 @@ export const AreaForms = () => {
 
   const onSubmit = async (data) => {
     await brujula.updateUserInfo({ area: data.area });
-
-    navigate(data.area);
+    navigate(Object.keys(areas)[data.area - 1]);
   };
 
   return (
@@ -25,7 +24,9 @@ export const AreaForms = () => {
       <ButtonSelect
         fieldName={'area'}
         labels={Object.keys(areas)}
-        values={Object.keys(areas)}
+        values={Object.values(areas).map((v) =>
+          Object.keys(v[Object.keys(v)[0]])[0].charAt(0)
+        )}
         getValue={getValues}
         setValue={setValue}
         classname="md:flex-col items-center justify-stretch"

@@ -13,12 +13,13 @@ export const PorCategorias = ({ categorias }) => {
               'button font-bold flex flex-col items-center justify-center',
               !(i % 2) ? 'bg-primary' : 'bg-secondary',
             ].join(' ')}
+            to={`/buscar?activity=${cat.label}`}
           >
             <img
               src={`${import.meta.env.BASE_URL}img/${cat.iconUrl}.svg`}
               alt={cat.label}
               className="h-16 mb-6 hidden lg:block"
-              loading='lazy'
+              loading="lazy"
             />
             <span>{t(cat.label)}</span>
           </NavLink>
