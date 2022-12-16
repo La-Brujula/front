@@ -36,8 +36,8 @@ const reducer = (state, action) => {
   }
 };
 
-export const LanguageListForm = ({ name, setValue, getValues }) => {
-  const [state, dispatch] = useReducer(reducer, [
+export const LanguageListForm = ({ name, setValue, getValues, defaultState }) => {
+  const [state, dispatch] = useReducer(reducer, defaultState || [
     { lang: 'es', proficiency: 0 },
   ]);
 

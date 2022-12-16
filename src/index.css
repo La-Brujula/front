@@ -37,10 +37,13 @@
 
   select {
     background-image: url('/img/DropIcon.svg');
-    background-position: calc(100% - .5rem) calc(1em - .7rem),
-      calc(100% - .5rem) calc(1em - .7rem), 100% 0;
-    background-size: 1.5rem 1.5rem, 1.5rem 1.5rem, 2.5em 2.5em;
+    background-position: calc(100% - .5rem) calc(100% - .25ch);
+    background-size: 1.5rem 1.5rem;
     background-repeat: no-repeat;
+  }
+  
+  select.dark {
+    background-image: url('/img/DropIconDark.svg');
   }
 
   option {
@@ -52,6 +55,10 @@
   .button {
     @apply bg-primary text-white rounded-lg text-base
     px-5 py-3 cursor-pointer border-none font-bold;
+  }
+
+  input[type="checkbox"]:checked {
+    @apply bg-primary border-none;
   }
 
   a {

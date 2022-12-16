@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useSearch } from '@shared/hooks/useSearch';
 import { UsersList } from '../components/userList';
 import { PorFiltros } from '../components/filtros';
+import { ResultsFilter } from '../components/resultsFilters';
 
 export const SearchResultsPage = () => {
   const [searchParams] = useSearchParams();
@@ -33,8 +34,8 @@ export const SearchResultsPage = () => {
         defaultState={searchParams.get('region')}
       />
 
-      <div className="flex flex-col md:flex-row gap-12 mt-16">
-        <div>User's filters</div>
+      <div className="grid grid-cols-1 md:grid-cols-[20rem,1fr] gap-12 mt-16">
+        <ResultsFilter />
         <UsersList users={results} />
       </div>
     </>

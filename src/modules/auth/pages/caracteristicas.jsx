@@ -58,6 +58,7 @@ export const CaracteristicasPage = () => {
           setValue={setValue}
           name="languages"
           getValues={getValues}
+          defaultState={user.languages}
         />
         <label htmlFor="asociations">{t('Asociaciones')}:</label>
         <textarea
