@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import escuelas from '@shared/constants/universidades';
 import idiomas from '@shared/constants/languages';
+import regiones from '@shared/constants/regiones';
 
 export const ResultsFilter = () => {
   const { register, setValue, getValues } = useForm({
@@ -30,6 +31,15 @@ export const ResultsFilter = () => {
           placeholder="Ubicación"
         >
           <option value="">{t('Ubicación')}</option>
+          {regiones?.map((region) => (
+            <optgroup key={region.id} label={region.nombre} value={region.id}>
+              {region.estados?.map((estado) => (
+                <option key={estado} value={estado}>
+                  {estado}
+                </option>
+              ))}
+            </optgroup>
+          ))}
         </select>
         <div className="grid grid-cols-[1fr,2rem] items-center text-left border-b border-b-black border-opacity-20">
           <label className="font-normal" htmlFor="remote">
