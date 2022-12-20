@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react"
-import { where } from "firebase/firestore";  
+import { where } from "firebase/firestore";
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import RefList from '@shared/constants/RefList.json';
 import RefToCode from '@shared/constants/RefToCode.json';
@@ -16,86 +16,113 @@ export const useSearch = () => {
         schools: [],
         associations: "",
         type: "",
-        remote: false,
-        socialService: false,
-        sortByReviews: true,
-        palabraClave: "",
+        remote: undefined,
+        socialService: undefined,
+        sortByReviews: undefined,
+        activity: "",
         state: ""
-        //region
+        //state
     })
     const [results, setResults] = useState([])
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(undefined)
 
-    
+
     const setFilterObject = (filters) => {
-        setFilters(oldFilters=> {
-            return {...oldFilters, ...filters}
+        setFilters(oldFilters => {
+            return { ...oldFilters, ...filters }
         })
     }
 
     const getResultsWithFilters = async (filters) => {
         const queries = []
-        
+        setLoading(true)
+        setError(undefined)
+
         for (const property in filters) {
-            if (filters[property] === "" || property === 'sortByReviews' || filters[property].length === 0 )
+            if (filters[property] === "" ||
+                filters[property] === undefined ||
+                property === 'sortByReviews' ||
+                filters[property].length === 0)
                 continue;
-            switch(property){
+            switch (property) {
                 case "area":
+                    queries.push(where('area', "==", filters.area))
+                    break;
                 case "type":
+                    queries.push(where('type', "==", filters.type))
+                    break;
                 case "city":
+                    queries.push(where('city', "==", filters.city))
+                    break;
                 case "country":
+                    queries.push(where('country', "==", filters.country))
+                    break;
                 case "gender":
-                    queries.push(where(property, "==", filters[property].toLowerCase()))
-                    break;    
+                    queries.push(where('gender', "==", filters.gender))
+                    break;
                 case "state":
-                    if(filters["palabraClave"] == "")
-                        queries.push(where(property, "==", filters[property]))
-                    break;                                    
+                    queries.push(where('state', "==", filters.state))
+                    break;
                 case "language":
-                    queries.push(where(property, "array-contains", filters[property].toLowerCase()))
+                    queries.push(where('language', "array-contains", filters.language.toLowerCase()))
                     break;
                 case "schools":
+                    queries.push(where('university', "in", filters.schools));
+                    break;
                 case "associations":
+                    queries.push(where('asociations', "in", filters.associations.toLowerCase()));
+                    break;
                 case "estados":
-                    queries.push(where(property, "in", filters[property].toLowerCase()));
+                    queries.push(where('location', "in", filters.estados.toLowerCase()));
                     break;
                 case "remote":
-                case "socialService":
-                    if(filters[property] == true)
-                        queries.push(where(property, "==", true))
+                    queries.push(where('remoteWork', "==", filters.remote))
                     break;
-                case "palabraClave":
-                    
-                    if(RefList.includes(filters[property])){
+                case "socialService":
+                    queries.push(where('probono', "==", filters.socialService))
+                    break;
+                case "activity":
+
+                    if (RefList.includes(filters[property])) {
                         let codes = RefToCode[filters[property]];
                         codes = codes.slice(0, 10);
                         queries.push(where("subarea", "in", codes));
-                        
+
                     }
                     break;
             }
         }
         let data = await brujula.queryUsers(queries);
         //name, lastname, nickname, search
-        if(filters['search'].length !== 0 || filters['state'].length !== 0 ) 
+        if (filters.search.length !== 0 || filters.state.length !== 0)
             data = data.filter(user => {
-                for(const property of incompleteSearch){
-                    if(user[property] && filters['search'].length !== 0 && (user[property].toLowerCase()).includes(filters['search'].toLowerCase()))
+                for (const property of incompleteSearch) {
+                    if (user[property] && filters['search'].length !== 0 && (user[property].toLowerCase()).includes(filters['search'].toLowerCase()))
                         return true;
                 }
-                if(user['state'] && filters['state'].length !== 0 && (user['state']) === (filters['state'])){
+                if (user['state'] && filters['state'].length !== 0 && (user['state']) === (filters['state'])) {
                     return true;
                 }
                 return false;
             })
-        if(filters['sortByReviews']){
+        if (filters['sortByReviews']) {
+            data = data.sort((a, b) => b.recommended - a.recommended)
         }
         setResults(data);
+        setLoading(false)
     }
 
-    useEffect(() => {
-        getResultsWithFilters(filters)
+    useMemo(() => {
+        try {
+            getResultsWithFilters(filters)
+        } catch (e) {
+            setError(e);
+            setLoading(false);
+            setResults(undefined);
+        }
     }, [filters])
-    
 
-    return {results, setFilterObject}
+
+    return { results, loading, error, setFilterObject }
 }

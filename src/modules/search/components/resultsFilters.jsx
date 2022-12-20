@@ -2,34 +2,43 @@ import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import escuelas from '@shared/constants/universidades';
 import idiomas from '@shared/constants/languages';
+import actividades from '@shared/constants/areas';
 import regiones from '@shared/constants/regiones';
 
-export const ResultsFilter = () => {
-  const { register, setValue, getValues } = useForm({
+export const ResultsFilter = ({ setFilters }) => {
+  const { register, setValue, getValues, handleSubmit } = useForm({
     defaultValues: {
       location: '',
-      remote: false,
-      fisical: false,
-      moral: false,
+      remote: undefined,
+      type: '',
       category: '',
       language: '',
       gender: '',
-      school: '',
-      probono: false,
+      schools: '',
+      socialService: undefined,
       associations: '',
-      recommended: false,
+      sortByReviews: undefined,
     },
   });
   const { t } = useTranslation('');
+
   return (
-    <form className="flex flex-col gap-8" action="." method="GET">
+    <form
+      className="flex flex-col gap-8"
+      onSubmit={handleSubmit((values) => {
+        Object.keys(values).forEach((key) => {
+          if (typeof values[key] == 'boolean') {
+            setValue(key, values[key] || undefined);
+          } else {
+            setValue(key, '');
+          }
+        });
+        setFilters(values);
+      })}
+    >
       <h2 className="text-primary">Filtros</h2>
       <div className="flex flex-col gap-4">
-        <select
-          className="dark"
-          {...register('location')}
-          placeholder="Ubicación"
-        >
+        <select className="dark" {...register('state')} placeholder="Ubicación">
           <option value="">{t('Ubicación')}</option>
           {regiones?.map((region) => (
             <optgroup key={region.id} label={region.nombre} value={region.id}>
@@ -42,47 +51,55 @@ export const ResultsFilter = () => {
           ))}
         </select>
         <div className="grid grid-cols-[1fr,2rem] items-center text-left border-b border-b-black border-opacity-20">
-          <label className="font-normal" htmlFor="remote">
+          <label className="font-normal w-full" htmlFor="remote">
             {t('Remoto')}
           </label>
           <input
             type="checkbox"
             placeholder="remote"
+            id="remote"
             {...register('remote')}
             className="w-4 h-4 cursor-pointer"
-            value="remote"
           />
         </div>
         <div className="grid grid-cols-[1fr,2rem] items-center text-left border-b border-b-black border-opacity-20">
-          <label className="font-normal" htmlFor="fisica">
+          <label className="font-normal w-full" htmlFor="fisica">
             {t('Persona física')}
           </label>
           <input
             type="checkbox"
             placeholder="fisica"
-            {...register('fisica')}
+            id="fisica"
+            {...register('type')}
             className="w-4 h-4 cursor-pointer"
             value="fisica"
           />
         </div>
         <div className="grid grid-cols-[1fr,2rem] items-center text-left border-b border-b-black border-opacity-20">
-          <label className="font-normal" htmlFor="moral">
+          <label className="font-normal w-full" htmlFor="moral">
             {t('Persona moral')}
           </label>
           <input
             type="checkbox"
             placeholder="moral"
-            {...register('moral')}
+            id="moral"
+            {...register('type')}
             className="w-4 h-4 cursor-pointer"
             value="moral"
           />
         </div>
-        <select
-          className="dark"
-          {...register('category')}
-          placeholder="Categoría"
-        >
+        <select className="dark" {...register('area')} placeholder="Categoría">
           <option value="">{t('Categoría')}</option>
+          {Object.keys(actividades).map((e) => (
+            <option
+              key={e}
+              value={Object.keys(
+                actividades[e][Object.keys(actividades[e])[0]]
+              )[0].charAt(0)}
+            >
+              {e}
+            </option>
+          ))}
         </select>
         <select className="dark" {...register('language')} placeholder="Idioma">
           <option value="">{t('Idioma')}</option>
@@ -97,7 +114,7 @@ export const ResultsFilter = () => {
         </select>
         <select
           className="dark"
-          {...register('school')}
+          {...register('schools')}
           placeholder="Escuela o universidad"
         >
           <option value="">{t('Escuela o universidad')}</option>
@@ -108,32 +125,33 @@ export const ResultsFilter = () => {
           ))}
         </select>
         <div className="grid grid-cols-[1fr,2rem] items-center text-left border-b border-b-black border-opacity-20">
-          <label className="font-normal" htmlFor="probono">
+          <label className="font-normal w-full" htmlFor="probono">
             {t('Disponible para servicio social o de becario')}
           </label>
           <input
             type="checkbox"
             placeholder="probono"
-            {...register('probono')}
+            id="probono"
+            {...register('socialService')}
             className="w-4 h-4 cursor-pointer"
-            value="probono"
           />
         </div>
         <select
           className="dark"
-          {...register('assocations')}
+          {...register('associations')}
           placeholder="Asociaciones"
         >
           <option value="">{t('Asociaciones')}</option>
         </select>
         <div className="grid grid-cols-[1fr,2rem] items-center text-left border-b border-b-black border-opacity-20">
-          <label className="font-normal" htmlFor="recommended">
+          <label className="font-normal w-full" htmlFor="recommended">
             {t('Ordenar por recomendaciones')}
           </label>
           <input
             type="checkbox"
             placeholder="recommended"
-            {...register('recommended')}
+            id="recommended"
+            {...register('sortByReviews')}
             className="w-4 h-4 cursor-pointer"
           />
         </div>
@@ -145,7 +163,7 @@ export const ResultsFilter = () => {
           onClick={() => {
             Object.keys(getValues()).forEach((key) => {
               if (typeof getValues()[key] == 'boolean') {
-                setValue(key, false);
+                setValue(key, undefined);
               } else {
                 setValue(key, '');
               }

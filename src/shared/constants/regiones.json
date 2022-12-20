@@ -1,7 +1,43 @@
 [
     {
         "id": 0,
-        "nombre": "Region Centro",
+        "nombre": "Noroeste",
+        "estados": [
+            "Baja California",
+            "Baja California Sur",
+            "Chihuahua",
+            "Nayarit",
+            "Sinaloa",
+            "Sonora"
+        ]
+    },
+    {
+        "id": 1,
+        "nombre": "Norte",
+        "estados": [
+            "Coahuila",
+            "Durango",
+            "Nuevo León",
+            "San Luis Potosí",
+            "Tamaulipas",
+            "Zacatecas"
+        ]
+    },
+    {
+        "nombre": "Occidente",
+        "id": 2,
+        "estados": [
+            "Aguascalientes",
+            "Colima",
+            "Guanajuato",
+            "Jalisco",
+            "Michoacán",
+            "Querétaro"
+        ]
+    },
+    {
+        "nombre": "Centro",
+        "id": 3,
         "estados": [
             "CDMX",
             "Estado de México",
@@ -12,23 +48,17 @@
         ]
     },
     {
-        "id": 1,
-        "nombre": "Estado de México"
-    },
-    {
-        "id": 2,
-        "nombre": "CDMX"
-    },
-    {
-        "id": 3,
-        "nombre": "Region Sur"
-    },
-    {
+        "nombre": "Sureste",
         "id": 4,
-        "nombre": "Guerrero"
-    },
-    {
-        "id": 5,
-        "nombre": "Oaxaca"
+        "estados": [
+            "Campeche",
+            "Chiapas",
+            "Guerrero",
+            "Oaxaca",
+            "Tabasco",
+            "Quintana Roo",
+            "Veracruz",
+            "Yucatán"
+        ]
     }
 ]

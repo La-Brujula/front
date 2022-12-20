@@ -1,12 +1,13 @@
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
+import { getArea, getTitle } from '@shared/utils/areaUtils';
 
 export const UserCard = ({ user }) => {
   const { t } = useTranslation('subareas');
   return (
     <NavLink
       to={user.email}
-      className="grid grid-cols-[max-content,_2fr,_1fr] gap-8 border-b-black border-b border-opacity-40"
+      className="grid grid-cols-[max-content,_2fr,_1fr] gap-8 border-b-black border-b border-opacity-40 pb-6"
     >
       {!!user.profilePictureUrl ? (
         <img
@@ -26,11 +27,11 @@ export const UserCard = ({ user }) => {
             {!!user.nickname ? user.nickname : `${user.name} ${user.lastName}`}
           </h2>
           {!!user.nickname && (
-            <p className="font-normal text-sm">
+            <p className="font-normal text-sm opacity-80">
               {user.name} {user.lastname}
             </p>
           )}
-          {!!user.headline && <p className="text-sm mt-4">{user.headline}</p>}
+          {!!user.headline && <p className="text-sm mt-4 opacity-70 text-black">{user.headline}</p>}
         </div>
       </div>
       <div
@@ -38,13 +39,14 @@ export const UserCard = ({ user }) => {
         className="flex flex-row gap-8 text-left w-full border-b-black border-opacity-40"
       >
         <div className="">
-          <p className="text-base mb-6">
+          <p className="text-base mb-2">
             {user.city}, {user.state}
-            <br />
-            {user.area}
-            <br />
-            {t(`${user.subarea}.${user.gender}`)}
-            <br />
+          </p>
+          <p className="text-sm mb-1 opacity-90">
+            {getArea(user.area)}
+          </p>
+          <p className="text-xs opacity-80">
+            {getTitle(user.area, user.subarea, user.gender)}
           </p>
           {!!user.recommendations && (
             <p>

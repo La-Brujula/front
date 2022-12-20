@@ -11,13 +11,14 @@ import { LoadingSpinner } from '@shared/components/loadingSpinner';
 import { ErrorMessage } from '@shared/components/errorMessage';
 import { useMemo } from 'react';
 import { UniversidadesSelect } from '../components/universidadesSelect';
+import genders from '@shared/constants/genders.json';
 
 export const BasicInfo = () => {
   const auth = useContext(AuthContext);
   const brujula = brujulaUtils();
   const { t } = useTranslation('auth');
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (!auth.isLoggedIn()) navigate('/iniciar-sesion');
@@ -31,15 +32,15 @@ export const BasicInfo = () => {
   }, [user]);
 
   const onSubmit = async (data) => {
-    setIsLoading(true)
+    setIsLoading(true);
     await brujula.updateUserInfo(data);
     setTimeout(() => {
       navigate('../area');
     }, 250);
-    setIsLoading(false)
+    setIsLoading(false);
   };
 
-  return (loading || isLoading) ? (
+  return loading || isLoading ? (
     <LoadingSpinner />
   ) : (
     <form
@@ -81,10 +82,11 @@ export const BasicInfo = () => {
           <option value="" disabled>
             {t('Género')} *
           </option>
-          <option value="male">{t('Masculino')}</option>
-          <option value="female">{t('Femenino')}</option>
-          <option value="other">{t('No Binari@')}</option>
-          <option value="not">{t('Prefiero no especificar')}</option>
+          {genders.map((gender) => (
+            <option value={gender} key={gender}>
+              {t(gender)}
+            </option>
+          ))}
         </select>
         <div className="col-span-2 flex flex-col gap-4 text-center">
           <label htmlFor="nickname" className="col-span-1">
