@@ -1,9 +1,5 @@
 Pantallas
 
-- registro persona moral
-- búsqueda
-- contacto
-
 - placeholder link google maps
 
 Backend
@@ -11,7 +7,15 @@ Backend
 - hooks
 - login form check
 
-- categorías (actividades grandes)
+genero no se rellena con el previo
+autofill idiomas
 
-recomendaciones:
- - no a ti mismo # no 0-5
+
+Prioridades
+
+1. tres actividades máximo
+2. Búsqueda
+    2.1 Ubicación
+3. registro persona moral
+4. contacto
+5. recomendaciones no a ti mismo # no 0-5

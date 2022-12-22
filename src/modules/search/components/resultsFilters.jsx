@@ -51,7 +51,7 @@ export const ResultsFilter = ({ setFilters }) => {
           ))}
         </select>
         <div className="grid grid-cols-[1fr,2rem] items-center text-left border-b border-b-black border-opacity-20">
-          <label className="font-normal w-full" htmlFor="remote">
+          <label className="font-normal w-full cursor-pointer" htmlFor="remote">
             {t('Remoto')}
           </label>
           <input
@@ -63,7 +63,7 @@ export const ResultsFilter = ({ setFilters }) => {
           />
         </div>
         <div className="grid grid-cols-[1fr,2rem] items-center text-left border-b border-b-black border-opacity-20">
-          <label className="font-normal w-full" htmlFor="fisica">
+          <label className="font-normal w-full cursor-pointer" htmlFor="fisica">
             {t('Persona física')}
           </label>
           <input
@@ -76,7 +76,7 @@ export const ResultsFilter = ({ setFilters }) => {
           />
         </div>
         <div className="grid grid-cols-[1fr,2rem] items-center text-left border-b border-b-black border-opacity-20">
-          <label className="font-normal w-full" htmlFor="moral">
+          <label className="font-normal w-full cursor-pointer" htmlFor="moral">
             {t('Persona moral')}
           </label>
           <input
@@ -125,7 +125,7 @@ export const ResultsFilter = ({ setFilters }) => {
           ))}
         </select>
         <div className="grid grid-cols-[1fr,2rem] items-center text-left border-b border-b-black border-opacity-20">
-          <label className="font-normal w-full" htmlFor="probono">
+          <label className="font-normal w-full cursor-pointer" htmlFor="probono">
             {t('Disponible para servicio social o de becario')}
           </label>
           <input
@@ -136,15 +136,20 @@ export const ResultsFilter = ({ setFilters }) => {
             className="w-4 h-4 cursor-pointer"
           />
         </div>
-        <select
-          className="dark"
-          {...register('associations')}
-          placeholder="Asociaciones"
-        >
-          <option value="">{t('Asociaciones')}</option>
-        </select>
+        <div className="grid grid-cols-[1fr,1fr] items-center text-left border-b border-b-black border-opacity-20">
+          <label className="font-normal w-full cursor-pointer" htmlFor="associations">
+            {t('Asociaciones')}
+          </label>
+          <input
+            type="text"
+            placeholder="Asociaciones"
+            id="associations"
+            {...register('associations')}
+            className="w-4 h-4 cursor-pointer"
+          />
+        </div>
         <div className="grid grid-cols-[1fr,2rem] items-center text-left border-b border-b-black border-opacity-20">
-          <label className="font-normal w-full" htmlFor="recommended">
+          <label className="font-normal w-full cursor-pointer" htmlFor="recommended">
             {t('Ordenar por recomendaciones')}
           </label>
           <input
