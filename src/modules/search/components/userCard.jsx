@@ -1,9 +1,7 @@
-import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
-import { getArea, getTitle } from '@shared/utils/areaUtils';
+import { getTitle } from '@shared/utils/areaUtils';
 
 export const UserCard = ({ user }) => {
-  const { t } = useTranslation('subareas');
   return (
     <NavLink
       to={user.email}
@@ -31,7 +29,11 @@ export const UserCard = ({ user }) => {
               {user.name} {user.lastname}
             </p>
           )}
-          {!!user.headline && <p className="text-sm mt-4 opacity-70 text-black">{user.headline}</p>}
+          {!!user.headline && (
+            <p className="text-sm mt-4 opacity-70 text-black">
+              {user.headline}
+            </p>
+          )}
         </div>
       </div>
       <div
@@ -42,12 +44,11 @@ export const UserCard = ({ user }) => {
           <p className="text-base mb-2">
             {user.city}, {user.state}
           </p>
-          <p className="text-sm mb-1 opacity-90">
-            {getArea(user.area)}
-          </p>
-          <p className="text-xs opacity-80">
-            {getTitle(user.area, user.subarea, user.gender)}
-          </p>
+          {user.subareas?.map((subarea) => (
+            <p className="text-sm opacity-80" key={subarea}>
+              {getTitle(subarea, user.gender)} {subarea}
+            </p>
+          ))}
           {!!user.recommendations && (
             <p>
               <span className="block text-lg font-bold">

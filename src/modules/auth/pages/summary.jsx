@@ -7,6 +7,7 @@ import { ProfileHeader } from '@modules/profile/components/profileHeader';
 import EmailOutlined from '@mui/icons-material/EmailOutlined';
 import PhoneOutlined from '@mui/icons-material/PhoneOutlined';
 import { useAuth } from '@shared/context/firebaseContext';
+import { getTitle } from '../../../shared/utils/areaUtils';
 
 export const ProfileSummary = () => {
   const { t } = useTranslation('auth');
@@ -44,7 +45,7 @@ export const ProfileSummary = () => {
         <p className="text-left text-primary">{user.gender}</p>
         <div className="col-span-2"></div>
         <h3>{t('Actividad Principal')}</h3>
-        <p className="text-left text-primary">{user.subarea}</p>
+        <p className="text-left text-primary">{!!user.subareas && getTitle(user.subareas[0], user.gender)}</p>
         <div className="col-span-2"></div>
         <h3>{t('Ciudad')}</h3>
         <p className="text-left text-primary">{user.city}</p>

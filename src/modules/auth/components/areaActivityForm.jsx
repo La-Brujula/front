@@ -17,7 +17,7 @@ export const AreaActivity = () => {
     <form
       onSubmit={handleSubmit(async (data) => {
         try {
-          await brujula.updateUserInfo({ subarea:  data.activity });
+          await brujula.updateUserInfo({ subarea: data.activity });
           navigate('../resumen');
         } catch {
           console.log;
@@ -31,14 +31,13 @@ export const AreaActivity = () => {
         className="w-full"
         required
       >
-        {Object.keys(areas[area]) &&
-          Object.keys(areas[area]).flatMap((subarea) =>
-            Object.keys(areas[area][subarea]).map((activity) => (
-              <option key={activity} value={activity}>
-                {t(areas[area][subarea][activity]["Alias Genérico"].es)}
-              </option>
-            ))
-          )}
+        {Object.keys(subareas)?.flatMap((subarea) =>
+          Object.keys(subareas[subarea]).map((activity) => (
+            <option key={activity} value={activity}>
+              {t(subareas[subarea][activity]['Alias Genérico'].es)}
+            </option>
+          ))
+        )}
       </select>
       <div className="flex flex-row gap-4 self-center mt-8 justify-center">
         <div className="button font-bold" onClick={() => navigate(-1)}>

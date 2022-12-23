@@ -1,6 +1,4 @@
 import { Route, Routes } from 'react-router-dom';
-import { AreaForms } from './components/areaForm';
-import { AreaActivity } from './components/areaActivityForm';
 import { lazy } from 'react';
 
 const Signup = lazy(() => import('./pages/signup'));
@@ -11,6 +9,7 @@ const BasicInfo = lazy(() => import('./pages/basicInfo'));
 const StandoutPage = lazy(() => import('./pages/standOut'));
 const ContactPage = lazy(() => import('./pages/contact'));
 const CaracteristicasPage = lazy(() => import('./pages/caracteristicas'));
+const AreasRegistration = lazy(() => import('./pages/areas'));
 
 export default () => (
   <Routes>
@@ -18,8 +17,7 @@ export default () => (
     <Route path="" element={<SearchBasePage />}>
       <Route path="basica" element={<BasicInfo />} />
       <Route path="" element={<BaseStepPage />}>
-        <Route path="area" element={<AreaForms />} />
-        <Route path="area/:area" element={<AreaActivity />} />
+        <Route path="area" element={<AreasRegistration />} />
         <Route path="destaca" element={<StandoutPage />} />
         <Route path="contacto" element={<ContactPage />} />
         <Route path="caracteristicas" element={<CaracteristicasPage />} />

@@ -2,6 +2,7 @@ import { ErrorMessage } from '@shared/components/errorMessage';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@shared/context/firebaseContext';
 import { NavLink } from 'react-router-dom';
+import { getTitle } from '@shared/utils/areaUtils';
 
 export const ProfileHeader = ({ user }) => {
   const { t } = useTranslation('user');
@@ -41,9 +42,15 @@ export const ProfileHeader = ({ user }) => {
               ? user.nickname
               : [user.name, user.lastname].join(' ')}
           </h3>
-          <p className="text-sm">{user.location}</p>
-          <p className="text-xs">{t(user.area)}</p>
-          <p className="text-xs">{t(`${user.subarea}.${user.gender}`)}</p>
+          <p className="text-sm">
+            {user.city} {user.state}
+          </p>
+          {!!user.subareas &&
+            user.subareas.map((activity) => (
+              <p className="text-xs" key={activity}>
+                {getTitle(activity, user.gender)}
+              </p>
+            ))}
           {getUserEmail() == user.email && (
             <NavLink
               to="/crear-usuario/basica"

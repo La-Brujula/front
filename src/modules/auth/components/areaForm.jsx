@@ -1,45 +1,69 @@
+import areas from '@shared/constants/areas.json';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
-import { ButtonSelect } from '@shared/components/buttonSelect';
-import { brujulaUtils } from '@shared/utils/brujulaUtils';
-import areas from '@shared/constants/areas.json';
+import {
+  getAreaFromId,
+  getSubAreaFromId,
+  getTitle,
+} from '../../../shared/utils/areaUtils';
 
-export const AreaForms = () => {
-  const brujula = brujulaUtils();
-  const { register, handleSubmit, getValues, setValue } = useForm();
-  const { t } = useTranslation('auth');
-
-  const navigate = useNavigate();
-
-  const onSubmit = async (data) => {
-    await brujula.updateUserInfo({ area: data.area });
-    navigate(Object.keys(areas)[data.area - 1]);
-  };
+export const AreaForms = ({ defaultValue, gender, changeListener }) => {
+  const { register, watch } = useForm({
+    defaultValues: {
+      area: defaultValue ? getAreaFromId(defaultValue) : undefined,
+      subarea: defaultValue ? getSubAreaFromId(defaultValue) : undefined,
+      activity: defaultValue || undefined,
+    },
+  });
+  const area = watch('area');
+  const subarea = watch('subarea');
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-8">
-      <p>*{t('¿En que área se encuentra tu actividad presencial?')}</p>
-      <input type="hidden" {...register('area')} />
-      <ButtonSelect
-        fieldName={'area'}
-        labels={Object.keys(areas)}
-        values={Object.values(areas).map((v) =>
-          Object.keys(v[Object.keys(v)[0]])[0].charAt(0)
-        )}
-        getValue={getValues}
-        setValue={setValue}
-        classname="md:flex-col items-center justify-stretch"
-        itemClassname="w-full"
-      />
-
-      <div className="flex flex-row gap-4 self-center">
-        <div className="button font-bold" onClick={() => navigate(-1)}>
-          {t('Regresar')}
-        </div>
-        <input type="submit" className="border-none" value={t('Continuar')} />
-      </div>
-    </form>
+    <div className="grid grid-cols-[max-content_1fr] text-right gap-y-4 gap-x-2 w-full items-center">
+      <label htmlFor="area">Area</label>
+      <select {...register('area')} placeholder="Area">
+        <option value="">Selecciona una opción</option>
+        {Object.keys(areas).map((area) => (
+          <option key={area}>{area}</option>
+        ))}
+      </select>
+      {!!area && (
+        <>
+          <label htmlFor="subarea">Subarea</label>
+          <select {...register('subarea')}>
+            <option value="">Selecciona una opción</option>
+            {Object.keys(areas[area]).map((subarea) => (
+              <option key={subarea} value={subarea}>
+                {subarea}
+              </option>
+            ))}
+          </select>
+        </>
+      )}
+      {!!area && !!subarea && (
+        <>
+          <label htmlFor="activity">Actividad</label>
+          <select
+            {...register('activity')}
+            placeholder="Actividad"
+            onChange={(event) => changeListener(event.target.value)}
+          >
+            <option value="">Selecciona una opción</option>
+            {!!area &&
+              !!subarea &&
+              !!areas[area][subarea] &&
+              Object.keys(areas[area][subarea]).map(
+                (activity) =>
+                  getTitle(activity, gender) && (
+                    <option key={activity} value={activity}>
+                      {getTitle(activity, gender)}
+                    </option>
+                  )
+              )}
+          </select>
+        </>
+      )}
+    </div>
   );
 };
 

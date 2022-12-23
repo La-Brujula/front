@@ -1,8 +1,9 @@
-import { useEffect, useMemo, useState } from "react"
+import { useMemo, useState } from "react"
 import { where } from "firebase/firestore";
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import RefList from '@shared/constants/RefList.json';
 import RefToCode from '@shared/constants/RefToCode.json';
+import regions from '@shared/constants/regiones.json';
 
 export const useSearch = () => {
     const brujula = brujulaUtils();
@@ -73,8 +74,8 @@ export const useSearch = () => {
                 case "associations":
                     queries.push(where('asociations', "in", filters.associations.toLowerCase()));
                     break;
-                case "estados":
-                    queries.push(where('location', "in", filters.estados.toLowerCase()));
+                case "region":
+                    queries.push(where('state', "in", regions[filters.region].estados));
                     break;
                 case "remote":
                     queries.push(where('remoteWork', "==", filters.remote))
@@ -83,12 +84,10 @@ export const useSearch = () => {
                     queries.push(where('probono', "==", filters.socialService))
                     break;
                 case "activity":
-
                     if (RefList.includes(filters[property])) {
                         let codes = RefToCode[filters[property]];
                         codes = codes.slice(0, 10);
-                        queries.push(where("subarea", "in", codes));
-
+                        queries.push(where("subarea", "array-contains-any", codes));
                     }
                     break;
             }
@@ -123,6 +122,10 @@ export const useSearch = () => {
         }
     }, [filters])
 
+    const getNext = () => {
 
-    return { results, loading, error, setFilterObject }
+    }
+
+
+    return { results, loading, error, setFilterObject, getNext }
 }
