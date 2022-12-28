@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react"
-import { where } from "firebase/firestore";
+import { where, orderBy, limit, startAt } from "firebase/firestore";
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import RefList from '@shared/constants/RefList.json';
 import RefToCode from '@shared/constants/RefToCode.json';
@@ -8,7 +8,6 @@ import regions from '@shared/constants/regiones.json';
 export const useSearch = () => {
     const brujula = brujulaUtils();
     //Campos en donde search se buscara
-    const incompleteSearch = ["name", "lastname", "nickname"]
     const [filters, setFilters] = useState({
         search: "",
         area: "",
@@ -21,7 +20,8 @@ export const useSearch = () => {
         socialService: undefined,
         sortByReviews: undefined,
         activity: "",
-        state: ""
+        state: "",
+        page: 0
         //state
     })
     const [results, setResults] = useState([])
@@ -90,21 +90,20 @@ export const useSearch = () => {
                         queries.push(where("subareas", "array-contains-any", codes));
                     }
                     break;
+                case "search":
+                    queries.push(
+                        where('searchName', '>=', filters.search),
+                        where('searchName', '<=', filters.search + '\uf8ff')
+                    )
+                case "sortByReviews":
+                    queries.push(
+                        orderBy('reviewCount')
+                    )
             }
         }
+        queries.push(limit(20), startAt(page * 20))
         let data = await brujula.queryUsers(queries);
         //name, lastname, nickname, search
-        if (filters.search.length !== 0 || filters.state.length !== 0)
-            data = data.filter(user => {
-                for (const property of incompleteSearch) {
-                    if (user[property] && filters['search'].length !== 0 && (user[property].toLowerCase()).includes(filters['search'].toLowerCase()))
-                        return true;
-                }
-                if (user['state'] && filters['state'].length !== 0 && (user['state']) === (filters['state'])) {
-                    return true;
-                }
-                return false;
-            })
         if (filters['sortByReviews']) {
             data = data.sort((a, b) => b.recommended - a.recommended)
         }
@@ -122,10 +121,14 @@ export const useSearch = () => {
         }
     }, [filters])
 
-    const getNext = () => {
+    const getPrevious = () => {
+        if (filters.page > 0) setFilterObject({ page: filters.page - 1 })
+    }
 
+    const getNext = () => {
+        setFilterObject({ page: filters.page + 1 })
     }
 
 
-    return { results, loading, error, setFilterObject, getNext }
+    return { results, loading, error, setFilterObject, getNext, getPrevious }
 }

@@ -4,17 +4,18 @@ import { useSearch } from '@shared/hooks/useSearch';
 import { UsersList } from '../components/userList';
 import { PorFiltros } from '../components/filtros';
 import { ResultsFilter } from '../components/resultsFilters';
-import { LoadingSpinner } from '@shared/components/loadingSpinner'
-import { ErrorMessage } from '@shared/components/errorMessage'
+import { LoadingSpinner } from '@shared/components/loadingSpinner';
+import { ErrorMessage } from '@shared/components/errorMessage';
 
 export const SearchResultsPage = () => {
   const [searchParams] = useSearchParams();
 
-  const { results, loading, error, setFilterObject } = useSearch();
+  const { results, loading, error, setFilterObject, getNext, getPrevious } =
+    useSearch();
 
   useMemo(() => {
     let filters = {};
-    searchParams.forEach((value, key) => filters[key] = value)
+    searchParams.forEach((value, key) => (filters[key] = value));
     setFilterObject(filters);
   }, [searchParams]);
 
@@ -32,7 +33,7 @@ export const SearchResultsPage = () => {
       />
 
       <div className="grid grid-cols-1 md:grid-cols-[20rem,1fr] gap-12 mt-16">
-        <ResultsFilter setFilters={setFilterObject}/>
+        <ResultsFilter setFilters={setFilterObject} />
         {loading ? (
           <LoadingSpinner />
         ) : !!error ? (

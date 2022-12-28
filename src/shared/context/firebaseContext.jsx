@@ -5,7 +5,7 @@ import { getBlob, getDownloadURL, getStorage, ref, uploadBytes } from "firebase/
 import React, { useContext } from 'react';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDxD3hf4Vmiea-GZUW27GABNAlUlemw4i0",
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
     authDomain: "labrujulaaudiovisual-c163e.firebaseapp.com",
     projectId: "labrujulaaudiovisual-c163e",
     storageBucket: "labrujulaaudiovisual-c163e.appspot.com",
@@ -135,7 +135,8 @@ export const firestore = (() => {
     }
 
     const queryInfo = async (queries) => {
-        const q = query(collection(db, "users"), ...queries)
+        const ref = collection(db, "users")
+        const q = query(ref, ...queries)
         const querySnapshot = await getDocs(q);
         return querySnapshot;
     }

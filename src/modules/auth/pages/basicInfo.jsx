@@ -33,6 +33,12 @@ export const BasicInfo = () => {
 
   const onSubmit = async (data) => {
     setIsLoading(true);
+    data = {
+      ...data,
+      searchName: [data.name, data.lastname, data.nickname]
+        .join(' ')
+        .toLowerCase(),
+    };
     await brujula.updateUserInfo(data);
     setTimeout(() => {
       navigate('../area');
