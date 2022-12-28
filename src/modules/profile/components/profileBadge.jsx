@@ -13,7 +13,7 @@ export const ProfileBadge = ({ user }) => {
           className="w-28 h-28 rounded-[50%]"
         />
       ) : (
-        <div className="h-32 w-32 rounded-full bg-slate-400" />
+        <div className="h-28 w-28 rounded-full bg-slate-400 shrink" />
       )}
       <div className="flex flex-col gap-1 text-left">
         <h3 className="text-md font-normal">

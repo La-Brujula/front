@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react"
+import { useEffect, useState } from "react"
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
 
 
@@ -10,7 +10,7 @@ export const useUserInfo = (email = "") => {
     const [error, setError] = useState(undefined)
 
 
-    useMemo(() => {
+    useEffect(() => {
         (async () => {
             try {
                 setLoading(true)

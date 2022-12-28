@@ -4,6 +4,7 @@ import escuelas from '@shared/constants/universidades';
 import idiomas from '@shared/constants/languages';
 import actividades from '@shared/constants/areas';
 import regiones from '@shared/constants/regiones';
+import genders from '@shared/constants/genders';
 
 export const ResultsFilter = ({ setFilters }) => {
   const { register, setValue, getValues, handleSubmit } = useForm({
@@ -111,6 +112,11 @@ export const ResultsFilter = ({ setFilters }) => {
         </select>
         <select className="dark" {...register('gender')} placeholder="Género">
           <option value="">{t('Género')}</option>
+          {genders.map((e) => (
+            <option key={e} value={e}>
+              {e}
+            </option>
+          ))}
         </select>
         <select
           className="dark"
@@ -136,8 +142,8 @@ export const ResultsFilter = ({ setFilters }) => {
             className="w-4 h-4 cursor-pointer"
           />
         </div>
-        <div className="grid grid-cols-[1fr,1fr] items-center text-left border-b border-b-black border-opacity-20">
-          <label className="font-normal w-full cursor-pointer" htmlFor="associations">
+        <div className="grid grid-cols-[mincontent,1fr] gap-y-1 items-center text-left border-b border-b-black border-opacity-20">
+          <label className="font-normal w-full" htmlFor="associations">
             {t('Asociaciones')}
           </label>
           <input
@@ -145,7 +151,6 @@ export const ResultsFilter = ({ setFilters }) => {
             placeholder="Asociaciones"
             id="associations"
             {...register('associations')}
-            className="w-4 h-4 cursor-pointer"
           />
         </div>
         <div className="grid grid-cols-[1fr,2rem] items-center text-left border-b border-b-black border-opacity-20">

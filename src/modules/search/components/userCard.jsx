@@ -46,7 +46,7 @@ export const UserCard = ({ user }) => {
           </p>
           {user.subareas?.map((subarea) => (
             <p className="text-sm opacity-80" key={subarea}>
-              {getTitle(subarea, user.gender)} {subarea}
+              {getTitle(subarea, user.gender)}
             </p>
           ))}
           {!!user.recommendations && (

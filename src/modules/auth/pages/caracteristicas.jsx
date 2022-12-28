@@ -75,16 +75,14 @@ export const CaracteristicasPage = () => {
           rows="5"
           maxLength={280}
           {...register('certifications')}
-          required
           placeholder={t('Escribe aquí las certificaciónes que haz concluido')}
           className="rounded-md bg-black bg-opacity-20 resize-none col-span-2 p-4"
         />
-        <label htmlFor="awards">*{t('Reconocimientos')}:</label>
+        <label htmlFor="awards">{t('Reconocimientos')}:</label>
         <textarea
           rows="5"
           maxLength={280}
           {...register('awards')}
-          required
           placeholder={t('Escribe aquí los reconocimientos que has obtenido')}
           className="rounded-md bg-black bg-opacity-20 resize-none col-span-2 p-4"
         />

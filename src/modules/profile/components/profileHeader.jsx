@@ -42,15 +42,15 @@ export const ProfileHeader = ({ user }) => {
               ? user.nickname
               : [user.name, user.lastname].join(' ')}
           </h3>
-          <p className="text-sm">
-            {user.city} {user.state}
-          </p>
           {!!user.subareas &&
             user.subareas.map((activity) => (
-              <p className="text-xs" key={activity}>
+              <p className="text-sm" key={activity}>
                 {getTitle(activity, user.gender)}
               </p>
             ))}
+          <p className="text-xs">
+            {user.city} {user.state}
+          </p>
           {getUserEmail() == user.email && (
             <NavLink
               to="/crear-usuario/basica"

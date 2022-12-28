@@ -87,7 +87,7 @@ export const useSearch = () => {
                     if (RefList.includes(filters[property])) {
                         let codes = RefToCode[filters[property]];
                         codes = codes.slice(0, 10);
-                        queries.push(where("subarea", "array-contains-any", codes));
+                        queries.push(where("subareas", "array-contains-any", codes));
                     }
                     break;
             }
