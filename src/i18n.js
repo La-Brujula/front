@@ -5,9 +5,12 @@ import { initReactI18next } from 'react-i18next';
 
 i18n
   .use(Backend)
-  .use(LanguageDetector)
+  // .use(LanguageDetector)
   .use(initReactI18next)
   .init({
+    supportedLngs: ['es'],
+    nonExplicitSupportedLngs: true,
+    lowerCaseLng: true,
     fallbackLng: ['es'],
     load: 'languageOnly', // all, languageOnly
 
@@ -24,7 +27,7 @@ i18n
     pluralSeparator: '_',
     contextSeparator: '_',
 
-    saveMissing: false,
+    saveMissing: true,
     debug: false,
 
     cache: {

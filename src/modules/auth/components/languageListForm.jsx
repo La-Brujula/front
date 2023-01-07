@@ -70,13 +70,13 @@ export const LanguageListForm = ({ name, setValue, getValues, defaultState }) =>
                     value={lang.lang}
                   >
                     <option value="other">Otro</option>
-                    {languages.map((defLang) => (
+                    {Object.keys(languages).map((defLang) => (
                       <option value={defLang} key={defLang}>
-                        {defLang}
+                        {languages[defLang]}
                       </option>
                     ))}
                   </select>
-                  {!languages.includes(lang.lang) && (
+                  {!Object.keys(languages).includes(lang.lang) && (
                     <input
                       type="text"
                       onChange={updateValue(i, 'lang')}

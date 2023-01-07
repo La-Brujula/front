@@ -19,7 +19,7 @@ export const Navbar = () => {
     <>
       <div
         className="w-full flex justify-between items-center sticky top-0 px-8
-        py-2 bg-primary text-white z-10"
+        py-2 bg-primary text-white z-50"
       >
         <NavLink to="/" className="grow text-white">
           <img
@@ -29,7 +29,7 @@ export const Navbar = () => {
           />
         </NavLink>
         <div className="hidden md:flex grow flex-row gap-8 justify-end mr-8">
-          {!isLoggedIn() ? (
+          {!isLoggedIn ? (
             <NavLink to="/iniciar-sesion" className="font-bold text-white">
               {t('login')}
             </NavLink>
@@ -41,8 +41,8 @@ export const Navbar = () => {
           <NavLink to="/buscar" className="font-bold text-white">
             {t('search')}
           </NavLink>
-          <NavLink to="/noticias" className="font-bold text-white">
-            {t('Noticias')}
+          <NavLink to="/quienes-somos" className="font-bold text-white">
+            {t('aboutUs')}
           </NavLink>
         </div>
         <div className="z-100">
@@ -77,7 +77,14 @@ export const Navbar = () => {
                 X
               </div>
             </button>
-            {!isLoggedIn() ? (
+            <NavLink
+              onClick={() => toggleOpen()}
+              to="/"
+              className="font-bold leading-relaxed text-white"
+            >
+              {t('home')}
+            </NavLink>
+            {!isLoggedIn ? (
               <>
                 <NavLink
                   onClick={() => toggleOpen()}
@@ -105,13 +112,6 @@ export const Navbar = () => {
             )}
             <NavLink
               onClick={() => toggleOpen()}
-              to="/"
-              className="font-bold leading-relaxed text-white"
-            >
-              {t('home')}
-            </NavLink>
-            <NavLink
-              onClick={() => toggleOpen()}
               to="/buscar"
               className="font-bold leading-relaxed text-white"
             >
@@ -126,7 +126,7 @@ export const Navbar = () => {
             </NavLink>
             <NavLink
               onClick={() => toggleOpen()}
-              to="/nosotros"
+              to="/quienes-somos"
               className="font-bold leading-relaxed text-white"
             >
               {t('aboutUs')}
@@ -138,7 +138,7 @@ export const Navbar = () => {
             >
               {t('contact')}
             </NavLink>
-            {isLoggedIn() && (
+            {isLoggedIn && (
               <NavLink
                 onClick={() => toggleOpen()}
                 to="/cerrar-sesion"
@@ -147,7 +147,6 @@ export const Navbar = () => {
                 {t('logout')}
               </NavLink>
             )}
-            <LocalizationMenu />
           </nav>
         </div>
       </div>

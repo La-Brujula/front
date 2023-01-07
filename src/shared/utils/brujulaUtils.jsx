@@ -55,24 +55,23 @@ export function brujulaUtils() {
 
   const queryUsers = async (queries) => {
     const data = await store.queryInfo(queries);
-    const list = []
-    data.forEach(doc=>list.push({...doc.data(), ...{email: doc.id}}))
-    return await Promise.all(list.map(async (doc)=> {
-      const reviews = await getReviews(doc.email)
-      return {...doc, ...{reviews: reviews}};
-    } ))
-  }
+    const list = [];
+    data.forEach((doc) => list.push({ ...doc.data(), ...{ email: doc.id } }));
+    return await Promise.all(
+      list.map(async (doc) => {
+        const reviews = await getReviews(doc.email);
+        return { ...doc, ...{ reviews: reviews } };
+      })
+    );
+  };
 
   const deleteUser = async (email) => {
-    const docRef = store.getSubcollection(
-      'users',
-      email
-    );
+    const docRef = store.getSubcollection('users', email);
     await store.deleteInfoByDocRef(docRef);
-  }
+  };
 
   const updateUserInfo = async (userInfo, email = auth.getUserEmail()) => {
-    const data = await store.getInfo('users', email );
+    const data = await store.getInfo('users', email);
     const newData = { ...data, ...userInfo };
     return await store.saveInfo('users', email, newData);
   };
@@ -84,12 +83,12 @@ export function brujulaUtils() {
   const getCurrentUserInfo = async (email = auth.getUserEmail()) => {
     return {
       ...(await store.getInfo('users', email)),
-      email: email
+      email: email,
     };
   };
 
   const saveUserPicture = async (file, key, email = auth.getUserEmail()) => {
-    if (!file.size) throw Error("File has no size")
+    if (!file.size) throw Error('File has no size');
     return await storage.uploadFileBytes(key, file, email + '/');
   };
 
@@ -101,7 +100,7 @@ export function brujulaUtils() {
 
   const getUserPictureUrl = async (key, email = auth.getUserEmail()) => {
     const url = await storage.getFileUrl(key, email + '/');
-    updateUserInfo({profilePicture: url});
+    updateUserInfo({ profilePicture: url });
     return url;
   };
 
@@ -111,8 +110,8 @@ export function brujulaUtils() {
 
   const getCurrentUserEmail = () => {
     return auth.getUserEmail();
-  }
-  
+  };
+
   return {
     getReviews,
     addReview,

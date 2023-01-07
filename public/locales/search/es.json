@@ -1,8 +1,7 @@
 {
     "name": "Nombre",
-    "activity": "Actividad",
     "region": "Región",
-    "keyword": "Palabra Clave",
+    "keyword": "Palabra clave",
     "search": "Buscar",
     "alreadyHaveAccount": "¿Ya tienes un usuario?"
 }

@@ -1,16 +1,17 @@
 {
     "home": "Home",
-    "myUser": "My User",
+    "myUser": "My user",
     "search": "Search",
     "pdfGuides": "PDF Guides",
-    "aboutUs": "About Us",
+    "aboutUs": "About us",
     "contact": "Contact",
     "logout": "Logout",
     "createUser": "Create a new user",
     "joinOurCommunity": "Join our Community",
-    "contactUs": "Contact Us",
+    "contactUs": "Contact us",
     "seeOur": "See our",
     "privacy": "privacy policy",
     "legal": "terms and conditions",
-    "trademark": "La Brújula is a registered trademark."
+    "trademark": "La Brújula is a registered trademark.",
+    "y": "and"
 }

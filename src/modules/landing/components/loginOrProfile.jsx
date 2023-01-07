@@ -9,9 +9,9 @@ export const LoginOrProfile = () => {
 
   return (
     <div className="bg-primary bg-opacity-20 py-8 px-8 grow text-center w-full">
-      {!isLoggedIn() ? (
+      {!isLoggedIn ? (
         <>
-          <h2 className="mb-4">{t('Iniciar Sesión')}</h2>
+          <h2 className="mb-4">{t('¡Hola! Inicia sesión')}</h2>
           <LoginForm color="lightblue" />
         </>
       ) : (

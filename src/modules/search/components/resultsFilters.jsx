@@ -39,6 +39,19 @@ export const ResultsFilter = ({ setFilters }) => {
     >
       <h2 className="text-primary">Filtros</h2>
       <div className="flex flex-col gap-4">
+        <select className="dark" {...register('area')} placeholder="Categoría">
+          <option value="">{t('Área')}</option>
+          {Object.keys(actividades).map((e) => (
+            <option
+              key={e}
+              value={Object.keys(
+                actividades[e][Object.keys(actividades[e])[0]]
+              )[0].charAt(0)}
+            >
+              {e}
+            </option>
+          ))}
+        </select>
         <select className="dark" {...register('state')} placeholder="Ubicación">
           <option value="">{t('Ubicación')}</option>
           {regiones?.map((region) => (
@@ -63,50 +76,11 @@ export const ResultsFilter = ({ setFilters }) => {
             className="w-4 h-4 cursor-pointer"
           />
         </div>
-        <div className="grid grid-cols-[1fr,2rem] items-center text-left border-b border-b-black border-opacity-20">
-          <label className="font-normal w-full cursor-pointer" htmlFor="fisica">
-            {t('Persona física')}
-          </label>
-          <input
-            type="checkbox"
-            placeholder="fisica"
-            id="fisica"
-            {...register('type')}
-            className="w-4 h-4 cursor-pointer"
-            value="fisica"
-          />
-        </div>
-        <div className="grid grid-cols-[1fr,2rem] items-center text-left border-b border-b-black border-opacity-20">
-          <label className="font-normal w-full cursor-pointer" htmlFor="moral">
-            {t('Persona moral')}
-          </label>
-          <input
-            type="checkbox"
-            placeholder="moral"
-            id="moral"
-            {...register('type')}
-            className="w-4 h-4 cursor-pointer"
-            value="moral"
-          />
-        </div>
-        <select className="dark" {...register('area')} placeholder="Categoría">
-          <option value="">{t('Categoría')}</option>
-          {Object.keys(actividades).map((e) => (
-            <option
-              key={e}
-              value={Object.keys(
-                actividades[e][Object.keys(actividades[e])[0]]
-              )[0].charAt(0)}
-            >
-              {e}
-            </option>
-          ))}
-        </select>
         <select className="dark" {...register('language')} placeholder="Idioma">
           <option value="">{t('Idioma')}</option>
-          {idiomas.map((e) => (
+          {Object.keys(idiomas).map((e) => (
             <option key={e} value={e}>
-              {e}
+              {idiomas[e]}
             </option>
           ))}
         </select>
@@ -131,7 +105,10 @@ export const ResultsFilter = ({ setFilters }) => {
           ))}
         </select>
         <div className="grid grid-cols-[1fr,2rem] items-center text-left border-b border-b-black border-opacity-20">
-          <label className="font-normal w-full cursor-pointer" htmlFor="probono">
+          <label
+            className="font-normal w-full cursor-pointer"
+            htmlFor="probono"
+          >
             {t('Disponible para servicio social o de becario')}
           </label>
           <input
@@ -154,7 +131,10 @@ export const ResultsFilter = ({ setFilters }) => {
           />
         </div>
         <div className="grid grid-cols-[1fr,2rem] items-center text-left border-b border-b-black border-opacity-20">
-          <label className="font-normal w-full cursor-pointer" htmlFor="recommended">
+          <label
+            className="font-normal w-full cursor-pointer"
+            htmlFor="recommended"
+          >
             {t('Ordenar por recomendaciones')}
           </label>
           <input
@@ -178,6 +158,7 @@ export const ResultsFilter = ({ setFilters }) => {
                 setValue(key, '');
               }
             });
+            setFilters(getValues());
           }}
         >
           <b>Borrar filtros</b>

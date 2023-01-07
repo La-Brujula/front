@@ -22,10 +22,7 @@ export const SearchResultsPage = () => {
   return (
     <>
       <div className="bg-primary absolute top-0 h-48 w-full left-0 -z-10" />
-      <p className="text-white font-bold mb-4">
-        13 años reuniendo a las personas, empresas e instituciones del medio
-        audiovisual y cinematográfico de México
-      </p>
+      <p className="text-white font-bold mb-4"></p>
       <PorFiltros
         defaultActividad={searchParams.get('activity')}
         defaultSearch={searchParams.get('search')}

@@ -8,7 +8,7 @@ export const BaseProfilePage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isLoggedIn()) navigate('/iniciar-sesion');
+    if (!isLoggedIn) navigate('/iniciar-sesion');
   }, []);
 
   return (

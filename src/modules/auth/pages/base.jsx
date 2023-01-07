@@ -14,7 +14,7 @@ export const BaseStepPage = () => {
   const { isLoggedIn } = useAuth();
 
   useEffect(() => {
-    if (!isLoggedIn()) navigate('/iniciar-sesion');
+    if (!isLoggedIn) navigate('/iniciar-sesion');
   }, []);
 
   return loading ? (

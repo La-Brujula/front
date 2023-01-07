@@ -16,15 +16,40 @@ noticias siguiente
 
 Prioridades
 
-1. jerarquía info profile header
 2. Búsqueda
     2.2 paginación
 3. registro persona moral
     3.1. diferenciar actividades
 4. contacto
+4. links de redes sociales
 5. recomendaciones no a ti mismo # no 0-5
 6. landing directorios PDF
 6. ruta de usuario con nombre
 8. lista aliad@s
+9. Hola en diferentes idiomas
 
 7. conexión con wordpress
+
+
+Alex:
+- Función búsqueda
+
+Dani:
+- Links logotipos aliados
+- Links redes sociales
+
+Diego:
+- Tamaño cuadros categorías
+- Implementación páginas persona moral quiénes somos, contacto, guias pdf
+- filtrar actividades persona moral y física
+- select propiedades en búsqueda
+- autofill idioma y remoto
+
+Calendario:
+6  enero - Cambios documento
+9  enero - Invitar personas y flujo persona moral
+14 enero - Búsqueda singular
+24 enero - Salir masivamente
+
+
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p

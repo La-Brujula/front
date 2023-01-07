@@ -43,7 +43,6 @@ export const useSearch = () => {
         for (const property in filters) {
             if (filters[property] === "" ||
                 filters[property] === undefined ||
-                property === 'sortByReviews' ||
                 filters[property].length === 0)
                 continue;
             switch (property) {
@@ -95,18 +94,11 @@ export const useSearch = () => {
                         where('searchName', '>=', filters.search),
                         where('searchName', '<=', filters.search + '\uf8ff')
                     )
-                case "sortByReviews":
-                    queries.push(
-                        orderBy('reviewCount')
-                    )
             }
         }
-        queries.push(limit(20), startAt(page * 20))
+        queries.push(orderBy(filters.sortByReviews ? 'reviewCount' : 'searchName', filters.sortByReviews ? 'desc' : 'asc'))
         let data = await brujula.queryUsers(queries);
         //name, lastname, nickname, search
-        if (filters['sortByReviews']) {
-            data = data.sort((a, b) => b.recommended - a.recommended)
-        }
         setResults(data);
         setLoading(false)
     }

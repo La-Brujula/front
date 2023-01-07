@@ -7,7 +7,7 @@ function SearchByCategory() {
 
   return (
     <Container bg="lightblue">
-      <h2 className="mb-4">{t('searchByCategory')}</h2>
+      <h2 className="mb-3">{t('searchByCategory')}</h2>
 
       <PorCategorias
         categorias={[

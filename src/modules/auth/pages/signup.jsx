@@ -23,11 +23,14 @@ export default () => {
         <div className="max-w-6xl mx-auto w-full">
           <div className="transform h-full">
             <p>
+            ¡Hola! 
+            <br />
+              Estás a un paso de formar parte de La Brújula. 
               Crea tu usuario y agrega tu información para que otros miembros de
               la industria audiovisual puedan encontrarte.
               <br />
               <br />
-              Queremos que tu empresa, tu proyecto, tu mismo, sean parte de La
+              Queremos que tu empresa, tu proyecto y tú mismo, sean parte de La
               Brújula.
             </p>
           </div>

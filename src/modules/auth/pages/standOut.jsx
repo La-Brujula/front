@@ -21,7 +21,7 @@ export const StandoutPage = () => {
   const { isLoggedIn, getUserEmail } = useAuth();
 
   useEffect(() => {
-    if (!isLoggedIn()) navigate('/iniciar-sesion');
+    if (!isLoggedIn) navigate('/iniciar-sesion');
   }, []);
 
   const { user } = useUserInfo(getUserEmail());
@@ -85,7 +85,7 @@ export const StandoutPage = () => {
         <label htmlFor="headline">{t('Agrega un lema o mensaje corto')}</label>
         <textarea
           rows="3"
-          maxLength={280}
+          maxLength={100}
           {...register('headline')}
           required
           className="rounded-md bg-black bg-opacity-20 resize-none col-span-2 p-4 w-full"

@@ -4,10 +4,9 @@ import { RouterProvider } from 'react-router-dom';
 import './index.css';
 import { AppRouter } from './routes';
 import {
-  fireauth,
+  FireAuthProvider,
   firestorage,
   firestore,
-  AuthContext,
   StorageContext,
   StoreContext,
 } from './shared/context/firebaseContext';
@@ -15,7 +14,7 @@ import { LoadingSpinner } from '@shared/components/loadingSpinner';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AuthContext.Provider value={fireauth}>
+    <FireAuthProvider>
       <StorageContext.Provider value={firestorage}>
         <StoreContext.Provider value={firestore}>
           <Suspense
@@ -29,6 +28,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           </Suspense>
         </StoreContext.Provider>
       </StorageContext.Provider>
-    </AuthContext.Provider>
+    </FireAuthProvider>
   </React.StrictMode>
 );

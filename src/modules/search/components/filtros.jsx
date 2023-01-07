@@ -55,8 +55,9 @@ export const PorFiltros = ({
           borderRadius: '0.375rem',
           placeholderColor: 'white',
           color: 'rgb(237 237 237 / var(--tw-text-opacity))',
+          zIndex: 10,
         }}
-        placeholder={t('activity')}
+        placeholder={t('keyword')}
         items={
           RefList &&
           RefList.map((ref, i) => {

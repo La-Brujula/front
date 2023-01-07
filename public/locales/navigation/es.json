@@ -1,16 +1,17 @@
 {
     "home": "Inicio",
-    "myUser": "Mi Usuario",
+    "myUser": "Mi usuario",
     "search": "Buscar",
     "pdfGuides": "Guías en PDF",
-    "aboutUs": "Nosotros",
+    "aboutUs": "Quiénes somos",
     "contact": "Contacto",
-    "logout": "Cerrar Sesión",
-    "createUser": "Crear Usuario",
+    "logout": "Cerrar sesión",
+    "createUser": "Crear usuario",
     "joinOurCommunity": "Se parte de nuestra comunidad",
     "contactUs": "Contáctanos",
     "seeOur": "Conoce nuestro",
     "privacy": "aviso de privacidad",
     "legal": "aviso legal",
-    "trademark": "La Brújula es una marca registrada.\nTodos los derechos reservados © 2022"
+    "trademark": "La Brújula es una marca registrada.\nTodos los derechos reservados © 2022",
+    "y": "y"
 }

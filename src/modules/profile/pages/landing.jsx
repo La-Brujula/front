@@ -3,11 +3,13 @@ import { ProfileHeader } from '../components/profileHeader';
 import { ContactSection } from '../components/contactInfo';
 import { useReviews } from '../../../shared/hooks/useReviews'
 import { useAuth } from '../../../shared/context/firebaseContext';
+import languages from '@shared/constants/languages.json';
 
 export const UserProfilePage = ({ user }) => {
   const { t } = useTranslation('profile');
   const auth = useAuth();
   const {reviews, avarage, count, addReview, removeReview} = useReviews(user.email);
+  
   return (
     <div>
       <ProfileHeader user={user} />
@@ -69,7 +71,7 @@ export const UserProfilePage = ({ user }) => {
                 <div className="grid grid-cols-[max-content,_max-content] gap-x-4 gap-y-2">
                   {user.languages.map(({ lang, proficiency }) => (
                     <>
-                      <h5 className="font-normal">{t(lang)}</h5>
+                      <h5 className="font-normal">{languages[lang] || t(lang)}</h5>
                       <p>{t(proficiency)}</p>
                     </>
                   ))}

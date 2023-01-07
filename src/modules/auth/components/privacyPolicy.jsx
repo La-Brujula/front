@@ -6,15 +6,15 @@ export const PrivacyPolicy = ({ setValues }) => {
 
   return (
     <div className="flex flex-col gap-4 mt-8 ">
-      <p>{t('Antes de continuar revisa nuestro aviso de privacidad.')}:</p>
+      <p>{t('Antes de continuar revisa nuestro aviso de privacidad')}:</p>
       <NavLink to="aviso-privacidad" className="self-center">
         <div className="button bg-primary">{t('Aviso de privacidad')}</div>
       </NavLink>
       <p>
-        {t('En La Brújula sabemos que la información es un asunto serio.')}
+        {t('En la Brújula nos preocupamos por tu privacidad.')}
         <br />
         <br />
-        {t('Por favor confirma tu acuerdo con el uso de tu información.')}:
+        {t('Por favor confirma tu acuerdo con el uso de tu información')}:
       </p>
       <div className="flex flex-row gap-8 py-8 text-primary items-center h-48 xl:isolate">
         <div className="absolute left-0 -z-10 bg-black bg-opacity-20 w-full h-48 overflow-hidden"></div>

@@ -125,7 +125,7 @@ export const SignupForm = () => {
       />
       <p>
         {t('¿Ya tienes una cuenta?')}&nbsp;
-        <NavLink to="iniciar-sesion" className="mt-4">
+        <NavLink to="/iniciar-sesion" className="mt-4">
           {t('Inicia Sesión')}
         </NavLink>
       </p>

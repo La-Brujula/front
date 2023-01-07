@@ -15,7 +15,7 @@ export const CaracteristicasPage = () => {
   const { isLoggedIn, getUserEmail } = useAuth();
 
   useEffect(() => {
-    if (!isLoggedIn()) navigate('/iniciar-sesion');
+    if (!isLoggedIn) navigate('/iniciar-sesion');
   }, []);
 
   const { user } = useUserInfo(getUserEmail());
@@ -40,11 +40,11 @@ export const CaracteristicasPage = () => {
       text-left gap-4 mx-auto items-center gap-x-8 w-full"
       >
         <label htmlFor="caracteristicas" className="text-primary">
-          {t('Caracteristicas')}:
+          {t('Semblanza')}:
         </label>
         <textarea
           rows="5"
-          maxLength={280}
+          maxLength={300}
           {...register('characteristics')}
           placeholder={t(
             'Escribe aqui las características que te identifican dentro de la industria'
@@ -63,7 +63,7 @@ export const CaracteristicasPage = () => {
         <label htmlFor="asociations">{t('Asociaciones')}:</label>
         <textarea
           rows="5"
-          maxLength={280}
+          maxLength={300}
           {...register('asociations')}
           placeholder={t(
             'Escibe aquí a que asociaciones de la industria perteneces'
@@ -73,7 +73,7 @@ export const CaracteristicasPage = () => {
         <label htmlFor="certifications">{t('Certificaciones')}:</label>
         <textarea
           rows="5"
-          maxLength={280}
+          maxLength={300}
           {...register('certifications')}
           placeholder={t('Escribe aquí las certificaciónes que haz concluido')}
           className="rounded-md bg-black bg-opacity-20 resize-none col-span-2 p-4"
@@ -81,7 +81,7 @@ export const CaracteristicasPage = () => {
         <label htmlFor="awards">{t('Reconocimientos')}:</label>
         <textarea
           rows="5"
-          maxLength={280}
+          maxLength={300}
           {...register('awards')}
           placeholder={t('Escribe aquí los reconocimientos que has obtenido')}
           className="rounded-md bg-black bg-opacity-20 resize-none col-span-2 p-4"

@@ -63,11 +63,16 @@ export const LoginForm = () => {
           type="submit"
           className="max-w-xs mx-auto mt-8 bg-primary"
           onClick={login}
-          value={t('Iniciar Sesión')}
+          value={t('Inicia sesión')}
         />
       </form>
       <div className="flex flex-col gap-2 mt-4 text-primary">
-        <NavLink to="/crear-usuario">{t('createUser')}</NavLink>
+        <NavLink
+          to="/crear-usuario"
+          className="max-w-xs mx-auto mt-2 bg-secondary px-4 py-2 text-white rounded-md"
+        >
+          {t('createUser')}
+        </NavLink>
         <NavLink to="/reiniciar-contraseña">{t('forgotPassword')}</NavLink>
       </div>
     </>

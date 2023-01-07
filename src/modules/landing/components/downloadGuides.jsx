@@ -2,7 +2,7 @@ import Strip from './strip';
 
 function DownloadGuides() {
   return (
-    <div className="flex flex-col-reverse lg:flex-row">
+    <div className="flex flex-col lg:flex-row">
       <div
         className="grow bg-primary text-white text-left py-16 px-8 flex
     flex-row justify-end w-full"
@@ -22,43 +22,43 @@ function DownloadGuides() {
           bgColor="bg-secondary"
           textColor="text-[#E63319]"
           label="Occidente"
-          link="/guias/brujula_occidente_2022.pdf"
+          link="/guias/la_brujula_occidente_2023.pdf"
         />
         <Strip
           bgColor="bg-[#E82D87]"
           textColor="text-[#FAE800]"
           label="Centro"
-          link="/guias/brujula_centro_2022.pdf"
+          link="/guias/la_brujula_centro_2023.pdf"
         />
         <Strip
           bgColor="bg-[#FAE800]"
           textColor="text-[#E82D87]"
           label="Norte"
-          link="/guias/brujula_norte_2022.pdf"
+          link="/guias/la_brujula_norte_2023.pdf"
         />
         <Strip
           bgColor="bg-[#E5341B]"
           textColor="text-[#09ABE4]"
           label="Noreste"
-          link="/guias/brujula_noreste_2022.pdf"
+          link="/guias/la_brujula_noroeste_2023.pdf"
         />
         <Strip
           bgColor="bg-[#00A039]"
           textColor="text-[#252F60]"
           label="Sureste"
-          link="/guias/brujula_sureste_2022.pdf"
+          link="/guias/la_brujula_sureste_2023.pdf" 
         />
         <Strip
           bgColor="bg-[#252F60]"
           textColor="text-[#00A039]"
           label="Guanajuato"
-          link="/guias/brujula_guanajuato_2022.pdf"
+          link="/guias/la_brujula_guanajuato_2023.pdf"
         />
         <Strip
           bgColor="bg-[#F08500]"
           textColor="text-[#E82D87]"
           label="Aguascalientes"
-          link="/guias/brujula_aguascalientes_2022.pdf"
+          link="/guias/la_brujula_aguascalientes_2023.pdf"
         />
         <img
           src={`${import.meta.env.BASE_URL}img/HalfLogo.svg`}

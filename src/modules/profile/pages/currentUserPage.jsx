@@ -12,7 +12,7 @@ export const CurrentUserPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isLoggedIn()) return navigate('/iniciar-sesion');
+    if (!isLoggedIn) return navigate('/iniciar-sesion');
   }, []);
 
   return loading ? (

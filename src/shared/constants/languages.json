@@ -1,8 +1,8 @@
-[
-    "es",
-    "en",
-    "fr",
-    "de",
-    "it",
-    "zh"
-]
+{
+    "es": "Español",
+    "en": "Inglés",
+    "fr": "Francés",
+    "de": "Alemán",
+    "it": "Italiano",
+    "zh": "Mandarín"
+}

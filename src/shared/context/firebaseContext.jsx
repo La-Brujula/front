@@ -1,215 +1,253 @@
-import { initializeApp } from 'firebase/app'
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth'
-import { getFirestore, doc, setDoc, getDoc, getDocs, deleteDoc, collection, query } from 'firebase/firestore'
-import { getBlob, getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
-import React, { useContext } from 'react';
+import { initializeApp } from 'firebase/app';
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+} from 'firebase/auth';
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  getDoc,
+  getDocs,
+  deleteDoc,
+  collection,
+  query,
+} from 'firebase/firestore';
+import {
+  getBlob,
+  getDownloadURL,
+  getStorage,
+  ref,
+  uploadBytes,
+} from 'firebase/storage';
+import React, { useContext, useState } from 'react';
 
 const firebaseConfig = {
-    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-    authDomain: "labrujulaaudiovisual-c163e.firebaseapp.com",
-    projectId: "labrujulaaudiovisual-c163e",
-    storageBucket: "labrujulaaudiovisual-c163e.appspot.com",
-    messagingSenderId: "885517889321",
-    appId: "1 =885517889321 =web =fb26c1963591eb7e939138",
-    measurementId: "G-XFFBN17QWY"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: 'labrujulaaudiovisual-c163e.firebaseapp.com',
+  projectId: 'labrujulaaudiovisual-c163e',
+  storageBucket: 'labrujulaaudiovisual-c163e.appspot.com',
+  messagingSenderId: '885517889321',
+  appId: '1 =885517889321 =web =fb26c1963591eb7e939138',
+  measurementId: 'G-XFFBN17QWY',
 };
 
 const printError = (error) => {
-    if(import.meta.env.NODE_ENV != "production"){
-        console.error(error)
-    }
-}
+  if (import.meta.env.NODE_ENV != 'production') {
+    console.error(error);
+  }
+};
 
 const app = initializeApp(firebaseConfig);
+export const AuthContext = React.createContext({});
 
-export const fireauth = (() => {
-    const auth = getAuth(app);
-    const _userAuth = async (email, password, method, handleError) => {
-        try {
-            const result = await method(auth, email, password)
-            return true
-        } catch (err) {
-            handleError(err)
-            printError(err)
-            return false
-        }
+export const FireAuthProvider = ({ children }) => {
+  const auth = getAuth(app);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const _userAuth = async (email, password, method, handleError) => {
+    const authResult = (async () => {
+      try {
+        await method(auth, email, password);
+        return true;
+      } catch (err) {
+        handleError(err);
+        printError(err);
+        return false;
+      }
+    })();
+    setIsLoggedIn(authResult);
+    return authResult;
+  };
+
+  const login = async (email, password, handleError = (err) => {}) => {
+    return _userAuth(email, password, signInWithEmailAndPassword, handleError);
+  };
+
+  const register = (email, password, handleError = (err) => {}) => {
+    return _userAuth(
+      email,
+      password,
+      createUserWithEmailAndPassword,
+      handleError
+    );
+  };
+
+  const addStateListener = (fn) => {
+    return onAuthStateChanged(auth, fn);
+  };
+
+  const logout = () => {
+    if (isLoggedIn) {
+      signOut(auth);
+      setIsLoggedIn(false);
     }
+  };
 
-    const login = async (email, password, handleError = (err) => { }) => {
-        return _userAuth(email, password, signInWithEmailAndPassword, handleError)
-    }
+  const getUserEmail = () => {
+    if (isLoggedIn) {
+      return auth.currentUser.email;
+    } else return '';
+  };
 
-    const register = (email, password, handleError = (err) => { }) => {
-        return _userAuth(email, password, createUserWithEmailAndPassword, handleError)
-    }
+  const getUserId = () => {
+    if (isLoggedIn) return auth.currentUser.uid;
+    else return '';
+  };
 
-    const addStateListener = (fn) => {
-        return onAuthStateChanged(auth, fn)
-    }
-    
-    const isLoggedIn = () => {
-        return auth.currentUser != null
-    }
-
-    const logout = () => {
-        if (isLoggedIn()) {
-            signOut(auth)
-        }
-    }
-
-    const getUserEmail = () => {
-        if (isLoggedIn()){
-            return auth.currentUser.email
-        }
-        else
-            return ""
-    }
-
-    const getUserId = () => {
-        if (isLoggedIn()) return auth.currentUser.uid
-        else return ""
-    }
-
-
-    return {
+  return (
+    <AuthContext.Provider
+      value={{
         login: login,
         register: register,
         logout: logout,
         addStateListener: addStateListener,
         getUserEmail: getUserEmail,
         getUserId: getUserId,
-        isLoggedIn: isLoggedIn
-    }
-})()
+        isLoggedIn: isLoggedIn,
+      }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
+};
 
 export const firestore = (() => {
+  const db = getFirestore(app);
 
-    const db = getFirestore(app)
+  const getSubcollection = (...args) => {
+    window.y = db;
+    return args.reduce((docRef, name, index) => {
+      return index % 2 == 0 ? collection(docRef, name) : doc(docRef, name);
+    }, db);
+  };
 
-    const getSubcollection = (...args) => {
-        window.y = db
-        return args.reduce((docRef, name, index) => {
-            return (index%2 == 0)?  collection(docRef, name) : doc(docRef, name)
-        }, db)
+  const saveInfoByDocRef = async (docRef, object) => {
+    try {
+      await setDoc(docRef, object);
+      return true;
+    } catch (e) {
+      printError(e);
+      return false;
     }
+  };
 
-    const saveInfoByDocRef = async (docRef, object) => {
-        try {
-            await setDoc(docRef, object);
-            return true;
-        } catch (e) {
-            printError(e)
-            return false
-        }
-    }
+  const saveInfo = async (collection, document, object) => {
+    return await saveInfoByDocRef(doc(db, collection, document), object);
+  };
 
-    const saveInfo = async (collection, document, object) => {
-        return await saveInfoByDocRef(doc(db, collection, document), object)
+  const retriveInfoByColRef = async (colRef) => {
+    try {
+      const docSnap = await getDocs(colRef);
+      return docSnap;
+    } catch (e) {
+      printError(e);
+      return false;
     }
+  };
 
-    const retriveInfoByColRef = async (colRef) => {
-        try {
-            const docSnap = await getDocs(colRef);
-            return docSnap
-        } catch (e) {
-            printError(e)
-            return false;
-        }
+  const retriveInfoByDocRef = async (docRef) => {
+    try {
+      const docSnap = await getDoc(docRef);
+      return docSnap.data();
+    } catch (e) {
+      printError(e);
+      return false;
     }
+  };
 
-    const retriveInfoByDocRef = async (docRef) => {
-        try {
-            const docSnap = await getDoc(docRef);
-            return docSnap.data();
-        } catch (e) {
-            printError(e)
-            return false;
-        }
-    }
+  const retriveInfo = async (collection, document) => {
+    const docRef = doc(db, collection, document);
+    return await retriveInfoByDocRef(docRef, document);
+  };
 
-    const retriveInfo = async (collection, document) => {
-        
-        const docRef = doc(db, collection, document);
-        return await retriveInfoByDocRef(docRef, document)
-        
-    }
+  const queryInfo = async (queries) => {
+    const ref = collection(db, 'users');
+    const q = query(ref, ...queries);
+    const querySnapshot = await getDocs(q);
+    return querySnapshot;
+  };
 
-    const queryInfo = async (queries) => {
-        const ref = collection(db, "users")
-        const q = query(ref, ...queries)
-        const querySnapshot = await getDocs(q);
-        return querySnapshot;
+  const deleteInfoByDocRef = async (docRef) => {
+    try {
+      await deleteDoc(docRef);
+    } catch (e) {
+      printError(e);
+      return false;
     }
+  };
 
-    const deleteInfoByDocRef = async (docRef) => {
-        try {
-            await deleteDoc(docRef);
-        } catch (e) {
-            printError(e)
-            return false;
-        }
-    }
-    
-
-    return {
-        saveInfo: saveInfo,
-        getInfo: retriveInfo,
-        getSubcollection: getSubcollection,
-        saveInfoByDocRef: saveInfoByDocRef,
-        retriveInfoByDocRef: retriveInfoByDocRef,
-        retriveInfoByColRef: retriveInfoByColRef,
-        deleteInfoByDocRef: deleteInfoByDocRef,
-        queryInfo
-    }
-})()
+  return {
+    saveInfo: saveInfo,
+    getInfo: retriveInfo,
+    getSubcollection: getSubcollection,
+    saveInfoByDocRef: saveInfoByDocRef,
+    retriveInfoByDocRef: retriveInfoByDocRef,
+    retriveInfoByColRef: retriveInfoByColRef,
+    deleteInfoByDocRef: deleteInfoByDocRef,
+    queryInfo,
+  };
+})();
 
 export const firestorage = (() => {
+  const storage = getStorage(app);
 
-    const storage = getStorage(app);
-
-    const uploadFileBytes = async (name, file, path='', metadata={}) => {
-        try{
-            const reference = ref(getStorage(), path+name)
-            const response = await uploadBytes(reference, file)
-            return response
-        } catch(err) {
-            printError(err)
-        }
+  const uploadFileBytes = async (name, file, path = '', metadata = {}) => {
+    try {
+      const reference = ref(getStorage(), path + name);
+      const response = await uploadBytes(reference, file);
+      return response;
+    } catch (err) {
+      printError(err);
     }
+  };
 
-    const getFileUrl = async (name, path='') => {
-        try{
-            const reference = ref(getStorage(), path+name)
-            const url = await getDownloadURL(reference)
-            return url
-        } catch (err) {
-            printError(err)
-        }
-
+  const getFileUrl = async (name, path = '') => {
+    try {
+      const reference = ref(getStorage(), path + name);
+      const url = await getDownloadURL(reference);
+      return url;
+    } catch (err) {
+      printError(err);
     }
+  };
 
-    const getFile = async (name, path='') => {
-        try{
-            const reference = ref(getStorage(), path+name)
-            const file = await getBlob(reference)
-            return file
-        } catch (err) {
-            printError(err)
-        }
+  const getFile = async (name, path = '') => {
+    try {
+      const reference = ref(getStorage(), path + name);
+      const file = await getBlob(reference);
+      return file;
+    } catch (err) {
+      printError(err);
     }
+  };
 
-    return {
-        uploadFileBytes: uploadFileBytes,
-        getFileUrl: getFileUrl,
-        getFile: getFile
-    }
+  return {
+    uploadFileBytes: uploadFileBytes,
+    getFileUrl: getFileUrl,
+    getFile: getFile,
+  };
+})();
 
-})()
+export const StoreContext = React.createContext(firestore);
+export const StorageContext = React.createContext(firestorage);
 
-export const AuthContext = React.createContext(fireauth)
-export const StoreContext = React.createContext(firestore) 
-export const StorageContext = React.createContext(firestorage)
+export const AudioProvider = ({ children }) => {
+  const [song, changeSong] = (useState < IAlbum) | (undefined > undefined);
+
+  return (
+    <AudioContext.Provider value={{ currentSong: song, changeSong }}>
+      {children}
+      {!!song && (
+        <audio src={song.preview} autoPlay crossOrigin="anonymous"></audio>
+      )}
+    </AudioContext.Provider>
+  );
+};
 
 export function useAuth() {
-    return useContext(AuthContext);
-  }
+  return useContext(AuthContext);
+}

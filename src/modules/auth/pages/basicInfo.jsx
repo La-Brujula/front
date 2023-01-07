@@ -21,7 +21,7 @@ export const BasicInfo = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (!auth.isLoggedIn()) navigate('/iniciar-sesion');
+    if (!auth.isLoggedIn) navigate('/iniciar-sesion');
   }, []);
   const { register, handleSubmit, setValue, getValues } = useForm();
 
