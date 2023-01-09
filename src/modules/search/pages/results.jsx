@@ -35,15 +35,7 @@ export const SearchResultsPage = () => {
         ) : !!error ? (
           <ErrorMessage message={error.toString()} />
         ) : !!results ? (
-          <>
-            <UsersList users={results} />
-            <div
-              className="px-4 py-2 text-white bg-secondary"
-              onClick={getNext}
-            >
-              Cargar más
-            </div>
-          </>
+          <UsersList users={results} getNext={getNext} />
         ) : (
           <p>No se encontraron resultados</p>
         )}

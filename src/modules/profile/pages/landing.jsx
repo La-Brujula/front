@@ -1,15 +1,17 @@
 import { useTranslation } from 'react-i18next';
 import { ProfileHeader } from '../components/profileHeader';
 import { ContactSection } from '../components/contactInfo';
-import { useReviews } from '../../../shared/hooks/useReviews'
+import { useReviews } from '../../../shared/hooks/useReviews';
 import { useAuth } from '../../../shared/context/firebaseContext';
 import languages from '@shared/constants/languages.json';
 
 export const UserProfilePage = ({ user }) => {
   const { t } = useTranslation('profile');
   const auth = useAuth();
-  const {reviews, avarage, count, addReview, removeReview} = useReviews(user.email);
-  
+  const { reviews, avarage, count, addReview, removeReview } = useReviews(
+    user.email
+  );
+
   return (
     <div>
       <ProfileHeader user={user} />
@@ -26,13 +28,15 @@ export const UserProfilePage = ({ user }) => {
                 <p>{user.university}</p>
               </div>
             )}
-            {!!user.probono && (
+            {user.probono !== undefined && (
               <div className="py-8">
                 <div className="absolute left-0 -z-10 -my-4 overflow-hidden transform w-full">
                   <div className="bg-black bg-opacity-20 w-full h-28 xl:w-1/2 xl:rounded-r-md"></div>
                 </div>
-                <h4 className="font-normal text-primary">{t('ProBono')}</h4>
-                <p>{user.probono}</p>
+                <h4 className="font-normal text-primary">
+                  Interés en ser becario, servicio social:
+                </h4>
+                <p>{user.probono ? 'Sí' : 'No'}</p>
               </div>
             )}
           </div>
@@ -51,11 +55,35 @@ export const UserProfilePage = ({ user }) => {
             )}
 
             <div>
-              <h4 className="font-normal text-primary" >Recomendaciones: </h4>
-              
-              <p>{avarage}</p>              
-              <h4 style={{display: reviews.find(e=> e.from == auth.getUserEmail()) != undefined? 'none':'block' }} className="font-normal text-primary cursor-pointer"onClick={()=>addReview(auth.getUserEmail(), 5)}>Click para recomendar</h4>
-              <h4 style={{display: reviews.find(e=> e.from == auth.getUserEmail()) == undefined? 'none':'block' }} className="font-normal text-primary cursor-pointer"onClick={()=>removeReview(auth.getUserEmail())}>Remover recomendacion</h4>
+              <h4 className="font-normal text-primary">Recomendaciones: </h4>
+
+              <p>{avarage}</p>
+              <h4
+                style={{
+                  display:
+                    reviews.find((e) => e.from == auth.getUserEmail()) !=
+                    undefined
+                      ? 'none'
+                      : 'block',
+                }}
+                className="font-normal text-primary cursor-pointer"
+                onClick={() => addReview(auth.getUserEmail(), 5)}
+              >
+                Click para recomendar
+              </h4>
+              <h4
+                style={{
+                  display:
+                    reviews.find((e) => e.from == auth.getUserEmail()) ==
+                    undefined
+                      ? 'none'
+                      : 'block',
+                }}
+                className="font-normal text-primary cursor-pointer"
+                onClick={() => removeReview(auth.getUserEmail())}
+              >
+                Remover recomendacion
+              </h4>
             </div>
             {!!user.characteristics && (
               <div>
@@ -71,7 +99,9 @@ export const UserProfilePage = ({ user }) => {
                 <div className="grid grid-cols-[max-content,_max-content] gap-x-4 gap-y-2">
                   {user.languages.map(({ lang, proficiency }) => (
                     <>
-                      <h5 className="font-normal">{languages[lang] || t(lang)}</h5>
+                      <h5 className="font-normal">
+                        {languages[lang] || t(lang)}
+                      </h5>
                       <p>{t(proficiency)}</p>
                     </>
                   ))}

@@ -20,7 +20,7 @@ i18n
 
     defaultNS: 'common',
     fallbackNS: 'common',
-    ns: ['common', 'auth'],
+    ns: ['common', 'auth', 'landing'],
 
     keySeparator: '.',
     nsSeparator: ':',
