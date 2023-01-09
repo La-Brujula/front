@@ -35,9 +35,11 @@ export const BasicInfo = () => {
     setIsLoading(true);
     data = {
       ...data,
-      searchName: [data.name, data.lastname, data.nickname]
-        .join(' ')
-        .toLowerCase(),
+      searchName: [
+        ...data.name.split(' '),
+        ...data.lastname.split(' '),
+        ...data.nickname.split(' '),
+      ].map((a) => a.toLowerCase()),
     };
     await brujula.updateUserInfo(data);
     setTimeout(() => {

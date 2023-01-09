@@ -27,7 +27,6 @@ i18n
     pluralSeparator: '_',
     contextSeparator: '_',
 
-    saveMissing: true,
     debug: false,
 
     cache: {

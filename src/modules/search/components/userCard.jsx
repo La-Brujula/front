@@ -2,7 +2,6 @@ import { NavLink } from 'react-router-dom';
 import { getTitle } from '@shared/utils/areaUtils';
 
 export const UserCard = ({ user }) => {
-  console.log(user.searchName);
   return (
     <NavLink
       to={user.email}
@@ -23,11 +22,11 @@ export const UserCard = ({ user }) => {
       >
         <div className="w-full">
           <h2 className="font-normal text-2xl">
-            {!!user.nickname ? user.nickname : `${user.name} ${user.lastName}`}
+            {!!user.nickname ? user.nickname : `${user.name} ${user.lastname}`}
           </h2>
           {!!user.nickname && (
             <p className="font-normal text-sm opacity-80">
-              {user.name} {user.lastName}
+              {user.name} {user.lastname}
             </p>
           )}
           {!!user.headline && (

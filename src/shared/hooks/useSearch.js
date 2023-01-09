@@ -1,5 +1,5 @@
-import { useMemo, useState } from "react"
-import { where, orderBy, limit, startAt } from "firebase/firestore";
+import { useMemo, useRef, useState } from "react"
+import { where, orderBy, limit, startAt, startAfter } from "firebase/firestore";
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import RefList from '@shared/constants/RefList.json';
 import RefToCode from '@shared/constants/RefToCode.json';
@@ -21,7 +21,6 @@ export const useSearch = () => {
         sortByReviews: undefined,
         activity: "",
         state: "",
-        page: 0
         //state
     })
     const [results, setResults] = useState([])
@@ -65,7 +64,8 @@ export const useSearch = () => {
                     queries.push(where('state', "==", filters.state))
                     break;
                 case "language":
-                    queries.push(where('language', "array-contains", filters.language.toLowerCase()))
+                    queries.push(where('language', "array-contains",
+                        filters.language.toLowerCase()))
                     break;
                 case "schools":
                     queries.push(where('university', "in", filters.schools));
@@ -91,36 +91,41 @@ export const useSearch = () => {
                     break;
                 case "search":
                     queries.push(
-                        where('searchName', '>=', filters.search),
-                        where('searchName', '<=', filters.search + '\uf8ff')
+                        where('searchName', 'array-contains-any',
+                            filters.search.split().map(a => a.toLowerCase())),
+                        where('searchName', 'array-contains-any',
+                            filters.search.split().map(a => a.toLowerCase()))
                     )
             }
         }
-        queries.push(orderBy(filters.sortByReviews ? 'reviewCount' : 'searchName', filters.sortByReviews ? 'desc' : 'asc'))
+        queries.push(orderBy(filters.sortByReviews ? 'reviewCount' : 'searchName',
+            filters.sortByReviews ? 'desc' : 'asc'))
+        if (results.length > 0) queries.push(startAfter(results[results.length - 1].email))
+        queries.push(limit(10))
         let data = await brujula.queryUsers(queries);
+        if (!data) {
+            queries.pop()
+            data = await brujula.queryUsers(queries)
+        }
         //name, lastname, nickname, search
-        setResults(data);
         setLoading(false)
+        return data
     }
 
     useMemo(() => {
         try {
-            getResultsWithFilters(filters)
+            setResults([])
+            getResultsWithFilters(filters).then(data => setResults(data))
         } catch (e) {
             setError(e);
             setLoading(false);
-            setResults(undefined);
         }
     }, [filters])
 
-    const getPrevious = () => {
-        if (filters.page > 0) setFilterObject({ page: filters.page - 1 })
-    }
-
     const getNext = () => {
-        setFilterObject({ page: filters.page + 1 })
+        getResultsWithFilters(filters).then(data => setResults([...results, ...data]))
     }
 
 
-    return { results, loading, error, setFilterObject, getNext, getPrevious }
+    return { results, loading, error, setFilterObject, getNext }
 }
