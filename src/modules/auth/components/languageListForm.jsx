@@ -36,10 +36,16 @@ const reducer = (state, action) => {
   }
 };
 
-export const LanguageListForm = ({ name, setValue, getValues, defaultState }) => {
-  const [state, dispatch] = useReducer(reducer, defaultState || [
-    { lang: 'es', proficiency: 0 },
-  ]);
+export const LanguageListForm = ({
+  name,
+  setValue,
+  getValues,
+  defaultState,
+}) => {
+  const [state, dispatch] = useReducer(
+    reducer,
+    defaultState || [{ lang: 'es', proficiency: 'native' }]
+  );
 
   const updateValue = (i, property) => (ev) => {
     dispatch({
@@ -55,6 +61,10 @@ export const LanguageListForm = ({ name, setValue, getValues, defaultState }) =>
   useEffect(() => {
     setValue(name, state);
   }, [state]);
+
+  useEffect(() => {
+    dispatch({ type: 'rebase', state: defaultState });
+  }, [defaultState]);
 
   return (
     <div className="col-span-2">

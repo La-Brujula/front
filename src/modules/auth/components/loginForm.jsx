@@ -24,14 +24,14 @@ export const LoginForm = () => {
   const login = async (values) => {
     if (!values.email || !values.password) return;
     if (await auth.login(values.email, values.password, onError)) {
-      navigate('/perfil');
+      navigate(`/usuarios/${values.email}`);
     }
   };
 
   return (
     <>
       <form
-        className="flex flex-col gap-8 justify-center items-center max-w-xs w-full mx-auto"
+        className="flex flex-col gap-4 lg:gap-8 justify-center items-center max-w-xs w-full mx-auto"
         onSubmit={handleSubmit(login)}
       >
         <div className="flex flex-col gap-2 items-start w-full">
@@ -61,7 +61,7 @@ export const LoginForm = () => {
         {errorMsg === '' ? <></> : <p style={{ color: 'red' }}>{errorMsg}</p>}
         <input
           type="submit"
-          className="max-w-xs mx-auto mt-8 bg-primary"
+          className="max-w-xs mx-auto mt-2 lg:mt-8 bg-primary"
           onClick={login}
           value={t('Inicia sesión')}
         />

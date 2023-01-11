@@ -17,7 +17,7 @@ export const AppRouter = createBrowserRouter([
       { path: '', element: <LandingPage /> },
       { path: 'iniciar-sesion', element: <LoginPage /> },
       { path: 'crear-usuario/*', element: <SignupRouter /> },
-      { path: 'perfil/*', element: <ProfileRouter /> },
+      { path: 'usuarios/*', element: <ProfileRouter /> },
       { path: 'buscar/*', element: <SearchRouter /> },
       { path: 'guias', element: <h1>Guias en PDF</h1> },
       { path: 'quienes-somos', element: <h1>Quiénes Somos</h1> },

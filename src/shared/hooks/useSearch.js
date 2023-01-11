@@ -100,30 +100,47 @@ export const useSearch = () => {
         }
         queries.push(orderBy(filters.sortByReviews ? 'reviewCount' : 'searchName',
             filters.sortByReviews ? 'desc' : 'asc'))
-        if (results.length > 0) queries.push(startAfter(results[results.length - 1].email))
+        if (results.length > 0) {
+            queries.push(startAfter(results[results.length - 1].email))
+        }
         queries.push(limit(10))
         let data = await brujula.queryUsers(queries);
         if (!data) {
             queries.pop()
             data = await brujula.queryUsers(queries)
         }
+        const emails = results.map(user => user.email)
+        data = data.filter(entry => !emails.includes(entry.email))
         //name, lastname, nickname, search
-        setLoading(false)
         return data
     }
 
     useMemo(() => {
-        try {
-            setResults([])
-            getResultsWithFilters(filters).then(data => setResults(data))
-        } catch (e) {
-            setError(e);
+        (async () => {
+            try {
+                setResults([])
+                const data = await getResultsWithFilters(filters)
+                setResults(data)
+            } catch (e) {
+                console.error(e)
+                setError("Hubo un error por favor intenta de nuevo más tarde.");
+            }
             setLoading(false);
-        }
+        })()
     }, [filters])
 
     const getNext = () => {
-        getResultsWithFilters(filters).then(data => setResults([...results, ...data]))
+        (async () => {
+            try {
+                const data = await getResultsWithFilters(filters)
+                if (data.length == 0) setError("No hay más resultados por ahora")
+                setResults([...results, ...data])
+            } catch (e) {
+                console.error(e)
+                setError("Hubo un error, por favor intenta de nuevo más tarde.");
+            }
+            setLoading(false);
+        })()
     }
 
 

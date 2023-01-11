@@ -80,22 +80,32 @@ export const BasicInfo = () => {
           autoComplete="family-name"
           required
         />
-        <label htmlFor="gender">{t('Género')}*</label>
-        <select
-          id="gender"
-          {...register('gender', { required: true })}
-          required
-          defaultValue={''}
-        >
-          <option value="" disabled>
-            {t('Género')} *
-          </option>
-          {genders.map((gender) => (
-            <option value={gender} key={gender}>
-              {t(gender)}
-            </option>
-          ))}
-        </select>
+        {user.type == 'moral' ? (
+          <>
+            <label htmlFor="gender">{t('Género')}*</label>
+            <select
+              id="gender"
+              {...register('gender', { required: true })}
+              required
+              defaultValue={''}
+            >
+              <option value="" disabled>
+                {t('Género')} *
+              </option>
+              {genders.map((gender) => (
+                <option value={gender} key={gender}>
+                  {t(gender)}
+                </option>
+              ))}
+            </select>
+          </>
+        ) : (
+          <input
+            type="hidden"
+            {...register('gender', { required: true })}
+            value="Persona Moral"
+          />
+        )}
         <div className="col-span-2 flex flex-col gap-4 text-center">
           <label htmlFor="nickname" className="col-span-1">
             {t('Nombre con el que quieres apaecer')}
@@ -113,15 +123,15 @@ export const BasicInfo = () => {
         <label htmlFor="city" className="col-span-1">
           {t('Ciudad')}*
         </label>
-        <input type="text" id="city" {...register('city')} required />
+        <input type="text" id="city" {...register('city')} />
         <label htmlFor="state" className="col-span-1">
           {t('Estado')}*
         </label>
-        <input type="text" id="state" {...register('state')} required />
+        <input type="text" id="state" {...register('state')} />
         <label htmlFor="country" className="col-span-1">
           {t('País')}*
         </label>
-        <input type="text" id="country" {...register('country')} required />
+        <input type="text" id="country" {...register('country')} />
         <label htmlFor="phone" className="col-span-1">
           {t('Teléfono')}
         </label>
@@ -133,7 +143,7 @@ export const BasicInfo = () => {
       </label>
       <input type="hidden" {...register('probono')} />
       <ButtonSelect
-        fieldName={'probono'}
+        fieldName="probono"
         values={[true, false]}
         labels={['SÍ', 'NO']}
         setValue={setValue}

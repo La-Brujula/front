@@ -23,11 +23,11 @@
   }
 
   h1 {
-    @apply text-5xl leading-relaxed;
+    @apply text-5xl lg:leading-relaxed;
   }
 
   h2 {
-    @apply text-4xl leading-relaxed;
+    @apply text-2xl lg:text-4xl lg:leading-relaxed;
   }
 
   input,

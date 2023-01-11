@@ -5,8 +5,8 @@ function HeroSection() {
   const { t } = useTranslation('landing');
   return (
     <Container bg="primary">
-      <div className="flex flex-col lg:flex-row gap-16 text-left text-white
-      max-w-5xl mx-auto py-2 xl:py-8 items-center">
+      <div className="flex flex-col lg:flex-row gap-4 lg:gap-16 text-left text-white
+      max-w-5xl mx-auto pb-2 pt-0 xl:py-8 items-center">
         <div className="grow w-full flex flex-col gap-4 lg:gap-12">
           <h1 className="font-bold text-3xl md:text-6xl lg:text-5xl leading-tight">
             La Brújula.
@@ -26,7 +26,7 @@ function HeroSection() {
             <img
               src={import.meta.env.BASE_URL + 'img/13AniosBruj.svg'}
               alt={t('13YearsBruj')}
-              className="h-32"
+              className="h-20 lg:h-32"
             />
           </div>
         </div>

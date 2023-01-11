@@ -71,6 +71,7 @@ export const AreasRegistration = () => {
             <AreaForms
               defaultValue={activity}
               changeListener={changeListener(i)}
+              gender={user.gender}
             />
             {activities.length > 1 && (
               <div

@@ -2,52 +2,54 @@ Pantallas
 
 - placeholder link google maps
 
-Backend
-
-- hooks
-- login form check
-
-genero no se rellena con el previo
-autofill idiomas
-
-
-guía -> red
 noticias siguiente
 
 Prioridades
 
-3. registro persona moral
-    3.1. diferenciar actividades
-4. contacto
-4. links de redes sociales
-5. recomendaciones no a ti mismo # no 0-5
-6. landing directorios PDF
+1. registro persona moral
+2. contacto
+3. links de redes sociales
+4. recomendaciones no a ti mismo # no 0-5
+5. landing directorios PDF
 6. ruta de usuario con nombre
-8. lista aliad@s
-9. Hola en diferentes idiomas
+7. lista aliad@s
+8. Hola en diferentes idiomas
 
-7. conexión con wordpress
-
+9. conexión con wordpress
 
 Alex:
+
 - Función búsqueda
 
 Dani:
+
 - Links logotipos aliados
 - Links redes sociales
-- Recomendaciones
 
 Diego:
+
 - Implementación páginas persona moral quiénes somos, contacto, guias pdf
-- filtrar actividades persona moral y física
 - select propiedades en búsqueda
-- autofill idioma y remoto
+- autofill idioma
+- Recomendaciones
 
 Calendario:
-6  enero - Cambios documento
-9  enero - Invitar personas y flujo persona moral
+9 enero - Invitar personas y flujo persona moral
 14 enero - Búsqueda singular
 24 enero - Salir masivamente
 
-
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+
+Bugs 10 enero
+
+- logout error persona moral
+- crear cuenta no redirige cuando tiene éxito
+- mensaje de error en búsqueda
+- checar que paginación no repita usuarios
+
+Persona moral
+
+- Razón Social en lugar de Nombre y apellido
+- quitar indicador de obligatorios
+- quitar servicio becario
+- pagina contacto en se rompe

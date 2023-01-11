@@ -31,7 +31,7 @@ export const ResultsFilter = ({ setFilters }) => {
         className="lg:hidden px-4 py-2 rounded-md bg-primary text-white"
         onClick={() => setIsVisible(!isVisible)}
       >
-        Filtros Avanzados
+        Búsqueda Avanzada
       </div>
       <form
         className={[
@@ -49,7 +49,7 @@ export const ResultsFilter = ({ setFilters }) => {
           setFilters(values);
         })}
       >
-        <h2 className="text-primary">Filtros</h2>
+        <h2 className="text-primary text-xl">Búsqueda Avanzada</h2>
         <div className="flex flex-col gap-4">
           <select
             className="dark"

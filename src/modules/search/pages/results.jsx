@@ -32,12 +32,27 @@ export const SearchResultsPage = () => {
         <ResultsFilter setFilters={setFilterObject} />
         {loading ? (
           <LoadingSpinner />
-        ) : !!error ? (
-          <ErrorMessage message={error.toString()} />
-        ) : !!results ? (
-          <UsersList users={results} getNext={getNext} />
         ) : (
-          <p>No se encontraron resultados</p>
+          <div
+            className="flex flex-col gap-8
+    text-left bg-black bg-opacity-20 rounded-l-3xl p-8 w-full"
+          >
+            {!!results ? (
+              <UsersList users={results} getNext={getNext} />
+            ) : (
+              <p>No se encontraron resultados</p>
+            )}
+            {!error && (
+              <div
+                className="px-4 py-2 text-white bg-secondary
+            cursor-pointer rounded-md text-c"
+                onClick={getNext}
+              >
+                Cargar más
+              </div>
+            )}
+            {!!error && <ErrorMessage message={error.toString()} />}
+          </div>
         )}
       </div>
     </>

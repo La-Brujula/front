@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { SeccionAliades } from '../components/aliados';
 import { BannerAnuncios } from '../components/bannerAnuncios';
 import DownloadGuides from '../components/downloadGuides';
@@ -6,13 +5,11 @@ import HeroSection from '../components/heroSection';
 import SearchByCategory from '../components/searchByCategory';
 import SearchByQuery from '../components/searchByQuery';
 import { LoginOrProfile } from '../components/loginOrProfile';
-import { lazy, useEffect } from 'react';
+import { lazy } from 'react';
 
 const QuotesSlider = lazy(() => import('../components/quotesSlider'))
 
 export default () => {
-  const { t } = useTranslation('landing');
-  
   return (
     <>
       <HeroSection />

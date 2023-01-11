@@ -26,7 +26,7 @@ export const CaracteristicasPage = () => {
 
   const onSubmit = async (data) => {
     await brujula.updateUserInfo(data);
-    navigate('/perfil');
+    navigate('/usuarios');
   };
 
   return (

@@ -34,7 +34,7 @@ export const Navbar = () => {
               {t('login')}
             </NavLink>
           ) : (
-            <NavLink to="/perfil" className="text-white order-last">
+            <NavLink to="/usuarios" className="text-white order-last">
               <PersonOutline />
             </NavLink>
           )}
@@ -104,7 +104,7 @@ export const Navbar = () => {
             ) : (
               <NavLink
                 onClick={() => toggleOpen()}
-                to="/perfil"
+                to="/usuarios"
                 className="font-bold leading-relaxed text-white"
               >
                 {t('myUser')}

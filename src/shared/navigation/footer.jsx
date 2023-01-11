@@ -28,14 +28,14 @@ export const Footer = () => {
                 className="h-10"
               />
             </a>
-            <a href="https://www.youtube.com/results?search_query=la+brujula+audiovisual">
+            <a href="https://www.youtube.com/results?search_query=la+br%C3%BAjula+audiovisual">
               <img
                 src={import.meta.env.BASE_URL + 'img/YoutubeIcon.svg'}
                 alt="Youtube"
                 className="h-10"
               />
             </a>
-            <a href="BRUJULA_WHATSAPP">
+            <a href="https://api.whatsapp.com/send?phone=%2B52+33+1385+2068&text=Hola%21">
               <img
                 src={import.meta.env.BASE_URL + 'img/WAIcon.svg'}
                 alt="WhatsApp"

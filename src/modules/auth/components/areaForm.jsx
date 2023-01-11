@@ -18,25 +18,49 @@ export const AreaForms = ({ defaultValue, gender, changeListener }) => {
   const area = watch('area');
   const subarea = watch('subarea');
 
+  const areaHasValid = (area) => {
+    return Object.keys(areas[area]).some((subarea) =>
+      Object.keys(areas[area][subarea]).some(
+        (activity) => areas[area][subarea][activity][gender]?.es
+      )
+    );
+  };
+
+  const subareaHasValid = (area, subarea) => {
+    return Object.keys(areas[area][subarea]).some(
+      (activity) => areas[area][subarea][activity][gender]?.es
+    );
+  };
+
   return (
     <div className="grid grid-cols-[max-content_1fr] text-right gap-y-4 gap-x-2 w-full items-center">
       <label htmlFor="area">Area</label>
       <select {...register('area')} placeholder="Area">
         <option value="">Selecciona una opción</option>
-        {Object.keys(areas).map((area) => (
-          <option key={area}>{area}</option>
-        ))}
+        {Object.keys(areas).map((area) =>
+          areaHasValid(area) ? (
+            <option key={area} value={area}>
+              {area}
+            </option>
+          ) : (
+            <></>
+          )
+        )}
       </select>
       {!!area && (
         <>
           <label htmlFor="subarea">Subarea</label>
           <select {...register('subarea')}>
             <option value="">Selecciona una opción</option>
-            {Object.keys(areas[area]).map((subarea) => (
-              <option key={subarea} value={subarea}>
-                {subarea}
-              </option>
-            ))}
+            {Object.keys(areas[area]).map((subarea) =>
+              subareaHasValid(area, subarea) ? (
+                <option key={subarea} value={subarea}>
+                  {subarea}
+                </option>
+              ) : (
+                <></>
+              )
+            )}
           </select>
         </>
       )}
@@ -52,13 +76,14 @@ export const AreaForms = ({ defaultValue, gender, changeListener }) => {
             {!!area &&
               !!subarea &&
               !!areas[area][subarea] &&
-              Object.keys(areas[area][subarea]).map(
-                (activity) =>
-                  getTitle(activity, gender) && (
-                    <option key={activity} value={activity}>
-                      {getTitle(activity, gender)}
-                    </option>
-                  )
+              Object.keys(areas[area][subarea]).map((activity) =>
+                getTitle(activity, gender) ? (
+                  <option key={activity} value={activity}>
+                    {getTitle(activity, gender)}
+                  </option>
+                ) : (
+                  <></>
+                )
               )}
           </select>
         </>

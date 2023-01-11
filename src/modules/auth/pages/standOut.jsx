@@ -4,13 +4,13 @@ import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { ButtonSelect } from '@shared/components/buttonSelect';
-import { getValue } from '@mui/system';
 import { useEffect, useMemo } from 'react';
 import { useUserInfo } from '@shared/hooks/useUserInfo';
+import { LoadingSpinner } from '@shared/components/loadingSpinner';
 
 export const StandoutPage = () => {
   const brujula = brujulaUtils();
-  const { register, handleSubmit, setValue, watch } = useForm();
+  const { register, handleSubmit, setValue, watch, getValues } = useForm();
   const profilePicture = watch('profilePicture');
   const coverPicture = watch('coverPicture');
   const profilePictureUrl = watch('profilePictureUrl');
@@ -24,7 +24,7 @@ export const StandoutPage = () => {
     if (!isLoggedIn) navigate('/iniciar-sesion');
   }, []);
 
-  const { user } = useUserInfo(getUserEmail());
+  const { user, loading } = useUserInfo(getUserEmail());
   useMemo(() => {
     !!user &&
       Object.entries(user).forEach(([key, value]) => setValue(key, value));
@@ -59,9 +59,11 @@ export const StandoutPage = () => {
     navigate('../contacto');
   };
 
-  return (
+  return loading ? (
+    <LoadingSpinner />
+  ) : (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
-      <p>*{t('requiredInformation')}</p>
+      <p>*{t('Information')}</p>
       <div
         className="flex flex-col max-w-lg
       text-right gap-4 mx-auto items-center gap-x-8"
@@ -87,7 +89,6 @@ export const StandoutPage = () => {
           rows="3"
           maxLength={100}
           {...register('headline')}
-          required
           className="rounded-md bg-black bg-opacity-20 resize-none col-span-2 p-4 w-full"
         />
       </div>
@@ -97,39 +98,30 @@ export const StandoutPage = () => {
       </div>
       <div className="grid grid-cols-[min-content_minmax(12rem,_24rem)] text-right gap-4 mx-auto">
         <label htmlFor="address">{t('Dirección')}</label>
-        <input
-          type="text"
-          {...register('address')}
-          autoComplete="address"
-          required
-        />
+        <input type="text" {...register('address')} autoComplete="address" />
         <label htmlFor="postalCode">{t('CP')}</label>
         <input
           type="text"
           {...register('postalCode')}
           autoComplete="postal-code"
-          required
         />
         <label htmlFor="city">{t('Ciudad')}</label>
         <input
           type="text"
           {...register('city')}
           autoComplete="address-level2"
-          required
         />
         <label htmlFor="state">{t('Estado')}</label>
         <input
           type="text"
           {...register('state')}
           autoComplete="address-level1"
-          required
         />
         <label htmlFor="country">{t('País')}</label>
         <input
           type="text"
           {...register('country')}
           autoComplete="country-name"
-          required
         />
         <label htmlFor="googleMapsLink">{t('🌐')}</label>
         <input
@@ -156,13 +148,13 @@ export const StandoutPage = () => {
             {t('Servicios a distancia')}
           </h3>
           <label htmlFor="remoteWork">{t('¿Trabajas online?')}</label>
-          <input type="hidden" {...register('remoteWork')} required />
+          <input type="hidden" {...register('remoteWork')} />
           <ButtonSelect
             fieldName="remoteWork"
             values={[true, false]}
             labels={[t('SÍ'), t('NO')]}
             setValue={setValue}
-            getValue={getValue}
+            getValue={getValues}
           />
         </div>
       </div>

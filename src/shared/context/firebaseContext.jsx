@@ -81,21 +81,17 @@ export const FireAuthProvider = ({ children }) => {
   };
 
   const logout = () => {
-    if (isLoggedIn) {
-      signOut(auth);
-      setIsLoggedIn(false);
-    }
+    if (!isLoggedIn) return;
+    signOut(auth);
+    setIsLoggedIn(false);
   };
 
   const getUserEmail = () => {
-    if (isLoggedIn) {
-      return auth.currentUser.email;
-    } else return '';
+    return auth?.currentUser?.email || '';
   };
 
   const getUserId = () => {
-    if (isLoggedIn) return auth.currentUser.uid;
-    else return '';
+    return auth?.currentUser?.uid || '';
   };
 
   return (
@@ -126,13 +122,8 @@ export const firestore = (() => {
   };
 
   const saveInfoByDocRef = async (docRef, object) => {
-    try {
-      await setDoc(docRef, object);
-      return true;
-    } catch (e) {
-      printError(e);
-      return false;
-    }
+    await setDoc(docRef, object);
+    return true;
   };
 
   const saveInfo = async (collection, document, object) => {
@@ -140,23 +131,11 @@ export const firestore = (() => {
   };
 
   const retriveInfoByColRef = async (colRef) => {
-    try {
-      const docSnap = await getDocs(colRef);
-      return docSnap;
-    } catch (e) {
-      printError(e);
-      return false;
-    }
+    return await getDocs(colRef);
   };
 
   const retriveInfoByDocRef = async (docRef) => {
-    try {
-      const docSnap = await getDoc(docRef);
-      return docSnap.data();
-    } catch (e) {
-      printError(e);
-      return false;
-    }
+    return (await getDoc(docRef)).data();
   };
 
   const retriveInfo = async (collection, document) => {
@@ -172,12 +151,7 @@ export const firestore = (() => {
   };
 
   const deleteInfoByDocRef = async (docRef) => {
-    try {
-      await deleteDoc(docRef);
-    } catch (e) {
-      printError(e);
-      return false;
-    }
+    await deleteDoc(docRef);
   };
 
   return {
