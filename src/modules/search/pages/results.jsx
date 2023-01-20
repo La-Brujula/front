@@ -10,7 +10,8 @@ import { ErrorMessage } from '@shared/components/errorMessage';
 export const SearchResultsPage = () => {
   const [searchParams] = useSearchParams();
 
-  const { results, loading, error, setFilterObject, getNext } = useSearch();
+  const { results, loading, error, setFilterObject, getNext, hasMore } =
+    useSearch();
 
   useMemo(() => {
     let filters = {};
@@ -42,7 +43,7 @@ export const SearchResultsPage = () => {
             ) : (
               <p>No se encontraron resultados</p>
             )}
-            {!error && (
+            {hasMore && (
               <div
                 className="px-4 py-2 text-white bg-secondary
             cursor-pointer rounded-md text-c"

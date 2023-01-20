@@ -1,5 +1,5 @@
 import AddOutlined from '@mui/icons-material/AddOutlined';
-import { useContext, useMemo, useReducer } from 'react';
+import { useContext, useMemo } from 'react';
 import { useUserInfo } from '../../../shared/hooks/useUserInfo';
 import { LoadingSpinner } from '@shared/components/loadingSpinner';
 import { ErrorMessage } from '@shared/components/errorMessage';
@@ -9,45 +9,29 @@ import { AuthContext } from '@shared/context/firebaseContext';
 import { useTranslation } from 'react-i18next';
 import CloseOutlined from '@mui/icons-material/CloseOutlined';
 import { useNavigate } from 'react-router-dom';
-
-const activityReducer = (state, action) => {
-  const newArray = !!state ? state.slice() : [];
-  switch (action.type) {
-    case 'add':
-      newArray.splice(newArray.length, 0, action.item);
-      return [...newArray];
-    case 'remove':
-      if (action.index === undefined) throw 'Missing index';
-      newArray.splice(action.index, 1);
-      return [...newArray];
-    case 'change':
-      if (action.index === undefined) throw 'Missing index';
-      if (action.item === undefined) throw 'Missing item';
-      newArray.splice(action.index, 1, action.item);
-      return [...newArray];
-    case 'clear':
-      return [];
-  }
-};
+import { useAreasReducer } from '../hooks/useAreasReducer';
+import { useState } from 'react';
 
 export const AreasRegistration = () => {
   const auth = useContext(AuthContext);
   const brujula = brujulaUtils();
-  const { user, loading, error } = useUserInfo(auth.getUserEmail());
+  const { user, loading, error: userError } = useUserInfo(auth.getUserEmail());
+  const [error, setError] = useState(undefined);
 
   const navigate = useNavigate();
 
-  const [activities, dispatch] = useReducer(
-    activityReducer,
-    user?.subareas || [undefined]
-  );
+  const {
+    state: activities,
+    dispatch,
+    removeElement,
+  } = useAreasReducer(user?.subareas);
 
   const { t } = useTranslation();
 
   useMemo(() => {
-    if (!user.subareas) return;
+    if (!user?.subareas) return;
     dispatch({ type: 'clear' });
-    user.subareas.forEach((activity) =>
+    user?.subareas.forEach((activity) =>
       dispatch({ type: 'add', item: activity })
     );
   }, [user]);
@@ -58,11 +42,12 @@ export const AreasRegistration = () => {
 
   return loading ? (
     <LoadingSpinner />
-  ) : !!error ? (
-    <ErrorMessage message={error.toString()} />
+  ) : !!userError ? (
+    <ErrorMessage message={userError.toString()} />
   ) : (
     <>
       <div className="flex flex-col gap-8">
+        <h1>Areas</h1>
         {activities.map((activity, i) => (
           <div
             key={i}
@@ -71,13 +56,10 @@ export const AreasRegistration = () => {
             <AreaForms
               defaultValue={activity}
               changeListener={changeListener(i)}
-              gender={user.gender}
+              gender={user?.gender}
             />
             {activities.length > 1 && (
-              <div
-                onClick={() => dispatch({ type: 'remove', index: i })}
-                className="cursor-pointer"
-              >
+              <div onClick={removeElement(i)} className="cursor-pointer">
                 <CloseOutlined />
               </div>
             )}
@@ -86,10 +68,16 @@ export const AreasRegistration = () => {
       </div>
       {activities.length < 3 && (
         <div
-          className="cursor-pointer mt-6"
+          className="cursor-pointer mt-6 px-4 py-2 bg-secondary text-white
+        rounded-md mx-auto w-fit"
           onClick={() => dispatch({ type: 'add' })}
         >
-          <AddOutlined />
+          Agregar otra actividad
+        </div>
+      )}
+      {!!error && (
+        <div className="my-8">
+          <ErrorMessage message={error.toString()} />
         </div>
       )}
       <div className="flex flex-row gap-4 self-center w-full justify-center mt-4">
@@ -98,6 +86,11 @@ export const AreasRegistration = () => {
         </div>
         <div
           onClick={async () => {
+            if (
+              activities.length == 0 ||
+              activities.some((activity) => !!!activity)
+            )
+              return setError('Tienes que tener al menos una actividad');
             await brujula.updateUserInfo({ subareas: activities });
             navigate('../resumen');
           }}

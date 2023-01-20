@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { useUserInfo } from '@shared/hooks/useUserInfo';
 import { ProfileBadge } from '@modules/profile/components/profileBadge';
 import { LoadingSpinner } from '@shared/components/loadingSpinner';
@@ -12,6 +12,7 @@ export const BaseStepPage = () => {
   const { user, loading, error } = useUserInfo(brujula.getCurrentUserEmail());
 
   const { isLoggedIn } = useAuth();
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (!isLoggedIn) navigate('/iniciar-sesion');

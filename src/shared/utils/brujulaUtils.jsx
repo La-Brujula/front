@@ -47,14 +47,14 @@ export function brujulaUtils() {
       userRecommending
     );
     await store.saveInfoByDocRef(docRef, userRecommending);
-    updateReviewCount()
+    updateReviewCount();
   };
 
   function updateReviewCount(updateUserInfo, userRecomended) {
     getReviews().then((data) => {
       updateUserInfo(userRecomended, { reviewCount: data.length });
     });
-  };
+  }
 
   // TODO Generalizar métodos para usuario general y no sólo usuario actual
 
@@ -73,6 +73,7 @@ export function brujulaUtils() {
   const deleteUser = async (email) => {
     const docRef = store.getSubcollection('users', email);
     await store.deleteInfoByDocRef(docRef);
+    await auth.deleteUser()
   };
 
   const updateUserInfo = async (userInfo, email = auth.getUserEmail()) => {
@@ -90,6 +91,11 @@ export function brujulaUtils() {
       ...(await store.getInfo('users', email)),
       email: email,
     };
+  };
+
+  const deleteUserPictures = async () => {
+    await storage.deleteFile('/profilePicture');
+    await storage.deleteFile('/coverPicture');
   };
 
   const saveUserPicture = async (file, key, email = auth.getUserEmail()) => {
@@ -133,6 +139,8 @@ export function brujulaUtils() {
     saveUserPicture,
     getProfilePictureUrl,
     getUserPictureUrl,
+    deleteUserPictures,
+
     getCurrentUserEmail,
   };
 }

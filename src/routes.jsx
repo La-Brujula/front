@@ -11,6 +11,7 @@ const LogoutPage = lazy(() => import('@modules/auth/pages/logout'));
 const ContactPage = lazy(() => import('./modules/contact/page'));
 const AboutUsPage = lazy(() => import('./modules/about/page'));
 const PDFGuidesPage = lazy(() => import('./modules/guides/page'));
+const DeleteAccountPage = lazy(() => import('./modules/deleteAccount/page'));
 
 export const AppRouter = createBrowserRouter([
   {
@@ -26,6 +27,7 @@ export const AppRouter = createBrowserRouter([
       { path: 'quienes-somos', element: <AboutUsPage /> },
       { path: 'contacto', element: <ContactPage /> },
       { path: 'cerrar-sesion', element: <LogoutPage /> },
+      { path: 'cerrar-cuenta', element: <DeleteAccountPage /> },
       { path: 'aviso-privacidad', element: <h1>Aviso Privacidad</h1> },
       {
         path: 'reiniciar-contraseña',

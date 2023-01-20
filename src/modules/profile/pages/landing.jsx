@@ -4,6 +4,7 @@ import { ContactSection } from '../components/contactInfo';
 import { useReviews } from '../../../shared/hooks/useReviews';
 import { useAuth } from '../../../shared/context/firebaseContext';
 import languages from '@shared/constants/languages.json';
+import { NavLink } from 'react-router-dom';
 
 export const UserProfilePage = ({ user }) => {
   const { t } = useTranslation('profile');
@@ -124,6 +125,11 @@ export const UserProfilePage = ({ user }) => {
             <div className="my-8"></div>
           </div>
         </div>
+        {auth.getUserEmail() == user.email && (
+          <NavLink to="/cerrar-cuenta" className="!text-slate-400 text-sm text-center block">
+            Borrar cuenta
+          </NavLink>
+        )}
       </div>
     </div>
   );

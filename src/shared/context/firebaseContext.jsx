@@ -5,6 +5,7 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  deleteUser as firebaseDeleteUser,
 } from 'firebase/auth';
 import {
   getFirestore,
@@ -22,6 +23,7 @@ import {
   getStorage,
   ref,
   uploadBytes,
+  deleteObject,
 } from 'firebase/storage';
 import React, { useContext, useState } from 'react';
 
@@ -94,6 +96,10 @@ export const FireAuthProvider = ({ children }) => {
     return auth?.currentUser?.uid || '';
   };
 
+  function deleteUser() {
+    return firebaseDeleteUser(auth.currentUser);
+  }
+
   return (
     <AuthContext.Provider
       value={{
@@ -104,6 +110,7 @@ export const FireAuthProvider = ({ children }) => {
         getUserEmail: getUserEmail,
         getUserId: getUserId,
         isLoggedIn: isLoggedIn,
+        deleteUser: deleteUser,
       }}
     >
       {children}
@@ -199,28 +206,26 @@ export const firestorage = (() => {
     }
   };
 
+  const deleteFile = async (name, path = '') => {
+    try {
+      const reference = ref(getStorage(), path + name);
+      await deleteObject(reference);
+      return true;
+    } catch (err) {
+      printError(err);
+    }
+  };
+
   return {
     uploadFileBytes: uploadFileBytes,
     getFileUrl: getFileUrl,
     getFile: getFile,
+    deleteFile: deleteFile,
   };
 })();
 
 export const StoreContext = React.createContext(firestore);
 export const StorageContext = React.createContext(firestorage);
-
-export const AudioProvider = ({ children }) => {
-  const [song, changeSong] = (useState < IAlbum) | (undefined > undefined);
-
-  return (
-    <AudioContext.Provider value={{ currentSong: song, changeSong }}>
-      {children}
-      {!!song && (
-        <audio src={song.preview} autoPlay crossOrigin="anonymous"></audio>
-      )}
-    </AudioContext.Provider>
-  );
-};
 
 export function useAuth() {
   return useContext(AuthContext);

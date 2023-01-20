@@ -1,5 +1,5 @@
 import { useMemo, useRef, useState } from "react"
-import { where, orderBy, limit, startAt, startAfter } from "firebase/firestore";
+import { where, orderBy, limit, startAfter } from "firebase/firestore";
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import RefList from '@shared/constants/RefList.json';
 import RefToCode from '@shared/constants/RefToCode.json';
@@ -26,6 +26,7 @@ export const useSearch = () => {
     const [results, setResults] = useState([])
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(undefined)
+    const [hasMore, setHasMore] = useState(true)
 
 
     const setFilterObject = (filters) => {
@@ -133,7 +134,7 @@ export const useSearch = () => {
         (async () => {
             try {
                 const data = await getResultsWithFilters(filters)
-                if (data.length == 0) setError("No hay más resultados por ahora")
+                if (data.length == 0) setHasMore(false)
                 setResults([...results, ...data])
             } catch (e) {
                 console.error(e)
@@ -144,5 +145,5 @@ export const useSearch = () => {
     }
 
 
-    return { results, loading, error, setFilterObject, getNext }
+    return { results, loading, error, setFilterObject, getNext, hasMore }
 }

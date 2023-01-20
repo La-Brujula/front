@@ -33,7 +33,10 @@ export const AreaForms = ({ defaultValue, gender, changeListener }) => {
   };
 
   return (
-    <div className="grid grid-cols-[max-content_1fr] text-right gap-y-4 gap-x-2 w-full items-center">
+    <div
+      className="grid grid-cols-1 md:grid-cols-[max-content_1fr]
+    text-left md:text-right gap-y-4 gap-x-2 w-full items-center"
+    >
       <label htmlFor="area">Area</label>
       <select {...register('area')} placeholder="Area">
         <option value="">Selecciona una opción</option>
