@@ -3,6 +3,7 @@ import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import { ProfileBadge } from '@modules/profile/components/profileBadge';
 import { LoadingSpinner } from '@shared/components/loadingSpinner';
 import { ErrorMessage } from '@shared/components/errorMessage';
+import { NavLink } from 'react-router-dom';
 
 export const CurrentUserBadge = () => {
   const brujula = brujulaUtils();
@@ -12,6 +13,8 @@ export const CurrentUserBadge = () => {
   ) : error ? (
     <ErrorMessage message={error.toString()} />
   ) : (
-    <ProfileBadge user={user} />
+    <NavLink to={`/usuarios/${brujula.getCurrentUserEmail()}`}>
+      <ProfileBadge user={user} />
+    </NavLink>
   );
 };
