@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Container = ({ children, bg }) => {
+export const Container = ({ children, bg, className }) => {
   return (
     <div
       className={[
@@ -15,9 +15,11 @@ export const Container = ({ children, bg }) => {
             case 'lightblue':
               return 'bg-primary bg-opacity-20';
             case 'top-half-blue':
-              return 'bg-[linear-gradient(180deg,_rgba(255_255_255_0)_80%,_rgba(45_123_191_255)_80%)]'
+              return 'bg-[linear-gradient(180deg,_rgba(255_255_255_0)_80%,_rgba(45_123_191_255)_80%)]';
+            case 'bottom-half-grey':
+              return 'bg-[linear-gradient(180deg,_#ededed00_60%,_#edededff_60%)]';
             case 'whitetoblue':
-              return 'bg-[linear-gradient(180deg,_#0000_80%,_#2d7bbf33_80%)]'
+              return 'bg-[linear-gradient(180deg,_#0000_80%,_#2d7bbf33_80%)]';
             default:
               return 'bg-transparent';
           }
@@ -30,6 +32,7 @@ export const Container = ({ children, bg }) => {
         'flex',
         'flex-col',
         'justify-center',
+        className,
       ].join(' ')}
     >
       <div className="max-w-6xl mx-auto w-full">{children}</div>

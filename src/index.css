@@ -37,11 +37,11 @@
 
   select {
     background-image: url('/img/DropIcon.svg');
-    background-position: calc(100% - .5rem) calc(100% - .25ch);
+    background-position: calc(100% - 0.5rem) calc(100% - 0.25ch);
     background-size: 1.5rem 1.5rem;
     background-repeat: no-repeat;
   }
-  
+
   select.dark {
     background-image: url('/img/DropIconDark.svg');
   }
@@ -57,7 +57,7 @@
     px-5 py-3 cursor-pointer border-none font-bold;
   }
 
-  input[type="checkbox"]:checked {
+  input[type='checkbox']:checked {
     @apply bg-primary border-none;
   }
 

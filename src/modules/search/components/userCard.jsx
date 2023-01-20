@@ -4,7 +4,7 @@ import { getTitle } from '@shared/utils/areaUtils';
 export const UserCard = ({ user }) => {
   return (
     <NavLink
-      to={user.email}
+      to={`/usuarios/${user.email}`}
       className="grid grid-cols-2 xl:grid-cols-[max-content,_2fr,_1fr] gap-8 border-b-black border-b border-opacity-40 pb-6"
     >
       {!!user.profilePictureUrl ? (

@@ -1,5 +1,5 @@
 export const ErrorMessage = ({message}) => {
-    return <div className="bg-red-500 p-8 rounded-md text-[#fff] font-bold">
+    return <div className="bg-amber-300 p-8 rounded-md text-[#303030] font-bold">
         <p>{message}</p>
     </div>
 }

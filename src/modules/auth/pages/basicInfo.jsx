@@ -61,13 +61,14 @@ export const BasicInfo = () => {
       text-right gap-4"
       >
         <label htmlFor="name" className="col-span-1">
-          {t('Nombre (s)')} *
+          {user.type == 'moral' ? t('Razón Social') : t('Nombre (s)')}{' '}
+          *
         </label>
         <input
           type="text"
           id="name"
           {...register('name')}
-          autoComplete="given-name"
+          autoComplete={user.type != 'moral' && 'given-name'}
           required
         />
         <label htmlFor="lastname" className="col-span-1">
@@ -121,15 +122,15 @@ export const BasicInfo = () => {
           {t('¿Dónde resides actualmente?')}
         </p>
         <label htmlFor="city" className="col-span-1">
-          {t('Ciudad')}*
+          {t('Ciudad')}
         </label>
         <input type="text" id="city" {...register('city')} />
         <label htmlFor="state" className="col-span-1">
-          {t('Estado')}*
+          {t('Estado')}
         </label>
         <input type="text" id="state" {...register('state')} />
         <label htmlFor="country" className="col-span-1">
-          {t('País')}*
+          {t('País')}
         </label>
         <input type="text" id="country" {...register('country')} />
         <label htmlFor="phone" className="col-span-1">

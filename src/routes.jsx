@@ -7,7 +7,10 @@ const SignupRouter = lazy(() => import('@modules/auth/router'));
 const LandingPage = lazy(() => import('@modules/landing/pages/landing'));
 const ProfileRouter = lazy(() => import('@modules/profile/router'));
 const SearchRouter = lazy(() => import('@modules/search/router'));
-const LogoutPage = lazy(() => import("@modules/auth/pages/logout"))
+const LogoutPage = lazy(() => import('@modules/auth/pages/logout'));
+const ContactPage = lazy(() => import('./modules/contact/page'));
+const AboutUsPage = lazy(() => import('./modules/about/page'));
+const PDFGuidesPage = lazy(() => import('./modules/guides/page'));
 
 export const AppRouter = createBrowserRouter([
   {
@@ -19,10 +22,10 @@ export const AppRouter = createBrowserRouter([
       { path: 'crear-usuario/*', element: <SignupRouter /> },
       { path: 'usuarios/*', element: <ProfileRouter /> },
       { path: 'buscar/*', element: <SearchRouter /> },
-      { path: 'guias', element: <h1>Guias en PDF</h1> },
-      { path: 'quienes-somos', element: <h1>Quiénes Somos</h1> },
-      { path: 'contacto', element: <h1>Contacto</h1> },
-      { path: 'cerrar-sesion', element: <LogoutPage/>},
+      { path: 'guias', element: <PDFGuidesPage /> },
+      { path: 'quienes-somos', element: <AboutUsPage /> },
+      { path: 'contacto', element: <ContactPage /> },
+      { path: 'cerrar-sesion', element: <LogoutPage /> },
       { path: 'aviso-privacidad', element: <h1>Aviso Privacidad</h1> },
       {
         path: 'reiniciar-contraseña',

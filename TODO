@@ -7,13 +7,11 @@ noticias siguiente
 Prioridades
 
 1. registro persona moral
-2. contacto
-3. links de redes sociales
 4. recomendaciones no a ti mismo # no 0-5
-5. landing directorios PDF
 6. ruta de usuario con nombre
-7. lista aliad@s
+7. búsqueda
 8. Hola en diferentes idiomas
+9. Galería Quiénes Somos
 
 9. conexión con wordpress
 
@@ -24,14 +22,13 @@ Alex:
 Dani:
 
 - Links logotipos aliados
-- Links redes sociales
+- Quiénes somos créditos
 
 Diego:
 
-- Implementación páginas persona moral quiénes somos, contacto, guias pdf
-- select propiedades en búsqueda
-- autofill idioma
-- Recomendaciones
+- Implementación páginas persona moral
+- Botón eliminar  (elimina todo)
+- quitar servicio becario
 
 Calendario:
 9 enero - Invitar personas y flujo persona moral
@@ -40,16 +37,4 @@ Calendario:
 
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
-Bugs 10 enero
-
-- logout error persona moral
-- crear cuenta no redirige cuando tiene éxito
-- mensaje de error en búsqueda
-- checar que paginación no repita usuarios
-
 Persona moral
-
-- Razón Social en lugar de Nombre y apellido
-- quitar indicador de obligatorios
-- quitar servicio becario
-- pagina contacto en se rompe

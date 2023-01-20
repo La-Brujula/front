@@ -8,9 +8,7 @@ import languages from '@shared/constants/languages.json';
 export const UserProfilePage = ({ user }) => {
   const { t } = useTranslation('profile');
   const auth = useAuth();
-  const { reviews, avarage, count, addReview, removeReview } = useReviews(
-    user.email
-  );
+  const { reviews, count, addReview, removeReview } = useReviews(user.email);
 
   return (
     <div>
@@ -57,33 +55,24 @@ export const UserProfilePage = ({ user }) => {
             <div>
               <h4 className="font-normal text-primary">Recomendaciones: </h4>
 
-              <p>{avarage}</p>
-              <h4
-                style={{
-                  display:
-                    reviews.find((e) => e.from == auth.getUserEmail()) !=
-                    undefined
-                      ? 'none'
-                      : 'block',
-                }}
-                className="font-normal text-primary cursor-pointer"
-                onClick={() => addReview(auth.getUserEmail(), 5)}
-              >
-                Click para recomendar
-              </h4>
-              <h4
-                style={{
-                  display:
-                    reviews.find((e) => e.from == auth.getUserEmail()) ==
-                    undefined
-                      ? 'none'
-                      : 'block',
-                }}
-                className="font-normal text-primary cursor-pointer"
-                onClick={() => removeReview(auth.getUserEmail())}
-              >
-                Remover recomendacion
-              </h4>
+              <p>{count}</p>
+              <p>{reviews.join(', ')}</p>
+              {auth.getUserEmail() != user.email &&
+                (!reviews.includes(auth.getUserEmail()) ? (
+                  <h4
+                    className="font-normal text-primary cursor-pointer"
+                    onClick={() => addReview(auth.getUserEmail())}
+                  >
+                    Click para recomendar
+                  </h4>
+                ) : (
+                  <h4
+                    className="font-normal text-primary cursor-pointer"
+                    onClick={() => removeReview(auth.getUserEmail())}
+                  >
+                    Remover recomendacion
+                  </h4>
+                ))}
             </div>
             {!!user.characteristics && (
               <div>

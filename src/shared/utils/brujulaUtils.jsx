@@ -35,9 +35,10 @@ export function brujulaUtils() {
       userRecommending
     );
     await store.deleteInfoByDocRef(docRef);
+    updateReviewCount(updateUserInfo, userRecomended);
   };
 
-  const addReview = async (userRecommending, userRecomended, rating) => {
+  const addReview = async (userRecommending, userRecomended) => {
     //se guarda dentro del usuario que esta siendo recomendado
     const docRef = store.getSubcollection(
       'users',
@@ -45,9 +46,13 @@ export function brujulaUtils() {
       'reviews',
       userRecommending
     );
-    await store.saveInfoByDocRef(docRef, {
-      from: userRecommending,
-      rating: rating,
+    await store.saveInfoByDocRef(docRef, userRecommending);
+    updateReviewCount()
+  };
+
+  function updateReviewCount(updateUserInfo, userRecomended) {
+    getReviews().then((data) => {
+      updateUserInfo(userRecomended, { reviewCount: data.length });
     });
   };
 

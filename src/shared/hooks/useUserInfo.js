@@ -24,6 +24,7 @@ export const useUserInfo = (email = "") => {
             } catch (e) {
                 setError(e)
                 setLoading(false)
+                console.error(e)
             }
         })();
     }, [email])

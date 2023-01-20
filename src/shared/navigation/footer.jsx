@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
+import { SocialLinks } from '../components/socials';
 
 export const Footer = () => {
   const { t } = useTranslation('navigation');
@@ -12,39 +13,7 @@ export const Footer = () => {
         <NavLink to="contacto" className="text-primary font-bold">
           {t('contactUs')}
         </NavLink>
-        <div className="flex flex-col gap-4">
-          <div className="flex flex-row gap-8 mx-auto">
-            <a href="https://www.facebook.com/LaBrujulaAudiovisual">
-              <img
-                src={import.meta.env.BASE_URL + 'img/FBIcon.svg'}
-                alt="Facebook"
-                className="h-10"
-              />
-            </a>
-            <a href="https://www.instagram.com/labrujulaaudiovisual/">
-              <img
-                src={import.meta.env.BASE_URL + 'img/IGIcon.svg'}
-                alt="Instagram"
-                className="h-10"
-              />
-            </a>
-            <a href="https://www.youtube.com/results?search_query=la+br%C3%BAjula+audiovisual">
-              <img
-                src={import.meta.env.BASE_URL + 'img/YoutubeIcon.svg'}
-                alt="Youtube"
-                className="h-10"
-              />
-            </a>
-            <a href="https://api.whatsapp.com/send?phone=%2B52+33+1385+2068&text=Hola%21">
-              <img
-                src={import.meta.env.BASE_URL + 'img/WAIcon.svg'}
-                alt="WhatsApp"
-                className="h-10"
-              />
-            </a>
-          </div>
-          <p className="font-bold text-primary">{t('¡Siguenos en nuestras redes sociales!')}</p>
-        </div>
+        <SocialLinks />
         <p>
           {t('seeOur')}&nbsp;
           <NavLink to="privacy" className="text-primary">

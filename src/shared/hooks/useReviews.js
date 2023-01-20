@@ -4,24 +4,13 @@ import { brujulaUtils } from '@shared/utils/brujulaUtils';
 export const useReviews = (email) => {
     const brujula = brujulaUtils();
     const [reviews, setReviews] = useState([])
-    const [avarage, setAvarage] = useState(0)
     const [count, setCount] = useState(0)
     
     const getReviews = async () => {
         if(email !== ''){
             const data = await brujula.getReviews(email);
             setReviews([...data]);
-            if(data.length !== 0){
-                let sum = 0;
-                data.forEach(e=>{
-                    sum += e.rating
-                })
-                setCount(data.length)
-                setAvarage(sum/data.length)
-            }else {
-                setCount(0)
-                setAvarage('~')
-            }
+            setCount(data.length)
         }
     }
 
@@ -29,8 +18,8 @@ export const useReviews = (email) => {
       getReviews()
     }, [])
 
-    const addReview = async (userRecomending, rating) => {
-        await brujula.addReview(userRecomending, email, rating);
+    const addReview = async (userRecomending) => {
+        await brujula.addReview(userRecomending, email);
         getReviews();
     }
 
@@ -39,7 +28,7 @@ export const useReviews = (email) => {
         getReviews();
     }
 
-    return {reviews, count, avarage, addReview, removeReview}
+    return {reviews, count, addReview, removeReview}
     
 
 }
