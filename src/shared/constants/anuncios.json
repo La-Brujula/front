@@ -1,10 +1,42 @@
-[
-    {
-        "imageUrl": "https://images.unsplash.com/photo-1504022462188-88f023db97bf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
-        "linkUrl": "https://google.com"
-    },
-    {
-        "imageUrl": "https://images.unsplash.com/photo-1504022462188-88f023db97bf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
-        "linkUrl": "https://google.com"
-    }
-]
+{
+    "hero": [
+        {
+            "horizontalImage": "/anuncios/Barraca_1920_1080.jpg",
+            "verticalImage": "/anuncios/Barraca_1080_1920.jpg",
+            "linkUrl": ""
+        },
+        {
+            "horizontalImage": "/anuncios/CEC_hor.png",
+            "verticalImage": "/anuncios/CEC_vert.png",
+            "linkUrl": ""
+        },
+        {
+            "image": "/anuncios/Brujula-imcine-1.jpg",
+            "linkUrl": ""
+        },
+        {
+            "image": "/anuncios/Brujula-imcine-2.jpg",
+            "linkUrl": ""
+        }
+    ],
+    "bottom": [
+        {
+            "horizontalImage": "/anuncios/FCU_hor.png",
+            "verticalImage": "/anuncios/FCU_vert.png",
+            "linkUrl": ""
+        },
+        {
+            "horizontalImage": "/anuncios/RAINDANCE.png",
+            "verticalImage": "/anuncios/RAINDANCE_vert.png",
+            "linkUrl": ""
+        },
+        {
+            "image": "/anuncios/Brujula-imcine-3-2.jpg",
+            "linkUrl": ""
+        },
+        {
+            "image": "/anuncios/Brujula-imcine-3.jpg",
+            "linkUrl": ""
+        }
+    ]
+}

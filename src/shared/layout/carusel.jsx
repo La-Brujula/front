@@ -1,34 +1,27 @@
-import { useState } from 'react';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 
-function Carusel({ children, dotColor }) {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [translation, setTranslation] = useState('0%');
-  const changeSlide = (i) => {
-    setTranslation('-100%');
-    setTimeout(() => {
-      setCurrentSlide(i);
-      setTranslation('0%');
-    }, 200);
-  };
-
+function Carusel({ children, noBackground }) {
   return (
     <div
-      className="relative flex flex-col gap-8"
-      style={{ '--carusel-animation': translation }}
+      className={[
+        noBackground || 'bg-[linear-gradient(180deg,_#fff0_80%,_#2d7bbf_80%)]',
+        'flex items-center justify-center max-h-[75vh] overflow-hidden',
+      ].join(' ')}
     >
-      {children[currentSlide]}
-      <div className="flex flex-row gap-4 justify-center">
-        {Object.keys(children).map((i) => (
-          <div
-            key={i}
-            className={[
-              'rounded-full h-6 w-6 cursor-pointer transition-colors',
-              currentSlide != i ? 'bg-white' : dotColor || 'bg-secondary',
-            ].join(' ')}
-            onClick={() => changeSlide(i)}
-          ></div>
-        ))}
-      </div>
+      <Carousel
+        showArrows={true}
+        showThumbs={false}
+        showStatus={false}
+        axis="horizontal"
+        dynamicHeight={true}
+        infiniteLoop={true}
+        autoPlay={true}
+        interval={5000}
+        stopOnHover={true}
+      >
+        {children}
+      </Carousel>
     </div>
   );
 }
