@@ -1,5 +1,6 @@
 import { SeccionAliades } from '../components/aliados';
 import { BannerAnuncios } from '../components/bannerAnuncios';
+import anuncios from '@shared/constants/anuncios.json';
 import DownloadGuides from '../components/downloadGuides';
 import HeroSection from '../components/heroSection';
 import SearchByCategory from '../components/searchByCategory';
@@ -7,20 +8,14 @@ import SearchByQuery from '../components/searchByQuery';
 import { LoginOrProfile } from '../components/loginOrProfile';
 import { lazy } from 'react';
 
-const QuotesSlider = lazy(() => import('../components/quotesSlider'))
+const QuotesSlider = lazy(() => import('../components/quotesSlider'));
 
 export default () => {
   return (
     <>
       <HeroSection />
-      <div className="flex flex-col lg:flex-row">
-        <div
-          className="grow bg-cover bg-center w-full"
-          style={{
-            backgroundImage:
-              'url("https://images.unsplash.com/photo-1602981256888-244edc1f444f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1771&q=80")',
-          }}
-        ></div>
+      <div className="grid grid-cols-1 lg:grid-cols-2">
+        <BannerAnuncios anuncios={anuncios.hero} dots={false} />
         <LoginOrProfile />
       </div>
       <SearchByQuery />
@@ -28,7 +23,7 @@ export default () => {
       <DownloadGuides />
       <QuotesSlider />
       <div className="my-8"></div>
-      <BannerAnuncios />
+      <BannerAnuncios anuncios={anuncios.bottom} />
       <div className="py-8 bg-primary"></div>
       <SeccionAliades />
     </>

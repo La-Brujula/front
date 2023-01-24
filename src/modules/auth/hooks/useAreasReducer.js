@@ -1,8 +1,7 @@
 import { useReducer } from "react";
 
 const activityReducer = (state, action) => {
-    console.log(action)
-    const shadowState = state.map(a => a);
+    let shadowState = state.map(a => a);
     switch (action.type) {
         case 'add':
             return [...shadowState, action.item];
