@@ -94,8 +94,6 @@ export const useSearch = () => {
                     queries.push(
                         where('searchName', 'array-contains-any',
                             filters.search.split().map(a => a.toLowerCase())),
-                        where('searchName', 'array-contains-any',
-                            filters.search.split().map(a => a.toLowerCase()))
                     )
             }
         }

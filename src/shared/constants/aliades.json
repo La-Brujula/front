@@ -50,5 +50,17 @@
     {
         "imageUrl": "/img/aliades/UADLogo.svg",
         "linkUrl": "https://google.com"
+    },
+    {
+        "imageUrl": "/img/aliades/Raindance.svg",
+        "linkUrl": "null"
+    },
+    {
+        "imageUrl": "/img/aliades/sivarya logo_1.svg",
+        "linkUrl": "null"
+    },
+    {
+        "imageUrl": "/img/aliades/filminist logo_1.svg",
+        "linkUrl": "null"
     }
 ]

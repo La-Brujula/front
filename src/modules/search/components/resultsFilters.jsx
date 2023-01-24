@@ -36,7 +36,7 @@ export const ResultsFilter = ({ setFilters }) => {
       <form
         className={[
           'flex flex-col gap-8 transition-all',
-          isVisible ? 'h-auto' : 'h-0 lg:h-auto',
+          isVisible ? 'h-auto block' : 'h-0 hidden lg:block lg:h-auto',
         ].join(' ')}
         onSubmit={handleSubmit((values) => {
           Object.keys(values).forEach((key) => {
