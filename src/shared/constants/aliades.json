@@ -53,14 +53,46 @@
     },
     {
         "imageUrl": "/img/aliades/Raindance.svg",
-        "linkUrl": "null"
+        "linkUrl": "https://raindance.org/ "
     },
     {
         "imageUrl": "/img/aliades/sivarya logo_1.svg",
-        "linkUrl": "null"
+        "linkUrl": "https://sivarya.com/"
     },
     {
         "imageUrl": "/img/aliades/filminist logo_1.svg",
-        "linkUrl": "null"
+        "linkUrl": "https://filministmx.com/en/"
+    },
+    {
+        "imageUrl": "/img/aliades/amfi logo blanco.svg",
+        "linkUrl": "https://amfi.mx"
+    },
+    {
+        "imageUrl": "/img/aliades/apertura logo.svg",
+        "linkUrl": "https://www.aperturadop.com/nosotros "
+    },
+    {
+        "imageUrl": "/img/aliades/canacine logo blanco.svg",
+        "linkUrl": "https://www.canacinejalisco.com/"
+    },
+    {
+        "imageUrl": "/img/aliades/canacine nuevo león.svg",
+        "linkUrl": "https://www.instagram.com/canacine_nl/"
+    },
+    {
+        "imageUrl": "/img/aliades/canacine.svg",
+        "linkUrl": "http://canacine.org.mx"
+    },
+    {
+        "imageUrl": "/img/aliades/FCU sin texto.svg",
+        "linkUrl": "https://www.cecinematograficos.edu.mx/festival"
+    },
+    {
+        "imageUrl": "/img/aliades/mujeres en tele logo blanco (1).svg",
+        "linkUrl": "http://mujerescineytv.org/"
+    },
+    {
+        "imageUrl": "/img/aliades/PlataformaAbiertaDeInLogo.svg",
+        "linkUrl": "https://plai.mx/ "
     }
 ]
