@@ -3,7 +3,7 @@ import { useUserInfo } from '@shared/hooks/useUserInfo';
 import { ProfileBadge } from '@modules/profile/components/profileBadge';
 import { LoadingSpinner } from '@shared/components/loadingSpinner';
 import { ErrorMessage } from '@shared/components/errorMessage';
-import { brujulaUtils } from '../../../shared/utils/brujulaUtils';
+import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import { useAuth } from '@shared/context/firebaseContext';
 import { useEffect } from 'react';
 

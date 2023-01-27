@@ -1,6 +1,6 @@
 import AddOutlined from '@mui/icons-material/AddOutlined';
 import { useContext, useMemo } from 'react';
-import { useUserInfo } from '../../../shared/hooks/useUserInfo';
+import { useUserInfo } from '@shared/hooks/useUserInfo';
 import { LoadingSpinner } from '@shared/components/loadingSpinner';
 import { ErrorMessage } from '@shared/components/errorMessage';
 import AreaForms from '../components/areaForm';

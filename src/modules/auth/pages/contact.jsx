@@ -7,11 +7,12 @@ import LinkedIn from '@mui/icons-material/LinkedIn';
 import Twitter from '@mui/icons-material/Twitter';
 import YouTube from '@mui/icons-material/YouTube';
 import WhatsApp from '@mui/icons-material/WhatsApp';
+import LinkOutlined from '@mui/icons-material/LinkOutlined';
 import FacebookOutlined from '@mui/icons-material/FacebookOutlined';
-import { useUserInfo } from '../../../shared/hooks/useUserInfo';
-import { useAuth } from '../../../shared/context/firebaseContext';
+import { useUserInfo } from '@shared/hooks/useUserInfo';
+import { useAuth } from '@shared/context/firebaseContext';
 import { useMemo } from 'react';
-import useSocials from '../../../shared/hooks/useSocials';
+import useSocials from '@shared/hooks/useSocials';
 
 export const ContactPage = () => {
   const brujula = brujulaUtils();
@@ -50,6 +51,10 @@ export const ContactPage = () => {
         className="grid grid-cols-[min-content_1fr]
       text-right gap-4 mx-auto items-center gap-x-8"
       >
+        <label htmlFor="website">
+          <LinkOutlined />
+        </label>
+        <input type="url" {...register('website')} autoComplete="website" />
         <label htmlFor="whatsapp">
           <WhatsApp />
         </label>

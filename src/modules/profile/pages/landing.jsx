@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { ProfileHeader } from '../components/profileHeader';
 import { ContactSection } from '../components/contactInfo';
-import { useReviews } from '../../../shared/hooks/useReviews';
-import { useAuth } from '../../../shared/context/firebaseContext';
+import { useReviews } from '@shared/hooks/useReviews';
+import { useAuth } from '@shared/context/firebaseContext';
 import languages from '@shared/constants/languages.json';
 import { NavLink } from 'react-router-dom';
 

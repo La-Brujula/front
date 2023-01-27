@@ -5,7 +5,7 @@ import {
   getAreaFromId,
   getSubAreaFromId,
   getTitle,
-} from '../../../shared/utils/areaUtils';
+} from '@shared/utils/areaUtils';
 
 export const AreaForms = ({ defaultValue, gender, changeListener }) => {
   const { register, watch } = useForm({
