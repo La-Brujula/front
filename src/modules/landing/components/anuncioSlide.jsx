@@ -25,15 +25,15 @@ export const AnuncioSlide = ({
           <>
             <picture className="h-full object-contain max-h-[75vw]">
               <source
-                media="(max-width:465)"
+                media="(max-width:465px)"
                 src={`${import.meta.env.BASE_URL}img${verticalImage}`}
               />
               <source
-                media="(min-width:466)"
+                media="(min-width:466px)"
                 src={`${import.meta.env.BASE_URL}img${horizontalImage}`}
               />
               <img
-                src={`${import.meta.env.BASE_URL}img${horizontalImage}`}
+                src={`${import.meta.env.BASE_URL}img${verticalImage}`}
                 alt=""
                 className="w-full hidden md:block object-contain"
               />
