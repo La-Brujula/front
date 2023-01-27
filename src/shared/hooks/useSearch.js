@@ -4,7 +4,7 @@ import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import RefList from '@shared/constants/RefList.json';
 import RefToCode from '@shared/constants/RefToCode.json';
 import regions from '@shared/constants/regiones.json';
-// import { replaceSearchTermsFromIndex } from "../utils/busqueda";
+import { replaceSearchTermsFromIndex } from "../utils/busqueda";
 
 export const useSearch = () => {
     const brujula = brujulaUtils();
