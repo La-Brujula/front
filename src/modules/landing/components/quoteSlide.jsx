@@ -1,16 +1,26 @@
-function QuoteSlide({ imageUrl, name, quote }) {
+function QuoteSlide({ imageUrl, name, quote, title }) {
   return (
-    <div className="flex flex-col lg:flex-row gap-16 max-w-4xl mx-auto translate-x-[var(--carusel-animation)]
-    items-center transition-transform duration-400">
-      <img src={imageUrl} className="object-cover w-full max-w-xs rounded-lg"/>
-      <div className="relative text-primary flex-2 p-4 w-full">
-        <h3 className="text-center mb-8 font-normal text-lg">{name}</h3>
-        <p className="text-left grow">{quote}</p>
+    <div
+      className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-4 lg:gap-8 max-w-4xl
+      mx-auto translate-x-[var(--carusel-animation)] items-center
+      transition-transform duration-400 py-8 h-full"
+    >
+      <img
+        src={`${import.meta.env.BASE_URL}img${imageUrl}`}
+        className="w-full rounded-lg h-full object-cover
+        object-fit object-center"
+      />
+      <div className="grid gap-2 grid-cols-[2rem_1fr] self-start">
         <img
           src={`${import.meta.env.BASE_URL}img/Apostrofe.svg`}
-          className="absolute left-0 top-0 h-12"
+          className="h-8 self-start"
           loading="lazy"
         />
+        <div className="relative text-primary w-full text-left">
+          <h3 className="font-bold text-lg">{name}</h3>
+          <p className="font-normal text-sm mb-8 ">{title}</p>
+          <p className="grow">{quote}</p>
+        </div>
       </div>
     </div>
   );

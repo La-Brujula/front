@@ -10,7 +10,10 @@ export const AnuncioSlide = ({
         href={linkUrl}
         target={!!linkUrl ? '_blank' : ''}
         rel="noopener noreferrer"
-        className={!!linkUrl ? 'cursor-pointer' : 'cursor-default select-none'}
+        className={[
+          !!linkUrl ? 'cursor-pointer' : 'cursor-default select-none',
+          'flex items-center justify-center',
+        ].join(' ')}
       >
         {!!imageUrl ? (
           <img
@@ -20,16 +23,21 @@ export const AnuncioSlide = ({
           />
         ) : (
           <>
-            <img
-              src={`${import.meta.env.BASE_URL}img${horizontalImage}`}
-              alt=""
-              className="w-full top-0 left-0 h-full hidden lg:block object-contain"
-            />
-            <img
-              src={`${import.meta.env.BASE_URL}img${verticalImage}`}
-              alt=""
-              className="w-full top-0 left-0 h-full block lg:hidden object-contain"
-            />
+            <picture className="h-full object-contain max-h-[75vw]">
+              <source
+                media="(max-width:465px)"
+                src={`${import.meta.env.BASE_URL}img${verticalImage}`}
+              />
+              <source
+                media="(min-width:466px)"
+                src={`${import.meta.env.BASE_URL}img${horizontalImage}`}
+              />
+              <img
+                src={`${import.meta.env.BASE_URL}img${verticalImage}`}
+                alt=""
+                className="w-full hidden md:block object-contain"
+              />
+            </picture>
           </>
         )}
       </a>

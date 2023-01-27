@@ -87,7 +87,7 @@ export const StandoutPage = () => {
         <label htmlFor="headline">{t('Agrega un lema o mensaje corto')}</label>
         <textarea
           rows="3"
-          maxLength={100}
+          maxLength={60}
           {...register('headline')}
           className="rounded-md bg-black bg-opacity-20 resize-none col-span-2 p-4 w-full"
         />

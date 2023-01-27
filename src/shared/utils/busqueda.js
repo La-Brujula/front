@@ -7,9 +7,3 @@ export function replaceSearchTermsFromIndex(query) {
     
     return query;
 };
-
-for(var i=0;i<32;++i) {
-    console.time('replaceSearchTermsFromIndex');
-    replaceSearchTermsFromIndex('sacm en guadalajara');
-    console.timeEnd('replaceSearchTermsFromIndex');
-}

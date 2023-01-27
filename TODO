@@ -1,34 +1,26 @@
-Pantallas
-
-- placeholder link google maps
-
-noticias siguiente
-
 Prioridades
 
 1. registro persona moral
-4. recomendaciones no a ti mismo # no 0-5
-6. ruta de usuario con nombre
+3. Testimonios
+2. Rediseño de perfiles en búsqueda
+
 7. búsqueda
+
 8. Hola en diferentes idiomas
 9. Galería Quiénes Somos
+6. ruta de usuario con nombre
 
 9. conexión con wordpress
 
 Alex:
 
-- Función búsqueda
-
 Dani:
 
 - Links logotipos aliados
-- Quiénes somos créditos
 
 Diego:
 
 - Implementación páginas persona moral
-- Botón eliminar  (elimina todo)
-- quitar servicio becario
 
 Calendario:
 9 enero - Invitar personas y flujo persona moral
@@ -40,11 +32,7 @@ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo s
 Persona moral
 
 TODO:
-1. Agregar anuncios y testimonios
 2. Agregar logos aliados
-3. Agregar para poner sitio web en pantalla de agregar contacto
-4. Borrar Actividad
-5. Headline 60 caracteres
-6. Espacio barra créditos móvil
+4. Arreglar Borrar Actividad
 7. Tamaño ediciones especiales
 8. Aviso de privacidad y legal

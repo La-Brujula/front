@@ -9,7 +9,7 @@ import {
   firestore,
   StorageContext,
   StoreContext,
-} from './shared/context/firebaseContext';
+} from '@shared/context/firebaseContext';
 import { LoadingSpinner } from '@shared/components/loadingSpinner';
 
 ReactDOM.createRoot(document.getElementById('root')).render(

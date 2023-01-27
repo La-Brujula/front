@@ -7,7 +7,7 @@ import { ProfileHeader } from '@modules/profile/components/profileHeader';
 import EmailOutlined from '@mui/icons-material/EmailOutlined';
 import PhoneOutlined from '@mui/icons-material/PhoneOutlined';
 import { useAuth } from '@shared/context/firebaseContext';
-import { getTitle } from '../../../shared/utils/areaUtils';
+import { getTitle } from '@shared/utils/areaUtils';
 
 export const ProfileSummary = () => {
   const { t } = useTranslation('auth');
