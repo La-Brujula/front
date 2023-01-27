@@ -16,10 +16,10 @@ export function CreditsSection() {
       <div className="flex flex-row gap-8">
         <div
           className="bg-primary w-4 rounded-sm
-        ml-16"
+        lg:ml-16"
         />
         <div
-          className="grid grid-cols-2 gap-x-8 gap-y-4
+          className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4
       text-left text-primary grow h-fit"
         >
           {credits.map(({ title, name }) => (

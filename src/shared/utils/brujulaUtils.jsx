@@ -73,12 +73,31 @@ export function brujulaUtils() {
   const deleteUser = async (email) => {
     const docRef = store.getSubcollection('users', email);
     await store.deleteInfoByDocRef(docRef);
-    await auth.deleteUser()
+    await auth.deleteUser();
   };
 
   const updateUserInfo = async (userInfo, email = auth.getUserEmail()) => {
     const data = await store.getInfo('users', email);
-    const newData = { ...data, ...userInfo };
+    const newData = {
+      ...data,
+      ...userInfo,
+      searchName: [
+        ...(() =>
+          !!userInfo.name ? userInfo.name.split(' ') : data.name.split(' '))(),
+        ...(() =>
+          !!userInfo.lastname
+            ? userInfo.lastname.split(' ')
+            : data.lastname.split(' '))(),
+        ...(() =>
+          !!userInfo.nickname
+            ? userInfo.nickname.split(' ')
+            : data.nickname.split(' '))(),
+        ...(() => (!!userInfo.areas ? userInfo.areas : data.areas))(),
+        userInfo.city || data.city,
+        userInfo.state || data.state,
+        userInfo.country || data.country,
+      ].map((a) => a.toLowerCase()),
+    };
     return await store.saveInfo('users', email, newData);
   };
 

@@ -21,7 +21,6 @@ Dani:
 Diego:
 
 - Implementación páginas persona moral
-- quitar servicio becario en persona moral
 
 Calendario:
 9 enero - Invitar personas y flujo persona moral
@@ -34,8 +33,6 @@ Persona moral
 
 TODO:
 2. Agregar logos aliados
-4. Borrar Actividad
-5. Headline 60 caracteres
-6. Espacio barra créditos móvil
+4. Arreglar Borrar Actividad
 7. Tamaño ediciones especiales
 8. Aviso de privacidad y legal

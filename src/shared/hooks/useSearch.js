@@ -92,10 +92,10 @@ export const useSearch = () => {
                     }
                     break;
                 case "search":
-                    // const search = replaceSearchTermsFromIndex(filters.search)
+                    const search = replaceSearchTermsFromIndex(filters.search)
                     queries.push(
                         where('searchName', 'array-contains-any',
-                            filters.search.split().map(a => a.toLowerCase()))
+                            search.split().map(a => a.toLowerCase()))
                     )
             }
         }

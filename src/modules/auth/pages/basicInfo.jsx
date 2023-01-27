@@ -61,8 +61,7 @@ export const BasicInfo = () => {
       text-right gap-4"
       >
         <label htmlFor="name" className="col-span-1">
-          {user.type == 'moral' ? t('Razón Social') : t('Nombre (s)')}{' '}
-          *
+          {user.type == 'moral' ? t('Razón Social') : t('Nombre (s)')} *
         </label>
         <input
           type="text"
@@ -138,18 +137,21 @@ export const BasicInfo = () => {
         </label>
         <input type="phone" id="phone" {...register('phone')} />
       </div>
-      <input type="hidden" {...register('probono')} />
       <label htmlFor="phone" className="col-span-1">
         {t('¿Te interesa ser becario o hacer servicio social?')}
       </label>
-      <input type="hidden" {...register('probono')} />
-      <ButtonSelect
-        fieldName="probono"
-        values={[true, false]}
-        labels={['SÍ', 'NO']}
-        setValue={setValue}
-        getValue={getValues}
-      />
+      {user.type != 'moral' && (
+        <>
+          <input type="hidden" {...register('probono')} />
+          <ButtonSelect
+            fieldName="probono"
+            values={[true, false]}
+            labels={['SÍ', 'NO']}
+            setValue={setValue}
+            getValue={getValues}
+          />
+        </>
+      )}
       <label htmlFor="university" className="col-span-1">
         {t('¿Pertences a una de estas escuelas?')}
       </label>
