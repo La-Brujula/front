@@ -6,7 +6,7 @@ function Carusel({ children, noBackground }) {
     <div
       className={[
         noBackground || 'bg-[linear-gradient(180deg,_#fff0_80%,_#2d7bbf_80%)]',
-        'flex items-center justify-center max-h-[75vh] overflow-hidden',
+        'flex items-center justify-center overflow-hidden',
       ].join(' ')}
     >
       <Carousel
@@ -14,7 +14,7 @@ function Carusel({ children, noBackground }) {
         showThumbs={false}
         showStatus={false}
         axis="horizontal"
-        dynamicHeight={true}
+        // dynamicHeight={true}
         infiniteLoop={true}
         autoPlay={true}
         interval={5000}

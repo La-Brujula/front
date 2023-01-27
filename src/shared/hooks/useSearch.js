@@ -4,6 +4,7 @@ import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import RefList from '@shared/constants/RefList.json';
 import RefToCode from '@shared/constants/RefToCode.json';
 import regions from '@shared/constants/regiones.json';
+// import { replaceSearchTermsFromIndex } from "../utils/busqueda";
 
 export const useSearch = () => {
     const brujula = brujulaUtils();
@@ -91,9 +92,10 @@ export const useSearch = () => {
                     }
                     break;
                 case "search":
+                    // const search = replaceSearchTermsFromIndex(filters.search)
                     queries.push(
                         where('searchName', 'array-contains-any',
-                            filters.search.split().map(a => a.toLowerCase())),
+                            filters.search.split().map(a => a.toLowerCase()))
                     )
             }
         }

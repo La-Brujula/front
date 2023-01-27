@@ -1,12 +1,26 @@
 [
     {
-        "imageUrl": "https://images.unsplash.com/photo-1504022462188-88f023db97bf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
-        "name": "Yalitza Aparicio",
-        "quote": "La Brújula es la guía más especializada en el medio que hay en el mercado, solo si buscas lo mejor lo encontrarás allí, yo como especialista la uso porque me ahorra mucho tiempo, recomiendo ampliamente que la usen si buscan contactarse con personas de prestigiado renombre, también está diseñada para que sea accesible y encuentres fácilmente a quien buscas. Las actualizaciones son constantemente renovadas y esto en un mundo que se mueve tan rápido hace una gran diferencia ya que no pierdes el tiempo buscando algún contacto y lo mejor te pueden encontrar fácilmente a ti"
+        "imageUrl": "/quotes/avelino.jpg",
+        "name": "Avelino Rodríguez",
+        "title": "Director de Thelift y Presidente de CANACINE",
+        "quote": "Durante más de una década La Brújula se ha posicionado como un recurso de uso obligado para los productores ya que integra a todos los elementos del ecosistema de la industria en una herramienta práctica últil y siempre actualizada."
     },
     {
-        "imageUrl": "https://images.unsplash.com/photo-1522669830117-58a450cc6077?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80",
-        "name": "Yalitza Aparicio 2",
-        "quote": "La Brújula es la guía más especializada en el medio que hay en el mercado, solo si buscas lo mejor lo encontrarás allí, yo como especialista la uso porque me ahorra mucho tiempo, recomiendo ampliamente que la usen si buscan contactarse con personas de prestigiado renombre, también está diseñada para que sea accesible y encuentres fácilmente a quien buscas. Las actualizaciones son constantemente renovadas y esto en un mundo que se mueve tan rápido hace una gran diferencia ya que no pierdes el tiempo buscando algún contacto y lo mejor te pueden encontrar fácilmente a ti"
+        "imageUrl": "/quotes/rosa-adela.jpg",
+        "name": "Rosa Adela López Zuckermann",
+        "title": "Director de Thelift y Presidente de CANACINE",
+        "quote": "LA BRÚJULA es un instrumento de orientación, su funcionamiento se basa en el magnetismo…\nLa Brújula de Romelia, es una herramienta, un instrumento de comunicación, una red. Nos ayuda a seguir el rumbo para encontrarnos y conocernos, apoya y crea sinergias para descubrir la diversidad…y funciona.\nReune, sistematiza, promueve y vincula.\nLabor inmensa…\nRomelia Alvarez ha logrado ese magnetismo…"
+    },
+    {
+        "imageUrl": "/quotes/annmarie.jpg",
+        "name": "Annmarie Meier",
+        "title": "Crítica y Académica",
+        "quote": "En el tupido y creciente universo audiovisual jalisciense hacía falta una brújula para que los involucrados no perdieran la orientación. Así nació La Brújula creada e impulsada por Romelia Álvarez. En sus inicios fue modesta pero creció y se enriqueció. Hoy, la guía para los creadores, productores y trabajadores del audiovisual no sólo se ha convertido en una herramienta necesaria sino que ha construido comunidad. Ahora que La Brújula entra en una nueva etapa, el cine y las demás expresiones audiovisuales producidas en nuestra región, contarán con una brújula extendida con la que podrán crear historias con calidad e identidad."
+    },
+    {
+        "imageUrl": "/quotes/luis-chavez.jpg",
+        "name": "Luis Chávez",
+        "title": "Business Development Manager & Brand Ambassador @ Kino Flo Systems",
+        "quote": "Tengo el placer de haber visto nacer y haber patrocinado estando en Kodak desde su inicio sin pausas a una de las herramientas más importantes dentro de la industria Audiovisual que es \"La Brújula\", y pude ser testigo a través de los productores y el gremio audiovisual en general que dió la bienvenida a este magnífico directorio usándolo en todo momento, nacionales y extranjeros que producen en nuestro país. \"Larga vida a La Brújula\""
     }
 ]

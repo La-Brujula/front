@@ -65,3 +65,11 @@
     @apply text-primary;
   }
 }
+
+.carousel .control-dots .dot {
+  @apply !bg-white outline outline-[.5px] outline-primary !opacity-100 !shadow-none;
+}
+
+.carousel .control-dots .dot.selected {
+  @apply !bg-primary outline outline-[.5px] outline-white !opacity-100 !shadow-none z-10;
+}
