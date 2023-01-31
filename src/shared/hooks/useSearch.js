@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react"
+import { useMemo, useState } from "react"
 import { where, orderBy, limit, startAfter } from "firebase/firestore";
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import RefList from '@shared/constants/RefList.json';
@@ -11,8 +11,6 @@ export const useSearch = () => {
     //Campos en donde search se buscara
     const [filters, setFilters] = useState({
         search: "",
-        area: "",
-        language: "",
         gender: "",
         schools: [],
         associations: "",
@@ -20,7 +18,6 @@ export const useSearch = () => {
         remote: undefined,
         socialService: undefined,
         sortByReviews: undefined,
-        activity: "",
         state: "",
         //state
     })
@@ -40,10 +37,12 @@ export const useSearch = () => {
         const queries = []
         setLoading(true)
         setError(undefined)
+        console.log(filters)
 
         for (const property in filters) {
             if (filters[property] === "" ||
                 filters[property] === undefined ||
+                filters[property] === [] ||
                 filters[property].length === 0)
                 continue;
             switch (property) {
@@ -65,10 +64,10 @@ export const useSearch = () => {
                 case "state":
                     queries.push(where('state', "==", filters.state))
                     break;
-                case "language":
-                    queries.push(where('language', "array-contains",
-                        filters.language.toLowerCase()))
-                    break;
+                // case "language":
+                //     queries.push(where('language', "array-contains",
+                //         filters.language.toLowerCase()))
+                //     break;
                 case "schools":
                     queries.push(where('university', "in", filters.schools));
                     break;
@@ -84,13 +83,13 @@ export const useSearch = () => {
                 case "socialService":
                     queries.push(where('probono', "==", filters.socialService))
                     break;
-                case "activity":
-                    if (RefList.includes(filters[property])) {
-                        let codes = RefToCode[filters[property]];
-                        codes = codes.slice(0, 10);
-                        queries.push(where("subareas", "array-contains-any", codes));
-                    }
-                    break;
+                // case "activity":
+                //     if (RefList.includes(filters[property])) {
+                //         let codes = RefToCode[filters[property]];
+                //         codes = codes.slice(0, 10);
+                //         queries.push(where("subareas", "array-contains-any", codes));
+                //     }
+                //     break;
                 case "search":
                     const search = replaceSearchTermsFromIndex(filters.search)
                     queries.push(
@@ -145,5 +144,5 @@ export const useSearch = () => {
     }
 
 
-    return { results, loading, error, setFilterObject, getNext, hasMore }
+    return { results, loading, error, setFilterObject, getNext, hasMore, filters }
 }

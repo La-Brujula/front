@@ -7,9 +7,9 @@ import regiones from '@shared/constants/regiones';
 import genders from '@shared/constants/genders';
 import { useState } from 'react';
 
-export const ResultsFilter = ({ setFilters }) => {
+export const ResultsFilter = ({ setFilters, filters }) => {
   const { register, setValue, getValues, handleSubmit } = useForm({
-    defaultValues: {
+    defaultValues: filters || {
       location: '',
       remote: undefined,
       type: '',

@@ -9,7 +9,9 @@ import { NavLink } from 'react-router-dom';
 export const UserProfilePage = ({ user }) => {
   const { t } = useTranslation('profile');
   const auth = useAuth();
-  const { reviews, count, addReview, removeReview, loading } = useReviews(user.email);
+  const { reviews, count, addReview, removeReview, loading } = useReviews(
+    user.email
+  );
 
   return (
     <div>
@@ -57,7 +59,7 @@ export const UserProfilePage = ({ user }) => {
               <h4 className="font-normal text-primary">Recomendaciones: </h4>
 
               <p>{loading ? '...' : count}</p>
-              <p>{reviews.join(', ')}</p>
+              <p>{reviews?.join(', ')}</p>
               {auth.getUserEmail() != user.email &&
                 (!reviews.includes(auth.getUserEmail()) ? (
                   <h4
@@ -77,25 +79,30 @@ export const UserProfilePage = ({ user }) => {
             </div>
             {!!user.characteristics && (
               <div>
-                <h4 className="font-normal text-primary">
-                  {t('Semblanza')}
-                </h4>
+                <h4 className="font-normal text-primary">{t('Semblanza')}</h4>
                 <p>{user.characteristics}</p>
               </div>
             )}
             {!!user.languages && (
               <div>
                 <h4 className="font-normal text-primary">{t('Idiomas')}</h4>
-                <div className="grid grid-cols-[max-content,_max-content] gap-x-4 gap-y-2">
-                  {user.languages.map(({ lang, proficiency }) => (
-                    <>
-                      <h5 className="font-normal">
-                        {languages[lang] || t(lang)}
-                      </h5>
-                      <p>{t(proficiency)}</p>
-                    </>
-                  ))}
-                </div>
+                <table className="grid grid-cols-[max-content,_max-content] gap-x-4 gap-y-2">
+                  <tbody>
+                    {user.languages.map(({ lang, proficiency }) => (
+                      <tr key={lang}>
+                        <td>
+                          <h5 className="font-normal">
+                            {languages[lang] || t(lang)}
+                          </h5>
+                        </td>
+                        <td>
+                          <p>{t(proficiency)}</p>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                
               </div>
             )}
             {!!user.asociations && (
@@ -126,7 +133,10 @@ export const UserProfilePage = ({ user }) => {
           </div>
         </div>
         {auth.getUserEmail() == user.email && (
-          <NavLink to="/cerrar-cuenta" className="!text-slate-400 text-sm text-center block">
+          <NavLink
+            to="/cerrar-cuenta"
+            className="!text-slate-400 text-sm text-center block"
+          >
             Borrar cuenta
           </NavLink>
         )}

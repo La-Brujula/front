@@ -22,7 +22,7 @@ export function brujulaUtils() {
    */
 
   const getReviews = async (user) => {
-    return (await getUserInfo(user)).reviews
+    return (await getUserInfo(user)).reviews;
   };
 
   const removeReviews = async (userRecommending, userRecomended) => {
@@ -38,17 +38,13 @@ export function brujulaUtils() {
   const addReview = async (userRecommending, userRecomended) => {
     //se guarda dentro del usuario que esta siendo recomendado
     const docRef = store.getSubcollection('users', userRecomended);
-    await store.addToFieldArrayByDocRef(
-      docRef,
-      'reviews',
-      userRecommending
-    );
+    await store.addToFieldArrayByDocRef(docRef, 'reviews', userRecommending);
     updateReviewCount(userRecomended);
   };
 
   function updateReviewCount(userRecomended) {
     getReviews().then((data) => {
-      console.log(userRecomended, data)
+      console.log(userRecomended, data);
       updateUserInfo(userRecomended, { reviewCount: data.length });
     });
   }
@@ -88,8 +84,11 @@ export function brujulaUtils() {
         ...(() =>
           !!userInfo.nickname
             ? userInfo.nickname.split(' ')
-            : data.nickname.split(' '))(),
-        ...(() => (!!userInfo.areas ? userInfo.areas : data.areas))(),
+            : !!data.nickname
+            ? data.nickname.split(' ')
+            : [])(),
+        ...(() =>
+          !!userInfo.subareas ? userInfo.subareas : !!data.subareas ? data.subareas : [])(),
         userInfo.city || data.city,
         userInfo.state || data.state,
         userInfo.country || data.country,

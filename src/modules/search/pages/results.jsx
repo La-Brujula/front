@@ -10,8 +10,15 @@ import { ErrorMessage } from '@shared/components/errorMessage';
 export const SearchResultsPage = () => {
   const [searchParams] = useSearchParams();
 
-  const { results, loading, error, setFilterObject, getNext, hasMore } =
-    useSearch();
+  const {
+    results,
+    loading,
+    error,
+    setFilterObject,
+    getNext,
+    hasMore,
+    filters,
+  } = useSearch();
 
   useMemo(() => {
     let filters = {};
@@ -30,7 +37,7 @@ export const SearchResultsPage = () => {
       />
 
       <div className="grid grid-cols-1 md:grid-cols-[20rem,1fr] gap-12 mt-16">
-        <ResultsFilter setFilters={setFilterObject} />
+        <ResultsFilter setFilters={setFilterObject} filters={filters} />
         {loading ? (
           <LoadingSpinner />
         ) : (

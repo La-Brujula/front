@@ -61,13 +61,13 @@ export const BasicInfo = () => {
       text-right gap-4"
       >
         <label htmlFor="name" className="col-span-1">
-          {user.type == 'moral' ? t('Razón Social') : t('Nombre (s)')} *
+          {user?.type == 'moral' ? t('Razón Social') : t('Nombre (s)')} *
         </label>
         <input
           type="text"
           id="name"
           {...register('name')}
-          autoComplete={user.type != 'moral' && 'given-name'}
+          autoComplete={user?.type != 'moral' && 'given-name'}
           required
         />
         <label htmlFor="lastname" className="col-span-1">
@@ -80,7 +80,7 @@ export const BasicInfo = () => {
           autoComplete="family-name"
           required
         />
-        {user.type == 'moral' ? (
+        {user?.type == 'moral' ? (
           <>
             <label htmlFor="gender">{t('Género')}*</label>
             <select
@@ -140,7 +140,7 @@ export const BasicInfo = () => {
       <label htmlFor="phone" className="col-span-1">
         {t('¿Te interesa ser becario o hacer servicio social?')}
       </label>
-      {user.type != 'moral' && (
+      {user?.type != 'moral' && (
         <>
           <input type="hidden" {...register('probono')} />
           <ButtonSelect
