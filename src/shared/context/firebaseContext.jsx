@@ -15,6 +15,9 @@ import {
   getDocs,
   deleteDoc,
   collection,
+  updateDoc,
+  arrayRemove,
+  arrayUnion,
   query,
 } from 'firebase/firestore';
 import {
@@ -161,6 +164,19 @@ export const firestore = (() => {
     await deleteDoc(docRef);
   };
 
+  const addToFieldArrayByDocRef = async (docRef, field, data) => {
+    const updateBody = {};
+    updateBody[field] = arrayUnion(data);
+    const res = await updateDoc(docRef, updateBody);
+    console.log(updateBody, res)
+  };
+
+  const removeFromFieldArrayByDocRef = async (docRef, field, data) => {
+    const updateBody = {};
+    updateBody[field] = arrayRemove(data);
+    await updateDoc(docRef, updateBody);
+  };
+
   return {
     saveInfo: saveInfo,
     getInfo: retriveInfo,
@@ -170,6 +186,8 @@ export const firestore = (() => {
     retriveInfoByColRef: retriveInfoByColRef,
     deleteInfoByDocRef: deleteInfoByDocRef,
     queryInfo,
+    addToFieldArrayByDocRef,
+    removeFromFieldArrayByDocRef,
   };
 })();
 

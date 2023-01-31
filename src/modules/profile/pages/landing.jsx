@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom';
 export const UserProfilePage = ({ user }) => {
   const { t } = useTranslation('profile');
   const auth = useAuth();
-  const { reviews, count, addReview, removeReview } = useReviews(user.email);
+  const { reviews, count, addReview, removeReview, loading } = useReviews(user.email);
 
   return (
     <div>
@@ -56,7 +56,7 @@ export const UserProfilePage = ({ user }) => {
             <div>
               <h4 className="font-normal text-primary">Recomendaciones: </h4>
 
-              <p>{count}</p>
+              <p>{loading ? '...' : count}</p>
               <p>{reviews.join(', ')}</p>
               {auth.getUserEmail() != user.email &&
                 (!reviews.includes(auth.getUserEmail()) ? (
@@ -78,7 +78,7 @@ export const UserProfilePage = ({ user }) => {
             {!!user.characteristics && (
               <div>
                 <h4 className="font-normal text-primary">
-                  {t('Características')}
+                  {t('Semblanza')}
                 </h4>
                 <p>{user.characteristics}</p>
               </div>

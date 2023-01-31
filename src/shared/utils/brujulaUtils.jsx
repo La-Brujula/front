@@ -22,36 +22,33 @@ export function brujulaUtils() {
    */
 
   const getReviews = async (user) => {
-    const docRef = store.getSubcollection('users', user, 'reviews');
-    let reviews_snapshot = await store.retriveInfoByColRef(docRef);
-    return reviews_snapshot.docs.map((doc) => doc.data());
+    return (await getUserInfo(user)).reviews
   };
 
   const removeReviews = async (userRecommending, userRecomended) => {
-    const docRef = store.getSubcollection(
-      'users',
-      userRecomended,
+    const docRef = store.getSubcollection('users', userRecomended);
+    await store.removeFromFieldArrayByDocRef(
+      docRef,
       'reviews',
       userRecommending
     );
-    await store.deleteInfoByDocRef(docRef);
-    updateReviewCount(updateUserInfo, userRecomended);
+    updateReviewCount(userRecomended);
   };
 
   const addReview = async (userRecommending, userRecomended) => {
     //se guarda dentro del usuario que esta siendo recomendado
-    const docRef = store.getSubcollection(
-      'users',
-      userRecomended,
+    const docRef = store.getSubcollection('users', userRecomended);
+    await store.addToFieldArrayByDocRef(
+      docRef,
       'reviews',
       userRecommending
     );
-    await store.saveInfoByDocRef(docRef, userRecommending);
-    updateReviewCount();
+    updateReviewCount(userRecomended);
   };
 
-  function updateReviewCount(updateUserInfo, userRecomended) {
+  function updateReviewCount(userRecomended) {
     getReviews().then((data) => {
+      console.log(userRecomended, data)
       updateUserInfo(userRecomended, { reviewCount: data.length });
     });
   }
