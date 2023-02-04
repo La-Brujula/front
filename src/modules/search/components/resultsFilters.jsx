@@ -56,7 +56,7 @@ export const ResultsFilter = ({ setFilters, filters }) => {
             {...register('area')}
             placeholder="Categoría"
           >
-            <option value="">{t('Área')}</option>
+            <option value="">{t('Departamento o ')}</option>
             {Object.keys(actividades).map((e) => (
               <option
                 key={e}
