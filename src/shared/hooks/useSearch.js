@@ -1,8 +1,6 @@
 import { useMemo, useState } from "react"
 import { where, orderBy, limit, startAfter } from "firebase/firestore";
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
-import RefList from '@shared/constants/RefList.json';
-import RefToCode from '@shared/constants/RefToCode.json';
 import regions from '@shared/constants/regiones.json';
 import { replaceSearchTermsFromIndex } from "../utils/busqueda";
 
@@ -37,7 +35,6 @@ export const useSearch = () => {
         const queries = []
         setLoading(true)
         setError(undefined)
-        console.log(filters)
 
         for (const property in filters) {
             if (filters[property] === "" ||
@@ -64,15 +61,11 @@ export const useSearch = () => {
                 case "state":
                     queries.push(where('state', "==", filters.state))
                     break;
-                // case "language":
-                //     queries.push(where('language', "array-contains",
-                //         filters.language.toLowerCase()))
-                //     break;
                 case "schools":
-                    queries.push(where('university', "in", filters.schools));
+                    queries.push(where('university', "==", filters.schools));
                     break;
                 case "associations":
-                    queries.push(where('asociations', "in", filters.associations.toLowerCase()));
+                    queries.push(where('asociations', "==", filters.associations.toLowerCase()));
                     break;
                 case "region":
                     queries.push(where('state', "in", regions[filters.region].estados));
@@ -83,13 +76,6 @@ export const useSearch = () => {
                 case "socialService":
                     queries.push(where('probono', "==", filters.socialService))
                     break;
-                // case "activity":
-                //     if (RefList.includes(filters[property])) {
-                //         let codes = RefToCode[filters[property]];
-                //         codes = codes.slice(0, 10);
-                //         queries.push(where("subareas", "array-contains-any", codes));
-                //     }
-                //     break;
                 case "search":
                     const search = replaceSearchTermsFromIndex(filters.search)
                     queries.push(
