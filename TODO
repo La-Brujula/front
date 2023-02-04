@@ -32,13 +32,15 @@ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo s
 Persona moral
 
 TODO:
-2. Agregar logos aliados
-4. Arreglar Borrar Actividad
-7. Tamaño ediciones especiales
-8. Aviso de privacidad y legal
-2.- cargar anuncios y testimonios y fotos (esto lo hará Daniel, Aleja
-a explicar)
-4.-la búsqueda avanzada no funciona
-6.- mas anuncios, Romelia debe subirlos al drive con medidas adec
-(acabo de agregar uno de canacine)
-8.- cargar 40 contactos (Daniel)
+
+1. la búsqueda avanzada no funciona
+2. cargar 40 contactos (Daniel)
+3. Arreglar Borrar Actividad
+4. Tamaño ediciones especiales
+5. Aviso de privacidad
+6. cargar anuncios y testimonios y fotos (esto lo hará Daniel, Aleja a explicar)
+7. Destino de formulario de contacto contacto@labrujula.com.mx
+   1. collection
+   2. fifí
+
+etapa o departamento
