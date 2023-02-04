@@ -61,7 +61,7 @@ export const UserProfilePage = ({ user }) => {
               <p>{loading ? '...' : count}</p>
               <p>{reviews?.join(', ')}</p>
               {auth.getUserEmail() != user.email &&
-                (!reviews.includes(auth.getUserEmail()) ? (
+                (!reviews?.includes(auth.getUserEmail()) ? (
                   <h4
                     className="font-normal text-primary cursor-pointer"
                     onClick={() => addReview(auth.getUserEmail())}

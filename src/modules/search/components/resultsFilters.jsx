@@ -9,7 +9,7 @@ import { useState } from 'react';
 
 export const ResultsFilter = ({ setFilters, filters }) => {
   const { register, setValue, getValues, handleSubmit } = useForm({
-    defaultValues: filters || {
+    defaultValues: filters || {
       location: '',
       remote: undefined,
       type: '',
@@ -50,24 +50,7 @@ export const ResultsFilter = ({ setFilters, filters }) => {
         })}
       >
         <h2 className="text-primary text-xl">Búsqueda Avanzada</h2>
-        <div className="flex flex-col gap-4">
-          <select
-            className="dark"
-            {...register('area')}
-            placeholder="Categoría"
-          >
-            <option value="">{t('Departamento o ')}</option>
-            {Object.keys(actividades).map((e) => (
-              <option
-                key={e}
-                value={Object.keys(
-                  actividades[e][Object.keys(actividades[e])[0]]
-                )[0].charAt(0)}
-              >
-                {e}
-              </option>
-            ))}
-          </select>
+        <div className="flex flex-col gap-4 py-4">
           <select
             className="dark"
             {...register('state')}
@@ -99,18 +82,6 @@ export const ResultsFilter = ({ setFilters, filters }) => {
               className="w-4 h-4 cursor-pointer"
             />
           </div>
-          <select
-            className="dark"
-            {...register('language')}
-            placeholder="Idioma"
-          >
-            <option value="">{t('Idioma')}</option>
-            {Object.keys(idiomas).map((e) => (
-              <option key={e} value={e}>
-                {idiomas[e]}
-              </option>
-            ))}
-          </select>
           <select className="dark" {...register('gender')} placeholder="Género">
             <option value="">{t('Género')}</option>
             {genders.map((e) => (

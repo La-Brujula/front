@@ -39,7 +39,7 @@ export const ContactSection = ({ user }) => {
       {!!user.imdb && (
         <>
           <h3>IMDB</h3>
-          <a href={user.imdb}>{user.imdb}</a>
+          <a href={'https://www.imdb.com/name/' + user.imdb}>{user.imdb}</a>
         </>
       )}
       {!!user.facebook && (
@@ -47,7 +47,7 @@ export const ContactSection = ({ user }) => {
           <h3>
             <FacebookOutlined />
           </h3>
-          <a href={user.facebook}>{user.facebook}</a>
+          <a href={'https://www.facebook.com/' + user.facebook}>{user.facebook}</a>
         </>
       )}
       {!!user.instagram && (
@@ -55,13 +55,13 @@ export const ContactSection = ({ user }) => {
           <h3>
             <Instagram />
           </h3>
-          <a href={user.instagram}>{user.instagram}</a>
+          <a href={'https://www.instagram.com/' + user.instagram}>{user.instagram}</a>
         </>
       )}
       {!!user.vimeo && (
         <>
           <h3>Vimeo</h3>
-          <a href={user.vimeo}>{user.vimeo}</a>
+          <a href={'https://vimeo.com/' + user.vimeo}>{user.vimeo}</a>
         </>
       )}
       {!!user.youtube && (
@@ -69,13 +69,13 @@ export const ContactSection = ({ user }) => {
           <h3>
             <YouTube />
           </h3>
-          <a href={user.youtube}>{user.youtube}</a>
+          <a href={'https://youtube.com/' + user.youtube}>{user.youtube}</a>
         </>
       )}
       {!!user.linkedin && (
         <>
           <h3>LinkedIn</h3>
-          <a href={user.linkedin}>{user.linkedin}</a>
+          <a href={'https://www.linkedin.com/in/' + user.linkedin}>{user.linkedin}</a>
         </>
       )}
       {!!user.twitter && (
@@ -83,13 +83,13 @@ export const ContactSection = ({ user }) => {
           <h3>
             <Twitter />
           </h3>
-          <a href={user.twitter}>{user.twitter}</a>
+          <a href={'https://twitter.com/' + user.twitter}>{user.twitter}</a>
         </>
       )}
       {!!user.tiktok && (
         <>
           <h3>Tiktok</h3>
-          <a href={user.tiktok}>{user.tiktok}</a>
+          <a href={'https://tiktok.com/' + user.tiktok}>{user.tiktok}</a>
         </>
       )}
     </div>

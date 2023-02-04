@@ -44,7 +44,6 @@ export function brujulaUtils() {
 
   function updateReviewCount(userRecomended) {
     getReviews().then((data) => {
-      console.log(userRecomended, data);
       updateUserInfo(userRecomended, { reviewCount: data.length });
     });
   }
@@ -88,7 +87,11 @@ export function brujulaUtils() {
             ? data.nickname.split(' ')
             : [])(),
         ...(() =>
-          !!userInfo.subareas ? userInfo.subareas : !!data.subareas ? data.subareas : [])(),
+          !!userInfo.subareas
+            ? userInfo.subareas
+            : !!data.subareas
+            ? data.subareas
+            : [])(),
         userInfo.city || data.city,
         userInfo.state || data.state,
         userInfo.country || data.country,

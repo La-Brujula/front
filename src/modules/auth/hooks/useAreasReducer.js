@@ -20,7 +20,6 @@ const activityReducer = (state, action) => {
 };
 
 const removeElementFunc = (dispatch) => (i) => () => {
-    console.log('remove', i)
     dispatch({ type: 'remove', index: i });
 }
 

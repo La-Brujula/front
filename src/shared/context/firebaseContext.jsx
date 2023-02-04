@@ -167,8 +167,7 @@ export const firestore = (() => {
   const addToFieldArrayByDocRef = async (docRef, field, data) => {
     const updateBody = {};
     updateBody[field] = arrayUnion(data);
-    const res = await updateDoc(docRef, updateBody);
-    console.log(updateBody, res)
+    updateDoc(docRef, updateBody);
   };
 
   const removeFromFieldArrayByDocRef = async (docRef, field, data) => {
