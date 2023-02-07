@@ -17,7 +17,7 @@
     "buffer": "^6.0.3",
     "cssnano": "^5.1.13",
     "csv-parser": "^3.0.0",
-    "firebase": "^9.13.0",
+    "firebase": "^9.17.1",
     "i18next": "^21.10.0",
     "i18next-browser-languagedetector": "^6.1.8",
     "i18next-xhr-backend": "^3.2.2",
