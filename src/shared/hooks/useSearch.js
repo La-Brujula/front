@@ -78,9 +78,10 @@ export const useSearch = () => {
                     break;
                 case "search":
                     const search = replaceSearchTermsFromIndex(filters.search)
+                    // console.log(search.split(' ').map(a => a.toLowerCase()));
                     queries.push(
                         where('searchName', 'array-contains-any',
-                            search.split().map(a => a.toLowerCase()))
+                            search.split(' ').map(a => a.toLowerCase()))
                     )
             }
         }
@@ -95,9 +96,11 @@ export const useSearch = () => {
             queries.pop()
             data = await brujula.queryUsers(queries)
         }
+        if (data.length < 10) {
+            setHasMore(false)
+        }
         const emails = results.map(user => user.email)
         data = data.filter(entry => !emails.includes(entry.email))
-        //name, lastname, nickname, search
         return data
     }
 
