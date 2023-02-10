@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react"
+import { useCallback, useEffect, useMemo, useState } from "react"
 import { where, orderBy, limit, startAfter } from "firebase/firestore";
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import regions from '@shared/constants/regiones.json';
@@ -10,7 +10,7 @@ export const useSearch = () => {
     const [filters, setFilters] = useState({
         search: "",
         gender: "",
-        schools: [],
+        schools: "",
         associations: "",
         type: "",
         remote: undefined,
@@ -25,13 +25,14 @@ export const useSearch = () => {
     const [hasMore, setHasMore] = useState(true)
 
 
-    const setFilterObject = (filters) => {
+    const setFilterObject = useCallback((filters) => {
         setFilters(oldFilters => {
             return { ...oldFilters, ...filters }
         })
-    }
+    }, [filters])
 
-    const getResultsWithFilters = async (filters) => {
+    const getResultsWithFilters = useCallback(async (filters) => {
+        import.meta.env.NODE_ENV == 'development' && console.log('filters', filters);
         const queries = []
         setLoading(true)
         setError(undefined)
@@ -39,8 +40,7 @@ export const useSearch = () => {
         for (const property in filters) {
             if (filters[property] === "" ||
                 filters[property] === undefined ||
-                filters[property] === [] ||
-                filters[property].length === 0)
+                filters[property] === [])
                 continue;
             switch (property) {
                 case "area":
@@ -77,8 +77,8 @@ export const useSearch = () => {
                     queries.push(where('probono', "==", filters.socialService))
                     break;
                 case "search":
-                    const search = replaceSearchTermsFromIndex(filters.search)
-                    // console.log(search.split(' ').map(a => a.toLowerCase()));
+                    const search = replaceSearchTermsFromIndex(filters.search.toLowerCase())
+                    console.log(search.split(' ').map(a => a.toLowerCase()));
                     queries.push(
                         where('searchName', 'array-contains-any',
                             search.split(' ').map(a => a.toLowerCase()))
@@ -99,12 +99,11 @@ export const useSearch = () => {
         if (data.length < 10) {
             setHasMore(false)
         }
-        const emails = results.map(user => user.email)
-        data = data.filter(entry => !emails.includes(entry.email))
+        import.meta.env.NODE_ENV == 'development' && console.log('results', data.map(a => a.searchName));
         return data
-    }
+    }, [filters, hasMore])
 
-    useMemo(() => {
+    useEffect(() => {
         (async () => {
             try {
                 setResults([])
@@ -118,7 +117,7 @@ export const useSearch = () => {
         })()
     }, [filters])
 
-    const getNext = () => {
+    const getNext = useCallback(() => {
         (async () => {
             try {
                 const data = await getResultsWithFilters(filters)
@@ -130,7 +129,7 @@ export const useSearch = () => {
             }
             setLoading(false);
         })()
-    }
+    }, [])
 
 
     return { results, loading, error, setFilterObject, getNext, hasMore, filters }
