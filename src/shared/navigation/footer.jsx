@@ -16,7 +16,7 @@ export const Footer = () => {
         <SocialLinks />
         <p>
           {t('seeOur')}&nbsp;
-          <NavLink to="/public/pdf/privacy.pdf" className="text-primary">
+          <NavLink to="/pdf/privacy.pdf" className="text-primary">
             {t('privacy')}
           </NavLink>
         </p>
