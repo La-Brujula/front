@@ -1,17 +1,18 @@
 import { useTranslation } from 'react-i18next';
 import RefList from '@shared/constants/RefList.json';
-import regiones from '@shared/constants/regiones.json';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 import { useForm } from 'react-hook-form';
-import { Form, useNavigate } from 'react-router-dom';
+import { Form } from 'react-router-dom';
 
 export const PorFiltros = ({ defaultSearch }) => {
   const { t } = useTranslation('search');
-  const { register } = useForm({
+  const { setValue, watch } = useForm({
     defaultValues: {
       search: defaultSearch || '',
     },
   });
+
+  const buscar = watch('search');
 
   return (
     <Form
@@ -22,12 +23,47 @@ export const PorFiltros = ({ defaultSearch }) => {
       bg-primary px-4 py-8 rounded-lg lg:-mx-4"
       style={{ fontWeight: '700' }}
     >
-      <input
-        type="text"
-        placeholder={t('Buscar')}
-        {...register('search', { required: false })}
+      <input type="hidden" name="search" value={buscar} />
+      <ReactSearchAutocomplete
         className="font-bold border-2 border-white bg-transparent
         text-white placeholder:text-white grow"
+        styling={{
+          backgroundColor: 'rgb(45 123 191 / var(--tw-bg-opacity))',
+          fontWeight: '700',
+          border: '2px solid #dfe1e5',
+          borderColor: 'rgb(237 237 237 / var(--tw-border-opacity))',
+          hoverBackgroundColor: 'rgb(27 167 227 / var(--tw-bg-opacity))',
+          borderWidth: '2px',
+          flexGrow: '1',
+          iconColor: 'white',
+          borderRadius: '0.375rem',
+          placeholderColor: 'white',
+          color: 'rgb(237 237 237 / var(--tw-text-opacity))',
+          zIndex: 10,
+        }}
+        fuseOptions={{
+          threshold: 0.2,
+        }}
+        placeholder={t('Buscar')}
+        items={
+          RefList &&
+          RefList.map((ref, i) => {
+            return { id: ref, name: ref };
+          })
+        }
+        inputSearchString={defaultSearch || ''}
+        onSelect={(item) => {
+          setValue('search', item.name);
+        }}
+        onSearch={(keyword, _) => {
+          setValue('search', keyword);
+        }}
+        onClear={() => setValue('search', '')}
+        showIcon={false}
+        showNoResults={true}
+        showItemsOnFocus={false}
+        showNoResultsText={buscar}
+        maxResults={3}
       />
       <input
         type="submit"

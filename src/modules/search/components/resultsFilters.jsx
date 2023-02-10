@@ -1,8 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import escuelas from '@shared/constants/universidades';
-import idiomas from '@shared/constants/languages';
-import actividades from '@shared/constants/areas';
 import regiones from '@shared/constants/regiones';
 import genders from '@shared/constants/genders';
 import { useState } from 'react';
@@ -39,13 +37,6 @@ export const ResultsFilter = ({ setFilters, filters }) => {
           isVisible ? 'h-auto block' : 'h-0 hidden lg:block lg:h-auto',
         ].join(' ')}
         onSubmit={handleSubmit((values) => {
-          Object.keys(values).forEach((key) => {
-            if (typeof values[key] == 'boolean') {
-              setValue(key, values[key] || undefined);
-            } else {
-              setValue(key, '');
-            }
-          });
           setFilters(values);
         })}
       >
@@ -55,12 +46,13 @@ export const ResultsFilter = ({ setFilters, filters }) => {
             className="dark"
             {...register('state')}
             placeholder="Ubicación"
+            defaultValue={getValues().state}
           >
             <option value="">{t('Ubicación')}</option>
             {regiones?.map((region) => (
               <optgroup key={region.id} label={region.nombre} value={region.id}>
                 {region.estados?.map((estado) => (
-                  <option key={estado} value={estado}>
+                  <option key={encodeURI(estado)} value={estado}>
                     {estado}
                   </option>
                 ))}

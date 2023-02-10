@@ -26,6 +26,7 @@ export const BasicInfo = () => {
   const { register, handleSubmit, setValue, getValues } = useForm();
 
   const { user, loading, error } = useUserInfo(auth.getUserEmail());
+
   useMemo(() => {
     !!user &&
       Object.entries(user).forEach(([key, value]) => setValue(key, value));
