@@ -45,6 +45,13 @@ export const ResultsFilter = ({ setFilters, filters }) => {
       >
         <h2 className="text-primary text-xl">Búsqueda Avanzada</h2>
         <div className="flex flex-col gap-4 py-4">
+          <input
+            type="checkbox"
+            placeholder="Nombre"
+            id="name"
+            {...register('name')}
+            className="w-4 h-4 cursor-pointer"
+          />
           <select className="dark" {...register('subarea')} placeholder="Actividad">
             <option value="">{t('Actividad')}</option>
             {Object.keys(areas).map((area, i) => (
@@ -117,21 +124,6 @@ export const ResultsFilter = ({ setFilters, filters }) => {
                 placeholder="Escribe aquí el nombre del idioma"
               />
             )}
-          </div>
-          <div className="grid grid-cols-[1fr,2rem] items-center text-left border-b border-b-black border-opacity-20">
-            <label
-              className="font-normal w-full cursor-pointer"
-              htmlFor="recommended"
-            >
-              {t('Ordenar por recomendaciones')}
-            </label>
-            <input
-              type="checkbox"
-              placeholder="recommended"
-              id="recommended"
-              {...register('sortByReviews')}
-              className="w-4 h-4 cursor-pointer"
-            />
           </div>
         </div>
         <div className="flex flex-col gap-2">

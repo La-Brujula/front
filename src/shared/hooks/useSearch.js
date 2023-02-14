@@ -42,8 +42,8 @@ export const useSearch = () => {
                 filters[property] === [])
                 continue;
             switch (property) {
-                case "area":
-                    queries.push(where('subareas', "==", filters.area))
+                case "name":
+                    queries.push(where("name", '==', filters.name))
                     break;
                 case "type":
                     queries.push(where('type', "==", filters.type))
