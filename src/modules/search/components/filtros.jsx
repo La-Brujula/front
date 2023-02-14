@@ -15,7 +15,7 @@ export const PorFiltros = ({ defaultSearch }) => {
   const buscar = watch('search');
 
   return (
-    <Form
+    <form
       action="/buscar"
       method="get"
       className="grid grid-cols-1 lg:grid-cols-[1fr_min-content]
@@ -70,6 +70,6 @@ export const PorFiltros = ({ defaultSearch }) => {
         value={t('search')}
         className="px-4 py-2 !bg-white !text-primary"
       />
-    </Form>
+    </form>
   );
 };

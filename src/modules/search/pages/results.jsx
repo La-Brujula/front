@@ -22,7 +22,7 @@ export const SearchResultsPage = () => {
 
   useMemo(() => {
     setFilterObject({ search: searchParams.get('search') || '' });
-  }, []);
+  }, [searchParams]);
 
   return (
     <>

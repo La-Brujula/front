@@ -84,14 +84,20 @@ export function brujulaUtils() {
           !!userInfo.nickname
             ? userInfo.nickname.split(' ')
             : !!data.nickname
-            ? data.nickname.split(' ')
-            : [])(),
+              ? data.nickname.split(' ')
+              : [])(),
         ...(() =>
           !!userInfo.subareas
             ? userInfo.subareas
             : !!data.subareas
-            ? data.subareas
-            : [])(),
+              ? data.subareas
+              : [])(),
+        ...(() =>
+          !!userInfo.languages
+            ? userInfo.languages
+            : !!data.languages
+              ? data.languages
+              : [])().map((({ lang }) => lang)),
         userInfo.city || data.city,
         userInfo.state || data.state,
         userInfo.country || data.country,
