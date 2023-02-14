@@ -21,7 +21,8 @@ export const SearchResultsPage = () => {
   } = useSearch();
 
   useMemo(() => {
-    setFilterObject({ search: [searchParams.get('search'), searchParams.get('activity')].join(' ') });
+    const search = searchParams.get('search'), activity = searchParams.get('activity');
+    setFilterObject({ search: !!search && !!activity ? [search, activity].join(' ') : search || activity});
   }, [searchParams]);
 
   return (
