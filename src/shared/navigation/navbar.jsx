@@ -138,6 +138,13 @@ export const Navbar = () => {
             >
               {t('contact')}
             </NavLink>
+            <NavLink
+              onClick={() => toggleOpen()}
+              to="/pdf/privacy.pdf"
+              className="font-bold leading-relaxed text-white"
+            >
+              {t('privacyH')}
+            </NavLink>
             {isLoggedIn && (
               <NavLink
                 onClick={() => toggleOpen()}

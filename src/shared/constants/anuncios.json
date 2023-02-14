@@ -11,11 +11,13 @@
             "linkUrl": ""
         },
         {
-            "image": "/anuncios/Brujula-imcine-1.jpg",
+            "horizontalImage": "/anuncios/Canacine_Horizontal.jpg",
+            "verticalImage": "/anuncios/Canacine_Vertical.jpeg",
             "linkUrl": ""
         },
         {
-            "image": "/anuncios/Brujula-imcine-2.jpg",
+            "horizontalImage": "/anuncios/Brujula-Imcine-1.jpg",
+            "verticalImage": "/anuncios/Brujula-Imcine-1.jpg",
             "linkUrl": ""
         }
     ],
@@ -31,12 +33,16 @@
             "linkUrl": ""
         },
         {
-            "image": "/anuncios/Brujula-imcine-3-2.jpg",
+            "horizontalImage": "/anuncios/Brujula-Imcine-2.jpg",
+            "verticalImage": "/anuncios/Brujula-Imcine-2.jpg",
             "linkUrl": ""
         },
         {
-            "image": "/anuncios/Brujula-imcine-3.jpg",
+            "horizontalImage": "/anuncios/Brujula-Imcine-3-2.jpg",
+            "verticalImage": "/anuncios/Brujula-Imcine-3-2.jpg",
             "linkUrl": ""
         }
+        
     ]
 }
+

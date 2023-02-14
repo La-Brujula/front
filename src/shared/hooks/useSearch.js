@@ -32,7 +32,6 @@ export const useSearch = () => {
     }, [filters])
 
     const getResultsWithFilters = useCallback(async (filters) => {
-        import.meta.env.NODE_ENV == 'development' && console.log('filters', filters);
         const queries = []
         setLoading(true)
         setError(undefined)
@@ -99,7 +98,6 @@ export const useSearch = () => {
         if (data.length < 10) {
             setHasMore(false)
         }
-        import.meta.env.NODE_ENV == 'development' && console.log('results', data.map(a => a.searchName));
         return data
     }, [filters, hasMore])
 

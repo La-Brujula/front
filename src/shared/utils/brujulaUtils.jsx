@@ -84,14 +84,29 @@ export function brujulaUtils() {
           !!userInfo.nickname
             ? userInfo.nickname.split(' ')
             : !!data.nickname
-            ? data.nickname.split(' ')
-            : [])(),
+              ? data.nickname.split(' ')
+              : [])(),
+        // campo actividad
         ...(() =>
           !!userInfo.subareas
             ? userInfo.subareas
             : !!data.subareas
-            ? data.subareas
-            : [])(),
+              ? data.subareas
+              : [])(),
+        // campo subarea
+        ...((() =>
+          !!userInfo.subareas
+            ? userInfo.subareas
+            : !!data.subareas
+              ? data.subareas
+              : [])()).map(activity => activity.split('-')[0]),
+        // campo área
+        ...((() =>
+          !!userInfo.subareas
+            ? userInfo.subareas
+            : !!data.subareas
+              ? data.subareas
+              : [])()).map(activity => activity[0]),
         userInfo.city || data.city,
         userInfo.state || data.state,
         userInfo.country || data.country,
