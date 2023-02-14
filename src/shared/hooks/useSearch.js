@@ -43,7 +43,7 @@ export const useSearch = () => {
                 continue;
             switch (property) {
                 case "area":
-                    queries.push(where('area', "==", filters.area))
+                    queries.push(where('subareas', "==", filters.area))
                     break;
                 case "type":
                     queries.push(where('type', "==", filters.type))
@@ -75,14 +75,18 @@ export const useSearch = () => {
                 case "socialService":
                     queries.push(where('probono', "==", filters.socialService))
                     break;
-                case "search":
-                    const search = replaceSearchTermsFromIndex(filters.search.toLowerCase())
-                    console.log(search.split(' ').map(a => a.toLowerCase()));
-                    queries.push(
-                        where('searchName', 'array-contains-any',
-                            search.split(' ').map(a => a.toLowerCase()))
-                    )
             }
+        }
+        if (filters.search || filters.subarea || filters.area || filters.language) {
+            const search = replaceSearchTermsFromIndex(filters.search.toLowerCase())
+            queries.push(
+                where('searchName', 'array-contains-any',
+                    [...search.split(' ').map(a => a.toLowerCase()),
+                    filters.subarea,
+                    filters.area,
+                    filters.language
+                    ].filter(a => !!a))
+            )
         }
         queries.push(orderBy(filters.sortByReviews ? 'reviewCount' : 'searchName',
             filters.sortByReviews ? 'desc' : 'asc'))
@@ -90,6 +94,7 @@ export const useSearch = () => {
             queries.push(startAfter(results[results.length - 1].email))
         }
         queries.push(limit(10))
+        console.log(queries)
         let data = await brujula.queryUsers(queries);
         if (!data) {
             queries.pop()

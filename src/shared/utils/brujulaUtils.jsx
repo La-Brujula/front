@@ -102,11 +102,18 @@ export function brujulaUtils() {
               : [])()).map(activity => activity.split('-')[0]),
         // campo área
         ...((() =>
-          !!userInfo.subareas
-            ? userInfo.subareas
-            : !!data.subareas
-              ? data.subareas
-              : [])()).map(activity => activity[0]),
+        !!userInfo.subareas
+        ? userInfo.subareas
+        : !!data.subareas
+        ? data.subareas
+        : [])()).map(activity => activity[0]),
+        // campo idiomas
+        ...(() =>
+          !!userInfo.languages
+            ? userInfo.languages
+            : !!data.languages
+              ? data.languages
+              : [])().map((({ lang }) => lang)),
         userInfo.city || data.city,
         userInfo.state || data.state,
         userInfo.country || data.country,
