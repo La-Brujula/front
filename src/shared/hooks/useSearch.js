@@ -77,15 +77,17 @@ export const useSearch = () => {
                     break;
             }
         }
-        if (filters.search || filters.subarea || filters.area || filters.language) {
+        if (filters.search || filters.subarea || filters.area || filters.language) {
             const search = replaceSearchTermsFromIndex(filters.search.toLowerCase())
             queries.push(
                 where('searchName', 'array-contains-any',
-                    [...search.split(' ').map(a => a.toLowerCase()),
-                    filters.subarea,
-                    filters.area,
-                    filters.language
-                    ].filter(a => !!a))
+                    [
+                        filters.search,
+                        ...search.split(' ').map(a => a.toLowerCase()),
+                        filters.subarea,
+                        filters.area,
+                        filters.language
+                    ].filter(a => !!a).slice(0, 10))
             )
         }
         queries.push(orderBy(filters.sortByReviews ? 'reviewCount' : 'searchName',
