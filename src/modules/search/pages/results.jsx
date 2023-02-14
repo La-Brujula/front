@@ -30,7 +30,7 @@ export const SearchResultsPage = () => {
       <p className="text-white font-bold mb-4"></p>
       <PorFiltros defaultSearch={searchParams.get('search') || filters.search} />
 
-      <div className="grid grid-cols-1 md:grid-cols-[20rem,1fr] gap-12 mt-16">
+      <div className="grid grid-cols-1 lg:grid-cols-[20rem,1fr] gap-12 mt-16">
         <ResultsFilter setFilters={setFilterObject} filters={filters} />
         {loading ? (
           <LoadingSpinner />
