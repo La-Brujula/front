@@ -16,9 +16,9 @@ export const Footer = () => {
         <SocialLinks />
         <p>
           {t('seeOur')}&nbsp;
-          <NavLink to="/pdf/privacy.pdf" className="text-primary">
+          <a href={import.meta.env.BASE_URL+"pdf/privacy.pdf"} className="text-primary">
             {t('privacy')}
-          </NavLink>
+          </a>
         </p>
       </div>
       <p>{t('trademark')}</p>

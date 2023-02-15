@@ -138,13 +138,13 @@ export const Navbar = () => {
             >
               {t('contact')}
             </NavLink>
-            <NavLink
+            <a
               onClick={() => toggleOpen()}
-              to="/pdf/privacy.pdf"
+              href={import.meta.env.BASE_URL+"pdf/privacy.pdf"}
               className="font-bold leading-relaxed text-white"
             >
               {t('privacyH')}
-            </NavLink>
+            </a>
             {isLoggedIn && (
               <NavLink
                 onClick={() => toggleOpen()}
