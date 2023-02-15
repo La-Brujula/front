@@ -28,7 +28,7 @@ export const SearchResultsPage = () => {
   return (
     <>
       <div className="bg-primary absolute top-0 h-48 w-full left-0 -z-10" />
-      <PorFiltros defaultSearch={searchParams.get('search') || filters.search} />
+      <PorFiltros defaultSearch={searchParams.get('search') || filters.search} setFilters={setFilterObject} />
 
       <div className="grid grid-cols-1 lg:grid-cols-[20rem,1fr] gap-12 mt-16">
         <ResultsFilter setFilters={setFilterObject} filters={filters} />

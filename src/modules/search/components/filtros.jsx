@@ -2,22 +2,29 @@ import { useTranslation } from 'react-i18next';
 import RefList from '@shared/constants/RefList.json';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 import { useForm } from 'react-hook-form';
-import { Form } from 'react-router-dom';
+import { Form, useNavigate } from 'react-router-dom';
 
-export const PorFiltros = ({ defaultSearch }) => {
+export const PorFiltros = ({ defaultSearch, setFilters }) => {
   const { t } = useTranslation('search');
-  const { setValue, watch } = useForm({
+  const { setValue, watch, handleSubmit } = useForm({
     defaultValues: {
       search: defaultSearch || '',
     },
   });
 
   const buscar = watch('search');
+  const navigate = useNavigate()
 
   return (
-    <form
+    <Form
       action="/buscar"
       method="get"
+      onSubmit={handleSubmit((values) => {
+        if (setFilters !== undefined) {
+          return setFilters({search: values.search})
+        }
+        navigate(`/buscar?search=${values.search}`)
+      })}
       className="grid grid-cols-1 lg:grid-cols-[1fr_min-content]
       gap-4 justify-items-stretch
       bg-primary px-4 py-8 rounded-lg lg:-mx-4"
@@ -70,6 +77,6 @@ export const PorFiltros = ({ defaultSearch }) => {
         value={t('search')}
         className="px-4 py-2 !bg-white !text-primary"
       />
-    </form>
+    </Form>
   );
 };
