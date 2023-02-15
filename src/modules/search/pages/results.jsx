@@ -21,41 +21,38 @@ export const SearchResultsPage = () => {
   } = useSearch();
 
   useMemo(() => {
-    setFilterObject({ search: [searchParams.get('search'), searchParams.get('activity')].join(' ') });
+    const search = searchParams.get('search'), activity = searchParams.get('activity');
+    setFilterObject({ search: !!search && !!activity ? [search, activity].join(' ') : search || activity });
   }, [searchParams]);
 
   return (
     <>
       <div className="bg-primary absolute top-0 h-48 w-full left-0 -z-10" />
-      <p className="text-white font-bold mb-4"></p>
       <PorFiltros defaultSearch={searchParams.get('search') || filters.search} />
 
       <div className="grid grid-cols-1 lg:grid-cols-[20rem,1fr] gap-12 mt-16">
         <ResultsFilter setFilters={setFilterObject} filters={filters} />
-        {loading ? (
-          <LoadingSpinner />
-        ) : (
-          <div
-            className="flex flex-col gap-8
+        <div
+          className="flex flex-col gap-8
     text-left bg-black bg-opacity-20 rounded-l-3xl p-8 w-full"
-          >
-            {!!results ? (
-              <UsersList users={results} getNext={getNext} />
-            ) : (
-              <p>No se encontraron resultados</p>
-            )}
-            {hasMore && (
-              <div
-                className="px-4 py-2 text-white bg-secondary
+        >
+          {!!results && results.length > 0 ? (
+            <UsersList users={results} getNext={getNext} />
+          ) : !loading && (
+            <p>No se encontraron resultados</p>
+          )}
+          {loading && <LoadingSpinner />}
+          {!loading && hasMore && (
+            <div
+              className="px-4 py-2 text-white bg-secondary
             cursor-pointer rounded-md text-c"
-                onClick={getNext}
-              >
-                Cargar más
-              </div>
-            )}
-            {!!error && <ErrorMessage message={error.toString()} />}
-          </div>
-        )}
+              onClick={getNext}
+            >
+              Cargar más
+            </div>
+          )}
+          {!!error && <ErrorMessage message={error.toString()} />}
+        </div>
       </div>
     </>
   );

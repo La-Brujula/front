@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react"
+import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { where, orderBy, limit, startAfter } from "firebase/firestore";
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import regions from '@shared/constants/regiones.json';
@@ -19,7 +19,7 @@ export const useSearch = () => {
         state: "",
         //state
     })
-    const [results, setResults] = useState([])
+    const results = useRef([])
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(undefined)
     const [hasMore, setHasMore] = useState(true)
@@ -42,8 +42,8 @@ export const useSearch = () => {
                 filters[property] === [])
                 continue;
             switch (property) {
-                case "area":
-                    queries.push(where('subareas', "==", filters.area))
+                case "name":
+                    queries.push(where("name", '==', filters.name))
                     break;
                 case "type":
                     queries.push(where('type', "==", filters.type))
@@ -77,30 +77,39 @@ export const useSearch = () => {
                     break;
             }
         }
-        if (filters.search || filters.subarea || filters.area || filters.language) {
-            const search = replaceSearchTermsFromIndex(filters.search.toLowerCase())
+        if (filters.search || filters.subarea || filters.area || filters.language) {
+            const search = filters.search ? replaceSearchTermsFromIndex(filters.search.toLowerCase()) : ''
             queries.push(
                 where('searchName', 'array-contains-any',
-                    [...search.split(' ').map(a => a.toLowerCase()),
-                    filters.subarea,
-                    filters.area,
-                    filters.language
-                    ].filter(a => !!a))
+                    [
+                        filters.search,
+                        ...search.split(' ').map(a => a.toLowerCase()),
+                        filters.subarea,
+                        filters.area,
+                        filters.language
+                    ].filter(a => !!a).slice(0, 10))
             )
         }
-        queries.push(orderBy(filters.sortByReviews ? 'reviewCount' : 'searchName',
-            filters.sortByReviews ? 'desc' : 'asc'))
-        if (results.length > 0) {
-            queries.push(startAfter(results[results.length - 1].email))
+
+        if (!!filters.sortByReviews) {
+            queries.push(orderBy('reviewCount'))
         }
+
+        queries.push(orderBy('email'))
+
+
+        if (results.current.length !== 0) {
+            queries.push(startAfter(results.current[results.current.length - 1]?.email))
+        }
+
         queries.push(limit(10))
-        console.log(queries)
+
         let data = await brujula.queryUsers(queries);
         if (!data) {
             queries.pop()
             data = await brujula.queryUsers(queries)
         }
-        if (data.length < 10) {
+        if (data.length <= 9) {
             setHasMore(false)
         }
         return data
@@ -109,9 +118,9 @@ export const useSearch = () => {
     useEffect(() => {
         (async () => {
             try {
-                setResults([])
+                results.current = []
                 const data = await getResultsWithFilters(filters)
-                setResults(data)
+                results.current = data
             } catch (e) {
                 console.error(e)
                 setError("Hubo un error por favor intenta de nuevo más tarde.");
@@ -125,7 +134,7 @@ export const useSearch = () => {
             try {
                 const data = await getResultsWithFilters(filters)
                 if (data.length == 0) setHasMore(false)
-                setResults([...results, ...data])
+                results.current.push(...data)
             } catch (e) {
                 console.error(e)
                 setError("Hubo un error, por favor intenta de nuevo más tarde.");
@@ -135,5 +144,5 @@ export const useSearch = () => {
     }, [])
 
 
-    return { results, loading, error, setFilterObject, getNext, hasMore, filters }
+    return { results: results.current, loading, error, setFilterObject, getNext, hasMore, filters }
 }
