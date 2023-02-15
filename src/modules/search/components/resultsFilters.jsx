@@ -29,14 +29,14 @@ export const ResultsFilter = ({ setFilters, filters }) => {
   return (
     <>
       <div
-        className="lg:hidden px-4 py-2 rounded-md bg-primary text-white"
+        className="lg:hidden px-4 py-2 rounded-md bg-primary text-white sticky top-0"
         onClick={() => setIsVisible(!isVisible)}
       >
         Búsqueda Avanzada
       </div>
       <form
         className={[
-          'flex flex-col gap-8 transition-all',
+          'flex flex-col gap-8 transition-all sticky top-0',
           isVisible ? 'h-auto block' : 'h-0 hidden lg:block lg:h-auto',
         ].join(' ')}
         onSubmit={handleSubmit((values) => {
@@ -46,11 +46,11 @@ export const ResultsFilter = ({ setFilters, filters }) => {
         <h2 className="text-primary text-xl">Búsqueda Avanzada</h2>
         <div className="flex flex-col gap-4 py-4">
           <input
-            type="checkbox"
+            type="text"
             placeholder="Nombre"
             id="name"
             {...register('name')}
-            className="w-4 h-4 cursor-pointer"
+            className="w-full"
           />
           <select className="dark" {...register('subarea')} placeholder="Actividad">
             <option value="">{t('Actividad')}</option>
@@ -117,7 +117,7 @@ export const ResultsFilter = ({ setFilters, filters }) => {
               ))}
               <option value="other">Otro</option>
             </select>
-            {!!lang && Object.keys(languages).includes(lang) && (
+            {!!lang && !Object.keys(languages).includes(lang) && (
               <input
                 type="text"
                 onChange={(e) => setValue('language', e.currentTarget.value, { shouldTouch: true })}
