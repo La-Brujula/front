@@ -5,6 +5,7 @@ import regiones from '@shared/constants/regiones';
 import genders from '@shared/constants/genders';
 import { useState } from 'react';
 import languages from '@shared/constants/languages.json';
+import { getArea, getAreaFromId, getSubArea, getTitle } from '../../../shared/utils/areaUtils';
 
 export const ResultsFilter = ({ setFilters, filters }) => {
   const { register, setValue, getValues, handleSubmit, watch } = useForm({
@@ -24,12 +25,13 @@ export const ResultsFilter = ({ setFilters, filters }) => {
   const [isVisible, setIsVisible] = useState(false);
   const { t } = useTranslation('');
 
-  const lang = watch('language')
+  const lang = watch('language');
+  const subarea = watch('subarea');
 
   return (
     <>
       <div
-        className="lg:hidden px-4 py-2 rounded-md bg-primary text-white sticky top-0"
+        className="lg:hidden px-4 py-2 rounded-md bg-primary text-white"
         onClick={() => setIsVisible(!isVisible)}
       >
         Búsqueda Avanzada
@@ -64,6 +66,23 @@ export const ResultsFilter = ({ setFilters, filters }) => {
               </optgroup>
             ))}
           </select>
+          {!!subarea && <select
+            {...register('activity')}
+            placeholder="Actividad"
+            className="dark"
+          >
+            <option value="">Actividad</option>
+            {!!areas[getAreaFromId(subarea)][getSubArea(getAreaFromId(subarea), parseInt(subarea.slice(1)))] &&
+              Object.keys(areas[getAreaFromId(subarea)][getSubArea(getAreaFromId(subarea), parseInt(subarea.slice(1)))]).map((activity) =>
+                getTitle(activity, "No Binario") ? (
+                  <option key={activity} value={activity}>
+                    {getTitle(activity, "No Binario")}
+                  </option>
+                ) : (
+                  <></>
+                )
+              )}
+          </select>}
           <select
             className="dark"
             {...register('state')}

@@ -70,14 +70,14 @@ export const useSearch = () => {
                     queries.push(where('state', "in", regions[filters.region].estados));
                     break;
                 case "remote":
-                    queries.push(where('remoteWork', "==", filters.remote))
+                    if (!!filters.remote) queries.push(where('remoteWork', "==", filters.remote))
                     break;
                 case "socialService":
                     queries.push(where('probono', "==", filters.socialService))
                     break;
             }
         }
-        if (filters.search || filters.subarea || filters.area || filters.language) {
+        if (filters.search || filters.subarea || filters.area || filters.language || filters.activity) {
             const search = filters.search ? replaceSearchTermsFromIndex(filters.search.toLowerCase()) : ''
             queries.push(
                 where('searchName', 'array-contains-any',
@@ -86,10 +86,13 @@ export const useSearch = () => {
                         ...search.split(' ').map(a => a.toLowerCase()),
                         filters.subarea,
                         filters.area,
-                        filters.language
+                        filters.language,
+                        filters.activity
                     ].filter(a => !!a).slice(0, 10))
             )
         }
+
+        console.log(queries)
 
         if (!!filters.sortByReviews) {
             queries.push(orderBy('reviewCount'))
@@ -111,6 +114,8 @@ export const useSearch = () => {
         }
         if (data.length <= 9) {
             setHasMore(false)
+        } else {
+            setHasMore(true)
         }
         return data
     }, [filters, hasMore])
