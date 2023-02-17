@@ -75,7 +75,7 @@ export const CaracteristicasPage = () => {
           rows="5"
           maxLength={300}
           {...register('certifications')}
-          placeholder={t('Escribe aquí las certificaciónes que haz concluido')}
+          placeholder={t('Escribe aquí las certificaciónes que has concluido')}
           className="rounded-md bg-black bg-opacity-20 resize-none col-span-2 p-4"
         />
         <label htmlFor="awards">{t('Reconocimientos')}:</label>

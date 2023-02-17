@@ -7,8 +7,7 @@ function QuoteSlide({ imageUrl, name, quote, title }) {
     >
       <img
         src={`${import.meta.env.BASE_URL}img${imageUrl}`}
-        className="w-lg rounded-lg h-lg object-cover
-        object-fit object-center"
+        className="w-320 rounded-md h-240 object-cover object-fit object-center" 
       />
       <div className="grid gap-2 grid-cols-[2rem_1fr] self-start">
         <img

@@ -1,44 +1,36 @@
 {
     "hero": [
         {
-            "horizontalImage": "/anuncios/Barraca_1920_1080.jpg",
-            "verticalImage": "/anuncios/Barraca_1080_1920.jpg",
+            "verticalImage": "/anuncios/Barraca_1920_1080.jpg",
             "linkUrl": ""
+           
         },
         {
-            "horizontalImage": "/anuncios/CEC_hor.png",
-            "verticalImage": "/anuncios/CEC_vert.png",
+            "verticalImage": "/anuncios/CanacineHorizontal2.png",
             "linkUrl": ""
+          
         },
         {
-            "horizontalImage": "/anuncios/Canacine_Horizontal.jpg",
-            "verticalImage": "/anuncios/Canacine_Vertical.jpeg",
+            "verticalImage": "/anuncios/CEC_hor.png",
             "linkUrl": ""
         },
+     
         {
-            "horizontalImage": "/anuncios/Brujula-Imcine-1.jpg",
-            "verticalImage": "/anuncios/Brujula-Imcine-1.jpg",
+            "verticalImage":"/anuncios/RAINDANCE.png",
             "linkUrl": ""
         }
     ],
     "bottom": [
         {
-            "horizontalImage": "/anuncios/FCU_hor.png",
-            "verticalImage": "/anuncios/FCU_vert.png",
-            "linkUrl": ""
-        },
-        {
-            "horizontalImage": "/anuncios/RAINDANCE.png",
-            "verticalImage": "/anuncios/RAINDANCE_vert.png",
-            "linkUrl": ""
-        },
-        {
-            "horizontalImage": "/anuncios/Brujula-Imcine-2.jpg",
+           
             "verticalImage": "/anuncios/Brujula-Imcine-2.jpg",
             "linkUrl": ""
         },
         {
-            "horizontalImage": "/anuncios/Brujula-Imcine-3-2.jpg",
+            "verticalImage": "/anuncios/VivaMexicoHorizontal.PNG",
+            "linkUrl": ""
+        },
+        {
             "verticalImage": "/anuncios/Brujula-Imcine-3-2.jpg",
             "linkUrl": ""
         }
