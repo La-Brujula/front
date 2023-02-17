@@ -28,14 +28,14 @@ Persona moral
 
 TODO:
 
-1. la búsqueda avanzada no funciona - cambiar a actividad lo de escuela, becario y así
-2. cargar 40 contactos (Daniel)
+1. la búsqueda avanzada no funciona
+   1. Ubicación no funciona
+   1. Género no funciona
+2. Borrar usuario de auth
 3. Arreglar Borrar Actividad
-4. Tamaño ediciones especiales
-5. Aviso de privacidad
-6. cargar anuncios y testimonios y fotos (esto lo hará Daniel, Aleja a explicar)
-7. Destino de formulario de contacto contacto@labrujula.com.mx
+4. Destino de formulario de contacto contacto@labrujula.com.mx
    1. collection
    2. fifí
+5. Componente 
 
 etapa o departamento
