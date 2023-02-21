@@ -113,7 +113,7 @@ export function brujulaUtils() {
             ? userInfo.languages
             : !!data.languages
               ? data.languages
-              : [])().map((({ lang }) => lang)),
+              : [])().map((({ lang }) => `lang:${lang}`)),
         userInfo.city || data.city,
         userInfo.state || data.state,
         userInfo.country || data.country,
