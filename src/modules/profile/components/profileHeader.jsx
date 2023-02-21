@@ -36,6 +36,7 @@ export const ProfileHeader = ({ user }) => {
             <div className="h-32 w-32 rounded-full bg-slate-400" />
           )}
         </div>
+        <br></br>
         <div className="flex flex-col gap-1 text-center relative">
           <h3 className="text-md font-normal">
             {user.nickname
