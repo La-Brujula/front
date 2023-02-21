@@ -122,6 +122,9 @@ export const ResultsFilter = ({ setFilters, filters }) => {
                 {e}
               </option>
             ))}
+            <option value="Persona Moral">
+              Persona Moral
+            </option>
           </select>
           <div className="flex flex-col gap-4 w-full">
             <select

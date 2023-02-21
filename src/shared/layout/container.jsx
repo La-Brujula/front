@@ -25,6 +25,7 @@ export const Container = ({ children, bg, className }) => {
           }
         })(),
         'w-full',
+        'max-w-[100vw]',
         'px-4',
         'md:px-8',
         'py-8',

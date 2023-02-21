@@ -1,8 +1,11 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 import { where, orderBy, limit, startAfter } from "firebase/firestore";
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import regions from '@shared/constants/regiones.json';
 import { replaceSearchTermsFromIndex } from "../utils/busqueda";
+import langs from '../../shared/constants/languages.json'
+
+const bannedWords = new RegExp(["y", "la", ...Object.keys(langs)].map(w => `\\b${w}\\b`).join('|'), 'i')
 
 export const useSearch = () => {
     const brujula = brujulaUtils();
@@ -17,6 +20,7 @@ export const useSearch = () => {
         socialService: undefined,
         sortByReviews: undefined,
         state: "",
+        category: ""
         //state
     })
     const results = useRef([])
@@ -77,32 +81,30 @@ export const useSearch = () => {
                     break;
             }
         }
-        if (filters.search || filters.subarea || filters.area || filters.language || filters.activity) {
-            const search = filters.search ? replaceSearchTermsFromIndex(filters.search.toLowerCase()) : ''
+        if (filters.search || filters.subarea || filters.area || filters.language || filters.activity || filters.category) {
+            const search = !!filters.search && replaceSearchTermsFromIndex(filters.search.toLowerCase());
+            const category = !!filters.category && replaceSearchTermsFromIndex(filters.category.toLowerCase());
             queries.push(
                 where('searchName', 'array-contains-any',
                     [
                         filters.search,
-                        ...search.split(' ').map(a => a.toLowerCase()),
-                        filters.subarea,
-                        filters.area,
-                        filters.language,
-                        filters.activity
+                        ...(() => !!search ? search?.split(' ')?.filter(w => !bannedWords.test(w)).map(a => a.toLowerCase()) : [])(),
+                        ...(() => !!category ? category?.split(' ') : [])(),
+                        filters.activity || filters.subarea || filters.area,
+                        filters.language && `lang:${filters.language}`,
                     ].filter(a => !!a).slice(0, 10))
             )
         }
-
-        console.log(queries)
 
         if (!!filters.sortByReviews) {
             queries.push(orderBy('reviewCount'))
         }
 
-        queries.push(orderBy('email'))
+        queries.push(orderBy(!!filters.name ? 'lastName' : 'name'))
 
 
         if (results.current.length !== 0) {
-            queries.push(startAfter(results.current[results.current.length - 1]?.email))
+            queries.push(startAfter(results.current[results.current.length - 1][!!filters.name ? 'lastName' : 'name']))
         }
 
         queries.push(limit(10))
@@ -146,7 +148,7 @@ export const useSearch = () => {
             }
             setLoading(false);
         })()
-    }, [])
+    }, [filters])
 
 
     return { results: results.current, loading, error, setFilterObject, getNext, hasMore, filters }

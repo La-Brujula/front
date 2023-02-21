@@ -13,7 +13,7 @@ export const PorCategorias = ({ categorias }) => {
               'button font-bold flex flex-col items-center justify-center',
               !(i % 2) ? 'bg-primary' : 'bg-secondary',
             ].join(' ')}
-            to={`/buscar?activity=${cat.label}`}
+            to={`/buscar?category=${cat.label}`}
           >
             <img
               src={`${import.meta.env.BASE_URL}img/${cat.iconUrl}.svg`}
