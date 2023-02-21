@@ -1,11 +1,12 @@
 import { useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { useSearch } from '@shared/hooks/useSearch';
+import { useSearch } from '../../../shared/hooks/useSearch';
 import { UsersList } from '../components/userList';
 import { PorFiltros } from '../components/filtros';
 import { ResultsFilter } from '../components/resultsFilters';
-import { LoadingSpinner } from '@shared/components/loadingSpinner';
-import { ErrorMessage } from '@shared/components/errorMessage';
+import { LoadingSpinner } from '../../../shared/components/loadingSpinner';
+import { ErrorMessage } from '../../../shared/components/errorMessage';
+import { FiltrosActivos } from '../components/filtrosActivos';
 
 export const SearchResultsPage = () => {
   const [searchParams] = useSearchParams();
@@ -21,14 +22,15 @@ export const SearchResultsPage = () => {
   } = useSearch();
 
   useMemo(() => {
-    const search = searchParams.get('search'), activity = searchParams.get('activity');
-    setFilterObject({ search: !!search && !!activity ? [search, activity].join(' ') : search || activity });
+    const search = searchParams.get('search'), activity = searchParams.get('activity'), category = searchParams.get('category');
+    setFilterObject({ search: !!search && !!activity ? [search, activity].join(' ') : search || activity, category: category });
   }, [searchParams]);
 
   return (
     <>
       <div className="bg-primary absolute top-0 h-48 w-full left-0 -z-10" />
       <PorFiltros defaultSearch={searchParams.get('search') || filters.search} setFilters={setFilterObject} />
+      <FiltrosActivos filters={filters} />
 
       <div className="grid grid-cols-1 lg:grid-cols-[20rem,1fr] gap-12 mt-16">
         <ResultsFilter setFilters={setFilterObject} filters={filters} />
