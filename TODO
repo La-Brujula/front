@@ -29,11 +29,16 @@ Persona moral
 TODO:
 
 1. la búsqueda avanzada no funciona
-   2. Género no funciona
+   1. Quitar acentos
 2. Borrar usuario de auth
-3. Arreglar Borrar Actividad
-4. Destino de formulario de contacto contacto@labrujula.com.mx
+3. Checar si existe antes de iniciar sesión
+4. Name undefined en crear usuario de cero
+5. Restaurar contraseña
+6. Arreglar Borrar Actividad
+7. Destino de formulario de contacto contacto@labrujula.com.mx
    1. collection
    2. fifí
+8. Redireccionar página
+9. Checar si se puede número de contactos y filtrados
 
 etapa o departamento
