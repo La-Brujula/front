@@ -5,7 +5,7 @@
   "type": "commonjs",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && cp -rf dist/. ../../www_labrujula_com_mx_https/",
     "preview": "vite preview"
   },
   "dependencies": {
