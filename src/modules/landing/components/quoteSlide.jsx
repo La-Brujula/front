@@ -5,9 +5,9 @@ function QuoteSlide({ imageUrl, name, quote, title }) {
       mx-auto translate-x-[var(--carusel-animation)] items-center
       transition-transform duration-400 py-8 h-full"
     >
-      <img
+<img
         src={`${import.meta.env.BASE_URL}img${imageUrl}`}
-        className="w-[230px] h-[230px] rounded-md object-contain object-fit object-center"
+        className="w-md rounded-md h-md object-cover object-fit object-center"
       />
       <div className="grid gap-2 grid-cols-[2rem_1fr] self-start"> 
         <img
