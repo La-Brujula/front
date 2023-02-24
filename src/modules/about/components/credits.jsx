@@ -1,5 +1,6 @@
 import { Container } from '@shared/layout/container';
 import credits from '@shared/constants/credits.json';
+import { useTranslation } from 'react-i18next';
 
 function Credit({ title, name }) {
   return (
@@ -10,7 +11,9 @@ function Credit({ title, name }) {
   );
 }
 
+
 export function CreditsSection() {
+const { t } = useTranslation('navigation');
   return (
     <Container>
       <div className="flex flex-row gap-8">
@@ -27,6 +30,18 @@ export function CreditsSection() {
           ))}
         </div>
       </div>
+<br></br>
+
+<div style={{ textAlign: 'center' }}>  
+<p style={{ fontSize: '24px' }}>
+          {t('SeeOurPoli')}&nbsp;
+          <a href={import.meta.env.BASE_URL+"pdf/Políticas_de_uso_La_Brujula_Audiovisual.pdf"} className="text-primary">
+            {t('Politicas')}
+          </a>
+        </p>
+
+        </div>
+        <br></br>
     </Container>
   );
 }
