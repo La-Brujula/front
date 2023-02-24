@@ -4,28 +4,35 @@ import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '@shared/context/firebaseContext';
+import { LoadingSpinner } from '../../../shared/components/loadingSpinner';
 
 export const LoginForm = () => {
   const { t } = useTranslation('auth');
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
-
+  const [loading, setLoading] = useState(false)
   const auth = useContext(AuthContext);
   const [errorMsg, setErrorMsg] = useState('');
 
   const onError = (err) => {
+    setLoading(false)
     switch (err.code) {
       case 'auth/user-not-found':
         setErrorMsg('Las credenciales estan erroneas.');
+        break;
+      case 'auth/no-account':
+        setErrorMsg('No hay una cuenta registrada con ese correo.');
         break;
     }
   };
 
   const login = async (values) => {
+    setLoading(true)
     if (!values.email || !values.password) return;
     if (await auth.login(values.email, values.password, onError)) {
       navigate(`/usuarios/${values.email}`);
     }
+    setLoading(false)
   };
 
   return (
@@ -59,12 +66,12 @@ export const LoginForm = () => {
           />
         </div>
         {errorMsg === '' ? <></> : <p style={{ color: 'red' }}>{errorMsg}</p>}
-        <input
+        {!loading ? <input
           type="submit"
           className="max-w-xs mx-auto mt-2 lg:mt-8 bg-primary"
           onClick={login}
           value={t('Inicia sesión')}
-        />
+        /> : <LoadingSpinner />}
       </form>
       <div className="flex flex-col gap-2 mt-4 text-primary">
         <NavLink

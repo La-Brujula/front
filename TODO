@@ -29,9 +29,7 @@ Persona moral
 TODO:
 
 1. la búsqueda avanzada no funciona
-   1. Quitar acentos
 2. Borrar usuario de auth
-3. Checar si existe antes de iniciar sesión
 4. Name undefined en crear usuario de cero
 5. Restaurar contraseña
 6. Arreglar Borrar Actividad

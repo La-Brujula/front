@@ -25,7 +25,7 @@ export const ProfileHeader = ({ user }) => {
           />
         )}
         <div className="mt-8">
-          {!!user.profilePictureUrl ? (
+          {!!user.profilePictureUrl && (!!user.name || !!user.username) ? (
             <img
               src={user.profilePictureUrl}
               alt={`${user.username || user.name} profile picture`}
@@ -41,7 +41,7 @@ export const ProfileHeader = ({ user }) => {
           <h3 className="text-md font-normal">
             {user.nickname
               ? user.nickname
-              : [user.name, user.lastname].join(' ')}
+              : [user.name, user.lastname].filter(a => !!a).join(' ')}
           </h3>
           {!!user.subareas &&
             user.subareas.map((activity) => (
