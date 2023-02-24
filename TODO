@@ -1,44 +1,13 @@
-Prioridades
-
-7. búsqueda
-8. Hola en diferentes idiomas
-9. Galería Quiénes Somos
-6. ruta de usuario con nombre
-
-9. conexión con wordpress
-
-Alex:
-
-Dani:
-
-- Links logotipos aliados
-
-Diego:
-
-- Implementación páginas persona moral
-
-Calendario:
-9 enero - Invitar personas y flujo persona moral
-14 enero - Búsqueda singular
-24 enero - Salir masivamente
-
-echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
-
-Persona moral
-
 TODO:
 
-1. la búsqueda avanzada no funciona
-2. Registrar ruta correcta al aviso
+1. nuevo link para categorías
+2. Borrar avz de nombre
 3. Quitar CTA de Aviso de privacidad en Crear usuario 
 2. Borrar usuario de auth
-4. Name undefined en crear usuario de cero
 5. Restaurar contraseña
 6. Arreglar Borrar Actividad
 7. Destino de formulario de contacto contacto@labrujula.com.mx
    1. collection
    2. fifí
-8. Redireccionar página
-9. Checar si se puede número de contactos y filtrados
 
 etapa o departamento
