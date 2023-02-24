@@ -3,6 +3,7 @@ import { where, orderBy, limit, startAfter } from "firebase/firestore";
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import regions from '@shared/constants/regiones.json';
 import { replaceSearchTermsFromIndex } from "../utils/busqueda";
+import { getArea } from "../utils/areaUtils";
 import langs from '../../shared/constants/languages.json'
 
 const bannedWords = new RegExp(["y", "la", ...Object.keys(langs)].map(w => `\\b${w}\\b`).join('|'), 'i')
@@ -83,13 +84,13 @@ export const useSearch = () => {
         }
         if (filters.search || filters.subarea || filters.area || filters.language || filters.activity || filters.category) {
             const search = !!filters.search && replaceSearchTermsFromIndex(filters.search.toLowerCase());
-            const category = !!filters.category && replaceSearchTermsFromIndex(filters.category.toLowerCase());
+            const category = !!filters.category && getArea(filters.category);
             queries.push(
                 where('searchName', 'array-contains-any',
                     [
                         filters.search,
                         ...(() => !!search ? search?.split(' ')?.filter(w => !bannedWords.test(w)).map(a => a.toLowerCase()) : [])(),
-                        ...(() => !!category ? category?.split(' ') : [])(),
+                        category,
                         filters.activity || filters.subarea || filters.area,
                         filters.language && `lang:${filters.language}`,
                     ].filter(a => !!a).slice(0, 10))

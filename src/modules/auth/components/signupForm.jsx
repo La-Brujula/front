@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import { PrivacyPolicy } from './privacyPolicy';
+import { LoadingSpinner } from '../../../shared/components/loadingSpinner';
 
 export const SignupForm = () => {
   const auth = useContext(AuthContext);
@@ -15,16 +16,21 @@ export const SignupForm = () => {
   const navigate = useNavigate();
   const acceptedPrivacy = watch('acceptPrivacy');
   const [errorMsg, setErrorMsg] = useState('');
+  const [loading, setLoading] = useState(false)
 
   const onSubmit = async (data) => {
+    if (loading) return;
+    setLoading(true);
     setErrorMsg('');
     if (await auth.register(data.email, data.password, onError)) {
       await brujula.updateUserInfo({ type: tipoDePersona });
       navigate('basica');
     }
+    setLoading(false);
   };
 
   const onError = (err) => {
+    setLoading(false)
     switch (err.code) {
       case 'auth/invalid-email':
         setErrorMsg('Ingresa un correo valido.');
@@ -118,11 +124,11 @@ export const SignupForm = () => {
       {errorMsg === '' ? <></> : <p style={{ color: 'red' }}>{errorMsg}</p>}
       <input type="hidden" {...register('acceptPrivacy', { required: true })} />
       {acceptedPrivacy !== true && <PrivacyPolicy setValues={setValue} />}
-      <input
+      {!loading ? <input
         type="submit"
         className="max-w-xs mx-auto bg-primary"
         value={t('Crear usuario')}
-      />
+      /> : <LoadingSpinner />}
       <p>
         {t('¿Ya tienes una cuenta?')}&nbsp;
         <NavLink to="/iniciar-sesion" className="mt-4">

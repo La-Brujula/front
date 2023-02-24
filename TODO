@@ -29,6 +29,8 @@ Persona moral
 TODO:
 
 1. la búsqueda avanzada no funciona
+2. Registrar ruta correcta al aviso
+3. Quitar CTA de Aviso de privacidad en Crear usuario 
 2. Borrar usuario de auth
 4. Name undefined en crear usuario de cero
 5. Restaurar contraseña

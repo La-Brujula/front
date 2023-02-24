@@ -27,6 +27,7 @@ export const LoginForm = () => {
   };
 
   const login = async (values) => {
+    if (loading) return
     setLoading(true)
     if (!values.email || !values.password) return;
     if (await auth.login(values.email, values.password, onError)) {
