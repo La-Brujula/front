@@ -4,6 +4,7 @@ import {
   StorageContext,
   StoreContext,
 } from '@shared/context/firebaseContext';
+import { removeDiacritics } from './busqueda';
 
 export function brujulaUtils() {
   const store = useContext(StoreContext);
@@ -117,7 +118,7 @@ export function brujulaUtils() {
         userInfo.city || data.city,
         userInfo.state || data.state,
         userInfo.country || data.country,
-      ].map((a) => a.toLowerCase()),
+      ].map((a) => removeDiacritics(a.toLowerCase())),
     };
     return await store.saveInfo('users', email, newData);
   };

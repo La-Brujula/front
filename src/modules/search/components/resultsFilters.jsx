@@ -44,6 +44,7 @@ export const ResultsFilter = ({ setFilters, filters }) => {
         onSubmit={handleSubmit((values) => {
           setFilters(values);
         })}
+        onChange={() => setFilters(getValues())}
       >
         <h2 className="text-primary text-xl">Búsqueda Avanzada</h2>
         <div className="flex flex-col gap-4 py-4">
@@ -149,7 +150,6 @@ export const ResultsFilter = ({ setFilters, filters }) => {
           </div>
         </div>
         <div className="flex flex-col gap-2">
-          <input type="submit" value={t('Ver Resultados')} />
           <p
             className="text-primary cursor-pointer"
             onClick={() => {
