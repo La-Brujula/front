@@ -12,10 +12,10 @@ export const UserCard = ({ user }) => {
         <img
           src={user.profilePictureUrl}
           alt={`${user.nickname || user.name} profile picture`}
-          className="w-20 h-20 rounded-full shrink-0 lg:row-span-2"
+          className="w-20 h-20 rounded-full shrink-0 row-span-2"
         />
       ) : (
-        <div className="h-20 w-20 rounded-full bg-slate-400 shrink-0 lg:row-span-2" />
+        <div className="h-20 w-20 rounded-full bg-slate-400 shrink-0 row-span-2" />
       )}
       <div
         className="flex flex-row gap-8 text-left w-full border-b-black
@@ -32,16 +32,16 @@ export const UserCard = ({ user }) => {
           )}
         </div>
       </div>
-      <div className="col-span-2 lg:col-span-1">
+      <div className="">
         {user.subareas?.map((subarea, i) => (
           <p className={["text-sm opacity-80", i == 0 && "font-bold"].join(' ')} key={subarea}>
             {getTitle(subarea, user.gender)}
           </p>
         ))}
-        <p className="text-xs mt-2">{[user.city, user.state].filter(a => !!a).join(', ')}</p>
+        <p className="text-xs mt-2 font-medium">{[user.city, user.state].filter(a => !!a).join(', ')}</p>
       </div>
-      <div className="grid grid-cols-[4rem_1fr] gap-2 items-center justify-center">
-        <img src={import.meta.env.BASE_URL + 'img/LogoBlue.svg'} alt="" />
+      <div className="grid lg:grid-cols-[4rem_1fr] lg:gap-4 items-center justify-center">
+        <img src={import.meta.env.BASE_URL + 'img/LogoBlue.svg'} alt="" className='max-h-[2rem] w-full' />
         <p className='text-black'>
           <span className="block text-xl font-bold">
             {!!user.reviews ? user.reviews.length : '0'}
