@@ -74,7 +74,7 @@ export function brujulaUtils() {
     const newData = {
       ...data,
       ...userInfo,
-      searchName: [
+      searchName: userInfo.name || data.name && [
         ...(() =>
           !!userInfo.name ? userInfo.name.split(' ') : data.name.split(' '))(),
         ...(() =>
