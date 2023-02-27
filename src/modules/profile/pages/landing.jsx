@@ -86,23 +86,17 @@ export const UserProfilePage = ({ user }) => {
             {!!user.languages && (
               <div>
                 <h4 className="font-normal text-primary">{t('Idiomas')}</h4>
-                <table className="grid grid-cols-[max-content,_max-content] gap-x-4 gap-y-2">
-                  <tbody>
-                    {user.languages.map(({ lang, proficiency }) => (
-                      <tr key={lang}>
-                        <td>
-                          <h5 className="font-normal">
-                            {languages[lang] || t(lang)}
-                          </h5>
-                        </td>
-                        <td>
-                          <p>{t(proficiency)}</p>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-                
+                <div className="grid grid-cols-[max-content,_max-content] gap-x-4 gap-y-2">
+                  {user.languages.map(({ lang, proficiency }) => (
+                    <>
+                      <h5 className="font-normal">
+                        {languages[lang] || t(lang)}
+                      </h5>
+                      <p className='opacity-60'>{t(proficiency)}</p>
+                    </>
+                  ))}
+                </div>
+
               </div>
             )}
             {!!user.asociations && (
