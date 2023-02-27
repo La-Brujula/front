@@ -11,7 +11,7 @@ function SearchByCategory() {
 
       <PorCategorias
         categorias={[
-          { iconUrl: 'PreprodIcon', label: 'Desarrollo de proyectos' },
+          { iconUrl: 'PreprodIcon', label: 'Preproducción' },
           { iconUrl: 'TalentIcon', label: 'Talento' },
           { iconUrl: 'PeopleIcon', label: 'Equipo humano' },
           { iconUrl: 'ProductionIcon', label: 'Compañías de producción' },

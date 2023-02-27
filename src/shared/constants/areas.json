@@ -1,5 +1,5 @@
 {
-    "Desarrollo de Proyectos": {
+    "Preproducción": {
         "Guionismo": {
             "101-01": {
                 "Femenino": {
@@ -145,6 +145,48 @@
                     "fr": null,
                     "es": "Guionismo para series",
                     "en": "TV Scriptwriting"
+                },
+                "Referentes": [
+                    "Desarrollo de Proyectos",
+                    "Guionismo",
+                    "Escritores cine y TV",
+                    "Asesoría de guión",
+                    "Sinopsis",
+                    "Guionistas",
+                    "Screenwriters",
+                    "Scénaristes",
+                    "Script",
+                    "Screenplay",
+                    "Broadcast",
+                    "Showrunner",
+                    "Serie"
+                ]
+            },
+            "101-05": {
+                "Femenino": {
+                    "fr": null,
+                    "es": "Asesora de guion",
+                    "en": null
+                },
+                "Masculino": {
+                    "fr": null,
+                    "es": "Asesor de guion",
+                    "en": null
+                },
+                "No Binario": {
+                    "fr": null,
+                    "es": "Asesoría de guion",
+                    "en": null
+                },
+                "Persona Moral": {
+                    "fr": null,
+                    "es": "Asesoría de guion",
+                    "en": null
+                },
+                "Alias Genérico": {
+                    "fr": null,
+                    "es": "Asesoría de guion",
+                    "en": "Script Doctor"
                 },
                 "Referentes": [
                     "Desarrollo de Proyectos",
@@ -1627,7 +1669,7 @@
                 ]
             }
         },
-        "Conductores y locutores": {
+        "Locución": {
             "204-01": {
                 "Femenino": {
                     "fr": null,
@@ -1744,6 +1786,86 @@
                     "Dubbing",
                     " ADR (Automatic Dialogue Replacement)"
                 ]
+            },
+            "204-04": {
+                "Femenino": {
+                    "fr": null,
+                    "es": "Directora de doblaje",
+                    "en": null
+                },
+                "Masculino": {
+                    "fr": null,
+                    "es": "Directos de dobalje",
+                    "en": null
+                },
+                "No Binario": {
+                    "fr": null,
+                    "es": "Dirección de doblaje",
+                    "en": null
+                },
+                "Persona Moral": {
+                    "fr": null,
+                    "es": null,
+                    "en": null
+                },
+                "Alias Genérico": {
+                    "fr": null,
+                    "es": "Directores de doblaje",
+                    "en": "Dubbing Directors"
+                },
+                "Referentes": [
+                    "Talento",
+                    "Doblaje",
+                    "Dobladores",
+                    "Talento",
+                    "Actores de voz",
+                    "Locución",
+                    "Voice Actors",
+                    "Acteurs de la voix",
+                    "Doublage",
+                    "Dubbing",
+                    " ADR (Automatic Dialogue Replacement)"
+                ]
+            },
+            "204-05": {
+                "Femenino": {
+                    "fr": null,
+                    "es": "Conductora en radio",
+                    "en": null
+                },
+                "Masculino": {
+                    "fr": null,
+                    "es": "Conductor en radio",
+                    "en": null
+                },
+                "No Binario": {
+                    "fr": null,
+                    "es": "Conducción en radio",
+                    "en": null
+                },
+                "Persona Moral": {
+                    "fr": null,
+                    "es": null,
+                    "en": null
+                },
+                "Alias Genérico": {
+                    "fr": null,
+                    "es": "Conducción de radio",
+                    "en": "Radio Host"
+                },
+                "Referentes": [
+                    "Talento",
+                    "Doblaje",
+                    "Dobladores",
+                    "Talento",
+                    "Actores de voz",
+                    "Locución",
+                    "Voice Actors",
+                    "Acteurs de la voix",
+                    "Doublage",
+                    "Dubbing",
+                    " ADR (Automatic Dialogue Replacement)"
+                ]
             }
         },
         "Músicos": {
@@ -1787,7 +1909,7 @@
                     "Live Performance"
                 ]
             },
-            "205-02-": {
+            "205-02": {
                 "Femenino": {
                     "fr": null,
                     "es": "Compositora",
@@ -1870,7 +1992,7 @@
             }
         }
     },
-    "Equipo humano": {
+    "Crew": {
         "Producción": {
             "301-01": {
                 "Femenino": {
@@ -3106,10 +3228,10 @@
                     "Data Wrangler",
                     "DIT (Digital Imaging Technician)",
                     "Manager de données",
-                    " Technicien en imagerie numérique",
+                    "Technicien en imagerie numérique",
                     "Workflow",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Technical Crew",
                     "Crew",
                     "Rushes",
@@ -3120,7 +3242,7 @@
                 ]
             }
         },
-        "Personal de iluminación y tramoya": {
+        "Staff": {
             "304-01": {
                 "Femenino": {
                     "fr": null,
@@ -4104,7 +4226,7 @@
                     "Postproducción",
                     "Procesos cinematográficos",
                     "DCP",
-                    " Digital Cinema Package",
+                    "Digital Cinema Package",
                     "Postproductores cinematográficos",
                     "Etalonaje",
                     "LUT",
@@ -4508,7 +4630,7 @@
             }
         }
     },
-    "Compañias de producción": {
+    "Producción audiovisual": {
         "Compañías de producción": {
             "401-01": {
                 "Femenino": {
@@ -4868,7 +4990,7 @@
                 ]
             }
         },
-        "Transportación": {
+        "Transportación de producción": {
             "402-01": {
                 "Femenino": {
                     "fr": null,
@@ -5268,7 +5390,7 @@
                 "Referentes": [
                     "Producción audiovisual",
                     "Arte",
-                    " Diseño de producción",
+                    "Diseño de producción",
                     "Escenografía",
                     "Production Design",
                     "Création des décors",
@@ -5688,23 +5810,25 @@
                 },
                 "Persona Moral": {
                     "fr": null,
-                    "es": "Jardinería",
+                    "es": "Estudios de maquillaje",
                     "en": null
                 },
                 "Alias Genérico": {
                     "fr": null,
-                    "es": "Jardinería",
-                    "en": "Gardening"
+                    "es": "Estudios de maquillaje",
+                    "en": "Makeup Studios"
                 },
                 "Referentes": [
-                    "Producción audiovisual",
-                    "Jardinería",
-                    "Gardening",
-                    "Jardinage",
-                    "Plantas",
-                    "Ambientación",
-                    "Escenografía",
-                    "Atmósfera"
+                "Maquillaje",
+                "Makeup",
+                "Maquillistas",
+               "Makeup artist",
+                "Maquilleuse",
+                "Caracterizadores",
+                "Peinados",
+                "Hairdo",
+                "Estilistas"
+                            
                 ]
             }
         },
@@ -5981,8 +6105,8 @@
             }
         }
     },
-    "Renta de equipo": {
-        "Equipo cinematográfico": {
+    "Alquiler de equipos": {
+        "Equipos cinematográficos": {
             "501-01": {
                 "Femenino": {
                     "fr": null,
@@ -6155,7 +6279,7 @@
                 ]
             }
         },
-        "Equipo televisivo": {
+        "Equipos televisivos": {
             "502-01": {
                 "Femenino": {
                     "fr": null,
@@ -6959,9 +7083,52 @@
                     "Renta",
                     "Renta de equipo"
                 ]
+            },
+            "503-15": {
+                "Femenino": {
+                    "fr": null,
+                    "es": "Operadora 360",
+                    "en": null
+                },
+                "Masculino": {
+                    "fr": null,
+                    "es": "Operador 360",
+                    "en": null
+                },
+                "No Binario": {
+                    "fr": null,
+                    "es": "Video 360",
+                    "en": null
+                },
+                "Persona Moral": {
+                    "fr": null,
+                    "es": "Video 360",
+                    "en": null
+                },
+                "Alias Genérico": {
+                    "fr": null,
+                    "es": "Video 360",
+                    "en": "360 degrees video"
+                },
+                "Referentes": [
+                    "Alquiler de equipos",
+                    "Equipos de proyección",
+                    "Pantallas",
+                    "Proyectores",
+                    "Jumbotrón",
+                    "Barco",
+                    "Salas cinematográficas",
+                    "Proyección",
+                    "Screening",
+                    "Eventos",
+                    "Conciertos",
+                    "Live Performance",
+                    "Renta",
+                    "Renta de equipo"
+                ]
             }
         },
-        "Venta de equipos profesionales": {
+        "Venta y reparación de equipos": {
             "504-01": {
                 "Femenino": {
                     "fr": null,
@@ -7080,7 +7247,7 @@
         }
     },
     "Servicios de soporte a la producción": {
-        "Servicios generales de soporte": {
+        "Servicios generales": {
             "601-01": {
                 "Femenino": {
                     "fr": null,
@@ -7735,11 +7902,45 @@
                     "Bus terminals and bus transportation",
                     " Gare de bus"
                 ]
+            },
+            "601-20": {
+                "Femenino": {
+                    "fr": null,
+                    "es": "Jardinera",
+                    "en": null
+                },
+                "Masculino": {
+                    "fr": null,
+                    "es": "Jardinero",
+                    "en": null
+                },
+                "No Binario": {
+                    "fr": null,
+                    "es": "Jardinería",
+                    "en": null
+                },
+                "Persona Moral": {
+                    "fr": null,
+                    "es": "Jardinería",
+                    "en": null
+                },
+                "Alias Genérico": {
+                    "fr": null,
+                    "es": "Jardinería",
+                    "en": "Gardening"
+                },
+                "Referentes": [
+                    "Servicios generales",
+                    "Transportación",
+                    " Terminales y compañías de autobuses",
+                    "Bus terminals and bus transportation",
+                    " Gare de bus"
+                ]
             }
         }
     },
     "Compañías de postproducción": {
-        "Compañías de postproducción": {
+        "Postproducción de video": {
             "701-01": {
                 "Femenino": {
                     "fr": null,
@@ -7838,7 +8039,7 @@
                 },
                 "Persona Moral": {
                     "fr": null,
-                    "es": "Postproducción cinematográficar",
+                    "es": "Postproducción cinematográfica",
                     "en": null
                 },
                 "Alias Genérico": {
@@ -7850,12 +8051,12 @@
                     "Postproducción",
                     "Postproduction",
                     "Postproducción cinematográfica",
-                    " DCP (Digital Cinema Package)",
-                    " Laboratorios cinematográficos",
+                    "DCP (Digital Cinema Package)",
+                    "Laboratorios cinematográficos",
                     "Procesos cinematográficos",
                     "Corrección de color ",
                     "Etalonaje",
-                    " LUT",
+                    "LUT",
                     "Rushes",
                     "Daylies",
                     "RAW",
@@ -7895,7 +8096,7 @@
                     "Bulk",
                     "Reproducciones",
                     "Reproductions",
-                    " Copiado de materiales"
+                    "Copiado de materiales"
                 ]
             },
             "701-05": {
@@ -8616,7 +8817,7 @@
         }
     },
     "Tecnologías de la información": {
-        "Desarrollo": {
+        "Desarrollos digitales": {
             "801-01": {
                 "Femenino": {
                     "fr": null,
