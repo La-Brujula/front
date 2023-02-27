@@ -60,31 +60,31 @@ export const ContactPage = () => {
         </label>
         <input type="phone" {...register('whatsapp')} autoComplete="phone" />
         <label htmlFor="imdb">{t('imdb')}</label>
-        <input type="text" {...register('imdb')} autoComplete="imdb" />
+        <input type="url" {...register('imdb')} autoComplete="imdb" />
         <label htmlFor="facebook">
           <FacebookOutlined />
         </label>
-        <input type="text" {...register('facebook')} autoComplete="facebook" />
+        <input type="url" {...register('facebook')} autoComplete="facebook" />
         <label htmlFor="instagram">
           <Instagram />
         </label>
-        <input type="text" {...register('instagram')} autoComplete="instagram" />
+        <input type="url" {...register('instagram')} autoComplete="instagram" />
         <label htmlFor="vimeo">{t('vimeo')}</label>
         <input type="text" {...register('vimeo')} autoComplete="vimeo" />
         <label htmlFor="youtube">
           <YouTube />
         </label>
-        <input type="text" {...register('youtube')} autoComplete="youtube" />
+        <input type="url" {...register('youtube')} autoComplete="youtube" />
         <label htmlFor="linkedin">
           <LinkedIn />
         </label>
-        <input type="text" {...register('linkedin')} autoComplete="linkedin" />
+        <input type="url" {...register('linkedin')} autoComplete="linkedin" />
         <label htmlFor="twitter">
           <Twitter />
         </label>
-        <input type="text" {...register('twitter')} autoComplete="twitter" />
+        <input type="url" {...register('twitter')} autoComplete="twitter" />
         <label htmlFor="tiktok">{t('tiktok')}</label>
-        <input type="text" {...register('tiktok')} autoComplete="tiktok" />
+        <input type="url" {...register('tiktok')} autoComplete="tiktok" />
       </div>
       <div className="flex flex-row gap-4 self-center">
         <div className="button font-bold" onClick={() => navigate(-1)}>
