@@ -71,10 +71,10 @@ export function brujulaUtils() {
 
   const updateUserInfo = async (userInfo, email = auth.getUserEmail()) => {
     const data = await store.getInfo('users', email);
-    const newData = {
+    const newData = !data ? userInfo : {
       ...data,
       ...userInfo,
-      searchName: userInfo.name || data.name && [
+      searchName: userInfo.name || data.name && [
         ...(() =>
           !!userInfo.name ? userInfo.name.split(' ') : data.name.split(' '))(),
         ...(() =>
@@ -103,11 +103,11 @@ export function brujulaUtils() {
               : [])()).map(activity => activity.split('-')[0]),
         // campo área
         ...((() =>
-        !!userInfo.subareas
-        ? userInfo.subareas
-        : !!data.subareas
-        ? data.subareas
-        : [])()).map(activity => activity[0]),
+          !!userInfo.subareas
+            ? userInfo.subareas
+            : !!data.subareas
+              ? data.subareas
+              : [])()).map(activity => activity[0]),
         // campo idiomas
         ...(() =>
           !!userInfo.languages

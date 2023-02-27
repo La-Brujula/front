@@ -20,6 +20,7 @@ export const SignupForm = () => {
 
   const onSubmit = async (data) => {
     if (loading) return;
+    if (!data.email || !data.password) return
     setLoading(true);
     setErrorMsg('');
     if (await auth.register(data.email, data.password, onError)) {
