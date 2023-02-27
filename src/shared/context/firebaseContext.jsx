@@ -69,8 +69,10 @@ export const FireAuthProvider = ({ children }) => {
   };
 
   const login = async (email, password, handleError = (err) => { }) => {
-    console.log(await firestore.getInfo('users', email))
-    if (!(await firestore.getInfo('users', email))) return handleError({ code: "auth/no-account" })
+    if (!(await firestore.getInfo('users', email))) {
+      handleError({ code: "auth/no-account" })
+      return false
+    }
     return _userAuth(email, password, signInWithEmailAndPassword, handleError);
   };
 
