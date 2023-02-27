@@ -85,6 +85,7 @@ export const useSearch = () => {
         if (filters.search || filters.subarea || filters.area || filters.language || filters.activity || filters.category) {
             const search = !!filters.search && replaceSearchTermsFromIndex(filters.search.toLowerCase());
             const category = !!filters.category && getArea(filters.category);
+            console.log(category)
             queries.push(
                 where('searchName', 'array-contains-any',
                     [

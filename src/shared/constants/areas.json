@@ -564,7 +564,7 @@
                     "Desarrollo de Proyectos",
                     "Arte",
                     "Dibujo",
-                    " Ilustración",
+                    "Ilustración",
                     "Ilustradores",
                     "Cómic",
                     "Ánime",
@@ -602,7 +602,7 @@
                     "Desarrollo de Proyectos",
                     "Dibujo",
                     "Dibujantes",
-                    " Ilustración",
+                    "Ilustración",
                     "Cómic",
                     "Ánime",
                     "Manga",
@@ -675,7 +675,7 @@
                     "Arte",
                     "Diseño",
                     "Diseñadores",
-                    " Diseño gráfico",
+                    "Diseño gráfico",
                     "Graphic design",
                     "Design Graphique",
                     "Diseño editorial",
@@ -793,7 +793,7 @@
                     "Impuestos",
                     "Asesoría financiera",
                     "Financial advising",
-                    " Assesorant financier"
+                    "Assesorant financier"
                 ]
             },
             "105-04": {
@@ -827,11 +827,11 @@
                     "Asesoría",
                     "Asesores administrativos",
                     "Administración",
-                    " Sistemas de administración",
+                    "Sistemas de administración",
                     "Contabilidad",
-                    " Asesoría financiera",
-                    " Financial Advising",
-                    " Assesorant financier"
+                    "Asesoría financiera",
+                    "Financial Advising",
+                    "Assesorant financier"
                 ]
             },
             "105-05": {
@@ -900,12 +900,12 @@
                     "Desarrollo de Proyectos",
                     "Asesoría",
                     "Asesores de producción",
-                    " Carpetas de producción",
+                    "Carpetas de producción",
                     "Proyectos",
                     "Eficine",
                     "Fidecine",
                     "Foprocine",
-                    " Desarrollo de carpetas",
+                    "Desarrollo de carpetas",
                     "Conception de dossier",
                     "Guilds",
                     "Cortometrajes"
@@ -1190,7 +1190,7 @@
                     "Escuelas de actuación",
                     "Academias de actores",
                     "Actors Academy",
-                    " Acteurs et ecole"
+                    "Acteurs et ecole"
                 ]
             },
             "201-07": {
@@ -1524,7 +1524,7 @@
                     "Dobles de acción",
                     "Acción",
                     "Escenas de acción",
-                    " Body Double"
+                    "Body Double"
                 ]
             },
             "203-04": {
@@ -1700,7 +1700,7 @@
                     "Talento",
                     "Maestros de ceremonias",
                     "Presentadores",
-                    " TV Hosting",
+                    "TV Hosting",
                     "Conductores a cuadro",
                     "Televisión",
                     "Broadcast"
@@ -1736,7 +1736,7 @@
                     "Talento",
                     "Voz Off",
                     "Voice Over",
-                    " VO (Voice Over) ",
+                    "VO (Voice Over) ",
                     "Narración",
                     "Narradores",
                     "Actores de voz",
@@ -1784,7 +1784,7 @@
                     "Acteurs de la voix",
                     "Doublage",
                     "Dubbing",
-                    " ADR (Automatic Dialogue Replacement)"
+                    "ADR (Automatic Dialogue Replacement)"
                 ]
             },
             "204-04": {
@@ -2027,7 +2027,7 @@
                     "Productores",
                     "Producer",
                     "Largometrajes",
-                    " Feature Films",
+                    "Feature Films",
                     "Películas",
                     "Line producers",
                     "Productores ejecutivos",
@@ -2071,7 +2071,7 @@
                     "Producer",
                     "Line Producers",
                     "Logística",
-                    " Production Crew",
+                    "Production Crew",
                     "Telefilm",
                     "Videos",
                     "Producción de videos",
@@ -2147,9 +2147,9 @@
                     "Producer",
                     "Gerentes de producción",
                     "Logística",
-                    " Production Crew",
+                    "Production Crew",
                     "Film Crew",
-                    " Coordinación de producción",
+                    "Coordinación de producción",
                     "Crew"
                 ]
             },
@@ -2187,7 +2187,7 @@
                     "Production Coordinator",
                     "Coordonnatrice de production",
                     "Logística",
-                    " Production Crew",
+                    "Production Crew",
                     "Coordinación de producción",
                     "Crew"
                 ]
@@ -2222,13 +2222,13 @@
                     "Equipo humano",
                     "Producción",
                     "Locaciones",
-                    " Managers de locaciones",
+                    "Managers de locaciones",
                     "Locations",
                     "Emplacements",
                     "Gerentes de locaciones",
                     "Logística",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Crew"
                 ]
             },
@@ -2268,7 +2268,7 @@
                     "Gerentes de locaciones",
                     "Scouters",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Crew"
                 ]
             },
@@ -2302,7 +2302,7 @@
                     "Equipo humano",
                     "Producción",
                     "Locaciones",
-                    " Manager de locaciones",
+                    "Manager de locaciones",
                     "Locations",
                     "Emplacements",
                     "Scouters",
@@ -2344,7 +2344,7 @@
                     "Runners",
                     "Logística",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Crew"
                 ]
             },
@@ -2379,11 +2379,11 @@
                     "Producción",
                     "Transporte de producción",
                     "Capitanes de transporte",
-                    " Coordinadores de transporte",
+                    "Coordinadores de transporte",
                     "Choferes",
                     "Logística",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Crew"
                 ]
             },
@@ -2421,7 +2421,7 @@
                     "Runners",
                     "Logística",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Crew"
                 ]
             },
@@ -2459,7 +2459,7 @@
                     "Logística",
                     "Seguridad en locación",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Crew"
                 ]
             }
@@ -2499,7 +2499,7 @@
                     "Directors",
                     "Réalisateur",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Crew"
                 ]
             },
@@ -2537,7 +2537,7 @@
                     "Assistant Director",
                     "Assistant réalisateur",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Crew",
                     "1º asistente"
                 ]
@@ -2578,7 +2578,7 @@
                     "Raccord",
                     "Continuistas",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Crew"
                 ]
             },
@@ -2615,7 +2615,7 @@
                     "Documentary",
                     "Documentariste",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Crew"
                 ]
             },
@@ -2652,7 +2652,7 @@
                     "TV Producer",
                     "Producer",
                     "Productores de televisión",
-                    " Production Crew",
+                    "Production Crew",
                     "Videos",
                     "Producción de video",
                     "TX",
@@ -2660,8 +2660,8 @@
                     "Streaming",
                     "Transmisión en directo",
                     "Transmisión en directo",
-                    " Transmisión en vivo",
-                    " Transmisión de señal ",
+                    "Transmisión en vivo",
+                    "Transmisión de señal ",
                     "Distribución de señal ",
                     "Showrunner",
                     "Crew",
@@ -2699,7 +2699,7 @@
                     "Realizadores",
                     "TV Producer",
                     "Productores de televisión",
-                    " Production Crew",
+                    "Production Crew",
                     "Technical Crew",
                     "Directores de cámaras",
                     "Videos",
@@ -2711,7 +2711,7 @@
                     "Streaming",
                     "Transmisión en directo",
                     "Transmisión en directo",
-                    " Transmisión en vivo",
+                    "Transmisión en vivo",
                     "Distribución de señal",
                     "Crew",
                     "Broadcast"
@@ -2748,7 +2748,7 @@
                     "Realizadores",
                     "TV Producer",
                     "Productores de televisión",
-                    " Production Crew",
+                    "Production Crew",
                     "Technical Crew",
                     "Directores de escena",
                     "Televisión",
@@ -2791,7 +2791,7 @@
                     "Assistant Director",
                     "Assistant réalisateur",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Crew",
                     "2º asistente"
                 ]
@@ -2833,7 +2833,7 @@
                     "Head Cameraman",
                     "Chef opérateur",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Technical Crew",
                     "Crew"
                 ]
@@ -2872,7 +2872,7 @@
                     "Focus puller",
                     "Foquistas",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Technical Crew",
                     "Crew"
                 ]
@@ -2906,14 +2906,14 @@
                 "Referentes": [
                     "Equipo humano",
                     "Primer asistente",
-                    " Asistente de fotografía",
+                    "Asistente de fotografía",
                     "Foquistas",
                     "Focus puller",
-                    " Clapper loader",
-                    " Assistant chef operateur",
+                    "Clapper loader",
+                    "Assistant chef operateur",
                     "Asistentes de cámara cinamtográfica",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Technical Crew",
                     "Crew"
                 ]
@@ -2952,7 +2952,7 @@
                     "Drones",
                     "Helicópteros",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Technical Crew",
                     "Crew"
                 ]
@@ -2991,7 +2991,7 @@
                     "Buzos",
                     "Buceo",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Technical Crew",
                     "Crew"
                 ]
@@ -3031,7 +3031,7 @@
                     "Fotografía",
                     "Fotógrafos",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Technical Crew",
                     "Crew"
                 ]
@@ -3068,7 +3068,7 @@
                     "Camarógrafos",
                     "Fotógrafos",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Technical Crew",
                     "Crew"
                 ]
@@ -3106,7 +3106,7 @@
                     "Fotógrafos",
                     "Operadores de Steadycam",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Technical Crew",
                     "Crew"
                 ]
@@ -3142,9 +3142,9 @@
                     "Operadores de dron",
                     "Drones",
                     "Fotografía aérea",
-                    " Fotógrafos aéreos",
+                    "Fotógrafos aéreos",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Technical Crew",
                     "Aerial shots",
                     "Crew"
@@ -3181,7 +3181,7 @@
                     "Fotografía publicitaria",
                     "Fotografía artística",
                     "Foto fija",
-                    " Still Photography",
+                    "Still Photography",
                     "Photographe",
                     "Fotografía de estudio",
                     "Retratos",
@@ -3189,7 +3189,7 @@
                     "Fotógrafos",
                     "Fotografía",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Technical Crew",
                     "Crew"
                 ]
@@ -3224,7 +3224,7 @@
                     "Equipo humano",
                     "Data",
                     "Data Manager",
-                    " Técnico en imagen digital",
+                    "Técnico en imagen digital",
                     "Data Wrangler",
                     "DIT (Digital Imaging Technician)",
                     "Manager de données",
@@ -3277,7 +3277,7 @@
                     "Jefes de staff",
                     "Best Boy",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Technical Crew",
                     "Riggers",
                     "Crew"
@@ -3319,7 +3319,7 @@
                     "Key Grip",
                     "Grip",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Technical Crew",
                     "Riggers",
                     "Crew"
@@ -3362,7 +3362,7 @@
                     "Key Grip",
                     "Grip",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Technical Crew",
                     "Riggers",
                     "Crew"
@@ -3408,7 +3408,7 @@
                     "Grabación de audio",
                     "Grabación musical",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Technical Crew",
                     "Producción musical",
                     "Conciertos",
@@ -3456,7 +3456,7 @@
                     "Diseño de audio",
                     "Grabación de audio",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Technical Crew",
                     "Crew"
                 ]
@@ -3498,7 +3498,7 @@
                     "Sounoists",
                     "Grabación de audio",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Technical Crew",
                     "Crew"
                 ]
@@ -3572,11 +3572,11 @@
                     "Sounoists",
                     "Ingenieros de sonido",
                     "Grabación musical",
-                    " Production Crew",
+                    "Production Crew",
                     "Technical Crew",
                     "Producción musical",
                     "Conciertos",
-                    " Live Performance",
+                    "Live Performance",
                     "Sonorización",
                     "Secres",
                     "Backstage",
@@ -3621,7 +3621,7 @@
                     "Diseñadores de producción",
                     "Atmósfera",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Crew"
                 ]
             },
@@ -3661,7 +3661,7 @@
                     "Directores de Arte",
                     "Atmósfera",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Crew"
                 ]
             },
@@ -3702,7 +3702,7 @@
                     "Atrezzo",
                     "Swings",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Crew"
                 ]
             },
@@ -3742,7 +3742,7 @@
                     "Constructores",
                     "Swings",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Crew"
                 ]
             },
@@ -3783,7 +3783,7 @@
                     "Escenógrafos",
                     "Constructores",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Crew"
                 ]
             },
@@ -3824,7 +3824,7 @@
                     "Atrezzo",
                     "Atrecistas",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Crew"
                 ]
             },
@@ -3865,7 +3865,7 @@
                     "Atrezzo",
                     "Atrecistas",
                     "Film Crew",
-                    " Production Crew",
+                    "Production Crew",
                     "Crew"
                 ]
             },
@@ -4137,7 +4137,7 @@
                     "Editores",
                     "Etalonaje",
                     "LUT",
-                    " DaVinci Resolve",
+                    "DaVinci Resolve",
                     "Crew",
                     "RAW",
                     "Formatos",
@@ -4309,7 +4309,7 @@
                     "Diseño de animación",
                     "Personajes de animacíon",
                     "Efectos visuales",
-                    " Visual Effects",
+                    "Visual Effects",
                     "Effects visuels",
                     "Directores de animación",
                     "Animadores",
@@ -4351,7 +4351,7 @@
                     "Diseño de animación",
                     "Personajes de animacíon",
                     "Efectos visuales",
-                    " Visual Effects",
+                    "Visual Effects",
                     "Effects visuels",
                     "Directores de animación",
                     "Animadores",
@@ -4391,7 +4391,7 @@
                     "Postproducción",
                     "Postproductores",
                     "Postproduction",
-                    " Directores de postproduction",
+                    "Directores de postproduction",
                     "Editores",
                     "Etalonaje",
                     "LUT",
@@ -4443,7 +4443,7 @@
                     "ProTools",
                     "Radio",
                     "Mezcla",
-                    " Audio mixing",
+                    "Audio mixing",
                     "Foley Artists",
                     "Incidentalistas",
                     "Crew",
@@ -4485,9 +4485,9 @@
                     "Design sonore",
                     "Postproductores de audio",
                     "ProTools",
-                    " Banda sonora",
+                    "Banda sonora",
                     "Mezcla",
-                    " Audio mixing",
+                    "Audio mixing",
                     "THX",
                     "Sistemas 5.1",
                     "Foley Astists",
@@ -4532,10 +4532,10 @@
                     "ProTools",
                     "Banda sonora",
                     "Mezcla",
-                    " Audio mixing",
+                    "Audio mixing",
                     "THX",
                     "Sistemas 5.1",
-                    " Foley Aristis",
+                    "Foley Aristis",
                     "Incidentalistas",
                     "Crew"
                 ]
@@ -4568,7 +4568,7 @@
                 },
                 "Referentes": [
                     "Equipo humano",
-                    " Asesoría musical",
+                    "Asesoría musical",
                     "Asesores musicales",
                     "Supervisores músicales",
                     "Soundtrack",
@@ -4582,7 +4582,7 @@
                     "ASCAP",
                     "SACM",
                     "Somexfon",
-                    " Audio mixing",
+                    "Audio mixing",
                     "Crew"
                 ]
             },
@@ -4615,7 +4615,7 @@
                 "Referentes": [
                     "Equipo humano",
                     "Postproducción de audio",
-                    " Musicalizadores",
+                    "Musicalizadores",
                     "Stock de audio",
                     "Librerías",
                     "Librerías musicales",
@@ -4624,7 +4624,7 @@
                     "Musicalización",
                     "ProTools",
                     "Banda sonora",
-                    " Audio mixing",
+                    "Audio mixing",
                     "Crew"
                 ]
             }
@@ -4669,7 +4669,7 @@
                     "Series",
                     "Miniseries",
                     "Casas productoras",
-                    " Production Companies",
+                    "Production Companies",
                     "Maison de production",
                     "Productoras",
                     "Televisión",
@@ -4715,7 +4715,7 @@
                     "Diseño de audio",
                     "Audio Mix",
                     "Productoras de audio",
-                    " Estudios de sonido",
+                    "Estudios de sonido",
                     "Grabación de audio",
                     "Radio"
                 ]
@@ -4797,7 +4797,7 @@
                     "Fotógráfos",
                     "Fotografía still",
                     "Retratos",
-                    " Estudios de fotografía",
+                    "Estudios de fotografía",
                     "Acervos fotográficos",
                     "Stock fotográfico"
                 ]
@@ -4872,11 +4872,11 @@
                     "Talent handler",
                     "Escoltas",
                     "Bodyguards",
-                    " Seguridad para talento",
+                    "Seguridad para talento",
                     "Logística",
                     "Conciertos",
                     "Live Performance",
-                    " Performance Support"
+                    "Performance Support"
                 ]
             },
             "401-07": {
@@ -4943,7 +4943,7 @@
                 "Referentes": [
                     "Producción audiovisual",
                     "Catering",
-                    " Comida producción",
+                    "Comida producción",
                     "Box lunch",
                     "Café",
                     "Meseros",
@@ -5021,7 +5021,7 @@
                     "Producción audiovisual",
                     "Transportación de producción",
                     "Transportes",
-                    " Camionetas de producción",
+                    "Camionetas de producción",
                     "Choferes de producción",
                     "Runners",
                     "Choferes",
@@ -5899,7 +5899,7 @@
                 "Referentes": [
                     "Producción audiovisual",
                     "Discos",
-                    " Hard disk",
+                    "Hard disk",
                     "Materiales ópticos",
                     "Materiales magnéticos",
                     "Venta"
@@ -5938,7 +5938,7 @@
                     "Negativo",
                     "35 mm",
                     "16 mm",
-                    " Material cinematográfico",
+                    "Material cinematográfico",
                     "Film material",
                     "Pelicule filmique",
                     "Venta"
@@ -5976,11 +5976,11 @@
                     "Gaffer tape",
                     "Filtros",
                     "Filters",
-                    " Black foil",
+                    "Black foil",
                     "Black wrap",
                     "Roscoe",
                     "Lee",
-                    " Dicroicos",
+                    "Dicroicos",
                     "Difusores",
                     "Baterías",
                     "Hot set",
@@ -5997,7 +5997,7 @@
                     "Lens tissue",
                     "Dulling spray",
                     "Cinta gaffer",
-                    " Masking tape",
+                    "Masking tape",
                     "Materiales de iluminación",
                     "Pizarras",
                     "Slate",
@@ -6135,9 +6135,9 @@
                 },
                 "Referentes": [
                     "Alquiler de equipos",
-                    " Equipos cinematográficos",
+                    "Equipos cinematográficos",
                     "Cinematografía digital",
-                    " Cinematography Equipment",
+                    "Cinematography Equipment",
                     "Equipment cinematographique",
                     "Cámaras cinematográficas",
                     "Cámara de alto perfil",
@@ -6149,7 +6149,7 @@
                     "Chimera",
                     "Soft Boxes",
                     "Lentes",
-                    " Óptica cinematográfica",
+                    "Óptica cinematográfica",
                     "Lenses",
                     "Ultraprime",
                     "Cook",
@@ -6232,7 +6232,7 @@
                     "Equipo cinematográfico",
                     "Cinematografía digital",
                     "Cinematography Equipment",
-                    " Equipment cinematographique",
+                    "Equipment cinematographique",
                     "Cámaras cinematográficas",
                     "Cámaras de alto perfil",
                     "Cámaras",
@@ -6394,12 +6394,12 @@
                 },
                 "Referentes": [
                     "Alquiler de equipos",
-                    " Unidades móviles",
+                    "Unidades móviles",
                     "OB (Outside Broadcasting Vehicles)",
                     "Producción de TV",
                     "Televisión",
                     "Video",
-                    " Switchers",
+                    "Switchers",
                     "Video Mixers",
                     "Equipos de producción de video",
                     "Tricaster",
@@ -6444,7 +6444,7 @@
                     "Flyaway",
                     "Trasmisión satelital",
                     "TX",
-                    " Transmisión en vivo",
+                    "Transmisión en vivo",
                     "Transmisión en directo",
                     "Televisión",
                     "Transmisión",
@@ -6490,7 +6490,7 @@
                     "Transmisión de señal",
                     "Distribución de señal",
                     "TX",
-                    " Transmisión en vivo",
+                    "Transmisión en vivo",
                     "Transmisión en directo",
                     "Televisión",
                     "Transmisión",
@@ -6586,7 +6586,7 @@
                     "Steadicam",
                     "Rigs",
                     "Dollies",
-                    " Monturas aéreas",
+                    "Monturas aéreas",
                     "Snorkel",
                     "Renta",
                     "Renta de equipo"
@@ -6731,7 +6731,7 @@
                     "Equipos de iluminación",
                     "Lighting",
                     "LED",
-                    " PAR lights",
+                    "PAR lights",
                     "HMI",
                     "Arri",
                     "Tungsteno",
@@ -6780,11 +6780,11 @@
                     "Lighting",
                     "Iluminación especial",
                     "Stage Lighting",
-                    " PAR lights",
-                    " Moving Heads",
+                    "PAR lights",
+                    "Moving Heads",
                     "Strobes",
                     "Lasers",
-                    " LED Strips",
+                    "LED Strips",
                     "DJ Lighting",
                     "Xenon",
                     "Venta",
@@ -6862,7 +6862,7 @@
                     "Equipos especiales",
                     "Snorkel",
                     "Power Pod",
-                    " Motion Control",
+                    "Motion Control",
                     "Renta",
                     "Renta de equipo"
                 ]
@@ -6895,7 +6895,7 @@
                 },
                 "Referentes": [
                     "Alquiler de equipos",
-                    " Equipos de sonido",
+                    "Equipos de sonido",
                     "Mezcladoras",
                     "Micrófonos",
                     "Boom pole",
@@ -6911,7 +6911,7 @@
                     "Amplificadores",
                     "Sonorización",
                     "Mezcladoras",
-                    " Audio mixing",
+                    "Audio mixing",
                     "Renta",
                     "Renta de equipo"
                 ]
@@ -6944,14 +6944,14 @@
                 },
                 "Referentes": [
                     "Alquiler de equipos",
-                    " Equipos de sonido",
+                    "Equipos de sonido",
                     "Consolas",
                     "Amplificadores",
                     "Sonorización",
                     "Eventos",
                     "Bocinas",
                     "Speakers",
-                    " Audio mixing",
+                    "Audio mixing",
                     "Live Performance",
                     "Conciertos",
                     "Sonorizadores",
@@ -7069,7 +7069,7 @@
                 },
                 "Referentes": [
                     "Alquiler de equipos",
-                    " Equipos de proyección",
+                    "Equipos de proyección",
                     "Pantallas",
                     "Proyectores",
                     "Jumbotrón",
@@ -7158,7 +7158,7 @@
                 "Referentes": [
                     "Equipos profesionales ",
                     "Equipos de video",
-                    " Equipos de sonido",
+                    "Equipos de sonido",
                     "Equipos de cámara",
                     "Equipos de postproducción",
                     "Iluminación",
@@ -7197,7 +7197,7 @@
                     "Alquiler de equipos",
                     "Equipos profesionales",
                     "Equipos de video",
-                    " Equipos de sonido",
+                    "Equipos de sonido",
                     "Equipos de cámara",
                     "Equipos de postproducción",
                     "Iluminación",
@@ -7311,9 +7311,9 @@
                     "Servicios generales",
                     "Aerolíneas",
                     "Airlines",
-                    " Compagnies aériennes",
+                    "Compagnies aériennes",
                     "Boletaje",
-                    " Billetes de avión"
+                    "Billetes de avión"
                 ]
             },
             "601-03": {
@@ -7488,7 +7488,7 @@
                     "Events",
                     "Événements",
                     "Conciertos",
-                    " Liev Performance",
+                    "Liev Performance",
                     "Sonorización"
                 ]
             },
@@ -7624,7 +7624,7 @@
                     "Printing",
                     "Impression",
                     "Impresiones",
-                    " Hard Copies",
+                    "Hard Copies",
                     "Plotters",
                     "Ploteo"
                 ]
@@ -7657,7 +7657,7 @@
                 },
                 "Referentes": [
                     "Servicios generales",
-                    " Instrumentos musicales",
+                    "Instrumentos musicales",
                     "Musical instruments",
                     "Instruments de musique",
                     "Venta"
@@ -7693,7 +7693,7 @@
                     "Servicios generales",
                     "Madererías",
                     "Timber Merchants",
-                    " Négociants en bois",
+                    "Négociants en bois",
                     "Construcción",
                     "Escenografía",
                     "Venta"
@@ -7830,7 +7830,7 @@
                     "Transportación",
                     "Cargo",
                     "Transportación de carga",
-                    " Cargo transportation",
+                    "Cargo transportation",
                     "Transport de marchandises"
                 ]
             },
@@ -7898,9 +7898,9 @@
                 "Referentes": [
                     "Servicios generales",
                     "Transportación",
-                    " Terminales y compañías de autobuses",
+                    "Terminales y compañías de autobuses",
                     "Bus terminals and bus transportation",
-                    " Gare de bus"
+                    "Gare de bus"
                 ]
             },
             "601-20": {
@@ -7976,7 +7976,7 @@
                     "Postproduction",
                     "Animación",
                     "Efectos visuales",
-                    " Colorization",
+                    "Colorization",
                     "Captions",
                     "Rushes",
                     "Daylies",
@@ -8018,7 +8018,7 @@
                     "Coloristas",
                     "Etalonaje",
                     "LUT",
-                    " Colorization"
+                    "Colorization"
                 ]
             },
             "701-03": {
@@ -8165,7 +8165,7 @@
                     "Revelado",
                     "Película",
                     "Laboratorios cinematográficos",
-                    " Film Labs",
+                    "Film Labs",
                     "Laboratoire de cinéma",
                     "Postproducción cinematográfica",
                     "Procesos cinematográficos",
@@ -8203,7 +8203,7 @@
                     "Postproducción",
                     "Revelado foto fija",
                     "Impresión de fotografías",
-                    " C45",
+                    "C45",
                     "Laboratorios fotográficos",
                     "Photo Labs",
                     "Laboratoire photo",
@@ -8325,8 +8325,8 @@
                 },
                 "Referentes": [
                     "Postproducción",
-                    " Clay animation",
-                    " Stop Motion",
+                    "Clay animation",
+                    "Stop Motion",
                     "Pixilación",
                     "Dibujos animados",
                     "Animación",
@@ -8366,11 +8366,11 @@
                 "Referentes": [
                     "Postproducción",
                     "Arte",
-                    " Ilustración",
+                    "Ilustración",
                     "Animación",
                     "Efectos especiales",
                     "Efectos visuales",
-                    " Visual Effects",
+                    "Visual Effects",
                     "Effects visuels",
                     "Realidad virtual",
                     "CGI (Computer Generated Imagery)"
@@ -8404,7 +8404,7 @@
                 },
                 "Referentes": [
                     "Postproducción",
-                    " Bancos de imágenes",
+                    "Bancos de imágenes",
                     "Imágenes de stock",
                     "Stock de video",
                     "Stock Footage",
@@ -8450,13 +8450,13 @@
                     "Audio",
                     "ProTools",
                     "Estudios de grabación",
-                    " Audio Studios",
-                    " Audio études",
+                    "Audio Studios",
+                    "Audio études",
                     "Foleys",
                     "Foley stage",
                     "Gaviras",
                     "Incidentalistas",
-                    " ADR (Automatic Dialogue Replacement)",
+                    "ADR (Automatic Dialogue Replacement)",
                     "Sistemas 5.1",
                     "Dolby"
                 ]
@@ -8492,8 +8492,8 @@
                     "Grabación de audio",
                     "Audio",
                     "Estudios de grabación",
-                    " Audio Studios",
-                    " Audio études",
+                    "Audio Studios",
+                    "Audio études",
                     "Foleys",
                     "Foley stage",
                     "Gaviras",
@@ -8502,7 +8502,7 @@
                     "Doblaje",
                     "Dubbing",
                     "Dub Stage",
-                    " ADR (Automatic Dialogue Replacement)",
+                    "ADR (Automatic Dialogue Replacement)",
                     "Actores de voz",
                     "Acteurs de la voix"
                 ]
@@ -8539,8 +8539,8 @@
                     "Audio",
                     "Ensayos",
                     "Estudios de grabación",
-                    " Audio Studios",
-                    " Audio études"
+                    "Audio Studios",
+                    "Audio études"
                 ]
             },
             "704-04": {
@@ -8573,11 +8573,11 @@
                     "Postproducción",
                     "Grabación de audio",
                     "Producción de discos",
-                    " Reproducción de CDs",
+                    "Reproducción de CDs",
                     "Audio",
                     "Estudios de grabación",
-                    " Audio Studios",
-                    " Audio études",
+                    "Audio Studios",
+                    "Audio études",
                     "Música original"
                 ]
             },
@@ -8612,8 +8612,8 @@
                     "Grabación de audio",
                     "Audio",
                     "Estudios de grabación",
-                    " Audio Studios",
-                    " Audio études"
+                    "Audio Studios",
+                    "Audio études"
                 ]
             },
             "704-06": {
@@ -8648,8 +8648,8 @@
                     "Producción de audio",
                     "Audio",
                     "Estudios de grabación",
-                    " Audio Studios",
-                    " Audio études",
+                    "Audio Studios",
+                    "Audio études",
                     "THX",
                     "Postproductores de audio",
                     "Dolby",
@@ -8848,8 +8848,8 @@
                     "Desarrollos digitales",
                     "Internet",
                     "Páginas web",
-                    " Desarrolladores web",
-                    " WordPress",
+                    "Desarrolladores web",
+                    "WordPress",
                     "Dreamweaver",
                     "Páginas de internet",
                     "Sites",
@@ -8966,12 +8966,12 @@
                     "Estrategia de redes",
                     "Marketing digital",
                     "Community managers",
-                    " Gestores de redes",
+                    "Gestores de redes",
                     "Redes sociales",
                     "RRSS",
                     "Pauta en internet",
-                    " Google Analytics",
-                    " Mercadotecnia",
+                    "Google Analytics",
+                    "Mercadotecnia",
                     "Campañas digitales",
                     "Networks",
                     "Webcast"
@@ -9009,12 +9009,12 @@
                     "Estrategia de redes",
                     "Marketing digital",
                     "Community managers",
-                    " Gestores de redes",
+                    "Gestores de redes",
                     "Redes sociales",
                     "RRSS",
                     "Pauta en internet",
-                    " Google Analytics",
-                    " Mercadotecnia",
+                    "Google Analytics",
+                    "Mercadotecnia",
                     "Campañas digitales",
                     "Networks",
                     "Webcast"
@@ -9052,12 +9052,12 @@
                     "Estrategia de redes",
                     "Marketing digital",
                     "Community managers",
-                    " Gestores de redes",
+                    "Gestores de redes",
                     "Redes sociales",
                     "RRSS",
                     "Pauta en internet",
-                    " Google Analytics",
-                    " Mercadotecnia",
+                    "Google Analytics",
+                    "Mercadotecnia",
                     "Campañas digitales",
                     "Networks",
                     "Webcast"
@@ -9096,7 +9096,7 @@
                 "Referentes": [
                     "Industria",
                     "Agencias de publicidad",
-                    " Advertising Agencies",
+                    "Advertising Agencies",
                     "Agences de publicité",
                     "Publicidad",
                     "Campañas",
@@ -9139,7 +9139,7 @@
                     "Marketing Research Agencies",
                     "Agences de recherche de marche",
                     "Marketing",
-                    " Google Analytics",
+                    "Google Analytics",
                     "Agencias"
                 ]
             },
@@ -9294,8 +9294,8 @@
                     "Canacine",
                     "Agrupaciones",
                     "Amfi",
-                    " Mujeres en el Cine y la TV",
-                    " Women in Films and TV",
+                    "Mujeres en el Cine y la TV",
+                    "Women in Films and TV",
                     "Femmes au Cinéma et à la TV",
                     "Asociaciones",
                     "Associations",
@@ -9486,7 +9486,7 @@
                     "Autoridades",
                     "Comisiones de filmación",
                     "Film Commissions",
-                    " Des commissions de filage",
+                    "Des commissions de filage",
                     "Gobierno",
                     "Comisiones fílmicas"
                 ]
@@ -9677,11 +9677,11 @@
                 "Referentes": [
                     "Industria",
                     "Festivales de cine en México",
-                    " Film Festivals in Mexico",
+                    "Film Festivals in Mexico",
                     "Festivals de cinéma ",
                     "Mercados",
                     "Películas",
-                    " Concursos",
+                    "Concursos",
                     "Exhibidores",
                     "Festivales",
                     "Cortometrajes",
@@ -9721,7 +9721,7 @@
                     "Festivals de cinéma ",
                     "Mercados",
                     "Películas",
-                    " Concursos",
+                    "Concursos",
                     "Festivales",
                     "Cortometrajes",
                     "Largometrajes"
