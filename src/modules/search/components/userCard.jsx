@@ -35,6 +35,7 @@ export const UserCard = ({ user }) => {
       <div className="">
         {user.subareas?.map((subarea, i) => (
           <p className={["text-sm opacity-80", i == 0 && "font-bold"].join(' ')} key={subarea}>
+            {user.gender}
             {getTitle(subarea, user.gender)}
           </p>
         ))}
