@@ -73,7 +73,7 @@ export const BasicInfo = () => {
           autoComplete="family-name"
           required
         />
-        {user?.type == 'moral' ? (
+        {user?.type != 'moral' ? (
           <>
             <label htmlFor="gender">{t('Género')}*</label>
             <select
