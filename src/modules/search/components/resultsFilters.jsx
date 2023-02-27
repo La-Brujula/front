@@ -48,13 +48,6 @@ export const ResultsFilter = ({ setFilters, filters }) => {
       >
         <h2 className="text-primary text-xl">Búsqueda Avanzada</h2>
         <div className="flex flex-col gap-4 py-4">
-          <input
-            type="text"
-            placeholder="Nombre"
-            id="name"
-            {...register('name')}
-            className="w-full"
-          />
           <select className="dark" {...register('subarea')} placeholder="Actividad">
             <option value="">{t('Actividad')}</option>
             {Object.keys(areas).map((area, i) => (
