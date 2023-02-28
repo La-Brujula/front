@@ -19,6 +19,7 @@ import {
   arrayRemove,
   arrayUnion,
   query,
+  getCountFromServer
 } from 'firebase/firestore';
 import {
   getBlob,
@@ -157,6 +158,10 @@ export const firestore = (() => {
     return await retriveInfoByDocRef(docRef, document);
   };
 
+  const getQuerySize = async (queries) => {
+    return (await getCountFromServer(queries)).data().count;
+  }
+
   const queryInfo = async (queries) => {
     const ref = collection(db, 'users');
     const q = query(ref, ...queries);
@@ -188,6 +193,7 @@ export const firestore = (() => {
     retriveInfoByDocRef: retriveInfoByDocRef,
     retriveInfoByColRef: retriveInfoByColRef,
     deleteInfoByDocRef: deleteInfoByDocRef,
+    getQuerySize,
     queryInfo,
     addToFieldArrayByDocRef,
     removeFromFieldArrayByDocRef,

@@ -9,5 +9,14 @@ export default () => (
       <Route index element={<CurrentUserPage />} />
       <Route path=":userId" element={<UserProfilePage />} />
     </Route>
-  </Routes>
+    <Route
+      path='*'
+      element={
+        <h1 className="leading-[25vh] text-center">
+          uwu
+          <br /> <span className="text-xl">no ta</span>
+        </h1>}
+    >
+    </Route>
+  </Routes >
 );

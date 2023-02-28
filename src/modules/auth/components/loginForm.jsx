@@ -30,7 +30,6 @@ export const LoginForm = () => {
     if (loading) return
     if (!values.email || !values.password) return;
     setLoading(true)
-    console.log(values.email, values.password)
     if (await auth.login(values.email, values.password, onError)) {
       navigate(`/usuarios/${values.email}`);
     }
