@@ -101,7 +101,7 @@ export const BasicInfo = () => {
         )}
         <div className="col-span-2 flex flex-col gap-4 text-center">
           <label htmlFor="nickname" className="col-span-1">
-            {t('Nombre con el que quieres apaecer')}
+            {t('Nombre con el que quieres aparecer')}
           </label>
           <input
             type="text"
