@@ -51,6 +51,10 @@ export function brujulaUtils() {
 
   // TODO Generalizar métodos para usuario general y no sólo usuario actual
 
+  const getTotalQuerySize = async (queries) => {
+    return await store.getQuerySize(queries);
+  }
+
   const queryUsers = async (queries) => {
     const data = await store.queryInfo(queries);
     const list = [];
@@ -169,6 +173,7 @@ export function brujulaUtils() {
     addReview,
     removeReviews,
 
+    getTotalQuerySize,
     queryUsers,
     deleteUser,
 
