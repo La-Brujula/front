@@ -1,17 +1,14 @@
 import { useTranslation } from 'react-i18next';
 import { ProfileHeader } from '../components/profileHeader';
 import { ContactSection } from '../components/contactInfo';
-import { useReviews } from '@shared/hooks/useReviews';
 import { useAuth } from '@shared/context/firebaseContext';
 import languages from '@shared/constants/languages.json';
 import { NavLink } from 'react-router-dom';
+import { Recommendations } from '../components/recommend';
 
 export const UserProfilePage = ({ user }) => {
   const { t } = useTranslation('profile');
   const auth = useAuth();
-  const { reviews, count, addReview, removeReview, loading } = useReviews(
-    user.email
-  );
 
   return (
     <div>
@@ -23,7 +20,7 @@ export const UserProfilePage = ({ user }) => {
             {!!user.university && (
               <div className="py-8">
                 <div className="absolute left-0 -z-10 -my-4 overflow-hidden transform w-full">
-                  <div className="bg-black bg-opacity-20 w-full h-28 xl:w-1/2 xl:rounded-r-md"></div>
+                  <div className="bg-black bg-opacity-20 w-full h-20 xl:w-1/2 xl:rounded-r-md"></div>
                 </div>
                 <h4 className="font-normal text-primary">{t('Universidad')}</h4>
                 <p>{user.university}</p>
@@ -32,7 +29,7 @@ export const UserProfilePage = ({ user }) => {
             {user.probono !== undefined && (
               <div className="py-8">
                 <div className="absolute left-0 -z-10 -my-4 overflow-hidden transform w-full">
-                  <div className="bg-black bg-opacity-20 w-full h-28 xl:w-1/2 xl:rounded-r-md"></div>
+                  <div className="bg-black bg-opacity-20 w-full h-20 xl:w-1/2 xl:rounded-r-md"></div>
                 </div>
                 <h4 className="font-normal text-primary">
                   Interés en ser becario, servicio social:
@@ -54,29 +51,7 @@ export const UserProfilePage = ({ user }) => {
                 />
               </p>
             )}
-
-            <div>
-              <h4 className="font-normal text-primary">Recomendaciones: </h4>
-
-              <p>{loading ? '...' : count}</p>
-              <p>{reviews?.join(', ')}</p>
-              {auth.getUserEmail() != user.email &&
-                (!reviews?.includes(auth.getUserEmail()) ? (
-                  <h4
-                    className="font-normal text-primary cursor-pointer"
-                    onClick={() => addReview(auth.getUserEmail())}
-                  >
-                    Click para recomendar
-                  </h4>
-                ) : (
-                  <h4
-                    className="font-normal text-primary cursor-pointer"
-                    onClick={() => removeReview(auth.getUserEmail())}
-                  >
-                    Remover recomendacion
-                  </h4>
-                ))}
-            </div>
+            <Recommendations user={user}/>
             {!!user.characteristics && (
               <div>
                 <h4 className="font-normal text-primary">{t('Semblanza')}</h4>
