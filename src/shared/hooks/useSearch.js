@@ -3,7 +3,6 @@ import { where, orderBy, limit, startAfter } from "firebase/firestore";
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import regions from '@shared/constants/regiones.json';
 import { replaceSearchTermsFromIndex } from "../utils/busqueda";
-import { getArea } from "../utils/areaUtils";
 import langs from '../../shared/constants/languages.json'
 
 const bannedWords = new RegExp(["y", "la", ...Object.keys(langs)].map(w => `\\b${w}\\b`).join('|'), 'i')
@@ -94,7 +93,6 @@ export const useSearch = () => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(undefined)
     const [hasMore, setHasMore] = useState(true)
-    const [totalSize, setTotalSize] = useState(0)
 
 
     const setFilterObject = useCallback((filters) => {
@@ -151,5 +149,5 @@ export const useSearch = () => {
     }, [filters])
 
 
-    return { results: results.current, loading, error, setFilterObject, getNext, hasMore, filters, totalSize }
+    return { results: results.current, loading, error, setFilterObject, getNext, hasMore, filters }
 }
