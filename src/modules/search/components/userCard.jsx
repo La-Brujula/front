@@ -12,7 +12,7 @@ export const UserCard = ({ user }) => {
         <img
           src={user.profilePictureUrl}
           alt={`${user.nickname || user.name} profile picture`}
-          className="w-20 h-20 rounded-full shrink-0 row-span-2"
+          className="w-20 h-20 rounded-full shrink-0 row-span-2 object-cover object-center"
         />
       ) : (
         <div className="h-20 w-20 rounded-full bg-slate-400 shrink-0 row-span-2" />
