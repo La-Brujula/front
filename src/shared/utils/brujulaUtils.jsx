@@ -78,13 +78,13 @@ export function brujulaUtils() {
     const newData = !data ? userInfo : {
       ...data,
       ...userInfo,
-      searchName: userInfo.name || data.name && [
+      searchName: (userInfo.name || data.name) && [
         ...(() =>
           !!userInfo.name ? userInfo.name.split(' ') : data.name.split(' '))(),
         ...(() =>
           !!userInfo.lastname
             ? userInfo.lastname.split(' ')
-            : data.lastname.split(' '))(),
+            : !!data.lastname ? data.lastname.split(' ') : '')(),
         ...(() =>
           !!userInfo.nickname
             ? userInfo.nickname.split(' ')
@@ -122,7 +122,7 @@ export function brujulaUtils() {
         userInfo.city || data.city,
         userInfo.state || data.state,
         userInfo.country || data.country,
-      ].map((a) => removeDiacritics(a.toLowerCase())),
+      ].filter(a => !!a).map((a) => removeDiacritics(a.toLowerCase())),
     };
     return await store.saveInfo('users', email, newData);
   };

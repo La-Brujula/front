@@ -28,8 +28,10 @@ export const BasicInfo = () => {
   const { user, loading, error } = useUserInfo(auth.getUserEmail());
 
   useMemo(() => {
-    !!user &&
+    if (!!user) {
       Object.entries(user).forEach(([key, value]) => setValue(key, value));
+      setValue('gender', 'Persona Moral')
+    }
   }, [user]);
 
   const onSubmit = async (data) => {
@@ -59,27 +61,29 @@ export const BasicInfo = () => {
         <input
           type="text"
           id="name"
-          {...register('name')}
+          {...register('name', { required: true })}
           autoComplete={user?.type != 'moral' && 'given-name'}
           required
         />
-        <label htmlFor="lastname" className="col-span-1">
-          {t('Apellido (s)')} *
-        </label>
-        <input
-          type="text"
-          id="lastname"
-          {...register('lastname')}
-          autoComplete="family-name"
-          required
-        />
+        {user?.type != 'moral' ? <>
+          <label htmlFor="lastname" className="col-span-1">
+            {t('Apellido (s)')} *
+          </label>
+          <input
+            type="text"
+            id="lastname"
+            {...register('lastname', { required: user?.type != 'moral' })}
+            autoComplete="family-name"
+            required={user?.type == 'moral'}
+          />
+        </> : <></>
+        }
         {user?.type != 'moral' ? (
           <>
             <label htmlFor="gender">{t('Género')}*</label>
             <select
               id="gender"
-              {...register('gender', { required: true })}
-              required
+              {...register('gender', { required: user?.type != 'moral' })}
               defaultValue={''}
             >
               <option value="" disabled>
@@ -130,11 +134,11 @@ export const BasicInfo = () => {
         </label>
         <input type="phone" id="phone" {...register('phone')} />
       </div>
-      <label htmlFor="phone" className="col-span-1">
-        {t('¿Te interesa ser becario o hacer servicio social?')}
-      </label>
       {user?.type != 'moral' && (
         <>
+          <label htmlFor="phone" className="col-span-1">
+            {t('¿Te interesa ser becario o hacer servicio social?')}
+          </label>
           <input type="hidden" {...register('probono')} />
           <ButtonSelect
             fieldName="probono"

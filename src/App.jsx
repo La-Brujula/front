@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <main className='overflow-x-hidden w-full'>
+      <main className='overflow-x-hidden w-full z-0'>
         <Outlet />
       </main>
       <Footer />

@@ -21,7 +21,7 @@ export const PorFiltros = ({ defaultSearch, setFilters }) => {
       method="get"
       onSubmit={handleSubmit((values) => {
         if (setFilters !== undefined) {
-          return setFilters({search: values.search})
+          return setFilters({ search: values.search })
         }
         navigate(`/buscar?search=${values.search}`)
       })}
@@ -46,7 +46,7 @@ export const PorFiltros = ({ defaultSearch, setFilters }) => {
           borderRadius: '0.375rem',
           placeholderColor: 'white',
           color: 'rgb(237 237 237 / var(--tw-text-opacity))',
-          zIndex: 10,
+          zIndex: 0
         }}
         fuseOptions={{
           threshold: 0.2,

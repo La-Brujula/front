@@ -162,9 +162,9 @@ export const Navbar = () => {
           isOpen
             ? 'opacity-100 left-0'
             : 'opacity-0 left-100 pointer-events-none'
-        } transition-all
-        duration-300 fixed top-4 h-screen w-full left-0 bg-white
-        bg-opacity-20 z-0 backdrop-blur-sm`}
+        } transition-all top-0
+        duration-300 fixed h-screen w-full left-0 bg-white
+        bg-opacity-20 z-10 backdrop-blur-sm`}
         onClick={toggleOpen}
       />
     </>
