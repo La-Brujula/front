@@ -123,8 +123,7 @@ export const SignupForm = () => {
         </div>
       </div>
       {errorMsg === '' ? <></> : <p style={{ color: 'red' }}>{errorMsg}</p>}
-      <input type="hidden" {...register('acceptPrivacy', { required: true })} />
-      {acceptedPrivacy !== true && <PrivacyPolicy setValues={setValue} />}
+      {acceptedPrivacy !== true && <PrivacyPolicy />}
       {!loading ? <input
         type="submit"
         className="max-w-xs mx-auto bg-primary"
