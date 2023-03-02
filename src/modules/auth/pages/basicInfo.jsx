@@ -29,8 +29,8 @@ export const BasicInfo = () => {
 
   useMemo(() => {
     if (!!user) {
-      Object.entries(user).forEach(([key, value]) => setValue(key, value));
       setValue('gender', 'Persona Moral')
+      Object.entries(user).forEach(([key, value]) => setValue(key, value));
     }
   }, [user]);
 

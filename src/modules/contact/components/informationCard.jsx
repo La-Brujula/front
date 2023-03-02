@@ -19,7 +19,7 @@ export function InformationCard() {
         <WhatsApp />
         <h2 className="text-lg lg:px-4">Whatsapp</h2>
         <a href={contactInformation.whatsapp} className="text-white">
-          {contactInformation.phoneNumbers[1]}
+          {contactInformation.phoneNumbers[0]}
         </a>
         <div className="h-[2px] rounded-lg bg-white lg:col-span-3" />
         <PhoneOutlined />

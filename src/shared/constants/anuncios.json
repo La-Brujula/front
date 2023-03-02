@@ -6,7 +6,7 @@
            
         },
         {
-            "verticalImage": "/anuncios/vivamexico_anuncioHorizontal.png",
+            "verticalImage": "/anuncios/Brujula Horizontal-01.jpg",
             "linkUrl": ""
            
         },
@@ -18,28 +18,30 @@
         {
             "verticalImage": "/anuncios/CEC_hor.png",
             "linkUrl": ""
-        },
-     
-        {
-            "verticalImage":"/anuncios/RAINDANCE.png",
-            "linkUrl": ""
         }
     ],
     "bottom": [
         {
            
-            "verticalImage": "/anuncios/Brujula-Imcine-2.jpg",
+            "verticalImage": "/anuncios/Brujula Horizontal-03.jpg",
             "linkUrl": ""
         },
         {
-            "verticalImage": "/anuncios/VivaMexicoHorizontal.PNG",
+           
+            "verticalImage": "/anuncios/Brujula Horizontal-02.jpg",
             "linkUrl": ""
         },
         {
-            "verticalImage": "/anuncios/Brujula-Imcine-3-2.jpg",
+           
+            "verticalImage": "/anuncios/vivamexico_anuncioHorizontal.png",
+            "linkUrl": ""
+        },
+        {
+            "verticalImage":"/anuncios/RAINDANCE.png",
             "linkUrl": ""
         }
-        
+      
+      
     ]
 }
 
