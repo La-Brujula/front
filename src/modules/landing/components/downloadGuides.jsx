@@ -22,43 +22,43 @@ function DownloadGuides() {
           bgColor="bg-secondary"
           textColor="text-[#E63319]"
           label="Occidente"
-          link="/guias/la_brujula_occidente_2023.pdf"
+          link="/guias/pdfs/laBrujulaOccidente2023.pdf"
         />
         <Strip
           bgColor="bg-[#E82D87]"
           textColor="text-[#FAE800]"
           label="Centro"
-          link="/guias/la_brujula_centro_2023.pdf"
+          link="/guias/pdfs/labrujulaCentro2023.pdf"
         />
         <Strip
           bgColor="bg-[#FAE800]"
           textColor="text-[#E82D87]"
           label="Norte"
-          link="/guias/la_brujula_norte_2023.pdf"
+          link="/guias/pdfs/labrujulaNorte2023.pdf"
         />
         <Strip
           bgColor="bg-[#E5341B]"
           textColor="text-[#09ABE4]"
           label="Noreste"
-          link="/guias/la_brujula_noroeste_2023.pdf"
+          link="/guias/pdfs/labrujulaNoroeste2023.pdf"
         />
         <Strip
           bgColor="bg-[#00A039]"
           textColor="text-[#252F60]"
           label="Sureste"
-          link="/guias/la_brujula_sureste_2023.pdf" 
+          link="/guias/pdfs/labrujulaSureste2023.pdf" 
         />
         <Strip
           bgColor="bg-[#252F60]"
           textColor="text-[#00A039]"
           label="Guanajuato"
-          link="/guias/la_brujula_guanajuato_2023.pdf"
+          link="/guias/pdfs/labrujulaGuanajuato2023.pdf"
         />
         <Strip
           bgColor="bg-[#F08500]"
           textColor="text-[#E82D87]"
           label="Aguascalientes"
-          link="/guias/la_brujula_aguascalientes_2023.pdf"
+          link="/guias/pdfs/labrujulaAguascalientes2023.pdf"
         />
         <img
           src={`${import.meta.env.BASE_URL}img/HalfLogo.svg`}

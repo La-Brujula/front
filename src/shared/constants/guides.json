@@ -3,39 +3,39 @@
         {
             "name": "Occidente",
             "thumbnail": "/guias/thumbnails/Portadas_occidente.png",
-            "link": "/guias/pdfs/la_brujula_occidente_2023.pdf"
+            "link": "/guias/pdfs/laBrujulaOccidente2023.pdf"
         },
         {
             "name": "Centro",
             "thumbnail": "/guias/thumbnails/Portadas_centro.png",
-            "link": "/guias/pdfs/la_brujula_centro_2023.pdf"
+            "link": "/guias/pdfs/labrujulaCentro2023.pdf"
         },
         {
             "name": "Norte",
             "thumbnail": "/guias/thumbnails/Portadas_norte.png",
-            "link": "/guias/pdfs/la_brujula_norte_2023.pdf"
+            "link": "/guias/pdfs/labrujulaNorte2023.pdf"
         },
         {
             "name": "Noreste",
             "thumbnail": "/guias/thumbnails/Portadas_noroeste.png",
-            "link": "/guias/pdfs/la_brujula_noroeste_2023.pdf"
+            "link": "/guias/pdfs/labrujulaNoroeste2023.pdf"
         },
         {
             "name": "Sureste",
             "thumbnail": "/guias/thumbnails/Portadas_sureste.png",
-            "link": "/guias/pdfs/la_brujula_sureste_2023.pdf"
+            "link": "/guias/pdfs/labrujulaSureste2023.pdf" 
         }
     ],
     "specials": [
         {
             "name": "Guanajuato",
             "thumbnail": "/guias/thumbnails/Portadas_guanajuato.png",
-            "link": "/guias/pdfs/la_brujula_guanajuato_2023.pdf"
+            "link": "/guias/pdfs/labrujulaGuanajuato2023.pdf"
         },
         {
             "name": "Aguascalientes",
             "thumbnail": "/guias/thumbnails/Portadas_aguascalientes.png",
-            "link": "/guias/pdfs/la_brujula_aguascalientes_2023.pdf"
+            "link": "/guias/pdfs/labrujulaAguascalientes2023.pdf"
         },
         {
            
