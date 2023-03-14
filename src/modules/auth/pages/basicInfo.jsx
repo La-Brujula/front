@@ -106,15 +106,18 @@ export const BasicInfo = () => {
             value="Persona Moral"
           />
         )}
-        <label htmlFor="birthday" className="col-span-1">
-          {t('Fecha de nacimiento')}
-        </label>
-        <input
-          type="date"
-          id="birthady"
-          {...register('birthday')}
-          autoComplete={user?.type != 'moral' && 'birthday'}
-        />
+        {user?.type != 'moral' && <>
+          <label htmlFor="birthday" className="col-span-1">
+            {t('Fecha de nacimiento')}
+          </label>
+          <input
+            type="date"
+            id="birthady"
+            {...register('birthday')}
+            autoComplete={user?.type != 'moral' && 'birthday'}
+          />
+        </>
+        }
         <p className="col-span-full text-xs">Este dato solamente es para uso interno</p>
         <div className="col-span-2 flex flex-col gap-4 text-center">
           <label htmlFor="nickname" className="col-span-1">
@@ -160,12 +163,12 @@ export const BasicInfo = () => {
             setValue={setValue}
             getValue={getValues}
           />
+          <label htmlFor="university" className="col-span-1">
+            {t('¿Pertences a una de estas escuelas?')}
+          </label>
+          <UniversidadesSelect fieldname="university" register={register} />
         </>
       )}
-      <label htmlFor="university" className="col-span-1">
-        {t('¿Pertences a una de estas escuelas?')}
-      </label>
-      <UniversidadesSelect fieldname="university" register={register} />
       {!!error && <ErrorMessage message={error.toString()} />}
       <div className="flex flex-row gap-4 self-center">
         <div className="button font-bold" onClick={() => navigate(-1)}>

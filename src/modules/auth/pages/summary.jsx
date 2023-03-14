@@ -35,14 +35,20 @@ export const ProfileSummary = () => {
           {user.email}
         </a>
         <div className="col-span-2"></div>
-        <h3>{t('Nombre (s)')}</h3>
+        <h3>{user?.type != 'moral' ? t('Razón Social') : t('Nombre (s)')}</h3>
         <p className="text-left text-primary">{user.name}</p>
-        <h3>{t('Apellido (s)')}</h3>
-        <p className="text-left text-primary">{user.lastname}</p>
+        {user?.type != 'moral' && <>
+          <h3>{t('Apellido (s)')}</h3>
+          <p className="text-left text-primary">{user.lastname}</p>
+        </>
+        }
         <h3>{t('Nickname')}</h3>
         <p className="text-left text-primary">{user.nickname}</p>
-        <h3>{t('Género')}</h3>
-        <p className="text-left text-primary">{user.gender}</p>
+        {user?.type != 'moral' && <>
+          <h3>{t('Género')}</h3>
+          <p className="text-left text-primary">{user.gender}</p>
+        </>
+        }
         <div className="col-span-2"></div>
         <h3>{t('Actividad Principal')}</h3>
         <p className="text-left text-primary">{!!user.subareas && getTitle(user.subareas[0], user.gender)}</p>

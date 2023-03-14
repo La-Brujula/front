@@ -33,7 +33,7 @@ export const CaracteristicasPage = () => {
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
       <div className="mb-8">
         <div className="absolute left-0 -z-10 bg-black bg-opacity-20 w-full h-16 overflow-hidden"></div>
-        <h2>{t('Características personales')}</h2>
+        <h2>{t('Información Adicional')}</h2>
       </div>
       <div
         className="grid grid-cols-[min-content_1fr]
