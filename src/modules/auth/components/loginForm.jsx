@@ -81,7 +81,7 @@ export const LoginForm = () => {
         >
           {t('createUser')}
         </NavLink>
-        <NavLink to="/reiniciar-contraseña">{t('forgotPassword')}</NavLink>
+        <NavLink to="/reset-password">{t('forgotPassword')}</NavLink>
       </div>
     </>
   );

@@ -6,6 +6,9 @@ import {
   onAuthStateChanged,
   signOut,
   deleteUser as firebaseDeleteUser,
+  setPersistence,
+  browserLocalPersistence,
+  sendPasswordResetEmail,
 } from 'firebase/auth';
 import {
   getFirestore,
@@ -19,7 +22,7 @@ import {
   arrayRemove,
   arrayUnion,
   query,
-  getCountFromServer
+  getCountFromServer,
 } from 'firebase/firestore';
 import {
   getBlob,
@@ -57,7 +60,9 @@ export const FireAuthProvider = ({ children }) => {
   const _userAuth = async (email, password, method, handleError) => {
     const authResult = (async () => {
       try {
-        await method(auth, email, password);
+        await setPersistence(auth, browserLocalPersistence).then(() =>
+          method(auth, email, password)
+        );
         return true;
       } catch (err) {
         handleError(err);
@@ -69,15 +74,15 @@ export const FireAuthProvider = ({ children }) => {
     return authResult;
   };
 
-  const login = async (email, password, handleError = (err) => { }) => {
+  const login = async (email, password, handleError = (err) => {}) => {
     if (!(await firestore.getInfo('users', email))) {
-      handleError({ code: "auth/no-account" })
-      return false
+      handleError({ code: 'auth/no-account' });
+      return false;
     }
     return _userAuth(email, password, signInWithEmailAndPassword, handleError);
   };
 
-  const register = (email, password, handleError = (err) => { }) => {
+  const register = (email, password, handleError = (err) => {}) => {
     return _userAuth(
       email,
       password,
@@ -108,6 +113,11 @@ export const FireAuthProvider = ({ children }) => {
     return firebaseDeleteUser(auth.currentUser);
   }
 
+  async function resetUserPassword(userEmail) {
+    await sendPasswordResetEmail(auth, userEmail);
+    return true
+  }
+
   return (
     <AuthContext.Provider
       value={{
@@ -119,6 +129,7 @@ export const FireAuthProvider = ({ children }) => {
         getUserId: getUserId,
         isLoggedIn: isLoggedIn,
         deleteUser: deleteUser,
+        resetUserPassword: resetUserPassword,
       }}
     >
       {children}
@@ -160,7 +171,7 @@ export const firestore = (() => {
 
   const getQuerySize = async (queries) => {
     return (await getCountFromServer(queries)).data().count;
-  }
+  };
 
   const queryInfo = async (queries) => {
     const ref = collection(db, 'users');
