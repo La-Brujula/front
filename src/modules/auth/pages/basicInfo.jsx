@@ -29,7 +29,7 @@ export const BasicInfo = () => {
 
   useMemo(() => {
     if (!!user) {
-      setValue('gender', 'Persona Moral')
+      setValue('gender', 'Persona Moral');
       Object.entries(user).forEach(([key, value]) => setValue(key, value));
     }
   }, [user]);
@@ -65,19 +65,22 @@ export const BasicInfo = () => {
           autoComplete={user?.type != 'moral' && 'given-name'}
           required
         />
-        {user?.type != 'moral' ? <>
-          <label htmlFor="lastname" className="col-span-1">
-            {t('Apellido (s)')} *
-          </label>
-          <input
-            type="text"
-            id="lastname"
-            {...register('lastname', { required: user?.type != 'moral' })}
-            autoComplete="family-name"
-            required={user?.type == 'moral'}
-          />
-        </> : <></>
-        }
+        {user?.type != 'moral' ? (
+          <>
+            <label htmlFor="lastname" className="col-span-1">
+              {t('Apellido (s)')} *
+            </label>
+            <input
+              type="text"
+              id="lastname"
+              {...register('lastname', { required: user?.type != 'moral' })}
+              autoComplete="family-name"
+              required={user?.type == 'moral'}
+            />
+          </>
+        ) : (
+          <></>
+        )}
         {user?.type != 'moral' ? (
           <>
             <label htmlFor="gender">{t('Género')}*</label>
@@ -103,6 +106,16 @@ export const BasicInfo = () => {
             value="Persona Moral"
           />
         )}
+        <label htmlFor="birthday" className="col-span-1">
+          {t('Fecha de nacimiento')}
+        </label>
+        <input
+          type="date"
+          id="birthady"
+          {...register('birthday')}
+          autoComplete={user?.type != 'moral' && 'birthday'}
+        />
+        <p className="col-span-full text-xs">Este dato solamente es para uso interno</p>
         <div className="col-span-2 flex flex-col gap-4 text-center">
           <label htmlFor="nickname" className="col-span-1">
             {t('Nombre con el que quieres aparecer')}
