@@ -31,7 +31,7 @@ const SubCategoryPage = () => {
                   !(i % 2) ? 'bg-primary' : 'bg-secondary',
                 ].join(' ')}
               >
-                {getTitle(id, 'No Binario')}
+                {getTitle(id, 'No Binario') || getTitle(id, 'Persona Moral')}
               </NavLink>
             ))
           : selectedCategory.search.length == 1
