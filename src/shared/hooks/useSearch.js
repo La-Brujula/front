@@ -58,7 +58,7 @@ const getQueries = (filters) => {
                     filters.search,
                     ...(() => !!search ? search?.split(' ')?.filter(w => !bannedWords.test(w)).map(a => a.toLowerCase()) : [])(),
                     filters.activity || filters.subarea || filters.area,
-                    ...(() => (filters.activity || filters.subarea || filters.area) ? filters.category.split(' ') : [])(),
+                    ...(() => (filters.activity || filters.subarea || filters.area) ? [] : filters.category.split(' '))(),
                     filters.language && `lang:${filters.language}`,
                 ].filter(a => !!a).slice(0, 10))
         )
