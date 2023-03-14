@@ -120,7 +120,7 @@ export const ResultsFilter = ({ setFilters, filters }) => {
               Persona Moral
             </option>
           </select>
-          <div className="flex flex-col gap-4 w-full">
+          {/* <div className="flex flex-col gap-4 w-full">
             <select
               {...register('language')}
               className="w-full dark"
@@ -140,7 +140,7 @@ export const ResultsFilter = ({ setFilters, filters }) => {
                 placeholder="Escribe aquí el nombre del idioma"
               />
             )}
-          </div>
+          </div> */}
         </div>
         <div className="flex flex-col gap-2">
           <p
