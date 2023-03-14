@@ -1,4 +1,3 @@
-import AddOutlined from '@mui/icons-material/AddOutlined';
 import CloseOutlined from '@mui/icons-material/CloseOutlined';
 import IconButton from '@mui/material/IconButton';
 import languages from '@shared/constants/languages.json';
@@ -42,10 +41,9 @@ export const LanguageListForm = ({
   getValues,
   defaultState,
 }) => {
-  const [state, dispatch] = useReducer(
-    reducer,
-    defaultState || [{ lang: 'es', proficiency: 'native' }]
-  );
+  const [state, dispatch] = useReducer(reducer, [
+    { lang: 'es', proficiency: 'native' },
+  ]);
 
   const updateValue = (i, property) => (ev) => {
     dispatch({
@@ -63,7 +61,9 @@ export const LanguageListForm = ({
   }, [state]);
 
   useEffect(() => {
+    if (!defaultState) return
     dispatch({ type: 'rebase', state: defaultState });
+    console.log(defaultState);
   }, [defaultState]);
 
   return (
@@ -119,12 +119,13 @@ export const LanguageListForm = ({
               </div>
             </div>
           ))}
-        <IconButton
+        <div
+          className="cursor-pointer mt-6 px-4 py-2 bg-secondary text-white
+        rounded-md mx-auto w-fit"
           onClick={() => dispatch({ type: 'add' })}
-          className="!mx-auto !block"
         >
-          <AddOutlined />
-        </IconButton>
+          Agregar otro idioma
+        </div>
       </>
     </div>
   );

@@ -1,6 +1,5 @@
 import areas from '@shared/constants/areas.json';
 import { useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import {
   getAreaFromId,
   getSubAreaFromId,
