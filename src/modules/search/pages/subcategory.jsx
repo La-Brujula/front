@@ -19,7 +19,7 @@ const SubCategoryPage = () => {
 
   return (
     <>
-      <h1 className='mb-8'>{selectedCategory.label}</h1>
+      <h1 className='mb-8 text-secondary text-4xl '>{selectedCategory.label}</h1>
       <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 auto-rows-fr">
         {idList
           ? selectedCategory.search.split(' ').map((id, i) => (
