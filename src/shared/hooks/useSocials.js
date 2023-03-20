@@ -1,6 +1,7 @@
 
 export default function useSocials(social, link) {
     if (!link) return ''
+    return link
     try {
         let tmplink = link.replace("https://", "")
         tmplink = tmplink.split("?")[0]
