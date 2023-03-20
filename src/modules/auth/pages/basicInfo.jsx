@@ -164,7 +164,7 @@ export const BasicInfo = () => {
             getValue={getValues}
           />
           <label htmlFor="university" className="col-span-1">
-            {t('¿Pertences a una de estas escuelas?')}
+            {t('¿Estudias o estudiaste en alguna de estas escuelas?')}
           </label>
           <UniversidadesSelect fieldname="university" register={register} />
         </>

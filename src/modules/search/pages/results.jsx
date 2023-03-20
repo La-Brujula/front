@@ -44,7 +44,7 @@ export const SearchResultsPage = () => {
             <p>No se encontraron resultados</p>
           )}
           {loading && <LoadingSpinner />}
-          {!loading && !hasMore && (
+          {!loading && hasMore && (
             <div
               className="px-4 py-2 text-white bg-secondary
             cursor-pointer rounded-md text-c"

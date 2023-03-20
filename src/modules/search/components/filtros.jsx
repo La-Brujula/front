@@ -65,7 +65,10 @@ export const PorFiltros = ({ defaultSearch, setFilters }) => {
         onSearch={(keyword, _) => {
           setValue('search', keyword);
         }}
-        onClear={() => setValue('search', '')}
+        onClear={() => {
+          setValue('search', '')
+          !!setFilters && setFilters({ search: '' })
+        }}
         showIcon={false}
         showNoResults={true}
         showItemsOnFocus={false}
