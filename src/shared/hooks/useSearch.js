@@ -50,15 +50,14 @@ const getQueries = (filters) => {
                 break;
         }
     }
-    if (filters.search || filters.subarea || filters.area || filters.language || filters.activity || filters.category) {
+    if (filters.search || filters.subarea || filters.area || filters.activity || filters.category) {
         const search = !!filters.search && replaceSearchTermsFromIndex(filters.search.toLowerCase());
         queries.push(
             where('searchName', 'array-contains-any',
                 [
                     filters.search,
                     ...(() => !!search ? search?.split(' ')?.filter(w => !bannedWords.test(w)).map(a => a.toLowerCase()) : [])(),
-                    filters.activity || filters.subarea || filters.area,
-                    ...(() => (filters.activity || filters.subarea || filters.area) ? [] : filters.category?.split(' ') || [])()
+                    filters.activity || filters.subarea || filters.area || filters.category?.split(' '),
                 ].filter(a => !!a).slice(0, 10))
         )
     }
@@ -114,7 +113,7 @@ export const useSearch = () => {
             data = await brujula.queryUsers(queries)
         }
         return data
-    }, [filters, hasMore])
+    }, [filters])
 
     useEffect(() => {
         (async () => {
@@ -123,7 +122,7 @@ export const useSearch = () => {
                 const queries = getQueries(filters)
                 const data = await getResultsWithFilters(queries)
                 results.current = data
-                setHasMore(data > 9)
+                setHasMore(!!data.length && data.length > 9)
             } catch (e) {
                 console.error(e)
                 setError("Hubo un error por favor intenta de nuevo más tarde.");
@@ -138,7 +137,7 @@ export const useSearch = () => {
                 const queries = getQueries(filters)
                 const data = await getResultsWithFilters(queries)
                 results.current.push(...data)
-                setHasMore(data > 9)
+                setHasMore(!!data.length && data.length > 9)
             } catch (e) {
                 console.error(e)
                 setError("Hubo un error, por favor intenta de nuevo más tarde.");
