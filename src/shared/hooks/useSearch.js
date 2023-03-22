@@ -104,7 +104,7 @@ export const useSearch = () => {
         setError(undefined)
         queries.push(limit(10))
         if (results.current.length !== 0) {
-            queries.push(startAfter(results.current[results.current.length - 1][!!filters.name ? 'lastName' : 'email']))
+            queries.push(startAfter(results.current[results.current.length - 1][!!filters.name ? 'lastName' : 'name']))
         }
 
         let data = await brujula.queryUsers(queries);
