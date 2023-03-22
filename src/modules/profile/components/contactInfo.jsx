@@ -5,6 +5,7 @@ import WhatsApp from '@mui/icons-material/WhatsApp';
 import Instagram from '@mui/icons-material/Instagram';
 import Twitter from '@mui/icons-material/Twitter';
 import YouTube from '@mui/icons-material/YouTube';
+import LinkOutlined from '@mui/icons-material/LinkOutlined';
 
 export const ContactSection = ({ user }) => {
   return (
@@ -36,6 +37,14 @@ export const ContactSection = ({ user }) => {
             <EmailOutlined />
           </h3>
           <a target="_blank" className='truncate block w-full' href={'mailto:' + user.email}>{user.email}</a>
+        </>
+      )}
+      {!!user.website && (
+        <>
+          <h3><LinkOutlined /></h3>
+          <a target="_blank" className='truncate block w-full' href={user.website}>
+            {user.website}
+          </a>
         </>
       )}
       {!!user.imdb && (
