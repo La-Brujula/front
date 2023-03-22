@@ -9,15 +9,17 @@ import YouTube from '@mui/icons-material/YouTube';
 export const ContactSection = ({ user }) => {
   return (
     <div
-      className="grid grid-cols-[max-content_max-content] max-w-md
-      text-left gap-4 mx-auto xl:mx-0 items-center gap-x-6"
+      className="grid grid-cols-[max-content_1fr] max-w-md
+      text-left gap-4 mx-auto xl:mx-0 items-center gap-x-6 overflow-hidden"
     >
       {!!user.phone && (
         <>
           <h3>
             <PhoneOutlined />
           </h3>
-          <a className='truncate' href={'tel:' + user.phone}>{user.phone}</a>
+          <div className="w-full">
+            <a target="_blank" className='truncate block w-full' href={'tel:' + user.phone}>{user.phone}</a>
+          </div>
         </>
       )}
       {!!user.whatsapp && (
@@ -33,13 +35,15 @@ export const ContactSection = ({ user }) => {
           <h3>
             <EmailOutlined />
           </h3>
-          <a className='truncate' href={'mailto:' + user.email}>{user.email}</a>
+          <a target="_blank" className='truncate block w-full' href={'mailto:' + user.email}>{user.email}</a>
         </>
       )}
       {!!user.imdb && (
         <>
           <h3>IMDB</h3>
-          <a className='truncate' href={'https://www.imdb.com/name/' + user.imdb}>{user.imdb}</a>
+          <a target="_blank" className='truncate block w-full' href={user.imdb}>
+            {user.imdb}
+          </a>
         </>
       )}
       {!!user.facebook && (
@@ -47,7 +51,7 @@ export const ContactSection = ({ user }) => {
           <h3>
             <FacebookOutlined />
           </h3>
-          <a className='truncate' href={'https://www.facebook.com/' + user.facebook}>{user.facebook}</a>
+          <a target="_blank" className='truncate block w-full' href={user.facebook}>{user.facebook}</a>
         </>
       )}
       {!!user.instagram && (
@@ -55,13 +59,13 @@ export const ContactSection = ({ user }) => {
           <h3>
             <Instagram />
           </h3>
-          <a className='truncate' href={'https://www.instagram.com/' + user.instagram}>{user.instagram}</a>
+          <a target="_blank" className='truncate block w-full' href={user.instagram}>{user.instagram}</a>
         </>
       )}
       {!!user.vimeo && (
         <>
           <h3>Vimeo</h3>
-          <a className='truncate' href={'https://vimeo.com/' + user.vimeo}>{user.vimeo}</a>
+          <a target="_blank" className='truncate block w-full' href={user.vimeo}>{user.vimeo}</a>
         </>
       )}
       {!!user.youtube && (
@@ -69,13 +73,13 @@ export const ContactSection = ({ user }) => {
           <h3>
             <YouTube />
           </h3>
-          <a className='truncate' href={'https://youtube.com/' + user.youtube}>{user.youtube}</a>
+          <a target="_blank" className='truncate block w-full' href={user.youtube}>{user.youtube}</a>
         </>
       )}
       {!!user.linkedin && (
         <>
           <h3>LinkedIn</h3>
-          <a className='truncate' href={'https://www.linkedin.com/in/' + user.linkedin}>{user.linkedin}</a>
+          <a target="_blank" className='truncate block w-full' href={user.linkedin}>{user.linkedin}</a>
         </>
       )}
       {!!user.twitter && (
@@ -83,13 +87,13 @@ export const ContactSection = ({ user }) => {
           <h3>
             <Twitter />
           </h3>
-          <a className='truncate' href={'https://twitter.com/' + user.twitter}>{user.twitter}</a>
+          <a target="_blank" className='truncate block w-full' href={user.twitter}>{user.twitter}</a>
         </>
       )}
       {!!user.tiktok && (
         <>
           <h3>Tiktok</h3>
-          <a className='truncate' href={'https://tiktok.com/' + user.tiktok}>{user.tiktok}</a>
+          <a target="_blank" className='truncate block w-full' href={user.tiktok}>{user.tiktok}</a>
         </>
       )}
     </div>
