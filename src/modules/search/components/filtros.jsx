@@ -46,7 +46,7 @@ export const PorFiltros = ({ defaultSearch, setFilters }) => {
           borderRadius: '0.375rem',
           placeholderColor: 'white',
           color: 'rgb(237 237 237 / var(--tw-text-opacity))',
-          zIndex: 0
+          zIndex: 1
         }}
         fuseOptions={{
           threshold: 0.2,
