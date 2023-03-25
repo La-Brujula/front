@@ -5,7 +5,11 @@ import regiones from '@shared/constants/regiones';
 import genders from '@shared/constants/genders';
 import { useState } from 'react';
 import languages from '@shared/constants/languages.json';
-import { getArea, getAreaFromId, getSubArea, getTitle } from '../../../shared/utils/areaUtils';
+import {
+  getAreaFromId,
+  getSubArea,
+  getTitle,
+} from '../../../shared/utils/areaUtils';
 
 export const ResultsFilter = ({ setFilters, filters }) => {
   const { register, setValue, getValues, handleSubmit, watch } = useForm({
@@ -25,13 +29,12 @@ export const ResultsFilter = ({ setFilters, filters }) => {
   const [isVisible, setIsVisible] = useState(false);
   const { t } = useTranslation('');
 
-  const lang = watch('language');
   const subarea = watch('subarea');
 
   return (
     <>
       <div
-        className="lg:hidden px-4 py-2 rounded-md bg-primary text-white"
+        className="lg:hidden px-4 py-2 rounded-md bg-primary text-white cursor-pointer"
         onClick={() => setIsVisible(!isVisible)}
       >
         Búsqueda Avanzada
@@ -48,35 +51,55 @@ export const ResultsFilter = ({ setFilters, filters }) => {
       >
         <h2 className="text-primary text-xl">Búsqueda Avanzada</h2>
         <div className="flex flex-col gap-4 py-4">
-          <select className="dark" {...register('subarea')} placeholder="Actividad">
+          <select
+            className="dark"
+            {...register('subarea')}
+            placeholder="Actividad"
+          >
             <option value="">{t('Actividad')}</option>
             {Object.keys(areas).map((area, i) => (
               <optgroup key={area} label={area}>
                 {Object.keys(areas[area]).map((subarea, n) => (
-                  <option key={subarea} value={[i + 1, (n + 1).toString().padStart(2, '0')].join('')}>
+                  <option
+                    key={subarea}
+                    value={[i + 1, (n + 1).toString().padStart(2, '0')].join(
+                      ''
+                    )}
+                  >
                     {subarea}
                   </option>
                 ))}
               </optgroup>
             ))}
           </select>
-          {!!subarea && <select
-            {...register('activity')}
-            placeholder="Actividad"
-            className="dark"
-          >
-            <option value="">Actividad</option>
-            {!!areas[getAreaFromId(subarea)][getSubArea(getAreaFromId(subarea), parseInt(subarea.slice(1)))] &&
-              Object.keys(areas[getAreaFromId(subarea)][getSubArea(getAreaFromId(subarea), parseInt(subarea.slice(1)))]).map((activity) =>
-                getTitle(activity, "Alias Genérico") ? (
-                  <option key={activity} value={activity}>
-                    {getTitle(activity, "Alias Genérico")}
-                  </option>
-                ) : (
-                  <></>
-                )
-              )}
-          </select>}
+          {!!subarea && (
+            <select
+              {...register('activity')}
+              placeholder="Actividad"
+              className="dark"
+            >
+              <option value="">Actividad</option>
+              {!!areas[getAreaFromId(subarea)][
+                getSubArea(getAreaFromId(subarea), parseInt(subarea.slice(1)))
+              ] &&
+                Object.keys(
+                  areas[getAreaFromId(subarea)][
+                    getSubArea(
+                      getAreaFromId(subarea),
+                      parseInt(subarea.slice(1))
+                    )
+                  ]
+                ).map((activity) =>
+                  getTitle(activity, 'Alias Genérico') ? (
+                    <option key={activity} value={activity}>
+                      {getTitle(activity, 'Alias Genérico')}
+                    </option>
+                  ) : (
+                    <></>
+                  )
+                )}
+            </select>
+          )}
           <select
             className="dark"
             {...register('state')}
@@ -116,9 +139,7 @@ export const ResultsFilter = ({ setFilters, filters }) => {
                 {e}
               </option>
             ))}
-            <option value="Persona Moral">
-              Persona Moral
-            </option>
+            <option value="Persona Moral">Persona Moral</option>
           </select>
           {/* <div className="flex flex-col gap-4 w-full">
             <select
