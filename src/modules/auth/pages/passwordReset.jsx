@@ -14,7 +14,7 @@ const PasswordResetPage = () => {
 
   return (
     <Container>
-      <h1 className="mb-8">{t('Reiniciar contraseña')}</h1>
+      <h1 className="mb-8 text-secondary text-4xl">{t('Reiniciar contraseña')}</h1>
       <p className="mb-4">
         {t(
           'Escribe tu correo aquí y si está registrado te llegará un correo para reiniciar tu contraseña'

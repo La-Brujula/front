@@ -68,9 +68,9 @@ export const ResultsFilter = ({ setFilters, filters }) => {
             <option value="">Actividad</option>
             {!!areas[getAreaFromId(subarea)][getSubArea(getAreaFromId(subarea), parseInt(subarea.slice(1)))] &&
               Object.keys(areas[getAreaFromId(subarea)][getSubArea(getAreaFromId(subarea), parseInt(subarea.slice(1)))]).map((activity) =>
-                getTitle(activity, "No Binario") ? (
+                getTitle(activity, "Alias Genérico") ? (
                   <option key={activity} value={activity}>
-                    {getTitle(activity, "No Binario")}
+                    {getTitle(activity, "Alias Genérico")}
                   </option>
                 ) : (
                   <></>

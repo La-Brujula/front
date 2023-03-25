@@ -42,7 +42,7 @@ export default () => {
         />
       </div>
       <Container>
-        <h1 className="mb-8">{t('createUser')}</h1>
+        <h1 className="mb-8 text-secondary text-4xl">{t('createUser')}</h1>
         <SignupForm />
       </Container>
     </div>

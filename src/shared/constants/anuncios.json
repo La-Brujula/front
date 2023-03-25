@@ -2,48 +2,48 @@
     "hero": [
         {
             "verticalImage": "/anuncios/Barraca_1920_1080.jpg",
-            "linkUrl": ""
+            "linkUrl": "https://barracaproducciones.mx/"
            
         },
         {
             "verticalImage": "/anuncios/Brujula Horizontal-01.jpg",
-            "linkUrl": ""
+            "linkUrl": "https://www.imcine.gob.mx/"
            
         },
         {
             "verticalImage": "/anuncios/CanacineHorizontal2.png",
-            "linkUrl": ""
+            "linkUrl": "https://canacine.org.mx/"
           
         },
         {
             "verticalImage": "/anuncios/CEC_hor.png",
-            "linkUrl": ""
+            "linkUrl": "https://www.cecinematograficos.edu.mx/"
         }
     ],
     "bottom": [
         {
            
             "verticalImage": "/anuncios/LCLvertical.jpeg",
-            "linkUrl": ""
+            "linkUrl": "https://lcicorporativo.com/"
         },
         {
            
             "verticalImage": "/anuncios/Brujula Horizontal-03.jpg",
-            "linkUrl": ""
+            "linkUrl": "https://www.imcine.gob.mx/"
         },
         {
            
             "verticalImage": "/anuncios/Brujula Horizontal-02.jpg",
-            "linkUrl": ""
+            "linkUrl": "https://www.imcine.gob.mx/"
         },
         {
            
             "verticalImage": "/anuncios/vivamexico_anuncioHorizontal.png",
-            "linkUrl": ""
+            "linkUrl": "https://www.viva-mexico-cinema.org/es/"
         },
         {
             "verticalImage":"/anuncios/RAINDANCE.png",
-            "linkUrl": ""
+            "linkUrl": "https://raindance.org/"
         }
       
       

@@ -4988,6 +4988,56 @@
                     "Aseguradoras",
                     "Rain Day"
                 ]
+            },
+            "401-10": {
+                "Femenino": {
+                    "fr": null,
+                    "es": "Servicios de producción",
+                    "en": null
+                },
+                "Masculino": {
+                    "fr": null,
+                    "es": "Servicios de producción",
+                    "en": null
+                },
+                "No Binario": {
+                    "fr": null,
+                    "es": "Servicios de producción",
+                    "en": null
+                },
+                "Persona Moral": {
+                    "fr": null,
+                    "es": "Servicios de producción",
+                    "en": null
+                },
+                "Alias Genérico": {
+                    "fr": null,
+                    "es": "Servicios de producción",
+                    "en": "Production services"
+                },
+                "Referentes": [
+                    "Producción audiovisual",
+                    "Comerciales",
+                    "TV Spots",
+                    "Filmadoras",
+                    "Compañías productoras",
+                    "Películas",
+                    "Documentales",
+                    "Series",
+                    "Miniseries",
+                    "Casas productoras",
+                    "Production Companies",
+                    "Maison de production",
+                    "Productoras",
+                    "Televisión",
+                    "Telefilm",
+                    "Filmmaking",
+                    "Videos",
+                    "Producción de videos",
+                    "Production Crew",
+                    "Cortometrajes",
+                    "Coordinación de producción"
+                ]
             }
         },
         "Transportación de producción": {

@@ -5,7 +5,7 @@ export function AboutHero() {
   const { t } = useTranslation('about');
   return (
     <Container>
-      <h1 className="mb-8">{t('Quiénes somos')}</h1>
+      <h1 className="mb-8 text-secondary text-4xl">{t('Quiénes somos')}</h1>
       <div
         className="grid grid-cols-1 lg:grid-cols-2 text-primary
     gap-8 text-left"

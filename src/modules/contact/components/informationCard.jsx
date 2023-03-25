@@ -9,7 +9,7 @@ import { SocialLinks } from '@shared/components/socials';
 export function InformationCard() {
   return (
     <Container bg="bottom-half-grey">
-      <h1 className="mb-8">Contacto</h1>
+      <h1 className="mb-8 text-secondary text-4xl">Contacto</h1>
       <div
         className="bg-primary text-white p-8 grid max-w-6xl
       gap-x-4 gap-y-4 grid-cols-1 mx-auto rounded-lg text-left

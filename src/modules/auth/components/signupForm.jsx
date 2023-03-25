@@ -7,6 +7,7 @@ import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import { PrivacyPolicy } from './privacyPolicy';
 import { LoadingSpinner } from '../../../shared/components/loadingSpinner';
 
+
 export const SignupForm = () => {
   const auth = useContext(AuthContext);
   const brujula = brujulaUtils();
@@ -93,6 +94,7 @@ export const SignupForm = () => {
             {t('Persona moral')}
           </button>
         </div>
+  
       </div>
       <div className="flex flex-col md:items-center gap-8 justify-stretch mb-12">
         <div className="flex flex-col gap-2 items-start grow max-w-xs w-full">

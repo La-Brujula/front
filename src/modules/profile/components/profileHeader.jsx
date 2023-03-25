@@ -4,6 +4,7 @@ import { useAuth } from '@shared/context/firebaseContext';
 import { NavLink } from 'react-router-dom';
 import { getTitle } from '@shared/utils/areaUtils';
 
+
 export const ProfileHeader = ({ user }) => {
   const { t } = useTranslation('user');
   const { getUserEmail } = useAuth();
@@ -25,7 +26,7 @@ export const ProfileHeader = ({ user }) => {
           />
         )}
         <div className="mt-8">
-          {!!user.profilePictureUrl && (!!user.name || !!user.username) ? (
+          {!!user.profilePictureUrl ? (
             <img
               src={user.profilePictureUrl}
               alt={`${user.username || user.name} profile picture`}
@@ -33,7 +34,12 @@ export const ProfileHeader = ({ user }) => {
               loading="eager"
             />
           ) : (
-            <div className="h-32 w-32 rounded-full bg-slate-400" />
+            <img
+            src="/guias/fotoDePerfil/Monito.jpg"
+            alt="ImagenPreminada"
+            className="w-48 h-48 bg-blue rounded-[50%] object-cover object-center"
+            loading="eager"
+          />
           )}
         </div>
         <br></br>

@@ -6,7 +6,7 @@ export default () => {
   const { t } = useTranslation('auth');
   return (
     <Container bg="light">
-      <h1 className="mb-8">{t('login')}</h1>
+      <h1 className="mb-8 text-secondary text-4xl">{t('login')}</h1>
       <LoginForm />
     </Container>
   );
