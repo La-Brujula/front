@@ -54,9 +54,9 @@ export const ResultsFilter = ({ setFilters, filters }) => {
           <select
             className="dark"
             {...register('subarea')}
-            placeholder="Actividad"
+            placeholder="Categoría"
           >
-            <option value="">{t('Actividad')}</option>
+            <option value="">{t('Categoría')}</option>
             {Object.keys(areas).map((area, i) => (
               <optgroup key={area} label={area}>
                 {Object.keys(areas[area]).map((subarea, n) => (

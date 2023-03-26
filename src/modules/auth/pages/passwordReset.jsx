@@ -17,6 +17,7 @@ const PasswordResetPage = () => {
 
   const formHandler = useCallback(
     async (values) => {
+      setError(null)
       setLoading(true);
       try {
         await resetUserPassword(values.email);
