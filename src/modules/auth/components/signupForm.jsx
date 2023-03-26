@@ -7,21 +7,20 @@ import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import { PrivacyPolicy } from './privacyPolicy';
 import { LoadingSpinner } from '../../../shared/components/loadingSpinner';
 
-
 export const SignupForm = () => {
   const auth = useContext(AuthContext);
   const brujula = brujulaUtils();
   const { register, handleSubmit, setValue, watch } = useForm();
-  const tipoDePersona = watch('persona', 'fisica');
+  const tipoDePersona = watch('persona', '');
   const { t } = useTranslation('auth');
   const navigate = useNavigate();
   const acceptedPrivacy = watch('acceptPrivacy');
   const [errorMsg, setErrorMsg] = useState('');
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const onSubmit = async (data) => {
     if (loading) return;
-    if (!data.email || !data.password) return
+    if (!data.email || !data.password) return;
     setLoading(true);
     setErrorMsg('');
     if (await auth.register(data.email, data.password, onError)) {
@@ -32,7 +31,7 @@ export const SignupForm = () => {
   };
 
   const onError = (err) => {
-    setLoading(false)
+    setLoading(false);
     switch (err.code) {
       case 'auth/invalid-email':
         setErrorMsg('Ingresa un correo valido.');
@@ -50,19 +49,31 @@ export const SignupForm = () => {
     <form
       onSubmit={handleSubmit(onSubmit, (err) => {
         console.error(err);
+        if (err.persona?.type == 'required') {
+          setErrorMsg('No has especificado qué tipo de perfil quieres crear.');
+        } else {
+          setErrorMsg(Object.keys(err));
+        }
       })}
       className="flex flex-col gap-4"
     >
       <input type="hidden" {...register('persona')} required />
       <div className="flex flex-col gap-4">
         <label>{t('¿Eres persona física o persona moral?')}</label>
-        <div className="flex flex-row gap-4 items-center justify-center mb-4">
+        <div
+          className={[
+            'flex flex-row gap-4 items-center justify-center mb-4',
+          ].join(' ')}
+        >
           <button
             className={[
               'outline outline-primary outline-1 px-8 py-4 rounded-lg cursor-pointer',
               tipoDePersona == 'fisica'
-                ? 'bg-primary text-white'
+                ? '!bg-primary !text-white !outline-primary'
                 : 'bg-transparent text-primary',
+              errorMsg ==
+                'No has especificado qué tipo de perfil quieres crear.' &&
+                'outline-red-500 text-red-500',
             ].join(' ')}
             onClick={(ev) => {
               setValue('persona', 'fisica', {
@@ -79,8 +90,11 @@ export const SignupForm = () => {
             className={[
               'outline outline-primary outline-1 px-8 py-4 rounded-lg cursor-pointer',
               tipoDePersona == 'moral'
-                ? 'bg-primary text-white'
+                ? '!bg-primary !text-white !outline-primary'
                 : 'bg-transparent text-primary',
+              errorMsg ==
+                'No has especificado qué tipo de perfil quieres crear.' &&
+                'outline-red-500 text-red-500',
             ].join(' ')}
             onClick={(ev) => {
               setValue('persona', 'moral', {
@@ -94,7 +108,11 @@ export const SignupForm = () => {
             {t('Persona moral')}
           </button>
         </div>
-  
+        <input
+          type="hidden"
+          required
+          {...register('persona', { required: true })}
+        />
       </div>
       <div className="flex flex-col md:items-center gap-8 justify-stretch mb-12">
         <div className="flex flex-col gap-2 items-start grow max-w-xs w-full">
@@ -126,11 +144,15 @@ export const SignupForm = () => {
       </div>
       {errorMsg === '' ? <></> : <p style={{ color: 'red' }}>{errorMsg}</p>}
       {acceptedPrivacy !== true && <PrivacyPolicy />}
-      {!loading ? <input
-        type="submit"
-        className="max-w-xs mx-auto bg-primary"
-        value={t('Crear usuario')}
-      /> : <LoadingSpinner />}
+      {!loading ? (
+        <input
+          type="submit"
+          className="max-w-xs mx-auto bg-primary"
+          value={t('Crear usuario')}
+        />
+      ) : (
+        <LoadingSpinner />
+      )}
       <p>
         {t('¿Ya tienes una cuenta?')}&nbsp;
         <NavLink to="/iniciar-sesion" className="mt-4">
