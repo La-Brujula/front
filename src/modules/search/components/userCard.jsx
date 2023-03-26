@@ -16,9 +16,9 @@ export const UserCard = ({ user }) => {
         />
         ) : (
           <img
-          src="/guias/fotoDePerfil/Monito.jpg"
+          src={user.type == "moral" ? "/guias/fotoDePerfil/casita.png" : "/guias/fotoDePerfil/Monito.jpg"} 
           alt="ImagenPreminada"
-          className="h-20 w-20 rounded-full bg-slate-400 shrink-0 row-span-2"
+          className="h-20 w-20 rounded-full bg-white shrink-0 row-span-2"
           loading="eager"
           />
         )}
