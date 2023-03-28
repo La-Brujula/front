@@ -31,7 +31,7 @@ const SubCategoryPage = () => {
                   !(i % 2) ? 'bg-primary' : 'bg-secondary',
                 ].join(' ')}
               >
-                {getTitle(id, 'No Binario') || getTitle(id, 'Persona Moral')}
+                {getTitle(id, 'Alias Genérico') || getTitle(id, 'Alias Genérico')}
               </NavLink>
             ))
           : selectedCategory.search.length == 1
@@ -67,8 +67,8 @@ const SubCategoryPage = () => {
                   !(i % 2) ? 'bg-primary' : 'bg-secondary',
                 ].join(' ')}
               >
-                {getTitle(activity, 'No Binario') ||
-                  getTitle(activity, 'Persona Moral')}
+                {getTitle(activity, 'Alias Genérico') ||
+                  getTitle(activity, 'Alias Genérico')}
               </NavLink>
             ))}
       </div>
