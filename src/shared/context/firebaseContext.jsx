@@ -65,6 +65,7 @@ export const FireAuthProvider = ({ children }) => {
         );
         return true;
       } catch (err) {
+        setIsLoggedIn(false);
         handleError(err);
         printError(err);
         return false;
@@ -82,7 +83,11 @@ export const FireAuthProvider = ({ children }) => {
     return _userAuth(email, password, signInWithEmailAndPassword, handleError);
   };
 
-  const register = (email, password, handleError = (err) => {}) => {
+  const register = async (email, password, handleError = (err) => {}) => {
+    if (!(await firestore.getInfo('users', email))) {
+      handleError({ code: 'auth/email-already-in-use' });
+      return false;
+    }
     return _userAuth(
       email,
       password,
@@ -115,7 +120,7 @@ export const FireAuthProvider = ({ children }) => {
 
   async function resetUserPassword(userEmail) {
     await sendPasswordResetEmail(auth, userEmail);
-    return true
+    return true;
   }
 
   return (
