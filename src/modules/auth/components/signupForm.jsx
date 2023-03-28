@@ -58,6 +58,34 @@ export const SignupForm = () => {
       className="flex flex-col gap-4"
     >
       <input type="hidden" {...register('persona')} required />
+      <div className="flex flex-col md:items-center gap-8 justify-stretch mb-12">
+        <div className="flex flex-col gap-2 items-start grow max-w-xs w-full">
+          <label htmlFor="email" className="block">
+            {t('Tu correo electrónico será tu nombre de usuario')}
+          </label>
+          <input
+            id="email"
+            type="email"
+            placeholder={t('email')}
+            autoComplete="email"
+            className="w-full"
+            {...register('email')}
+            required
+          />
+        </div>
+        <div className="flex flex-col gap-2 items-start grow max-w-xs w-full">
+          <label htmlFor="password">{t('Escribe una contraseña')}</label>
+          <input
+            id="password"
+            type="password"
+            placeholder={t('password')}
+            autoComplete="password"
+            className="w-full"
+            {...register('password')}
+            required
+          />
+        </div>
+      </div>
       <div className="flex flex-col gap-4">
         <label>{t('¿Eres persona física o persona moral?')}</label>
         <div
@@ -113,34 +141,6 @@ export const SignupForm = () => {
           required
           {...register('persona', { required: true })}
         />
-      </div>
-      <div className="flex flex-col md:items-center gap-8 justify-stretch mb-12">
-        <div className="flex flex-col gap-2 items-start grow max-w-xs w-full">
-          <label htmlFor="email" className="block">
-            {t('Tu correo electrónico será tu nombre de usuario')}
-          </label>
-          <input
-            id="email"
-            type="email"
-            placeholder={t('email')}
-            autoComplete="email"
-            className="w-full"
-            {...register('email')}
-            required
-          />
-        </div>
-        <div className="flex flex-col gap-2 items-start grow max-w-xs w-full">
-          <label htmlFor="password">{t('Escribe una contraseña')}</label>
-          <input
-            id="password"
-            type="password"
-            placeholder={t('password')}
-            autoComplete="password"
-            className="w-full"
-            {...register('password')}
-            required
-          />
-        </div>
       </div>
       {errorMsg === '' ? <></> : <p style={{ color: 'red' }}>{errorMsg}</p>}
       {acceptedPrivacy !== true && <PrivacyPolicy />}
