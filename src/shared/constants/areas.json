@@ -1,5 +1,5 @@
 {
-    "Preproducción": {
+    "Desarrollo de proyectos y preproducción": {
         "Guionismo": {
             "101-01": {
                 "Femenino": {
@@ -1414,6 +1414,43 @@
                     "Modèles",
                     "Modelaje",
                     "Pasarela"
+                ]
+            },
+            "202-05": {
+                "Femenino": {
+                    "fr": null,
+                    "es": "Modelo de manos , piés",
+                    "en": null
+                },
+                "Masculino": {
+                    "fr": null,
+                    "es": "Modelo de manos , piés",
+                    "en": null
+                },
+                "No Binario": {
+                    "fr": null,
+                    "es": "Modelo de manos , piés",
+                    "en": null
+                },
+                "Persona Moral": {
+                    "fr": null,
+                    "es": null,
+                    "en": null
+                },
+                "Alias Genérico": {
+                    "fr": null,
+                    "es": "Modelo de manos , piés",
+                    "en": "Hands , Feet Model"
+                },
+                "Referentes": [
+                    "Modelos", 
+                    "Models",  
+                    "Modèles",  
+                    "Modelaje",  
+                    "Manos",  
+                    "Piés",   
+                    "Hands model", 
+                    "Feet model"
                 ]
             }
         },
@@ -3217,7 +3254,7 @@
                 },
                 "Alias Genérico": {
                     "fr": null,
-                    "es": "Data manager",
+                    "es": "Data managers",
                     "en": "Data Managers"
                 },
                 "Referentes": [
@@ -3367,6 +3404,76 @@
                     "Riggers",
                     "Crew"
                 ]
+            },
+            "304-04": {
+                "Femenino": {
+                    "fr": null,
+                    "es": "Jefa de tramoya",
+                    "en": null
+                },
+                "Masculino": {
+                    "fr": null,
+                    "es": "Jefe de tramoya",
+                    "en": null
+                },
+                "No Binario": {
+                    "fr": null,
+                    "es": "Tramoya",
+                    "en": null
+                },
+                "Persona Moral": {
+                    "fr": null,
+                    "es": null,
+                    "en": null
+                },
+                "Alias Genérico": {
+                    "fr": null,
+                    "es": "Jefes de tramoya",
+                    "en": "Key Grip"
+                },
+                "Referentes": [
+                    "Personal" , 
+                    "Best Boy" , 
+                    "Key Grip" , 
+                    "Grip" , 
+                    "Riggers" , 
+                    "Tramoya"
+                ]
+            },
+            "304-05": {
+                "Femenino": {
+                    "fr": null,
+                    "es": "Dolista",
+                    "en": null
+                },
+                "Masculino": {
+                    "fr": null,
+                    "es": "Dolista",
+                    "en": null
+                },
+                "No Binario": {
+                    "fr": null,
+                    "es": "Dolista",
+                    "en": null
+                },
+                "Persona Moral": {
+                    "fr": null,
+                    "es": null,
+                    "en": null
+                },
+                "Alias Genérico": {
+                    "fr": null,
+                    "es": "Dolistas",
+                    "en": "Dolly"
+                },
+                "Referentes": [
+                    "Personal" ,
+                    "Grip" ,
+                    "Riggers" ,
+                    "Tramoya" ,
+                    "Dollies" ,
+                    "Operadores de dolly"
+                ]
             }
         },
         "Sonido": {
@@ -3474,7 +3581,7 @@
                 },
                 "No Binario": {
                     "fr": null,
-                    "es": "Sonido",
+                    "es": "Microfonista",
                     "en": null
                 },
                 "Persona Moral": {
@@ -3484,7 +3591,7 @@
                 },
                 "Alias Genérico": {
                     "fr": null,
-                    "es": "Sonido",
+                    "es": "MIcrofonistas",
                     "en": "Sound Technicians"
                 },
                 "Referentes": [
@@ -4405,7 +4512,7 @@
                 ]
             }
         },
-        "Producción de audio": {
+        "Postproducción de audio": {
             "308-01": {
                 "Femenino": {
                     "fr": null,
@@ -4630,8 +4737,8 @@
             }
         }
     },
-    "Producción audiovisual": {
-        "Compañías de producción": {
+    "Empresas de producción": {
+        "Empresas de producción": {
             "401-01": {
                 "Femenino": {
                     "fr": null,
@@ -4820,173 +4927,136 @@
                 },
                 "Persona Moral": {
                     "fr": null,
-                    "es": "Agencia de locaciones",
+                    "es": null,
                     "en": null
                 },
                 "Alias Genérico": {
                     "fr": null,
-                    "es": "Agencias de locaciones",
-                    "en": "Location Agencies"
+                    "es": null,
+                    "en": null
                 },
                 "Referentes": [
-                    "Producción audiovisual",
-                    "Scouting",
-                    "Locaciones",
-                    "Agencias de locaciones",
-                    "Managers de locaciones",
-                    "Locations",
-                    "Emplacements",
-                    "Scouters",
-                    "Agencias"
+                    
                 ]
             },
             "401-06": {
                 "Femenino": {
                     "fr": null,
-                    "es": "Seguridad para talento",
+                    "es": null,
                     "en": null
                 },
                 "Masculino": {
                     "fr": null,
-                    "es": "Seguridad para talento",
+                    "es": null,
                     "en": null
                 },
                 "No Binario": {
                     "fr": null,
-                    "es": "Seguridad para talento",
+                    "es": null,
                     "en": null
                 },
                 "Persona Moral": {
                     "fr": null,
-                    "es": "Seguridad para talento",
+                    "es": null,
                     "en": null
                 },
                 "Alias Genérico": {
                     "fr": null,
-                    "es": "Seguridad para talento",
-                    "en": "Security for Talent"
+                    "es": null,
+                    "en": null
                 },
                 "Referentes": [
-                    "Producción audiovisual",
-                    "Seguridad",
-                    "Talent handler",
-                    "Escoltas",
-                    "Bodyguards",
-                    "Seguridad para talento",
-                    "Logística",
-                    "Conciertos",
-                    "Live Performance",
-                    "Performance Support"
+        
                 ]
             },
             "401-07": {
                 "Femenino": {
                     "fr": null,
-                    "es": "Seguridad en locaciones",
+                    "es": null,
                     "en": null
                 },
                 "Masculino": {
                     "fr": null,
-                    "es": "Seguridad en locaciones",
+                    "es": null,
                     "en": null
                 },
                 "No Binario": {
                     "fr": null,
-                    "es": "Seguridad en locaciones",
+                    "es": null,
                     "en": null
                 },
                 "Persona Moral": {
                     "fr": null,
-                    "es": "Seguridad en locaciones",
+                    "es": null,
                     "en": null
                 },
                 "Alias Genérico": {
                     "fr": null,
-                    "es": "Seguridad en locaciones",
-                    "en": "Location Security"
+                    "es": null,
+                    "en": null
                 },
                 "Referentes": [
-                    "Producción audiovisual",
-                    "Seguridad",
-                    "Personal de seguridad",
-                    "Guardias",
-                    "Seguridad en locación",
-                    "Performance Support"
+       
                 ]
             },
             "401-08": {
                 "Femenino": {
                     "fr": null,
-                    "es": "Servicios de alimentación",
+                    "es": null,
                     "en": null
                 },
                 "Masculino": {
                     "fr": null,
-                    "es": "Servicios de alimentación",
+                    "es": null,
                     "en": null
                 },
                 "No Binario": {
                     "fr": null,
-                    "es": "Servicio de alimentación",
+                    "es": null,
                     "en": null
                 },
                 "Persona Moral": {
                     "fr": null,
-                    "es": "Servicio de alimentación",
+                    "es": null,
                     "en": null
                 },
                 "Alias Genérico": {
                     "fr": null,
-                    "es": "Servicios de alimentación",
-                    "en": "Catering"
+                    "es": null,
+                    "en": null
                 },
                 "Referentes": [
-                    "Producción audiovisual",
-                    "Catering",
-                    "Comida producción",
-                    "Box lunch",
-                    "Café",
-                    "Meseros",
-                    "Atención al cliente",
-                    "Crafty",
-                    "Alimentación",
-                    "Catering",
-                    "Cantine"
+         
                 ]
             },
             "401-09": {
                 "Femenino": {
                     "fr": null,
-                    "es": "Seguros de producción",
+                    "es": null,
                     "en": null
                 },
                 "Masculino": {
                     "fr": null,
-                    "es": "Seguros de producción",
+                    "es": null,
                     "en": null
                 },
                 "No Binario": {
                     "fr": null,
-                    "es": "Seguros de producción",
+                    "es": null,
                     "en": null
                 },
                 "Persona Moral": {
                     "fr": null,
-                    "es": "Seguros de producción",
+                    "es": null,
                     "en": null
                 },
                 "Alias Genérico": {
                     "fr": null,
-                    "es": "Seguros de producción",
-                    "en": "Production Insurances"
+                    "es": null,
+                    "en": null
                 },
                 "Referentes": [
-                    "Producción audiovisual",
-                    "Seguros de producción",
-                    "Insurances",
-                    "Assurances",
-                    "Aseguradoras",
-                    "Rain Day"
+             
                 ]
             },
             "401-10": {
@@ -5301,7 +5371,7 @@
                 ]
             }
         },
-        "Servicios de producción": {
+        "Proveedores": {
             "403-01": {
                 "Femenino": {
                     "fr": null,
@@ -5878,6 +5948,195 @@
                 "Peinados",
                 "Hairdo",
                 "Estilistas"
+                            
+                ]
+            },
+            "403-17": {
+                "Femenino": {
+                    "fr": null,
+                    "es": null,
+                    "en": null
+                },
+                "Masculino": {
+                    "fr": null,
+                    "es": null,
+                    "en": null
+                },
+                "No Binario": {
+                    "fr": null,
+                    "es": null,
+                    "en": null
+                },
+                "Persona Moral": {
+                    "fr": null,
+                    "es": "Agencia de locaciones",
+                    "en": null
+                },
+                "Alias Genérico": {
+                    "fr": null,
+                    "es": "Agencias de locaciones",
+                    "en": "Location Agencies"
+                },
+                "Referentes": [
+                     "Scouting" , 
+                     "Scouters" , 
+                     "Locaciones" , 
+                     "Agencias de locaciones" , 
+                     "Managers de locaciones" , 
+                     "Locations" , 
+                     "Emplacements" , 
+                     "Scouters" , 
+                     "Agencias"
+                            
+                ]
+            },
+            "403-18": {
+                "Femenino": {
+                    "fr": null,
+                    "es": "Seguridad para talento",
+                    "en": null
+                },
+                "Masculino": {
+                    "fr": null,
+                    "es": "Seguridad para talento",
+                    "en": null
+                },
+                "No Binario": {
+                    "fr": null,
+                    "es": "Seguridad para talento",
+                    "en": null
+                },
+                "Persona Moral": {
+                    "fr": null,
+                    "es": "Seguridad para talento",
+                    "en": null
+                },
+                "Alias Genérico": {
+                    "fr": null,
+                    "es": "Seguridad para talento",
+                    "en": "Security for Talent"
+                },
+                "Referentes": [
+                     "Seguridad" , 
+                     "Talent handler" , 
+                     "Escoltas" , 
+                     "Bodyguards" , 
+                     "Seguridad para talento" , 
+                     "Logística" , 
+                     "Conciertos" , 
+                     "Live Performance" , 
+                     "Performance Support"
+                            
+                ]
+            },
+            "403-19": {
+                "Femenino": {
+                    "fr": null,
+                    "es": "Seguridad en locaciones",
+                    "en": null
+                },
+                "Masculino": {
+                    "fr": null,
+                    "es": "Seguridad en locaciones",
+                    "en": null
+                },
+                "No Binario": {
+                    "fr": null,
+                    "es": "Seguridad en locaciones",
+                    "en": null
+                },
+                "Persona Moral": {
+                    "fr": null,
+                    "es": "Seguridad en locaciones",
+                    "en": null
+                },
+                "Alias Genérico": {
+                    "fr": null,
+                    "es": "Seguridad en locaciones",
+                    "en": "Location Security"
+                },
+                "Referentes": [
+                     "Seguridad" , 
+                     "Personal de seguridad" , 
+                     "Guardias" , 
+                     "Seguridad en locación" ,
+                     " Performance Support"
+                            
+                ]
+            },
+            "403-20": {
+                "Femenino": {
+                    "fr": null,
+                    "es": "Servicios de alimentación",
+                    "en": null
+                },
+                "Masculino": {
+                    "fr": null,
+                    "es": "Servicios de alimentación",
+                    "en": null
+                },
+                "No Binario": {
+                    "fr": null,
+                    "es": "Servicios de alimentación",
+                    "en": null
+                },
+                "Persona Moral": {
+                    "fr": null,
+                    "es": "Servicios de alimentación",
+                    "en": null
+                },
+                "Alias Genérico": {
+                    "fr": null,
+                    "es": "Servicios de alimentación",
+                    "en": "Catering"
+                },
+                "Referentes": [
+                    "Catering" , 
+                    "Comida producción" , 
+                    "Box lunch" , 
+                    "Café" , 
+                    "Meseros" , 
+                    "Atención al cliente" , 
+                    "Crafty" , 
+                    "Alimentación" , 
+                    "Catering" , 
+                    "Cantine" 
+                            
+                ]
+            },
+            "403-21": {
+                "Femenino": {
+                    "fr": null,
+                    "es": "Seguros de producción",
+                    "en": null
+                },
+                "Masculino": {
+                    "fr": null,
+                    "es": "Seguros de producción",
+                    "en": null
+                },
+                "No Binario": {
+                    "fr": null,
+                    "es": "Seguros de producción",
+                    "en": null
+                },
+                "Persona Moral": {
+                    "fr": null,
+                    "es": "Seguros de producción",
+                    "en": null
+                },
+                "Alias Genérico": {
+                    "fr": null,
+                    "es": "Seguros de producción",
+                    "en": "Production Insurances"
+                },
+                "Referentes": [
+                     "Brokers" , 
+                     "Seguros de producción" , 
+                     "Insurances" , 
+                     "Assurances" , 
+                     "Aseguradoras" , 
+                     "Rain Day" 
                             
                 ]
             }
