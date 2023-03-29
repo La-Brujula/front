@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
-import { collection, getFirestore, query, where } from 'firebase/firestore';
-import { useState } from 'react';
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
+import { useEffect, useState } from 'react';
 
 import areas from '@shared/constants/areas.json';
 import { Container } from '@shared/layout/container';
@@ -23,11 +23,16 @@ export function DataPage() {
   const [category, setCategory] = useState('');
 
   useEffect(() => {
-    if(category) {
-      console.log('searcHname', 'array-contains', category);
+    (async () => {
+      if(category) {
+        console.log('searchName', 'array-contains', category);
 
-      console.log(query(usersRef, where('searcHname', 'array-contains', category)));
-    }
+        const users = query(usersRef, where('searchName', 'array-contains', category));
+        (await getDocs(users)).forEach(doc => {
+          console.log('doc', doc.id, doc.data());
+        });
+      }
+    })();
   }, [category]);
 
   return (
