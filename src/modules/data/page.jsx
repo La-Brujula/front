@@ -1,21 +1,23 @@
-import guides from '@shared/constants/guides.json';
 import { Container } from '@shared/layout/container';
-import { useTranslation } from 'react-i18next';
+
+import areas from '@shared/constants/areas.json';
 
 export function DataPage() {
-  const { t } = useTranslation('guides');
-
   return (
     <>
       <Container className="text-primary">
         <div className="max-w-3xl mx-auto mb-8">
           <h2>
-            {t('Estadisticas')}
+            {'Estadisticas'}
           </h2>
+          <p>Categoria</p>
+          <select onChange={e => {
+            console.log('e.target.value', e.target.value);
+          }}>
+
+          </select>
           <p>
-            {t(
-              'La Brújula audiovisual en documentos interactivos, te permiten hacer contacto rápidamente con la persona, empresa, servicio o institución que estas buscando.'
-            )}
+            {'Something something'}
           </p>
         </div>
       </Container>
