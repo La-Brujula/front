@@ -84,7 +84,7 @@ export const FireAuthProvider = ({ children }) => {
   };
 
   const register = async (email, password, handleError = (err) => {}) => {
-    if (!(await firestore.getInfo('users', email))) {
+    if (!!(await firestore.getInfo('users', email))) {
       handleError({ code: 'auth/email-already-in-use' });
       return false;
     }
