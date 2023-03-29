@@ -65,10 +65,10 @@ export function DataPage() {
               if(contacts && contacts.length > 0) {
                 return <>
                   <div>{contacts.length} resultados</div>
-                  <table>
+                  <table style={{ margin:'16px 0 0 0', textAlign:'left' }}>
                     <tr><th>Email</th><th>Nombre</th><th>Apellido(s)</th></tr>
-                    {contacts.map(v => {
-                      return <tr style={{ textAlign:'left' }}><td>{v.email}</td><td>{v.name}</td><td>{v.lastname}</td></tr>;
+                    {contacts.sort((a, b) => a.email.localeCompare(b.email)).map(v => {
+                      return <tr><td>{v.email}</td><td>{v.name}</td><td>{v.lastname}</td></tr>;
                     })}
                   </table>
                 </>;
