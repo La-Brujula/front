@@ -21,16 +21,19 @@ const usersRef = collection(db, 'users');
 
 export function DataPage() {
   const [category, setCategory] = useState('');
+  const [contacts, setContacts] = useState();
 
   useEffect(() => {
     (async () => {
       if(category) {
         console.log('searchName', 'array-contains', category);
 
+        const _contacts = [];
+
         const users = query(usersRef, where('searchName', 'array-contains', category));
-        (await getDocs(users)).forEach(doc => {
-          console.log('doc', doc.id, doc.data());
-        });
+        (await getDocs(users)).forEach(doc => _contacts.push(doc.data()));
+
+        setContacts(_contacts);
       }
     })();
   }, [category]);
@@ -58,9 +61,18 @@ export function DataPage() {
           {category
           ? <div style={{ margin:'32px 0 0 0' }}>
             <p style={{ fontWeight:700 }}>Lista de Contactos</p>
-            <p>{category}</p>
             <p>{(() => {
-              // ...
+              if(contacts && contacts.length > 0) {
+                return <>
+                  <div>{contacts.length} resultados</div>
+                  <table>
+                    <tr><th>Email</th><th>Nombre</th><th>Apellido(s)</th></tr>
+                    {contacts.map(v => {
+                      return <tr style={{ textAlign:'left' }}><td>{v.email}</td><td>{v.name}</td><td>{v.lastname}</td></tr>;
+                    })}
+                  </table>
+                </>;
+              }
             })()}</p>
             </div>
           : undefined}
