@@ -1,7 +1,9 @@
+import { initializeApp } from 'firebase/app';
+import { collection, getFirestore, query, where } from 'firebase/firestore';
 import { useState } from 'react';
 
-import { Container } from '@shared/layout/container';
 import areas from '@shared/constants/areas.json';
+import { Container } from '@shared/layout/container';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -14,9 +16,19 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const usersRef = collection(db, 'users');
 
 export function DataPage() {
   const [category, setCategory] = useState('');
+
+  useEffect(() => {
+    if(category) {
+      console.log('searcHname', 'array-contains', category);
+
+      console.log(query(usersRef, where('searcHname', 'array-contains', category)));
+    }
+  }, [category]);
 
   return (
     <>
@@ -42,6 +54,9 @@ export function DataPage() {
           ? <div style={{ margin:'32px 0 0 0' }}>
             <p style={{ fontWeight:700 }}>Lista de Contactos</p>
             <p>{category}</p>
+            <p>{(() => {
+              // ...
+            })()}</p>
             </div>
           : undefined}
         </div>
