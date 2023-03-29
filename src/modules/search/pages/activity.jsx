@@ -31,27 +31,30 @@ const activityPage = () => {
                   !(i % 2) ? 'bg-primary' : 'bg-secondary',
                 ].join(' ')}
               >
-                {getTitle(id, 'Alias Genérico') || getTitle(id, 'Alias Genérico')}
+                {getTitle(id, 'Alias Genérico') || getTitle(id, 'Alias Genérico')}
               </NavLink>
             ))
           : selectedCategory.search.length == 1
           ? Object.keys(areas[getArea(selectedCategory.search)]).map(
               (subarea, i) => (
-                <NavLink
-                  to={
-                    '/buscar?search=' +
-                    encodeURIComponent(
-                      getSubAreaCode(selectedCategory.search, subarea)
-                    )
-                  }
-                  key={encodeURI(subarea)}
-                  className={[
-                    'button font-bold flex flex-col items-center justify-center',
-                    !(i % 2) ? 'bg-primary' : 'bg-secondary',
-                  ].join(' ')}
-                >
-                  {subarea}
-                </NavLink>
+                <div key={encodeURI(subarea)}>
+                  <h2 className="mb-4 text-lg font-bold">{subarea}</h2>
+                  <div className="flex flex-wrap">
+                    {Object.keys(areas[getArea(selectedCategory.search)][subarea]).map((activity, j) => (
+                      <NavLink
+                        to={'/buscar?search=' + encodeURIComponent(activity)}
+                        key={encodeURI(activity)}
+                        className={[
+                          'button font-bold flex flex-col items-center justify-center',
+                          !(j % 2) ? 'bg-primary' : 'bg-secondary',
+                        ].join(' ')}
+                      >
+                        {getTitle(activity, 'Alias Genérico') ||
+                          getTitle(activity, 'Alias Genérico')}
+                      </NavLink>
+                    ))}
+                  </div>
+                </div>
               )
             )
           : Object.keys(
