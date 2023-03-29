@@ -24,7 +24,7 @@ const SubCategoryPage = () => {
         {idList
           ? selectedCategory.search.split(' ').map((id, i) => (
               <NavLink
-                to={'/buscar?search=' + encodeURIComponent(id)}
+              to={`/activity/${getArea(selectedCategory.search)}/${getSubAreaFromId(selectedCategory.search)}/${encodeURIComponent(id)}`}
                 key={encodeURI(id)}
                 className={[
                   'button font-bold flex flex-col items-center justify-center',
