@@ -38,12 +38,7 @@ const SubCategoryPage = () => {
           ? Object.keys(areas[getArea(selectedCategory.search)]).map(
               (subarea, i) => (
                 <NavLink
-                  to={
-                    '/buscar?search=' +
-                    encodeURIComponent(
-                      getSubAreaCode(selectedCategory.search, subarea)
-                    )
-                  }
+                to={""}
                   key={encodeURI(subarea)}
                   className={[
                     'button font-bold flex flex-col items-center justify-center',
