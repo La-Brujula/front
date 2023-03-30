@@ -36,22 +36,18 @@ const SubCategoryPage = () => {
             ))
           : selectedCategory.search.length == 1
           ? Object.keys(areas[getArea(selectedCategory.search)]).map(
-              (subarea, i) => (
+              (activity, i) => (
                 <NavLink
-                  to={
-                    '/search=' +
-                    encodeURIComponent(
-                      getSubAreaCode(selectedCategory.search, subarea)
-                    )
-                  }
-                  key={encodeURI(subarea)}
-                  className={[
-                    'button font-bold flex flex-col items-center justify-center',
-                    !(i % 2) ? 'bg-primary' : 'bg-secondary',
-                  ].join(' ')}
-                >
-                  {subarea}
-                </NavLink>
+                to={'/buscar?search=' + encodeURIComponent(activity)}
+                key={encodeURI(activity)}
+                className={[
+                  'button font-bold flex flex-col items-center justify-center',
+                  !(i % 2) ? 'bg-primary' : 'bg-secondary',
+                ].join(' ')}
+              >
+                {getTitle(activity, 'Alias Genérico') ||
+                  getTitle(activity, 'Alias Genérico')}
+              </NavLink>
               )
             )
           : Object.keys(
