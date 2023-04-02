@@ -33,7 +33,7 @@ export function AboutHero() {
             />
           </div>
         </div>
-        <p>
+        <p className='text-justify'>
           La Brújula se fundó en 2010 en la ciudad de Guadalajara teniendo como
           antecedente “El Medio”, ambas publicaciones inspiradas por directorios
           especializados en la producción cinematográfica y televisiva en Los

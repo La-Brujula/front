@@ -29,11 +29,11 @@ function HeroSection() {
             />
           </div>
         </div>
-        <p className="grow w-full font-medium text-lg">
-          Durante 13 años nos hemos dedicado a reunir a las
-          personas, empresas e instituciones del
-          medio audiovisual y cinematográfico de México
-          para que las puedas encontrar en un solo lugar,{' '}
+        <p className="grow w-full font-medium text-lg text-justify">
+          Durante 13 años nos hemos dedicado a reunir a las personas, empresas e
+          instituciones del medio audiovisual y cinematográfico de México para
+          que las puedas encontrar en un solo lugar,
+          <br />
           <span className="text-blue font-semibold">
             ¡En La Brújula seguimos construyendo!
           </span>

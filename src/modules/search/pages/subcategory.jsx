@@ -33,60 +33,64 @@ const SubCategoryPage = () => {
       </h1>
       <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 auto-rows-fr">
         {idList
-          ? selectedCategory.search.split(' ').map((id, i) => (
-              <NavLink
-                to={`/buscar?search=${getTitle(id, 'Alias Genérico')}`}
-                key={encodeURI(id)}
-                className={[
-                  'button font-bold flex flex-col items-center justify-center',
-                  !(i % 2) ? 'bg-primary' : 'bg-secondary',
-                ].join(' ')}
-              >
-                {getTitle(id, 'Alias Genérico') ||
-                  getTitle(id, 'Alias Genérico')}
-              </NavLink>
-            ))
+          ? selectedCategory.search.split(' ').map(
+              (id, i) =>
+                !!getTitle(id, 'Alias Genérico') && (
+                  <NavLink
+                    to={`/buscar?search=${getTitle(id, 'Alias Genérico')}`}
+                    key={encodeURI(id)}
+                    className={[
+                      'button font-bold flex flex-col items-center justify-center',
+                      !(i % 2) ? 'bg-primary' : 'bg-secondary',
+                    ].join(' ')}
+                  >
+                    {getTitle(id, 'Alias Genérico')}
+                  </NavLink>
+                )
+            )
           : selectedCategory.search.length == 1
           ? Object.keys(areas[getArea(selectedCategory.search)]).map(
-              (subarea, i) => (
-                <NavLink
-                  to={
-                    '/buscar/' +
-                    encodeURIComponent(
-                      getSubAreaCode(selectedCategory.search, subarea)
-                    )
-                  }
-                  key={encodeURI(subarea)}
-                  className={[
-                    'button font-bold flex flex-col items-center justify-center',
-                    !(i % 2) ? 'bg-primary' : 'bg-secondary',
-                  ].join(' ')}
-                >
-                  {getTitle(subarea, 'Alias Genérico') ||
-                    getTitle(subarea, 'Alias Genérico')}
-                </NavLink>
-              )
+              (subarea, i) =>
+                !!getTitle(subarea, 'Alias Genérico') && (
+                  <NavLink
+                    to={
+                      '/buscar/' +
+                      encodeURIComponent(
+                        getSubAreaCode(selectedCategory.search, subarea)
+                      )
+                    }
+                    key={encodeURI(subarea)}
+                    className={[
+                      'button font-bold flex flex-col items-center justify-center',
+                      !(i % 2) ? 'bg-primary' : 'bg-secondary',
+                    ].join(' ')}
+                  >
+                    {getTitle(subarea, 'Alias Genérico')}
+                  </NavLink>
+                )
             )
           : Object.keys(
               areas[getArea(selectedCategory.search.slice(0, 1))][
                 getSubAreaFromId(selectedCategory.search)
               ]
-            ).map((activity, i) => (
-              <NavLink
-                to={
-                  '/buscar?search=' +
-                  encodeURIComponent(getTitle(activity, 'Alias Genérico'))
-                }
-                key={encodeURI(activity)}
-                className={[
-                  'button font-bold flex flex-col items-center justify-center',
-                  !(i % 2) ? 'bg-primary' : 'bg-secondary',
-                ].join(' ')}
-              >
-                {getTitle(activity, 'Alias Genérico') ||
-                  getTitle(activity, 'Alias Genérico')}
-              </NavLink>
-            ))}
+            ).map(
+              (activity, i) =>
+                !!getTitle(activity, 'Alias Genérico') && (
+                  <NavLink
+                    to={
+                      '/buscar?search=' +
+                      encodeURIComponent(getTitle(activity, 'Alias Genérico'))
+                    }
+                    key={encodeURI(activity)}
+                    className={[
+                      'button font-bold flex flex-col items-center justify-center',
+                      !(i % 2) ? 'bg-primary' : 'bg-secondary',
+                    ].join(' ')}
+                  >
+                    {getTitle(activity, 'Alias Genérico')}
+                  </NavLink>
+                )
+            )}
       </div>
     </>
   );
