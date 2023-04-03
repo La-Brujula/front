@@ -34,7 +34,7 @@ function HeroSection() {
           instituciones del medio audiovisual y cinematográfico de México para
           que las puedas encontrar en un solo lugar,
           <br />
-          <span className="text-blue font-semibold">
+          <span className="text-blue font-semibold  block text-center">
             ¡En La Brújula seguimos construyendo!
           </span>
         </p>
