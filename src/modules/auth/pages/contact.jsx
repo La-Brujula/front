@@ -87,7 +87,7 @@ export const ContactPage = () => {
         <input type="url" {...register('tiktok')} autoComplete="tiktok" />
       </div>
       <div className="flex flex-row gap-4 self-center">
-        <div className="button font-bold" onClick={() => navigate(-1)}>
+        <div className="button font-bold bg-transparent border border-primary text-black" onClick={() => navigate(-1)}>
           {t('Regresar')}
         </div>
         <input type="submit" className="border-none" value={t('Continuar')} />

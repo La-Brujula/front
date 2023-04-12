@@ -81,7 +81,7 @@ export const AreasRegistration = () => {
         </div>
       )}
       <div className="flex flex-row gap-4 self-center w-full justify-center mt-4">
-        <div className="button font-bold" onClick={() => navigate(-1)}>
+        <div className="button font-bold bg-transparent border border-primary text-black" onClick={() => navigate(-1)}>
           {t('Regresar')}
         </div>
         <div
