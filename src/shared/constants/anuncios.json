@@ -11,6 +11,11 @@
            
         },
         {
+            "verticalImage": "/anuncios/EfdTraining.jpg",
+            "linkUrl": "https://www.efdinternational.com/"
+           
+        },
+        {
             "verticalImage": "/anuncios/CanacineHorizontal2.png",
             "linkUrl": "https://canacine.org.mx/"
           
@@ -30,6 +35,11 @@
            
             "verticalImage": "/anuncios/Brujula Horizontal-03.jpg",
             "linkUrl": "https://www.imcine.gob.mx/"
+        },
+        {
+           
+            "verticalImage": "/anuncios/EFDcar.jpg",
+            "linkUrl": "https://www.efdinternational.com/"
         },
         {
            
