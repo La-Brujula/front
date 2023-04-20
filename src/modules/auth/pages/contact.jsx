@@ -13,6 +13,8 @@ import { useUserInfo } from '@shared/hooks/useUserInfo';
 import { useAuth } from '@shared/context/firebaseContext';
 import { useMemo } from 'react';
 import useSocials from '@shared/hooks/useSocials';
+import EmailOutlined from '@mui/icons-material/EmailOutlined';
+import PhoneOutlined from '@mui/icons-material/PhoneOutlined';
 
 export const ContactPage = () => {
   const brujula = brujulaUtils();
@@ -20,10 +22,9 @@ export const ContactPage = () => {
   const { t } = useTranslation('auth');
   const navigate = useNavigate();
 
-
   const onSubmit = async (data) => {
-    for( const property in data) {
-      data[property] = useSocials(property, data[property])
+    for (const property in data) {
+      data[property] = useSocials(property, data[property]);
     }
 
     await brujula.updateUserInfo(data);
@@ -51,6 +52,7 @@ export const ContactPage = () => {
         className="grid grid-cols-[min-content_1fr]
       text-right gap-4 mx-auto items-center gap-x-8"
       >
+        <h3 className="col-span-full text-center">{t('Redes sociales')}</h3>
         <label htmlFor="website">
           <LinkOutlined />
         </label>
@@ -85,9 +87,23 @@ export const ContactPage = () => {
         <input type="url" {...register('twitter')} autoComplete="twitter" />
         <label htmlFor="tiktok">{t('tiktok')}</label>
         <input type="url" {...register('tiktok')} autoComplete="tiktok" />
+        <h3 className="col-span-full text-center mt-4">
+          {t('Medios secundarios de contacto')}
+        </h3>
+        <label htmlFor="altPhone">
+          <PhoneOutlined />
+        </label>
+        <input type="phone" {...register('altPhone')} />
+        <label htmlFor="altEmail">
+          <EmailOutlined />
+        </label>
+        <input type="email" {...register('altEmail')} />
       </div>
       <div className="flex flex-row gap-4 self-center">
-        <div className="button font-bold bg-transparent border border-primary text-black" onClick={() => navigate(-1)}>
+        <div
+          className="button font-bold bg-transparent border border-primary text-black"
+          onClick={() => navigate(-1)}
+        >
           {t('Regresar')}
         </div>
         <input type="submit" className="border-none" value={t('Continuar')} />
