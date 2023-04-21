@@ -45,6 +45,22 @@ export const ContactSection = ({ user }) => {
           </div>
         </>
       )}
+      {!!user.altPhone2 && (
+        <>
+          <h3>
+            <PhoneOutlined />
+          </h3>
+          <div className="w-full">
+            <a
+              target="_blank"
+              className="truncate block w-full"
+              href={'tel:' + user.altPhone2}
+            >
+              {user.altPhone2}
+            </a>
+          </div>
+        </>
+      )}
       {!!user.email && (
         <>
           <h3>
@@ -71,6 +87,22 @@ export const ContactSection = ({ user }) => {
               href={'mailto:' + user.altEmail}
             >
               {user.altEmail}
+            </a>
+          </div>
+        </>
+      )}
+      {!!user.altEmail2 && (
+        <>
+          <h3>
+            <EmailOutlined />
+          </h3>
+          <div className="w-full">
+            <a
+              target="_blank"
+              className="truncate block w-full"
+              href={'mailto:' + user.altEmail2}
+            >
+              {user.altEmail2}
             </a>
           </div>
         </>

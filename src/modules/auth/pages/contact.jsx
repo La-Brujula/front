@@ -94,10 +94,18 @@ export const ContactPage = () => {
           <PhoneOutlined />
         </label>
         <input type="phone" {...register('altPhone')} />
+        <label htmlFor="altPhone2">
+          <PhoneOutlined />
+        </label>
+        <input type="phone" {...register('altPhone2')} />
         <label htmlFor="altEmail">
           <EmailOutlined />
         </label>
         <input type="email" {...register('altEmail')} />
+        <label htmlFor="altEmail2">
+          <EmailOutlined />
+        </label>
+        <input type="email" {...register('altEmail2')} />
       </div>
       <div className="flex flex-row gap-4 self-center">
         <div
