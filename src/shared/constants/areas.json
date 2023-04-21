@@ -2499,6 +2499,42 @@
                     "Production Crew",
                     "Crew"
                 ]
+            },
+            "301-13": {
+                "Femenino": {
+                    "fr": null,
+                    "es": "Médica de producción",
+                    "en": null
+                },
+                "Masculino": {
+                    "fr": null,
+                    "es": "Médico de producción",
+                    "en": null
+                },
+                "No Binario": {
+                    "fr": null,
+                    "es": "Atención médica en producción",
+                    "en": null
+                },
+                "Persona Moral": {
+                    "fr": null,
+                    "es": null,
+                    "en": null
+                },
+                "Alias Genérico": {
+                    "fr": null,
+                    "es": "Médicos de producción",
+                    "en": "production doctors"
+                },
+                "Referentes": [
+                    "Personal de seguridad", 
+                    "Logística", 
+                    "Seguridad en locación", 
+                    "Médicos de producción", 
+                    "Atención médica en el set", 
+                    "Primeros auxilios", 
+                    "Paramédicos" 
+                ]
             }
         },
         "Dirección": {
