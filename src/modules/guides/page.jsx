@@ -32,7 +32,7 @@ export function PDFGuidesPage() {
       <Container className="text-primary">
         <div className="max-w-3xl mx-auto mb-8">
           <h2>
-            {t('Descarga las guías en PDF para usar La Brújula sin conexión')}
+            {t('Descarga La Brújula en PDF para utilizarla sin conexión')}
           </h2>
           <p>
             {t(
