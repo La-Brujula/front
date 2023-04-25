@@ -990,8 +990,7 @@
                      "Equidad de género" , 
                      "Género" , 
                      "Certiificaciones" , 
-                     "Sensibilzación" , 
-                     "Diversidad"
+                     "Sensibilzación" , "Diversidad"
                 ]
             }
         }
@@ -6175,6 +6174,85 @@
                     "Alimentación" , 
                     "Catering" , 
                     "Cantine" 
+                            
+                ]
+            },
+            "403-22": {
+                "Femenino": {
+                    "fr": null,
+                    "es": null,
+                    "en": null
+                },
+                "Masculino": {
+                    "fr": null,
+                    "es": null,
+                    "en": null
+                },
+                "No Binario": {
+                    "fr": null,
+                    "es": null,
+                    "en": null
+                },
+                "Persona Moral": {
+                    "fr": null,
+                    "es": "Almacenamiento de vestuario",
+                    "en": null
+                },
+                "Alias Genérico": {
+                    "fr": null,
+                    "es": "Bodegas de vestuario",
+                    "en": "Production Insurances"
+                },
+                "Referentes": [
+                     "Bodegas" , 
+                     "Almacenamiento" , 
+                     "Vestuario" , 
+                     "Warehouse" , 
+                     "Stock" , 
+                     "Época" ,
+                      "Baúl Cinematográfico", 
+                      "Teatro" , 
+                      "Wardrobe"
+                            
+                ]
+            },
+            "403-23": {
+                "Femenino": {
+                    "fr": null,
+                    "es": null,
+                    "en": null
+                },
+                "Masculino": {
+                    "fr": null,
+                    "es": null,
+                    "en": null
+                },
+                "No Binario": {
+                    "fr": null,
+                    "es": null,
+                    "en": null
+                },
+                "Persona Moral": {
+                    "fr": null,
+                    "es": "Almacenamiento de arte",
+                    "en": null
+                },
+                "Alias Genérico": {
+                    "fr": null,
+                    "es": "Bodegas de arte",
+                    "en": "Production Insurances"
+                },
+                "Referentes": [
+                     "Bodegas" , 
+                     "Almacenamiento" , 
+                     "Arte" , 
+                     "Warehouse" , 
+                     "Stock" , 
+                     "Ambientación" , 
+                     "Baúl Cinematográfico" , 
+                     "Teatro" , 
+                     "Escenografía" , 
+                     "Galería"
                             
                 ]
             },
