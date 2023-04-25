@@ -122,7 +122,7 @@ export const Navbar = () => {
               to="/guias"
               className="font-bold leading-relaxed text-white"
             >
-              {t('pdfGuides')}
+              {t('La Brújula en PDF')}
             </NavLink>
             <NavLink
               onClick={() => toggleOpen()}
