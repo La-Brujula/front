@@ -955,6 +955,44 @@
                     "Cortometrajes",
                     "Festivales"
                 ]
+            },
+            "105-08": {
+                "Femenino": {
+                    "fr": null,
+                    "es": "Supervisora de protocolo de perspectiva de género",
+                    "en": null
+                },
+                "Masculino": {
+                    "fr": null,
+                    "es": "Supervisor de protocolo de perspectiva de género",
+                    "en": null
+                },
+                "No Binario": {
+                    "fr": null,
+                    "es": "Supervisión de protocolo de perspectiva de género",
+                    "en": null
+                },
+                "Persona Moral": {
+                    "fr": null,
+                    "es": "Supervisión de protocolo de perspectiva de género",
+                    "en": null
+                },
+                "Alias Genérico": {
+                    "fr": null,
+                    "es": "Supervisión de protocolo de perspectiva de género",
+                    "en": null
+                },
+                "Referentes": [
+                     "Supervisores" , 
+                     "Protocolos" ,
+                     " Perspectiva de género" , 
+                     "Violencias" , "Inclusión" , 
+                     "Equidad de género" , 
+                     "Género" , 
+                     "Certiificaciones" , 
+                     "Sensibilzación" , 
+                     "Diversidad"
+                ]
             }
         }
     },
