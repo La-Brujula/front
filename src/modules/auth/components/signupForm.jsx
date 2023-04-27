@@ -24,7 +24,7 @@ export const SignupForm = () => {
     setLoading(true);
     setErrorMsg('');
     if (await auth.register(data.email, data.password, onError)) {
-      await brujula.updateUserInfo({ type: tipoDePersona });
+      await brujula.updateUserInfo({ type: tipoDePersona, created: true });
       navigate('basica');
     }
     setLoading(false);
