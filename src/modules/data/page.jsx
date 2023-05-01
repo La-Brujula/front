@@ -66,9 +66,34 @@ export function DataPage() {
                 return <>
                   <div>{contacts.length} resultados</div>
                   <table style={{ margin:'16px 0 0 0', textAlign:'left' }}>
-                    <tr><th>Email</th><th>Nombre</th><th>Apellido(s)</th></tr>
+                    <tr>
+                      <th>Email</th>
+                      <th>Tipo de Persona</th>
+                      <th>Nickname</th>
+                      <th>Nombre</th>
+                      <th>Apellido(s)</th>
+                      <th>Pais</th>
+                      <th>Localidad</th>
+                      <th>Actividad 1</th>
+                      <th>Actividad 2</th>
+                      <th>Actividad 3</th>
+                      <th># Brujulas</th>
+                      <th>Suscriptor</th>
+                    </tr>
                     {contacts.sort((a, b) => a.email.localeCompare(b.email)).map(v => {
-                      return <tr><td>{v.email}</td><td>{v.name}</td><td>{v.lastname}</td></tr>;
+                      return <tr>
+                        <td>{v.email||''}</td>
+                        <td>{({ fisica:'Física', moral:'Moral' }[v.type||'fisica'])}</td>
+                        <td>{v.nickname||''}</td>
+                        <td>{v.name||''}</td>
+                        <td>{v.lastname||''}</td>
+                        <td>{v.country||''}</td>
+                        <td>{v.location||''}</td>
+                        <td>{(v.subareas||[])[0]||''}</td>
+                        <td>{(v.subareas||[])[1]||''}</td>
+                        <td>{(v.subareas||[])[2]||''}</td>
+                        <td>No</td>
+                      </tr>;
                     })}
                   </table>
                 </>;
