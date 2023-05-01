@@ -41,7 +41,7 @@ export function DataPage() {
   return (
     <>
       <Container className="text-primary">
-        <div className="max-w-3xl mx-auto mb-8">
+        <div className="mx-auto mb-8">
           <h2>
             {'Estadisticas'}
           </h2>
@@ -67,23 +67,23 @@ export function DataPage() {
                   <div>{contacts.length} resultados</div>
                   <table style={{ margin:'16px 0 0 0', textAlign:'left' }}>
                     <tr>
-                      <th>Email</th>
-                      <th>Tipo de Persona</th>
-                      <th>Nickname</th>
-                      <th>Nombre</th>
-                      <th>Apellido(s)</th>
-                      <th>Pais</th>
-                      <th>Localidad</th>
-                      <th>Actividad 1</th>
-                      <th>Actividad 2</th>
-                      <th>Actividad 3</th>
-                      <th># Brujulas</th>
-                      <th>Suscriptor</th>
+                      <th style={{ whiteSpace:'nowrap' }}>Email</th>
+                      <th style={{ whiteSpace:'nowrap' }}>Tipo de Persona</th>
+                      <th style={{ whiteSpace:'nowrap' }}>Nickname</th>
+                      <th style={{ whiteSpace:'nowrap' }}>Nombre</th>
+                      <th style={{ whiteSpace:'nowrap' }}>Apellido(s)</th>
+                      <th style={{ whiteSpace:'nowrap' }}>Pais</th>
+                      <th style={{ whiteSpace:'nowrap' }}>Localidad</th>
+                      <th style={{ whiteSpace:'nowrap' }}>Actividad 1</th>
+                      <th style={{ whiteSpace:'nowrap' }}>Actividad 2</th>
+                      <th style={{ whiteSpace:'nowrap' }}>Actividad 3</th>
+                      <th style={{ whiteSpace:'nowrap' }}># Brujulas</th>
+                      <th style={{ whiteSpace:'nowrap' }}>Suscriptor</th>
                     </tr>
                     {contacts.sort((a, b) => a.email.localeCompare(b.email)).map(v => {
                       return <tr>
                         <td>{v.email||''}</td>
-                        <td>{({ fisica:'Física', moral:'Moral' }[v.type||'fisica'])}</td>
+                        <td>{({ fisica:'Física', moral:'Moral' })[v.type||'fisica']}</td>
                         <td>{v.nickname||''}</td>
                         <td>{v.name||''}</td>
                         <td>{v.lastname||''}</td>
@@ -92,6 +92,7 @@ export function DataPage() {
                         <td>{(v.subareas||[])[0]||''}</td>
                         <td>{(v.subareas||[])[1]||''}</td>
                         <td>{(v.subareas||[])[2]||''}</td>
+                        <td>{(v.reviews||[]).filter(v => !!v).length}</td>
                         <td>No</td>
                       </tr>;
                     })}
