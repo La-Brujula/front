@@ -7,6 +7,15 @@ import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import { PrivacyPolicy } from './privacyPolicy';
 import { LoadingSpinner } from '../../../shared/components/loadingSpinner';
 
+async function initializeUser(brujula, tipoDePersona, navigate, setErrorMsg) {
+  try {
+    await brujula.updateUserInfo({ type: tipoDePersona, created: true });
+    navigate('basica');
+  } catch (e) {
+    setErrorMsg(e.toString());
+  }
+}
+
 export const SignupForm = () => {
   const auth = useContext(AuthContext);
   const brujula = brujulaUtils();
@@ -23,10 +32,14 @@ export const SignupForm = () => {
     if (!data.email || !data.password) return;
     setLoading(true);
     setErrorMsg('');
-    if (await auth.register(data.email, data.password, onError)) {
-      await brujula.updateUserInfo({ type: tipoDePersona, created: true });
-      navigate('basica');
+    if (
+      await auth.register(data.email, data.password, onError, () =>
+        initializeUser(brujula, tipoDePersona, navigate, setErrorMsg)
+      )
+    ) {
+      await initializeUser(brujula, tipoDePersona, navigate, setErrorMsg);
     }
+
     setLoading(false);
   };
 

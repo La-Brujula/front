@@ -83,12 +83,29 @@ export const FireAuthProvider = ({ children }) => {
     return _userAuth(email, password, signInWithEmailAndPassword, handleError);
   };
 
-  const register = async (email, password, handleError = (err) => {}) => {
+  const unsafeLogin = async (email, password, handleError = (err) => {}) => {
+    return _userAuth(email, password, signInWithEmailAndPassword, handleError);
+  };
+
+  const register = async (
+    email,
+    password,
+    handleError = (err) => {},
+    handleUnsafe = () => {}
+  ) => {
     return _userAuth(
       email,
       password,
       createUserWithEmailAndPassword,
-      handleError
+      async (err) => {
+        if (
+          err.code == 'auth/email-already-in-use' &&
+          (await unsafeLogin(email, password, handleError))
+        ) {
+          return handleUnsafe();
+        }
+        return handleError(err);
+      }
     );
   };
 
@@ -123,6 +140,7 @@ export const FireAuthProvider = ({ children }) => {
     <AuthContext.Provider
       value={{
         login: login,
+        unsafeLogin: unsafeLogin,
         register: register,
         logout: logout,
         addStateListener: addStateListener,
