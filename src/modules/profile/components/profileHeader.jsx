@@ -17,7 +17,7 @@ export const ProfileHeader = ({ user }) => {
             src={user.coverPictureUrl || ''}
             alt=""
             className="absolute left-0 -z-10 bg-black bg-opacity-20 w-full
-            h-48 object-cover object-center"
+            h-48 object-contain object-center"
           />
         ) : (
           <div
@@ -30,7 +30,7 @@ export const ProfileHeader = ({ user }) => {
             <img
               src={user.profilePictureUrl}
               alt={`${user.username || user.name} profile picture`}
-              className="w-48 h-48 bg-blue rounded-[50%] object-cover object-center"
+              className="w-48 h-48 bg-blue rounded-[50%] object-contain object-center"
               loading="eager"
             />
           ) : (
