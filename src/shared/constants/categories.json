@@ -46,7 +46,7 @@
     },
     {
         "iconUrl": "DistIcon",
-        "label": "Distribuciones, exhibición y medios",
+        "label": "Distribución, exhibición y medios",
         "search": "901-03 901-04 901-05 904-02 901-07 904-05"
     },
     {
@@ -61,7 +61,7 @@
     },
     {
         "iconUrl": "CommisionIcon",
-        "label": "Comisiones de filmación",
+        "label": "Comisiones fílmicas",
         "search": "902-01 902-02 902-03 904-03"
     },
     {
