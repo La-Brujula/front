@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useSearch } from '../../../shared/hooks/useSearch';
 import { UsersList } from '../components/userList';
-import { PorFiltros } from '../components/filtros';
+import { PorFiltros } from '../components/querySearchField';
 import { ResultsFilter } from '../components/resultsFilters';
 import { LoadingSpinner } from '../../../shared/components/loadingSpinner';
 import { ErrorMessage } from '../../../shared/components/errorMessage';

@@ -3,5 +3,6 @@
     "activity": "Activity",
     "region": "Region",
     "keyword": "Keyword",
-    "search": "Search"
+    "search": "Search",
+    "searchPlaceholder": "Search by keywords"
 }

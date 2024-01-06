@@ -51,7 +51,7 @@ export const PorFiltros = ({ defaultSearch, setFilters }) => {
         fuseOptions={{
           threshold: 0.2,
         }}
-        placeholder={t('Buscar')}
+        placeholder={t('searchPlaceholder')}
         items={
           RefList &&
           RefList.map((ref, i) => {

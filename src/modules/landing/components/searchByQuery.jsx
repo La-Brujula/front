@@ -1,6 +1,6 @@
 import { Container } from '@shared/layout/container';
 import { useTranslation } from 'react-i18next';
-import { PorFiltros } from '@modules/search/components/filtros';
+import { PorFiltros } from '@modules/search/components/querySearchField';
 
 function SearchByQuery() {
   const { t } = useTranslation('landing');

@@ -3,5 +3,6 @@
     "region": "Región",
     "keyword": "Palabra clave",
     "search": "Buscar",
-    "alreadyHaveAccount": "¿Ya tienes un usuario?"
+    "alreadyHaveAccount": "¿Ya tienes un usuario?",
+    "searchPlaceholder": "Buscar por palabra"
 }
