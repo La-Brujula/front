@@ -30,7 +30,7 @@ function HeroSection() {
           </div>
         </div>
         <p className="grow w-full font-medium text-lg text-justify">
-          Durante 13 años nos hemos dedicado a reunir a las personas, empresas e
+          Durante 14 años nos hemos dedicado a reunir a las personas, empresas e
           instituciones del medio audiovisual y cinematográfico de México para
           que las puedas encontrar en un solo lugar.
           <br />
