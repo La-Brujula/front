@@ -8,6 +8,6 @@ git push ssh main
 git pull ssh main
 POSTUPDATE_ID=$(git rev-parse HEAD)
 
-# [ $INITIAL_ID = $POSTUPDATE_ID ] && exit 0
+[ $INITIAL_ID = $POSTUPDATE_ID ] && exit 0
 
 npm run build
