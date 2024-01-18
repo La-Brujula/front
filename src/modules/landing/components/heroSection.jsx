@@ -23,8 +23,8 @@ function HeroSection() {
               className="h-16 lg:h-20"
             />
             <img
-              src={import.meta.env.BASE_URL + 'img/13AniosBruj.svg'}
-              alt={t('13YearsBruj')}
+              src={import.meta.env.BASE_URL + 'img/Logo14anos.svg'}
+              alt={t('14YearsBruj')}
               className="h-20 lg:h-32"
             />
           </div>
