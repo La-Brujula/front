@@ -32,12 +32,12 @@
         "linkUrl": "https://www.efdinternational.com/"
     },
     {
-        "imageUrl": "/img/aliades/sivarya-01Nuevo.png",
-        "linkUrl": "https://sivarya.com/"
-    },
-    {
         "imageUrl": "/img/aliades/BarracaLogoWhite.png",
         "linkUrl": "https://barracaproducciones.mx/"
+    },
+    {
+        "imageUrl": "/img/aliades/filminist-01Nuevo.png",
+        "linkUrl": "https://filministmx.com/en/"
     },
     {
         "imageUrl": "/img/aliades/raindance-01Nuevo.png",
@@ -46,10 +46,6 @@
     {
         "imageUrl": "/img/aliades/fcu-01nuevo.png",
         "linkUrl": "https://www.cecinematograficos.edu.mx/festival"
-    },
-    {
-        "imageUrl": "/img/aliades/filminist-01Nuevo.png",
-        "linkUrl": "https://filministmx.com/en/"
     },
     {
         "imageUrl": "/img/aliades/FICGLogo.png",
@@ -64,16 +60,12 @@
         "linkUrl": "https://www.viva-mexico-cinema.org/es/"
     },
     {
+        "imageUrl": "/img/aliades/docsmx-logo-blanco.png",
+        "linkUrl": "https://docsmx.org/"
+    },
+    {
         "imageUrl": "/img/aliades/PlataformaAbiertaDeInLogo.png",
         "linkUrl": "https://plai.mx/"
-    },
-    {
-        "imageUrl": "/img/aliades/UADLogo.png",
-        "linkUrl": "https://uartesdigitales.edu.mx/"
-    },
-    {
-        "imageUrl": "/img/aliades/DocuAlParqueLogo.png",
-        "linkUrl": "https://www.instagram.com/docualparque/?hl=en"
     },
     {
         "imageUrl": "/img/aliades/MaquinaNegraLogo.png",
@@ -84,11 +76,15 @@
         "linkUrl": "https://partnersandcrew.mx"
     },
     {
-        "imageUrl": "/img/aliades/docsmx-logo-blanco.png",
-        "linkUrl": "https://docsmx.org/"
+        "imageUrl": "/img/aliades/DocuAlParqueLogo.png",
+        "linkUrl": "https://www.instagram.com/docualparque/?hl=en"
     },
     {
         "imageUrl": "/img/aliades/CrcoLogo.png",
         "linkUrl": "https://circotv.com/"
+    },
+    {
+        "imageUrl": "/img/aliades/sivarya-01Nuevo.png",
+        "linkUrl": "https://sivarya.com/"
     }
 ]

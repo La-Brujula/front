@@ -27,8 +27,8 @@ export function AboutHero() {
               className="h-16 lg:h-20"
             />
             <img
-              src={import.meta.env.BASE_URL + 'img/13AniosBrujAzul.svg'}
-              alt={t('13YearsBruj')}
+              src={import.meta.env.BASE_URL + '}'}
+              alt={t('')}
               className="h-20 lg:h-32"
             />
           </div>
