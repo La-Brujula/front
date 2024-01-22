@@ -8,6 +8,7 @@ import { ErrorMessage } from '../../../shared/components/errorMessage';
 import { replaceSearchTermsFromIndex } from '../../../shared/utils/busqueda';
 import useDebounce from '../../../shared/hooks/useDebounce';
 import { SearchOutlined } from '@mui/icons-material';
+import ReactVisibilitySensor from 'react-visibility-sensor';
 
 export const SearchResultsPage = () => {
   const [searchParams] = useSearchParams();
@@ -94,13 +95,12 @@ export const SearchResultsPage = () => {
           )}
           {loading && <LoadingSpinner />}
           {!loading && hasMore && (
-            <div
-              className="px-4 py-2 text-white bg-secondary
-            cursor-pointer rounded-md text-c"
-              onClick={getNext}
+            <ReactVisibilitySensor
+              partialVisibility
+              onChange={(isVisible) => isVisible && !loading && getNext()}
             >
-              Cargar más
-            </div>
+              <LoadingSpinner />
+            </ReactVisibilitySensor>
           )}
           {!!error && <ErrorMessage message={error.toString()} />}
         </div>

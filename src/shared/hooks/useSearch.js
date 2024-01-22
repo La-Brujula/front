@@ -51,6 +51,11 @@ const getQueries = (filters) => {
           where('asociations', '==', filters.associations.toLowerCase())
         );
         break;
+      case 'certifications':
+        queries.push(
+          where('certifications', '==', filters.certifications.toLowerCase())
+        );
+        break;
       case 'region':
         queries.push(where('state', 'in', regions[filters.region].estados));
         break;
@@ -181,7 +186,7 @@ export const useSearch = () => {
         const queries = getQueries(filters);
         const data = await getResultsWithFilters(queries);
         results.current = data;
-        setHasMore(!!data.length && data.length > 9);
+        setHasMore(!!data.length && data.length > 4);
       } catch (e) {
         console.error(e);
         setError('Hubo un error por favor intenta de nuevo más tarde.');

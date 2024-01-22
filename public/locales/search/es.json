@@ -7,5 +7,7 @@
     "searchByCategory": "Buscar por categoría",
     "searchPlaceholder": "Buscar por nombre",
     "searchForActivity": "Busca tu actividad",
-    "searchByName": "Buscar por nombre"
+    "searchByName": "Buscar por nombre",
+    "filters": "Filtros",
+    "moreFilters": "Más filtros"
 }
