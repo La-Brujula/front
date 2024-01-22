@@ -97,7 +97,9 @@ export const SearchResultsPage = () => {
           {!loading && hasMore && (
             <ReactVisibilitySensor
               partialVisibility
-              onChange={(isVisible) => isVisible && !loading && getNext()}
+              onChange={(isVisible) =>
+                isVisible && !loading && !error && getNext()
+              }
             >
               <LoadingSpinner />
             </ReactVisibilitySensor>

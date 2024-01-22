@@ -10,7 +10,11 @@ import {
   getTitle,
 } from '../../../shared/utils/areaUtils';
 import { IconButton } from '@mui/material';
-import { DeleteOutlined } from '@mui/icons-material';
+import {
+  DeleteOutlined,
+  ExpandLessOutlined,
+  ExpandMoreOutlined,
+} from '@mui/icons-material';
 import { ExtraFilters } from './extraFilters';
 
 export const ResultsFilter = ({ setFilters, filters }) => {
@@ -72,14 +76,13 @@ export const ResultsFilter = ({ setFilters, filters }) => {
         onClick={() => setIsVisible(!isVisible)}
       >
         {t('filters')}
+        {isVisible ? <ExpandMoreOutlined /> : <ExpandLessOutlined />}
       </div>
       <form
         className={[
           'flex flex-col transition-all lg:sticky top-0 bg-black bg-opacity-20',
           'p-4 rounded-b-md -mt-2 lg:rounded-t-md lg:mt-0',
-          isVisible
-            ? 'h-auto block'
-            : 'h-0 hidden lg:block lg:h-auto',
+          isVisible ? 'h-auto block' : 'h-0 hidden lg:block lg:h-auto',
         ].join(' ')}
         onSubmit={handleSubmit((values) => {
           setFilters(values);
@@ -189,7 +192,7 @@ export const ResultsFilter = ({ setFilters, filters }) => {
         cursor-pointer"
             onClick={() => setMoreFiltersVisible(!moreFiltersVisible)}
           >
-            {t('moreFilters')}
+            {moreFiltersVisible ? t('Ver menos') : t('Ver más')}
           </div>
         </div>
       </form>
