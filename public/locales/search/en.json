@@ -4,5 +4,8 @@
     "region": "Region",
     "keyword": "Keyword",
     "search": "Search",
-    "searchPlaceholder": "Search by keywords"
+    "searchByCategory": "Search by Category",
+    "searchPlaceholder": "Search by name",
+    "searchForActivity": "Find your activity",
+    "searchByName": "Search by Name"
 }

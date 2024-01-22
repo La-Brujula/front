@@ -4,5 +4,8 @@
     "keyword": "Palabra clave",
     "search": "Buscar",
     "alreadyHaveAccount": "¿Ya tienes un usuario?",
-    "searchPlaceholder": "Buscar por palabra"
+    "searchByCategory": "Buscar por categoría",
+    "searchPlaceholder": "Buscar por nombre",
+    "searchForActivity": "Busca tu actividad",
+    "searchByName": "Buscar por nombre"
 }

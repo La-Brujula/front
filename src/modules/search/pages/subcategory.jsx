@@ -37,7 +37,7 @@ const SubCategoryPage = () => {
               (id, i) =>
                 !!getTitle(id, 'Alias Genérico') && (
                   <NavLink
-                    to={`/buscar?search=${getTitle(id, 'Alias Genérico')}`}
+                    to={`/buscar?activity=${id}`}
                     key={encodeURI(id)}
                     className={[
                       'button font-bold flex flex-col items-center justify-center',

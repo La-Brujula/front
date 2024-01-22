@@ -3,33 +3,65 @@ import { useTranslation } from 'react-i18next';
 import areas from '@shared/constants/areas';
 import regiones from '@shared/constants/regiones';
 import genders from '@shared/constants/genders';
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import languages from '@shared/constants/languages.json';
 import {
+  getArea,
   getAreaFromId,
   getSubArea,
+  getSubAreaFromId,
   getTitle,
 } from '../../../shared/utils/areaUtils';
 
 export const ResultsFilter = ({ setFilters, filters }) => {
   const { register, setValue, getValues, handleSubmit, watch } = useForm({
-    defaultValues: filters || {
-      location: '',
-      remote: undefined,
-      type: '',
-      category: '',
-      language: '',
-      gender: '',
-      schools: '',
-      socialService: undefined,
-      associations: '',
-      sortByReviews: undefined,
+    defaultValues: {
+      ...{
+        name: '',
+        search: '',
+        gender: '',
+        schools: '',
+        associations: '',
+        type: '',
+        remote: undefined,
+        socialService: undefined,
+        sortByReviews: undefined,
+        state: '',
+        category: '',
+        area: '',
+        subarea: '',
+        activity: '',
+      },
+      ...filters,
     },
   });
+
+  const area = watch('area');
+  const subarea = watch('subarea');
+  const activity = watch('activity');
+
+  useMemo(() => {
+    const { area, subarea, activity } = getValues();
+    const firstActivity = activity.split(' ')[0];
+    if (activity.includes(' ')) setValue('activity', firstActivity);
+    if (!!area && !!subarea && !!activity) return;
+    if (activity) {
+      setValue('subarea', firstActivity.slice(0, 3));
+      setValue('area', firstActivity[0]);
+      return;
+    }
+    if (subarea) {
+      setValue('area', subarea[0]);
+      return;
+    }
+  }, [setValue, subarea, activity]);
+
+  useEffect(() => {
+    setFilters(getValues());
+  }, [setFilters, area, subarea, activity]);
+
   const [isVisible, setIsVisible] = useState(false);
   const { t } = useTranslation('');
-
-  const subarea = watch('subarea');
 
   return (
     <>
@@ -72,22 +104,18 @@ export const ResultsFilter = ({ setFilters, filters }) => {
               </optgroup>
             ))}
           </select>
-          {!!subarea && (
+          {!!filters.area && !!filters.subarea && (
             <select
               {...register('activity')}
               placeholder="Actividad"
               className="dark"
             >
-              <option value="">Actividad</option>
-              {!!areas[getAreaFromId(subarea)][
-                getSubArea(getAreaFromId(subarea), parseInt(subarea.slice(1)))
+              {!!areas[getArea(filters.area)][
+                getSubAreaFromId(filters.subarea)
               ] &&
                 Object.keys(
-                  areas[getAreaFromId(subarea)][
-                    getSubArea(
-                      getAreaFromId(subarea),
-                      parseInt(subarea.slice(1))
-                    )
+                  areas[getArea(filters.area)][
+                    getSubAreaFromId(filters.subarea)
                   ]
                 ).map((activity) =>
                   getTitle(activity, 'Alias Genérico') ? (
