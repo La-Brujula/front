@@ -26,8 +26,6 @@ export function DataPage() {
   useEffect(() => {
     (async () => {
       if(category) {
-        console.log('searchName', 'array-contains', category);
-
         const _contacts = [];
 
         const users = query(usersRef, where('searchName', 'array-contains', category));

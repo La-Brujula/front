@@ -3,45 +3,85 @@ import { useTranslation } from 'react-i18next';
 import areas from '@shared/constants/areas';
 import regiones from '@shared/constants/regiones';
 import genders from '@shared/constants/genders';
-import { useState } from 'react';
-import languages from '@shared/constants/languages.json';
+import { useEffect, useMemo, useState } from 'react';
 import {
-  getAreaFromId,
-  getSubArea,
+  getArea,
+  getSubAreaFromId,
   getTitle,
 } from '../../../shared/utils/areaUtils';
+import { IconButton } from '@mui/material';
+import {
+  DeleteOutlined,
+  ExpandLessOutlined,
+  ExpandMoreOutlined,
+} from '@mui/icons-material';
+import { ExtraFilters } from './extraFilters';
 
 export const ResultsFilter = ({ setFilters, filters }) => {
   const { register, setValue, getValues, handleSubmit, watch } = useForm({
-    defaultValues: filters || {
-      location: '',
-      remote: undefined,
-      type: '',
-      category: '',
-      language: '',
-      gender: '',
-      schools: '',
-      socialService: undefined,
-      associations: '',
-      sortByReviews: undefined,
+    defaultValues: {
+      ...{
+        name: '',
+        search: '',
+        gender: '',
+        schools: '',
+        associations: '',
+        type: '',
+        remote: undefined,
+        socialService: undefined,
+        sortByReviews: undefined,
+        state: '',
+        category: '',
+        area: '',
+        subarea: '',
+        activity: '',
+      },
+      ...filters,
     },
   });
-  const [isVisible, setIsVisible] = useState(false);
-  const { t } = useTranslation('');
 
+  const area = watch('area');
   const subarea = watch('subarea');
+  const activity = watch('activity');
+
+  useMemo(() => {
+    const { area, subarea, activity } = getValues();
+    const firstActivity = activity.split(' ')[0];
+    if (activity.includes(' ')) setValue('activity', firstActivity);
+    if (!!area && !!subarea && !!activity) return;
+    if (activity) {
+      setValue('subarea', firstActivity.slice(0, 3));
+      setValue('area', firstActivity[0]);
+      return;
+    }
+    if (subarea) {
+      setValue('area', subarea[0]);
+      return;
+    }
+  }, [setValue, subarea, activity]);
+
+  useEffect(() => {
+    setFilters(getValues());
+  }, [setFilters, area, subarea, activity]);
+
+  const [isVisible, setIsVisible] = useState(false);
+  const [moreFiltersVisible, setMoreFiltersVisible] = useState(false);
+  const { t } = useTranslation('search');
 
   return (
-    <>
+    <div className="">
       <div
-        className="lg:hidden px-4 py-2 rounded-md bg-primary text-white cursor-pointer"
+        className="lg:hidden px-4 py-2 rounded-md bg-primary text-white
+        cursor-pointer"
         onClick={() => setIsVisible(!isVisible)}
       >
-        Búsqueda Avanzada
+        {t('filters')}
+        {isVisible ? <ExpandMoreOutlined /> : <ExpandLessOutlined />}
       </div>
       <form
         className={[
-          'flex flex-col gap-8 transition-all sticky top-0',
+          'flex flex-col transition-all lg:sticky top-0 bg-black bg-opacity-20',
+          'p-4 rounded-b-md -mt-2 lg:rounded-t-md lg:mt-0',
           isVisible ? 'h-auto block' : 'h-0 hidden lg:block lg:h-auto',
         ].join(' ')}
         onSubmit={handleSubmit((values) => {
@@ -49,8 +89,25 @@ export const ResultsFilter = ({ setFilters, filters }) => {
         })}
         onChange={() => setFilters(getValues())}
       >
-        <h2 className="text-primary text-xl">Búsqueda Avanzada</h2>
-        <div className="flex flex-col gap-4 py-4">
+        <h2 className="text-primary text-xl hidden lg:block">{t('filters')}</h2>
+        <div className="flex flex-col gap-4 items-stretch">
+          <div className="w-full flex flex-row-reverse">
+            <IconButton
+              className="text-primary cursor-pointer w-fit ml-auto"
+              onClick={() => {
+                Object.keys(getValues()).forEach((key) => {
+                  if (typeof getValues()[key] == 'boolean') {
+                    setValue(key, undefined);
+                  } else {
+                    setValue(key, '');
+                  }
+                });
+                setFilters(getValues());
+              }}
+            >
+              <DeleteOutlined className="text-primary" />
+            </IconButton>
+          </div>
           <select
             className="dark"
             {...register('subarea')}
@@ -72,22 +129,18 @@ export const ResultsFilter = ({ setFilters, filters }) => {
               </optgroup>
             ))}
           </select>
-          {!!subarea && (
+          {!!filters.area && !!filters.subarea && (
             <select
               {...register('activity')}
               placeholder="Actividad"
               className="dark"
             >
-              <option value="">Actividad</option>
-              {!!areas[getAreaFromId(subarea)][
-                getSubArea(getAreaFromId(subarea), parseInt(subarea.slice(1)))
+              {!!areas[getArea(filters.area)][
+                getSubAreaFromId(filters.subarea)
               ] &&
                 Object.keys(
-                  areas[getAreaFromId(subarea)][
-                    getSubArea(
-                      getAreaFromId(subarea),
-                      parseInt(subarea.slice(1))
-                    )
+                  areas[getArea(filters.area)][
+                    getSubAreaFromId(filters.subarea)
                   ]
                 ).map((activity) =>
                   getTitle(activity, 'Alias Genérico') ? (
@@ -117,21 +170,6 @@ export const ResultsFilter = ({ setFilters, filters }) => {
               </optgroup>
             ))}
           </select>
-          <div className="grid grid-cols-[1fr,2rem] items-center text-left border-b border-b-black border-opacity-20">
-            <label
-              className="font-normal w-full cursor-pointer"
-              htmlFor="remote"
-            >
-              {t('Remoto')}
-            </label>
-            <input
-              type="checkbox"
-              placeholder="remote"
-              id="remote"
-              {...register('remote')}
-              className="w-4 h-4 cursor-pointer"
-            />
-          </div>
           <select className="dark" {...register('gender')} placeholder="Género">
             <option value="">{t('Género')}</option>
             {genders.map((e) => (
@@ -141,46 +179,23 @@ export const ResultsFilter = ({ setFilters, filters }) => {
             ))}
             <option value="Persona Moral">Persona Moral</option>
           </select>
-          {/* <div className="flex flex-col gap-4 w-full">
-            <select
-              {...register('language')}
-              className="w-full dark"
-            >
-              <option value="">Idioma</option>
-              {Object.keys(languages).map((defLang) => (
-                <option value={defLang} key={defLang}>
-                  {languages[defLang]}
-                </option>
-              ))}
-              <option value="other">Otro</option>
-            </select>
-            {!!lang && !Object.keys(languages).includes(lang) && (
-              <input
-                type="text"
-                onChange={(e) => setValue('language', e.currentTarget.value, { shouldTouch: true })}
-                placeholder="Escribe aquí el nombre del idioma"
-              />
-            )}
-          </div> */}
-        </div>
-        <div className="flex flex-col gap-2">
-          <p
-            className="text-primary cursor-pointer"
-            onClick={() => {
-              Object.keys(getValues()).forEach((key) => {
-                if (typeof getValues()[key] == 'boolean') {
-                  setValue(key, undefined);
-                } else {
-                  setValue(key, '');
-                }
-              });
-              setFilters(getValues());
-            }}
+          {moreFiltersVisible && (
+            <ExtraFilters
+              setFilters={setFilters}
+              getValues={getValues}
+              register={register}
+              watch={watch}
+            />
+          )}
+          <div
+            className="px-4 py-2 rounded-md bg-primary text-white
+        cursor-pointer"
+            onClick={() => setMoreFiltersVisible(!moreFiltersVisible)}
           >
-            <b>Borrar filtros</b>
-          </p>
+            {moreFiltersVisible ? t('Ver menos') : t('Ver más')}
+          </div>
         </div>
       </form>
-    </>
+    </div>
   );
 };

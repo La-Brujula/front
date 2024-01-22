@@ -12,17 +12,19 @@ export const UserCard = ({ user }) => {
         <img
           src={user.profilePictureUrl}
           alt={`${user.nickname || user.name} profile picture`}
-          className="w-20 h-20 rounded-full shrink-0 row-span-2 object-cover object-center"
+          className="w-20 h-20 rounded-full shrink-0 row-span-2 object-cover
+          object-center"
         />
       ) : (
         <img
           src={
             user.type == 'moral'
-              ? '/guias/fotoDePerfil/casita.png'
+              ? '/guias/fotoDePerfil/casita.jpg'
               : '/guias/fotoDePerfil/Monito.jpg'
           }
           alt="ImagenPreminada"
-          className="h-20 w-20 rounded-full bg-white shrink-0 row-span-2"
+          className="h-20 w-20 rounded-full bg-white shrink-0 row-span-2
+          object-cover object-center"
           loading="eager"
         />
       )}

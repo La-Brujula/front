@@ -26,11 +26,11 @@ export function AboutHero() {
               alt={t('mexicoDestinoDeFilmacion')}
               className="h-16 lg:h-20"
             />
-            <img
+            {/* <img
               src={import.meta.env.BASE_URL + '}'}
               alt={t('')}
               className="h-20 lg:h-32"
-            />
+            /> */}
           </div>
         </div>
         <p className='text-justify'>

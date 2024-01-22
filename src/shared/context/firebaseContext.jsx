@@ -189,7 +189,9 @@ export const firestore = (() => {
   };
 
   const getQuerySize = async (queries) => {
-    return (await getCountFromServer(queries)).data().count;
+    const ref = collection(db, 'users');
+    const q = query(ref, ...queries);
+    return (await getCountFromServer(q)).data().count;
   };
 
   const queryInfo = async (queries) => {

@@ -3,10 +3,9 @@ import { BannerAnuncios } from '../components/bannerAnuncios';
 import anuncios from '@shared/constants/anuncios.json';
 import DownloadGuides from '../components/downloadGuides';
 import HeroSection from '../components/heroSection';
-import SearchByCategory from '../components/searchByCategory';
-import SearchByQuery from '../components/searchByQuery';
 import { LoginOrProfile } from '../components/loginOrProfile';
 import { lazy } from 'react';
+import { SearchModules } from '../components/searchModules';
 
 const QuotesSlider = lazy(() => import('../components/quotesSlider'));
 
@@ -18,8 +17,7 @@ export default () => {
         <BannerAnuncios anuncios={anuncios.hero} dots={false} />
         <LoginOrProfile />
       </div>
-      <SearchByQuery />
-      <SearchByCategory />
+      <SearchModules />
       <DownloadGuides />
       <QuotesSlider />
       <div className="my-8"></div>

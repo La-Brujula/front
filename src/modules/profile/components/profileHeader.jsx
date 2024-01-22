@@ -35,7 +35,7 @@ export const ProfileHeader = ({ user }) => {
             />
           ) : (
             <img
-            src={user.type == "moral" ? "/guias/fotoDePerfil/casita.png" : "/guias/fotoDePerfil/Monito.jpg"} 
+            src={user.type == "moral" ? "/guias/fotoDePerfil/casita.jpg" : "/guias/fotoDePerfil/Monito.jpg"} 
             alt="ImagenPreminada"
             className="w-48 h-48 bg-white rounded-[50%] object-cover object-center"
             loading="eager"
