@@ -5,6 +5,7 @@ import {
   getSubAreaFromId,
   getTitle,
 } from '@shared/utils/areaUtils';
+import { useTranslation } from 'react-i18next';
 
 export const AreaForms = ({ defaultValue, gender, changeListener }) => {
   const { register, watch } = useForm({
@@ -16,6 +17,8 @@ export const AreaForms = ({ defaultValue, gender, changeListener }) => {
   });
   const area = watch('area');
   const subarea = watch('subarea');
+
+  const { t } = useTranslation('auth');
 
   const areaHasValid = (area) => {
     return Object.keys(areas[area]).some((subarea) =>
@@ -36,8 +39,8 @@ export const AreaForms = ({ defaultValue, gender, changeListener }) => {
       className="grid grid-cols-1 md:grid-cols-[max-content_1fr]
     text-left md:text-right gap-y-4 gap-x-2 w-full items-center"
     >
-      <label htmlFor="area">Area</label>
-      <select {...register('area')} placeholder="Area">
+      <label htmlFor="area">{t('Área')}</label>
+      <select {...register('area')} placeholder={t('Área')}>
         <option value="">Selecciona una opción</option>
         {Object.keys(areas).map((area) =>
           areaHasValid(area) ? (
@@ -51,7 +54,7 @@ export const AreaForms = ({ defaultValue, gender, changeListener }) => {
       </select>
       {!!area && (
         <>
-          <label htmlFor="subarea">Subarea</label>
+          <label htmlFor="subarea">{t('Subárea')}</label>
           <select {...register('subarea')}>
             <option value="">Selecciona una opción</option>
             {Object.keys(areas[area]).map((subarea) =>
