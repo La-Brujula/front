@@ -42,15 +42,7 @@ export const UserProfilePage = ({ user }) => {
             className="flex flex-col gap-6 w-full justify-items-stretch mt-8 max-w-lg
           xl:max-w-3xl mx-auto xl:mx-0 text-left xl:-translate-y-42"
           >
-            {!!user.headline && (
-              <p className="relative text-center my-8">
-                {user.headline}
-                <img
-                  className="absolute -top-8 left-0 h-6 w-6"
-                  src={import.meta.env.BASE_URL + 'img/Apostrofe.svg'}
-                />
-              </p>
-            )}
+            
             <Recommendations user={user}/>
             {!!user.characteristics && (
               <div>
