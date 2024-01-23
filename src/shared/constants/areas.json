@@ -2066,7 +2066,7 @@
             }
         }
     },
-    "Crew": {
+    "Equipo Humano": {
         "Producción": {
             "301-01": {
                 "Femenino": {
@@ -3352,7 +3352,7 @@
                 ]
             }
         },
-        "Staff": {
+        "Técnicos": {
             "304-01": {
                 "Femenino": {
                     "fr": null,
@@ -3384,7 +3384,7 @@
                     "Iluminación",
                     "Iluminadores",
                     "Gaffers",
-                    "Jefes de staff",
+                    "Jefes de Staff",
                     "Best Boy",
                     "Film Crew",
                     "Production Crew",
@@ -3396,12 +3396,12 @@
             "304-02": {
                 "Femenino": {
                     "fr": null,
-                    "es": "Jefa de staff",
+                    "es": "Jefa de Staff",
                     "en": null
                 },
                 "Masculino": {
                     "fr": null,
-                    "es": "Jefe de staff",
+                    "es": "Jefe de Staff",
                     "en": null
                 },
                 "No Binario": {
@@ -3424,7 +3424,7 @@
                     "Iluminación",
                     "Iluminadores",
                     "Gaffers",
-                    "Jefes de staff",
+                    "Jefes de Staff",
                     "Best Boy",
                     "Key Grip",
                     "Grip",
