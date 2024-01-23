@@ -17,12 +17,11 @@ export const NameSearchField = () => {
       action="/buscar"
       method="get"
       onSubmit={handleSubmit((values) => {
-        if (!values.search) throw Error('No query');
         navigate(`/buscar?search=${values.search}`);
       })}
       className="grid grid-cols-1 lg:grid-cols-[1fr_min-content]
-      gap-4 justify-items-stretch flex-grow !max-w-32
-      bg-primary px-4 py-8 rounded-lg lg:-mx-4"
+      gap-4 justify-items-stretch flex-grow max-w-32 lg:max-w-none w-full
+      bg-primary px-4 py-8 rounded-lg"
       style={{ fontWeight: '700' }}
     >
       <input

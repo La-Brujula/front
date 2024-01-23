@@ -11,6 +11,7 @@ import CloseOutlined from '@mui/icons-material/CloseOutlined';
 import { useNavigate } from 'react-router-dom';
 import { useAreasReducer } from '../hooks/useAreasReducer';
 import { useState } from 'react';
+import { ActivityLookupField } from '../components/activityLookupField';
 
 export const AreasRegistration = () => {
   const auth = useContext(AuthContext);
@@ -26,7 +27,7 @@ export const AreasRegistration = () => {
     removeElement,
   } = useAreasReducer(user?.subareas);
 
-  const { t } = useTranslation();
+  const { t } = useTranslation('auth');
 
   useMemo(() => {
     if (!user?.subareas) return;
@@ -47,7 +48,7 @@ export const AreasRegistration = () => {
   ) : (
     <>
       <div className="flex flex-col gap-8">
-        <h1>Areas</h1>
+        <h1>{t('Áreas')}</h1>
         {activities.map((activity, i) => (
           <div
             key={i}
@@ -67,12 +68,15 @@ export const AreasRegistration = () => {
         ))}
       </div>
       {activities.length < 3 && (
-        <div
-          className="cursor-pointer mt-6 px-4 py-2 bg-secondary text-white
-        rounded-md mx-auto w-fit"
-          onClick={() => dispatch({ type: 'add' })}
-        >
-          Agregar otra actividad
+        <div className="mt-4">
+          <ActivityLookupField setValue={changeListener(activities.length)} />
+          <div
+            className="cursor-pointer mt-6 px-4 py-2 bg-secondary text-white
+          rounded-md mx-auto w-fit"
+            onClick={() => dispatch({ type: 'add' })}
+          >
+            {t('Agregar otra actividad')}
+          </div>
         </div>
       )}
       {!!error && (
@@ -81,7 +85,10 @@ export const AreasRegistration = () => {
         </div>
       )}
       <div className="flex flex-row gap-4 self-center w-full justify-center mt-4">
-        <div className="button font-bold bg-transparent border border-primary text-black" onClick={() => navigate(-1)}>
+        <div
+          className="button font-bold bg-transparent border border-primary text-black"
+          onClick={() => navigate(-1)}
+        >
           {t('Regresar')}
         </div>
         <div

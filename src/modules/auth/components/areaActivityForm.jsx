@@ -19,12 +19,12 @@ export const AreaActivity = () => {
         try {
           await brujula.updateUserInfo({ subarea: data.activity });
           navigate('../resumen');
-        } catch {
-          console.log;
+        } catch (e) {
+          console.error(e);
         }
       })}
     >
-      <div className="button mb-4">{t(area)}</div>
+      <div className="button mb-4">{t(Área)}</div>
       <input type="hidden" value={area} />
       <select
         {...register('activity', { required: true })}
@@ -40,7 +40,10 @@ export const AreaActivity = () => {
         )}
       </select>
       <div className="flex flex-row gap-4 self-center mt-8 justify-center">
-        <div className="button font-bold bg-transparent border border-primary text-black" onClick={() => navigate(-1)}>
+        <div
+          className="button font-bold bg-transparent border border-primary text-black"
+          onClick={() => navigate(-1)}
+        >
           {t('Regresar')}
         </div>
         <input type="submit" className="border-none" value={t('Continuar')} />

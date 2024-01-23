@@ -4,14 +4,13 @@ import { useAuth } from '@shared/context/firebaseContext';
 import { NavLink } from 'react-router-dom';
 import { getTitle } from '@shared/utils/areaUtils';
 
-
 export const ProfileHeader = ({ user }) => {
   const { t } = useTranslation('user');
   const { getUserEmail } = useAuth();
 
   return !!user ? (
     <div className="max-w-2xl mx-auto w-full">
-      <div className="flex flex-col gap-6 mx-auto xl:ml-0 items-center max-w-xs">
+      <div className="flex flex-col gap-2 mx-auto xl:ml-0 items-center max-w-xs">
         {!!user.coverPictureUrl ? (
           <img
             src={user.coverPictureUrl || ''}
@@ -35,19 +34,25 @@ export const ProfileHeader = ({ user }) => {
             />
           ) : (
             <img
-            src={user.type == "moral" ? "/guias/fotoDePerfil/casita.jpg" : "/guias/fotoDePerfil/Monito.jpg"} 
-            alt="ImagenPreminada"
-            className="w-48 h-48 bg-white rounded-[50%] object-cover object-center"
-            loading="eager"
-          />
+              src={
+                user.type == 'moral'
+                  ? '/guias/fotoDePerfil/casita.jpg'
+                  : '/guias/fotoDePerfil/Monito.jpg'
+              }
+              alt="ImagenPreminada"
+              className="w-48 h-48 bg-white rounded-[50%] object-cover object-center"
+              loading="eager"
+            />
           )}
         </div>
-        <br></br>
+        {!!user.headline && (
+          <p className="relative text-center italic text-xs mb-2">{user.headline}</p>
+        )}
         <div className="flex flex-col gap-1 text-center relative">
           <h3 className="text-md font-normal">
             {user.nickname
               ? user.nickname
-              : [user.name, user.lastname].filter(a => !!a).join(' ')}
+              : [user.name, user.lastname].filter((a) => !!a).join(' ')}
           </h3>
           {!!user.subareas &&
             user.subareas.map((activity) => (
