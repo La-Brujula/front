@@ -10,8 +10,8 @@ POSTUPDATE_ID=$(git rev-parse HEAD)
 
 [ $INITIAL_ID = $POSTUPDATE_ID ] && exit 0
 
-yarn run install
+yarn
 
-yarn run build
+yarn build
 
 echo "built $(date)" >> builds.log
