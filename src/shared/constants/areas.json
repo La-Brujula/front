@@ -3384,7 +3384,7 @@
                     "Iluminación",
                     "Iluminadores",
                     "Gaffers",
-                    "Jefes de Staff",
+                    "Jefes de staff",
                     "Best Boy",
                     "Film Crew",
                     "Production Crew",
@@ -3396,12 +3396,12 @@
             "304-02": {
                 "Femenino": {
                     "fr": null,
-                    "es": "Jefa de Staff",
+                    "es": "Jefa de staff",
                     "en": null
                 },
                 "Masculino": {
                     "fr": null,
-                    "es": "Jefe de Staff",
+                    "es": "Jefe de staff",
                     "en": null
                 },
                 "No Binario": {
@@ -3424,7 +3424,7 @@
                     "Iluminación",
                     "Iluminadores",
                     "Gaffers",
-                    "Jefes de Staff",
+                    "Jefes de staff",
                     "Best Boy",
                     "Key Grip",
                     "Grip",
@@ -3438,17 +3438,17 @@
             "304-03": {
                 "Femenino": {
                     "fr": null,
-                    "es": "Staff",
+                    "es": "staff",
                     "en": null
                 },
                 "Masculino": {
                     "fr": null,
-                    "es": "Staff",
+                    "es": "staff",
                     "en": null
                 },
                 "No Binario": {
                     "fr": null,
-                    "es": "Staff",
+                    "es": "staff",
                     "en": null
                 },
                 "Persona Moral": {
@@ -3458,7 +3458,7 @@
                 },
                 "Alias Genérico": {
                     "fr": null,
-                    "es": "Staff",
+                    "es": "staff",
                     "en": "Grip Crew"
                 },
                 "Referentes": [
@@ -3467,7 +3467,7 @@
                     "Eléctricos",
                     "Iluminadores",
                     "Personal",
-                    "Staff",
+                    "staff",
                     "Best Boy",
                     "Key Grip",
                     "Grip",
