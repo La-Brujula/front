@@ -3438,17 +3438,17 @@
             "304-03": {
                 "Femenino": {
                     "fr": null,
-                    "es": "staff",
+                    "es": "Staff",
                     "en": null
                 },
                 "Masculino": {
                     "fr": null,
-                    "es": "staff",
+                    "es": "Staff",
                     "en": null
                 },
                 "No Binario": {
                     "fr": null,
-                    "es": "staff",
+                    "es": "Staff",
                     "en": null
                 },
                 "Persona Moral": {
@@ -3458,7 +3458,7 @@
                 },
                 "Alias Genérico": {
                     "fr": null,
-                    "es": "staff",
+                    "es": "Staff",
                     "en": "Grip Crew"
                 },
                 "Referentes": [
@@ -3467,7 +3467,7 @@
                     "Eléctricos",
                     "Iluminadores",
                     "Personal",
-                    "staff",
+                    "Staff",
                     "Best Boy",
                     "Key Grip",
                     "Grip",
