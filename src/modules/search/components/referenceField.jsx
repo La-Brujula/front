@@ -8,7 +8,7 @@ export const ReferenceField = ({ defaultValue, setValue }) => {
   return (
     <ReactSearchAutocomplete
       className="font-bold border-2 border-white bg-transparent
-        text-white placeholder:text-white grow"
+        text-white placeholder:text-white w-full min-w-64 max-w-xl"
       styling={{
         backgroundColor: 'rgb(45 123 191 / var(--tw-bg-opacity))',
         fontWeight: '700',
@@ -16,7 +16,6 @@ export const ReferenceField = ({ defaultValue, setValue }) => {
         borderColor: 'rgb(237 237 237 / var(--tw-border-opacity))',
         hoverBackgroundColor: 'rgb(27 167 227 / var(--tw-bg-opacity))',
         borderWidth: '2px',
-        flexGrow: '1',
         iconColor: 'white',
         borderRadius: '0.375rem',
         placeholderColor: 'white',
