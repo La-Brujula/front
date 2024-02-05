@@ -9,9 +9,12 @@ import { replaceSearchTermsFromIndex } from '../../../shared/utils/busqueda';
 import useDebounce from '../../../shared/hooks/useDebounce';
 import { SearchOutlined } from '@mui/icons-material';
 import ReactVisibilitySensor from 'react-visibility-sensor';
+import { useTranslation } from 'react-i18next';
 
 export const SearchResultsPage = () => {
   const [searchParams] = useSearchParams();
+
+  const { t } = useTranslation('search');
 
   const {
     results,
@@ -52,33 +55,33 @@ export const SearchResultsPage = () => {
     <>
       <div className="bg-primary absolute top-0 h-48 w-full left-0 -z-10" />
       <div
-        className="font-bold border-2 border-white bg-transparent
-      text-white placeholder:text-white w-fit flex flex-row gap-1
-      justify-center items-center px-2 mx-auto"
-        style={{
-          backgroundColor: 'rgb(45 123 191 / var(--tw-bg-opacity))',
-          fontWeight: '700',
-          border: '2px solid #dfe1e5',
-          borderColor: 'rgb(237 237 237 / var(--tw-border-opacity))',
-          hoverBackgroundColor: 'rgb(27 167 227 / var(--tw-bg-opacity))',
-          borderWidth: '2px',
-          flexGrow: '1',
-          iconColor: 'white',
-          borderRadius: '0.375rem',
-          placeholderColor: 'white',
-          color: 'rgb(237 237 237 / var(--tw-text-opacity))',
-          zIndex: 1,
-        }}
+        className="w-full grid grid-cols-[1fr_max-content]
+      gap-4 text-white font-bold items-center px-4"
       >
-        <SearchOutlined />
-        <input
-          type="text"
-          defaultValue={search}
-          onChange={(ev) => setSearch(ev.currentTarget.value)}
-          className="border-none bg-transparent focus:outline-none"
-        />
+        <div
+          className="font-bold border-2 border-white bg-transparent
+        text-white placeholder:text-white flex flex-row gap-1
+        justify-start items-center px-2 mx-auto rounded-md
+        z-10 w-full"
+          style={{
+            backgroundColor: 'rgb(45 123 191 / var(--tw-bg-opacity))',
+            border: '2px solid #dfe1e5',
+            borderColor: 'rgb(237 237 237 / var(--tw-border-opacity))',
+            hoverBackgroundColor: 'rgb(27 167 227 / var(--tw-bg-opacity))',
+            flexGrow: '1',
+            iconColor: 'white',
+          }}
+        >
+          <SearchOutlined />
+          <input
+            type="text"
+            defaultValue={search}
+            onChange={(ev) => setSearch(ev.currentTarget.value)}
+            className="border-none bg-transparent focus:outline-none"
+          />
+        </div>
         <p>
-          {results?.length}/{total || '...'}
+          {total || '...'} {t('resultados')}
         </p>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-[20rem_2rem_1fr] gap-12 mt-16">

@@ -20,7 +20,7 @@ export const NameSearchField = () => {
         navigate(`/buscar?search=${values.search}`);
       })}
       className="grid grid-cols-1 lg:grid-cols-[1fr_min-content]
-      gap-4 justify-items-stretch flex-grow max-w-32 lg:max-w-none w-full
+      gap-4 justify-items-stretch flex-grow w-full
       bg-primary px-4 py-8 rounded-lg"
       style={{ fontWeight: '700' }}
     >
