@@ -4,8 +4,8 @@ import contactInformation from '../constants/brujulaInformation.json';
 export function SocialLinks() {
   const { t } = useTranslation();
   return (
-    <div className="flex flex-col gap-4">
-      <div className="flex flex-row gap-8 mx-auto">
+    <div className="flex flex-col gap-2 lg:gap-4 -order-10 md:order-none">
+      <div className="flex flex-row gap-8 mx-auto order-last md:order-none">
         <a target="_blank" href={contactInformation.facebook}>
           <img
             src={import.meta.env.BASE_URL + 'img/FBIcon.svg'}
