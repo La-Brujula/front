@@ -17,7 +17,7 @@ export const UserProfilePage = ({ user }) => {
         <div className="flex flex-col xl:flex-row xl:gap-16 order-last xl:order-first xl:shrink">
           <div className="flex flex-col gap-4 justify-items-stretch mt-8 max-w-sm w-full mx-auto text-left">
             <ContactSection user={user} />
-            {!!user.university && (
+            {!!user.university && user.type != 'moral' && (
               <div className="py-8">
                 <div className="absolute left-0 -z-10 -my-4 overflow-hidden transform w-full">
                   <div className="bg-black bg-opacity-20 w-full h-20 xl:w-1/2 xl:rounded-r-md"></div>
