@@ -3,7 +3,8 @@ import EmailOutlined from '@mui/icons-material/EmailOutlined';
 import PhoneOutlined from '@mui/icons-material/PhoneOutlined';
 import WhatsApp from '@mui/icons-material/WhatsApp';
 import Instagram from '@mui/icons-material/Instagram';
-import Twitter from '@mui/icons-material/Twitter';
+import Twitter from '@mui/icons-material/X';
+import Linkedin from '@mui/icons-material/LinkedIn';
 import YouTube from '@mui/icons-material/YouTube';
 import LinkOutlined from '@mui/icons-material/LinkOutlined';
 
@@ -61,7 +62,7 @@ export const ContactSection = ({ user }) => {
           </div>
         </>
       )}
-      {!!user.email && (
+      {!!user.email && !(user.type == 'moral' && user.altEmail) && (
         <>
           <h3>
             <EmailOutlined />
@@ -193,7 +194,7 @@ export const ContactSection = ({ user }) => {
       )}
       {!!user.linkedin && (
         <>
-          <h3>LinkedIn</h3>
+          <Linkedin />
           <a
             target="_blank"
             className="truncate block w-full"

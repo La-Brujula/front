@@ -46,7 +46,7 @@ export const ProfileHeader = ({ user }) => {
           )}
         </div>
         {!!user.headline && (
-          <p className="relative text-center italic text-xs mb-2">{user.headline}</p>
+          <p className="relative text-center italic text-sm mb-2">{user.headline}</p>
         )}
         <div className="flex flex-col gap-1 text-center relative">
           <h3 className="text-md font-normal">

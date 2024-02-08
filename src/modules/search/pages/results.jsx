@@ -77,7 +77,7 @@ export const SearchResultsPage = () => {
             type="text"
             defaultValue={search}
             onChange={(ev) => setSearch(ev.currentTarget.value)}
-            className="border-none bg-transparent focus:outline-none"
+            className="border-none bg-transparent focus:outline-none w-full"
           />
         </div>
         <p>

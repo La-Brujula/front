@@ -65,7 +65,7 @@ export const BasicInfo = () => {
           autoComplete={user?.type != 'moral' && 'given-name'}
           required
         />
-        {user?.type != 'moral' ? (
+        {user?.type != 'moral' && (
           <>
             <label htmlFor="lastname" className="col-span-1">
               {t('Apellido (s)')} *
@@ -78,8 +78,6 @@ export const BasicInfo = () => {
               required={user?.type == 'moral'}
             />
           </>
-        ) : (
-          <></>
         )}
         {user?.type != 'moral' ? (
           <>
@@ -106,19 +104,22 @@ export const BasicInfo = () => {
             value="Persona Moral"
           />
         )}
-        {user?.type != 'moral' && <>
-          <label htmlFor="birthday" className="col-span-1">
-            {t('Fecha de nacimiento')}
-          </label>
-          <input
-            type="date"
-            id="birthady"
-            {...register('birthday')}
-            autoComplete={user?.type != 'moral' && 'birthday'}
-          />
-        </>
-        }
-        <p className="col-span-full text-xs">Este dato solamente es para uso interno</p>
+        {user?.type != 'moral' && (
+          <>
+            <label htmlFor="birthday" className="col-span-1">
+              {t('Fecha de nacimiento')}
+            </label>
+            <input
+              type="date"
+              id="birthady"
+              {...register('birthday')}
+              autoComplete={user?.type != 'moral' && 'birthday'}
+            />
+          </>
+        )}
+        <p className="col-span-full text-xs">
+          Este dato solamente es para uso interno
+        </p>
         <div className="col-span-2 flex flex-col gap-4 text-center">
           <label htmlFor="nickname" className="col-span-1">
             {t('Nombre con el que quieres aparecer')}
@@ -171,7 +172,10 @@ export const BasicInfo = () => {
       )}
       {!!error && <ErrorMessage message={error.toString()} />}
       <div className="flex flex-row gap-4 self-center">
-        <div className="button font-bold bg-transparent border border-primary text-black" onClick={() => navigate(-1)}>
+        <div
+          className="button font-bold bg-transparent border border-primary text-black"
+          onClick={() => navigate(-1)}
+        >
           {t('Regresar')}
         </div>
         <input type="submit" className="border-none" value={t('Continuar')} />

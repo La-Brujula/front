@@ -17,7 +17,7 @@ export const UserProfilePage = ({ user }) => {
         <div className="flex flex-col xl:flex-row xl:gap-16 order-last xl:order-first xl:shrink">
           <div className="flex flex-col gap-4 justify-items-stretch mt-8 max-w-sm w-full mx-auto text-left">
             <ContactSection user={user} />
-            {!!user.university && (
+            {!!user.university && user.type != 'moral' && (
               <div className="py-8">
                 <div className="absolute left-0 -z-10 -my-4 overflow-hidden transform w-full">
                   <div className="bg-black bg-opacity-20 w-full h-20 xl:w-1/2 xl:rounded-r-md"></div>
@@ -26,7 +26,7 @@ export const UserProfilePage = ({ user }) => {
                 <p>{user.university}</p>
               </div>
             )}
-            {user.probono !== undefined && (
+            {!!user.probono && (
               <div className="py-8">
                 <div className="absolute left-0 -z-10 -my-4 overflow-hidden transform w-full">
                   <div className="bg-black bg-opacity-20 w-full h-20 xl:w-1/2 xl:rounded-r-md"></div>
@@ -34,7 +34,7 @@ export const UserProfilePage = ({ user }) => {
                 <h4 className="font-normal text-primary">
                   Interés en ser becario, servicio social:
                 </h4>
-                <p>{user.probono ? 'Sí' : 'No'}</p>
+                <p>{Sí}</p>
               </div>
             )}
           </div>
@@ -42,8 +42,7 @@ export const UserProfilePage = ({ user }) => {
             className="flex flex-col gap-6 w-full justify-items-stretch mt-8 max-w-lg
           xl:max-w-3xl mx-auto xl:mx-0 text-left xl:-translate-y-42"
           >
-            
-            <Recommendations user={user}/>
+            <Recommendations user={user} />
             {!!user.characteristics && (
               <div>
                 <h4 className="font-normal text-primary">{t('Semblanza')}</h4>
@@ -59,11 +58,10 @@ export const UserProfilePage = ({ user }) => {
                       <h5 className="font-normal">
                         {languages[lang] || t(lang)}
                       </h5>
-                      <p className='opacity-60'>{t(proficiency)}</p>
+                      <p className="opacity-60">{t(proficiency)}</p>
                     </>
                   ))}
                 </div>
-
               </div>
             )}
             {!!user.asociations && (
