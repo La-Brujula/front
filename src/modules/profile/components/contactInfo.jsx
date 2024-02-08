@@ -61,7 +61,7 @@ export const ContactSection = ({ user }) => {
           </div>
         </>
       )}
-      {!!user.email && (
+      {!!user.email && !(user.type == 'moral' && user.altEmail) && (
         <>
           <h3>
             <EmailOutlined />
