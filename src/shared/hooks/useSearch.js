@@ -184,6 +184,12 @@ export const useSearch = () => {
       try {
         results.current = [];
         const queries = getQueries(filters);
+        if (queries.length == 1) {
+          setError('Agrega al menos un filtro');
+          setLoading(false);
+          setHasMore(false);
+          return;
+        }
         const data = await getResultsWithFilters(queries);
         results.current = data;
         setHasMore(!!data.length && data.length > 4);
