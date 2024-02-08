@@ -94,7 +94,7 @@ export const SearchResultsPage = () => {
           {!!results && results.length > 0 ? (
             <UsersList users={results} getNext={getNext} />
           ) : (
-            !loading && <p>No se encontraron resultados</p>
+            !loading && !error && <p>No se encontraron resultados</p>
           )}
           {loading && <LoadingSpinner />}
           {!loading && hasMore && (
