@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { SearchBasePage } from './pages/base';
 import { SearchResultsPage } from './pages/results';
 import SubCategoryPage from './pages/subcategory';
-import SearchByCategory from './components/searchByCategory';
+import SearchByCategory from './pages/searchByCategory';
 
 export default () => (
   <Routes>

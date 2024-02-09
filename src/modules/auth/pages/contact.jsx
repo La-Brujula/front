@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import Instagram from '@mui/icons-material/Instagram';
 import LinkedIn from '@mui/icons-material/LinkedIn';
-import Twitter from '@mui/icons-material/Twitter';
+import Twitter from '@mui/icons-material/X';
 import YouTube from '@mui/icons-material/YouTube';
 import WhatsApp from '@mui/icons-material/WhatsApp';
 import LinkOutlined from '@mui/icons-material/LinkOutlined';

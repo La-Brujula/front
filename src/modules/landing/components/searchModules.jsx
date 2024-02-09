@@ -8,7 +8,7 @@ export const SearchModules = () => {
   return (
     <Container bg="whitetoblue">
       <p className="text-primary font-bold text-xl mb-4">{t('contactCTA')}</p>
-      <div className="flex flex-col md:flex-row gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 md:flex-row gap-8">
         <NameSearchField />
         <NavLink
           to="/buscar/category"

@@ -69,7 +69,7 @@ export const ProfileSummary = () => {
           {user.phone}
         </a>
       </div>
-      <div className="flex flex-row gap-4 self-center justify-center mt-8">
+      <div className="flex flex-row gap-4 self-center justify-center my-8">
         <NavLink to="../destaca">
           <div className="button font-bold">{t('Continuar')}</div>
         </NavLink>
