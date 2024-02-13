@@ -39,13 +39,13 @@ function SearchByCategory() {
             navigate(`/buscar?${queryType}=${parsed}`);
           })}
           className="flex flex-col lg:flex-row items-center justify-center
-        gap-4 bg-primary px-4 py-8 rounded-lg lg:-mx-4 font-bold"
+        gap-4 bg-primary p-4 rounded-lg lg:-mx-4 font-bold"
         >
           <ReferenceField setValue={(value) => setValue('search', value)} />
           <button
             type="submit"
             disabled={!buscar}
-            className="text-black bg-white p-4 rounded-full disabled:opacity-50"
+            className="text-black bg-white p-4 h-16 w-16 rounded-full disabled:opacity-50"
           >
             <SearchOutlined />
           </button>

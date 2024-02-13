@@ -47,7 +47,7 @@ export const NameSearchField = () => {
         }}
         placeholder={t('searchByName')}
       />
-      <button type="submit" className="text-black bg-white p-4 rounded-full">
+      <button type="submit" className="text-black bg-white p-4 w-16 h-16 rounded-full">
         <SearchOutlined />
       </button>
     </Form>
