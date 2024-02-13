@@ -4,8 +4,9 @@ import { PorCategorias } from '@modules/search/components/categorias';
 import categories from '@shared/constants/categories';
 import { Form, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { ReferenceField } from './referenceField';
+import { ReferenceField } from '../components/referenceField';
 import { replaceSearchTermsFromIndex } from '../../../shared/utils/busqueda';
+import { SearchOutlined } from '@mui/icons-material';
 
 function SearchByCategory() {
   const { t } = useTranslation('search');
@@ -38,16 +39,16 @@ function SearchByCategory() {
             navigate(`/buscar?${queryType}=${parsed}`);
           })}
           className="flex flex-col lg:flex-row items-center justify-center
-        gap-4 bg-primary px-4 py-8 rounded-lg lg:-mx-4 font-bold"
+        gap-4 bg-primary p-4 rounded-lg lg:-mx-4 font-bold"
         >
           <ReferenceField setValue={(value) => setValue('search', value)} />
-          <input
+          <button
             type="submit"
-            className="!bg-white !text-primary font-bold
-          disabled:!opacity-50 disabled:cursor-not-allowed"
-            value={t('search')}
             disabled={!buscar}
-          />
+            className="text-black bg-white p-4 h-16 w-16 rounded-full disabled:opacity-50"
+          >
+            <SearchOutlined />
+          </button>
         </Form>
         <div className="my-8"></div>
       </Container>

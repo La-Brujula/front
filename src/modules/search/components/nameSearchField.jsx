@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { Form, useNavigate } from 'react-router-dom';
+import { SearchOutlined } from '@mui/icons-material';
 
 export const NameSearchField = () => {
   const { t } = useTranslation('search');
@@ -19,9 +20,9 @@ export const NameSearchField = () => {
       onSubmit={handleSubmit((values) => {
         navigate(`/buscar?search=${values.search}`);
       })}
-      className="grid grid-cols-1 lg:grid-cols-[1fr_min-content]
+      className="grid grid-cols-[1fr_min-content] lg:grid-cols-[1fr_min-content]
       gap-4 justify-items-stretch flex-grow w-full
-      bg-primary px-4 py-8 rounded-lg"
+      bg-primary p-4 rounded-lg"
       style={{ fontWeight: '700' }}
     >
       <input
@@ -46,11 +47,9 @@ export const NameSearchField = () => {
         }}
         placeholder={t('searchByName')}
       />
-      <input
-        type="submit"
-        value={t('search')}
-        className="px-4 py-2 !bg-white !text-primary"
-      />
+      <button type="submit" className="text-black bg-white p-4 w-16 h-16 rounded-full">
+        <SearchOutlined />
+      </button>
     </Form>
   );
 };

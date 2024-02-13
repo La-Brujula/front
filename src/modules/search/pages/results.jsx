@@ -84,7 +84,7 @@ export const SearchResultsPage = () => {
           {total || '...'} {t('resultados')}
         </p>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-[20rem_2rem_1fr] gap-12 mt-16">
+      <div className="grid grid-cols-1 lg:grid-cols-[20rem_1fr] gap-12 mt-16">
         <ResultsFilter setFilters={setFilterObject} filters={filters} />
         <div
           className="flex flex-col gap-8 text-left bg-black bg-opacity-20

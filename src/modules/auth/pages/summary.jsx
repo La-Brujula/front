@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useUserInfo } from '@shared/hooks/useUserInfo';
 import { LoadingSpinner } from '@shared/components/loadingSpinner';
-import { ErrorMessage } from '@shared/components/errorMessage';
+import ErrorMessage from '@shared/components/errorMessage';
 import { NavLink } from 'react-router-dom';
 import { ProfileHeader } from '@modules/profile/components/profileHeader';
 import EmailOutlined from '@mui/icons-material/EmailOutlined';
@@ -69,7 +69,7 @@ export const ProfileSummary = () => {
           {user.phone}
         </a>
       </div>
-      <div className="flex flex-row gap-4 self-center justify-center mt-8">
+      <div className="flex flex-row gap-4 self-center justify-center my-8">
         <NavLink to="../destaca">
           <div className="button font-bold">{t('Continuar')}</div>
         </NavLink>

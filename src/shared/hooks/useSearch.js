@@ -184,12 +184,14 @@ export const useSearch = () => {
       try {
         results.current = [];
         const queries = getQueries(filters);
+        console.log(queries.length);
         if (queries.length == 1) {
-          setError('Agrega al menos un filtro');
           setLoading(false);
           setHasMore(false);
+          setError('Agrega al menos un filtro');
           return;
         }
+        console.log('reached');
         const data = await getResultsWithFilters(queries);
         results.current = data;
         setHasMore(!!data.length && data.length > 4);
@@ -205,6 +207,12 @@ export const useSearch = () => {
     (async () => {
       try {
         const queries = getQueries(filters);
+        if (queries.length == 1) {
+          setLoading(false);
+          setHasMore(false);
+          setError('Agrega al menos un filtro');
+          return;
+        }
         const data = await getResultsWithFilters(queries);
         results.current.push(...data);
         setHasMore(!!data.length && data.length > 9);

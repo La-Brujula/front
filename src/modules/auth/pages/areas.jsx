@@ -2,7 +2,7 @@ import AddOutlined from '@mui/icons-material/AddOutlined';
 import { useContext, useMemo } from 'react';
 import { useUserInfo } from '@shared/hooks/useUserInfo';
 import { LoadingSpinner } from '@shared/components/loadingSpinner';
-import { ErrorMessage } from '@shared/components/errorMessage';
+import ErrorMessage from '@shared/components/errorMessage';
 import AreaForms from '../components/areaForm';
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import { AuthContext } from '@shared/context/firebaseContext';
@@ -68,7 +68,7 @@ export const AreasRegistration = () => {
         ))}
       </div>
       {activities.length < 3 && (
-        <div className="mt-4">
+        <div className="mt-12 grid justify-center">
           <ActivityLookupField setValue={changeListener(activities.length)} />
           <div
             className="cursor-pointer mt-6 px-4 py-2 bg-secondary text-white
