@@ -8,7 +8,7 @@ import { AuthContext } from '@shared/context/firebaseContext';
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import { useUserInfo } from '@shared/hooks/useUserInfo';
 import { LoadingSpinner } from '@shared/components/loadingSpinner';
-import { ErrorMessage } from '@shared/components/errorMessage';
+import ErrorMessage from '@shared/components/errorMessage';
 import { useMemo } from 'react';
 import { UniversidadesSelect } from '../components/universidadesSelect';
 import genders from '@shared/constants/genders.json';

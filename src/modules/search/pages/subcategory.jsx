@@ -2,7 +2,7 @@ import categories from '@shared/constants/categories';
 import areas from '@shared/constants/areas.json';
 import { getTitle, getArea, getSubAreaFromId } from '@shared/utils/areaUtils';
 import { NavLink, useParams } from 'react-router-dom';
-import { ErrorMessage } from '@shared/components/errorMessage';
+import ErrorMessage from '@shared/components/errorMessage';
 import { getAreaFromId } from '../../../shared/utils/areaUtils';
 
 function getSubAreaCode(areaCode, subarea) {

@@ -1,4 +1,4 @@
-import { ErrorMessage } from '@shared/components/errorMessage';
+import ErrorMessage from '@shared/components/errorMessage';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@shared/context/firebaseContext';
 import { NavLink } from 'react-router-dom';

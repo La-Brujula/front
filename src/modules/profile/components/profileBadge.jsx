@@ -1,4 +1,4 @@
-import { ErrorMessage } from '@shared/components/errorMessage';
+import ErrorMessage from '@shared/components/errorMessage';
 import { useCategory } from '@shared/hooks/useCategory';
 import { getTitle } from '@shared/utils/areaUtils';
 
