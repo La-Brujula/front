@@ -7,6 +7,9 @@ import Twitter from '@mui/icons-material/X';
 import Linkedin from '@mui/icons-material/LinkedIn';
 import YouTube from '@mui/icons-material/YouTube';
 import LinkOutlined from '@mui/icons-material/LinkOutlined';
+import IMDB from '@/shared/icons/imdb';
+import Vimeo from '@/shared/icons/vimeo';
+import TikTok from '@/shared/icons/tiktok';
 
 export const ContactSection = ({ user }) => {
   return (
@@ -132,7 +135,9 @@ export const ContactSection = ({ user }) => {
       )}
       {!!user.imdb && (
         <>
-          <h3>IMDB</h3>
+          <h3>
+            <IMDB />
+          </h3>
           <a target="_blank" className="truncate block w-full" href={user.imdb}>
             {user.imdb}
           </a>
@@ -168,7 +173,9 @@ export const ContactSection = ({ user }) => {
       )}
       {!!user.vimeo && (
         <>
-          <h3>Vimeo</h3>
+          <h3>
+            <Vimeo />
+          </h3>
           <a
             target="_blank"
             className="truncate block w-full"
@@ -220,7 +227,9 @@ export const ContactSection = ({ user }) => {
       )}
       {!!user.tiktok && (
         <>
-          <h3>Tiktok</h3>
+          <h3>
+            <TikTok />
+          </h3>
           <a
             target="_blank"
             className="truncate block w-full"
