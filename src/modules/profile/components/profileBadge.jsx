@@ -10,10 +10,10 @@ export const ProfileBadge = ({ user }) => {
         <img
           src={user.profilePictureUrl}
           alt={`${user.nickname || user.name} profile picture`}
-          className="w-28 h-28 rounded-[50%]"
+          className="size-28 rounded-[50%]"
         />
       ) : (
-        <div className="h-28 w-28 rounded-full bg-slate-400 shrink" />
+        <div className="size-28 rounded-full bg-slate-400 shrink" />
       )}
       <div className="flex flex-col gap-1 text-left">
         <h3 className="text-md font-normal">

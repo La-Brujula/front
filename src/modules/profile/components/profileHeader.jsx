@@ -29,7 +29,7 @@ export const ProfileHeader = ({ user }) => {
             <img
               src={user.profilePictureUrl}
               alt={`${user.username || user.name} profile picture`}
-              className="w-48 h-48 bg-blue rounded-[50%] object-cover object-center"
+              className="size-48 bg-blue rounded-[50%] object-cover object-center"
               loading="eager"
             />
           ) : (
@@ -40,7 +40,7 @@ export const ProfileHeader = ({ user }) => {
                   : '/guias/fotoDePerfil/Monito.jpg'
               }
               alt="ImagenPreminada"
-              className="w-48 h-48 bg-white rounded-[50%] object-cover object-center"
+              className="size-48 bg-white rounded-[50%] object-cover object-center"
               loading="eager"
             />
           )}

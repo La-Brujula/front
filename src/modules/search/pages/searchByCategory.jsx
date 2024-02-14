@@ -45,7 +45,7 @@ function SearchByCategory() {
           <button
             type="submit"
             disabled={!buscar}
-            className="text-black bg-white p-4 h-16 w-16 rounded-full disabled:opacity-50"
+            className="text-black bg-white p-4 size-16 rounded-full disabled:opacity-50"
           >
             <SearchOutlined />
           </button>
