@@ -1,10 +1,18 @@
 import Strip from './strip';
 import { Container } from '@/shared/layout/container';
 
+const BrujulasColors = {
+  occidente: ['#63C7EB', '#1CAFE5', '#0091C8', '#006FAE'],
+  centro: ['#E49DC0', '#ED2F79', '#BF5D86', '#961949'],
+  norte: ['#FBF0C1', '#F8E048', '#DDC26A', '#A78C2B'],
+  noreste: ['#FB8068', '#F12D27', '#B94B4D', '#BE1A1E'],
+  sureste: ['#A6C37A', '#00933D', '#41A85A', '#00592D'],
+};
+
 function DownloadGuides() {
   return (
     <Container>
-      <div className="grid grid-cols-1 lg:grid-cols-3">
+      <div className="grid grid-cols-1 md:grid-cols-3">
         <div
           className="text-left py-16 px-8 flex
         flex-row justify-end w-full"
@@ -12,39 +20,37 @@ function DownloadGuides() {
           <div className="max-w-lg">
             <h2>
               Descarga
-              <br />
               <span className="text-blue">La Brújula</span>
-              <br />
               en PDF para utilizarla sin conexión
             </h2>
           </div>
         </div>
         <div
-          className="lg:col-span-2 grid lg:grid-cols-5 gap-4 font-bold text-lg
+          className="md:col-span-2 flex flex-col md:flex-row justify-end gap-4 font-bold text-lg
         text-right isolate transform overflow-hidden w-full"
         >
           <Strip
-            bgColor="bg-secondary"
+            colors={BrujulasColors.occidente}
             label="Occidente"
             link="/guias/pdfs/laBrujulaOccidente2023.pdf"
           />
           <Strip
-            bgColor="bg-[#E82D87]"
+            colors={BrujulasColors.centro}
             label="Centro"
             link="/guias/pdfs/labrujulaCentro2023.pdf"
           />
           <Strip
-            bgColor="bg-[#FAE800]"
+            colors={BrujulasColors.norte}
             label="Norte"
             link="/guias/pdfs/labrujulaNorte2023.pdf"
           />
           <Strip
-            bgColor="bg-[#E5341B]"
+            colors={BrujulasColors.noreste}
             label="Noreste"
             link="/guias/pdfs/labrujulaNoroeste2023.pdf"
           />
           <Strip
-            bgColor="bg-[#00A039]"
+            colors={BrujulasColors.sureste}
             label="Sureste"
             link="/guias/pdfs/labrujulaSureste2023.pdf"
           />
