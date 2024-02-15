@@ -15,7 +15,7 @@ export const ProfileBar = ({ user }) => {
       <div className="flex flex-row gap-4 bg-black-light items-center px-4 py-3">
         <div className="max-w-5xl flex flex-row mx-auto w-full gap-6">
           <NavLink to="perfil">
-            <AccountCircleOutlined className="!h-8 !w-8" />
+            <AccountCircleOutlined className="!size-8" />
           </NavLink>
           <form action={import.meta.env.BASE_URL + 'buscar'} className="grow">
             <input
@@ -25,7 +25,7 @@ export const ProfileBar = ({ user }) => {
             />
           </form>
           <NavLink to="/crear-usuario/basica">
-            <SettingsOutlined className="!h-8 !w-8" />
+            <SettingsOutlined className="!size-8" />
           </NavLink>
         </div>
       </div>
@@ -41,7 +41,7 @@ export const ProfileBar = ({ user }) => {
         </NavLink>
         <div className="bg-black w-[1px] self-stretch" />
         <NavLink className="px-2 flex flex-col items-center justify-center grow text-center text-blue">
-          <EditOutlined className="!h-8 !w-8" />
+          <EditOutlined className="!size-8" />
           <p className="font-normal text-sm">{t('Intereses de empleos')}</p>
         </NavLink>
       </div>

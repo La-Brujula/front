@@ -1,72 +1,61 @@
 import Strip from './strip';
+import { Container } from '@/shared/layout/container';
+
+const BrujulasColors = {
+  occidente: ['#63C7EB', '#1CAFE5', '#0091C8', '#006FAE'],
+  centro: ['#E49DC0', '#ED2F79', '#BF5D86', '#961949'],
+  norte: ['#FBF0C1', '#F8E048', '#DDC26A', '#A78C2B'],
+  noreste: ['#FB8068', '#F12D27', '#B94B4D', '#BE1A1E'],
+  sureste: ['#A6C37A', '#00933D', '#41A85A', '#00592D'],
+};
 
 function DownloadGuides() {
   return (
-    <div className="flex flex-col lg:flex-row">
-      <div
-        className="grow bg-primary text-white text-left py-16 px-8 flex
-    flex-row justify-end w-full"
-      >
-        <div className="max-w-lg">
-          <h2>
-            Descarga {' '}
-            <span className="text-blue">La Brújula</span> en PDF para utilizarla sin conexión
-          </h2>
+    <Container>
+      <div className="grid grid-cols-1 md:grid-cols-3">
+        <div
+          className="text-left py-16 px-8 flex
+        flex-row justify-end w-full"
+        >
+          <div className="max-w-lg">
+            <h2>
+              Descarga <span className="text-blue">La Brújula</span> en PDF para
+              utilizarla sin conexión
+            </h2>
+          </div>
+        </div>
+        <div
+          className="md:col-span-2 flex flex-col md:flex-row justify-end gap-4 font-bold text-lg
+        text-right isolate transform overflow-hidden w-full"
+        >
+          <Strip
+            colors={BrujulasColors.occidente}
+            label="Occidente"
+            link="/guias/pdfs/laBrujulaOccidente2023.pdf"
+          />
+          <Strip
+            colors={BrujulasColors.centro}
+            label="Centro"
+            link="/guias/pdfs/labrujulaCentro2023.pdf"
+          />
+          <Strip
+            colors={BrujulasColors.norte}
+            label="Norte"
+            link="/guias/pdfs/labrujulaNorte2023.pdf"
+          />
+          <Strip
+            colors={BrujulasColors.noreste}
+            label="Noreste"
+            link="/guias/pdfs/labrujulaNoroeste2023.pdf"
+          />
+          <Strip
+            colors={BrujulasColors.sureste}
+            label="Sureste"
+            link="/guias/pdfs/labrujulaSureste2023.pdf"
+          />
         </div>
       </div>
-      <div
-        className="grow flex flex-row font-bold text-lg bg-blue
-    text-right isolate transform overflow-hidden w-full gap-0"
-      >
-        <Strip
-          bgColor="bg-secondary"
-          textColor="text-[#E63319]"
-          label="Occidente"
-          link="/guias/pdfs/laBrujulaOccidente2023.pdf"
-        />
-        <Strip
-          bgColor="bg-[#E82D87]"
-          textColor="text-[#FAE800]"
-          label="Centro"
-          link="/guias/pdfs/labrujulaCentro2023.pdf"
-        />
-        <Strip
-          bgColor="bg-[#FAE800]"
-          textColor="text-[#E82D87]"
-          label="Norte"
-          link="/guias/pdfs/labrujulaNorte2023.pdf"
-        />
-        <Strip
-          bgColor="bg-[#E5341B]"
-          textColor="text-[#09ABE4]"
-          label="Noreste"
-          link="/guias/pdfs/labrujulaNoroeste2023.pdf"
-        />
-        <Strip
-          bgColor="bg-[#00A039]"
-          textColor="text-[#252F60]"
-          label="Sureste"
-          link="/guias/pdfs/labrujulaSureste2023.pdf" 
-        />
-        <Strip
-          bgColor="bg-[#252F60]"
-          textColor="text-[#00A039]"
-          label="Guanajuato"
-          link="/guias/pdfs/labrujulaGuanajuato2023.pdf"
-        />
-        <Strip
-          bgColor="bg-[#F08500]"
-          textColor="text-[#E82D87]"
-          label="Aguascalientes"
-          link="/guias/pdfs/labrujulaAguascalientes2023.pdf"
-        />
-        <img
-          src={`${import.meta.env.BASE_URL}img/HalfLogo.svg`}
-          className="absolute left-1/2 bottom-0 -translate-x-1/2
-          h-1/3 lg:h-1/2 pointer-events-none"
-        />
-      </div>
-    </div>
+    </Container>
   );
 }
 

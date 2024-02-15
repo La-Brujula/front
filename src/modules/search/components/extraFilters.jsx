@@ -18,7 +18,7 @@ export function ExtraFilters({ register, watch }) {
             placeholder="remote"
             id="remote"
             {...register('remote')}
-            className="w-4 h-4 cursor-pointer"
+            className="size-4 cursor-pointer"
           />
         </div>
         <select {...register('type')} className="w-full dark">
@@ -69,7 +69,7 @@ export function ExtraFilters({ register, watch }) {
           placeholder=""
           id="socialService"
           {...register('socialService')}
-          className="w-4 h-4 cursor-pointer"
+          className="size-4 cursor-pointer"
         />
       </div>
       {/* Asociaciones */}

@@ -1,0 +1,47 @@
+.strip {
+  @apply flex rounded-2xl overflow-hidden h-16 content-end
+    transform transition-all duration-300 relative isolate items-end;
+}
+
+.brujulas {
+  @apply grid grid-cols-3 gap-0 absolute top-0 bg-primary
+  w-full items-center justify-center -z-10 h-20;
+}
+
+.brujula {
+  @apply !p-2 !fill-black flex items-center justify-center;
+}
+
+.strip:hover {
+  @apply h-36;
+}
+
+.textTag {
+  @apply grow text-[#fff] flex items-center cursor-pointer p-4
+  text-2xl uppercase h-16 w-full -tracking-tighter;
+}
+
+@media (min-width: 768px) {
+  .strip {
+    @apply flex flex-row rounded-2xl overflow-hidden h-full max-h-96 w-24 content-end
+      transform transition-all duration-300 relative isolate items-end;
+  }
+
+  .brujulas {
+    @apply grid grid-rows-3 grid-cols-1 gap-0 relative top-0 bg-primary
+    items-center justify-center -z-10 h-full w-24;
+  }
+
+  .brujula {
+    @apply !p-2 !fill-black h-full flex items-center justify-center;
+  }
+
+  .strip:hover {
+    @apply h-full w-48;
+  }
+
+  .textTag {
+    @apply h-full w-fit p-8;
+    writing-mode: vertical-lr;
+  }
+}
