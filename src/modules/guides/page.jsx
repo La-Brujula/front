@@ -1,5 +1,6 @@
 import guides from '@shared/constants/guides.json';
 import { Container } from '@shared/layout/container';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 export function PDFGuidesPage() {
@@ -47,11 +48,12 @@ export function PDFGuidesPage() {
           {t('Ediciones regionales')}
         </h3>
         <div
-          className="grid grid-cols-[repeat(auto-fit,_minmax(8rem,_1fr))] gap-8
+          className="grid grid-cols-[repeat(auto-fit,_minmax(12rem,_1fr))] gap-8
         py-8"
         >
           {guides.regional.map((guide) => (
             <a
+              key={guide.name}
               href={guide.link}
               className="overflow-hidden rounded-md max-w-xs"
               download
@@ -67,14 +69,15 @@ export function PDFGuidesPage() {
           {t('Ediciones especiales')}
         </h3>
         <div
-          className="grid grid-cols-[repeat(auto-fit,_minmax(8rem,_1fr))] gap-8
+          className="grid grid-cols-[repeat(auto-fit,_minmax(12rem,_1fr))] gap-8
         py-8"
         >
-          {guides.specials.map((guide) => (
+          {guides.specials.map((guide, i) => (
             <a
               href={guide.link}
               className="overflow-hidden rounded-md max-w-xs"
               download
+              key={guide.name + i}
             >
               <img src={guide.thumbnail} alt={guide.name} className="w-full" />
             </a>
@@ -85,4 +88,4 @@ export function PDFGuidesPage() {
   );
 }
 
-export default PDFGuidesPage;
+export default React.memo(PDFGuidesPage);

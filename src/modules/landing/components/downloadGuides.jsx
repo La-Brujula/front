@@ -19,9 +19,8 @@ function DownloadGuides() {
         >
           <div className="max-w-lg">
             <h2>
-              Descarga
-              <span className="text-blue">La Brújula</span>
-              en PDF para utilizarla sin conexión
+              Descarga <span className="text-blue">La Brújula</span> en PDF para
+              utilizarla sin conexión
             </h2>
           </div>
         </div>

@@ -23,7 +23,7 @@
 
 @media (min-width: 768px) {
   .strip {
-    @apply flex flex-row rounded-2xl overflow-hidden h-full w-24 content-end
+    @apply flex flex-row rounded-2xl overflow-hidden h-full max-h-96 w-24 content-end
       transform transition-all duration-300 relative isolate items-end;
   }
 
