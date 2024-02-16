@@ -42,8 +42,8 @@ export const TextSelectField = ({
       }}
       showIcon={false}
       showNoResults={true}
-      showItemsOnFocus={true}
-      showNoResultsText={t('noResults')}
+      showItemsOnFocus={false}
+      showNoResultsText={t('No se encontraron coincidencias')}
       maxResults={5}
       inputDebounce={300}
     />
