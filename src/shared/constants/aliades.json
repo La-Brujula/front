@@ -1,90 +1,94 @@
 [
-    {
-        "imageUrl": "/img/aliades/IMCINELogo.png",
-        "linkUrl": "http://imcine.gob.mx"
-    },
-    {
-        "imageUrl": "/img/aliades/canacine.png",
-        "linkUrl": "http://canacine.org.mx"
-    },
-    {
-        "imageUrl": "/img/aliades/amfi logo blanco.png",
-        "linkUrl": "https://amfi.mx"
-    },
-    {
-        "imageUrl": "/img/aliades/mujeres en el cineNuevo.png",
-        "linkUrl": "http://mujerescineytv.org/"
-    },
-    {
-        "imageUrl": "/img/aliades/apertura logo.png",
-        "linkUrl": "https://www.aperturadop.com/nosotros "
-    },
-    {
-        "imageUrl": "/img/aliades/LCILogo.png",
-        "linkUrl": "https://lcicorporativo.com/"
-    },
-    {
-        "imageUrl": "/img/aliades/CentroDeEstudiosLogo.png",
-        "linkUrl": "https://www.cecinematograficos.edu.mx/"
-    },
-    {
-        "imageUrl": "/img/aliades/EFDLogo.png",
-        "linkUrl": "https://www.efdinternational.com/"
-    },
-    {
-        "imageUrl": "/img/aliades/BarracaLogoWhite.png",
-        "linkUrl": "https://barracaproducciones.mx/"
-    },
-    {
-        "imageUrl": "/img/aliades/filminist-01Nuevo.png",
-        "linkUrl": "https://filministmx.com/en/"
-    },
-    {
-        "imageUrl": "/img/aliades/raindance-01Nuevo.png",
-        "linkUrl": "https://raindance.org/ "
-    },
-    {
-        "imageUrl": "/img/aliades/fcu-01nuevo.png",
-        "linkUrl": "https://www.cecinematograficos.edu.mx/festival"
-    },
-    {
-        "imageUrl": "/img/aliades/FICGLogo.png",
-        "linkUrl": "https://ficg.mx"
-    },
-    {
-        "imageUrl": "/img/aliades/FestivalCineTequilaLogo.png",
-        "linkUrl": "https://www.fictequila.com"
-    },
-    {
-        "imageUrl": "/img/aliades/VivaMexicoLogo.png",
-        "linkUrl": "https://www.viva-mexico-cinema.org/es/"
-    },
-    {
-        "imageUrl": "/img/aliades/docsmx-logo-blanco.png",
-        "linkUrl": "https://docsmx.org/"
-    },
-    {
-        "imageUrl": "/img/aliades/PlataformaAbiertaDeInLogo.png",
-        "linkUrl": "https://plai.mx/"
-    },
-    {
-        "imageUrl": "/img/aliades/MaquinaNegraLogo.png",
-        "linkUrl": "http://maquinanegra.com"
-    },
-    {
-        "imageUrl": "/img/aliades/PNCLogo.png",
-        "linkUrl": "https://partnersandcrew.mx"
-    },
-    {
-        "imageUrl": "/img/aliades/DocuAlParqueLogo.png",
-        "linkUrl": "https://www.instagram.com/docualparque/?hl=en"
-    },
-    {
-        "imageUrl": "/img/aliades/CrcoLogo.png",
-        "linkUrl": "https://circotv.com/"
-    },
-    {
-        "imageUrl": "/img/aliades/sivarya-01Nuevo.png",
-        "linkUrl": "https://sivarya.com/"
-    }
+  {
+    "imageUrl": "/img/aliades/IMCINELogo.png",
+    "linkUrl": "http://imcine.gob.mx"
+  },
+  {
+    "imageUrl": "/img/aliades/canacine.png",
+    "linkUrl": "http://canacine.org.mx"
+  },
+  {
+    "imageUrl": "/img/aliades/amfi logo blanco.png",
+    "linkUrl": "https://amfi.mx"
+  },
+  {
+    "imageUrl": "/img/aliades/mujeres en el cineNuevo.png",
+    "linkUrl": "http://mujerescineytv.org/"
+  },
+  {
+    "imageUrl": "/img/aliades/apertura logo.png",
+    "linkUrl": "https://www.aperturadop.com/nosotros "
+  },
+  {
+    "imageUrl": "/img/aliades/LCILogo.png",
+    "linkUrl": "https://lcicorporativo.com/"
+  },
+  {
+    "imageUrl": "/img/aliades/CentroDeEstudiosLogo.png",
+    "linkUrl": "https://www.cecinematograficos.edu.mx/"
+  },
+  {
+    "imageUrl": "/img/aliades/EFDLogo.png",
+    "linkUrl": "https://www.efdinternational.com/"
+  },
+  {
+    "imageUrl": "/img/aliades/Logo_Tequila_Jalisco.svg",
+    "linkUrl": "https://tequilafilmrentals.com"
+  },
+  {
+    "imageUrl": "/img/aliades/BarracaLogoWhite.png",
+    "linkUrl": "https://barracaproducciones.mx/"
+  },
+  {
+    "imageUrl": "/img/aliades/filminist-01Nuevo.png",
+    "linkUrl": "https://filministmx.com/en/"
+  },
+  {
+    "imageUrl": "/img/aliades/raindance-01Nuevo.png",
+    "linkUrl": "https://raindance.org/ "
+  },
+  {
+    "imageUrl": "/img/aliades/fcu-01nuevo.png",
+    "linkUrl": "https://www.cecinematograficos.edu.mx/festival"
+  },
+  {
+    "imageUrl": "/img/aliades/FICGLogo.png",
+    "linkUrl": "https://ficg.mx"
+  },
+  {
+    "imageUrl": "/img/aliades/FestivalCineTequilaLogo.png",
+    "linkUrl": "https://www.fictequila.com"
+  },
+  {
+    "imageUrl": "/img/aliades/VivaMexicoLogo.png",
+    "linkUrl": "https://www.viva-mexico-cinema.org/es/"
+  },
+  {
+    "imageUrl": "/img/aliades/docsmx-logo-blanco.png",
+    "linkUrl": "https://docsmx.org/"
+  },
+  {
+    "imageUrl": "/img/aliades/PlataformaAbiertaDeInLogo.png",
+    "linkUrl": "https://plai.mx/"
+  },
+  {
+    "imageUrl": "/img/aliades/MaquinaNegraLogo.png",
+    "linkUrl": "http://maquinanegra.com"
+  },
+  {
+    "imageUrl": "/img/aliades/PNCLogo.png",
+    "linkUrl": "https://partnersandcrew.mx"
+  },
+  {
+    "imageUrl": "/img/aliades/DocuAlParqueLogo.png",
+    "linkUrl": "https://www.instagram.com/docualparque/?hl=en"
+  },
+  {
+    "imageUrl": "/img/aliades/CrcoLogo.png",
+    "linkUrl": "https://circotv.com/"
+  },
+  {
+    "imageUrl": "/img/aliades/sivarya-01Nuevo.png",
+    "linkUrl": "https://sivarya.com/"
+  }
 ]
