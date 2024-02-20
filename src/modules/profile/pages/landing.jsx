@@ -23,7 +23,7 @@ export const UserProfilePage = ({ user }) => {
                   <div className="bg-black bg-opacity-20 w-full h-20 xl:w-1/2 xl:rounded-r-md"></div>
                 </div>
                 <h4 className="font-normal text-primary">{t('Universidad')}</h4>
-                <p>{user.university}</p>
+                <p className='truncate'>{user.university}</p>
               </div>
             )}
             {!!user.probono && (
@@ -34,7 +34,7 @@ export const UserProfilePage = ({ user }) => {
                 <h4 className="font-normal text-primary">
                   Interés en ser becario, servicio social:
                 </h4>
-                <p>{Sí}</p>
+                <p>Sí</p>
               </div>
             )}
           </div>
