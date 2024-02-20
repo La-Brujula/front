@@ -24,7 +24,7 @@ export const AreaActivity = () => {
         }
       })}
     >
-      <div className="button mb-4">{t(Área)}</div>
+      <div className="button mb-4">{t('Área')}</div>
       <input type="hidden" value={area} />
       <select
         {...register('activity', { required: true })}

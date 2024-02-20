@@ -1,7 +1,23 @@
 {
-    "name": "Nom",
-    "activity": "Activitè",
-    "region": "Regiòne",
-    "keyword": "Palabrè Clabè",
-    "search": "Busquier"
+  "Remoto": "TODO",
+  "Tipo de persona": "TODO",
+  "Moral": "TODO",
+  "Física": "TODO",
+  "Escuela o universidad": "TODO",
+  "Disponible para sevicio social o de becario": "TODO",
+  "Asociaciones": "TODO",
+  "Certificaciones": "TODO",
+  "searchByName": "TODO",
+  "Ingresa una palabra clave": "TODO",
+  "filters": "TODO",
+  "Categoría": "TODO",
+  "Ubicación": "TODO",
+  "Género": "TODO",
+  "Ver menos": "TODO",
+  "Ver más": "TODO",
+  "resultados": "TODO",
+  "Buscar por especialidad": "TODO",
+  "¿No encuentras lo que buscas?": "TODO",
+  "Intenta buscando entre nuestras categorías": "TODO",
+  "No se encontraron coincidencias": "TODO"
 }

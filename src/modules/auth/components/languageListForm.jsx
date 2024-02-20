@@ -4,6 +4,7 @@ import languages from '@shared/constants/languages.json';
 import { ButtonSelect } from '@shared/components/buttonSelect';
 import { useEffect } from 'react';
 import { useReducer } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const reducer = (state, action) => {
   const newArray = !!state ? state.slice() : [];
@@ -41,6 +42,7 @@ export const LanguageListForm = ({
   getValues,
   defaultState,
 }) => {
+  const { t } = useTranslation('auth');
   const [state, dispatch] = useReducer(reducer, [
     { lang: 'es', proficiency: 'native' },
   ]);
@@ -61,9 +63,8 @@ export const LanguageListForm = ({
   }, [state]);
 
   useEffect(() => {
-    if (!defaultState) return
+    if (!defaultState) return;
     dispatch({ type: 'rebase', state: defaultState });
-    console.log(defaultState);
   }, [defaultState]);
 
   return (
@@ -80,13 +81,13 @@ export const LanguageListForm = ({
                     value={lang.lang}
                   >
                     <option value="other">Otro</option>
-                    {Object.keys(languages).map((defLang) => (
+                    {languages.map((defLang) => (
                       <option value={defLang} key={defLang}>
-                        {languages[defLang]}
+                        {t(defLang)}
                       </option>
                     ))}
                   </select>
-                  {!Object.keys(languages).includes(lang.lang) && (
+                  {!languages.includes(lang.lang) && (
                     <input
                       type="text"
                       onChange={updateValue(i, 'lang')}
