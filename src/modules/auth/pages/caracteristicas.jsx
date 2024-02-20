@@ -1,13 +1,13 @@
+import { useAuth } from '@shared/context/firebaseContext';
+import { useUserInfo } from '@shared/hooks/useUserInfo';
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
+import { useEffect, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { LanguageListForm } from '../components/languageListForm';
-import { useAuth } from '@shared/context/firebaseContext';
-import { useUserInfo } from '@shared/hooks/useUserInfo';
-import { useEffect, useMemo } from 'react';
 
-export const CaracteristicasPage = () => {
+export const CharacteristicsPage = () => {
   const brujula = brujulaUtils();
   const { register, handleSubmit, setValue, getValues } = useForm();
   const { t } = useTranslation('auth');
@@ -30,7 +30,10 @@ export const CaracteristicasPage = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex flex-col gap-4"
+    >
       <div className="mb-8">
         <div className="absolute left-0 -z-10 bg-black bg-opacity-20 w-full h-16 overflow-hidden"></div>
         <h2>{t('Información Adicional')}</h2>
@@ -39,19 +42,26 @@ export const CaracteristicasPage = () => {
         className="grid grid-cols-[min-content_1fr]
       text-left gap-4 mx-auto items-center gap-x-8 w-full"
       >
-        <label htmlFor="caracteristicas" className="text-primary">
+        <label
+          htmlFor="characteristics"
+          className="text-primary"
+        >
           {t('Semblanza')}:
         </label>
         <textarea
           rows="5"
+          id="characteristics"
           maxLength={300}
           {...register('characteristics')}
           placeholder={t(
-            'Escribe aqui las características que te identifican dentro de la industria'
+            'Escribe aquí las características que te identifican dentro de la industria',
           )}
           className="rounded-md bg-black bg-opacity-20 resize-none col-span-2 p-4"
         />
-        <label htmlFor="languages" className="text-primary">
+        <label
+          htmlFor="languages"
+          className="text-primary"
+        >
           {t('Idioma')}:
         </label>
         <LanguageListForm
@@ -60,13 +70,14 @@ export const CaracteristicasPage = () => {
           getValues={getValues}
           defaultState={user?.languages}
         />
-        <label htmlFor="asociations">{t('Asociaciones')}:</label>
+        <label htmlFor="associations">{t('Asociaciones')}:</label>
         <textarea
           rows="5"
+          id="associations"
           maxLength={300}
           {...register('asociations')}
           placeholder={t(
-            'Escibe aquí a que asociaciones de la industria perteneces'
+            'Escribe aquí a que asociaciones de la industria perteneces',
           )}
           className="rounded-md bg-black bg-opacity-20 resize-none col-span-2 p-4"
         />
@@ -75,7 +86,7 @@ export const CaracteristicasPage = () => {
           rows="5"
           maxLength={300}
           {...register('certifications')}
-          placeholder={t('Escribe aquí las certificaciónes que has concluido')}
+          placeholder={t('Escribe aquí las certificaciones que has concluido')}
           className="rounded-md bg-black bg-opacity-20 resize-none col-span-2 p-4"
         />
         <label htmlFor="awards">{t('Reconocimientos')}:</label>
@@ -88,13 +99,20 @@ export const CaracteristicasPage = () => {
         />
       </div>
       <div className="flex flex-row gap-4 self-center">
-        <div className="button font-bold bg-transparent border border-primary text-black" onClick={() => navigate(-1)}>
+        <div
+          className="button font-bold bg-transparent border border-primary text-black"
+          onClick={() => navigate(-1)}
+        >
           {t('Regresar')}
         </div>
-        <input type="submit" className="border-none" value={t('Finalizar')} />
+        <input
+          type="submit"
+          className="border-none"
+          value={t('Finalizar')}
+        />
       </div>
     </form>
   );
 };
 
-export default CaracteristicasPage;
+export default CharacteristicsPage;

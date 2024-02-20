@@ -1,8 +1,4 @@
-import React, { Suspense } from 'react';
-import ReactDOM from 'react-dom/client';
-import { RouterProvider } from 'react-router-dom';
-import './index.css';
-import { AppRouter } from './routes';
+import { LoadingSpinner } from '@shared/components/loadingSpinner';
 import {
   FireAuthProvider,
   firestorage,
@@ -10,7 +6,11 @@ import {
   StorageContext,
   StoreContext,
 } from '@shared/context/firebaseContext';
-import { LoadingSpinner } from '@shared/components/loadingSpinner';
+import React, { Suspense } from 'react';
+import ReactDOM from 'react-dom/client';
+import { RouterProvider } from 'react-router-dom';
+import './index.css';
+import { AppRouter } from './routes';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -29,5 +29,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </StoreContext.Provider>
       </StorageContext.Provider>
     </FireAuthProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

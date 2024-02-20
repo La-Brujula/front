@@ -3,7 +3,10 @@ import stripStyles from './strip.module.css';
 import React from 'react';
 
 let Brujula = ({ color, className, backgroundColor }) => (
-  <div className={className} style={{ backgroundColor }}>
+  <div
+    className={className}
+    style={{ backgroundColor }}
+  >
     <svg
       width="64"
       height="64"
@@ -25,7 +28,11 @@ let Brujula = ({ color, className, backgroundColor }) => (
 
 function Strip({ colors, link, label }) {
   return (
-    <a href={link} download className={stripStyles.strip}>
+    <a
+      href={link}
+      download
+      className={stripStyles.strip}
+    >
       <div className={stripStyles.brujulas}>
         <Brujula
           color={colors[0]}

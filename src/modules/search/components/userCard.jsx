@@ -1,5 +1,5 @@
-import { NavLink } from 'react-router-dom';
 import { getTitle } from '@shared/utils/areaUtils';
+import { NavLink } from 'react-router-dom';
 
 export const UserCard = ({ user }) => {
   return (

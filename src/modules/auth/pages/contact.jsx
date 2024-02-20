@@ -1,20 +1,20 @@
+import EmailOutlined from '@mui/icons-material/EmailOutlined';
+import FacebookOutlined from '@mui/icons-material/FacebookOutlined';
+import Instagram from '@mui/icons-material/Instagram';
+import LinkOutlined from '@mui/icons-material/LinkOutlined';
+import LinkedIn from '@mui/icons-material/LinkedIn';
+import PhoneOutlined from '@mui/icons-material/PhoneOutlined';
+import WhatsApp from '@mui/icons-material/WhatsApp';
+import Twitter from '@mui/icons-material/X';
+import YouTube from '@mui/icons-material/YouTube';
+import { useAuth } from '@shared/context/firebaseContext';
+import useSocials from '@shared/hooks/useSocials';
+import { useUserInfo } from '@shared/hooks/useUserInfo';
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
+import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import Instagram from '@mui/icons-material/Instagram';
-import LinkedIn from '@mui/icons-material/LinkedIn';
-import Twitter from '@mui/icons-material/X';
-import YouTube from '@mui/icons-material/YouTube';
-import WhatsApp from '@mui/icons-material/WhatsApp';
-import LinkOutlined from '@mui/icons-material/LinkOutlined';
-import FacebookOutlined from '@mui/icons-material/FacebookOutlined';
-import { useUserInfo } from '@shared/hooks/useUserInfo';
-import { useAuth } from '@shared/context/firebaseContext';
-import { useMemo } from 'react';
-import useSocials from '@shared/hooks/useSocials';
-import EmailOutlined from '@mui/icons-material/EmailOutlined';
-import PhoneOutlined from '@mui/icons-material/PhoneOutlined';
 
 export const ContactPage = () => {
   const brujula = brujulaUtils();
@@ -56,56 +56,108 @@ export const ContactPage = () => {
         <label htmlFor="website">
           <LinkOutlined />
         </label>
-        <input type="url" {...register('website')} autoComplete="website" />
+        <input
+          type="url"
+          {...register('website')}
+          autoComplete="website"
+        />
         <label htmlFor="whatsapp">
           <WhatsApp />
         </label>
-        <input type="phone" {...register('whatsapp')} autoComplete="phone" />
+        <input
+          type="phone"
+          {...register('whatsapp')}
+          autoComplete="phone"
+        />
         <label htmlFor="imdb">{t('imdb')}</label>
-        <input type="url" {...register('imdb')} autoComplete="imdb" />
+        <input
+          type="url"
+          {...register('imdb')}
+          autoComplete="imdb"
+        />
         <label htmlFor="facebook">
           <FacebookOutlined />
         </label>
-        <input type="url" {...register('facebook')} autoComplete="facebook" />
+        <input
+          type="url"
+          {...register('facebook')}
+          autoComplete="facebook"
+        />
         <label htmlFor="instagram">
           <Instagram />
         </label>
-        <input type="url" {...register('instagram')} autoComplete="instagram" />
+        <input
+          type="url"
+          {...register('instagram')}
+          autoComplete="instagram"
+        />
         <label htmlFor="vimeo">{t('vimeo')}</label>
-        <input type="text" {...register('vimeo')} autoComplete="vimeo" />
+        <input
+          type="text"
+          {...register('vimeo')}
+          autoComplete="vimeo"
+        />
         <label htmlFor="youtube">
           <YouTube />
         </label>
-        <input type="url" {...register('youtube')} autoComplete="youtube" />
+        <input
+          type="url"
+          {...register('youtube')}
+          autoComplete="youtube"
+        />
         <label htmlFor="linkedin">
           <LinkedIn />
         </label>
-        <input type="url" {...register('linkedin')} autoComplete="linkedin" />
+        <input
+          type="url"
+          {...register('linkedin')}
+          autoComplete="linkedin"
+        />
         <label htmlFor="twitter">
           <Twitter />
         </label>
-        <input type="url" {...register('twitter')} autoComplete="twitter" />
+        <input
+          type="url"
+          {...register('twitter')}
+          autoComplete="twitter"
+        />
         <label htmlFor="tiktok">{t('tiktok')}</label>
-        <input type="url" {...register('tiktok')} autoComplete="tiktok" />
+        <input
+          type="url"
+          {...register('tiktok')}
+          autoComplete="tiktok"
+        />
         <h3 className="col-span-full text-center mt-4">
           {t('Medios secundarios de contacto')}
         </h3>
         <label htmlFor="altPhone">
           <PhoneOutlined />
         </label>
-        <input type="phone" {...register('altPhone')} />
+        <input
+          type="phone"
+          {...register('altPhone')}
+        />
         <label htmlFor="altPhone2">
           <PhoneOutlined />
         </label>
-        <input type="phone" {...register('altPhone2')} />
+        <input
+          type="phone"
+          {...register('altPhone2')}
+        />
         <label htmlFor="altEmail">
           <EmailOutlined />
         </label>
-        <input type="email" {...register('altEmail')} />
+        <input
+          type="email"
+          {...register('altEmail')}
+        />
         <label htmlFor="altEmail2">
           <EmailOutlined />
         </label>
-        <input type="email" {...register('altEmail2')} />
+        <input
+          type="email"
+          {...register('altEmail2')}
+        />
       </div>
       <div className="flex flex-row gap-4 self-center">
         <div
@@ -114,7 +166,11 @@ export const ContactPage = () => {
         >
           {t('Regresar')}
         </div>
-        <input type="submit" className="border-none" value={t('Continuar')} />
+        <input
+          type="submit"
+          className="border-none"
+          value={t('Continuar')}
+        />
       </div>
     </form>
   );

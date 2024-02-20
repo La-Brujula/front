@@ -4,7 +4,10 @@ export const UsersList = ({ users }) => {
   return users != undefined && users.length > 0 ? (
     <>
       {users.map((e) => (
-        <UserCard user={e} key={e.email} />
+        <UserCard
+          user={e}
+          key={e.email}
+        />
       ))}
     </>
   ) : (

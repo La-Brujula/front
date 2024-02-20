@@ -1,5 +1,16 @@
 {
-    "login": "Iniciar sesión",
-    "email": "Correo",
-    "password": "Contraseña"
+  "yourUserInformationProgress": "yourUserInformationProgress",
+  "reviewUser": "reviewUser",
+  "completeUser": "completeUser",
+  "basic": "Básico",
+  "intermediate": "Intermedio",
+  "advanced": "Avanzado",
+  "native": "Nativo",
+  "es": "Español",
+  "en": "Inglés",
+  "fr": "Francés",
+  "de": "Alemán",
+  "it": "Italiano",
+  "zh": "Chino mandarín",
+  "¡Siguenos en nuestras redes sociales!": "¡Síguenos en nuestras redes sociales!"
 }

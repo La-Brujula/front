@@ -1,11 +1,11 @@
-import { useForm } from 'react-hook-form';
-import { useContext, useState } from 'react';
 import { AuthContext } from '@shared/context/firebaseContext';
+import { brujulaUtils } from '@shared/utils/brujulaUtils';
+import { useContext, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { brujulaUtils } from '@shared/utils/brujulaUtils';
-import { PrivacyPolicy } from './privacyPolicy';
 import { LoadingSpinner } from '../../../shared/components/loadingSpinner';
+import { PrivacyPolicy } from './privacyPolicy';
 
 async function initializeUser(brujula, tipoDePersona, navigate, setErrorMsg) {
   try {
@@ -16,7 +16,7 @@ async function initializeUser(brujula, tipoDePersona, navigate, setErrorMsg) {
   }
 }
 
-export const SignupForm = () => {
+export const SignUpForm = () => {
   const auth = useContext(AuthContext);
   const brujula = brujulaUtils();
   const { register, handleSubmit, setValue, watch } = useForm();
@@ -34,7 +34,7 @@ export const SignupForm = () => {
     setErrorMsg('');
     if (
       await auth.register(data.email, data.password, onError, () =>
-        initializeUser(brujula, tipoDePersona, navigate, setErrorMsg)
+        initializeUser(brujula, tipoDePersona, navigate, setErrorMsg),
       )
     ) {
       await initializeUser(brujula, tipoDePersona, navigate, setErrorMsg);
@@ -53,7 +53,7 @@ export const SignupForm = () => {
         setErrorMsg('El correo ya esta registrado.');
         break;
       case 'auth/weak-password':
-        setErrorMsg('La contraseña tiene que tener como minimo 6 caracteres.');
+        setErrorMsg('La contraseña tiene que tener como mínimo 6 caracteres.');
         break;
     }
   };
@@ -70,10 +70,17 @@ export const SignupForm = () => {
       })}
       className="flex flex-col gap-4"
     >
-      <input type="hidden" {...register('persona')} required />
+      <input
+        type="hidden"
+        {...register('persona')}
+        required
+      />
       <div className="flex flex-col md:items-center gap-8 justify-stretch mb-12">
         <div className="flex flex-col gap-2 items-start grow max-w-xs w-full">
-          <label htmlFor="email" className="block">
+          <label
+            htmlFor="email"
+            className="block"
+          >
             {t('Tu correo electrónico será tu nombre de usuario')}
           </label>
           <input
@@ -168,7 +175,10 @@ export const SignupForm = () => {
       )}
       <p>
         {t('¿Ya tienes una cuenta?')}&nbsp;
-        <NavLink to="/iniciar-sesion" className="mt-4">
+        <NavLink
+          to="/iniciar-sesion"
+          className="mt-4"
+        >
           {t('Inicia Sesión')}
         </NavLink>
       </p>

@@ -1,9 +1,9 @@
 import CloseOutlined from '@mui/icons-material/CloseOutlined';
 import IconButton from '@mui/material/IconButton';
-import languages from '@shared/constants/languages.json';
 import { ButtonSelect } from '@shared/components/buttonSelect';
-import { useEffect } from 'react';
-import { useReducer } from 'react';
+import languages from '@shared/constants/languages.json';
+import { useEffect, useReducer } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const reducer = (state, action) => {
   const newArray = !!state ? state.slice() : [];
@@ -41,6 +41,7 @@ export const LanguageListForm = ({
   getValues,
   defaultState,
 }) => {
+  const { t } = useTranslation('auth');
   const [state, dispatch] = useReducer(reducer, [
     { lang: 'es', proficiency: 'native' },
   ]);
@@ -61,9 +62,8 @@ export const LanguageListForm = ({
   }, [state]);
 
   useEffect(() => {
-    if (!defaultState) return
+    if (!defaultState) return;
     dispatch({ type: 'rebase', state: defaultState });
-    console.log(defaultState);
   }, [defaultState]);
 
   return (
@@ -71,7 +71,10 @@ export const LanguageListForm = ({
       <>
         {!!state &&
           state.map((lang, i) => (
-            <div key={i} className="mb-8">
+            <div
+              key={i}
+              className="mb-8"
+            >
               <div className="mb-4 flex flex-col md:flex-row gap-4">
                 <div className="flex flex-col gap-4 w-full">
                   <select
@@ -80,13 +83,16 @@ export const LanguageListForm = ({
                     value={lang.lang}
                   >
                     <option value="other">Otro</option>
-                    {Object.keys(languages).map((defLang) => (
-                      <option value={defLang} key={defLang}>
-                        {languages[defLang]}
+                    {languages.map((defLang) => (
+                      <option
+                        value={defLang}
+                        key={defLang}
+                      >
+                        {t(defLang)}
                       </option>
                     ))}
                   </select>
-                  {!Object.keys(languages).includes(lang.lang) && (
+                  {!languages.includes(lang.lang) && (
                     <input
                       type="text"
                       onChange={updateValue(i, 'lang')}
@@ -96,7 +102,12 @@ export const LanguageListForm = ({
                 </div>
                 {state.length > 1 && (
                   <IconButton
-                    onClick={() => dispatch({ type: 'remove', index: i })}
+                    onClick={() =>
+                      dispatch({
+                        type: 'remove',
+                        index: i,
+                      })
+                    }
                   >
                     <CloseOutlined />
                   </IconButton>

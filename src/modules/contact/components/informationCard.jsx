@@ -1,10 +1,10 @@
-import PhoneOutlined from '@mui/icons-material/PhoneOutlined';
 import EmailOutlined from '@mui/icons-material/EmailOutlined';
-import WhatsApp from '@mui/icons-material/WhatsApp';
+import PhoneOutlined from '@mui/icons-material/PhoneOutlined';
 import PinOutlined from '@mui/icons-material/PinDropOutlined';
+import WhatsApp from '@mui/icons-material/WhatsApp';
+import { SocialLinks } from '@shared/components/socials';
 import contactInformation from '@shared/constants/brujulaInformation.json';
 import { Container } from '@shared/layout/container';
-import { SocialLinks } from '@shared/components/socials';
 
 export function InformationCard() {
   return (
@@ -18,7 +18,10 @@ export function InformationCard() {
       >
         <WhatsApp />
         <h2 className="text-lg lg:px-4">Whatsapp</h2>
-        <a href={contactInformation.whatsapp} className="text-white">
+        <a
+          href={contactInformation.whatsapp}
+          className="text-white"
+        >
           {contactInformation.phoneNumbers[0]}
         </a>
         <div className="h-[2px] rounded-lg bg-white lg:col-span-3" />

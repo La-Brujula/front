@@ -2,7 +2,7 @@ import TranslateOutlined from '@mui/icons-material/TranslateOutlined';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import useLocalization from '../hooks/useLocalization';
 
 const LocaleList = ({ currentLocale, locales, setLocale }) => {
@@ -52,7 +52,10 @@ export default function LocalizationMenu({ onLocaleCallback }) {
 
   return (
     <div className="relative flex-col">
-      <IconButtonMenu isOpen={isOpen} onClick={handleClick} />
+      <IconButtonMenu
+        isOpen={isOpen}
+        onClick={handleClick}
+      />
       <Menu
         id="locale-menu"
         open={isOpen}

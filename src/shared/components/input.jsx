@@ -10,7 +10,10 @@ export function Input({
 }) {
   return (
     <div className={['flex flex-col gap-2', divClass].join(' ')}>
-      <label htmlFor={fieldname} className={labelClass}>
+      <label
+        htmlFor={fieldname}
+        className={labelClass}
+      >
         {label}
       </label>
       {type == 'textarea' ? (

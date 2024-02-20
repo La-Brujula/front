@@ -24,52 +24,15 @@
     "105-06",
     "105-07"
   ],
-  "Guionismo": [
-    "101-01",
-    "101-02",
-    "101-03"
-  ],
-  "Escritores cine y TV": [
-    "101-01",
-    "101-02",
-    "101-03"
-  ],
-  "Asesoría de guión": [
-    "101-01",
-    "101-02",
-    "101-03"
-  ],
-  "Sinopsis": [
-    "101-01",
-    "101-02",
-    "101-03"
-  ],
-  "Guionistas": [
-    "101-01",
-    "101-02",
-    "101-03"
-  ],
-  "Screenwriters": [
-    "101-01",
-    "101-02",
-    "101-03"
-  ],
-  "Scénaristes": [
-    "101-01",
-    "101-02",
-    "101-03"
-  ],
-  "Script": [
-    "101-01",
-    "101-02",
-    "101-03",
-    "305-04"
-  ],
-  "Screenplay": [
-    "101-01",
-    "101-02",
-    "101-03"
-  ],
+  "Guionismo": ["101-01", "101-02", "101-03"],
+  "Escritores cine y TV": ["101-01", "101-02", "101-03"],
+  "Asesoría de guión": ["101-01", "101-02", "101-03"],
+  "Sinopsis": ["101-01", "101-02", "101-03"],
+  "Guionistas": ["101-01", "101-02", "101-03"],
+  "Screenwriters": ["101-01", "101-02", "101-03"],
+  "Scénaristes": ["101-01", "101-02", "101-03"],
+  "Script": ["101-01", "101-02", "101-03", "305-04"],
+  "Screenplay": ["101-01", "101-02", "101-03"],
   "Broadcast": [
     "101-03",
     "204-01",
@@ -86,109 +49,31 @@
     "901-07",
     "901-09"
   ],
-  "Desarrollo creativo": [
-    "102-01",
-    "102-02",
-    "102-03"
-  ],
-  "Copy": [
-    "102-01",
-    "102-02",
-    "102-03",
-    "103-03"
-  ],
-  "Copies": [
-    "102-01",
-    "102-02",
-    "102-03",
-    "103-03"
-  ],
-  "Creatividad": [
-    "102-01",
-    "102-02",
-    "102-03",
-    "103-03",
-    "901-01"
-  ],
-  "Boutique creativa": [
-    "102-01",
-    "102-02",
-    "102-03"
-  ],
-  "Eslógan": [
-    "102-01",
-    "102-02",
-    "102-03"
-  ],
-  "Slogan": [
-    "102-01",
-    "102-02",
-    "102-03"
-  ],
-  "Escritores": [
-    "103-01",
-    "103-02",
-    "103-03"
-  ],
-  "Investigación": [
-    "103-01",
-    "103-02"
-  ],
-  "Investigadores": [
-    "103-01",
-    "103-02",
-    "901-02",
-    "904-01",
-    "904-04"
-  ],
-  "Reporteros": [
-    "103-01",
-    "103-02"
-  ],
-  "Periodistas": [
-    "103-01",
-    "103-02",
-    "904-05"
-  ],
-  "Redacción": [
-    "103-03"
-  ],
-  "Redactores": [
-    "103-03"
-  ],
-  "Escritura": [
-    "103-03"
-  ],
-  "Corrección de estilo": [
-    "103-03"
-  ],
-  "Traducción": [
-    "103-04"
-  ],
-  "Intérpretes- traductores": [
-    "103-04"
-  ],
-  "Traductores": [
-    "103-04"
-  ],
-  "Translators": [
-    "103-04"
-  ],
-  "Traducteurs": [
-    "103-04"
-  ],
-  "Transcripción": [
-    "103-05"
-  ],
-  "Transcriptores": [
-    "103-05"
-  ],
-  "Word": [
-    "103-05"
-  ],
-  "Procesamiento de texto": [
-    "103-05"
-  ],
+  "Desarrollo creativo": ["102-01", "102-02", "102-03"],
+  "Copy": ["102-01", "102-02", "102-03", "103-03"],
+  "Copies": ["102-01", "102-02", "102-03", "103-03"],
+  "Creatividad": ["102-01", "102-02", "102-03", "103-03", "901-01"],
+  "Boutique creativa": ["102-01", "102-02", "102-03"],
+  "Eslógan": ["102-01", "102-02", "102-03"],
+  "Slogan": ["102-01", "102-02", "102-03"],
+  "Escritores": ["103-01", "103-02", "103-03"],
+  "Investigación": ["103-01", "103-02"],
+  "Investigadores": ["103-01", "103-02", "901-02", "904-01", "904-04"],
+  "Reporteros": ["103-01", "103-02"],
+  "Periodistas": ["103-01", "103-02", "904-05"],
+  "Redacción": ["103-03"],
+  "Redactores": ["103-03"],
+  "Escritura": ["103-03"],
+  "Corrección de estilo": ["103-03"],
+  "Traducción": ["103-04"],
+  "Intérpretes- traductores": ["103-04"],
+  "Traductores": ["103-04"],
+  "Translators": ["103-04"],
+  "Traducteurs": ["103-04"],
+  "Transcripción": ["103-05"],
+  "Transcriptores": ["103-05"],
+  "Word": ["103-05"],
+  "Procesamiento de texto": ["103-05"],
   "Arte": [
     "104-01",
     "104-02",
@@ -208,80 +93,26 @@
     "403-11",
     "703-03"
   ],
-  "Diseño": [
-    "104-01",
-    "104-05"
-  ],
-  "Diseñadores": [
-    "104-01",
-    "104-05"
-  ],
-  "Diseño gráfico": [
-    "104-01"
-  ],
-  "Graphic Design": [
-    "104-01"
-  ],
-  "Design Graphique": [
-    "104-01",
-    "104-05"
-  ],
-  "Dibujo": [
-    "104-02",
-    "104-03",
-    "104-04"
-  ],
-  "Ilustración": [
-    "104-02",
-    "104-03",
-    "703-03"
-  ],
-  "Ilustradores": [
-    "104-02"
-  ],
-  "Cómic": [
-    "104-02",
-    "104-03"
-  ],
-  "Ánime": [
-    "104-02",
-    "104-03"
-  ],
-  "Manga": [
-    "104-02",
-    "104-03"
-  ],
-  "Storyboard": [
-    "104-02",
-    "104-03",
-    "104-04"
-  ],
-  "Dibujantes": [
-    "104-03",
-    "104-04",
-    "703-02"
-  ],
-  "Tabla d` Histoire ": [
-    "104-04"
-  ],
-  "Arte gráfico": [
-    "104-05"
-  ],
-  "Graphic design": [
-    "104-05"
-  ],
-  "Diseño editorial": [
-    "104-05"
-  ],
-  "Formado": [
-    "104-05"
-  ],
-  "Galeras": [
-    "104-05"
-  ],
-  "InDesign": [
-    "104-05"
-  ],
+  "Diseño": ["104-01", "104-05"],
+  "Diseñadores": ["104-01", "104-05"],
+  "Diseño gráfico": ["104-01"],
+  "Graphic Design": ["104-01"],
+  "Design Graphique": ["104-01", "104-05"],
+  "Dibujo": ["104-02", "104-03", "104-04"],
+  "Ilustración": ["104-02", "104-03", "703-03"],
+  "Ilustradores": ["104-02"],
+  "Cómic": ["104-02", "104-03"],
+  "Ánime": ["104-02", "104-03"],
+  "Manga": ["104-02", "104-03"],
+  "Storyboard": ["104-02", "104-03", "104-04"],
+  "Dibujantes": ["104-03", "104-04", "703-02"],
+  "Tabla d` Histoire ": ["104-04"],
+  "Arte gráfico": ["104-05"],
+  "Graphic design": ["104-05"],
+  "Diseño editorial": ["104-05"],
+  "Formado": ["104-05"],
+  "Galeras": ["104-05"],
+  "InDesign": ["104-05"],
   "Asesoría": [
     "105-01",
     "105-02",
@@ -291,76 +122,25 @@
     "105-06",
     "105-07"
   ],
-  "Asesores legales": [
-    "105-01",
-    "105-02"
-  ],
-  "Abogados": [
-    "105-01",
-    "105-02"
-  ],
-  "Derechos de autor": [
-    "105-01",
-    "105-02",
-    "308-04"
-  ],
-  "Copyrights": [
-    "105-01",
-    "105-02"
-  ],
-  "Droits D’ Auteur": [
-    "105-01",
-    "105-02"
-  ],
-  "Guilds": [
-    "105-01",
-    "105-02",
-    "105-06",
-    "901-06",
-    "901-10"
-  ],
-  "Asesores financieros": [
-    "105-03"
-  ],
-  "Impuestos": [
-    "105-03",
-    "105-05"
-  ],
-  "Asesoría financiera": [
-    "105-03"
-  ],
-  "Financial advising": [
-    "105-03",
-    "105-04"
-  ],
-  "Assesorant financier": [
-    "105-03",
-    "105-04"
-  ],
-  "Asesores administrativos": [
-    "105-04"
-  ],
-  "Administración": [
-    "105-04"
-  ],
-  "Sistemas de administración": [
-    "105-04"
-  ],
-  "Contabilidad": [
-    "105-04"
-  ],
-  "Financial Advising": [
-    "105-04"
-  ],
-  "Contadores de producción": [
-    "105-05"
-  ],
-  "Contabilidad para películas": [
-    "105-05"
-  ],
-  "Devolución de IVA": [
-    "105-05"
-  ],
+  "Asesores legales": ["105-01", "105-02"],
+  "Abogados": ["105-01", "105-02"],
+  "Derechos de autor": ["105-01", "105-02", "308-04"],
+  "Copyrights": ["105-01", "105-02"],
+  "Droits D’ Auteur": ["105-01", "105-02"],
+  "Guilds": ["105-01", "105-02", "105-06", "901-06", "901-10"],
+  "Asesores financieros": ["105-03"],
+  "Impuestos": ["105-03", "105-05"],
+  "Asesoría financiera": ["105-03"],
+  "Financial advising": ["105-03", "105-04"],
+  "Assesorant financier": ["105-03", "105-04"],
+  "Asesores administrativos": ["105-04"],
+  "Administración": ["105-04"],
+  "Sistemas de administración": ["105-04"],
+  "Contabilidad": ["105-04"],
+  "Financial Advising": ["105-04"],
+  "Contadores de producción": ["105-05"],
+  "Contabilidad para películas": ["105-05"],
+  "Devolución de IVA": ["105-05"],
   "Cortometrajes": [
     "105-05",
     "105-06",
@@ -378,82 +158,26 @@
     "904-02",
     "904-05"
   ],
-  "Asesores de producción": [
-    "105-06"
-  ],
-  "Carpetas de producción": [
-    "105-06"
-  ],
-  "Proyectos": [
-    "105-06"
-  ],
-  "Eficine": [
-    "105-06",
-    "105-07"
-  ],
-  "Fidecine": [
-    "105-06"
-  ],
-  "Foprocine": [
-    "105-06"
-  ],
-  "Desarrollo de carpetas": [
-    "105-06"
-  ],
-  "Conception de dossier": [
-    "105-06"
-  ],
-  "Promotores": [
-    "105-07",
-    "201-07",
-    "201-08"
-  ],
-  "Fundraiser": [
-    "105-07"
-  ],
-  "Gestión Estratégica": [
-    "105-07"
-  ],
-  "Strategic management": [
-    "105-07"
-  ],
-  "Gestion estrategie": [
-    "105-07"
-  ],
-  "Promoción": [
-    "105-07",
-    "901-07",
-    "901-08",
-    "904-05"
-  ],
-  "Media": [
-    "105-07",
-    "901-07",
-    "901-08",
-    "904-05"
-  ],
-  "Moyens": [
-    "105-07",
-    "901-07",
-    "901-08",
-    "904-05"
-  ],
-  "Junkets": [
-    "105-07",
-    "901-03",
-    "901-08"
-  ],
-  "Gestión cultural": [
-    "105-07"
-  ],
-  "Promotores culturales": [
-    "105-07"
-  ],
-  "Festivales": [
-    "105-07",
-    "903-01",
-    "903-02"
-  ],
+  "Asesores de producción": ["105-06"],
+  "Carpetas de producción": ["105-06"],
+  "Proyectos": ["105-06"],
+  "Eficine": ["105-06", "105-07"],
+  "Fidecine": ["105-06"],
+  "Foprocine": ["105-06"],
+  "Desarrollo de carpetas": ["105-06"],
+  "Conception de dossier": ["105-06"],
+  "Promotores": ["105-07", "201-07", "201-08"],
+  "Fundraiser": ["105-07"],
+  "Gestión Estratégica": ["105-07"],
+  "Strategic management": ["105-07"],
+  "Gestion estrategie": ["105-07"],
+  "Promoción": ["105-07", "901-07", "901-08", "904-05"],
+  "Media": ["105-07", "901-07", "901-08", "904-05"],
+  "Moyens": ["105-07", "901-07", "901-08", "904-05"],
+  "Junkets": ["105-07", "901-03", "901-08"],
+  "Gestión cultural": ["105-07"],
+  "Promotores culturales": ["105-07"],
+  "Festivales": ["105-07", "903-01", "903-02"],
   "Talento": [
     "201-01",
     "201-02",
@@ -482,63 +206,16 @@
     "205-02-",
     "205-03"
   ],
-  "Castineras": [
-    "201-01"
-  ],
-  "Búsqueda de talento": [
-    "201-01",
-    "201-02",
-    "201-03"
-  ],
-  "Cast": [
-    "201-01",
-    "201-02",
-    "201-03",
-    "201-07",
-    "201-08"
-  ],
-  "Casting": [
-    "201-01",
-    "201-02",
-    "201-03"
-  ],
-  "Reparto": [
-    "201-01",
-    "201-02",
-    "201-03",
-    "201-07",
-    "201-08"
-  ],
-  "Actores": [
-    "201-01",
-    "201-02",
-    "201-06",
-    "202-01"
-  ],
-  "Actrices": [
-    "201-01",
-    "201-02",
-    "201-06",
-    "202-01"
-  ],
-  "Modelos": [
-    "201-01",
-    "201-03",
-    "201-05",
-    "202-02",
-    "202-03",
-    "202-04"
-  ],
-  "Extras": [
-    "201-01",
-    "201-02",
-    "201-03"
-  ],
-  "Figurantes": [
-    "201-01",
-    "201-02",
-    "201-03"
-  ],
+  "Castineras": ["201-01"],
+  "Búsqueda de talento": ["201-01", "201-02", "201-03"],
+  "Cast": ["201-01", "201-02", "201-03", "201-07", "201-08"],
+  "Casting": ["201-01", "201-02", "201-03"],
+  "Reparto": ["201-01", "201-02", "201-03", "201-07", "201-08"],
+  "Actores": ["201-01", "201-02", "201-06", "202-01"],
+  "Actrices": ["201-01", "201-02", "201-06", "202-01"],
+  "Modelos": ["201-01", "201-03", "201-05", "202-02", "202-03", "202-04"],
+  "Extras": ["201-01", "201-02", "201-03"],
+  "Figurantes": ["201-01", "201-02", "201-03"],
   "Agencias": [
     "201-01",
     "201-02",
@@ -551,47 +228,16 @@
     "901-02",
     "901-08"
   ],
-  "Bits de acción": [
-    "201-03"
-  ],
-  "Casting de voz": [
-    "201-04"
-  ],
-  "Locución": [
-    "204-01",
-    "204-05",
-    "201-04",
-    "204-02",
-    "204-03"
-  ],
-  "Doblaje": [
-    "201-04",
-    "204-02",
-    "204-03",
-    "704-02"
-  ],
-  "Locutores": [
-    "201-04"
-  ],
-  "Voice Over": [
-    "201-04",
-    "204-02"
-  ],
-  "Voz Off": [
-    "201-04",
-    "204-02"
-  ],
-  "VO": [
-    "201-04"
-  ],
-  "Narración": [
-    "201-04",
-    "204-02"
-  ],
-  "Narradores": [
-    "201-04",
-    "204-02"
-  ],
+  "Bits de acción": ["201-03"],
+  "Casting de voz": ["201-04"],
+  "Locución": ["204-01", "204-05", "201-04", "204-02", "204-03"],
+  "Doblaje": ["201-04", "204-02", "204-03", "704-02"],
+  "Locutores": ["201-04"],
+  "Voice Over": ["201-04", "204-02"],
+  "Voz Off": ["201-04", "204-02"],
+  "VO": ["201-04"],
+  "Narración": ["201-04", "204-02"],
+  "Narradores": ["201-04", "204-02"],
   "Eventos": [
     "201-05",
     "401-03",
@@ -601,65 +247,23 @@
     "601-07",
     "901-08"
   ],
-  "Hostess": [
-    "201-05"
-  ],
-  "Edecanes": [
-    "201-05"
-  ],
-  "Maestros de actuación": [
-    "201-06"
-  ],
-  "Teatro": [
-    "201-06",
-    "302-07"
-  ],
-  "Entrenamiento actoral": [
-    "201-06"
-  ],
-  "Escuelas de actuación": [
-    "201-06"
-  ],
-  "Academias de actores": [
-    "201-06"
-  ],
-  "Actors Academy": [
-    "201-06"
-  ],
-  "Acteurs et ecole": [
-    "201-06"
-  ],
-  "Talent handlers": [
-    "201-07",
-    "201-08"
-  ],
-  "Representantes": [
-    "201-07",
-    "201-08"
-  ],
-  "Agentes": [
-    "201-07",
-    "201-08"
-  ],
-  "PR": [
-    "201-07",
-    "201-08"
-  ],
-  "RP": [
-    "201-07",
-    "201-08"
-  ],
-  "Actors": [
-    "202-01"
-  ],
-  "Acteurs": [
-    "202-01"
-  ],
-  "Actuación": [
-    "202-01",
-    "302-07",
-    "901-05"
-  ],
+  "Hostess": ["201-05"],
+  "Edecanes": ["201-05"],
+  "Maestros de actuación": ["201-06"],
+  "Teatro": ["201-06", "302-07"],
+  "Entrenamiento actoral": ["201-06"],
+  "Escuelas de actuación": ["201-06"],
+  "Academias de actores": ["201-06"],
+  "Actors Academy": ["201-06"],
+  "Acteurs et ecole": ["201-06"],
+  "Talent handlers": ["201-07", "201-08"],
+  "Representantes": ["201-07", "201-08"],
+  "Agentes": ["201-07", "201-08"],
+  "PR": ["201-07", "201-08"],
+  "RP": ["201-07", "201-08"],
+  "Actors": ["202-01"],
+  "Acteurs": ["202-01"],
+  "Actuación": ["202-01", "302-07", "901-05"],
   "Películas": [
     "202-01",
     "301-01",
@@ -678,147 +282,45 @@
     "904-02",
     "904-05"
   ],
-  "Models": [
-    "202-02",
-    "202-03",
-    "202-04"
-  ],
-  "Modèles": [
-    "202-02",
-    "202-03",
-    "202-04"
-  ],
-  "Modelaje": [
-    "202-02",
-    "202-03",
-    "202-04"
-  ],
-  "Body Double": [
-    "202-02",
-    "202-03",
-    "203-03"
-  ],
-  "Bit Part": [
-    "202-02"
-  ],
-  "Lencería": [
-    "202-03"
-  ],
-  "Pasarela": [
-    "202-04"
-  ],
-  "Coreografía": [
-    "203-01"
-  ],
-  "Coreógrafos": [
-    "203-01"
-  ],
-  "Baile": [
-    "203-01",
-    "203-02"
-  ],
-  "Bailarinas": [
-    "203-01",
-    "203-02"
-  ],
-  "Bailarines": [
-    "203-01",
-    "203-02"
-  ],
-  "Dancers": [
-    "203-01",
-    "203-02"
-  ],
-  "Strippers": [
-    "203-02"
-  ],
-  "Stunts": [
-    "203-03",
-    "203-04"
-  ],
-  "Dobles de riesgo": [
-    "203-03",
-    "203-04"
-  ],
-  "Stunt double": [
-    "203-03",
-    "203-04"
-  ],
-  "Cascadeurs": [
-    "203-03",
-    "203-04"
-  ],
-  "Dobles de acción": [
-    "203-03",
-    "203-04"
-  ],
-  "Acción": [
-    "203-03",
-    "203-04"
-  ],
-  "Escenas de acción": [
-    "203-03",
-    "203-04"
-  ],
-  "Cirqueros": [
-    "203-05"
-  ],
-  "Zanqueros": [
-    "203-05"
-  ],
-  "Circo": [
-    "203-05"
-  ],
-  "Acróbatas": [
-    "203-05"
-  ],
-  "Animales entrenados": [
-    "203-06",
-    "403-07"
-  ],
-  "Entrenadores de animales": [
-    "203-06",
-    "403-07"
-  ],
-  "Wrangler": [
-    "203-06"
-  ],
-  "Animales": [
-    "203-06",
-    "403-07"
-  ],
-  "Animaleros": [
-    "203-06",
-    "403-07"
-  ],
-  "Semovientes": [
-    "203-06",
-    "403-07"
-  ],
-  "Action Drivers ": [
-    "203-07"
-  ],
-  "Pilotos": [
-    "203-07"
-  ],
-  "Conductores de acción ": [
-    "203-07"
-  ],
-  "Automovilistas": [
-    "203-07"
-  ],
-  "Maestros de ceremonias": [
-    "204-01"
-  ],
-  "Presentadores": [
-    "204-01"
-  ],
-  "TV Hosting": [
-    "204-01"
-  ],
-  "Conductores a cuadro": [
-    "204-01"
-  ],
+  "Models": ["202-02", "202-03", "202-04"],
+  "Modèles": ["202-02", "202-03", "202-04"],
+  "Modelaje": ["202-02", "202-03", "202-04"],
+  "Body Double": ["202-02", "202-03", "203-03"],
+  "Bit Part": ["202-02"],
+  "Lencería": ["202-03"],
+  "Pasarela": ["202-04"],
+  "Coreografía": ["203-01"],
+  "Coreógrafos": ["203-01"],
+  "Baile": ["203-01", "203-02"],
+  "Bailarinas": ["203-01", "203-02"],
+  "Bailarines": ["203-01", "203-02"],
+  "Dancers": ["203-01", "203-02"],
+  "Strippers": ["203-02"],
+  "Stunts": ["203-03", "203-04"],
+  "Dobles de riesgo": ["203-03", "203-04"],
+  "Stunt double": ["203-03", "203-04"],
+  "Cascadeurs": ["203-03", "203-04"],
+  "Dobles de acción": ["203-03", "203-04"],
+  "Acción": ["203-03", "203-04"],
+  "Escenas de acción": ["203-03", "203-04"],
+  "Cirqueros": ["203-05"],
+  "Zanqueros": ["203-05"],
+  "Circo": ["203-05"],
+  "Acróbatas": ["203-05"],
+  "Animales entrenados": ["203-06", "403-07"],
+  "Entrenadores de animales": ["203-06", "403-07"],
+  "Wrangler": ["203-06"],
+  "Animales": ["203-06", "403-07"],
+  "Animaleros": ["203-06", "403-07"],
+  "Semovientes": ["203-06", "403-07"],
+  "Action Drivers ": ["203-07"],
+  "Pilotos": ["203-07"],
+  "Conductores de acción ": ["203-07"],
+  "Automovilistas": ["203-07"],
+  "Maestros de ceremonias": ["204-01"],
+  "Presentadores": ["204-01"],
+  "TV Hosting": ["204-01"],
+  "Conductores a cuadro": ["204-01"],
   "Televisión": [
     "204-01",
     "302-07",
@@ -833,80 +335,22 @@
     "901-07",
     "904-05"
   ],
-  "VO (Voice Over) ": [
-    "204-02"
-  ],
-  "Actores de voz": [
-    "204-02",
-    "204-03",
-    "704-02"
-  ],
-  "Voice Actors": [
-    "204-02",
-    "204-03"
-  ],
-  "Acteurs de la voix": [
-    "204-02",
-    "204-03",
-    "704-02"
-  ],
-  "Doublage": [
-    "204-02",
-    "204-03",
-    "704-02"
-  ],
-  "Dobladores": [
-    "204-03"
-  ],
-  "Dubbing": [
-    "204-03",
-    "704-02"
-  ],
-  "ADR (Automatic Dialogue Replacement)": [
-    "204-03",
-    "704-01",
-    "704-02"
-  ],
-  "Músicos": [
-    "205-01",
-    "205-02-",
-    "205-03",
-    "705-01"
-  ],
-  "Producción musical": [
-    "205-01",
-    "205-02-",
-    "305-01",
-    "305-05"
-  ],
-  "Productores musicales": [
-    "205-01",
-    "205-02-"
-  ],
-  "Coposición musical": [
-    "205-01",
-    "205-02-"
-  ],
-  "Jingles": [
-    "205-01",
-    "205-02-",
-    "705-01"
-  ],
-  "Música original": [
-    "205-01",
-    "205-02-",
-    "205-03",
-    "704-04",
-    "705-01"
-  ],
-  "Original Motion Picture Soundtrack ": [
-    "205-01"
-  ],
-  "Musique originale": [
-    "205-01",
-    "205-02-",
-    "205-03"
-  ],
+  "VO (Voice Over) ": ["204-02"],
+  "Actores de voz": ["204-02", "204-03", "704-02"],
+  "Voice Actors": ["204-02", "204-03"],
+  "Acteurs de la voix": ["204-02", "204-03", "704-02"],
+  "Doublage": ["204-02", "204-03", "704-02"],
+  "Dobladores": ["204-03"],
+  "Dubbing": ["204-03", "704-02"],
+  "ADR (Automatic Dialogue Replacement)": ["204-03", "704-01", "704-02"],
+  "Músicos": ["205-01", "205-02-", "205-03", "705-01"],
+  "Producción musical": ["205-01", "205-02-", "305-01", "305-05"],
+  "Productores musicales": ["205-01", "205-02-"],
+  "Coposición musical": ["205-01", "205-02-"],
+  "Jingles": ["205-01", "205-02-", "705-01"],
+  "Música original": ["205-01", "205-02-", "205-03", "704-04", "705-01"],
+  "Original Motion Picture Soundtrack ": ["205-01"],
+  "Musique originale": ["205-01", "205-02-", "205-03"],
   "Conciertos": [
     "205-01",
     "205-03",
@@ -931,36 +375,15 @@
     "503-11",
     "503-13",
     "503-14"
-   
   ],
-  "2k": [
-    "205-02-"
-  ],
-  "Composers": [
-    "205-02-",
-    "705-01"
-  ],
-  "Musicians": [
-    "205-02-",
-    "205-03",
-    "705-01"
-  ],
-  "Score": [
-    "205-02-",
-    "705-01"
-  ],
-  "Intérpretes": [
-    "205-03"
-  ],
-  "Cantantes": [
-    "205-03"
-  ],
-  "Ejecutantes": [
-    "205-03"
-  ],
-  "Instrumentistas": [
-    "205-03"
-  ],
+  "2k": ["205-02-"],
+  "Composers": ["205-02-", "705-01"],
+  "Musicians": ["205-02-", "205-03", "705-01"],
+  "Score": ["205-02-", "705-01"],
+  "Intérpretes": ["205-03"],
+  "Cantantes": ["205-03"],
+  "Ejecutantes": ["205-03"],
+  "Instrumentistas": ["205-03"],
   "Equipo humano": [
     "301-01",
     "301-02",
@@ -1026,41 +449,14 @@
     "308-05",
     "901-10"
   ],
-  "Producción cinematográfica": [
-    "301-01"
-  ],
-  "Productores cinematográficos": [
-    "301-01"
-  ],
-  "Productores": [
-    "301-01",
-    "301-02",
-    "301-03",
-    "301-04",
-    "302-05"
-  ],
-  "Producer": [
-    "301-01",
-    "301-02",
-    "301-03",
-    "301-04",
-    "302-05"
-  ],
-  "Feature Films": [
-    "301-01"
-  ],
-  "Line producers": [
-    "301-01",
-    "301-05"
-  ],
-  "Productores ejecutivos": [
-    "301-01",
-    "301-03"
-  ],
-  "Filmmaking": [
-    "301-01",
-    "401-01"
-  ],
+  "Producción cinematográfica": ["301-01"],
+  "Productores cinematográficos": ["301-01"],
+  "Productores": ["301-01", "301-02", "301-03", "301-04", "302-05"],
+  "Producer": ["301-01", "301-02", "301-03", "301-04", "302-05"],
+  "Feature Films": ["301-01"],
+  "Line producers": ["301-01", "301-05"],
+  "Productores ejecutivos": ["301-01", "301-03"],
+  "Filmmaking": ["301-01", "401-01"],
   "Film Crew": [
     "301-01",
     "301-04",
@@ -1105,11 +501,7 @@
     "306-12",
     "306-13"
   ],
-  "Telefilm": [
-    "301-01",
-    "301-02",
-    "401-01"
-  ],
+  "Telefilm": ["301-01", "301-02", "401-01"],
   "Producción": [
     "301-02",
     "301-04",
@@ -1122,10 +514,7 @@
     "301-11",
     "301-12"
   ],
-  "Line Producers": [
-    "301-02",
-    "301-04"
-  ],
+  "Line Producers": ["301-02", "301-04"],
   "Logística": [
     "301-02",
     "301-04",
@@ -1196,16 +585,8 @@
     "306-13",
     "401-01"
   ],
-  "Videos": [
-    "301-02",
-    "302-05",
-    "302-06",
-    "401-01"
-  ],
-  "Producción de videos": [
-    "301-02",
-    "401-01"
-  ],
+  "Videos": ["301-02", "302-05", "302-06", "401-01"],
+  "Producción de videos": ["301-02", "401-01"],
   "Crew": [
     "301-02",
     "301-03",
@@ -1269,188 +650,51 @@
     "308-04",
     "308-05"
   ],
-  "Gerentes de producción": [
-    "301-04"
-  ],
-  "Coordinación de producción": [
-    "301-04",
-    "301-05",
-    "401-01"
-  ],
-  "Coordinadores de producción": [
-    "301-05"
-  ],
-  "Production Coordinator": [
-    "301-05"
-  ],
-  "Coordonnatrice de production": [
-    "301-05"
-  ],
-  "Locaciones": [
-    "301-06",
-    "301-07",
-    "301-08",
-    "401-05"
-  ],
-  "Locations": [
-    "301-06",
-    "301-07",
-    "301-08",
-    "401-05"
-  ],
-  "Emplacements": [
-    "301-06",
-    "301-07",
-    "301-08",
-    "401-05"
-  ],
-  "Gerentes de locaciones": [
-    "301-06",
-    "301-07"
-  ],
-  "Managers de locaciones": [
-    "301-06",
-    "301-07",
-    "401-05"
-  ],
-  "Scouters": [
-    "301-07",
-    "301-08",
-    "401-05"
-  ],
-  "Manager de locaciones": [
-    "301-08"
-  ],
-  "Asistentes": [
-    "301-09",
-    "306-03"
-  ],
-  "PA (Production Assistants)": [
-    "301-09"
-  ],
-  "Asistentes de producción": [
-    "301-09"
-  ],
-  "Runners": [
-    "301-09",
-    "301-11",
-    "402-01"
-  ],
-  "Transporte de producción": [
-    "301-10"
-  ],
-  "Capitanes de transporte": [
-    "301-10"
-  ],
-  "Choferes": [
-    "301-10",
-    "301-11",
-    "402-01",
-    "402-02",
-    "402-04"
-  ],
-  "Transporte": [
-    "301-11"
-  ],
-  "Personal de seguridad": [
-    "301-12",
-    "401-07"
-  ],
-  "Guardias": [
-    "301-12",
-    "401-07"
-  ],
-  "Seguridad en locación": [
-    "301-12",
-    "401-07"
-  ],
-  "Realizadores": [
-    "302-01",
-    "302-04",
-    "302-05",
-    "302-06",
-    "302-07"
-  ],
-  "Dirección": [
-    "302-01",
-    "302-02",
-    "302-03"
-  ],
-  "Directores": [
-    "302-01"
-  ],
-  "Directors": [
-    "302-01"
-  ],
-  "Réalisateur": [
-    "302-01"
-  ],
-  "DA": [
-    "302-02"
-  ],
-  "Asistentes de dirección": [
-    "302-02"
-  ],
-  "Assistant Director": [
-    "302-02"
-  ],
-  "Assistant réalisateur": [
-    "302-02"
-  ],
-  "Scripts": [
-    "302-03"
-  ],
-  "Script Supervisors": [
-    "302-03"
-  ],
-  "Continuistas": [
-    "302-03",
-    "302-03"
-  ],
-  "Continuity": [
-    "302-03"
-  ],
-  "Raccord": [
-    "302-03"
-  ],
-  "Documentalistas": [
-    "302-04"
-  ],
-  "Documentary": [
-    "302-04"
-  ],
-  "Documentariste": [
-    "302-04"
-  ],
-  "TV Producer": [
-    "302-05",
-    "302-06",
-    "302-07"
-  ],
-  "Productores de televisión": [
-    "302-05",
-    "302-06",
-    "302-07"
-  ],
-  "Producción de video": [
-    "302-05",
-    "302-06"
-  ],
-  "TX": [
-    "302-05",
-    "302-06",
-    "502-01",
-    "502-02",
-    "502-03",
-    "502-04",
-    "502-05"
-  ],
-  "Transmisión": [
-    "302-05",
-    "302-06",
-    "502-04",
-    "502-05"
-  ],
+  "Gerentes de producción": ["301-04"],
+  "Coordinación de producción": ["301-04", "301-05", "401-01"],
+  "Coordinadores de producción": ["301-05"],
+  "Production Coordinator": ["301-05"],
+  "Coordonnatrice de production": ["301-05"],
+  "Locaciones": ["301-06", "301-07", "301-08", "401-05"],
+  "Locations": ["301-06", "301-07", "301-08", "401-05"],
+  "Emplacements": ["301-06", "301-07", "301-08", "401-05"],
+  "Gerentes de locaciones": ["301-06", "301-07"],
+  "Managers de locaciones": ["301-06", "301-07", "401-05"],
+  "Scouters": ["301-07", "301-08", "401-05"],
+  "Manager de locaciones": ["301-08"],
+  "Asistentes": ["301-09", "306-03"],
+  "PA (Production Assistants)": ["301-09"],
+  "Asistentes de producción": ["301-09"],
+  "Runners": ["301-09", "301-11", "402-01"],
+  "Transporte de producción": ["301-10"],
+  "Capitanes de transporte": ["301-10"],
+  "Choferes": ["301-10", "301-11", "402-01", "402-02", "402-04"],
+  "Transporte": ["301-11"],
+  "Personal de seguridad": ["301-12", "401-07"],
+  "Guardias": ["301-12", "401-07"],
+  "Seguridad en locación": ["301-12", "401-07"],
+  "Realizadores": ["302-01", "302-04", "302-05", "302-06", "302-07"],
+  "Dirección": ["302-01", "302-02", "302-03"],
+  "Directores": ["302-01"],
+  "Directors": ["302-01"],
+  "Réalisateur": ["302-01"],
+  "DA": ["302-02"],
+  "Asistentes de dirección": ["302-02"],
+  "Assistant Director": ["302-02"],
+  "Assistant réalisateur": ["302-02"],
+  "Scripts": ["302-03"],
+  "Script Supervisors": ["302-03"],
+  "Continuistas": ["302-03", "302-03"],
+  "Continuity": ["302-03"],
+  "Raccord": ["302-03"],
+  "Documentalistas": ["302-04"],
+  "Documentary": ["302-04"],
+  "Documentariste": ["302-04"],
+  "TV Producer": ["302-05", "302-06", "302-07"],
+  "Productores de televisión": ["302-05", "302-06", "302-07"],
+  "Producción de video": ["302-05", "302-06"],
+  "TX": ["302-05", "302-06", "502-01", "502-02", "502-03", "502-04", "502-05"],
+  "Transmisión": ["302-05", "302-06", "502-04", "502-05"],
   "Streaming": [
     "302-05",
     "302-06",
@@ -1468,21 +712,10 @@
     "502-04",
     "502-05"
   ],
-  "Transmisión en vivo": [
-    "302-05",
-    "302-06",
-    "502-04",
-    "502-05"
-  ],
-  "Transmisión de señal ": [
-    "302-05"
-  ],
-  "Distribución de señal ": [
-    "302-05"
-  ],
-  "Showrunner": [
-    "302-05"
-  ],
+  "Transmisión en vivo": ["302-05", "302-06", "502-04", "502-05"],
+  "Transmisión de señal ": ["302-05"],
+  "Distribución de señal ": ["302-05"],
+  "Showrunner": ["302-05"],
   "Technical Crew": [
     "302-06",
     "302-07",
@@ -1505,185 +738,56 @@
     "305-03",
     "305-05"
   ],
-  "Directores de cámaras": [
-    "302-06"
-  ],
-  "Distribución de señal": [
-    "302-06",
-    "502-04",
-    "502-05"
-  ],
-  "Directores de escena": [
-    "302-07"
-  ],
-  "DP (Directors of Photography)": [
-    "303-01"
-  ],
-  "Cinefotógrafos": [
-    "303-01",
-    "303-02",
-    "303-04",
-    "303-05",
-    "303-06"
-  ],
-  "Directores de fotografía": [
-    "303-01"
-  ],
-  "Cinematographers": [
-    "303-01"
-  ],
-  "Head Cameraman": [
-    "303-01"
-  ],
-  "Chef opérateur": [
-    "303-01"
-  ],
-  "Cameraman": [
-    "303-02"
-  ],
-  "Operadores de cámara cinematográfica": [
-    "303-02"
-  ],
-  "Focus puller": [
-    "303-02",
-    "303-03"
-  ],
-  "Foquistas": [
-    "303-02",
-    "303-03"
-  ],
-  "Primer asistente": [
-    "303-03"
-  ],
-  "Asistente de fotografía": [
-    "303-03"
-  ],
-  "Clapper loader": [
-    "303-03"
-  ],
-  "Assistant chef operateur": [
-    "303-03"
-  ],
-  "Asistentes de cámara cinamtográfica": [
-    "303-03"
-  ],
-  "Fotografía aérea": [
-    "303-04",
-    "303-09",
-    "503-04"
-  ],
-  "Drones": [
-    "303-04",
-    "303-09",
-    "503-04"
-  ],
-  "Helicópteros": [
-    "303-04",
-    "503-04",
-    "601-04"
-  ],
-  "Fotografía submarina": [
-    "303-05",
-    "503-05"
-  ],
-  "Fotógrafos submarinos": [
-    "303-05"
-  ],
-  "Buzos": [
-    "303-05",
-    "503-05"
-  ],
-  "Buceo": [
-    "303-05"
-  ],
-  "Foto fija": [
-    "303-06",
-    "303-10"
-  ],
-  "Still photography": [
-    "303-06"
-  ],
-  "Photographe": [
-    "303-06",
-    "303-10"
-  ],
-  "Fotografía": [
-    "303-06",
-    "303-10",
-    "401-04"
-  ],
-  "Fotógrafos": [
-    "303-06",
-    "303-07",
-    "303-08",
-    "303-10"
-  ],
-  "Operadores de cámara": [
-    "303-07",
-    "303-08"
-  ],
-  "Camarógrafos": [
-    "303-07",
-    "303-08"
-  ],
-  "Operadores de Steadycam": [
-    "303-08"
-  ],
-  "Operadores de dron": [
-    "303-09"
-  ],
-  "Fotógrafos aéreos": [
-    "303-04",
-    "303-09"
-  ],
-  "Aerial shots": [
-    "303-09",
-    "503-04"
-  ],
-  "Fotografía publicitaria": [
-    "303-10"
-  ],
-  "Fotografía artística": [
-    "303-10",
-    "401-04"
-  ],
-  "Still Photography": [
-    "303-10"
-  ],
-  "Fotografía de estudio": [
-    "303-10"
-  ],
-  "Retratos": [
-    "303-10",
-    "401-04"
-  ],
-  "Fotoperiodismo": [
-    "303-10"
-  ],
-  "Data": [
-    "303-11"
-  ],
-  "Data Manager": [
-    "303-11"
-  ],
-  "Técnico en imagen digital": [
-    "303-11"
-  ],
-  "Data Wrangler": [
-    "303-11"
-  ],
-  "DIT (Digital Imaging Technician)": [
-    "303-11"
-  ],
-  "Manager de données": [
-    "303-11"
-  ],
-  "Technicien en imagerie numérique": [
-    "303-11"
-  ],
-  "Workflow": [
-    "303-11"
-  ],
+  "Directores de cámaras": ["302-06"],
+  "Distribución de señal": ["302-06", "502-04", "502-05"],
+  "Directores de escena": ["302-07"],
+  "DP (Directors of Photography)": ["303-01"],
+  "Cinefotógrafos": ["303-01", "303-02", "303-04", "303-05", "303-06"],
+  "Directores de fotografía": ["303-01"],
+  "Cinematographers": ["303-01"],
+  "Head Cameraman": ["303-01"],
+  "Chef opérateur": ["303-01"],
+  "Cameraman": ["303-02"],
+  "Operadores de cámara cinematográfica": ["303-02"],
+  "Focus puller": ["303-02", "303-03"],
+  "Foquistas": ["303-02", "303-03"],
+  "Primer asistente": ["303-03"],
+  "Asistente de fotografía": ["303-03"],
+  "Clapper loader": ["303-03"],
+  "Assistant chef operateur": ["303-03"],
+  "Asistentes de cámara cinamtográfica": ["303-03"],
+  "Fotografía aérea": ["303-04", "303-09", "503-04"],
+  "Drones": ["303-04", "303-09", "503-04"],
+  "Helicópteros": ["303-04", "503-04", "601-04"],
+  "Fotografía submarina": ["303-05", "503-05"],
+  "Fotógrafos submarinos": ["303-05"],
+  "Buzos": ["303-05", "503-05"],
+  "Buceo": ["303-05"],
+  "Foto fija": ["303-06", "303-10"],
+  "Still photography": ["303-06"],
+  "Photographe": ["303-06", "303-10"],
+  "Fotografía": ["303-06", "303-10", "401-04"],
+  "Fotógrafos": ["303-06", "303-07", "303-08", "303-10"],
+  "Operadores de cámara": ["303-07", "303-08"],
+  "Camarógrafos": ["303-07", "303-08"],
+  "Operadores de Steadycam": ["303-08"],
+  "Operadores de dron": ["303-09"],
+  "Fotógrafos aéreos": ["303-04", "303-09"],
+  "Aerial shots": ["303-09", "503-04"],
+  "Fotografía publicitaria": ["303-10"],
+  "Fotografía artística": ["303-10", "401-04"],
+  "Still Photography": ["303-10"],
+  "Fotografía de estudio": ["303-10"],
+  "Retratos": ["303-10", "401-04"],
+  "Fotoperiodismo": ["303-10"],
+  "Data": ["303-11"],
+  "Data Manager": ["303-11"],
+  "Técnico en imagen digital": ["303-11"],
+  "Data Wrangler": ["303-11"],
+  "DIT (Digital Imaging Technician)": ["303-11"],
+  "Manager de données": ["303-11"],
+  "Technicien en imagerie numérique": ["303-11"],
+  "Workflow": ["303-11"],
   "Rushes": [
     "303-11",
     "307-02",
@@ -1704,15 +808,7 @@
     "702-02",
     "702-03"
   ],
-  "RAW": [
-    "303-11",
-    "307-01",
-    "307-02",
-    "307-03",
-    "701-01",
-    "701-03",
-    "702-03"
-  ],
+  "RAW": ["303-11", "307-01", "307-02", "307-03", "701-01", "701-03", "702-03"],
   "Formatos": [
     "303-11",
     "307-01",
@@ -1742,53 +838,17 @@
     "504-01",
     "504-02"
   ],
-  "Iluminadores": [
-    "304-01",
-    "304-02",
-    "304-03"
-  ],
-  "Gaffers": [
-    "304-01",
-    "304-02"
-  ],
-  "Jefes de staff": [
-    "304-01",
-    "304-02"
-  ],
-  "Best Boy": [
-    "304-01",
-    "304-02",
-    "304-03"
-  ],
-  "Riggers": [
-    "304-01",
-    "304-02",
-    "304-03"
-  ],
-  "Key Grip": [
-    "304-02",
-    "304-03"
-  ],
-  "Grip": [
-    "304-02",
-    "304-03"
-  ],
-  "Eléctricos": [
-    "304-03"
-  ],
-  "Personal": [
-    "304-03"
-  ],
-  "Staff": [
-    "304-03"
-  ],
-  "Sonido": [
-    "305-01",
-    "305-02",
-    "305-03",
-    "305-05",
-    "401-02"
-  ],
+  "Iluminadores": ["304-01", "304-02", "304-03"],
+  "Gaffers": ["304-01", "304-02"],
+  "Jefes de staff": ["304-01", "304-02"],
+  "Best Boy": ["304-01", "304-02", "304-03"],
+  "Riggers": ["304-01", "304-02", "304-03"],
+  "Key Grip": ["304-02", "304-03"],
+  "Grip": ["304-02", "304-03"],
+  "Eléctricos": ["304-03"],
+  "Personal": ["304-03"],
+  "Staff": ["304-03"],
+  "Sonido": ["305-01", "305-02", "305-03", "305-05", "401-02"],
   "Audio": [
     "305-01",
     "305-02",
@@ -1801,31 +861,11 @@
     "704-05",
     "704-06"
   ],
-  "Sonido sincrónico": [
-    "305-01",
-    "305-02",
-    "305-03"
-  ],
-  "Sonido directo": [
-    "305-01",
-    "305-02",
-    "305-03"
-  ],
-  "Sound": [
-    "305-01",
-    "305-02",
-    "305-03",
-    "305-05"
-  ],
-  "Sounoists": [
-    "305-01",
-    "305-02",
-    "305-03",
-    "305-05"
-  ],
-  "Ingenieros de sonido Diseño de audio": [
-    "305-01"
-  ],
+  "Sonido sincrónico": ["305-01", "305-02", "305-03"],
+  "Sonido directo": ["305-01", "305-02", "305-03"],
+  "Sound": ["305-01", "305-02", "305-03", "305-05"],
+  "Sounoists": ["305-01", "305-02", "305-03", "305-05"],
+  "Ingenieros de sonido Diseño de audio": ["305-01"],
   "Grabación de audio": [
     "305-01",
     "305-02",
@@ -1838,110 +878,28 @@
     "704-05",
     "704-06"
   ],
-  "Grabación musical": [
-    "305-01",
-    "305-05",
-    "705-01"
-  ],
-  "Sonorización": [
-    "305-01",
-    "305-05",
-    "401-03",
-    "503-10",
-    "503-11",
-    "601-07"
-  ],
-  "Sonidistas": [
-    "305-02",
-    "305-03"
-  ],
-  "Ingenieros de sonido": [
-    "305-02",
-    "305-05",
-    "704-08"
-  ],
-  "Diseño de audio": [
-    "305-02",
-    "401-02"
-  ],
-  "Aparatos": [
-    "305-04"
-  ],
-  "Apuntadores": [
-    "305-04",
-    "403-06"
-  ],
-  "Prompters": [
-    "305-04"
-  ],
-  "Secres": [
-    "305-05",
-    "503-11"
-  ],
-  "Backstage": [
-    "305-05",
-    "503-11"
-  ],
-  "Diseño de producción": [
-    "306-01",
-    "403-03",
-    "403-04"
-  ],
-  "Production Design": [
-    "306-01",
-    "403-03",
-    "403-04"
-  ],
-  "Création des décors": [
-    "306-01",
-    "403-03",
-    "403-04"
-  ],
-  "Diseñadores de producción": [
-    "306-01",
-    "306-02",
-    "403-03",
-    "403-04"
-  ],
-  "Atmósfera": [
-    "306-01",
-    "306-02",
-    "306-06",
-    "403-16",
-    "404-01"
-  ],
-  "Dirección de arte": [
-    "306-02",
-    "306-03"
-  ],
-  "Art Direction": [
-    "306-02",
-    "306-03"
-  ],
-  "Direction artistique": [
-    "306-02",
-    "306-03"
-  ],
-  "Directores de Arte": [
-    "306-02"
-  ],
-  "Decorado": [
-    "306-03",
-    "306-04",
-    "306-06"
-  ],
-  "Atrezzo": [
-    "306-03",
-    "306-06",
-    "306-07",
-    "403-11",
-    "403-12"
-  ],
-  "Swings": [
-    "306-03",
-    "306-04",
-    "306-05"
-  ],
+  "Grabación musical": ["305-01", "305-05", "705-01"],
+  "Sonorización": ["305-01", "305-05", "401-03", "503-10", "503-11", "601-07"],
+  "Sonidistas": ["305-02", "305-03"],
+  "Ingenieros de sonido": ["305-02", "305-05", "704-08"],
+  "Diseño de audio": ["305-02", "401-02"],
+  "Aparatos": ["305-04"],
+  "Apuntadores": ["305-04", "403-06"],
+  "Prompters": ["305-04"],
+  "Secres": ["305-05", "503-11"],
+  "Backstage": ["305-05", "503-11"],
+  "Diseño de producción": ["306-01", "403-03", "403-04"],
+  "Production Design": ["306-01", "403-03", "403-04"],
+  "Création des décors": ["306-01", "403-03", "403-04"],
+  "Diseñadores de producción": ["306-01", "306-02", "403-03", "403-04"],
+  "Atmósfera": ["306-01", "306-02", "306-06", "403-16", "404-01"],
+  "Dirección de arte": ["306-02", "306-03"],
+  "Art Direction": ["306-02", "306-03"],
+  "Direction artistique": ["306-02", "306-03"],
+  "Directores de Arte": ["306-02"],
+  "Decorado": ["306-03", "306-04", "306-06"],
+  "Atrezzo": ["306-03", "306-06", "306-07", "403-11", "403-12"],
+  "Swings": ["306-03", "306-04", "306-05"],
   "Escenografía": [
     "306-04",
     "306-05",
@@ -1953,151 +911,47 @@
     "601-13",
     "601-16"
   ],
-  "Escenógrafos": [
-    "306-04",
-    "306-05"
-  ],
-  "Scenery": [
-    "306-04"
-  ],
-  "Constructores": [
-    "306-04",
-    "306-05",
-    "403-04",
-    "601-14"
-  ],
-  "Carpinteros": [
-    "306-05",
-    "601-14"
-  ],
-  "Carpenters": [
-    "306-05"
-  ],
-  "Charpentiers": [
-    "306-05"
-  ],
-  "Ambientación": [
-    "306-06",
-    "403-12",
-    "403-16",
-    "404-01",
-    "601-16"
-  ],
-  "Ambientadores": [
-    "306-06"
-  ],
-  "Decoradores": [
-    "306-06"
-  ],
-  "Atrecistas": [
-    "306-06",
-    "306-07",
-    "403-11"
-  ],
-  "Utilería": [
-    "306-07",
-    "403-11"
-  ],
-  "Utileros": [
-    "306-07",
-    "403-11"
-  ],
-  "Props": [
-    "306-07",
-    "403-11"
-  ],
-  "Prop Master": [
-    "306-07",
-    "403-11"
-  ],
-  "Props Man": [
-    "306-07"
-  ],
-  "Armas": [
-    "306-08"
-  ],
-  "Armeros": [
-    "306-08"
-  ],
-  "Estopines": [
-    "306-08",
-    "403-08"
-  ],
-  "Ecónomos": [
-    "306-09"
-  ],
-  "Estilistas de alimentos": [
-    "306-09"
-  ],
-  "Food Styling": [
-    "306-09"
-  ],
-  "Stylisme Culinare": [
-    "306-09"
-  ],
-  "Taste Shots": [
-    "306-09"
-  ],
-  "Vestuario": [
-    "306-10"
-  ],
-  "Vestuaristas": [
-    "306-10"
-  ],
-  "Costume Designers": [
-    "306-10"
-  ],
-  "Wardrobe": [
-    "306-10"
-  ],
-  "Maquillaje": [
-    "306-11",
-    "306-12",
-    "306-13"
-  ],
-  "Makeup": [
-    "306-11"
-  ],
-  "Maquillistas": [
-    "306-11",
-    "306-13"
-  ],
-  "Makeup artist": [
-    "306-11"
-  ],
-  "Maquilleuse": [
-    "306-11",
-    "306-13"
-  ],
-  "Caracterizadores": [
-    "306-11",
-    "306-13"
-  ],
-  "Peinados": [
-    "306-12"
-  ],
-  "Peinadores": [
-    "306-12"
-  ],
-  "Hairdo": [
-    "306-12"
-  ],
-  "Estilistas": [
-    "306-12"
-  ],
-  "Postizos": [
-    "306-13"
-  ],
-  "Prostéticos": [
-    "306-13"
-  ],
-  "Make up artist": [
-    "306-13"
-  ],
-  "Caracterización de personajes": [
-    "306-13",
-    "403-10"
-  ],
+  "Escenógrafos": ["306-04", "306-05"],
+  "Scenery": ["306-04"],
+  "Constructores": ["306-04", "306-05", "403-04", "601-14"],
+  "Carpinteros": ["306-05", "601-14"],
+  "Carpenters": ["306-05"],
+  "Charpentiers": ["306-05"],
+  "Ambientación": ["306-06", "403-12", "403-16", "404-01", "601-16"],
+  "Ambientadores": ["306-06"],
+  "Decoradores": ["306-06"],
+  "Atrecistas": ["306-06", "306-07", "403-11"],
+  "Utilería": ["306-07", "403-11"],
+  "Utileros": ["306-07", "403-11"],
+  "Props": ["306-07", "403-11"],
+  "Prop Master": ["306-07", "403-11"],
+  "Props Man": ["306-07"],
+  "Armas": ["306-08"],
+  "Armeros": ["306-08"],
+  "Estopines": ["306-08", "403-08"],
+  "Ecónomos": ["306-09"],
+  "Estilistas de alimentos": ["306-09"],
+  "Food Styling": ["306-09"],
+  "Stylisme Culinare": ["306-09"],
+  "Taste Shots": ["306-09"],
+  "Vestuario": ["306-10"],
+  "Vestuaristas": ["306-10"],
+  "Costume Designers": ["306-10"],
+  "Wardrobe": ["306-10"],
+  "Maquillaje": ["306-11", "306-12", "306-13"],
+  "Makeup": ["306-11"],
+  "Maquillistas": ["306-11", "306-13"],
+  "Makeup artist": ["306-11"],
+  "Maquilleuse": ["306-11", "306-13"],
+  "Caracterizadores": ["306-11", "306-13"],
+  "Peinados": ["306-12"],
+  "Peinadores": ["306-12"],
+  "Hairdo": ["306-12"],
+  "Estilistas": ["306-12"],
+  "Postizos": ["306-13"],
+  "Prostéticos": ["306-13"],
+  "Make up artist": ["306-13"],
+  "Caracterización de personajes": ["306-13", "403-10"],
   "Postproducción": [
     "307-01",
     "307-02",
@@ -2128,195 +982,48 @@
     "705-01",
     "705-02"
   ],
-  "Postproductores": [
-    "307-01",
-    "307-02"
-  ],
-  "Postproduction": [
-    "307-01",
-    "701-01",
-    "701-02",
-    "701-03"
-  ],
-  "Directores de postproduction": [
-    "307-01"
-  ],
-  "Editores": [
-    "307-01",
-    "307-02"
-  ],
-  "Etalonaje": [
-    "307-01",
-    "307-03",
-    "307-04",
-    "701-02",
-    "701-03"
-  ],
-  "LUT": [
-    "307-01",
-    "307-03",
-    "307-04",
-    "701-02",
-    "701-03"
-  ],
-  "DaVinci Resolve": [
-    "307-01"
-  ],
-  "Editores de video": [
-    "307-02"
-  ],
-  "Edición": [
-    "307-02"
-  ],
-  "Edition": [
-    "307-02"
-  ],
-  "Montage": [
-    "307-02"
-  ],
-  "Editores de imagen": [
-    "307-02"
-  ],
-  "Avid": [
-    "307-02"
-  ],
-  "FinalCut": [
-    "307-02"
-  ],
-  "Adobe Premiere": [
-    "307-02"
-  ],
-  "Sony Vegas": [
-    "307-02"
-  ],
-  "DaVinci Resolve ": [
-    "307-02"
-  ],
-  "Procesos cinematográficos": [
-    "307-03",
-    "701-03",
-    "702-01"
-  ],
-  "DCP": [
-    "307-03"
-  ],
-  "Digital Cinema Package": [
-    "307-03"
-  ],
-  "Postproductores cinematográficos": [
-    "307-03"
-  ],
-  "Corrección de color": [
-    "307-04",
-    "701-02"
-  ],
-  "Coloristas": [
-    "307-04",
-    "701-02"
-  ],
-  "Animación": [
-    "307-05",
-    "307-06",
-    "701-01",
-    "703-01",
-    "703-02",
-    "703-03"
-  ],
-  "Diseño de animación": [
-    "307-05",
-    "307-06"
-  ],
-  "Personajes de animacíon": [
-    "307-05",
-    "307-06"
-  ],
-  "Efectos visuales": [
-    "307-05",
-    "307-06",
-    "701-01",
-    "703-01",
-    "703-03"
-  ],
-  "Visual Effects": [
-    "307-05",
-    "307-06",
-    "703-03"
-  ],
-  "Effects visuels": [
-    "307-05",
-    "307-06",
-    "703-03"
-  ],
-  "Directores de animación": [
-    "307-05",
-    "307-06"
-  ],
-  "Animadores": [
-    "307-05",
-    "307-06",
-    "703-01",
-    "703-02"
-  ],
-  "2D": [
-    "307-05",
-    "307-06",
-    "703-01"
-  ],
-  "3D": [
-    "307-05",
-    "307-06",
-    "703-01"
-  ],
-  "Postproducción de sonido": [
-    "308-01",
-    "308-02",
-    "308-03"
-  ],
-  "Diseño sonoro": [
-    "308-01",
-    "308-02",
-    "308-03",
-    "704-07",
-    "704-08"
-  ],
-  "Sound design": [
-    "308-01",
-    "308-02",
-    "308-03"
-  ],
-  "Design sonore": [
-    "308-01",
-    "308-02",
-    "308-03",
-    "704-07",
-    "704-08"
-  ],
-  "Productores de radio": [
-    "308-01",
-    "308-03"
-  ],
-  "Productores de sonido": [
-    "308-01",
-    "308-03"
-  ],
-  "ProTools": [
-    "308-01",
-    "308-02",
-    "308-03",
-    "308-05",
-    "704-01"
-  ],
-  "Radio": [
-    "308-01",
-    "401-02",
-    "901-07",
-    "904-05"
-  ],
-  "Mezcla": [
-    "308-01",
-    "308-02",
-    "308-03"
-  ],
+  "Postproductores": ["307-01", "307-02"],
+  "Postproduction": ["307-01", "701-01", "701-02", "701-03"],
+  "Directores de postproduction": ["307-01"],
+  "Editores": ["307-01", "307-02"],
+  "Etalonaje": ["307-01", "307-03", "307-04", "701-02", "701-03"],
+  "LUT": ["307-01", "307-03", "307-04", "701-02", "701-03"],
+  "DaVinci Resolve": ["307-01"],
+  "Editores de video": ["307-02"],
+  "Edición": ["307-02"],
+  "Edition": ["307-02"],
+  "Montage": ["307-02"],
+  "Editores de imagen": ["307-02"],
+  "Avid": ["307-02"],
+  "FinalCut": ["307-02"],
+  "Adobe Premiere": ["307-02"],
+  "Sony Vegas": ["307-02"],
+  "DaVinci Resolve ": ["307-02"],
+  "Procesos cinematográficos": ["307-03", "701-03", "702-01"],
+  "DCP": ["307-03"],
+  "Digital Cinema Package": ["307-03"],
+  "Postproductores cinematográficos": ["307-03"],
+  "Corrección de color": ["307-04", "701-02"],
+  "Coloristas": ["307-04", "701-02"],
+  "Animación": ["307-05", "307-06", "701-01", "703-01", "703-02", "703-03"],
+  "Diseño de animación": ["307-05", "307-06"],
+  "Personajes de animacíon": ["307-05", "307-06"],
+  "Efectos visuales": ["307-05", "307-06", "701-01", "703-01", "703-03"],
+  "Visual Effects": ["307-05", "307-06", "703-03"],
+  "Effects visuels": ["307-05", "307-06", "703-03"],
+  "Directores de animación": ["307-05", "307-06"],
+  "Animadores": ["307-05", "307-06", "703-01", "703-02"],
+  "2D": ["307-05", "307-06", "703-01"],
+  "3D": ["307-05", "307-06", "703-01"],
+  "Postproducción de sonido": ["308-01", "308-02", "308-03"],
+  "Diseño sonoro": ["308-01", "308-02", "308-03", "704-07", "704-08"],
+  "Sound design": ["308-01", "308-02", "308-03"],
+  "Design sonore": ["308-01", "308-02", "308-03", "704-07", "704-08"],
+  "Productores de radio": ["308-01", "308-03"],
+  "Productores de sonido": ["308-01", "308-03"],
+  "ProTools": ["308-01", "308-02", "308-03", "308-05", "704-01"],
+  "Radio": ["308-01", "401-02", "901-07", "904-05"],
+  "Mezcla": ["308-01", "308-02", "308-03"],
   "Audio mixing": [
     "308-01",
     "308-02",
@@ -2326,15 +1033,8 @@
     "503-10",
     "503-11"
   ],
-  "Foley Artists": [
-    "308-01"
-  ],
-  "Incidentalistas": [
-    "308-01",
-    "308-03",
-    "704-01",
-    "704-02"
-  ],
+  "Foley Artists": ["308-01"],
+  "Incidentalistas": ["308-01", "308-03", "704-01", "704-02"],
   "Webcast": [
     "308-01",
     "401-03",
@@ -2348,110 +1048,33 @@
     "901-08",
     "901-09"
   ],
-  "Postproductores de audio": [
-    "308-02",
-    "704-06",
-    "704-08"
-  ],
-  "THX": [
-    "308-02",
-    "308-03",
-    "704-06",
-    "704-07"
-  ],
-  "Sistemas 5.1": [
-    "308-02",
-    "308-03",
-    "704-01",
-    "704-07"
-  ],
-  "Foley Astists": [
-    "308-02"
-  ],
-  "incidentalistas": [
-    "308-02"
-  ],
-  "Banda sonora": [
-    "308-03",
-    "308-04",
-    "308-05",
-    "308-02"
-  ],
-  "Foley Aristis": [
-    "308-03"
-  ],
-  "Asesoría musical": [
-    "308-04"
-  ],
-  "Asesores musicales": [
-    "308-04"
-  ],
-  "Supervisores músicales": [
-    "308-04"
-  ],
-  "Soundtrack": [
-    "308-04"
-  ],
-  "Original Motion Picture Soundtrack": [
-    "308-04"
-  ],
-  "Derechos de uso de música": [
-    "308-04"
-  ],
-  "Licencias": [
-    "308-04"
-  ],
-  "Regalías": [
-    "308-04",
-    "703-04",
-    "705-02"
-  ],
-  "Royalties": [
-    "308-04",
-    "703-04",
-    "705-02"
-  ],
-  "ASCAP": [
-    "308-04"
-  ],
-  "SACM": [
-    "308-04"
-  ],
-  "Somexfon": [
-    "308-04"
-  ],
-  "Postproducción de audio": [
-    "308-05"
-  ],
-  "Musicalizadores": [
-    "308-05"
-  ],
-  "Stock de audio": [
-    "308-05",
-    "705-02"
-  ],
-  "Librerías": [
-    "308-05",
-    "703-04",
-    "705-02"
-  ],
-  "Librerías musicales": [
-    "308-05",
-    "705-02"
-  ],
-  "Clips de audio": [
-    "308-05",
-    "705-02"
-  ],
-  "Música": [
-    "308-05",
-    "705-02"
-  ],
-  "Musicalización": [
-    "308-05",
-    "705-01",
-    "705-02"
-  ],
+  "Postproductores de audio": ["308-02", "704-06", "704-08"],
+  "THX": ["308-02", "308-03", "704-06", "704-07"],
+  "Sistemas 5.1": ["308-02", "308-03", "704-01", "704-07"],
+  "Foley Astists": ["308-02"],
+  "incidentalistas": ["308-02"],
+  "Banda sonora": ["308-03", "308-04", "308-05", "308-02"],
+  "Foley Aristis": ["308-03"],
+  "Asesoría musical": ["308-04"],
+  "Asesores musicales": ["308-04"],
+  "Supervisores músicales": ["308-04"],
+  "Soundtrack": ["308-04"],
+  "Original Motion Picture Soundtrack": ["308-04"],
+  "Derechos de uso de música": ["308-04"],
+  "Licencias": ["308-04"],
+  "Regalías": ["308-04", "703-04", "705-02"],
+  "Royalties": ["308-04", "703-04", "705-02"],
+  "ASCAP": ["308-04"],
+  "SACM": ["308-04"],
+  "Somexfon": ["308-04"],
+  "Postproducción de audio": ["308-05"],
+  "Musicalizadores": ["308-05"],
+  "Stock de audio": ["308-05", "705-02"],
+  "Librerías": ["308-05", "703-04", "705-02"],
+  "Librerías musicales": ["308-05", "705-02"],
+  "Clips de audio": ["308-05", "705-02"],
+  "Música": ["308-05", "705-02"],
+  "Musicalización": ["308-05", "705-01", "705-02"],
   "Producción audiovisual": [
     "401-01",
     "401-02",
@@ -2492,184 +1115,61 @@
     "404-05",
     "404-06"
   ],
-  "Comerciales": [
-    "401-01"
-  ],
-  "TV Spots": [
-    "401-01"
-  ],
-  "Filmadoras": [
-    "401-01"
-  ],
-  "Compañías productoras": [
-    "401-01"
-  ],
-  "Documentales": [
-    "401-01"
-  ],
-  "Series": [
-    "401-01"
-  ],
-  "Miniseries": [
-    "401-01"
-  ],
-  "Casas productoras": [
-    "401-01"
-  ],
-  "Production Companies": [
-    "401-01"
-  ],
-  "Maison de production": [
-    "401-01"
-  ],
-  "Productoras": [
-    "401-01"
-  ],
-  "Audio Post": [
-    "401-02"
-  ],
-  "Audio Mix": [
-    "401-02"
-  ],
-  "Productoras de audio": [
-    "401-02"
-  ],
-  "Estudios de sonido": [
-    "401-02"
-  ],
-  "BTL": [
-    "401-03",
-    "601-06"
-  ],
-  "Templetes": [
-    "401-03"
-  ],
-  "Sonido local": [
-    "401-03"
-  ],
-  "Productoras de eventos": [
-    "401-03"
-  ],
-  "Activaciones": [
-    "401-03"
-  ],
-  "Relaciones públicas": [
-    "401-03",
-    "901-08"
-  ],
-  "Presentaciones": [
-    "401-03"
-  ],
-  "Fotografía publicitaria ": [
-    "401-04"
-  ],
-  "Fotógráfos": [
-    "401-04"
-  ],
-  "Fotografía still": [
-    "401-04"
-  ],
-  "Estudios de fotografía": [
-    "401-04"
-  ],
-  "Acervos fotográficos": [
-    "401-04"
-  ],
-  "Stock fotográfico": [
-    "401-04",
-    "703-04"
-  ],
-  "Scouting": [
-    "401-05"
-  ],
-  "Agencias de locaciones": [
-    "401-05"
-  ],
-  "Seguridad": [
-    "401-06",
-    "401-07"
-  ],
-  "Talent handler": [
-    "401-06"
-  ],
-  "Escoltas": [
-    "401-06"
-  ],
-  "Bodyguards": [
-    "401-06"
-  ],
-  "Seguridad para talento": [
-    "401-06"
-  ],
-  "Performance Support": [
-    "401-06",
-    "305-05",
-    "401-03",
-    "401-07"
-  ],
-  "Catering": [
-    "401-08",
-    "401-08"
-  ],
-  "Comida producción": [
-    "401-08"
-  ],
-  "Box lunch": [
-    "401-08"
-  ],
-  "Café": [
-    "401-08"
-  ],
-  "Meseros": [
-    "401-08"
-  ],
-  "Atención al cliente": [
-    "401-08"
-  ],
-  "Crafty": [
-    "401-08"
-  ],
-  "Alimentación": [
-    "401-08"
-  ],
-  "Cantine": [
-    "401-08"
-  ],
-  "Seguros de producción": [
-    "401-09"
-  ],
-  "Insurances": [
-    "401-09"
-  ],
-  "Assurances": [
-    "401-09"
-  ],
-  "Aseguradoras": [
-    "401-09"
-  ],
-  "Rain Day": [
-    "401-09"
-  ],
-  "Transportación de producción": [
-    "402-01",
-    "402-03",
-    "402-04"
-  ],
-  "Transportes": [
-    "402-01",
-    "402-03",
-    "402-04"
-  ],
-  "Camionetas de producción": [
-    "402-01"
-  ],
-  "Choferes de producción": [
-    "402-01"
-  ],
-  "Coordinadores de transporte": [
-    "402-01",
-    "301-10"
-  ],
+  "Comerciales": ["401-01"],
+  "TV Spots": ["401-01"],
+  "Filmadoras": ["401-01"],
+  "Compañías productoras": ["401-01"],
+  "Documentales": ["401-01"],
+  "Series": ["401-01"],
+  "Miniseries": ["401-01"],
+  "Casas productoras": ["401-01"],
+  "Production Companies": ["401-01"],
+  "Maison de production": ["401-01"],
+  "Productoras": ["401-01"],
+  "Audio Post": ["401-02"],
+  "Audio Mix": ["401-02"],
+  "Productoras de audio": ["401-02"],
+  "Estudios de sonido": ["401-02"],
+  "BTL": ["401-03", "601-06"],
+  "Templetes": ["401-03"],
+  "Sonido local": ["401-03"],
+  "Productoras de eventos": ["401-03"],
+  "Activaciones": ["401-03"],
+  "Relaciones públicas": ["401-03", "901-08"],
+  "Presentaciones": ["401-03"],
+  "Fotografía publicitaria ": ["401-04"],
+  "Fotógráfos": ["401-04"],
+  "Fotografía still": ["401-04"],
+  "Estudios de fotografía": ["401-04"],
+  "Acervos fotográficos": ["401-04"],
+  "Stock fotográfico": ["401-04", "703-04"],
+  "Scouting": ["401-05"],
+  "Agencias de locaciones": ["401-05"],
+  "Seguridad": ["401-06", "401-07"],
+  "Talent handler": ["401-06"],
+  "Escoltas": ["401-06"],
+  "Bodyguards": ["401-06"],
+  "Seguridad para talento": ["401-06"],
+  "Performance Support": ["401-06", "305-05", "401-03", "401-07"],
+  "Catering": ["401-08", "401-08"],
+  "Comida producción": ["401-08"],
+  "Box lunch": ["401-08"],
+  "Café": ["401-08"],
+  "Meseros": ["401-08"],
+  "Atención al cliente": ["401-08"],
+  "Crafty": ["401-08"],
+  "Alimentación": ["401-08"],
+  "Cantine": ["401-08"],
+  "Seguros de producción": ["401-09"],
+  "Insurances": ["401-09"],
+  "Assurances": ["401-09"],
+  "Aseguradoras": ["401-09"],
+  "Rain Day": ["401-09"],
+  "Transportación de producción": ["402-01", "402-03", "402-04"],
+  "Transportes": ["402-01", "402-03", "402-04"],
+  "Camionetas de producción": ["402-01"],
+  "Choferes de producción": ["402-01"],
+  "Coordinadores de transporte": ["402-01", "301-10"],
   "Renta": [
     "402-01",
     "402-02",
@@ -2720,90 +1220,32 @@
     "601-08",
     "601-18"
   ],
-  "Transportación VIP": [
-    "402-02",
-    "601-04",
-    "601-05"
-  ],
-  "Transportes para clientes": [
-    "402-02"
-  ],
-  "Camionetas": [
-    "402-02"
-  ],
-  "Suburbans": [
-    "402-02"
-  ],
-  "Carga": [
-    "402-03"
-  ],
-  "Vanettes": [
-    "402-03"
-  ],
-  "Autobuses": [
-    "402-04"
-  ],
-  "Microbuses": [
-    "402-04"
-  ],
-  "Sprinters": [
-    "402-04"
-  ],
-  "Oficinas móviles": [
-    "402-05",
-    "402-06"
-  ],
-  "Campers": [
-    "402-05",
-    "402-06"
-  ],
-  "Remolques": [
-    "402-05",
-    "402-06"
-  ],
-  "Camerinos": [
-    "402-05",
-    "402-06"
-  ],
-  "Sanitarios móviles": [
-    "402-07"
-  ],
-  "Mobile Toilets": [
-    "402-07"
-  ],
-  "Sales de bain mobiles": [
-    "402-07"
-  ],
-  "Baños en locación": [
-    "402-07"
-  ],
-  "10-200 ": [
-    "402-07"
-  ],
-  "Foros": [
-    "403-01"
-  ],
-  "Studios": [
-    "403-01"
-  ],
-  "Estudios": [
-    "403-01"
-  ],
-  "Plató": [
-    "403-01"
-  ],
-  "Sets": [
-    "403-01"
-  ],
-  "Plateaux": [
-    "403-01"
-  ],
-  "Estudios de TV": [
-    "403-02"
-  ],
-  "TV Studios": [
-    "403-02"
-  ],
+  "Transportación VIP": ["402-02", "601-04", "601-05"],
+  "Transportes para clientes": ["402-02"],
+  "Camionetas": ["402-02"],
+  "Suburbans": ["402-02"],
+  "Carga": ["402-03"],
+  "Vanettes": ["402-03"],
+  "Autobuses": ["402-04"],
+  "Microbuses": ["402-04"],
+  "Sprinters": ["402-04"],
+  "Oficinas móviles": ["402-05", "402-06"],
+  "Campers": ["402-05", "402-06"],
+  "Remolques": ["402-05", "402-06"],
+  "Camerinos": ["402-05", "402-06"],
+  "Sanitarios móviles": ["402-07"],
+  "Mobile Toilets": ["402-07"],
+  "Sales de bain mobiles": ["402-07"],
+  "Baños en locación": ["402-07"],
+  "10-200 ": ["402-07"],
+  "Foros": ["403-01"],
+  "Studios": ["403-01"],
+  "Estudios": ["403-01"],
+  "Plató": ["403-01"],
+  "Sets": ["403-01"],
+  "Plateaux": ["403-01"],
+  "Estudios de TV": ["403-02"],
+  "TV Studios": ["403-02"],
   "Renta de equipo": [
     "403-02",
     "403-05",
@@ -2835,131 +1277,43 @@
     "503-14",
     "504-02"
   ],
-  "Video Assistant": [
-    "403-05"
-  ],
-  "Videoasist": [
-    "403-05"
-  ],
-  "Monitoreo": [
-    "403-05"
-  ],
-  "Teleprompters": [
-    "403-06"
-  ],
-  "Animals": [
-    "403-07"
-  ],
-  "Animaux": [
-    "403-07"
-  ],
-  "Wranglers": [
-    "403-07"
-  ],
-  "FX": [
-    "403-08",
-    "403-14",
-    "403-15"
-  ],
-  "Sangre": [
-    "403-08"
-  ],
-  "Explosiones": [
-    "403-08"
-  ],
-  "Efectos especiales": [
-    "403-08",
-    "403-14",
-    "403-15",
-    "703-03"
-  ],
-  "Special Effects": [
-    "403-08"
-  ],
-  "Effets spéciaux": [
-    "403-08"
-  ],
-  "Máquinas de humo": [
-    "403-08"
-  ],
-  "Dummies": [
-    "403-09",
-    "403-13"
-  ],
-  "Maquetas": [
-    "403-09",
-    "403-13"
-  ],
-  "Disfraces": [
-    "403-10"
-  ],
-  "Pelucas": [
-    "403-10"
-  ],
-  "Costumes": [
-    "403-10",
-    "403-10"
-  ],
-  "Alquiler de utilería": [
-    "403-11"
-  ],
-  "Props Man ": [
-    "403-11"
-  ],
-  "Muebles en renta": [
-    "403-12"
-  ],
-  "Furniture Rental": [
-    "403-12"
-  ],
-  "Location de meublés": [
-    "403-12"
-  ],
-  "Máquinas de humo ": [
-    "403-14"
-  ],
-  "Pipas de agua": [
-    "403-15"
-  ],
-  "Water Tankers": [
-    "403-15"
-  ],
-  "Conduites D eau": [
-    "403-15"
-  ],
-  "Lluvia": [
-    "403-15"
-  ],
-  "Jardinería": [
-    "403-16",
-    "404-01",
-    "601-16"
-  ],
-  "Gardening": [
-    "403-16",
-    "404-01"
-  ],
-  "Jardinage": [
-    "403-16",
-    "404-01"
-  ],
-  "Plantas": [
-    "403-16",
-    "404-01",
-    "601-16"
-  ],
-  "Discos": [
-    "404-02"
-  ],
-  "Hard disk": [
-    "404-02"
-  ],
-  "Materiales ópticos": [
-    "404-02"
-  ],
-  "Materiales magnéticos": [
-    "404-02"
-  ],
+  "Video Assistant": ["403-05"],
+  "Videoasist": ["403-05"],
+  "Monitoreo": ["403-05"],
+  "Teleprompters": ["403-06"],
+  "Animals": ["403-07"],
+  "Animaux": ["403-07"],
+  "Wranglers": ["403-07"],
+  "FX": ["403-08", "403-14", "403-15"],
+  "Sangre": ["403-08"],
+  "Explosiones": ["403-08"],
+  "Efectos especiales": ["403-08", "403-14", "403-15", "703-03"],
+  "Special Effects": ["403-08"],
+  "Effets spéciaux": ["403-08"],
+  "Máquinas de humo": ["403-08"],
+  "Dummies": ["403-09", "403-13"],
+  "Maquetas": ["403-09", "403-13"],
+  "Disfraces": ["403-10"],
+  "Pelucas": ["403-10"],
+  "Costumes": ["403-10", "403-10"],
+  "Alquiler de utilería": ["403-11"],
+  "Props Man ": ["403-11"],
+  "Muebles en renta": ["403-12"],
+  "Furniture Rental": ["403-12"],
+  "Location de meublés": ["403-12"],
+  "Máquinas de humo ": ["403-14"],
+  "Pipas de agua": ["403-15"],
+  "Water Tankers": ["403-15"],
+  "Conduites D eau": ["403-15"],
+  "Lluvia": ["403-15"],
+  "Jardinería": ["403-16", "404-01", "601-16"],
+  "Gardening": ["403-16", "404-01"],
+  "Jardinage": ["403-16", "404-01"],
+  "Plantas": ["403-16", "404-01", "601-16"],
+  "Discos": ["404-02"],
+  "Hard disk": ["404-02"],
+  "Materiales ópticos": ["404-02"],
+  "Materiales magnéticos": ["404-02"],
   "Venta": [
     "404-02",
     "404-03",
@@ -2971,212 +1325,70 @@
     "601-12",
     "601-13"
   ],
-  "Película": [
-    "404-03",
-    "702-01"
-  ],
-  "Film": [
-    "404-03"
-  ],
-  "Negativo": [
-    "404-03"
-  ],
-  "35 mm": [
-    "404-03"
-  ],
-  "16 mm": [
-    "404-03"
-  ],
-  "Material cinematográfico": [
-    "404-03"
-  ],
-  "Film material": [
-    "404-03"
-  ],
-  "Pelicule filmique": [
-    "404-03"
-  ],
-  "Consumibles": [
-    "404-04"
-  ],
-  "Gaffer tape": [
-    "404-04"
-  ],
-  "Filtros": [
-    "404-04",
-    "404-04"
-  ],
-  "Filters": [
-    "404-04"
-  ],
-  "Black foil": [
-    "404-04"
-  ],
-  "Black wrap": [
-    "404-04"
-  ],
-  "Roscoe": [
-    "404-04"
-  ],
-  "Lee": [
-    "404-04"
-  ],
-  "Dicroicos": [
-    "404-04"
-  ],
-  "Difusores": [
-    "404-04"
-  ],
-  "Baterías": [
-    "404-04"
-  ],
-  "Hot set": [
-    "404-04"
-  ],
-  "Pasacables": [
-    "404-04"
-  ],
-  "Aire comprimido": [
-    "404-04"
-  ],
-  "Chamoix": [
-    "404-04"
-  ],
-  "Expendables": [
-    "404-04"
-  ],
-  "Consommables": [
-    "404-04"
-  ],
-  "Materiales de iluminación": [
-    "404-04",
-    "404-04",
-    "404-05"
-  ],
-  "Gel": [
-    "404-04"
-  ],
-  "Gelatinas": [
-    "404-04"
-  ],
-  "Dust off": [
-    "404-04"
-  ],
-  "Lens tissue": [
-    "404-04"
-  ],
-  "Dulling spray": [
-    "404-04"
-  ],
-  "Cinta gaffer": [
-    "404-04"
-  ],
-  "Masking tape": [
-    "404-04"
-  ],
-  "Pizarras": [
-    "404-04",
-    "404-06"
-  ],
-  "Slate": [
-    "404-04",
-    "404-06"
-  ],
-  "Clapper": [
-    "404-04",
-    "404-06"
-  ],
-  "Artículos especializados": [
-    "404-04",
-    "404-05"
-  ],
-  "Repuestos para lámparas": [
-    "404-05"
-  ],
-  "Luminarias": [
-    "404-05"
-  ],
-  "Lámparas": [
-    "404-05"
-  ],
-  "Focos": [
-    "404-05"
-  ],
-  "Refacciones": [
-    "404-05",
-    "504-03"
-  ],
-  "Tungsteno": [
-    "404-05",
-    "503-06"
-  ],
-  "Cuarzo": [
-    "404-05"
-  ],
-  "HMI": [
-    "404-05",
-    "503-06"
-  ],
-  "Tramoya": [
-    "404-06"
-  ],
-  "Distribuidores de tramoya": [
-    "404-06"
-  ],
-  "Fabricantes de tramoya": [
-    "404-06"
-  ],
-  "Arri": [
-    "404-06",
-    "503-06"
-  ],
-  "Mathews": [
-    "404-06"
-  ],
-  "Colortran": [
-    "404-06",
-    "503-06"
-  ],
-  "Century": [
-    "404-06"
-  ],
-  "Mole Richardson": [
-    "404-06",
-    "503-06"
-  ],
-  "Tripiés": [
-    "404-06"
-  ],
-  "Stands": [
-    "404-06"
-  ],
-  "Banderas": [
-    "404-06"
-  ],
-  "Marcos": [
-    "404-06"
-  ],
-  "Textiles": [
-    "404-06"
-  ],
-  "Grifos": [
-    "404-06"
-  ],
-  "Apple Boxes": [
-    "404-06"
-  ],
-  "Flags": [
-    "404-06"
-  ],
-  "Bounce": [
-    "404-06"
-  ],
-  "Cookies": [
-    "404-06"
-  ],
-  "C-Stand": [
-    "404-06"
-  ],
+  "Película": ["404-03", "702-01"],
+  "Film": ["404-03"],
+  "Negativo": ["404-03"],
+  "35 mm": ["404-03"],
+  "16 mm": ["404-03"],
+  "Material cinematográfico": ["404-03"],
+  "Film material": ["404-03"],
+  "Pelicule filmique": ["404-03"],
+  "Consumibles": ["404-04"],
+  "Gaffer tape": ["404-04"],
+  "Filtros": ["404-04", "404-04"],
+  "Filters": ["404-04"],
+  "Black foil": ["404-04"],
+  "Black wrap": ["404-04"],
+  "Roscoe": ["404-04"],
+  "Lee": ["404-04"],
+  "Dicroicos": ["404-04"],
+  "Difusores": ["404-04"],
+  "Baterías": ["404-04"],
+  "Hot set": ["404-04"],
+  "Pasacables": ["404-04"],
+  "Aire comprimido": ["404-04"],
+  "Chamoix": ["404-04"],
+  "Expendables": ["404-04"],
+  "Consommables": ["404-04"],
+  "Materiales de iluminación": ["404-04", "404-04", "404-05"],
+  "Gel": ["404-04"],
+  "Gelatinas": ["404-04"],
+  "Dust off": ["404-04"],
+  "Lens tissue": ["404-04"],
+  "Dulling spray": ["404-04"],
+  "Cinta gaffer": ["404-04"],
+  "Masking tape": ["404-04"],
+  "Pizarras": ["404-04", "404-06"],
+  "Slate": ["404-04", "404-06"],
+  "Clapper": ["404-04", "404-06"],
+  "Artículos especializados": ["404-04", "404-05"],
+  "Repuestos para lámparas": ["404-05"],
+  "Luminarias": ["404-05"],
+  "Lámparas": ["404-05"],
+  "Focos": ["404-05"],
+  "Refacciones": ["404-05", "504-03"],
+  "Tungsteno": ["404-05", "503-06"],
+  "Cuarzo": ["404-05"],
+  "HMI": ["404-05", "503-06"],
+  "Tramoya": ["404-06"],
+  "Distribuidores de tramoya": ["404-06"],
+  "Fabricantes de tramoya": ["404-06"],
+  "Arri": ["404-06", "503-06"],
+  "Mathews": ["404-06"],
+  "Colortran": ["404-06", "503-06"],
+  "Century": ["404-06"],
+  "Mole Richardson": ["404-06", "503-06"],
+  "Tripiés": ["404-06"],
+  "Stands": ["404-06"],
+  "Banderas": ["404-06"],
+  "Marcos": ["404-06"],
+  "Textiles": ["404-06"],
+  "Grifos": ["404-06"],
+  "Apple Boxes": ["404-06"],
+  "Flags": ["404-06"],
+  "Bounce": ["404-06"],
+  "Cookies": ["404-06"],
+  "C-Stand": ["404-06"],
   "Alquiler de equipos": [
     "501-01",
     "501-02",
@@ -3203,401 +1415,119 @@
     "503-14",
     "504-02"
   ],
-  "Equipos cinematográficos": [
-    "501-01"
-  ],
-  "Cinematografía digital": [
-    "501-01",
-    "501-03"
-  ],
-  "Cámaras cinematográficas": [
-    "501-01",
-    "501-03"
-  ],
-  "Cámara de alto perfil": [
-    "501-01"
-  ],
-  "Cámaras": [
-    "501-01",
-    "501-02",
-    "501-03",
-    "501-04"
-  ],
-  "Lighting": [
-    "501-01",
-    "503-06",
-    "503-07",
-    "503-08",
-    "504-01",
-    "504-02"
-  ],
-  "Iluminación cinematográfica": [
-    "501-01"
-  ],
-  "Klieg lights ": [
-    "501-01"
-  ],
-  "Chimera": [
-    "501-01",
-    "503-06"
-  ],
-  "Soft Boxes": [
-    "501-01"
-  ],
-  "Lentes": [
-    "501-01",
-    "501-02"
-  ],
-  "Óptica cinematográfica": [
-    "501-01"
-  ],
-  "Lenses": [
-    "501-01",
-    "501-02"
-  ],
-  "Ultraprime": [
-    "501-01",
-    "503-01"
-  ],
-  "Cook": [
-    "501-01",
-    "503-01"
-  ],
-  "Cámaras profesionales": [
-    "501-02"
-  ],
-  "Cámara de televisión": [
-    "501-02"
-  ],
-  "Cámaras de alto perfil": [
-    "501-02",
-    "501-03"
-  ],
-  "Fujinon": [
-    "501-02",
-    "503-01"
-  ],
-  "Iluminación para TV": [
-    "501-02"
-  ],
-  "TV Lighting": [
-    "501-02"
-  ],
-  "Equipo cinematográfico": [
-    "501-03"
-  ],
-  "Cinematography Equipment": [
-    "501-03",
-    "501-01"
-  ],
-  "Equipment cinematographique": [
-    "501-03",
-    "501-01"
-  ],
-  "POV Cameras": [
-    "501-04"
-  ],
-  "Microcámaras": [
-    "501-04"
-  ],
-  "Lipstick": [
-    "501-04"
-  ],
-  "Cámaras especiales": [
-    "501-04"
-  ],
-  "Fotografía científica": [
-    "501-04"
-  ],
-  "Producción de TV": [
-    "502-01",
-    "502-02",
-    "502-03"
-  ],
-  "Video": [
-    "502-01",
-    "502-02",
-    "502-03"
-  ],
-  "Switchers": [
-    "502-01",
-    "502-02",
-    "502-03"
-  ],
-  "Video Mixers": [
-    "502-01",
-    "502-02",
-    "502-03"
-  ],
-  "Equipos de producción de video": [
-    "502-01",
-    "502-02",
-    "502-03"
-  ],
-  "Tricaster": [
-    "502-01",
-    "502-02",
-    "502-03"
-  ],
-  "Unidades móviles": [
-    "502-03"
-  ],
-  "OB (Outside Broadcasting Vehicles)": [
-    "502-03"
-  ],
-  "Transmisión de señal": [
-    "502-04",
-    "502-05"
-  ],
-  "Flyaway": [
-    "502-04"
-  ],
-  "Trasmisión satelital": [
-    "502-04"
-  ],
-  "Enlaces": [
-    "502-04"
-  ],
-  "Conducción deseñal": [
-    "502-04"
-  ],
-  "Microondas": [
-    "502-04"
-  ],
-  "Diffusion": [
-    "502-04",
-    "502-05"
-  ],
-  "Starlink": [
-    "502-04",
-    "503-12"
-  ],
-  "Óptica": [
-    "503-01"
-  ],
-  "Accesorios de cámara": [
-    "503-01",
-    "503-02"
-  ],
-  "Angenieux": [
-    "503-01"
-  ],
-  "Canon": [
-    "503-01"
-  ],
-  "Rokinon": [
-    "503-01"
-  ],
-  "Fuji": [
-    "503-01"
-  ],
-  "DJ": [
-    "503-01"
-  ],
-  "Zoom": [
-    "503-01"
-  ],
-  "Equipos de cámara": [
-    "503-02",
-    "504-01",
-    "504-02"
-  ],
-  "Rigs": [
-    "503-02",
-    "503-02"
-  ],
-  "Power Pod": [
-    "503-02",
-    "503-03",
-    "503-09"
-  ],
-  "Cammate": [
-    "503-02"
-  ],
-  "Jibs": [
-    "503-02"
-  ],
-  "Grúas": [
-    "503-02"
-  ],
-  "Crane": [
-    "503-02"
-  ],
-  "Steadicam": [
-    "503-02"
-  ],
-  "Dollies": [
-    "503-02"
-  ],
-  "Monturas aéreas": [
-    "503-02"
-  ],
-  "Snorkel": [
-    "503-02",
-    "503-03",
-    "503-09"
-  ],
-  "Motion Control": [
-    "503-03",
-    "503-09"
-  ],
-  "Cámaras submarinas": [
-    "503-05"
-  ],
-  "Móvil de iluminación": [
-    "503-06"
-  ],
-  "Minimóvil": [
-    "503-06"
-  ],
-  "Equipos de iluminación": [
-    "503-06"
-  ],
-  "LED": [
-    "503-06",
-    "503-13"
-  ],
-  "PAR lights": [
-    "503-06",
-    "503-07"
-  ],
-  "Kino": [
-    "503-06"
-  ],
-  "Dedolight": [
-    "503-06"
-  ],
-  "Smith Victor": [
-    "503-06"
-  ],
-  "K 5600": [
-    "503-06"
-  ],
-  "Joker": [
-    "503-06"
-  ],
-  "Klieg lights": [
-    "503-06"
-  ],
-  "Iluminación especial": [
-    "503-07"
-  ],
-  "Stage Lighting": [
-    "503-07"
-  ],
-  "Moving Heads": [
-    "503-07"
-  ],
-  "Strobes": [
-    "503-07"
-  ],
-  "Lasers": [
-    "503-07"
-  ],
-  "LED Strips": [
-    "503-07"
-  ],
-  "DJ Lighting": [
-    "503-07"
-  ],
-  "Xenon": [
-    "503-07"
-  ],
-  "Plantas de luz": [
-    "503-08"
-  ],
-  "Plantas eléctricas": [
-    "503-08"
-  ],
-  "Generadores eléctricos": [
-    "503-08"
-  ],
-  "Electrical generator": [
-    "503-08"
-  ],
-  "Des générateurs électriques": [
-    "503-08"
-  ],
-  "Equipos especiales": [
-    "503-09"
-  ],
-  "Equipos de sonido": [
-    "503-10",
-    "503-11",
-    "504-01",
-    "504-02"
-  ],
-  "Mezcladoras": [
-    "503-10",
-    "503-10"
-  ],
-  "Micrófonos": [
-    "503-10",
-    "504-01",
-    "504-02"
-  ],
-  "Boom pole": [
-    "503-10",
-    "504-02"
-  ],
-  "Jirafas": [
-    "503-10"
-  ],
-  "Lavalier": [
-    "503-10",
-    "504-02"
-  ],
-  "Shotgun": [
-    "503-10",
-    "504-02"
-  ],
-  "Zeppelin": [
-    "503-10",
-    "504-02"
-  ],
-  "Fostex": [
-    "503-10"
-  ],
-  "Tascam": [
-    "503-10"
-  ],
-  "Sony": [
-    "503-10"
-  ],
-  "Sennheiser": [
-    "503-10"
-  ],
-  "Grabadoras de audio": [
-    "503-10"
-  ],
-  "Amplificadores": [
-    "503-10",
-    "503-11"
-  ],
-  "Consolas": [
-    "503-11"
-  ],
-  "Bocinas": [
-    "503-11"
-  ],
-  "Speakers": [
-    "503-11"
-  ],
-  "Sonorizadores": [
-    "503-11"
-  ],
-  "Equipos de comunicación": [
-    "503-12"
-  ],
-  "Walkie-talkies": [
-    "503-12"
-  ],
-  "Radios": [
-    "503-12"
-  ],
-  "Intercom": [
-    "503-12"
-  ],
+  "Equipos cinematográficos": ["501-01"],
+  "Cinematografía digital": ["501-01", "501-03"],
+  "Cámaras cinematográficas": ["501-01", "501-03"],
+  "Cámara de alto perfil": ["501-01"],
+  "Cámaras": ["501-01", "501-02", "501-03", "501-04"],
+  "Lighting": ["501-01", "503-06", "503-07", "503-08", "504-01", "504-02"],
+  "Iluminación cinematográfica": ["501-01"],
+  "Klieg lights ": ["501-01"],
+  "Chimera": ["501-01", "503-06"],
+  "Soft Boxes": ["501-01"],
+  "Lentes": ["501-01", "501-02"],
+  "Óptica cinematográfica": ["501-01"],
+  "Lenses": ["501-01", "501-02"],
+  "Ultraprime": ["501-01", "503-01"],
+  "Cook": ["501-01", "503-01"],
+  "Cámaras profesionales": ["501-02"],
+  "Cámara de televisión": ["501-02"],
+  "Cámaras de alto perfil": ["501-02", "501-03"],
+  "Fujinon": ["501-02", "503-01"],
+  "Iluminación para TV": ["501-02"],
+  "TV Lighting": ["501-02"],
+  "Equipo cinematográfico": ["501-03"],
+  "Cinematography Equipment": ["501-03", "501-01"],
+  "Equipment cinematographique": ["501-03", "501-01"],
+  "POV Cameras": ["501-04"],
+  "Microcámaras": ["501-04"],
+  "Lipstick": ["501-04"],
+  "Cámaras especiales": ["501-04"],
+  "Fotografía científica": ["501-04"],
+  "Producción de TV": ["502-01", "502-02", "502-03"],
+  "Video": ["502-01", "502-02", "502-03"],
+  "Switchers": ["502-01", "502-02", "502-03"],
+  "Video Mixers": ["502-01", "502-02", "502-03"],
+  "Equipos de producción de video": ["502-01", "502-02", "502-03"],
+  "Tricaster": ["502-01", "502-02", "502-03"],
+  "Unidades móviles": ["502-03"],
+  "OB (Outside Broadcasting Vehicles)": ["502-03"],
+  "Transmisión de señal": ["502-04", "502-05"],
+  "Flyaway": ["502-04"],
+  "Trasmisión satelital": ["502-04"],
+  "Enlaces": ["502-04"],
+  "Conducción deseñal": ["502-04"],
+  "Microondas": ["502-04"],
+  "Diffusion": ["502-04", "502-05"],
+  "Starlink": ["502-04", "503-12"],
+  "Óptica": ["503-01"],
+  "Accesorios de cámara": ["503-01", "503-02"],
+  "Angenieux": ["503-01"],
+  "Canon": ["503-01"],
+  "Rokinon": ["503-01"],
+  "Fuji": ["503-01"],
+  "DJ": ["503-01"],
+  "Zoom": ["503-01"],
+  "Equipos de cámara": ["503-02", "504-01", "504-02"],
+  "Rigs": ["503-02", "503-02"],
+  "Power Pod": ["503-02", "503-03", "503-09"],
+  "Cammate": ["503-02"],
+  "Jibs": ["503-02"],
+  "Grúas": ["503-02"],
+  "Crane": ["503-02"],
+  "Steadicam": ["503-02"],
+  "Dollies": ["503-02"],
+  "Monturas aéreas": ["503-02"],
+  "Snorkel": ["503-02", "503-03", "503-09"],
+  "Motion Control": ["503-03", "503-09"],
+  "Cámaras submarinas": ["503-05"],
+  "Móvil de iluminación": ["503-06"],
+  "Minimóvil": ["503-06"],
+  "Equipos de iluminación": ["503-06"],
+  "LED": ["503-06", "503-13"],
+  "PAR lights": ["503-06", "503-07"],
+  "Kino": ["503-06"],
+  "Dedolight": ["503-06"],
+  "Smith Victor": ["503-06"],
+  "K 5600": ["503-06"],
+  "Joker": ["503-06"],
+  "Klieg lights": ["503-06"],
+  "Iluminación especial": ["503-07"],
+  "Stage Lighting": ["503-07"],
+  "Moving Heads": ["503-07"],
+  "Strobes": ["503-07"],
+  "Lasers": ["503-07"],
+  "LED Strips": ["503-07"],
+  "DJ Lighting": ["503-07"],
+  "Xenon": ["503-07"],
+  "Plantas de luz": ["503-08"],
+  "Plantas eléctricas": ["503-08"],
+  "Generadores eléctricos": ["503-08"],
+  "Electrical generator": ["503-08"],
+  "Des générateurs électriques": ["503-08"],
+  "Equipos especiales": ["503-09"],
+  "Equipos de sonido": ["503-10", "503-11", "504-01", "504-02"],
+  "Mezcladoras": ["503-10", "503-10"],
+  "Micrófonos": ["503-10", "504-01", "504-02"],
+  "Boom pole": ["503-10", "504-02"],
+  "Jirafas": ["503-10"],
+  "Lavalier": ["503-10", "504-02"],
+  "Shotgun": ["503-10", "504-02"],
+  "Zeppelin": ["503-10", "504-02"],
+  "Fostex": ["503-10"],
+  "Tascam": ["503-10"],
+  "Sony": ["503-10"],
+  "Sennheiser": ["503-10"],
+  "Grabadoras de audio": ["503-10"],
+  "Amplificadores": ["503-10", "503-11"],
+  "Consolas": ["503-11"],
+  "Bocinas": ["503-11"],
+  "Speakers": ["503-11"],
+  "Sonorizadores": ["503-11"],
+  "Equipos de comunicación": ["503-12"],
+  "Walkie-talkies": ["503-12"],
+  "Radios": ["503-12"],
+  "Intercom": ["503-12"],
   "Internet": [
     "503-12",
     "801-01",
@@ -3607,66 +1537,25 @@
     "802-02",
     "802-03"
   ],
-  "Proveedores de internet": [
-    "503-12"
-  ],
-  "ISP (Internet Service Providers)": [
-    "503-12"
-  ],
-  "Pantallas de LED": [
-    "503-13"
-  ],
-  "Módulos LED": [
-    "503-13"
-  ],
-  "Pantallas": [
-    "503-13",
-    "503-14"
-  ],
-  "Equipos de proyección": [
-    "503-14"
-  ],
-  "Proyectores": [
-    "503-14"
-  ],
-  "Jumbotrón": [
-    "503-14"
-  ],
-  "Barco": [
-    "503-14"
-  ],
-  "Salas cinematográficas": [
-    "503-14"
-  ],
-  "Proyección": [
-    "503-14"
-  ],
-  "Screening": [
-    "503-14"
-  ],
-  "Equipos profesionales ": [
-    "504-01"
-  ],
-  "Equipos de video": [
-    "504-01",
-    "504-02"
-  ],
-  "Equipos de postproducción": [
-    "504-01",
-    "504-02"
-  ],
-  "Equipos profesionales": [
-    "504-02"
-  ],
-  "Servicio a equipos": [
-    "504-03"
-  ],
-  "Reparación de equipos": [
-    "504-03"
-  ],
-  "Repuestos": [
-    "504-03"
-  ],
+  "Proveedores de internet": ["503-12"],
+  "ISP (Internet Service Providers)": ["503-12"],
+  "Pantallas de LED": ["503-13"],
+  "Módulos LED": ["503-13"],
+  "Pantallas": ["503-13", "503-14"],
+  "Equipos de proyección": ["503-14"],
+  "Proyectores": ["503-14"],
+  "Jumbotrón": ["503-14"],
+  "Barco": ["503-14"],
+  "Salas cinematográficas": ["503-14"],
+  "Proyección": ["503-14"],
+  "Screening": ["503-14"],
+  "Equipos profesionales ": ["504-01"],
+  "Equipos de video": ["504-01", "504-02"],
+  "Equipos de postproducción": ["504-01", "504-02"],
+  "Equipos profesionales": ["504-02"],
+  "Servicio a equipos": ["504-03"],
+  "Reparación de equipos": ["504-03"],
+  "Repuestos": ["504-03"],
   "Servicios generales": [
     "601-01",
     "601-02",
@@ -3688,350 +1577,116 @@
     "601-18",
     "601-19"
   ],
-  "Agencias de viaje": [
-    "601-01"
-  ],
-  "Travel agencies": [
-    "601-01"
-  ],
-  "Agences de voyages ": [
-    "601-01"
-  ],
-  "Aerolíneas": [
-    "601-02"
-  ],
-  "Airlines": [
-    "601-02"
-  ],
-  "Compagnies aériennes": [
-    "601-02"
-  ],
-  "Boletaje": [
-    "601-02"
-  ],
-  "Billetes de avión": [
-    "601-02"
-  ],
-  "Autos en renta": [
-    "601-03"
-  ],
-  "Car Rental": [
-    "601-03"
-  ],
-  "Location de voitures": [
-    "601-03"
-  ],
-  "Transportación": [
-    "601-03",
-    "601-17",
-    "601-18",
-    "601-19"
-  ],
-  "Helicopters": [
-    "601-04"
-  ],
-  "Hélicotères": [
-    "601-04"
-  ],
-  "Aviones privados": [
-    "601-05"
-  ],
-  "Carteleras": [
-    "601-06"
-  ],
-  "Outdoor Publicity": [
-    "601-06"
-  ],
-  "Espectaculares": [
-    "601-06"
-  ],
-  "Billboards": [
-    "601-06"
-  ],
-  "Panneaux d’affichage ": [
-    "601-06"
-  ],
-  "Events": [
-    "601-07"
-  ],
-  "Événements": [
-    "601-07"
-  ],
-  "Liev Performance": [
-    "601-07"
-  ],
-  "Renta de oficinas": [
-    "601-08"
-  ],
-  "Oficinas de producción": [
-    "601-08"
-  ],
-  "Hospitales": [
-    "601-09"
-  ],
-  "Hospitals": [
-    "601-09"
-  ],
-  "Hopitaux": [
-    "601-09"
-  ],
-  "Hoteles": [
-    "601-10"
-  ],
-  "Hotels": [
-    "601-10"
-  ],
-  "Hoatels": [
-    "601-10"
-  ],
-  "Imprentas": [
-    "601-11"
-  ],
-  "Printing": [
-    "601-11"
-  ],
-  "Impression": [
-    "601-11"
-  ],
-  "Impresiones": [
-    "601-11"
-  ],
-  "Hard Copies": [
-    "601-11"
-  ],
-  "Plotters": [
-    "601-11"
-  ],
-  "Ploteo": [
-    "601-11"
-  ],
-  "Instrumentos musicales": [
-    "601-12"
-  ],
-  "Musical instruments": [
-    "601-12"
-  ],
-  "Instruments de musique": [
-    "601-12"
-  ],
-  "Madererías": [
-    "601-13"
-  ],
-  "Timber Merchants": [
-    "601-13"
-  ],
-  "Négociants en bois": [
-    "601-13"
-  ],
-  "Construcción": [
-    "601-13",
-    "601-14"
-  ],
-  "Papelerías": [
-    "601-15"
-  ],
-  "Stationery": [
-    "601-15"
-  ],
-  "Papeterie": [
-    "601-15"
-  ],
-  "Cargo": [
-    "601-17"
-  ],
-  "Transportación de carga": [
-    "601-17"
-  ],
-  "Cargo transportation": [
-    "601-17"
-  ],
-  "Transport de marchandises": [
-    "601-17"
-  ],
-  "Transportación de pasajeros": [
-    "601-18"
-  ],
-  "Passenger transportation": [
-    "601-18"
-  ],
-  "Transport de passengers": [
-    "601-18"
-  ],
-  "Terminales y compañías de autobuses": [
-    "601-19"
-  ],
-  "Bus terminals and bus transportation": [
-    "601-19"
-  ],
-  "Gare de bus": [
-    "601-19"
-  ],
-  "Postproducción de video": [
-    "701-01"
-  ],
-  "Casas de postproducción": [
-    "701-01"
-  ],
-  "Estudios de postproducción": [
-    "701-01"
-  ],
-  "Compañías de postproducción": [
-    "701-01"
-  ],
-  "Colorization": [
-    "701-01",
-    "701-02"
-  ],
-  "Captions": [
-    "701-01"
-  ],
-  "Postproducción cinematográfica": [
-    "701-03",
-    "702-01"
-  ],
-  "DCP (Digital Cinema Package)": [
-    "701-03"
-  ],
-  "Corrección de color ": [
-    "701-03"
-  ],
-  "Multicopiado": [
-    "701-04"
-  ],
-  "Bulk": [
-    "701-04"
-  ],
-  "Reproducciones": [
-    "701-04"
-  ],
-  "Reproductions": [
-    "701-04"
-  ],
-  "Copiado de materiales": [
-    "701-04"
-  ],
-  "Subtítulos": [
-    "701-05"
-  ],
-  "Subtitles": [
-    "701-05"
-  ],
-  "Sous-titre": [
-    "701-05"
-  ],
-  "Revelado": [
-    "702-01"
-  ],
-  "Laboratorios cinematográficos": [
-    "702-01",
-    "701-03"
-  ],
-  "Film Labs": [
-    "702-01"
-  ],
-  "Laboratoire de cinéma": [
-    "702-01"
-  ],
-  "Revelado foto fija": [
-    "702-02"
-  ],
-  "Impresión de fotografías": [
-    "702-02"
-  ],
-  "C45": [
-    "702-02"
-  ],
-  "Laboratorios fotográficos": [
-    "702-02"
-  ],
-  "Photo Labs": [
-    "702-02"
-  ],
-  "Laboratoire photo": [
-    "702-02"
-  ],
-  "Conversiones": [
-    "702-03"
-  ],
-  "Rank": [
-    "702-03"
-  ],
-  "Digitalización": [
-    "702-03"
-  ],
-  "Transferencia de materiales": [
-    "702-03"
-  ],
-  "2.5D": [
-    "703-01"
-  ],
-  "Modelado": [
-    "703-01"
-  ],
-  "Modelos 3D": [
-    "703-01"
-  ],
-  "Animation": [
-    "703-01",
-    "703-02"
-  ],
-  "Animations": [
-    "703-01"
-  ],
-  "Casas de animación": [
-    "703-01",
-    "703-02"
-  ],
-  "Compañías de animación": [
-    "703-01"
-  ],
-  "Personajes de animación": [
-    "703-01"
-  ],
-  "Realidad virtual": [
-    "703-01",
-    "703-03"
-  ],
-  "CGI (Computer Generated Imagery)": [
-    "703-01",
-    "703-03"
-  ],
-  "Clay animation": [
-    "703-02"
-  ],
-  "Stop Motion": [
-    "703-02"
-  ],
-  "Pixilación": [
-    "703-02"
-  ],
-  "Dibujos animados": [
-    "703-02"
-  ],
-  "Claymation": [
-    "703-02"
-  ],
-  "Bancos de imágenes": [
-    "703-04"
-  ],
-  "Imágenes de stock": [
-    "703-04"
-  ],
-  "Stock de video": [
-    "703-04"
-  ],
-  "Stock Footage": [
-    "703-04"
-  ],
-  "Clips de video": [
-    "703-04"
-  ],
-  "Producción de audio": [
-    "704-01",
-    "704-06",
-    "704-07",
-    "704-08"
-  ],
+  "Agencias de viaje": ["601-01"],
+  "Travel agencies": ["601-01"],
+  "Agences de voyages ": ["601-01"],
+  "Aerolíneas": ["601-02"],
+  "Airlines": ["601-02"],
+  "Compagnies aériennes": ["601-02"],
+  "Boletaje": ["601-02"],
+  "Billetes de avión": ["601-02"],
+  "Autos en renta": ["601-03"],
+  "Car Rental": ["601-03"],
+  "Location de voitures": ["601-03"],
+  "Transportación": ["601-03", "601-17", "601-18", "601-19"],
+  "Helicopters": ["601-04"],
+  "Hélicotères": ["601-04"],
+  "Aviones privados": ["601-05"],
+  "Carteleras": ["601-06"],
+  "Outdoor Publicity": ["601-06"],
+  "Espectaculares": ["601-06"],
+  "Billboards": ["601-06"],
+  "Panneaux d’affichage ": ["601-06"],
+  "Events": ["601-07"],
+  "Événements": ["601-07"],
+  "Liev Performance": ["601-07"],
+  "Renta de oficinas": ["601-08"],
+  "Oficinas de producción": ["601-08"],
+  "Hospitales": ["601-09"],
+  "Hospitals": ["601-09"],
+  "Hopitaux": ["601-09"],
+  "Hoteles": ["601-10"],
+  "Hotels": ["601-10"],
+  "Hoatels": ["601-10"],
+  "Imprentas": ["601-11"],
+  "Printing": ["601-11"],
+  "Impression": ["601-11"],
+  "Impresiones": ["601-11"],
+  "Hard Copies": ["601-11"],
+  "Plotters": ["601-11"],
+  "Ploteo": ["601-11"],
+  "Instrumentos musicales": ["601-12"],
+  "Musical instruments": ["601-12"],
+  "Instruments de musique": ["601-12"],
+  "Madererías": ["601-13"],
+  "Timber Merchants": ["601-13"],
+  "Négociants en bois": ["601-13"],
+  "Construcción": ["601-13", "601-14"],
+  "Papelerías": ["601-15"],
+  "Stationery": ["601-15"],
+  "Papeterie": ["601-15"],
+  "Cargo": ["601-17"],
+  "Transportación de carga": ["601-17"],
+  "Cargo transportation": ["601-17"],
+  "Transport de marchandises": ["601-17"],
+  "Transportación de pasajeros": ["601-18"],
+  "Passenger transportation": ["601-18"],
+  "Transport de passengers": ["601-18"],
+  "Terminales y compañías de autobuses": ["601-19"],
+  "Bus terminals and bus transportation": ["601-19"],
+  "Gare de bus": ["601-19"],
+  "Postproducción de video": ["701-01"],
+  "Casas de postproducción": ["701-01"],
+  "Estudios de postproducción": ["701-01"],
+  "Compañías de postproducción": ["701-01"],
+  "Colorization": ["701-01", "701-02"],
+  "Captions": ["701-01"],
+  "Postproducción cinematográfica": ["701-03", "702-01"],
+  "DCP (Digital Cinema Package)": ["701-03"],
+  "Corrección de color ": ["701-03"],
+  "Multicopiado": ["701-04"],
+  "Bulk": ["701-04"],
+  "Reproducciones": ["701-04"],
+  "Reproductions": ["701-04"],
+  "Copiado de materiales": ["701-04"],
+  "Subtítulos": ["701-05"],
+  "Subtitles": ["701-05"],
+  "Sous-titre": ["701-05"],
+  "Revelado": ["702-01"],
+  "Laboratorios cinematográficos": ["702-01", "701-03"],
+  "Film Labs": ["702-01"],
+  "Laboratoire de cinéma": ["702-01"],
+  "Revelado foto fija": ["702-02"],
+  "Impresión de fotografías": ["702-02"],
+  "C45": ["702-02"],
+  "Laboratorios fotográficos": ["702-02"],
+  "Photo Labs": ["702-02"],
+  "Laboratoire photo": ["702-02"],
+  "Conversiones": ["702-03"],
+  "Rank": ["702-03"],
+  "Digitalización": ["702-03"],
+  "Transferencia de materiales": ["702-03"],
+  "2.5D": ["703-01"],
+  "Modelado": ["703-01"],
+  "Modelos 3D": ["703-01"],
+  "Animation": ["703-01", "703-02"],
+  "Animations": ["703-01"],
+  "Casas de animación": ["703-01", "703-02"],
+  "Compañías de animación": ["703-01"],
+  "Personajes de animación": ["703-01"],
+  "Realidad virtual": ["703-01", "703-03"],
+  "CGI (Computer Generated Imagery)": ["703-01", "703-03"],
+  "Clay animation": ["703-02"],
+  "Stop Motion": ["703-02"],
+  "Pixilación": ["703-02"],
+  "Dibujos animados": ["703-02"],
+  "Claymation": ["703-02"],
+  "Bancos de imágenes": ["703-04"],
+  "Imágenes de stock": ["703-04"],
+  "Stock de video": ["703-04"],
+  "Stock Footage": ["703-04"],
+  "Clips de video": ["703-04"],
+  "Producción de audio": ["704-01", "704-06", "704-07", "704-08"],
   "Estudios de grabación": [
     "704-01",
     "704-02",
@@ -4040,71 +1695,21 @@
     "704-05",
     "704-06"
   ],
-  "Audio Studios": [
-    "704-01",
-    "704-02",
-    "704-03",
-    "704-04",
-    "704-05",
-    "704-06"
-  ],
-  "Audio études": [
-    "704-01",
-    "704-02",
-    "704-03",
-    "704-04",
-    "704-05",
-    "704-06"
-  ],
-  "Foleys": [
-    "704-01",
-    "704-02",
-    "704-07"
-  ],
-  "Foley stage": [
-    "704-01",
-    "704-02",
-    "704-07"
-  ],
-  "Gaviras": [
-    "704-01",
-    "704-02",
-    "704-07"
-  ],
-  "Dolby": [
-    "704-01",
-    "704-06",
-    "704-07"
-  ],
-  "Dub Stage": [
-    "704-02"
-  ],
-  "Ensayos": [
-    "704-03"
-  ],
-  "Producción de discos": [
-    "704-04"
-  ],
-  "Reproducción de CDs": [
-    "704-04"
-  ],
-  "Atmos": [
-    "704-06",
-    "704-07"
-  ],
-  "Sound Design": [
-    "704-07",
-    "704-08"
-  ],
-  "Psotproductores de audio": [
-    "704-07"
-  ],
-  "Restauración de sonido": [
-    "704-08"
-  ],
-  "Composición musical": [
-    "705-01"
-  ],
+  "Audio Studios": ["704-01", "704-02", "704-03", "704-04", "704-05", "704-06"],
+  "Audio études": ["704-01", "704-02", "704-03", "704-04", "704-05", "704-06"],
+  "Foleys": ["704-01", "704-02", "704-07"],
+  "Foley stage": ["704-01", "704-02", "704-07"],
+  "Gaviras": ["704-01", "704-02", "704-07"],
+  "Dolby": ["704-01", "704-06", "704-07"],
+  "Dub Stage": ["704-02"],
+  "Ensayos": ["704-03"],
+  "Producción de discos": ["704-04"],
+  "Reproducción de CDs": ["704-04"],
+  "Atmos": ["704-06", "704-07"],
+  "Sound Design": ["704-07", "704-08"],
+  "Psotproductores de audio": ["704-07"],
+  "Restauración de sonido": ["704-08"],
+  "Composición musical": ["705-01"],
   "Desarrollos digitales": [
     "801-01",
     "801-02",
@@ -4113,123 +1718,35 @@
     "802-02",
     "802-03"
   ],
-  "Páginas web": [
-    "801-01"
-  ],
-  "Desarrolladores web": [
-    "801-01"
-  ],
-  "WordPress": [
-    "801-01"
-  ],
-  "Dreamweaver": [
-    "801-01"
-  ],
-  "Páginas de internet": [
-    "801-01"
-  ],
-  "Sites": [
-    "801-01"
-  ],
-  "Web pages": [
-    "801-01"
-  ],
-  "Aplicaciones": [
-    "801-02",
-    "801-03"
-  ],
-  "Desarrollo de aplicaciones": [
-    "801-02"
-  ],
-  "Programadores": [
-    "801-02",
-    "801-03"
-  ],
-  "Escritura de código": [
-    "801-02"
-  ],
-  "Programación": [
-    "801-02",
-    "801-03"
-  ],
-  "Videojuegos": [
-    "801-03"
-  ],
-  "Desarrollo de videojuegos": [
-    "801-03"
-  ],
-  "Diseño de videojuegos": [
-    "801-03"
-  ],
-  "Medios online": [
-    "802-01"
-  ],
-  "Difusión": [
-    "802-01",
-    "901-07",
-    "904-05"
-  ],
-  "Campañas": [
-    "802-01",
-    "901-01"
-  ],
-  "Estrategia de redes": [
-    "802-01",
-    "802-02",
-    "802-03"
-  ],
-  "Marketing digital": [
-    "802-01",
-    "802-02",
-    "802-03"
-  ],
-  "Community managers": [
-    "802-01",
-    "802-02",
-    "802-03"
-  ],
-  "Gestores de redes": [
-    "802-01",
-    "802-02",
-    "802-03"
-  ],
-  "Redes sociales": [
-    "802-01",
-    "802-02",
-    "802-03"
-  ],
-  "RRSS": [
-    "802-01",
-    "802-02",
-    "802-03"
-  ],
-  "Pauta en internet": [
-    "802-01",
-    "802-02",
-    "802-03",
-    "901-09"
-  ],
-  "Google Analytics": [
-    "802-01",
-    "802-02",
-    "802-03",
-    "901-02"
-  ],
-  "Mercadotecnia": [
-    "802-01",
-    "802-02",
-    "802-03"
-  ],
-  "Campañas digitales": [
-    "802-01",
-    "802-02",
-    "802-03"
-  ],
-  "Networks": [
-    "802-01",
-    "802-02",
-    "802-03"
-  ],
+  "Páginas web": ["801-01"],
+  "Desarrolladores web": ["801-01"],
+  "WordPress": ["801-01"],
+  "Dreamweaver": ["801-01"],
+  "Páginas de internet": ["801-01"],
+  "Sites": ["801-01"],
+  "Web pages": ["801-01"],
+  "Aplicaciones": ["801-02", "801-03"],
+  "Desarrollo de aplicaciones": ["801-02"],
+  "Programadores": ["801-02", "801-03"],
+  "Escritura de código": ["801-02"],
+  "Programación": ["801-02", "801-03"],
+  "Videojuegos": ["801-03"],
+  "Desarrollo de videojuegos": ["801-03"],
+  "Diseño de videojuegos": ["801-03"],
+  "Medios online": ["802-01"],
+  "Difusión": ["802-01", "901-07", "904-05"],
+  "Campañas": ["802-01", "901-01"],
+  "Estrategia de redes": ["802-01", "802-02", "802-03"],
+  "Marketing digital": ["802-01", "802-02", "802-03"],
+  "Community managers": ["802-01", "802-02", "802-03"],
+  "Gestores de redes": ["802-01", "802-02", "802-03"],
+  "Redes sociales": ["802-01", "802-02", "802-03"],
+  "RRSS": ["802-01", "802-02", "802-03"],
+  "Pauta en internet": ["802-01", "802-02", "802-03", "901-09"],
+  "Google Analytics": ["802-01", "802-02", "802-03", "901-02"],
+  "Mercadotecnia": ["802-01", "802-02", "802-03"],
+  "Campañas digitales": ["802-01", "802-02", "802-03"],
+  "Networks": ["802-01", "802-02", "802-03"],
   "Industria": [
     "901-01",
     "901-02",
@@ -4253,304 +1770,91 @@
     "904-04",
     "904-05"
   ],
-  "Agencias de publicidad": [
-    "901-01"
-  ],
-  "Advertising Agencies": [
-    "901-01"
-  ],
-  "Agences de publicité": [
-    "901-01"
-  ],
-  "Publicidad": [
-    "901-01"
-  ],
-  "Marketing": [
-    "901-01",
-    "901-02"
-  ],
-  "Grupos focales": [
-    "901-02"
-  ],
-  "Agencias de investigación de mercado": [
-    "901-02"
-  ],
-  "Marketing Research Agencies": [
-    "901-02"
-  ],
-  "Agences de recherche de marche": [
-    "901-02"
-  ],
-  "Distribuidoras cinematográficas": [
-    "901-03"
-  ],
-  "Distribuidores": [
-    "901-03"
-  ],
-  "Distributors": [
-    "901-03"
-  ],
-  "Distributeurs": [
-    "901-03"
-  ],
-  "Estrenos": [
-    "901-03"
-  ],
-  "Premiere": [
-    "901-03"
-  ],
-  "Canacine": [
-    "901-03",
-    "901-06"
-  ],
-  "Representates": [
-    "901-03"
-  ],
-  "Territorios": [
-    "901-03",
-    "901-04"
-  ],
-  "Circuitos de exhibición": [
-    "901-04"
-  ],
-  "Cinépolis": [
-    "901-04"
-  ],
-  "Cinemex": [
-    "901-04"
-  ],
-  "Salas de cine": [
-    "901-04"
-  ],
-  "Cinemas": [
-    "901-04"
-  ],
-  "Theaters": [
-    "901-04",
-    "901-05"
-  ],
-  "Exhibidores": [
-    "901-04",
-    "903-01"
-  ],
-  "IMAX": [
-    "901-04"
-  ],
-  "Largomentrajes": [
-    "901-04"
-  ],
-  "Escenarios": [
-    "901-05"
-  ],
-  "Teatros": [
-    "901-05"
-  ],
-  "Salas": [
-    "901-05"
-  ],
-  "Agrupaciones": [
-    "901-06",
-    "901-10"
-  ],
-  "Amfi": [
-    "901-06"
-  ],
-  "Mujeres en el Cine y la TV": [
-    "901-06"
-  ],
-  "Women in Films and TV": [
-    "901-06"
-  ],
-  "Femmes au Cinéma et à la TV": [
-    "901-06"
-  ],
-  "Asociaciones": [
-    "901-06"
-  ],
-  "Associations": [
-    "901-06"
-  ],
-  "Cámara": [
-    "901-06"
-  ],
-  "Medios": [
-    "901-07",
-    "901-08",
-    "904-05"
-  ],
-  "Prensa": [
-    "901-07",
-    "904-05"
-  ],
-  "Media planning": [
-    "901-09"
-  ],
-  "Organizaciones": [
-    "901-10",
-    "904-02"
-  ],
-  "Sindicatos": [
-    "901-10"
-  ],
-  "Unions": [
-    "901-10"
-  ],
-  "Syndicats": [
-    "901-10"
-  ],
-  "Permisos de filmación": [
-    "902-01"
-  ],
-  "Avisos de filmación": [
-    "902-01"
-  ],
-  "Autoridades": [
-    "902-01",
-    "902-02",
-    "902-03",
-    "904-03"
-  ],
-  "Comisiones de filmación": [
-    "902-01"
-  ],
-  "Film Commissions": [
-    "902-01"
-  ],
-  "Des commissions de filage": [
-    "902-01"
-  ],
-  "Gobierno": [
-    "902-01",
-    "902-02",
-    "902-03",
-    "904-03"
-  ],
-  "Instituciones": [
-    "902-02",
-    "902-03",
-    "902-04"
-  ],
-  "Institutes": [
-    "902-02",
-    "902-03"
-  ],
-  "Instituts": [
-    "902-02",
-    "902-03"
-  ],
-  "Promoción cultural": [
-    "902-02"
-  ],
-  "IMCINE": [
-    "902-02",
-    "902-03"
-  ],
-  "Filmotecas": [
-    "902-02",
-    "902-03",
-    "902-04"
-  ],
-  "Capacitación": [
-    "902-04",
-    "902-05",
-    "904-04"
-  ],
-  "Escuelas y universidades": [
-    "902-04",
-    "904-01",
-    "904-04"
-  ],
-  "Schools and Universities": [
-    "902-04"
-  ],
-  "Écoles et universités": [
-    "902-04"
-  ],
-  "Talleres": [
-    "902-04",
-    "902-05"
-  ],
-  "Workshops": [
-    "902-04",
-    "902-05"
-  ],
-  "Ateliers": [
-    "902-04",
-    "902-05"
-  ],
-  "Academias": [
-    "902-04",
-    "904-01"
-  ],
-  "Escuelas": [
-    "902-05",
-    "904-01",
-    "904-04"
-  ],
-  "Especialización": [
-    "902-05"
-  ],
-  "Actualización": [
-    "902-05"
-  ],
-  "Entrenamiento": [
-    "902-05"
-  ],
-  "Festivales de cine en México": [
-    "903-01"
-  ],
-  "Film Festivals in Mexico": [
-    "903-01"
-  ],
-  "Festivals de cinéma ": [
-    "903-01",
-    "903-02"
-  ],
-  "Mercados": [
-    "903-01",
-    "903-02"
-  ],
-  "Concursos": [
-    "903-01",
-    "903-02"
-  ],
-  "Festivales de cine en el mundo": [
-    "903-02"
-  ],
-  "World Film Festivals": [
-    "903-02"
-  ],
-  "Enseñanza": [
-    "904-01",
-    "904-04"
-  ],
-  "Profesores": [
-    "904-01",
-    "904-04"
-  ],
-  "Decision Makers": [
-    "904-02"
-  ],
-  "Ejecutivos": [
-    "904-02",
-    "904-03"
-  ],
-  "Imcine": [
-    "904-03"
-  ],
-  "Funcionarios": [
-    "904-03"
-  ],
-  "Docentes": [
-    "904-04"
-  ],
-  "Maestros": [
-    "904-04"
-  ],
-  "Críticos cinematográficos": [
-    "904-05"
-  ],
-  "Crítica": [
-    "904-05"
-  ]
+  "Agencias de publicidad": ["901-01"],
+  "Advertising Agencies": ["901-01"],
+  "Agences de publicité": ["901-01"],
+  "Publicidad": ["901-01"],
+  "Marketing": ["901-01", "901-02"],
+  "Grupos focales": ["901-02"],
+  "Agencias de investigación de mercado": ["901-02"],
+  "Marketing Research Agencies": ["901-02"],
+  "Agences de recherche de marche": ["901-02"],
+  "Distribuidoras cinematográficas": ["901-03"],
+  "Distribuidores": ["901-03"],
+  "Distributors": ["901-03"],
+  "Distributeurs": ["901-03"],
+  "Estrenos": ["901-03"],
+  "Premiere": ["901-03"],
+  "Canacine": ["901-03", "901-06"],
+  "Representates": ["901-03"],
+  "Territorios": ["901-03", "901-04"],
+  "Circuitos de exhibición": ["901-04"],
+  "Cinépolis": ["901-04"],
+  "Cinemex": ["901-04"],
+  "Salas de cine": ["901-04"],
+  "Cinemas": ["901-04"],
+  "Theaters": ["901-04", "901-05"],
+  "Exhibidores": ["901-04", "903-01"],
+  "IMAX": ["901-04"],
+  "Largomentrajes": ["901-04"],
+  "Escenarios": ["901-05"],
+  "Teatros": ["901-05"],
+  "Salas": ["901-05"],
+  "Agrupaciones": ["901-06", "901-10"],
+  "Amfi": ["901-06"],
+  "Mujeres en el Cine y la TV": ["901-06"],
+  "Women in Films and TV": ["901-06"],
+  "Femmes au Cinéma et à la TV": ["901-06"],
+  "Asociaciones": ["901-06"],
+  "Associations": ["901-06"],
+  "Cámara": ["901-06"],
+  "Medios": ["901-07", "901-08", "904-05"],
+  "Prensa": ["901-07", "904-05"],
+  "Media planning": ["901-09"],
+  "Organizaciones": ["901-10", "904-02"],
+  "Sindicatos": ["901-10"],
+  "Unions": ["901-10"],
+  "Syndicats": ["901-10"],
+  "Permisos de filmación": ["902-01"],
+  "Avisos de filmación": ["902-01"],
+  "Autoridades": ["902-01", "902-02", "902-03", "904-03"],
+  "Comisiones de filmación": ["902-01"],
+  "Film Commissions": ["902-01"],
+  "Des commissions de filage": ["902-01"],
+  "Gobierno": ["902-01", "902-02", "902-03", "904-03"],
+  "Instituciones": ["902-02", "902-03", "902-04"],
+  "Institutes": ["902-02", "902-03"],
+  "Instituts": ["902-02", "902-03"],
+  "Promoción cultural": ["902-02"],
+  "IMCINE": ["902-02", "902-03"],
+  "Filmotecas": ["902-02", "902-03", "902-04"],
+  "Capacitación": ["902-04", "902-05", "904-04"],
+  "Escuelas y universidades": ["902-04", "904-01", "904-04"],
+  "Schools and Universities": ["902-04"],
+  "Écoles et universités": ["902-04"],
+  "Talleres": ["902-04", "902-05"],
+  "Workshops": ["902-04", "902-05"],
+  "Ateliers": ["902-04", "902-05"],
+  "Academias": ["902-04", "904-01"],
+  "Escuelas": ["902-05", "904-01", "904-04"],
+  "Especialización": ["902-05"],
+  "Actualización": ["902-05"],
+  "Entrenamiento": ["902-05"],
+  "Festivales de cine en México": ["903-01"],
+  "Film Festivals in Mexico": ["903-01"],
+  "Festivals de cinéma ": ["903-01", "903-02"],
+  "Mercados": ["903-01", "903-02"],
+  "Concursos": ["903-01", "903-02"],
+  "Festivales de cine en el mundo": ["903-02"],
+  "World Film Festivals": ["903-02"],
+  "Enseñanza": ["904-01", "904-04"],
+  "Profesores": ["904-01", "904-04"],
+  "Decision Makers": ["904-02"],
+  "Ejecutivos": ["904-02", "904-03"],
+  "Imcine": ["904-03"],
+  "Funcionarios": ["904-03"],
+  "Docentes": ["904-04"],
+  "Maestros": ["904-04"],
+  "Críticos cinematográficos": ["904-05"],
+  "Crítica": ["904-05"]
 }

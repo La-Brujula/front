@@ -1,9 +1,8 @@
-import { useState } from 'react';
-import { useContext } from 'react';
+import { AuthContext } from '@shared/context/firebaseContext';
+import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { AuthContext } from '@shared/context/firebaseContext';
 import { LoadingSpinner } from '../../../shared/components/loadingSpinner';
 
 export const LoginForm = () => {
@@ -18,10 +17,10 @@ export const LoginForm = () => {
     setLoading(false);
     switch (err.code) {
       case 'auth/user-not-found':
-        setErrorMsg('Las credenciales estan erroneas.');
+        setErrorMsg('Las credenciales están erróneas.');
         break;
       case 'auth/wrong-password':
-        setErrorMsg('Las credenciales estan erroneas.');
+        setErrorMsg('Las credenciales están erróneas.');
         break;
       case 'auth/no-account':
         setErrorMsg('No hay una cuenta registrada con ese correo.');
@@ -50,7 +49,10 @@ export const LoginForm = () => {
         onSubmit={handleSubmit(login)}
       >
         <div className="flex flex-col gap-2 items-start w-full">
-          <label htmlFor="email" className="block">
+          <label
+            htmlFor="email"
+            className="block"
+          >
             {t('email')}
           </label>
           <input

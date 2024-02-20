@@ -17,7 +17,10 @@ export const ProfileBar = ({ user }) => {
           <NavLink to="perfil">
             <AccountCircleOutlined className="!size-8" />
           </NavLink>
-          <form action={import.meta.env.BASE_URL + 'buscar'} className="grow">
+          <form
+            action={import.meta.env.BASE_URL + 'buscar'}
+            className="grow"
+          >
             <input
               name="keyword"
               placeholder={t('Buscar empleos')}

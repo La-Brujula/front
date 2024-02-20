@@ -1,5 +1,5 @@
-import { Container } from '@shared/layout/container';
 import credits from '@shared/constants/credits.json';
+import { Container } from '@shared/layout/container';
 import { useTranslation } from 'react-i18next';
 
 function Credit({ title, name }) {
@@ -11,9 +11,8 @@ function Credit({ title, name }) {
   );
 }
 
-
 export function CreditsSection() {
-const { t } = useTranslation('navigation');
+  const { t } = useTranslation('navigation');
   return (
     <Container>
       <div className="flex flex-row gap-8">
@@ -26,22 +25,30 @@ const { t } = useTranslation('navigation');
       text-left text-primary grow h-fit"
         >
           {credits.map(({ title, name }) => (
-            <Credit title={title} name={name} />
+            <Credit
+              title={title}
+              name={name}
+            />
           ))}
         </div>
       </div>
-<br></br>
+      <br></br>
 
-<div style={{ textAlign: 'center' }}>  
-<p style={{ fontSize: '24px' }}>
+      <div style={{ textAlign: 'center' }}>
+        <p style={{ fontSize: '24px' }}>
           {t('SeeOurPoli')}&nbsp;
-          <a href={import.meta.env.BASE_URL+"pdf/Políticas_de_uso_La_Brujula_Audiovisual.pdf"} className="text-primary">
+          <a
+            href={
+              import.meta.env.BASE_URL +
+              'pdf/Políticas_de_uso_La_Brujula_Audiovisual.pdf'
+            }
+            className="text-primary"
+          >
             {t('Politicas')}
           </a>
         </p>
-
-        </div>
-        <br></br>
+      </div>
+      <br></br>
     </Container>
   );
 }

@@ -1,7 +1,7 @@
-import { useTranslation } from 'react-i18next';
 import { LoginForm } from '@modules/auth/components/loginForm';
-import { CurrentUserBadge } from './currentUserBadge';
 import { useAuth } from '@shared/context/firebaseContext';
+import { useTranslation } from 'react-i18next';
+import { CurrentUserBadge } from './currentUserBadge';
 
 export const LoginOrProfile = () => {
   const { t } = useTranslation('landing');

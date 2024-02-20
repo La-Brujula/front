@@ -1,8 +1,8 @@
 import ErrorMessage from '@shared/components/errorMessage';
-import { useTranslation } from 'react-i18next';
 import { useAuth } from '@shared/context/firebaseContext';
-import { NavLink } from 'react-router-dom';
 import { getTitle } from '@shared/utils/areaUtils';
+import { useTranslation } from 'react-i18next';
+import { NavLink } from 'react-router-dom';
 
 export const ProfileHeader = ({ user }) => {
   const { t } = useTranslation('user');
@@ -46,7 +46,9 @@ export const ProfileHeader = ({ user }) => {
           )}
         </div>
         {!!user.headline && (
-          <p className="relative text-center italic text-sm mb-2">{user.headline}</p>
+          <p className="relative text-center italic text-sm mb-2">
+            {user.headline}
+          </p>
         )}
         <div className="flex flex-col gap-1 text-center relative">
           <h3 className="text-md font-normal">
@@ -56,7 +58,10 @@ export const ProfileHeader = ({ user }) => {
           </h3>
           {!!user.subareas &&
             user.subareas.map((activity) => (
-              <p className="text-sm" key={activity}>
+              <p
+                className="text-sm"
+                key={activity}
+              >
                 {getTitle(activity, user.gender)}
               </p>
             ))}

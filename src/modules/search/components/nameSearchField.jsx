@@ -1,7 +1,7 @@
-import { useTranslation } from 'react-i18next';
-import { useForm } from 'react-hook-form';
-import { Form, useNavigate } from 'react-router-dom';
 import { SearchOutlined } from '@mui/icons-material';
+import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
+import { Form, useNavigate } from 'react-router-dom';
 
 export const NameSearchField = () => {
   const { t } = useTranslation('search');
@@ -47,7 +47,10 @@ export const NameSearchField = () => {
         }}
         placeholder={t('searchByName')}
       />
-      <button type="submit" className="text-black bg-white p-4 size-16 rounded-full">
+      <button
+        type="submit"
+        className="text-black bg-white p-4 size-16 rounded-full"
+      >
         <SearchOutlined />
       </button>
     </Form>

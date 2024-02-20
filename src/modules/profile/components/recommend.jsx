@@ -1,14 +1,14 @@
 import { useReviews } from '@shared/hooks/useReviews';
-import { useAuth } from '../../../shared/context/firebaseContext';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
+import { useAuth } from '../../../shared/context/firebaseContext';
 
 export const Recommendations = ({ user }) => {
   const { t } = useTranslation('profile');
   const [showRecs, setShowRecs] = useState(false);
   const { reviews, count, addReview, removeReview, loading } = useReviews(
-    user.email
+    user.email,
   );
   const auth = useAuth();
 
@@ -84,10 +84,15 @@ export const Recommendations = ({ user }) => {
         </div>
       </div>
       {!!reviews && showRecs && (
-        <div className="p-4 bg-black bg-opacity-10 flex flex-col
-        gap-4 rounded-md">
+        <div
+          className="p-4 bg-black bg-opacity-10 flex flex-col
+        gap-4 rounded-md"
+        >
           {reviews?.map((a) => (
-            <NavLink to={`/usuarios/${a}`} className="text-primary">
+            <NavLink
+              to={`/usuarios/${a}`}
+              className="text-primary"
+            >
               {a}
             </NavLink>
           ))}

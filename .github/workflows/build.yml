@@ -26,4 +26,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
       - run: yarn install
+      - run: echo "NODE_ENV=production" >> $GITHUB_ENV
+      - run: yarn parse
       - run: yarn build

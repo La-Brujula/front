@@ -26,14 +26,14 @@ export function AboutHero() {
               alt={t('mexicoDestinoDeFilmacion')}
               className="h-16 lg:h-20"
             />
-             <img
+            <img
               src={import.meta.env.BASE_URL + 'img/Logo14añosazul.svg'}
               alt={t('logo14años')}
               className="h-20 lg:h-32"
-            /> 
+            />
           </div>
         </div>
-        <p className='text-justify'>
+        <p className="text-justify">
           La Brújula se fundó en 2010 en la ciudad de Guadalajara teniendo como
           antecedente “El Medio”, ambas publicaciones inspiradas por directorios
           especializados en la producción cinematográfica y televisiva en Los

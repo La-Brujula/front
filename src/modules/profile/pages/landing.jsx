@@ -1,10 +1,25 @@
-import { useTranslation } from 'react-i18next';
-import { ProfileHeader } from '../components/profileHeader';
-import { ContactSection } from '../components/contactInfo';
 import { useAuth } from '@shared/context/firebaseContext';
-import languages from '@shared/constants/languages.json';
+import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
+import { ContactSection } from '../components/contactInfo';
+import { ProfileHeader } from '../components/profileHeader';
 import { Recommendations } from '../components/recommend';
+
+// i18next-parser static types
+
+// Proficiency
+// t('common:basic')
+// t('common:intermediate')
+// t('common:advanced')
+// t('common:native')
+
+// Languages
+// t("common:es")
+// t("common:en")
+// t("common:fr")
+// t("common:de")
+// t("common:it")
+// t("common:zh")
 
 export const UserProfilePage = ({ user }) => {
   const { t } = useTranslation('profile');
@@ -23,7 +38,7 @@ export const UserProfilePage = ({ user }) => {
                   <div className="bg-black bg-opacity-20 w-full h-20 xl:w-1/2 xl:rounded-r-md"></div>
                 </div>
                 <h4 className="font-normal text-primary">{t('Universidad')}</h4>
-                <p className='truncate'>{user.university}</p>
+                <p className="truncate">{user.university}</p>
               </div>
             )}
             {!!user.probono && (
@@ -55,9 +70,7 @@ export const UserProfilePage = ({ user }) => {
                 <div className="grid grid-cols-[max-content,_max-content] gap-x-4 gap-y-2">
                   {user.languages.map(({ lang, proficiency }) => (
                     <>
-                      <h5 className="font-normal">
-                        {languages[lang] || t(lang)}
-                      </h5>
+                      <h5 className="font-normal">{t(lang)}</h5>
                       <p className="opacity-60">{t(proficiency)}</p>
                     </>
                   ))}

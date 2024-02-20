@@ -1,36 +1,36 @@
 import { initializeApp } from 'firebase/app';
 import {
-  getAuth,
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
-  deleteUser as firebaseDeleteUser,
-  setPersistence,
   browserLocalPersistence,
+  createUserWithEmailAndPassword,
+  deleteUser as firebaseDeleteUser,
+  getAuth,
+  onAuthStateChanged,
   sendPasswordResetEmail,
+  setPersistence,
+  signInWithEmailAndPassword,
+  signOut,
 } from 'firebase/auth';
 import {
-  getFirestore,
-  doc,
-  setDoc,
-  getDoc,
-  getDocs,
-  deleteDoc,
-  collection,
-  updateDoc,
   arrayRemove,
   arrayUnion,
-  query,
+  collection,
+  deleteDoc,
+  doc,
   getCountFromServer,
+  getDoc,
+  getDocs,
+  getFirestore,
+  query,
+  setDoc,
+  updateDoc,
 } from 'firebase/firestore';
 import {
+  deleteObject,
   getBlob,
   getDownloadURL,
   getStorage,
   ref,
   uploadBytes,
-  deleteObject,
 } from 'firebase/storage';
 import React, { useContext, useState } from 'react';
 
@@ -61,7 +61,7 @@ export const FireAuthProvider = ({ children }) => {
     const authResult = (async () => {
       try {
         await setPersistence(auth, browserLocalPersistence).then(() =>
-          method(auth, email, password)
+          method(auth, email, password),
         );
         return true;
       } catch (err) {
@@ -91,7 +91,7 @@ export const FireAuthProvider = ({ children }) => {
     email,
     password,
     handleError = (err) => {},
-    handleUnsafe = () => {}
+    handleUnsafe = () => {},
   ) => {
     return _userAuth(
       email,
@@ -105,7 +105,7 @@ export const FireAuthProvider = ({ children }) => {
           return handleUnsafe();
         }
         return handleError(err);
-      }
+      },
     );
   };
 

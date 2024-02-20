@@ -1,5 +1,5 @@
-import Strip from './strip';
 import { Container } from '@/shared/layout/container';
+import Strip from './strip';
 
 const BrujulasColors = {
   occidente: ['#63C7EB', '#1CAFE5', '#0091C8', '#006FAE'],

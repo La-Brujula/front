@@ -1,9 +1,9 @@
-import { useContext } from 'react';
 import {
   AuthContext,
   StorageContext,
   StoreContext,
 } from '@shared/context/firebaseContext';
+import { useContext } from 'react';
 import { removeDiacritics } from './busqueda';
 
 export function brujulaUtils() {
@@ -31,7 +31,7 @@ export function brujulaUtils() {
     await store.removeFromFieldArrayByDocRef(
       docRef,
       'reviews',
-      userRecommending
+      userRecommending,
     );
     updateReviewCount(userRecomended);
   };
@@ -53,7 +53,7 @@ export function brujulaUtils() {
 
   const getTotalQuerySize = async (queries) => {
     return await store.getQuerySize(queries);
-  }
+  };
 
   const queryUsers = async (queries) => {
     const data = await store.queryInfo(queries);
@@ -63,7 +63,7 @@ export function brujulaUtils() {
       list.map(async (doc) => {
         const reviews = await getReviews(doc.email);
         return { ...doc, ...{ reviews: reviews } };
-      })
+      }),
     );
   };
 
@@ -75,55 +75,65 @@ export function brujulaUtils() {
 
   const updateUserInfo = async (userInfo, email = auth.getUserEmail()) => {
     const data = await store.getInfo('users', email);
-    const newData = !data ? userInfo : {
-      ...data,
-      ...userInfo,
-      searchName: (userInfo.name || data.name) && [
-        ...(() =>
-          !!userInfo.name ? userInfo.name.split(' ') : data.name.split(' '))(),
-        ...(() =>
-          !!userInfo.lastname
-            ? userInfo.lastname.split(' ')
-            : !!data.lastname ? data.lastname.split(' ') : '')(),
-        ...(() =>
-          !!userInfo.nickname
-            ? userInfo.nickname.split(' ')
-            : !!data.nickname
-              ? data.nickname.split(' ')
-              : [])(),
-        // campo actividad
-        ...(() =>
-          !!userInfo.subareas
-            ? userInfo.subareas
-            : !!data.subareas
-              ? data.subareas
-              : [])(),
-        // campo subarea
-        ...((() =>
-          !!userInfo.subareas
-            ? userInfo.subareas
-            : !!data.subareas
-              ? data.subareas
-              : [])()).map(activity => activity.split('-')[0]),
-        // campo área
-        ...((() =>
-          !!userInfo.subareas
-            ? userInfo.subareas
-            : !!data.subareas
-              ? data.subareas
-              : [])()).map(activity => activity[0]),
-        // campo idiomas
-        ...(() =>
-          !!userInfo.languages
-            ? userInfo.languages
-            : !!data.languages
-              ? data.languages
-              : [])().map((({ lang }) => `lang:${lang}`)),
-        userInfo.city || data.city,
-        userInfo.state || data.state,
-        userInfo.country || data.country,
-      ].filter(a => !!a).map((a) => removeDiacritics(a.toLowerCase())),
-    };
+    const newData = !data
+      ? userInfo
+      : {
+          ...data,
+          ...userInfo,
+          searchName:
+            (userInfo.name || data.name) &&
+            [
+              ...(() =>
+                !!userInfo.name
+                  ? userInfo.name.split(' ')
+                  : data.name.split(' '))(),
+              ...(() =>
+                !!userInfo.lastname
+                  ? userInfo.lastname.split(' ')
+                  : !!data.lastname
+                  ? data.lastname.split(' ')
+                  : '')(),
+              ...(() =>
+                !!userInfo.nickname
+                  ? userInfo.nickname.split(' ')
+                  : !!data.nickname
+                  ? data.nickname.split(' ')
+                  : [])(),
+              // campo actividad
+              ...(() =>
+                !!userInfo.subareas
+                  ? userInfo.subareas
+                  : !!data.subareas
+                  ? data.subareas
+                  : [])(),
+              // campo subarea
+              ...(() =>
+                !!userInfo.subareas
+                  ? userInfo.subareas
+                  : !!data.subareas
+                  ? data.subareas
+                  : [])().map((activity) => activity.split('-')[0]),
+              // campo área
+              ...(() =>
+                !!userInfo.subareas
+                  ? userInfo.subareas
+                  : !!data.subareas
+                  ? data.subareas
+                  : [])().map((activity) => activity[0]),
+              // campo idiomas
+              ...(() =>
+                !!userInfo.languages
+                  ? userInfo.languages
+                  : !!data.languages
+                  ? data.languages
+                  : [])().map(({ lang }) => `lang:${lang}`),
+              userInfo.city || data.city,
+              userInfo.state || data.state,
+              userInfo.country || data.country,
+            ]
+              .filter((a) => !!a)
+              .map((a) => removeDiacritics(a.toLowerCase())),
+        };
     return await store.saveInfo('users', email, newData);
   };
 

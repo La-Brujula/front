@@ -1,82 +1,82 @@
 [
-    {
-        "iconUrl": "PreprodIcon",
-        "label": "Desarrollo de proyectos",
-        "search": "1"
-    },
-    {
-        "iconUrl": "TalentIcon",
-        "label": "Talento",
-        "search": "2"
-    },
-    {
-        "iconUrl": "PeopleIcon",
-        "label": "Equipo Humano",
-        "search": "3"
-    },
-    {
-        "iconUrl": "ProductionIcon",
-        "label": "Producción audiovisual",
-        "search": "4"
-    },
-    {
-        "iconUrl": "RentalIcon",
-        "label": "Alquiler de equipos",
-        "search": "5"
-    },
-    {
-        "iconUrl": "SupportIcon",
-        "label": "Servicio de soporte a la producción",
-        "search": "6"
-    },
-    {
-        "iconUrl": "PostprodIcon",
-        "label": "Empresas de Post",
-        "search": "7"
-    },
-    {
-        "iconUrl": "AnimationIcon",
-        "label": "Animación",
-        "search": "703"
-    },
-    {
-        "iconUrl": "ITIcon",
-        "label": "Tecnologías de la información",
-        "search": "8"
-    },
-    {
-        "iconUrl": "DistIcon",
-        "label": "Distribución, exhibición y medios",
-        "search": "901-03 901-04 901-05 904-02 901-07 904-05"
-    },
-    {
-        "iconUrl": "MktIcon",
-        "label": "Mercadotecnia, publicidad y diseño",
-        "search": "901-01 901-02 901-08 901-09 104-01 104-05"
-    },
-    {
-        "iconUrl": "EducationIcon",
-        "label": "Escuelas y universidades",
-        "search": "902-04 902-05 904-01 904-04"
-    },
-    {
-        "iconUrl": "CommisionIcon",
-        "label": "Comisiones fílmicas",
-        "search": "902-01 902-02 902-03 904-03"
-    },
-    {
-        "iconUrl": "FestivalIcon",
-        "label": "Festivales y mercados de cine en México",
-        "search": "903-01"
-    },
-    {
-        "iconUrl": "IntFestIcon",
-        "label": "Festivales de cine en el mundo",
-        "search": "903-02"
-    },
-    {
-        "iconUrl": "AssocIcon",
-        "label": "Asociaciones",
-        "search": "901-06 901-10"
-    }
+  {
+    "iconUrl": "PreprodIcon",
+    "label": "Desarrollo de proyectos",
+    "search": "1"
+  },
+  {
+    "iconUrl": "TalentIcon",
+    "label": "Talento",
+    "search": "2"
+  },
+  {
+    "iconUrl": "PeopleIcon",
+    "label": "Equipo Humano",
+    "search": "3"
+  },
+  {
+    "iconUrl": "ProductionIcon",
+    "label": "Producción audiovisual",
+    "search": "4"
+  },
+  {
+    "iconUrl": "RentalIcon",
+    "label": "Alquiler de equipos",
+    "search": "5"
+  },
+  {
+    "iconUrl": "SupportIcon",
+    "label": "Servicio de soporte a la producción",
+    "search": "6"
+  },
+  {
+    "iconUrl": "PostprodIcon",
+    "label": "Empresas de Post",
+    "search": "7"
+  },
+  {
+    "iconUrl": "AnimationIcon",
+    "label": "Animación",
+    "search": "703"
+  },
+  {
+    "iconUrl": "ITIcon",
+    "label": "Tecnologías de la información",
+    "search": "8"
+  },
+  {
+    "iconUrl": "DistIcon",
+    "label": "Distribución, exhibición y medios",
+    "search": "901-03 901-04 901-05 904-02 901-07 904-05"
+  },
+  {
+    "iconUrl": "MktIcon",
+    "label": "Mercadotecnia, publicidad y diseño",
+    "search": "901-01 901-02 901-08 901-09 104-01 104-05"
+  },
+  {
+    "iconUrl": "EducationIcon",
+    "label": "Escuelas y universidades",
+    "search": "902-04 902-05 904-01 904-04"
+  },
+  {
+    "iconUrl": "CommisionIcon",
+    "label": "Comisiones fílmicas",
+    "search": "902-01 902-02 902-03 904-03"
+  },
+  {
+    "iconUrl": "FestivalIcon",
+    "label": "Festivales y mercados de cine en México",
+    "search": "903-01"
+  },
+  {
+    "iconUrl": "IntFestIcon",
+    "label": "Festivales de cine en el mundo",
+    "search": "903-02"
+  },
+  {
+    "iconUrl": "AssocIcon",
+    "label": "Asociaciones",
+    "search": "901-06 901-10"
+  }
 ]

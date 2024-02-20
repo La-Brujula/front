@@ -10,7 +10,10 @@ export function ExtraFilters({ register, watch }) {
       <div className="grid grid-cols-[min-content_1fr]">
         {/* Tipo de persona */}
         <div className="grid grid-cols-[1fr,2rem] gap-4 items-center text-left border-b border-b-black border-opacity-20">
-          <label className="font-normal w-full cursor-pointer" htmlFor="remote">
+          <label
+            className="font-normal w-full cursor-pointer"
+            htmlFor="remote"
+          >
             {t('Remoto')}
           </label>
           <input
@@ -21,8 +24,15 @@ export function ExtraFilters({ register, watch }) {
             className="size-4 cursor-pointer"
           />
         </div>
-        <select {...register('type')} className="w-full dark">
-          <option value="" selected unselectable>
+        <select
+          {...register('type')}
+          className="w-full dark"
+        >
+          <option
+            value=""
+            selected
+            unselectable
+          >
             {t('Tipo de persona')}
           </option>
           <option value="moral">{t('Moral')}</option>
@@ -31,20 +41,28 @@ export function ExtraFilters({ register, watch }) {
       </div>
       {/* Idioma */}
       <div className="flex flex-col gap-4 w-full">
-        <select {...register('language')} className="w-full dark">
+        <select
+          {...register('language')}
+          className="w-full dark"
+        >
           <option value="">Idioma</option>
-          {Object.keys(languages).map((defLang) => (
-            <option value={defLang} key={defLang}>
-              {languages[defLang]}
+          {languages.map((defLang) => (
+            <option
+              value={defLang}
+              key={defLang}
+            >
+              {t(defLang)}
             </option>
           ))}
           <option value="other">Otro</option>
         </select>
-        {!!lang && !Object.keys(languages).includes(lang) && (
+        {!!lang && !languages.includes(lang) && (
           <input
             type="text"
             onChange={(e) =>
-              setValue('language', e.currentTarget.value, { shouldTouch: true })
+              setValue('language', e.currentTarget.value, {
+                shouldTouch: true,
+              })
             }
             placeholder="Escribe aquí el nombre del idioma"
           />

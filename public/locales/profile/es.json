@@ -1,6 +1,16 @@
 {
-    "basic": "Básico",
-    "intermediate": "Intermedio",
-    "advanced": "Avanzado",
-    "native": "Lengua Materna"
+  "Al continuar, aceptas nuestro ": "Al continuar, aceptas nuestro ",
+  "aviso legal y de privacidad": "Aviso legal y de privacidad",
+  "Buscar empleos": "Buscar empleos",
+  "Empleos guardados": "Empleos guardados",
+  "Empleos solicitados": "Empleos solicitados",
+  "Intereses de empleos": "Intereses de empleos",
+  "Ocultar recomendaciones": "Ocultar recomendaciones",
+  "Mostrar recomendaciones": "Mostrar recomendaciones",
+  "Universidad": "Universidad",
+  "Semblanza": "Semblanza",
+  "Idiomas": "Idiomas",
+  "Asociaciones": "Asociaciones",
+  "Certificaciones": "Certificaciones",
+  "Reconocimientos": "Reconocimientos"
 }

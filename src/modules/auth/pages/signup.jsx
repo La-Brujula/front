@@ -1,6 +1,6 @@
 import { Container } from '@shared/layout/container';
 import { useTranslation } from 'react-i18next';
-import { SignupForm } from '../components/signupForm';
+import { SignUpForm } from '../components/signupForm';
 
 export default () => {
   const { t } = useTranslation('auth');
@@ -17,17 +17,17 @@ export default () => {
           'flex',
           'flex-col',
           'justify-center',
-          'transform'
+          'transform',
         ].join(' ')}
       >
         <div className="max-w-6xl mx-auto w-full">
           <div className="transform h-full">
             <p>
-            ¡Hola! 
-            <br />
-              Estás a un paso de formar parte de La Brújula. 
-              Crea tu usuario y agrega tu información para que otros miembros de
-              la industria audiovisual puedan encontrarte.
+              ¡Hola!
+              <br />
+              Estás a un paso de formar parte de La Brújula. Crea tu usuario y
+              agrega tu información para que otros miembros de la industria
+              audiovisual puedan encontrarte.
               <br />
               <br />
               Queremos que tu empresa, tu proyecto y tú mismo, sean parte de La
@@ -43,7 +43,7 @@ export default () => {
       </div>
       <Container>
         <h1 className="mb-8 text-secondary text-4xl">{t('createUser')}</h1>
-        <SignupForm />
+        <SignUpForm />
       </Container>
     </div>
   );

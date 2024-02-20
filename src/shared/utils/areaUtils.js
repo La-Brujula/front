@@ -43,7 +43,7 @@ export function getSubAreaFromId(activity) {
   try {
     return getSubArea(
       getAreaFromId(activity),
-      parseInt(activity.split('-')[0].slice(1))
+      parseInt(activity.split('-')[0].slice(1)),
     );
   } catch (e) {
     console.error(e);
