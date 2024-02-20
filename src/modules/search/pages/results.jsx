@@ -1,15 +1,15 @@
-import { useCallback, useEffect, useMemo } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import { useSearch } from '../../../shared/hooks/useSearch';
-import { UsersList } from '../components/userList';
-import { ResultsFilter } from '../components/resultsFilters';
-import { LoadingSpinner } from '../../../shared/components/loadingSpinner';
-import { ErrorMessage } from '../../../shared/components/errorMessage';
-import { replaceSearchTermsFromIndex } from '../../../shared/utils/busqueda';
-import useDebounce from '../../../shared/hooks/useDebounce';
 import { SearchOutlined } from '@mui/icons-material';
-import ReactVisibilitySensor from 'react-visibility-sensor';
+import { useCallback, useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSearchParams } from 'react-router-dom';
+import ReactVisibilitySensor from 'react-visibility-sensor';
+import { ErrorMessage } from '../../../shared/components/errorMessage';
+import { LoadingSpinner } from '../../../shared/components/loadingSpinner';
+import useDebounce from '../../../shared/hooks/useDebounce';
+import { useSearch } from '../../../shared/hooks/useSearch';
+import { replaceSearchTermsFromIndex } from '../../../shared/utils/busqueda';
+import { ResultsFilter } from '../components/resultsFilters';
+import { UsersList } from '../components/userList';
 
 export const SearchResultsPage = () => {
   const [searchParams] = useSearchParams();
@@ -44,7 +44,7 @@ export const SearchResultsPage = () => {
       setFilterObject({
         search: replaceSearchTermsFromIndex(value.toLowerCase()),
       }),
-    [setFilterObject]
+    [setFilterObject],
   );
 
   useEffect(() => {
@@ -85,14 +85,20 @@ export const SearchResultsPage = () => {
         </p>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-[20rem_1fr] gap-12 mt-16">
-        <ResultsFilter setFilters={setFilterObject} filters={filters} />
+        <ResultsFilter
+          setFilters={setFilterObject}
+          filters={filters}
+        />
         <div
           className="flex flex-col gap-8 text-left bg-black bg-opacity-20
           rounded-l-3xl p-8 w-full relative"
         >
           <div className="w-[50vw] absolute left-[100%] top-0 h-full bg-black bg-opacity-20 -z-10"></div>
           {!!results && results.length > 0 ? (
-            <UsersList users={results} getNext={getNext} />
+            <UsersList
+              users={results}
+              getNext={getNext}
+            />
           ) : (
             !loading && !error && <p>No se encontraron resultados</p>
           )}

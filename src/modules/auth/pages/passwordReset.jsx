@@ -1,10 +1,10 @@
+import ErrorMessage from '@shared/components/errorMessage';
+import { LoadingSpinner } from '@shared/components/loadingSpinner';
+import { useAuth } from '@shared/context/firebaseContext';
 import { Container } from '@shared/layout/container';
+import { useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { useAuth } from '@shared/context/firebaseContext';
-import { useCallback, useState } from 'react';
-import { LoadingSpinner } from '@shared/components/loadingSpinner';
-import ErrorMessage from '@shared/components/errorMessage';
 import { NavLink } from 'react-router-dom';
 
 const PasswordResetPage = () => {
@@ -17,7 +17,7 @@ const PasswordResetPage = () => {
 
   const formHandler = useCallback(
     async (values) => {
-      setError(null)
+      setError(null);
       setLoading(true);
       try {
         await resetUserPassword(values.email);
@@ -26,12 +26,12 @@ const PasswordResetPage = () => {
         switch (e.code) {
           case 'auth/user-not-found':
             setError(
-              'No tenemos registrada esta cuenta, por favor revisa tu información.'
+              'No tenemos registrada esta cuenta, por favor revisa tu información.',
             );
             break;
           case 'auth/no-account':
             setError(
-              'No hay una cuenta registrada con ese correo, por favor revisa tu información.'
+              'No hay una cuenta registrada con ese correo, por favor revisa tu información.',
             );
             break;
           default:
@@ -40,15 +40,17 @@ const PasswordResetPage = () => {
       }
       setLoading(false);
     },
-    [resetUserPassword]
+    [resetUserPassword],
   );
 
   return (
     <Container>
-      <h1 className="mb-8 text-secondary text-4xl">{t('Reiniciar contraseña')}</h1>
+      <h1 className="mb-8 text-secondary text-4xl">
+        {t('Reiniciar contraseña')}
+      </h1>
       <p className="mb-4">
         {t(
-          'Escribe tu correo aquí y si está registrado te llegará un correo para reiniciar tu contraseña'
+          'Escribe tu correo aquí y si está registrado te llegará un correo para reiniciar tu contraseña',
         )}
       </p>
       {error && (

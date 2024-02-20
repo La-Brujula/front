@@ -1,12 +1,12 @@
-import { brujulaUtils } from '@shared/utils/brujulaUtils';
+import { ButtonSelect } from '@shared/components/buttonSelect';
+import { LoadingSpinner } from '@shared/components/loadingSpinner';
 import { useAuth } from '@shared/context/firebaseContext';
+import { useUserInfo } from '@shared/hooks/useUserInfo';
+import { brujulaUtils } from '@shared/utils/brujulaUtils';
+import { useEffect, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { ButtonSelect } from '@shared/components/buttonSelect';
-import { useEffect, useMemo } from 'react';
-import { useUserInfo } from '@shared/hooks/useUserInfo';
-import { LoadingSpinner } from '@shared/components/loadingSpinner';
 
 export const StandoutPage = () => {
   const brujula = brujulaUtils();
@@ -62,7 +62,10 @@ export const StandoutPage = () => {
   return loading ? (
     <LoadingSpinner />
   ) : (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex flex-col gap-4"
+    >
       <p>*{t('Information')}</p>
       <div
         className="flex flex-col max-w-lg
@@ -73,15 +76,27 @@ export const StandoutPage = () => {
             <label htmlFor="profilePicture">
               {t('Cambia tu foto de usuario')}
             </label>
-            <input type="file" {...register('profilePicture')} />
-            <img src={profilePictureUrl} className="w-32 rounded-full" />
+            <input
+              type="file"
+              {...register('profilePicture')}
+            />
+            <img
+              src={profilePictureUrl}
+              className="w-32 rounded-full"
+            />
           </div>
           <div className="flex flex-col gap-4 text-left">
             <label htmlFor="coverPicture">
               {t('Cambia tu foto de portada')}
             </label>
-            <input type="file" {...register('coverPicture')} />
-            <img src={coverPictureUrl} className="w-32" />
+            <input
+              type="file"
+              {...register('coverPicture')}
+            />
+            <img
+              src={coverPictureUrl}
+              className="w-32"
+            />
           </div>
         </div>
         <label htmlFor="headline">{t('Agrega un lema o mensaje corto')}</label>
@@ -98,7 +113,11 @@ export const StandoutPage = () => {
       </div>
       <div className="grid grid-cols-[min-content_minmax(12rem,_24rem)] text-right gap-4 mx-auto">
         <label htmlFor="address">{t('Dirección')}</label>
-        <input type="text" {...register('address')} autoComplete="address" />
+        <input
+          type="text"
+          {...register('address')}
+          autoComplete="address"
+        />
         <label htmlFor="postalCode">{t('CP')}</label>
         <input
           type="text"
@@ -137,7 +156,10 @@ export const StandoutPage = () => {
           <label htmlFor="workRadius">
             {t('¿Cuál es tu radio de trabajo?')}
           </label>
-          <select {...register('workRadius')} className="w-full">
+          <select
+            {...register('workRadius')}
+            className="w-full"
+          >
             <option value="">{t('Por favor selecciona una opción')}</option>
             <option value="local">{t('Local')}</option>
             <option value="state">{t('Estatal')}</option>
@@ -148,7 +170,10 @@ export const StandoutPage = () => {
             {t('Servicios a distancia')}
           </h3>
           <label htmlFor="remoteWork">{t('¿Trabajas online?')}</label>
-          <input type="hidden" {...register('remoteWork')} />
+          <input
+            type="hidden"
+            {...register('remoteWork')}
+          />
           <ButtonSelect
             fieldName="remoteWork"
             values={[true, false]}
@@ -159,10 +184,17 @@ export const StandoutPage = () => {
         </div>
       </div>
       <div className="flex flex-row gap-4 self-center">
-        <div className="button font-bold bg-transparent border border-primary text-black" onClick={() => navigate(-1)}>
+        <div
+          className="button font-bold bg-transparent border border-primary text-black"
+          onClick={() => navigate(-1)}
+        >
           {t('Regresar')}
         </div>
-        <input type="submit" className="border-none" value={t('Continuar')} />
+        <input
+          type="submit"
+          className="border-none"
+          value={t('Continuar')}
+        />
       </div>
     </form>
   );

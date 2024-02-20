@@ -8,7 +8,10 @@ export function PDFGuidesPage() {
 
   return (
     <>
-      <Container bg="primary" className="text-white">
+      <Container
+        bg="primary"
+        className="text-white"
+      >
         <h2>
           La Brújula.
           <br />
@@ -37,7 +40,7 @@ export function PDFGuidesPage() {
           </h2>
           <p>
             {t(
-              'La Brújula audiovisual en documentos interactivos, te permiten hacer contacto rápidamente con la persona, empresa, servicio o institución que estas buscando.'
+              'La Brújula audiovisual en documentos interactivos, te permiten hacer contacto rápidamente con la persona, empresa, servicio o institución que estas buscando.',
             )}
           </p>
         </div>
@@ -58,7 +61,11 @@ export function PDFGuidesPage() {
               className="overflow-hidden rounded-md max-w-xs"
               download
             >
-              <img src={guide.thumbnail} alt={guide.name} className="w-full" />
+              <img
+                src={guide.thumbnail}
+                alt={guide.name}
+                className="w-full"
+              />
             </a>
           ))}
         </div>
@@ -79,7 +86,11 @@ export function PDFGuidesPage() {
               download
               key={guide.name + i}
             >
-              <img src={guide.thumbnail} alt={guide.name} className="w-full" />
+              <img
+                src={guide.thumbnail}
+                alt={guide.name}
+                className="w-full"
+              />
             </a>
           ))}
         </div>

@@ -1,15 +1,15 @@
-import FacebookOutlined from '@mui/icons-material/FacebookOutlined';
+import IMDB from '@/shared/icons/imdb';
+import TikTok from '@/shared/icons/tiktok';
+import Vimeo from '@/shared/icons/vimeo';
 import EmailOutlined from '@mui/icons-material/EmailOutlined';
+import FacebookOutlined from '@mui/icons-material/FacebookOutlined';
+import Instagram from '@mui/icons-material/Instagram';
+import LinkOutlined from '@mui/icons-material/LinkOutlined';
+import Linkedin from '@mui/icons-material/LinkedIn';
 import PhoneOutlined from '@mui/icons-material/PhoneOutlined';
 import WhatsApp from '@mui/icons-material/WhatsApp';
-import Instagram from '@mui/icons-material/Instagram';
 import Twitter from '@mui/icons-material/X';
-import Linkedin from '@mui/icons-material/LinkedIn';
 import YouTube from '@mui/icons-material/YouTube';
-import LinkOutlined from '@mui/icons-material/LinkOutlined';
-import IMDB from '@/shared/icons/imdb';
-import Vimeo from '@/shared/icons/vimeo';
-import TikTok from '@/shared/icons/tiktok';
 
 export const ContactSection = ({ user }) => {
   return (
@@ -138,7 +138,11 @@ export const ContactSection = ({ user }) => {
           <h3>
             <IMDB />
           </h3>
-          <a target="_blank" className="truncate block w-full" href={user.imdb}>
+          <a
+            target="_blank"
+            className="truncate block w-full"
+            href={user.imdb}
+          >
             {user.imdb}
           </a>
         </>

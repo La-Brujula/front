@@ -1,8 +1,8 @@
-import { useTranslation } from 'react-i18next';
-import { ProfileHeader } from '../components/profileHeader';
-import { ContactSection } from '../components/contactInfo';
 import { useAuth } from '@shared/context/firebaseContext';
+import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
+import { ContactSection } from '../components/contactInfo';
+import { ProfileHeader } from '../components/profileHeader';
 import { Recommendations } from '../components/recommend';
 
 // i18next-parser static types

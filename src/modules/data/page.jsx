@@ -1,5 +1,11 @@
 import { initializeApp } from 'firebase/app';
-import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  query,
+  where,
+} from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 
 import areas from '@shared/constants/areas.json';
@@ -25,11 +31,14 @@ export function DataPage() {
 
   useEffect(() => {
     (async () => {
-      if(category) {
+      if (category) {
         const _contacts = [];
 
-        const users = query(usersRef, where('searchName', 'array-contains', category));
-        (await getDocs(users)).forEach(doc => _contacts.push(doc.data()));
+        const users = query(
+          usersRef,
+          where('searchName', 'array-contains', category),
+        );
+        (await getDocs(users)).forEach((doc) => _contacts.push(doc.data()));
 
         setContacts(_contacts);
       }
@@ -40,66 +49,176 @@ export function DataPage() {
     <>
       <Container className="text-primary">
         <div className="mx-auto mb-8">
-          <h2>
-            {'Estadisticas'}
-          </h2>
-          <p style={{ fontWeight:700 }}>Categoria</p>
-          <select onChange={e => setCategory(e.target.value)}>
-            <option value=''>----</option>
+          <h2>{'Estadisticas'}</h2>
+          <p style={{ fontWeight: 700 }}>Categoria</p>
+          <select onChange={(e) => setCategory(e.target.value)}>
+            <option value="">----</option>
             {(() => {
-              return Object.entries(areas).map(v => {
-                return [v[0], Object.entries(v[1]).map(_v => {
-                  return [_v[0], Object.entries(_v[1])[0][0].split(/-/)[0]];
-                })];
-              }).map(v => v[1]).flat().sort((a, b) => a[0].localeCompare(b[0])).map(v => {
-                return <option key={v[1]} value={v[1]}>{v[0]}</option>;
-              });
+              return Object.entries(areas)
+                .map((v) => {
+                  return [
+                    v[0],
+                    Object.entries(v[1]).map((_v) => {
+                      return [_v[0], Object.entries(_v[1])[0][0].split(/-/)[0]];
+                    }),
+                  ];
+                })
+                .map((v) => v[1])
+                .flat()
+                .sort((a, b) => a[0].localeCompare(b[0]))
+                .map((v) => {
+                  return (
+                    <option
+                      key={v[1]}
+                      value={v[1]}
+                    >
+                      {v[0]}
+                    </option>
+                  );
+                });
             })()}
           </select>
-          {category
-          ? <div style={{ margin:'32px 0 0 0' }}>
-            <p style={{ fontWeight:700 }}>Lista de Contactos</p>
-            <p>{(() => {
-              if(contacts && contacts.length > 0) {
-                return <>
-                  <div>{contacts.length} resultados</div>
-                  <table style={{ margin:'16px 0 0 0', textAlign:'left' }}>
-                    <tr>
-                      <th style={{ whiteSpace:'nowrap' }}>Email</th>
-                      <th style={{ whiteSpace:'nowrap' }}>Tipo de Persona</th>
-                      <th style={{ whiteSpace:'nowrap' }}>Nickname</th>
-                      <th style={{ whiteSpace:'nowrap' }}>Nombre</th>
-                      <th style={{ whiteSpace:'nowrap' }}>Apellido(s)</th>
-                      <th style={{ whiteSpace:'nowrap' }}>Pais</th>
-                      <th style={{ whiteSpace:'nowrap' }}>Localidad</th>
-                      <th style={{ whiteSpace:'nowrap' }}>Actividad 1</th>
-                      <th style={{ whiteSpace:'nowrap' }}>Actividad 2</th>
-                      <th style={{ whiteSpace:'nowrap' }}>Actividad 3</th>
-                      <th style={{ whiteSpace:'nowrap' }}># Brujulas</th>
-                      <th style={{ whiteSpace:'nowrap' }}>Suscriptor</th>
-                    </tr>
-                    {contacts.sort((a, b) => a.email.localeCompare(b.email)).map(v => {
-                      return <tr>
-                        <td>{v.email||''}</td>
-                        <td>{({ fisica:'Física', moral:'Moral' })[v.type||'fisica']}</td>
-                        <td>{v.nickname||''}</td>
-                        <td>{v.name||''}</td>
-                        <td>{v.lastname||''}</td>
-                        <td>{v.country||''}</td>
-                        <td>{v.location||''}</td>
-                        <td>{(v.subareas||[])[0]||''}</td>
-                        <td>{(v.subareas||[])[1]||''}</td>
-                        <td>{(v.subareas||[])[2]||''}</td>
-                        <td>{(v.reviews||[]).filter(v => !!v).length}</td>
-                        <td>No</td>
-                      </tr>;
-                    })}
-                  </table>
-                </>;
-              }
-            })()}</p>
+          {category ? (
+            <div style={{ margin: '32px 0 0 0' }}>
+              <p style={{ fontWeight: 700 }}>Lista de Contactos</p>
+              <p>
+                {(() => {
+                  if (contacts && contacts.length > 0) {
+                    return (
+                      <>
+                        <div>{contacts.length} resultados</div>
+                        <table
+                          style={{
+                            margin: '16px 0 0 0',
+                            textAlign: 'left',
+                          }}
+                        >
+                          <tr>
+                            <th
+                              style={{
+                                whiteSpace: 'nowrap',
+                              }}
+                            >
+                              Email
+                            </th>
+                            <th
+                              style={{
+                                whiteSpace: 'nowrap',
+                              }}
+                            >
+                              Tipo de Persona
+                            </th>
+                            <th
+                              style={{
+                                whiteSpace: 'nowrap',
+                              }}
+                            >
+                              Nickname
+                            </th>
+                            <th
+                              style={{
+                                whiteSpace: 'nowrap',
+                              }}
+                            >
+                              Nombre
+                            </th>
+                            <th
+                              style={{
+                                whiteSpace: 'nowrap',
+                              }}
+                            >
+                              Apellido(s)
+                            </th>
+                            <th
+                              style={{
+                                whiteSpace: 'nowrap',
+                              }}
+                            >
+                              Pais
+                            </th>
+                            <th
+                              style={{
+                                whiteSpace: 'nowrap',
+                              }}
+                            >
+                              Localidad
+                            </th>
+                            <th
+                              style={{
+                                whiteSpace: 'nowrap',
+                              }}
+                            >
+                              Actividad 1
+                            </th>
+                            <th
+                              style={{
+                                whiteSpace: 'nowrap',
+                              }}
+                            >
+                              Actividad 2
+                            </th>
+                            <th
+                              style={{
+                                whiteSpace: 'nowrap',
+                              }}
+                            >
+                              Actividad 3
+                            </th>
+                            <th
+                              style={{
+                                whiteSpace: 'nowrap',
+                              }}
+                            >
+                              # Brujulas
+                            </th>
+                            <th
+                              style={{
+                                whiteSpace: 'nowrap',
+                              }}
+                            >
+                              Suscriptor
+                            </th>
+                          </tr>
+                          {contacts
+                            .sort((a, b) => a.email.localeCompare(b.email))
+                            .map((v) => {
+                              return (
+                                <tr>
+                                  <td>{v.email || ''}</td>
+                                  <td>
+                                    {
+                                      {
+                                        fisica: 'Física',
+                                        moral: 'Moral',
+                                      }[v.type || 'fisica']
+                                    }
+                                  </td>
+                                  <td>{v.nickname || ''}</td>
+                                  <td>{v.name || ''}</td>
+                                  <td>{v.lastname || ''}</td>
+                                  <td>{v.country || ''}</td>
+                                  <td>{v.location || ''}</td>
+                                  <td>{(v.subareas || [])[0] || ''}</td>
+                                  <td>{(v.subareas || [])[1] || ''}</td>
+                                  <td>{(v.subareas || [])[2] || ''}</td>
+                                  <td>
+                                    {
+                                      (v.reviews || []).filter((v) => !!v)
+                                        .length
+                                    }
+                                  </td>
+                                  <td>No</td>
+                                </tr>
+                              );
+                            })}
+                        </table>
+                      </>
+                    );
+                  }
+                })()}
+              </p>
             </div>
-          : undefined}
+          ) : undefined}
         </div>
       </Container>
     </>

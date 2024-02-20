@@ -1,13 +1,13 @@
-import { useTranslation } from 'react-i18next';
-import { useUserInfo } from '@shared/hooks/useUserInfo';
-import { LoadingSpinner } from '@shared/components/loadingSpinner';
-import ErrorMessage from '@shared/components/errorMessage';
-import { NavLink } from 'react-router-dom';
 import { ProfileHeader } from '@modules/profile/components/profileHeader';
 import EmailOutlined from '@mui/icons-material/EmailOutlined';
 import PhoneOutlined from '@mui/icons-material/PhoneOutlined';
+import ErrorMessage from '@shared/components/errorMessage';
+import { LoadingSpinner } from '@shared/components/loadingSpinner';
 import { useAuth } from '@shared/context/firebaseContext';
+import { useUserInfo } from '@shared/hooks/useUserInfo';
 import { getTitle } from '@shared/utils/areaUtils';
+import { useTranslation } from 'react-i18next';
+import { NavLink } from 'react-router-dom';
 
 export const ProfileSummary = () => {
   const { t } = useTranslation('auth');
@@ -37,21 +37,25 @@ export const ProfileSummary = () => {
         <div className="col-span-2"></div>
         <h3>{user?.type != 'moral' ? t('Razón Social') : t('Nombre (s)')}</h3>
         <p className="text-left text-primary">{user.name}</p>
-        {user?.type != 'moral' && <>
-          <h3>{t('Apellido (s)')}</h3>
-          <p className="text-left text-primary">{user.lastname}</p>
-        </>
-        }
+        {user?.type != 'moral' && (
+          <>
+            <h3>{t('Apellido (s)')}</h3>
+            <p className="text-left text-primary">{user.lastname}</p>
+          </>
+        )}
         <h3>{t('Nickname')}</h3>
         <p className="text-left text-primary">{user.nickname}</p>
-        {user?.type != 'moral' && <>
-          <h3>{t('Género')}</h3>
-          <p className="text-left text-primary">{user.gender}</p>
-        </>
-        }
+        {user?.type != 'moral' && (
+          <>
+            <h3>{t('Género')}</h3>
+            <p className="text-left text-primary">{user.gender}</p>
+          </>
+        )}
         <div className="col-span-2"></div>
         <h3>{t('Actividad Principal')}</h3>
-        <p className="text-left text-primary">{!!user.subareas && getTitle(user.subareas[0], user.gender)}</p>
+        <p className="text-left text-primary">
+          {!!user.subareas && getTitle(user.subareas[0], user.gender)}
+        </p>
         <div className="col-span-2"></div>
         <h3>{t('Ciudad')}</h3>
         <p className="text-left text-primary">{user.city}</p>

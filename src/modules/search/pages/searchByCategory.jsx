@@ -1,12 +1,12 @@
-import { Container } from '@shared/layout/container';
-import { useTranslation } from 'react-i18next';
 import { PorCategorias } from '@modules/search/components/categorias';
-import categories from '@shared/constants/categories';
-import { Form, useNavigate } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
-import { ReferenceField } from '../components/referenceField';
-import { replaceSearchTermsFromIndex } from '../../../shared/utils/busqueda';
 import { SearchOutlined } from '@mui/icons-material';
+import categories from '@shared/constants/categories';
+import { Container } from '@shared/layout/container';
+import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
+import { Form, useNavigate } from 'react-router-dom';
+import { replaceSearchTermsFromIndex } from '../../../shared/utils/busqueda';
+import { ReferenceField } from '../components/referenceField';
 
 function SearchByCategory() {
   const { t } = useTranslation('search');
@@ -22,7 +22,10 @@ function SearchByCategory() {
 
   return (
     <>
-      <Container bg="lightblue" className="gap-8">
+      <Container
+        bg="lightblue"
+        className="gap-8"
+      >
         <h2 className="mb-3">{t('Buscar por especialidad')}</h2>
         <Form
           action="/buscar"

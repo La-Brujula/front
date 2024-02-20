@@ -1,17 +1,15 @@
-import { useEffect, useState } from 'react';
-import { useContext } from 'react';
+import { ButtonSelect } from '@shared/components/buttonSelect';
+import ErrorMessage from '@shared/components/errorMessage';
+import { LoadingSpinner } from '@shared/components/loadingSpinner';
+import genders from '@shared/constants/genders.json';
+import { AuthContext } from '@shared/context/firebaseContext';
+import { useUserInfo } from '@shared/hooks/useUserInfo';
+import { brujulaUtils } from '@shared/utils/brujulaUtils';
+import { useContext, useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { ButtonSelect } from '@shared/components/buttonSelect';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '@shared/context/firebaseContext';
-import { brujulaUtils } from '@shared/utils/brujulaUtils';
-import { useUserInfo } from '@shared/hooks/useUserInfo';
-import { LoadingSpinner } from '@shared/components/loadingSpinner';
-import ErrorMessage from '@shared/components/errorMessage';
-import { useMemo } from 'react';
 import { UniversidadesSelect } from '../components/universidadesSelect';
-import genders from '@shared/constants/genders.json';
 
 export const BasicInfo = () => {
   const auth = useContext(AuthContext);
@@ -55,7 +53,10 @@ export const BasicInfo = () => {
         className="grid grid-cols-[max-content_minmax(12rem,_24rem)]
       text-right gap-4"
       >
-        <label htmlFor="name" className="col-span-1">
+        <label
+          htmlFor="name"
+          className="col-span-1"
+        >
           {user?.type == 'moral' ? t('Razón Social') : t('Nombre (s)')} *
         </label>
         <input
@@ -67,13 +68,18 @@ export const BasicInfo = () => {
         />
         {user?.type != 'moral' && (
           <>
-            <label htmlFor="lastname" className="col-span-1">
+            <label
+              htmlFor="lastName"
+              className="col-span-1"
+            >
               {t('Apellido (s)')} *
             </label>
             <input
               type="text"
-              id="lastname"
-              {...register('lastname', { required: user?.type != 'moral' })}
+              id="lastName"
+              {...register('lastname', {
+                required: user?.type != 'moral',
+              })}
               autoComplete="family-name"
               required={user?.type == 'moral'}
             />
@@ -84,14 +90,22 @@ export const BasicInfo = () => {
             <label htmlFor="gender">{t('Género')}*</label>
             <select
               id="gender"
-              {...register('gender', { required: user?.type != 'moral' })}
+              {...register('gender', {
+                required: user?.type != 'moral',
+              })}
               defaultValue={''}
             >
-              <option value="" disabled>
+              <option
+                value=""
+                disabled
+              >
                 {t('Género')} *
               </option>
               {genders.map((gender) => (
-                <option value={gender} key={gender}>
+                <option
+                  value={gender}
+                  key={gender}
+                >
                   {t(gender)}
                 </option>
               ))}
@@ -106,12 +120,15 @@ export const BasicInfo = () => {
         )}
         {user?.type != 'moral' && (
           <>
-            <label htmlFor="birthday" className="col-span-1">
+            <label
+              htmlFor="birthday"
+              className="col-span-1"
+            >
               {t('Fecha de nacimiento')}
             </label>
             <input
               type="date"
-              id="birthady"
+              id="birthday"
               {...register('birthday')}
               autoComplete={user?.type != 'moral' && 'birthday'}
             />
@@ -121,7 +138,10 @@ export const BasicInfo = () => {
           Este dato solamente es para uso interno
         </p>
         <div className="col-span-2 flex flex-col gap-4 text-center">
-          <label htmlFor="nickname" className="col-span-1">
+          <label
+            htmlFor="nickname"
+            className="col-span-1"
+          >
             {t('Nombre con el que quieres aparecer')}
           </label>
           <input
@@ -134,29 +154,63 @@ export const BasicInfo = () => {
         <p className="col-span-2 text-center">
           {t('¿Dónde resides actualmente?')}
         </p>
-        <label htmlFor="city" className="col-span-1">
+        <label
+          htmlFor="city"
+          className="col-span-1"
+        >
           {t('Ciudad')}
         </label>
-        <input type="text" id="city" {...register('city')} />
-        <label htmlFor="state" className="col-span-1">
+        <input
+          type="text"
+          id="city"
+          {...register('city')}
+        />
+        <label
+          htmlFor="state"
+          className="col-span-1"
+        >
           {t('Estado')}
         </label>
-        <input type="text" id="state" {...register('state')} />
-        <label htmlFor="country" className="col-span-1">
+        <input
+          type="text"
+          id="state"
+          {...register('state')}
+        />
+        <label
+          htmlFor="country"
+          className="col-span-1"
+        >
           {t('País')}
         </label>
-        <input type="text" id="country" {...register('country')} />
-        <label htmlFor="phone" className="col-span-1">
+        <input
+          type="text"
+          id="country"
+          {...register('country')}
+        />
+        <label
+          htmlFor="phone"
+          className="col-span-1"
+        >
           {t('Teléfono')}
         </label>
-        <input type="phone" id="phone" {...register('phone')} />
+        <input
+          type="phone"
+          id="phone"
+          {...register('phone')}
+        />
       </div>
       {user?.type != 'moral' && (
         <>
-          <label htmlFor="phone" className="col-span-1">
+          <label
+            htmlFor="phone"
+            className="col-span-1"
+          >
             {t('¿Te interesa ser becario o hacer servicio social?')}
           </label>
-          <input type="hidden" {...register('probono')} />
+          <input
+            type="hidden"
+            {...register('probono')}
+          />
           <ButtonSelect
             fieldName="probono"
             values={[true, false]}
@@ -164,10 +218,16 @@ export const BasicInfo = () => {
             setValue={setValue}
             getValue={getValues}
           />
-          <label htmlFor="university" className="col-span-1">
+          <label
+            htmlFor="university"
+            className="col-span-1"
+          >
             {t('¿Estudias o estudiaste en alguna de estas escuelas?')}
           </label>
-          <UniversidadesSelect fieldname="university" register={register} />
+          <UniversidadesSelect
+            fieldName="university"
+            register={register}
+          />
         </>
       )}
       {!!error && <ErrorMessage message={error.toString()} />}
@@ -178,7 +238,11 @@ export const BasicInfo = () => {
         >
           {t('Regresar')}
         </div>
-        <input type="submit" className="border-none" value={t('Continuar')} />
+        <input
+          type="submit"
+          className="border-none"
+          value={t('Continuar')}
+        />
       </div>
     </form>
   );

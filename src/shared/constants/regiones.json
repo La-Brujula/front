@@ -1,64 +1,64 @@
 [
-    {
-        "id": 0,
-        "nombre": "Noroeste",
-        "estados": [
-            "Baja California",
-            "Baja California Sur",
-            "Chihuahua",
-            "Nayarit",
-            "Sinaloa",
-            "Sonora"
-        ]
-    },
-    {
-        "id": 1,
-        "nombre": "Norte",
-        "estados": [
-            "Coahuila",
-            "Durango",
-            "Nuevo León",
-            "San Luis Potosí",
-            "Tamaulipas",
-            "Zacatecas"
-        ]
-    },
-    {
-        "nombre": "Occidente",
-        "id": 2,
-        "estados": [
-            "Aguascalientes",
-            "Colima",
-            "Guanajuato",
-            "Jalisco",
-            "Michoacán",
-            "Querétaro"
-        ]
-    },
-    {
-        "nombre": "Centro",
-        "id": 3,
-        "estados": [
-            "CDMX",
-            "Estado de México",
-            "Hidalgo",
-            "Morelos",
-            "Puebla",
-            "Tlaxcala"
-        ]
-    },
-    {
-        "nombre": "Sureste",
-        "id": 4,
-        "estados": [
-            "Campeche",
-            "Chiapas",
-            "Guerrero",
-            "Oaxaca",
-            "Tabasco",
-            "Quintana Roo",
-            "Veracruz",
-            "Yucatán"
-        ]
-    }
+  {
+    "id": 0,
+    "nombre": "Noroeste",
+    "estados": [
+      "Baja California",
+      "Baja California Sur",
+      "Chihuahua",
+      "Nayarit",
+      "Sinaloa",
+      "Sonora"
+    ]
+  },
+  {
+    "id": 1,
+    "nombre": "Norte",
+    "estados": [
+      "Coahuila",
+      "Durango",
+      "Nuevo León",
+      "San Luis Potosí",
+      "Tamaulipas",
+      "Zacatecas"
+    ]
+  },
+  {
+    "nombre": "Occidente",
+    "id": 2,
+    "estados": [
+      "Aguascalientes",
+      "Colima",
+      "Guanajuato",
+      "Jalisco",
+      "Michoacán",
+      "Querétaro"
+    ]
+  },
+  {
+    "nombre": "Centro",
+    "id": 3,
+    "estados": [
+      "CDMX",
+      "Estado de México",
+      "Hidalgo",
+      "Morelos",
+      "Puebla",
+      "Tlaxcala"
+    ]
+  },
+  {
+    "nombre": "Sureste",
+    "id": 4,
+    "estados": [
+      "Campeche",
+      "Chiapas",
+      "Guerrero",
+      "Oaxaca",
+      "Tabasco",
+      "Quintana Roo",
+      "Veracruz",
+      "Yucatán"
+    ]
+  }
 ]

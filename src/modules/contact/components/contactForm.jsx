@@ -1,7 +1,7 @@
-import { Container } from '@shared/layout/container';
-import { useTranslation } from 'react-i18next';
-import { useForm } from 'react-hook-form';
 import { Input } from '@shared/components/input';
+import { Container } from '@shared/layout/container';
+import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 
 export function ContactForm() {
   const { t } = useTranslation('contact');
@@ -17,7 +17,10 @@ export function ContactForm() {
   return (
     <Container bg="light">
       <h2 className="text-left mb-8">{t('Fomulario de contacto')}</h2>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col gap-4"
+      >
         <Input
           fieldname="subject"
           label={t('Asunto')}

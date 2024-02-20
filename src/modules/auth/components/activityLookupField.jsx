@@ -1,6 +1,6 @@
-import { useTranslation } from 'react-i18next';
 import RefList from '@shared/constants/deductiveReferents.json';
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { TextSelectField } from '../../../shared/components/textSelect';
 
 export function ActivityLookupField({ setValue }) {
@@ -10,9 +10,13 @@ export function ActivityLookupField({ setValue }) {
     () =>
       RefList &&
       Object.entries(RefList)
-        .map(([name, id], i) => ({ id: 'activityMap' + i, name, activity: id }))
+        .map(([name, id], i) => ({
+          id: 'activityMap' + i,
+          name,
+          activity: id,
+        }))
         .filter((a) => !!a),
-    [RefList]
+    [RefList],
   );
 
   return (

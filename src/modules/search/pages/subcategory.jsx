@@ -1,8 +1,8 @@
-import categories from '@shared/constants/categories';
-import areas from '@shared/constants/areas.json';
-import { getTitle, getArea, getSubAreaFromId } from '@shared/utils/areaUtils';
-import { NavLink, useParams } from 'react-router-dom';
 import ErrorMessage from '@shared/components/errorMessage';
+import areas from '@shared/constants/areas.json';
+import categories from '@shared/constants/categories';
+import { getArea, getSubAreaFromId, getTitle } from '@shared/utils/areaUtils';
+import { NavLink, useParams } from 'react-router-dom';
 import { getAreaFromId } from '../../../shared/utils/areaUtils';
 
 function getSubAreaCode(areaCode, subarea) {
@@ -15,12 +15,12 @@ const SubCategoryPage = () => {
     return <ErrorMessage message={'Algo salió mal, por favor vuelve a casa'} />;
 
   const selectedCategory = categories.filter(
-    (cat) => cat.label == category
+    (cat) => cat.label == category,
   )[0] || {
     label:
       category.length == 1 ? getArea(category) : getSubAreaFromId(category),
     search: Object.keys(
-      areas[getAreaFromId(category)][getSubAreaFromId(category)]
+      areas[getAreaFromId(category)][getSubAreaFromId(category)],
     ).join(' '),
   };
 
@@ -46,7 +46,7 @@ const SubCategoryPage = () => {
                   >
                     {getTitle(id, 'Alias Genérico')}
                   </NavLink>
-                )
+                ),
             )
           : selectedCategory.search.length == 1
           ? Object.keys(areas[getArea(selectedCategory.search)]).map(
@@ -56,7 +56,7 @@ const SubCategoryPage = () => {
                     to={
                       '/buscar/' +
                       encodeURIComponent(
-                        getSubAreaCode(selectedCategory.search, subarea)
+                        getSubAreaCode(selectedCategory.search, subarea),
                       )
                     }
                     key={encodeURI(subarea)}
@@ -67,12 +67,12 @@ const SubCategoryPage = () => {
                   >
                     {getTitle(subarea, 'Alias Genérico')}
                   </NavLink>
-                )
+                ),
             )
           : Object.keys(
               areas[getArea(selectedCategory.search.slice(0, 1))][
                 getSubAreaFromId(selectedCategory.search)
-              ]
+              ],
             ).map(
               (activity, i) =>
                 !!getTitle(activity, 'Alias Genérico') && (
@@ -89,7 +89,7 @@ const SubCategoryPage = () => {
                   >
                     {getTitle(activity, 'Alias Genérico')}
                   </NavLink>
-                )
+                ),
             )}
       </div>
     </>

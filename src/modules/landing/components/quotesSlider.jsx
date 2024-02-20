@@ -1,8 +1,8 @@
-import { Container } from '@shared/layout/container';
-import QuoteSlide from './quoteSlide';
 import quotes from '@shared/constants/quotes.json';
+import { Container } from '@shared/layout/container';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+import QuoteSlide from './quoteSlide';
 
 function QuotesSlider() {
   return (

@@ -1,6 +1,6 @@
-import { NavLink } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { Container } from '@shared/layout/container';
+import { useTranslation } from 'react-i18next';
+import { NavLink } from 'react-router-dom';
 import { NameSearchField } from '../../search/components/nameSearchField';
 
 export const SearchModules = () => {

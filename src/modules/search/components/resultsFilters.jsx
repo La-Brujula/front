@@ -1,20 +1,20 @@
-import { useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
-import areas from '@shared/constants/areas';
-import regiones from '@shared/constants/regiones';
-import genders from '@shared/constants/genders';
-import { useEffect, useMemo, useState } from 'react';
-import {
-  getArea,
-  getSubAreaFromId,
-  getTitle,
-} from '../../../shared/utils/areaUtils';
-import { IconButton } from '@mui/material';
 import {
   DeleteOutlined,
   ExpandLessOutlined,
   ExpandMoreOutlined,
 } from '@mui/icons-material';
+import { IconButton } from '@mui/material';
+import areas from '@shared/constants/areas';
+import genders from '@shared/constants/genders';
+import regiones from '@shared/constants/regiones';
+import { useEffect, useMemo, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
+import {
+  getArea,
+  getSubAreaFromId,
+  getTitle,
+} from '../../../shared/utils/areaUtils';
 import { ExtraFilters } from './extraFilters';
 
 export const ResultsFilter = ({ setFilters, filters }) => {
@@ -115,12 +115,15 @@ export const ResultsFilter = ({ setFilters, filters }) => {
           >
             <option value="">{t('Categoría')}</option>
             {Object.keys(areas).map((area, i) => (
-              <optgroup key={area} label={area}>
+              <optgroup
+                key={area}
+                label={area}
+              >
                 {Object.keys(areas[area]).map((subarea, n) => (
                   <option
                     key={subarea}
                     value={[i + 1, (n + 1).toString().padStart(2, '0')].join(
-                      ''
+                      '',
                     )}
                   >
                     {subarea}
@@ -141,15 +144,18 @@ export const ResultsFilter = ({ setFilters, filters }) => {
                 Object.keys(
                   areas[getArea(filters.area)][
                     getSubAreaFromId(filters.subarea)
-                  ]
+                  ],
                 ).map((activity) =>
                   getTitle(activity, 'Alias Genérico') ? (
-                    <option key={activity} value={activity}>
+                    <option
+                      key={activity}
+                      value={activity}
+                    >
                       {getTitle(activity, 'Alias Genérico')}
                     </option>
                   ) : (
                     <></>
-                  )
+                  ),
                 )}
             </select>
           )}
@@ -161,19 +167,33 @@ export const ResultsFilter = ({ setFilters, filters }) => {
           >
             <option value="">{t('Ubicación')}</option>
             {regiones?.map((region) => (
-              <optgroup key={region.id} label={region.nombre} value={region.id}>
+              <optgroup
+                key={region.id}
+                label={region.nombre}
+                value={region.id}
+              >
                 {region.estados?.map((estado) => (
-                  <option key={encodeURI(estado)} value={estado}>
+                  <option
+                    key={encodeURI(estado)}
+                    value={estado}
+                  >
                     {estado}
                   </option>
                 ))}
               </optgroup>
             ))}
           </select>
-          <select className="dark" {...register('gender')} placeholder="Género">
+          <select
+            className="dark"
+            {...register('gender')}
+            placeholder="Género"
+          >
             <option value="">{t('Género')}</option>
             {genders.map((e) => (
-              <option key={e} value={e}>
+              <option
+                key={e}
+                value={e}
+              >
                 {e}
               </option>
             ))}

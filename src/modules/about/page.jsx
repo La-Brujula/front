@@ -1,6 +1,6 @@
+import { bottom as anuncios } from '@shared/constants/anuncios.json';
 import { SeccionAliades } from '../landing/components/aliados';
 import { BannerAnuncios } from '../landing/components/bannerAnuncios';
-import { bottom as anuncios } from '@shared/constants/anuncios.json';
 import { CreditsSection } from './components/credits';
 import { AboutHero } from './components/hero';
 

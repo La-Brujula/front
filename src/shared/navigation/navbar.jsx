@@ -1,9 +1,8 @@
-import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
-import LocalizationMenu from '../components/localizationMenu';
-import { useTranslation } from 'react-i18next';
-import { useAuth } from '@shared/context/firebaseContext';
 import PersonOutline from '@mui/icons-material/PersonOutline';
+import { useAuth } from '@shared/context/firebaseContext';
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { NavLink } from 'react-router-dom';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +20,10 @@ export const Navbar = () => {
         className="w-full flex justify-between items-center sticky top-0 px-8
         py-2 bg-primary text-white z-50"
       >
-        <NavLink to="/" className="grow text-white">
+        <NavLink
+          to="/"
+          className="grow text-white"
+        >
           <img
             src={import.meta.env.BASE_URL + 'img/LogoWhite.svg'}
             alt="La Brújula Audiovisual"
@@ -30,18 +32,30 @@ export const Navbar = () => {
         </NavLink>
         <div className="hidden md:flex grow flex-row gap-8 justify-end mr-8">
           {!isLoggedIn ? (
-            <NavLink to="/iniciar-sesion" className="font-bold text-white">
+            <NavLink
+              to="/iniciar-sesion"
+              className="font-bold text-white"
+            >
               {t('login')}
             </NavLink>
           ) : (
-            <NavLink to="/usuarios" className="text-white order-last">
+            <NavLink
+              to="/usuarios"
+              className="text-white order-last"
+            >
               <PersonOutline />
             </NavLink>
           )}
-          <NavLink to="/buscar" className="font-bold text-white">
+          <NavLink
+            to="/buscar"
+            className="font-bold text-white"
+          >
             {t('search')}
           </NavLink>
-          <NavLink to="/quienes-somos" className="font-bold text-white">
+          <NavLink
+            to="/quienes-somos"
+            className="font-bold text-white"
+          >
             {t('aboutUs')}
           </NavLink>
         </div>
@@ -133,7 +147,7 @@ export const Navbar = () => {
             </NavLink>
             <a
               onClick={() => toggleOpen()}
-              href={import.meta.env.BASE_URL+"pdf/privacy.pdf"}
+              href={import.meta.env.BASE_URL + 'pdf/privacy.pdf'}
               className="font-bold leading-relaxed text-white"
             >
               {t('privacyH')}

@@ -1,5 +1,5 @@
-import { useTranslation } from 'react-i18next';
 import RefList from '@shared/constants/inductiveReferents.json';
+import { useTranslation } from 'react-i18next';
 import { TextSelectField } from '../../../shared/components/textSelect';
 
 export const ReferenceField = ({ defaultValue, setValue }) => {

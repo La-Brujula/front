@@ -7,7 +7,10 @@ export const CurrentUserPage = () => {
   return !isLoggedIn ? (
     <Navigate to="/iniciar-sesion" />
   ) : (
-    <Navigate to={`/usuarios/${getUserEmail()}`} replace={true} />
+    <Navigate
+      to={`/usuarios/${getUserEmail()}`}
+      replace={true}
+    />
   );
 };
 

@@ -1,18 +1,18 @@
-import { Outlet, useNavigate } from 'react-router-dom';
-import { useUserInfo } from '@shared/hooks/useUserInfo';
 import { ProfileBadge } from '@modules/profile/components/profileBadge';
-import { LoadingSpinner } from '@shared/components/loadingSpinner';
 import ErrorMessage from '@shared/components/errorMessage';
-import { brujulaUtils } from '@shared/utils/brujulaUtils';
+import { LoadingSpinner } from '@shared/components/loadingSpinner';
 import { useAuth } from '@shared/context/firebaseContext';
+import { useUserInfo } from '@shared/hooks/useUserInfo';
+import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import { useEffect } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
 
 export const BaseStepPage = () => {
   const brujula = brujulaUtils();
   const { user, loading, error } = useUserInfo(brujula.getCurrentUserEmail());
 
   const { isLoggedIn } = useAuth();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!isLoggedIn) navigate('/iniciar-sesion');

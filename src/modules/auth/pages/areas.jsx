@@ -1,17 +1,15 @@
-import AddOutlined from '@mui/icons-material/AddOutlined';
-import { useContext, useMemo } from 'react';
-import { useUserInfo } from '@shared/hooks/useUserInfo';
-import { LoadingSpinner } from '@shared/components/loadingSpinner';
-import ErrorMessage from '@shared/components/errorMessage';
-import AreaForms from '../components/areaForm';
-import { brujulaUtils } from '@shared/utils/brujulaUtils';
-import { AuthContext } from '@shared/context/firebaseContext';
-import { useTranslation } from 'react-i18next';
 import CloseOutlined from '@mui/icons-material/CloseOutlined';
+import ErrorMessage from '@shared/components/errorMessage';
+import { LoadingSpinner } from '@shared/components/loadingSpinner';
+import { AuthContext } from '@shared/context/firebaseContext';
+import { useUserInfo } from '@shared/hooks/useUserInfo';
+import { brujulaUtils } from '@shared/utils/brujulaUtils';
+import { useContext, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { useAreasReducer } from '../hooks/useAreasReducer';
-import { useState } from 'react';
 import { ActivityLookupField } from '../components/activityLookupField';
+import AreaForms from '../components/areaForm';
+import { useAreasReducer } from '../hooks/useAreasReducer';
 
 export const AreasRegistration = () => {
   const auth = useContext(AuthContext);
@@ -33,7 +31,7 @@ export const AreasRegistration = () => {
     if (!user?.subareas) return;
     dispatch({ type: 'clear' });
     user?.subareas.forEach((activity) =>
-      dispatch({ type: 'add', item: activity })
+      dispatch({ type: 'add', item: activity }),
     );
   }, [user]);
 
@@ -60,7 +58,10 @@ export const AreasRegistration = () => {
               gender={user?.gender}
             />
             {activities.length > 1 && (
-              <div onClick={removeElement(i)} className="cursor-pointer">
+              <div
+                onClick={removeElement(i)}
+                className="cursor-pointer"
+              >
                 <CloseOutlined />
               </div>
             )}

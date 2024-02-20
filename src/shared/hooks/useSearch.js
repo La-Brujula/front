@@ -1,18 +1,12 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
-import {
-  where,
-  orderBy,
-  limit,
-  startAfter,
-  getCountFromServer,
-} from 'firebase/firestore';
-import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import regions from '@shared/constants/regiones.json';
+import { brujulaUtils } from '@shared/utils/brujulaUtils';
+import { limit, orderBy, startAfter, where } from 'firebase/firestore';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import langs from '../../shared/constants/languages.json';
 
 const bannedWords = new RegExp(
   ['y', 'la', ...Object.keys(langs)].map((w) => `\\b${w}\\b`).join('|'),
-  'i'
+  'i',
 );
 
 const getQueries = (filters) => {
@@ -48,12 +42,12 @@ const getQueries = (filters) => {
         break;
       case 'associations':
         queries.push(
-          where('asociations', '==', filters.associations.toLowerCase())
+          where('asociations', '==', filters.associations.toLowerCase()),
         );
         break;
       case 'certifications':
         queries.push(
-          where('certifications', '==', filters.certifications.toLowerCase())
+          where('certifications', '==', filters.certifications.toLowerCase()),
         );
         break;
       case 'region':
@@ -98,8 +92,8 @@ const getQueries = (filters) => {
         ]
           .flat()
           .filter((a) => !!a)
-          .slice(0, 10)
-      )
+          .slice(0, 10),
+      ),
     );
   }
 
@@ -143,7 +137,7 @@ export const useSearch = () => {
         return { ...oldFilters, ...filters };
       });
     },
-    [setFilters]
+    [setFilters],
   );
 
   const getTotal = useCallback(async (queries) => {
@@ -164,8 +158,8 @@ export const useSearch = () => {
           startAfter(
             results.current[results.current.length - 1][
               !!filters.name ? 'lastName' : 'name'
-            ]
-          )
+            ],
+          ),
         );
       }
 
@@ -176,7 +170,7 @@ export const useSearch = () => {
       }
       return data;
     },
-    [filters]
+    [filters],
   );
 
   useEffect(() => {
