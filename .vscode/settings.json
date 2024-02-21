@@ -10,5 +10,12 @@
   },
   "[javascriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "vitest.enable": true,
+  "vitest.debugExclude": [
+    "**/public/**",
+    "<node_internals>/**",
+    "**/node_modules/**"
+  ],
+  "vitest.commandLine": "yarn test --"
 }

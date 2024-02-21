@@ -1,0 +1,12 @@
+# Compiled & generated output
+**/dist/
+
+# Yarn
+**/.yarn
+
+# Vite Public
+*.pdf
+
+**/.git
+**/.svg
+**/node_modules

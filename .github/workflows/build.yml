@@ -15,17 +15,22 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.17.0]
+        node-version: [20.10.0]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
       - run: yarn install
-      - run: echo "NODE_ENV=production" >> $GITHUB_ENV
+
+      - run: yarn prettier --check .
+        if: ${{ github.event_name == 'pull_request' }}
       - run: yarn parse
+        if: ${{ github.event_name == 'pull_request' }}
+      - run: yarn test
+        if: ${{ github.event_name == 'pull_request' }}
       - run: yarn build

@@ -1,15 +1,16 @@
 {
-    "recommendations": [
-        "bradlc.vscode-tailwindcss",
-        "streetsidesoftware.code-spell-checker",
-        "formulahendry.auto-rename-tag",
-        "wallabyjs.console-ninja",
-        "eamodio.gitlens",
-        "github.vscode-pull-request-github",
-        "wix.vscode-import-cost",
-        "csstools.postcss",
-        "esbenp.prettier-vscode",
-        "streetsidesoftware.code-spell-checker-spanish",
-        "stivo.tailwind-fold"
-    ]
+  "recommendations": [
+    "bradlc.vscode-tailwindcss",
+    "streetsidesoftware.code-spell-checker",
+    "formulahendry.auto-rename-tag",
+    "wallabyjs.console-ninja",
+    "eamodio.gitlens",
+    "github.vscode-pull-request-github",
+    "wix.vscode-import-cost",
+    "csstools.postcss",
+    "esbenp.prettier-vscode",
+    "streetsidesoftware.code-spell-checker-spanish",
+    "stivo.tailwind-fold",
+    "vitest.explorer"
+  ]
 }
