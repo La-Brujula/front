@@ -3,6 +3,8 @@ import { useAuth } from '@shared/context/firebaseContext';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
+import LogoWhite from '@/assets/img/LogoWhite.svg';
+import PrivacyFile from '@assets/pdf/privacy.pdf';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,16 +18,18 @@ export const Navbar = () => {
 
   return (
     <>
-      <div
+      <nav
+        role="navigation"
         className="w-full flex justify-between items-center sticky top-0 px-8
         py-2 bg-primary text-white z-50"
       >
         <NavLink
+          role="menuitem"
           to="/"
           className="grow text-white"
         >
           <img
-            src={import.meta.env.BASE_URL + 'img/LogoWhite.svg'}
+            src={LogoWhite}
             alt="La Brújula Audiovisual"
             className="h-20"
           />
@@ -61,15 +65,20 @@ export const Navbar = () => {
         </div>
         <div className="z-100">
           <button
+            aria-controls="main-menu"
+            aria-expanded={!isOpen}
             onClick={toggleOpen}
             className="flex flex-col
                 gap-1 items-end cursor-pointer bg-transparent z-10"
+            role="button"
+            aria-roledescription="navigation"
           >
             <div className="h-1 w-8 rounded-md bg-white" />
             <div className="h-1 w-6 rounded-md bg-white" />
             <div className="h-1 w-8 rounded-md bg-white" />
           </button>
           <nav
+            id="main-menu"
             className={[
               isOpen
                 ? 'opacity-1 translate-x-0'
@@ -81,8 +90,13 @@ export const Navbar = () => {
           >
             <button
               onClick={toggleOpen}
+              aria-controls="main-menu"
+              aria-hidden={isOpen}
+              aria-expanded={isOpen}
+              aria-label="Close navigation bar"
               className="flex flex-col
                 gap-1 items-end cursor-pointer z-10 self-end bg-transparent"
+              role="me"
             >
               <div
                 className="self-end rounded-md bg-transparent
@@ -147,7 +161,7 @@ export const Navbar = () => {
             </NavLink>
             <a
               onClick={() => toggleOpen()}
-              href={import.meta.env.BASE_URL + 'pdf/privacy.pdf'}
+              href={PrivacyFile}
               className="font-bold leading-relaxed text-white"
             >
               {t('privacyH')}
@@ -170,8 +184,9 @@ export const Navbar = () => {
             )}
           </nav>
         </div>
-      </div>
+      </nav>
       <div
+        aria-hidden="true"
         className={`${
           isOpen
             ? 'opacity-100 left-0'
