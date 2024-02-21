@@ -7,6 +7,8 @@ POSTUPDATE_ID=$(git rev-parse HEAD)
 
 [ $INITIAL_ID = $POSTUPDATE_ID ] && exit 0
 
+source scl_source enable nodejs20
+
 yarn
 
 yarn build
