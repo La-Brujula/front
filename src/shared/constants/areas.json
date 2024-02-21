@@ -1458,17 +1458,17 @@
       "202-05": {
         "Femenino": {
           "fr": null,
-          "es": "Modelo de manos , piés",
+          "es": "Modelo de manos/pies",
           "en": null
         },
         "Masculino": {
           "fr": null,
-          "es": "Modelo de manos , piés",
+          "es": "Modelo de manos/pies",
           "en": null
         },
         "No Binario": {
           "fr": null,
-          "es": "Modelo de manos , piés",
+          "es": "Modelo de manos/pies",
           "en": null
         },
         "Persona Moral": {
@@ -1478,7 +1478,7 @@
         },
         "Alias Genérico": {
           "fr": null,
-          "es": "Modelo de manos , piés",
+          "es": "Modelo de manos/pies",
           "en": "Hands , Feet Model"
         },
         "Referentes": [
