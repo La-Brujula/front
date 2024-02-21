@@ -2,14 +2,25 @@ import areas from '@shared/constants/areas.json';
 
 export function getTitle(userActivity, gender = 'Alias Genérico') {
   if (!userActivity) return;
-  try {
-    return areas[getAreaFromId(userActivity)][getSubAreaFromId(userActivity)][
-      userActivity
-    ][gender].es;
-  } catch (e) {
-    console.error(getAreaFromId(userActivity), getSubAreaFromId(userActivity));
-    return userActivity;
+  if (
+    !['Femenino', 'Masculino', 'No binario', 'Prefiero no decir'].includes(
+      gender,
+    )
+  ) {
+    throw Error(
+      'Unknown gender please use one of "Femenino", "Masculino", "No binario", "Prefiero no decir"',
+    );
   }
+  if (['No binario', 'Prefiero no decir'].includes(gender)) {
+    gender = 'Alias Genérico';
+  }
+  const activity =
+    areas[getAreaFromId(userActivity)][getSubAreaFromId(userActivity)][
+      userActivity
+    ];
+  return !!activity[gender].es
+    ? activity[gender].es
+    : activity['Alias Genérico'].es;
 }
 
 export function getArea(area) {
