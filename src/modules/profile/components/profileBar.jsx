@@ -18,7 +18,7 @@ export const ProfileBar = ({ user }) => {
             <AccountCircleOutlined className="!size-8" />
           </NavLink>
           <form
-            action={import.meta.env.BASE_URL + 'buscar'}
+            action={'@assets/buscar'}
             className="grow"
           >
             <input

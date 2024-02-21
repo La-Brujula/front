@@ -1,6 +1,7 @@
 import { Container } from '@shared/layout/container';
 import { useTranslation } from 'react-i18next';
 import { SignUpForm } from '../components/signupForm';
+import HalfLogo from '@assets/img/HalfLogo.svg';
 
 export default () => {
   const { t } = useTranslation('auth');
@@ -36,7 +37,7 @@ export default () => {
           </div>
         </div>
         <img
-          src={import.meta.env.BASE_URL + 'img/HalfLogo.svg'}
+          src={HalfLogo}
           alt=""
           className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 hidden xl:block z-10"
         />

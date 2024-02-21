@@ -1,6 +1,7 @@
 import credits from '@shared/constants/credits.json';
 import { Container } from '@shared/layout/container';
 import { useTranslation } from 'react-i18next';
+import TOSFile from '@/assets/pdf/Políticas_de_uso_La_Brujula_Audiovisual.pdf';
 
 function Credit({ title, name }) {
   return (
@@ -38,10 +39,7 @@ export function CreditsSection() {
         <p style={{ fontSize: '24px' }}>
           {t('SeeOurPoli')}&nbsp;
           <a
-            href={
-              import.meta.env.BASE_URL +
-              'pdf/Políticas_de_uso_La_Brujula_Audiovisual.pdf'
-            }
+            href={TOSFile}
             className="text-primary"
           >
             {t('Politicas')}

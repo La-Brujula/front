@@ -15,3 +15,10 @@ export const useCategory = () => {
 
   return { toCategory, toId };
 };
+
+if (import.meta.vitest) {
+  describe('useCategory', () => {
+    const { toCategory, toId } = useCategory();
+    it('');
+  });
+}

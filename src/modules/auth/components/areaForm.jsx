@@ -1,8 +1,8 @@
 import areas from '@shared/constants/areas.json';
 import {
-    getAreaFromId,
-    getSubAreaFromId,
-    getTitle,
+  getAreaFromId,
+  getSubAreaFromId,
+  getTitle,
 } from '@shared/utils/areaUtils';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -36,15 +36,15 @@ export const AreaForms = ({ defaultValue, gender, changeListener }) => {
 
   return (
     <div
-      className='grid grid-cols-1 md:grid-cols-[max-content_1fr]
-    text-left md:text-right gap-y-4 gap-x-2 w-full items-center'
+      className="grid grid-cols-1 md:grid-cols-[max-content_1fr]
+    text-left md:text-right gap-y-4 gap-x-2 w-full items-center"
     >
-      <label htmlFor='area'>{t('Área')}</label>
+      <label htmlFor="area">{t('Área')}</label>
       <select
         {...register('area')}
         placeholder={t('Área')}
       >
-        <option value=''>Selecciona una opción</option>
+        <option value="">Selecciona una opción</option>
         {Object.keys(areas).map((area) =>
           areaHasValid(area) ? (
             <option
@@ -60,9 +60,9 @@ export const AreaForms = ({ defaultValue, gender, changeListener }) => {
       </select>
       {!!area && (
         <>
-          <label htmlFor='subarea'>{t('Subarea')}</label>
+          <label htmlFor="subarea">{t('Subarea')}</label>
           <select {...register('subarea')}>
-            <option value=''>Selecciona una opción</option>
+            <option value="">Selecciona una opción</option>
             {Object.keys(areas[area]).map((subarea) =>
               subareaHasValid(area, subarea) ? (
                 <option
@@ -80,13 +80,13 @@ export const AreaForms = ({ defaultValue, gender, changeListener }) => {
       )}
       {!!area && !!subarea && (
         <>
-          <label htmlFor='activity'>Actividad</label>
+          <label htmlFor="activity">Actividad</label>
           <select
             {...register('activity')}
-            placeholder='Actividad'
+            placeholder="Actividad"
             onChange={(event) => changeListener(event.target.value)}
           >
-            <option value=''>Selecciona una opción</option>
+            <option value="">Selecciona una opción</option>
             {!!area &&
               !!subarea &&
               !!areas[area][subarea] &&

@@ -37,8 +37,8 @@ function SearchByCategory() {
               firstId.length == 1
                 ? 'area'
                 : firstId.length == 3
-                ? 'subarea'
-                : 'activity';
+                  ? 'subarea'
+                  : 'activity';
             navigate(`/buscar?${queryType}=${parsed}`);
           })}
           className="flex flex-col lg:flex-row items-center justify-center

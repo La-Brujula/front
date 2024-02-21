@@ -1,5 +1,7 @@
 import { Container } from '@shared/layout/container';
 import { useTranslation } from 'react-i18next';
+import MexicoDestinoLogo from '@assets/img/MexicoDestFilmAzul.svg';
+import LogoAnios from '@assets/img/Logo14añosazul.svg';
 
 export function AboutHero() {
   const { t } = useTranslation('about');
@@ -22,12 +24,12 @@ export function AboutHero() {
           </h2>
           <div className="flex flex-row gap-4 lg:gap-12 items-center">
             <img
-              src={import.meta.env.BASE_URL + 'img/MexicoDestFilmAzul.svg'}
+              src={MexicoDestinoLogo}
               alt={t('mexicoDestinoDeFilmacion')}
               className="h-16 lg:h-20"
             />
             <img
-              src={import.meta.env.BASE_URL + 'img/Logo14añosazul.svg'}
+              src={LogoAnios}
               alt={t('logo14años')}
               className="h-20 lg:h-32"
             />

@@ -7,7 +7,7 @@ function QuoteSlide({ imageUrl, name, quote, title }) {
       transition-transform duration-400 py-8 h-full"
     >
       <img
-        src={`${import.meta.env.BASE_URL}img${imageUrl}`}
+        src={`${import.meta.env.BASE_URL}${imageUrl}`}
         className="w-1/2 fit-content rounded-md h-auto object-contain
         object-bottom lg:object-center max-h-[24rem]"
       />

@@ -1,5 +1,6 @@
 import { getTitle } from '@shared/utils/areaUtils';
 import { NavLink } from 'react-router-dom';
+import LogoBlue from '@assets/img/LogoBlue.svg';
 
 export const UserCard = ({ user }) => {
   return (
@@ -53,7 +54,7 @@ export const UserCard = ({ user }) => {
       </div>
       <div className="grid lg:grid-cols-[4rem_1fr] lg:gap-4 items-center justify-center">
         <img
-          src={import.meta.env.BASE_URL + 'img/LogoBlue.svg'}
+          src={LogoBlue}
           alt=""
           className="max-h-[2rem] w-full"
         />

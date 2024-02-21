@@ -1,5 +1,7 @@
 import { Container } from '@shared/layout/container';
 import { useTranslation } from 'react-i18next';
+import MexicoFilmDest from '@assets/img/MexicoDestFilm.svg';
+import BrujulaAnios from '@assets/img/Logo14anos.svg';
 
 function HeroSection() {
   const { t } = useTranslation('landing');
@@ -18,12 +20,12 @@ function HeroSection() {
           </h1>
           <div className="flex flex-row gap-4 lg:gap-12 items-center">
             <img
-              src={import.meta.env.BASE_URL + 'img/MexicoDestFilm.svg'}
+              src={MexicoFilmDest}
               alt={t('mexicoDestinoDeFilmacion')}
               className="h-16 lg:h-20"
             />
             <img
-              src={import.meta.env.BASE_URL + 'img/Logo14anos.svg'}
+              src={BrujulaAnios}
               alt={t('14YearsBruj')}
               className="h-20 lg:h-32"
             />

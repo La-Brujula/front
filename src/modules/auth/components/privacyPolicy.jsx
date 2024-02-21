@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import TOS from '@assets/pdf/privacy.pdf';
 
 export const PrivacyPolicy = () => {
   const { t } = useTranslation('profile');
@@ -7,7 +8,7 @@ export const PrivacyPolicy = () => {
     <p>
       {t('Al continuar, aceptas nuestro ')}
       <a
-        href={import.meta.env.BASE_URL + 'pdf/privacy.pdf'}
+        href={TOS}
         className="text-primary"
         target="_blank"
       >

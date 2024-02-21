@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../../shared/context/firebaseContext';
+import BrujulaWhite from '@assets/img/BrujulaWhite.svg';
+import LogoBlue from '@assets/img/LogoBlue.svg';
 
 export const Recommendations = ({ user }) => {
   const { t } = useTranslation('profile');
@@ -22,7 +24,7 @@ export const Recommendations = ({ user }) => {
                 rounded-lg w-fit z-[1] cursor-pointer"
           >
             <img
-              src={import.meta.env.BASE_URL + 'img/BrujulaWhite.svg'}
+              src={BrujulaWhite}
               alt=""
               className="max-h-[4rem]"
             />
@@ -39,7 +41,7 @@ export const Recommendations = ({ user }) => {
                 rounded-lg w-fit z-[1] cursor-pointer"
           >
             <img
-              src={import.meta.env.BASE_URL + 'img/BrujulaWhite.svg'}
+              src={BrujulaWhite}
               alt=""
               className="max-h-[4rem]"
             />
@@ -58,7 +60,7 @@ export const Recommendations = ({ user }) => {
         ].join(' ')}
       >
         <img
-          src={import.meta.env.BASE_URL + 'img/LogoBlue.svg'}
+          src={LogoBlue}
           alt=""
           className="max-h-[4rem]"
         />

@@ -16,18 +16,20 @@ export const SeccionAliades = () => {
         className="max-w-6xl grid grid-cols-3
         md:grid-cols-4 xl:grid-cols-6 mx-auto gap-8"
       >
-        {aliades.map((aliade, i) => (
-          <a
-            href={aliade.linkUrl}
-            key={i}
-            target="_blank"
-          >
-            <img
-              src={aliade.imageUrl}
-              alt=""
-            />
-          </a>
-        ))}
+        {aliades.map((aliade, i) => {
+          return (
+            <a
+              href={aliade.linkUrl}
+              key={i}
+              target="_blank"
+            >
+              <img
+                src={aliade.imageUrl}
+                alt=""
+              />
+            </a>
+          );
+        })}
       </div>
     </Container>
   );

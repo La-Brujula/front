@@ -91,42 +91,42 @@ export function brujulaUtils() {
                 !!userInfo.lastname
                   ? userInfo.lastname.split(' ')
                   : !!data.lastname
-                  ? data.lastname.split(' ')
-                  : '')(),
+                    ? data.lastname.split(' ')
+                    : '')(),
               ...(() =>
                 !!userInfo.nickname
                   ? userInfo.nickname.split(' ')
                   : !!data.nickname
-                  ? data.nickname.split(' ')
-                  : [])(),
+                    ? data.nickname.split(' ')
+                    : [])(),
               // campo actividad
               ...(() =>
                 !!userInfo.subareas
                   ? userInfo.subareas
                   : !!data.subareas
-                  ? data.subareas
-                  : [])(),
+                    ? data.subareas
+                    : [])(),
               // campo subarea
               ...(() =>
                 !!userInfo.subareas
                   ? userInfo.subareas
                   : !!data.subareas
-                  ? data.subareas
-                  : [])().map((activity) => activity.split('-')[0]),
+                    ? data.subareas
+                    : [])().map((activity) => activity.split('-')[0]),
               // campo área
               ...(() =>
                 !!userInfo.subareas
                   ? userInfo.subareas
                   : !!data.subareas
-                  ? data.subareas
-                  : [])().map((activity) => activity[0]),
+                    ? data.subareas
+                    : [])().map((activity) => activity[0]),
               // campo idiomas
               ...(() =>
                 !!userInfo.languages
                   ? userInfo.languages
                   : !!data.languages
-                  ? data.languages
-                  : [])().map(({ lang }) => `lang:${lang}`),
+                    ? data.languages
+                    : [])().map(({ lang }) => `lang:${lang}`),
               userInfo.city || data.city,
               userInfo.state || data.state,
               userInfo.country || data.country,

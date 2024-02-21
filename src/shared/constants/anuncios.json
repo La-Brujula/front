@@ -1,49 +1,49 @@
 {
   "hero": [
     {
-      "verticalImage": "/anuncios/Barraca_1920_1080.jpg",
+      "verticalImage": "anuncios/Barraca_1920_1080.jpg",
       "linkUrl": "https://barracaproducciones.mx/"
     },
     {
-      "verticalImage": "/anuncios/Brujula Horizontal-01.jpg",
+      "verticalImage": "anuncios/Brujula Horizontal-01.jpg",
       "linkUrl": "https://www.imcine.gob.mx/"
     },
     {
-      "verticalImage": "/anuncios/EfdTraining.jpg",
+      "verticalImage": "anuncios/EfdTraining.jpg",
       "linkUrl": "https://www.efdinternational.com/"
     },
     {
-      "verticalImage": "/anuncios/CanacineHorizontal2.png",
+      "verticalImage": "anuncios/CanacineHorizontal2.png",
       "linkUrl": "https://canacine.org.mx/"
     },
     {
-      "verticalImage": "/anuncios/CEC_hor.png",
+      "verticalImage": "anuncios/CEC_hor.png",
       "linkUrl": "https://www.cecinematograficos.edu.mx/"
     }
   ],
   "bottom": [
     {
-      "verticalImage": "/anuncios/LCLvertical.jpeg",
+      "verticalImage": "anuncios/LCLvertical.jpeg",
       "linkUrl": "https://lcicorporativo.com/"
     },
     {
-      "verticalImage": "/anuncios/Brujula Horizontal-03.jpg",
+      "verticalImage": "anuncios/Brujula Horizontal-03.jpg",
       "linkUrl": "https://www.imcine.gob.mx/"
     },
     {
-      "verticalImage": "/anuncios/EFDcar.jpg",
+      "verticalImage": "anuncios/EFDcar.jpg",
       "linkUrl": "https://www.efdinternational.com/"
     },
     {
-      "verticalImage": "/anuncios/Brujula Horizontal-02.jpg",
+      "verticalImage": "anuncios/Brujula Horizontal-02.jpg",
       "linkUrl": "https://www.imcine.gob.mx/"
     },
     {
-      "verticalImage": "/anuncios/vivamexico_anuncioHorizontal.png",
+      "verticalImage": "anuncios/vivamexico_anuncioHorizontal.png",
       "linkUrl": "https://www.viva-mexico-cinema.org/es/"
     },
     {
-      "verticalImage": "/anuncios/RAINDANCE.png",
+      "verticalImage": "anuncios/RAINDANCE.png",
       "linkUrl": "https://raindance.org/"
     }
   ]

@@ -12,8 +12,8 @@ const ContactPage = lazy(() => import('./modules/contact/page'));
 const AboutUsPage = lazy(() => import('./modules/about/page'));
 const PDFGuidesPage = lazy(() => import('./modules/guides/page'));
 const DeleteAccountPage = lazy(() => import('./modules/deleteAccount/page'));
-const PasswordResetPage = lazy(() =>
-  import('./modules/auth/pages/passwordReset'),
+const PasswordResetPage = lazy(
+  () => import('./modules/auth/pages/passwordReset'),
 );
 const DataPage = lazy(() => import('./modules/data/page'));
 

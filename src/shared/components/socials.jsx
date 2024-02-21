@@ -1,5 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import contactInformation from '../constants/brujulaInformation.json';
+import FBIcon from '@assets/img/FBIcon.svg';
+import IGIcon from '@assets/img/IGIcon.svg';
+import YTIcon from '@assets/img/YoutubeIcon.svg';
+import WAIcon from '@assets/img/WAIcon.svg';
 
 export function SocialLinks() {
   const { t } = useTranslation();
@@ -11,7 +15,7 @@ export function SocialLinks() {
           href={contactInformation.facebook}
         >
           <img
-            src={import.meta.env.BASE_URL + 'img/FBIcon.svg'}
+            src={FBIcon}
             alt="Facebook"
             className="h-10"
           />
@@ -21,7 +25,7 @@ export function SocialLinks() {
           href={contactInformation.instagram}
         >
           <img
-            src={import.meta.env.BASE_URL + 'img/IGIcon.svg'}
+            src={IGIcon}
             alt="Instagram"
             className="h-10"
           />
@@ -31,7 +35,7 @@ export function SocialLinks() {
           href={contactInformation.youtube}
         >
           <img
-            src={import.meta.env.BASE_URL + 'img/YoutubeIcon.svg'}
+            src={YTIcon}
             alt="Youtube"
             className="h-10"
           />
@@ -41,7 +45,7 @@ export function SocialLinks() {
           href={contactInformation.whatsapp}
         >
           <img
-            src={import.meta.env.BASE_URL + 'img/WAIcon.svg'}
+            src={WAIcon}
             alt="WhatsApp"
             className="h-10"
           />

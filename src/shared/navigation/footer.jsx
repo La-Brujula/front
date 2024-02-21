@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import { SocialLinks } from '../components/socials';
+import PrivacyPolicyFile from '@assets/pdf/privacy.pdf';
 
 export const Footer = () => {
   const { t } = useTranslation('navigation');
@@ -23,7 +24,7 @@ export const Footer = () => {
         <p>
           {t('seeOur')}&nbsp;
           <a
-            href={import.meta.env.BASE_URL + 'pdf/privacy.pdf'}
+            href={PrivacyPolicyFile}
             className="text-primary"
             target="_blank"
           >

@@ -2,6 +2,8 @@ import guides from '@shared/constants/guides.json';
 import { Container } from '@shared/layout/container';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import MexicoFilmDest from '@assets/img/MexicoDestFilm.svg';
+import BrujulaAnios from '@assets/img/Logo14anos.svg';
 
 export function PDFGuidesPage() {
   const { t } = useTranslation('guides');
@@ -22,12 +24,12 @@ export function PDFGuidesPage() {
         </h2>
         <div className="flex flex-row gap-4 lg:gap-12 items-center justify-center">
           <img
-            src={import.meta.env.BASE_URL + 'img/MexicoDestFilm.svg'}
+            src={MexicoFilmDest}
             alt={t('mexicoDestinoDeFilmacion')}
             className="h-16 lg:h-20"
           />
           <img
-            src={import.meta.env.BASE_URL + 'img/Logo14anos.svg'}
+            src={BrujulaAnios}
             alt={t('14YearsBruj')}
             className="h-20 lg:h-32"
           />

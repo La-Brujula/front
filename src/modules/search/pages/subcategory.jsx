@@ -49,48 +49,48 @@ const SubCategoryPage = () => {
                 ),
             )
           : selectedCategory.search.length == 1
-          ? Object.keys(areas[getArea(selectedCategory.search)]).map(
-              (subarea, i) =>
-                !!getTitle(subarea, 'Alias Genérico') && (
-                  <NavLink
-                    to={
-                      '/buscar/' +
-                      encodeURIComponent(
-                        getSubAreaCode(selectedCategory.search, subarea),
-                      )
-                    }
-                    key={encodeURI(subarea)}
-                    className={[
-                      'button font-bold flex flex-col items-center justify-center',
-                      !(i % 2) ? 'bg-primary' : 'bg-secondary',
-                    ].join(' ')}
-                  >
-                    {getTitle(subarea, 'Alias Genérico')}
-                  </NavLink>
-                ),
-            )
-          : Object.keys(
-              areas[getArea(selectedCategory.search.slice(0, 1))][
-                getSubAreaFromId(selectedCategory.search)
-              ],
-            ).map(
-              (activity, i) =>
-                !!getTitle(activity, 'Alias Genérico') && (
-                  <NavLink
-                    to={
-                      '/buscar?search=' +
-                      encodeURIComponent(getTitle(activity, 'Alias Genérico'))
-                    }
-                    key={encodeURI(activity)}
-                    className={[
-                      'button font-bold flex flex-col items-center justify-center',
-                      !(i % 2) ? 'bg-primary' : 'bg-secondary',
-                    ].join(' ')}
-                  >
-                    {getTitle(activity, 'Alias Genérico')}
-                  </NavLink>
-                ),
-            )}
+            ? Object.keys(areas[getArea(selectedCategory.search)]).map(
+                (subarea, i) =>
+                  !!getTitle(subarea, 'Alias Genérico') && (
+                    <NavLink
+                      to={
+                        '/buscar/' +
+                        encodeURIComponent(
+                          getSubAreaCode(selectedCategory.search, subarea),
+                        )
+                      }
+                      key={encodeURI(subarea)}
+                      className={[
+                        'button font-bold flex flex-col items-center justify-center',
+                        !(i % 2) ? 'bg-primary' : 'bg-secondary',
+                      ].join(' ')}
+                    >
+                      {getTitle(subarea, 'Alias Genérico')}
+                    </NavLink>
+                  ),
+              )
+            : Object.keys(
+                areas[getArea(selectedCategory.search.slice(0, 1))][
+                  getSubAreaFromId(selectedCategory.search)
+                ],
+              ).map(
+                (activity, i) =>
+                  !!getTitle(activity, 'Alias Genérico') && (
+                    <NavLink
+                      to={
+                        '/buscar?search=' +
+                        encodeURIComponent(getTitle(activity, 'Alias Genérico'))
+                      }
+                      key={encodeURI(activity)}
+                      className={[
+                        'button font-bold flex flex-col items-center justify-center',
+                        !(i % 2) ? 'bg-primary' : 'bg-secondary',
+                      ].join(' ')}
+                    >
+                      {getTitle(activity, 'Alias Genérico')}
+                    </NavLink>
+                  ),
+              )}
       </div>
     </>
   );

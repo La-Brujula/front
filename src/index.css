@@ -36,14 +36,14 @@
   }
 
   select {
-    background-image: url('/img/DropIcon.svg');
+    background-image: url('@/assets/img/DropIcon.svg');
     background-position: calc(100% - 0.5rem) calc(100% - 0.25ch);
     background-size: 1.5rem 1.5rem;
     background-repeat: no-repeat;
   }
 
   select.dark {
-    background-image: url('/img/DropIconDark.svg');
+    background-image: url('@/assets/img/DropIconDark.svg');
   }
 
   option {
