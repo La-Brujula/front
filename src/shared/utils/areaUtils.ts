@@ -37,7 +37,7 @@ export function getTitle(
   ) {
     throw Error(
       'Unknown gender please use one of "Femenino", "Masculino", "No binario"' +
-        gender,
+      gender,
     );
   }
   if (
