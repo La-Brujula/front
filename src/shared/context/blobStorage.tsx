@@ -23,7 +23,7 @@ export const firestorage = (() => {
       const response = await uploadBytes(reference, file);
       return response;
     } catch (err) {
-      printError(err);
+      console.error(err);
     }
   };
 
@@ -33,7 +33,7 @@ export const firestorage = (() => {
       const url = await getDownloadURL(reference);
       return url;
     } catch (err) {
-      printError(err);
+      console.error(err);
     }
   };
 
@@ -43,7 +43,7 @@ export const firestorage = (() => {
       const file = await getBlob(reference);
       return file;
     } catch (err) {
-      printError(err);
+      console.error(err);
     }
   };
 
@@ -53,7 +53,7 @@ export const firestorage = (() => {
       await deleteObject(reference);
       return true;
     } catch (err) {
-      printError(err);
+      console.error(err);
     }
   };
 

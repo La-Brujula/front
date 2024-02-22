@@ -28,4 +28,4 @@ jobs:
       - run: yarn install
       - run: yarn prettier --config ./.prettierrc --ignore-path ./.prettierignore -c .
       - run: yarn parse
-      - run: yarn build
+      - run: yarn tsc

@@ -15,7 +15,7 @@ const DeleteAccountPage = lazy(() => import('./modules/deleteAccount/page'));
 const PasswordResetPage = lazy(
   () => import('./modules/auth/pages/passwordReset'),
 );
-const DataPage = lazy(() => import('./modules/data/page'));
+const DataPage = lazy(() => import('@modules/data/page'));
 
 export const AppRouter = createBrowserRouter(
   [

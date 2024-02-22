@@ -10,6 +10,7 @@ import { ActivityLookupField } from '../components/activityLookupField.js';
 import AreaForms from '../components/areaForm.js';
 import { useAreasReducer } from '../hooks/useAreasReducer.js';
 import { useAuth } from '@shared/context/auth';
+import { EnumGender } from '@/shared/types/genders.js';
 
 export const AreasRegistration = () => {
   const auth = useAuth();
@@ -55,7 +56,7 @@ export const AreasRegistration = () => {
             <AreaForms
               defaultValue={activity}
               changeListener={changeListener(i)}
-              gender={user?.gender}
+              gender={user?.gender || 'No Binario'}
             />
             {activities.length > 1 && (
               <div

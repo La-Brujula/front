@@ -18,7 +18,7 @@ type Activity = {
 
 type Subarea = Record<string, Activity>;
 type Area = Record<string, Subarea>;
-type AreaName = keyof typeof areas;
+export type AreaName = keyof typeof areas;
 type AreasFile = Record<string, Area>;
 
 export function getTitle(

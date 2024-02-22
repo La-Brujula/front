@@ -21,7 +21,12 @@ export default () => (
       <Route
         path=":category"
         element={<SubCategoryPage />}
-      />
+      >
+        <Route
+          path=":subcategory"
+          element={<SubCategoryPage />}
+        />
+      </Route>
     </Route>
   </Routes>
 );

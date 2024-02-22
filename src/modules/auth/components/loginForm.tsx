@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { FieldValues, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { LoadingSpinner } from '../../../shared/components/loadingSpinner';
+import { LoadingSpinner } from '@shared/components/loadingSpinner';
 import { useAuth } from '@shared/context/auth';
+import { AuthError } from 'firebase/auth';
 
 export const LoginForm = () => {
   const { t } = useTranslation('auth');
@@ -13,7 +14,7 @@ export const LoginForm = () => {
   const auth = useAuth();
   const [errorMsg, setErrorMsg] = useState('');
 
-  const onError = (err) => {
+  const onError = (err: { code: string }) => {
     setLoading(false);
     switch (err.code) {
       case 'auth/user-not-found':
@@ -32,7 +33,7 @@ export const LoginForm = () => {
     }
   };
 
-  const login = async (values) => {
+  const login = async (values: FieldValues) => {
     if (loading) return;
     if (!values.email || !values.password) return;
     setLoading(true);

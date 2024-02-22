@@ -4,7 +4,7 @@ import { LoadingSpinner } from '@shared/components/loadingSpinner';
 import genders from '@shared/constants/genders.json';
 import { useUserInfo } from '@shared/hooks/useUserInfo';
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
-import { useEffect, useMemo, useState } from 'react';
+import { ChangeEvent, useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
@@ -109,7 +109,7 @@ export const BasicInfo = () => {
               </option>
               {genders.map((gender) => (
                 <option
-                  value={gender}
+                  value={gender == 'Prefiero no decir' ? 'No binario' : gender}
                   key={gender}
                 >
                   {t(gender)}
@@ -231,8 +231,10 @@ export const BasicInfo = () => {
             {t('¿Estudias o estudiaste en alguna de estas escuelas?')}
           </label>
           <UniversidadesSelect
-            fieldName="university"
-            register={register}
+            onChange={(ev: ChangeEvent<HTMLSelectElement>) =>
+              setValue('university', ev.currentTarget.value)
+            }
+            placeholder={t('Universidad')}
           />
         </>
       )}

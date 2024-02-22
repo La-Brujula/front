@@ -5,7 +5,7 @@ import { Container } from '@shared/layout/container';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { Form, useNavigate } from 'react-router-dom';
-import { replaceSearchTermsFromIndex } from '../../../shared/utils/busqueda';
+import { replaceSearchTermsFromIndex } from '@shared/utils/busqueda';
 import { ReferenceField } from '../components/referenceField';
 
 function SearchByCategory() {

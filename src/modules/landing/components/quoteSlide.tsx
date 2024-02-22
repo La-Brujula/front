@@ -1,4 +1,14 @@
-function QuoteSlide({ imageUrl, name, quote, title }) {
+function QuoteSlide({
+  imageUrl,
+  name,
+  quote,
+  title,
+}: {
+  imageUrl: string;
+  name: string;
+  quote: string;
+  title: string;
+}) {
   return (
     <div
       className="grid grid-cols-1  lg:grid-cols-[2fr_3fr]

@@ -23,17 +23,17 @@ interface FireAuthContext {
   login: (
     email: string,
     password: string,
-    handleError: (err: unknown) => void,
+    handleError: (err: any) => void,
   ) => Promise<boolean>;
   unsafeLogin: (
     email: string,
     password: string,
-    handleError: (err: unknown) => void,
+    handleError: (err: any) => void,
   ) => Promise<boolean>;
   register: (
     email: string,
     password: string,
-    handleError: (err: unknown) => void,
+    handleError: (err: any) => void,
     handleUnsafe: () => void,
   ) => Promise<boolean>;
   logout: () => void;
@@ -61,7 +61,7 @@ export const FireAuthProvider = ({ children }: { children: ReactNode }) => {
       email: string,
       password: string,
     ) => Promise<UserCredential>,
-    handleError: (error: unknown) => void,
+    handleError: (error: any) => void,
   ) => {
     const authResult = await (async () => {
       try {
@@ -72,7 +72,6 @@ export const FireAuthProvider = ({ children }: { children: ReactNode }) => {
       } catch (err) {
         setIsLoggedIn(false);
         handleError(err);
-        printError(err);
         return false;
       }
     })();

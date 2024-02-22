@@ -18,7 +18,6 @@ import {
 } from 'firebase/firestore';
 import React, { ReactNode, useContext } from 'react';
 import firebaseApp from './firebaseApp';
-import { IFirebaseProfile } from '../types/user';
 
 export const firestore = (() => {
   const db = getFirestore(firebaseApp);
@@ -32,7 +31,7 @@ export const firestore = (() => {
   };
 
   const saveInfoByDocRef = async (
-    docRef: DocumentReference<any, DocumentData>,
+    docRef: DocumentReference<DocumentData>,
     object: any,
   ) => {
     await setDoc(docRef, object);
@@ -52,7 +51,7 @@ export const firestore = (() => {
   };
 
   const retriveInfoByDocRef = async (
-    docRef: DocumentReference<any, DocumentData>,
+    docRef: DocumentReference<DocumentData>,
   ) => {
     return (await getDoc(docRef)).data();
   };
@@ -76,13 +75,13 @@ export const firestore = (() => {
   };
 
   const deleteInfoByDocRef = async (
-    docRef: DocumentReference<any, DocumentData>,
+    docRef: DocumentReference<DocumentData>,
   ) => {
     await deleteDoc(docRef);
   };
 
   const addToFieldArrayByDocRef = async (
-    docRef: DocumentReference<any, DocumentData>,
+    docRef: DocumentReference<DocumentData>,
     field: string,
     data: any,
   ) => {
@@ -93,7 +92,7 @@ export const firestore = (() => {
   };
 
   const removeFromFieldArrayByDocRef = async (
-    docRef: DocumentReference<any, DocumentData>,
+    docRef: DocumentReference<DocumentData>,
     field: string,
     data: any,
   ) => {

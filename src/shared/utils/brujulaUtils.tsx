@@ -23,7 +23,9 @@ export function brujulaUtils() {
    */
 
   const getReviews = async (user?: string) => {
-    return (await getUserInfo(user)).reviews;
+    const userInfo = await getUserInfo(user);
+    if (userInfo === undefined) throw 'Could not get user';
+    return userInfo.reviews;
   };
 
   const removeReviews = async (
@@ -156,7 +158,7 @@ export function brujulaUtils() {
     return {
       ...(await store.getInfo('users', email)),
       email: email,
-    };
+    } as IFirebaseProfile;
   };
 
   const deleteUserPictures = async () => {

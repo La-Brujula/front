@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import {
+  DocumentData,
   collection,
   getDocs,
   getFirestore,
@@ -27,12 +28,12 @@ const usersRef = collection(db, 'users');
 
 export function DataPage() {
   const [category, setCategory] = useState('');
-  const [contacts, setContacts] = useState();
+  const [contacts, setContacts] = useState<DocumentData[]>([]);
 
   useEffect(() => {
     (async () => {
       if (category) {
-        const _contacts = [];
+        const _contacts: DocumentData[] = [];
 
         const users = query(
           usersRef,
@@ -186,12 +187,7 @@ export function DataPage() {
                                 <tr>
                                   <td>{v.email || ''}</td>
                                   <td>
-                                    {
-                                      {
-                                        fisica: 'Física',
-                                        moral: 'Moral',
-                                      }[v.type || 'fisica']
-                                    }
+                                    {v.type == 'fisica' ? 'Física' : 'Moral'}
                                   </td>
                                   <td>{v.nickname || ''}</td>
                                   <td>{v.name || ''}</td>
@@ -203,7 +199,7 @@ export function DataPage() {
                                   <td>{(v.subareas || [])[2] || ''}</td>
                                   <td>
                                     {
-                                      (v.reviews || []).filter((v) => !!v)
+                                      (v.reviews || []).filter((v: any) => !!v)
                                         .length
                                     }
                                   </td>
