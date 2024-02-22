@@ -15,7 +15,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.17.0]
+        node-version: [20.10.0]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -26,6 +26,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
       - run: yarn install
-      - run: echo "NODE_ENV=production" >> $GITHUB_ENV
+      - run: yarn prettier --config ./.prettierrc --ignore-path ./.prettierignore -c .
       - run: yarn parse
       - run: yarn build

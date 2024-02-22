@@ -10,10 +10,8 @@ export default {
   defaultNamespace: 'common',
   // Default namespace used in your i18next config
 
-  defaultValue: (locale, _, key, value) => {
-    console.log(locale, _, key, value);
-    return locale == 'es' ? value || key : 'TODO';
-  },
+  defaultValue: (locale, _, key, value) =>
+    locale == 'es' ? value || key : 'TODO',
   // Default value to give to keys with no value
   // You may also specify a function accepting the locale, namespace, key, and value as arguments
 
@@ -67,7 +65,7 @@ export default {
   // If you want to use plain english keys, separators such as `_` might conflict. You might want to set `pluralSeparator` to a different string that does not occur in your keys.
   // If you don't want to generate keys for plurals (for example, in case you are using ICU format), set `pluralSeparator: false`.
 
-  input: 'src/**/*.{jsx,js}',
+  input: 'src/**/*.{jsx,js,tsx,ts}',
   // An array of globs that describe where to look for source files
   // relative to the location of the configuration file
 
