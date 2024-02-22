@@ -10,10 +10,8 @@ export default {
   defaultNamespace: 'common',
   // Default namespace used in your i18next config
 
-  defaultValue: (locale, _, key, value) => {
-    console.log(locale, _, key, value);
-    return locale == 'es' ? value || key : 'TODO';
-  },
+  defaultValue: (locale, _, key, value) =>
+    locale == 'es' ? value || key : 'TODO',
   // Default value to give to keys with no value
   // You may also specify a function accepting the locale, namespace, key, and value as arguments
 
