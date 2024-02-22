@@ -13,6 +13,9 @@ import { getSubAreaObjectFromId, getTitle } from '@shared/utils/areaUtils';
 import { ExtraFilters } from './extraFilters';
 import { IconButton } from '@mui/material';
 import { SearchFilters } from '@/shared/hooks/useSearch';
+import { useAuth } from '@/shared/context/auth';
+import { useUserInfo } from '@shared/hooks/useUserInfo';
+import { useEffect } from 'react';
 
 export const ResultsFilter = ({
   setFilters,
@@ -21,13 +24,17 @@ export const ResultsFilter = ({
   setFilters: (v: SearchFilters) => void;
   filters: SearchFilters;
 }) => {
+  
+  const { getUserEmail } = useAuth();
+  const { user, loading, error } = useUserInfo(getUserEmail());
+
   const { register, setValue, getValues, handleSubmit, watch } =
     useForm<SearchFilters>({
       defaultValues: {
         ...{
           name: '',
           search: '',
-          gender: '',
+          gender: user?.gender || '',
           schools: '',
           associations: '',
           type: '',
@@ -49,6 +56,10 @@ export const ResultsFilter = ({
   const [isVisible, setIsVisible] = useState(false);
   const [moreFiltersVisible, setMoreFiltersVisible] = useState(false);
   const { t } = useTranslation('search');
+
+  useEffect(() => {
+    setValue('gender', user?.gender || '');
+  }, [user?.gender, setValue]);
 
   return (
     <div className="">
