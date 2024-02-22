@@ -24,7 +24,6 @@ export const ResultsFilter = ({
   setFilters: (v: SearchFilters) => void;
   filters: SearchFilters;
 }) => {
-  
   const { getUserEmail } = useAuth();
   const { user, loading, error } = useUserInfo(getUserEmail());
 

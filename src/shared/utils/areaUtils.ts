@@ -28,22 +28,14 @@ export function getTitle(
   let genderForTitle: keyof Activity;
   if (!userActivity) return '';
   if (
-    ![
-      'Femenino',
-      'Masculino',
-      'No Binario',
-      'Persona Moral',
-    ].includes(gender)
+    !['Femenino', 'Masculino', 'No Binario', 'Persona Moral'].includes(gender)
   ) {
     throw Error(
       'Unknown gender please use one of "Femenino", "Masculino", "No binario"' +
-      gender,
+        gender,
     );
   }
-  if (
-    gender == 'No Binario' ||
-    gender == 'Persona Moral'
-  ) {
+  if (gender == 'No Binario' || gender == 'Persona Moral') {
     genderForTitle = 'Alias Genérico';
   } else {
     genderForTitle = gender;
