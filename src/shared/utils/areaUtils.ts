@@ -32,18 +32,16 @@ export function getTitle(
       'Femenino',
       'Masculino',
       'No Binario',
-      'Prefiero no decir',
       'Persona Moral',
     ].includes(gender)
   ) {
     throw Error(
-      'Unknown gender please use one of "Femenino", "Masculino", "No binario", "Prefiero no decir"' +
+      'Unknown gender please use one of "Femenino", "Masculino", "No binario"' +
         gender,
     );
   }
   if (
     gender == 'No Binario' ||
-    gender == 'Prefiero no decir' ||
     gender == 'Persona Moral'
   ) {
     genderForTitle = 'Alias Genérico';
