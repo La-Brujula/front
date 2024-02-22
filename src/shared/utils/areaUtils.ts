@@ -24,9 +24,9 @@ type AreasFile = Record<string, Area>;
 export function getTitle(
   userActivity: string,
   gender: EnumGender = 'No Binario',
-) {
+): string {
   let genderForTitle: keyof Activity;
-  if (!userActivity) return;
+  if (!userActivity) return '';
   if (
     ![
       'Femenino',
@@ -54,8 +54,8 @@ export function getTitle(
   const subarea: Subarea = area[getSubAreaFromId(userActivity)];
   const activity: Activity = subarea[userActivity];
   return !!activity[genderForTitle].es
-    ? activity[genderForTitle].es
-    : activity['Alias Genérico'].es;
+    ? activity[genderForTitle].es || ''
+    : activity['Alias Genérico'].es || '';
 }
 
 export function getAreaObjectByIndex(area: number) {

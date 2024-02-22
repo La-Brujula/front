@@ -8,7 +8,7 @@
     "node": "20.10.0"
   },
   "scripts": {
-    "parse": "i18next 'src/**/*.jsx' -c i18next-parser.config.mjs",
+    "parse": "i18next -c i18next-parser.config.mjs",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"

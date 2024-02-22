@@ -1,4 +1,4 @@
-import { getSubAreaObjectFromId } from '@/shared/utils/areaUtils';
+import { getSubAreaObjectFromId, getTitle } from '@/shared/utils/areaUtils';
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -41,7 +41,7 @@ export const AreaActivity = () => {
               key={activity}
               value={activity}
             >
-              {t(subareas[subarea][activity]['Alias Genérico'].es)}
+              {getTitle(activity, 'No Binario')}
             </option>
           )),
         )}
