@@ -32,11 +32,7 @@ let Brujula = ({
   </div>
 );
 
-function Strip(props: {
-  colors: [string, string, string, string];
-  link: string;
-  label: string;
-}) {
+function Strip(props: { colors: string[]; link: string; label: string }) {
   const { colors, link, label } = props;
   return (
     <a

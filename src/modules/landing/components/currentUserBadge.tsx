@@ -10,8 +10,8 @@ export const CurrentUserBadge = () => {
   const { user, loading, error } = useUserInfo(brujula.getCurrentUserEmail());
   return loading ? (
     <LoadingSpinner />
-  ) : error ? (
-    <ErrorMessage message={error.toString()} />
+  ) : error || user === undefined ? (
+    <ErrorMessage message={(error || 'Could not find user').toString()} />
   ) : (
     <NavLink to={`/usuarios/${brujula.getCurrentUserEmail()}`}>
       <ProfileBadge user={user} />

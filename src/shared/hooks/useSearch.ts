@@ -1,4 +1,5 @@
 import regions from '@shared/constants/regiones.json';
+import genders from '@shared/constants/genders.json';
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import {
   QueryConstraint,

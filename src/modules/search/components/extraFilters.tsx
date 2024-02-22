@@ -1,24 +1,22 @@
 import languages from '@shared/constants/languages.json';
 import { useTranslation } from 'react-i18next';
 import { UniversidadesSelect } from '../../auth/components/universidadesSelect';
-import {
-  UseFormRegister,
-  UseFormSetValue,
-  UseFormWatch,
-} from 'react-hook-form';
 import { SearchFilters } from '@/shared/hooks/useSearch';
+import { ChangeEvent } from 'react';
 
 export function ExtraFilters({
-  register,
-  watch,
-  setValue,
+  setFilters,
+  filters,
+  updateFilterValue,
 }: {
-  register: UseFormRegister<SearchFilters>;
-  watch: UseFormWatch<SearchFilters>;
-  setValue: UseFormSetValue<SearchFilters>;
+  setFilters: (v: SearchFilters) => void;
+  filters: SearchFilters;
+  updateFilterValue: (
+    fieldName: keyof SearchFilters,
+  ) => (ev: ChangeEvent<HTMLSelectElement | HTMLInputElement>) => void;
 }) {
   const { t } = useTranslation('search');
-  const lang = watch('language');
+  const lang = filters.language;
   return (
     <div className="pt-4 border-t border-black flex flex-col gap-4">
       <div className="grid grid-cols-[min-content_1fr]">
@@ -34,13 +32,14 @@ export function ExtraFilters({
             type="checkbox"
             placeholder="remote"
             id="remote"
-            {...register('remote')}
+            onChange={updateFilterValue('remote')}
             className="size-4 cursor-pointer"
           />
         </div>
         <select
-          {...register('type')}
+          onChange={updateFilterValue('type')}
           className="w-full dark"
+          defaultValue={filters.type}
         >
           <option
             value=""
@@ -56,7 +55,8 @@ export function ExtraFilters({
       {/* Idioma */}
       <div className="flex flex-col gap-4 w-full">
         <select
-          {...register('language')}
+          onChange={updateFilterValue('language')}
+          defaultValue={lang}
           className="w-full dark"
         >
           <option value="">Idioma</option>
@@ -73,19 +73,14 @@ export function ExtraFilters({
         {!!lang && !languages.includes(lang) && (
           <input
             type="text"
-            onChange={(e) =>
-              setValue('language', e.currentTarget.value, {
-                shouldTouch: true,
-              })
-            }
+            onChange={updateFilterValue('language')}
             placeholder="Escribe aquí el nombre del idioma"
           />
         )}
       </div>
       {/* Escuela */}
       <UniversidadesSelect
-        fieldName="schools"
-        register={register}
+        onChange={updateFilterValue('schools')}
         placeholder={t('Escuela o universidad')}
       />
       {/* Servicio de becario */}
@@ -100,7 +95,7 @@ export function ExtraFilters({
           type="checkbox"
           placeholder=""
           id="socialService"
-          {...register('socialService')}
+          onChange={updateFilterValue('socialService')}
           className="size-4 cursor-pointer"
         />
       </div>
@@ -116,7 +111,8 @@ export function ExtraFilters({
           type="text"
           placeholder=""
           id="associations"
-          {...register('associations')}
+          onChange={updateFilterValue('associations')}
+          defaultValue={filters.associations}
         />
       </div>
       {/* Certificaciones */}
@@ -131,7 +127,8 @@ export function ExtraFilters({
           type="text"
           placeholder=""
           id="certifications"
-          {...register('certifications')}
+          onChange={updateFilterValue('certifications')}
+          defaultValue={filters.certifications}
         />
       </div>
     </div>

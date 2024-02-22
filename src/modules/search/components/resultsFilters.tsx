@@ -6,8 +6,7 @@ import {
 import areas from '@shared/constants/areas.json';
 import genders from '@shared/constants/genders.json';
 import regiones from '@shared/constants/regiones.json';
-import { useMemo, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { ChangeEvent, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { getSubAreaObjectFromId, getTitle } from '@shared/utils/areaUtils';
 import { ExtraFilters } from './extraFilters';
@@ -21,34 +20,26 @@ export const ResultsFilter = ({
   setFilters: (v: SearchFilters) => void;
   filters: SearchFilters;
 }) => {
-  const { register, setValue, getValues, handleSubmit, watch } =
-    useForm<SearchFilters>({
-      defaultValues: {
-        ...{
-          name: '',
-          search: '',
-          gender: '',
-          schools: '',
-          associations: '',
-          type: '',
-          remote: undefined,
-          socialService: undefined,
-          sortByReviews: undefined,
-          state: '',
-          category: '',
-          area: '',
-          subarea: '',
-          activity: '',
-        },
-        ...filters,
-      },
-    });
-
-  const formSubarea = watch('subarea');
+  const formSubarea = filters.subarea;
 
   const [isVisible, setIsVisible] = useState(false);
   const [moreFiltersVisible, setMoreFiltersVisible] = useState(false);
   const { t } = useTranslation('search');
+
+  const clearFilters = useCallback(() => {
+    const emptyFilters = {} as SearchFilters;
+    Object.keys(filters).forEach((key) => {
+      emptyFilters[key as keyof SearchFilters] = undefined;
+    });
+    setFilters(emptyFilters);
+  }, []);
+
+  const updateFilterValue = useCallback(
+    (fieldName: keyof SearchFilters) =>
+      (ev: ChangeEvent<HTMLSelectElement | HTMLInputElement>) =>
+        setFilters({ [fieldName]: ev.currentTarget.value }),
+    [setFilters],
+  );
 
   return (
     <div className="">
@@ -66,35 +57,21 @@ export const ResultsFilter = ({
           'p-4 rounded-b-md -mt-2 lg:rounded-t-md lg:mt-0',
           isVisible ? 'h-auto block' : 'h-0 hidden lg:block lg:h-auto',
         ].join(' ')}
-        onSubmit={handleSubmit((values) => {
-          setFilters(values);
-        })}
-        onChange={() => setFilters(getValues())}
       >
         <h2 className="text-primary text-xl hidden lg:block">{t('filters')}</h2>
         <div className="flex flex-col gap-4 items-stretch">
           <div className="w-full flex flex-row-reverse">
             <IconButton
               className="text-white cursor-pointer w-fit ml-auto"
-              onClick={() => {
-                Object.keys(getValues()).forEach((key) => {
-                  if (
-                    typeof getValues()[key as keyof SearchFilters] == 'boolean'
-                  ) {
-                    setValue(key as keyof SearchFilters, undefined);
-                  } else {
-                    setValue(key as keyof SearchFilters, '');
-                  }
-                });
-                setFilters(getValues());
-              }}
+              onClick={clearFilters}
             >
               <DeleteOutlined />
             </IconButton>
           </div>
           <select
             className="dark"
-            {...register('subarea')}
+            onChange={updateFilterValue('subarea')}
+            defaultValue={filters.subarea}
           >
             <option value="">{t('Categoría')}</option>
             {Object.entries(areas).map(([area, subareas], i) => (
@@ -117,8 +94,9 @@ export const ResultsFilter = ({
           </select>
           {!!formSubarea && (
             <select
-              {...register('activity')}
+              onChange={updateFilterValue('activity')}
               className="dark"
+              defaultValue={filters.activity}
             >
               <option value="">{t('Actividad')}</option>
               {Object.keys(getSubAreaObjectFromId(formSubarea)).map(
@@ -138,8 +116,8 @@ export const ResultsFilter = ({
           )}
           <select
             className="dark"
-            {...register('state')}
-            defaultValue={getValues().state}
+            onChange={updateFilterValue('state')}
+            defaultValue={filters.state}
           >
             <option value="">{t('Ubicación')}</option>
             {regiones?.map((region) => (
@@ -160,7 +138,8 @@ export const ResultsFilter = ({
           </select>
           <select
             className="dark"
-            {...register('gender')}
+            onChange={updateFilterValue('gender')}
+            defaultValue={filters.gender}
           >
             <option value="">{t('Género')}</option>
             {genders.slice(0, 3).map((e) => (
@@ -174,9 +153,9 @@ export const ResultsFilter = ({
           </select>
           {moreFiltersVisible && (
             <ExtraFilters
-              setValue={setValue}
-              register={register}
-              watch={watch}
+              setFilters={setFilters}
+              filters={filters}
+              updateFilterValue={updateFilterValue}
             />
           )}
           <div

@@ -1,6 +1,6 @@
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import { useEffect, useState } from 'react';
-import { IFirebaseProfile } from '../types/user';
+import { IFirebaseProfile, IFirebaseProfileUpdate } from '../types/user';
 
 export const useUserInfo = (email = '') => {
   if (!email) return { user: undefined, error: undefined, loading: undefined };

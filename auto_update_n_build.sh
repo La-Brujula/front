@@ -1,5 +1,6 @@
 #!/bin/bash
 source scl_source enable nodejs20
+
 cd ~/apps/labrujulaaudiovisual_opalstack_com_http/production/
 
 INITIAL_ID=$(git rev-parse HEAD)
@@ -9,10 +10,11 @@ POSTUPDATE_ID=$(git rev-parse HEAD)
 
 [ $INITIAL_ID = $POSTUPDATE_ID ] && exit 0
 
+npm install yarn
 
-yarn
+npx yarn
 
-yarn build
+npx yarn build
 
 echo "built $(date)" >> builds.log
 

@@ -4,3 +4,4 @@ public/*
 .husky/*
 *.lock
 .*
+*.sh

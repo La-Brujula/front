@@ -12,7 +12,7 @@ export const LoginOrProfile = () => {
       {!isLoggedIn ? (
         <>
           <h2 className="mb-4">{t('¡Hola! Inicia sesión')}</h2>
-          <LoginForm color="lightblue" />
+          <LoginForm />
         </>
       ) : (
         <CurrentUserBadge />

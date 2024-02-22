@@ -1,9 +1,9 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
-function useDebounce(
-  initialValue: string,
-  delay: number,
-): [string, Dispatch<SetStateAction<string>>] {
+function useDebounce<T>(
+  initialValue: T,
+  delay: number = 300,
+): [T, Dispatch<SetStateAction<T>>] {
   const [actualValue, setActualValue] = useState(initialValue);
   const [debounceValue, setDebounceValue] = useState(initialValue);
   useEffect(() => {

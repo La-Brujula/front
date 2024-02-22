@@ -57,7 +57,7 @@ export interface IFirebaseProfileUpdate {
   youtube?: string;
   whatsapp?: string;
   country?: string;
-  gender?: string;
+  gender?: EnumGender;
   city?: string;
   university?: string;
   postalCode?: string;
