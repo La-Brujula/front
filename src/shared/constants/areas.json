@@ -1479,7 +1479,7 @@
         "Alias Genérico": {
           "fr": null,
           "es": "Modelo de manos/pies",
-          "en": "Hands , Feet Model"
+          "en": "Hands, Feet Model"
         },
         "Referentes": [
           "Modelos",
@@ -2157,17 +2157,17 @@
       "301-03": {
         "Femenino": {
           "fr": null,
-          "es": "Productora ejecutiva , agencia",
+          "es": "Productora ejecutiva, agencia",
           "en": null
         },
         "Masculino": {
           "fr": null,
-          "es": "Productor ejecutivo , agencia",
+          "es": "Productor ejecutivo, agencia",
           "en": null
         },
         "No Binario": {
           "fr": null,
-          "es": "Producción ejecutiva , agencia",
+          "es": "Producción ejecutiva, agencia",
           "en": null
         },
         "Persona Moral": {
@@ -2177,8 +2177,8 @@
         },
         "Alias Genérico": {
           "fr": null,
-          "es": "Producción ejecutiva , agencia",
-          "en": "Agency , Executive Producer"
+          "es": "Producción ejecutiva, agencia",
+          "en": "Agency, Executive Producer"
         },
         "Referentes": [
           "Equipo humano",
@@ -6310,28 +6310,28 @@
       "404-02": {
         "Femenino": {
           "fr": null,
-          "es": "Material óptico , magnéticos",
+          "es": "Material óptico, magnéticos",
           "en": null
         },
         "Masculino": {
           "fr": null,
-          "es": "Material óptico , magnéticos",
+          "es": "Material óptico, magnéticos",
           "en": null
         },
         "No Binario": {
           "fr": null,
-          "es": "Material óptico , magnéticos",
+          "es": "Material óptico, magnéticos",
           "en": null
         },
         "Persona Moral": {
           "fr": null,
-          "es": "Material óptico , magnéticos",
+          "es": "Material óptico, magnéticos",
           "en": null
         },
         "Alias Genérico": {
           "fr": null,
-          "es": "Materiales ópticos , magnéticos",
-          "en": "Optical , Magnetic Stock"
+          "es": "Materiales ópticos, magnéticos",
+          "en": "Optical, Magnetic Stock"
         },
         "Referentes": [
           "Producción audiovisual",
@@ -9258,7 +9258,7 @@
       "801-01": {
         "Femenino": {
           "fr": null,
-          "es": "Desarrolladora  web",
+          "es": "Desarrolladora web",
           "en": null
         },
         "Masculino": {
@@ -10276,17 +10276,17 @@
       "904-04": {
         "Femenino": {
           "fr": null,
-          "es": "Investigadora , docente",
+          "es": "Investigadora, docente",
           "en": null
         },
         "Masculino": {
           "fr": null,
-          "es": "Investigador , docente",
+          "es": "Investigador, docente",
           "en": null
         },
         "No Binario": {
           "fr": null,
-          "es": "Investigación , docencia",
+          "es": "Investigación, docencia",
           "en": null
         },
         "Persona Moral": {
@@ -10296,8 +10296,8 @@
         },
         "Alias Genérico": {
           "fr": null,
-          "es": "Investigación , docencia",
-          "en": "Research , Teaching"
+          "es": "Investigación, docencia",
+          "en": "Research, Teaching"
         },
         "Referentes": [
           "Industria",
