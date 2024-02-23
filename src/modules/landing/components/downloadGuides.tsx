@@ -1,5 +1,6 @@
 import { Container } from '@shared/layout/container';
 import Strip from './strip';
+import { useTranslation } from 'react-i18next';
 
 const BrujulasColors = {
   occidente: ['#63C7EB', '#1CAFE5', '#0091C8', '#006FAE'],
@@ -10,6 +11,7 @@ const BrujulasColors = {
 };
 
 function DownloadGuides() {
+  const { t } = useTranslation('landing');
   return (
     <Container>
       <div className="grid grid-cols-1 md:grid-cols-3">
@@ -19,8 +21,9 @@ function DownloadGuides() {
         >
           <div className="max-w-lg">
             <h2>
-              Descarga <span className="text-blue">La Brújula</span> en PDF para
-              utilizarla sin conexión
+              {t('Descarga')} <span className="text-blue">{'La Brújula'}</span>{' '}
+              {t('en PDF para ')}
+              {t('utilizarla sin conexión')}
             </h2>
           </div>
         </div>

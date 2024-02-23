@@ -3,8 +3,10 @@ import { Container } from '@shared/layout/container';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import QuoteSlide from './quoteSlide';
+import { useTranslation } from 'react-i18next';
 
 function QuotesSlider() {
+  const { t } = useTranslation('landing');
   return (
     <Container>
       <Carousel
@@ -21,9 +23,9 @@ function QuotesSlider() {
           <QuoteSlide
             key={quote.name}
             imageUrl={quote.imageUrl}
-            name={quote.name}
-            quote={quote.quote}
-            title={quote.title}
+            name={t(quote.name)}
+            quote={t(quote.quote)}
+            title={t(quote.title)}
           />
         ))}
       </Carousel>
