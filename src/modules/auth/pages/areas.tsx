@@ -3,14 +3,14 @@ import ErrorMessage from '@shared/components/errorMessage';
 import { LoadingSpinner } from '@shared/components/loadingSpinner';
 import { useUserInfo } from '@shared/hooks/useUserInfo';
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { ActivityLookupField } from '../components/activityLookupField.js';
 import AreaForms from '../components/areaForm.js';
 import { useAreasReducer } from '../hooks/useAreasReducer.js';
 import { useAuth } from '@shared/context/auth';
-import { EnumGender } from '@/shared/types/genders.js';
+import { IconButton } from '@mui/material';
 
 export const AreasRegistration = () => {
   const auth = useAuth();
@@ -36,6 +36,13 @@ export const AreasRegistration = () => {
     );
   }, [user]);
 
+  const addOnClick = useCallback(
+    (activity: string) => {
+      dispatch({ type: 'add', item: activity });
+    },
+    [dispatch],
+  );
+
   const changeListener = (index: number) => (activity: string) => {
     dispatch({ type: 'change', index: index, item: activity });
   };
@@ -50,7 +57,7 @@ export const AreasRegistration = () => {
         <h1>{t('Áreas')}</h1>
         {activities.map((activity, i) => (
           <div
-            key={i}
+            key={activity}
             className="flex flex-row gap-4 items-center no-wrap w-full"
           >
             <AreaForms
@@ -59,19 +66,19 @@ export const AreasRegistration = () => {
               gender={user?.gender || 'No Binario'}
             />
             {activities.length > 1 && (
-              <div
+              <IconButton
                 onClick={removeElement(i)}
                 className="cursor-pointer"
               >
                 <CloseOutlined />
-              </div>
+              </IconButton>
             )}
           </div>
         ))}
       </div>
       {activities.length < 3 && (
         <div className="mt-12 grid justify-center">
-          <ActivityLookupField setValue={changeListener(activities.length)} />
+          <ActivityLookupField setValue={addOnClick} />
           <div
             className="cursor-pointer mt-6 px-4 py-2 bg-secondary text-white
           rounded-md mx-auto w-fit"

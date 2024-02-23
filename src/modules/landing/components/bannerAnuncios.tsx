@@ -13,11 +13,11 @@ export const BannerAnuncios = (props: {
     <Carusel>
       {props.anuncios.map((anuncio, i) => (
         <AnuncioSlide
+          key={anuncio.linkUrl + '' + i}
           horizontalImage={anuncio.horizontalImage}
           verticalImage={anuncio.verticalImage}
           imageUrl={anuncio.image}
           linkUrl={anuncio.linkUrl}
-          key={i}
         />
       ))}
     </Carusel>

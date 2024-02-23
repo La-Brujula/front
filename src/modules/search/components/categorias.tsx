@@ -13,7 +13,7 @@ export const PorCategorias = ({
       {categorias.length > 0 &&
         categorias.map((cat, i) => (
           <NavLink
-            key={i}
+            key={cat.label}
             className={[
               'button font-bold flex flex-col items-center justify-center',
               !(i % 2) ? 'bg-primary' : 'bg-secondary',

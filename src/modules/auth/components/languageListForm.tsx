@@ -94,7 +94,7 @@ export const LanguageListForm = ({
           state.map(
             (lang: { lang: lang; proficiency: proficiency }, i: number) => (
               <div
-                key={i}
+                key={lang.lang}
                 className="mb-8"
               >
                 <div className="mb-4 flex flex-col md:flex-row gap-4">
