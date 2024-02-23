@@ -12,7 +12,7 @@ function Credit({ title, name }: { title: string; name: string }) {
 }
 
 export function CreditsSection() {
-  const { t } = useTranslation('navigation');
+  const { t } = useTranslation('about');
   return (
     <Container>
       <div className="flex flex-row gap-8">
@@ -26,8 +26,8 @@ export function CreditsSection() {
         >
           {credits.map(({ title, name }) => (
             <Credit
-              title={title}
-              name={name}
+              title={t(title)}
+              name={t(name)}
             />
           ))}
         </div>
