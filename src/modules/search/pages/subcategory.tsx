@@ -16,7 +16,6 @@ const SubCategoryPage = () => {
   const matrixObject = useMemo(() => {
     if (subcategory !== undefined)
       return getSubAreaObjectByName(category as AreaName, subcategory);
-    console.log(category);
 
     return getAreaObjectByName(category);
   }, [category, subcategory]);
