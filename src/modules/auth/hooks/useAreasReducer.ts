@@ -1,39 +1,61 @@
 import { useCallback, useReducer } from 'react';
 
-interface ActivityReducerAction {
-  type: 'add' | 'remove' | 'change' | 'clear';
-  item?: string;
-  index?: number;
+type ActivityReducerAction =
+  | {
+      type: 'add';
+      item?: string;
+    }
+  | {
+      type: 'remove';
+      index: number;
+    }
+  | {
+      type: 'change';
+      index: number;
+      item: string;
+    }
+  | {
+      type: 'clear';
+    };
+
+interface ActivityReducerState {
+  activities: string[];
 }
 
 function activityReducer(
-  state: string[],
+  state: ActivityReducerState,
   action: ActivityReducerAction,
-): string[] {
-  let shadowState = state.map((a) => a);
+): ActivityReducerState {
   switch (action.type) {
     case 'add':
-      if (action.item === undefined) throw 'Missing item';
-      return [...shadowState, action.item];
+      return {
+        activities: [...state.activities, action.item || ''],
+      };
     case 'remove':
-      if (action.index === undefined) throw 'Missing index';
-      shadowState = [
-        ...shadowState.slice(0, action.index),
-        ...shadowState.slice(action.index + 1),
-      ];
-      return [...shadowState];
+      return {
+        activities: state.activities.filter(
+          (_, index) => action.index !== index,
+        ),
+      };
     case 'change':
-      if (action.index === undefined) throw 'Missing index';
-      if (action.item === undefined) throw 'Missing item';
-      shadowState.splice(action.index, 1, action.item);
-      return [...shadowState];
+      return {
+        activities: state.activities.map((element, index) =>
+          action.index === index ? action.item : element,
+        ),
+      };
     case 'clear':
-      return [];
+      return {
+        activities: [],
+      };
+    default:
+      return state;
   }
 }
 
 export function useAreasReducer(subareas?: string[]) {
-  const [state, dispatch] = useReducer(activityReducer, subareas || []);
+  const [state, dispatch] = useReducer(activityReducer, {
+    activities: subareas || [],
+  });
 
   const removeElement = useCallback(
     (i: number) => () => {
@@ -42,5 +64,5 @@ export function useAreasReducer(subareas?: string[]) {
     [dispatch],
   );
 
-  return { state, dispatch, removeElement };
+  return { state: state.activities, dispatch, removeElement };
 }

@@ -19,7 +19,7 @@ export const SeccionAliades = () => {
         {aliades.map((aliade, i) => (
           <a
             href={aliade.linkUrl}
-            key={i}
+            key={aliade.imageUrl}
             target="_blank"
           >
             <img

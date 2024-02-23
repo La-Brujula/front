@@ -19,11 +19,11 @@ function QuotesSlider() {
       >
         {quotes.map((quote, i) => (
           <QuoteSlide
+            key={quote.name}
             imageUrl={quote.imageUrl}
             name={quote.name}
             quote={quote.quote}
             title={quote.title}
-            key={i}
           />
         ))}
       </Carousel>
