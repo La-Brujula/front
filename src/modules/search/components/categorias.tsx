@@ -18,7 +18,11 @@ export const PorCategorias = ({
               'button font-bold flex flex-col items-center justify-center',
               !(i % 2) ? 'bg-primary' : 'bg-secondary',
             ].join(' ')}
-            to={`/buscar/${encodeURIComponent(cat.label)}`}
+            to={
+              cat.search.length != 6
+                ? `/buscar/${cat.label}?search=${cat.search}`
+                : `/buscar?activity=${cat.search}`
+            }
           >
             <img
               src={`${import.meta.env.BASE_URL}img/${cat.iconUrl}.svg`}
