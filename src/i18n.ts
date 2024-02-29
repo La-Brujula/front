@@ -7,10 +7,10 @@ i18n
   // .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    supportedLngs: ['es', 'en'],
+    supportedLngs: ['es'],
     nonExplicitSupportedLngs: true,
     lowerCaseLng: true,
-    fallbackLng: ['en'],
+    fallbackLng: ['es'],
     load: 'languageOnly', // all, languageOnly
 
     backend: {
