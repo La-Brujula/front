@@ -1,5 +1,5 @@
 import { Container } from '@shared/layout/container';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 export function AboutHero() {
   const { t } = useTranslation('about');
@@ -11,16 +11,18 @@ export function AboutHero() {
     gap-8 text-left"
       >
         <div>
-          <h2>
-            {t('La Brújula.')}
-            <br />
-            {t('Red de la industria')} <br />
-            {t('audiovisual y')}
-            <br />
-            {t('cinematográfica')}
-            <br />
-            {t('de México.')}
-          </h2>
+          <Trans>
+            <h2>
+              La Brújula.
+              <br />
+              Red de la industria <br />
+              audiovisual y
+              <br />
+              cinematográfica
+              <br />
+              de México.
+            </h2>
+          </Trans>
           <div className="flex flex-row gap-4 lg:gap-12 items-center">
             <img
               src={import.meta.env.BASE_URL + 'img/MexicoDestFilmAzul.svg'}

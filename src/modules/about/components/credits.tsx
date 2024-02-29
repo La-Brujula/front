@@ -2,6 +2,38 @@ import credits from '@shared/constants/credits.json';
 import { Container } from '@shared/layout/container';
 import { useTranslation } from 'react-i18next';
 
+// i18next-parser static types
+
+// title
+// t('about:Dirección General')
+// t('about:Traducción')
+// t('about:Estrategia')
+// t('about:Fotografía')
+// t('about:Diseño gráfico y editorial')
+// t('about:Captura')
+// t('about:Comunicación')
+// t('about:Abogado')
+// t('about:Ciencia de datos')
+// t('about:Administración')
+// t('about:Tecnologías de la información')
+// t('about:Mercadotecnia')
+// t('about:Prensa y medios')
+
+// name
+// t('about:Romelia Álvarez')
+// t('about:Camila Álvarez')
+// t('about:Raúl Poiré')
+// t('about:Pablo León')
+// t('about:Romelia León')
+// t('about:Alfonso Miranda y \nMariana Jauregui')
+// t('about:Dejanira Álvarez')
+// t('about:Ismael Guerra')
+// t('about:Alejandro Morales')
+// t('about:Victoria Hernández')
+// t('about:Diego Palmerín, Daniel León \ny Emiliano Herendia')
+// t('about:Andrea Jáuregui')
+// t('about:Patricia Ornelas y \nPepe Quintanilla')
+
 function Credit({ title, name }: { title: string; name: string }) {
   return (
     <div className="flex flex-col">
