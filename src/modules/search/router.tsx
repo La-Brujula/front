@@ -19,14 +19,9 @@ export default () => (
         element={<SearchResultsPage />}
       />
       <Route
-        path=":category"
+        path=":label"
         element={<SubCategoryPage />}
-      >
-        <Route
-          path=":subcategory"
-          element={<SubCategoryPage />}
-        />
-      </Route>
+      />
     </Route>
   </Routes>
 );
