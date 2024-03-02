@@ -1,6 +1,6 @@
 import { Container } from '@shared/layout/container';
 import Strip from './strip';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 const BrujulasColors = {
   occidente: ['#63C7EB', '#1CAFE5', '#0091C8', '#006FAE'],
@@ -20,11 +20,15 @@ function DownloadGuides() {
         flex-row justify-end w-full"
         >
           <div className="max-w-lg">
-            <h2>
-              {t('Descarga')} <span className="text-blue">{'La Brújula'}</span>{' '}
-              {t('en PDF para ')}
-              {t('utilizarla sin conexión')}
-            </h2>
+            <Trans
+              i18nKey="landing"
+              t={t}
+            >
+              <h2>
+                Descarga <span className="text-blue">{'La Brújula'}</span> en
+                PDF para utilizarla sin conexión
+              </h2>
+            </Trans>
           </div>
         </div>
         <div
