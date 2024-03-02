@@ -1,5 +1,5 @@
 import { Container } from '@shared/layout/container';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 function HeroSection() {
   const { t } = useTranslation('landing');
@@ -7,16 +7,22 @@ function HeroSection() {
     <Container bg="primary">
       <div className="flex flex-col lg:flex-row gap-4 lg:gap-16 text-justify text-white pb-2 pt-0 xl:py-8 items-center ">
         <div className="grow w-full flex flex-col gap-4 lg:gap-12">
-          <h1 className="font-bold text-3xl md:text-6xl lg:text-5xl leading-tight">
-            {t('La Brújula.')}
-            <br />
-            {t('Red de la industria')} <br />
-            {t('audiovisual y')}
-            <br />
-            {t('cinematográfica')}
-            <br />
-            {t('de México.')}
-          </h1>
+          <Trans
+            i18nKey="landing"
+            t={t}
+          >
+            <h1 className="font-bold text-3xl md:text-6xl lg:text-5xl leading-tight">
+              La Brújula.
+              <br />
+              Red de la industria'
+              <br />
+              audiovisual y
+              <br />
+              cinematográfica
+              <br />
+              de México.
+            </h1>
+          </Trans>
           <div className="flex flex-row gap-4 lg:gap-12 items-center">
             <img
               src={import.meta.env.BASE_URL + 'img/MexicoDestFilm.svg'}
