@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 export default () => {
   const { t } = useTranslation();
   return (
-    <div className="bg-secondary h-lvh bg-opacity-20 gap-10 flex flex-col items-center pt-32 pb-16 pl-8 pr-8">
+    <div className="bg-secondary h-footerAware bg-opacity-20 gap-10 flex flex-col items-center pt-32 pb-16 pl-8 pr-8">
       <div className="flex flex-col items-center gap-8 z-10">
         <div className=" items-center flex flex-col gap-4">
           <h1 className="text-5xl">{t('Esta página no existe')}</h1>
