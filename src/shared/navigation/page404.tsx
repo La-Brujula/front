@@ -6,7 +6,7 @@ export default () => {
   return (
     <div className="bg-secondary h-footerAware bg-opacity-20 gap-10 flex flex-col items-center pt-32 pb-16 pl-8 pr-8">
       <div className="flex flex-col items-center gap-8 z-10">
-        <div className=" items-center flex flex-col gap-4">
+        <div className=" items-center flex flex-col gap-4 text-center">
           <h1 className="text-5xl">{t('Esta página no existe')}</h1>
           <p className="text-lg">{t('Sentimos las molestias')}</p>
         </div>
@@ -30,7 +30,7 @@ export default () => {
       <img
         src={import.meta.env.BASE_URL + 'img/HalfLogo.svg'}
         alt=""
-        className="absolute opacity-20 top-24 -translate-x-1/2 rotate-180 left-1/2 w-5/12"
+        className="absolute opacity-20 top-24 -translate-x-1/2 rotate-180 left-1/2 w-5/12 min-w-96"
       />
     </div>
   );
