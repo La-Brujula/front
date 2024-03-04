@@ -12,7 +12,9 @@ export default () => {
         </div>
         <div className="flex flex-row justify-center gap-8">
           <NavLink
-            to="javascript:history.back()"
+            /* El tipado es incompleto, con -1 rediriges a la página anterior */
+            // @ts-ignore
+            to={-1}
             className="button bg-transparent text-current h-11"
           >
             {t('Regresar')}
