@@ -14,6 +14,9 @@ module.exports = {
       ],
     },
     extend: {
+      height: {
+        footerAware: 'calc(100dvh - 17rem)',
+      },
       colors: {
         transparent: 'transparent',
         primary: '#2D7BBF',

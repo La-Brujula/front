@@ -16,6 +16,7 @@ const PasswordResetPage = lazy(
   () => import('./modules/auth/pages/passwordReset'),
 );
 const DataPage = lazy(() => import('@modules/data/page'));
+const Page404 = lazy(() => import('@/shared/navigation/page404'));
 
 export const AppRouter = createBrowserRouter(
   [
@@ -37,15 +38,7 @@ export const AppRouter = createBrowserRouter(
           element: <PasswordResetPage />,
         },
         { path: 'datos', element: <DataPage /> },
-        {
-          path: '*',
-          element: (
-            <h1 className="leading-[25vh] text-center">
-              uwu
-              <br /> <span className="text-xl">no ta</span>
-            </h1>
-          ),
-        },
+        { path: '*', element: <Page404 /> },
       ],
     },
   ],
