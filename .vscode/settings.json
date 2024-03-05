@@ -10,5 +10,19 @@
   },
   "[javascriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "i18n-ally.defaultNamespace": "common",
+  "i18n-ally.displayLanguage": "",
+  "i18n-ally.enabledFrameworks": [
+    "react"
+  ],
+  "i18n-ally.localesPaths": [
+    "public/locales"
+  ],
+  "i18n-ally.enabledParsers": [
+    "ts"
+  ],
+  "i18n-ally.extract.autoDetect": true,
+  "i18n-ally.extract.keyMaxLength": 32,
+  "i18n-ally.fullReloadOnChanged": true
 }
