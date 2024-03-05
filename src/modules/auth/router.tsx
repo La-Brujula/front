@@ -10,6 +10,7 @@ const StandoutPage = lazy(() => import('./pages/standOut'));
 const ContactPage = lazy(() => import('./pages/contact'));
 const CaracteristicasPage = lazy(() => import('./pages/caracteristicas'));
 const AreasRegistration = lazy(() => import('./pages/areas'));
+const Page404 = lazy(() => import('@/shared/navigation/page404'));
 
 export default () => (
   <Routes>
@@ -53,12 +54,7 @@ export default () => (
     />
     <Route
       path="*"
-      element={
-        <h1 className="leading-[25vh] text-center">
-          uwu
-          <br /> <span className="text-xl">no ta</span>
-        </h1>
-      }
+      element={<Page404 />}
     />
   </Routes>
 );

@@ -19,7 +19,18 @@ i18n
 
     defaultNS: 'common',
     fallbackNS: 'common',
-    ns: ['common', 'auth', 'landing'],
+    ns: [
+      'common',
+      'auth',
+      'landing',
+      'about',
+      'contact',
+      'guides',
+      'navigation',
+      'passwordReset',
+      'profile',
+      'search',
+    ],
 
     keySeparator: '.',
     nsSeparator: ':',
@@ -34,6 +45,11 @@ i18n
 
     // react-i18next options
     react: {
+      bindI18n: 'languageChanged',
+      bindI18nStore: '',
+      transEmptyNodeValue: '',
+      transSupportBasicHtmlNodes: true,
+      transKeepBasicHtmlNodesFor: ['br', 'strong', 'i'],
       useSuspense: true,
     },
   });

@@ -7,6 +7,7 @@ import {
   getTitle,
   getSubAreaObjectByName,
 } from '@shared/utils/areaUtils';
+import { useCallback, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
@@ -19,7 +20,7 @@ export const AreaForms = ({
   gender: EnumGender;
   changeListener: (value: string) => void;
 }) => {
-  const { register, watch } = useForm({
+  const { register, watch, setValue } = useForm({
     defaultValues: {
       area: defaultValue ? getAreaFromId(defaultValue) : undefined,
       subarea: defaultValue ? getSubAreaFromId(defaultValue) : undefined,
@@ -38,6 +39,14 @@ export const AreaForms = ({
       ),
     );
   };
+  const resetActivity = useCallback(() => {
+    setValue('activity', undefined);
+  }, [setValue]);
+
+  const resetOthers = useCallback(() => {
+    setValue('subarea', undefined);
+    resetActivity();
+  }, [setValue, resetActivity]);
 
   const subareaHasValid = (area: keyof typeof areas, subarea: string) => {
     return Object.keys(getAreaObjectByName(area)[subarea]).some((activity) =>
@@ -51,7 +60,7 @@ export const AreaForms = ({
     text-left md:text-right gap-y-4 gap-x-2 w-full items-center"
     >
       <label htmlFor="area">{t('Área')}</label>
-      <select {...register('area')}>
+      <select {...register('area', { onChange: resetOthers })}>
         <option value="">Selecciona una opción</option>
         {Object.keys(areas).map((area) =>
           areaHasValid(area as keyof typeof areas) ? (
@@ -69,7 +78,7 @@ export const AreaForms = ({
       {!!formArea && (
         <>
           <label htmlFor="subarea">{t('Subarea')}</label>
-          <select {...register('subarea')}>
+          <select {...register('subarea', { onChange: resetActivity })}>
             <option value="">Selecciona una opción</option>
             {Object.keys(areas[formArea]).map((subarea) =>
               subareaHasValid(formArea, subarea) ? (
