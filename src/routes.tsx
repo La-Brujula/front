@@ -1,6 +1,7 @@
 import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import App from './App';
+import ErrorHandler from './shared/navigation/errorHandler';
 
 const LoginPage = lazy(() => import('@modules/auth/pages/login'));
 const SignupRouter = lazy(() => import('@modules/auth/router'));
@@ -22,6 +23,7 @@ export const AppRouter = createBrowserRouter(
   [
     {
       element: <App />,
+      errorElement: <ErrorHandler />,
       children: [
         { path: '', element: <LandingPage /> },
         { path: 'iniciar-sesion', element: <LoginPage /> },
