@@ -14,6 +14,9 @@ module.exports = {
       ],
     },
     extend: {
+      minHeight: {
+        footerAware: 'calc(100dvh - 17rem)',
+      },
       height: {
         footerAware: 'calc(100dvh - 17rem)',
       },
