@@ -20,15 +20,15 @@ function DownloadGuides() {
         flex-row justify-end w-full"
         >
           <div className="max-w-lg">
-            <Trans
-              i18nKey="landing"
-              t={t}
-            >
-              <h2>
+            <h2 className="text-blue">
+              <Trans
+                i18nKey="landing"
+                t={t}
+              >
                 Descarga <span className="text-blue">{'La Brújula'}</span> en
                 PDF para utilizarla sin conexión
-              </h2>
-            </Trans>
+              </Trans>
+            </h2>
           </div>
         </div>
         <div

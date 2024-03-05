@@ -1,25 +1,25 @@
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 // name
-// t("landing:Avelino Rodríguez")
-// t("landing:Rosa Adela López Zuckermann")
-// t("landing:Annmarie Meier")
-// t("landing:Luis Chávez")
-// t("landing:Inti Cordera")
+// t("quotes:Avelino Rodríguez")
+// t("quotes:Rosa Adela López Zuckermann")
+// t("quotes:Annmarie Meier")
+// t("quotes:Luis Chávez")
+// t("quotes:Inti Cordera")
 
 // quote
-// t("landing:Durante más de una década La Brújula se ha posicionado como un recurso de uso obligado para los productores ya que integra a todos los elementos del ecosistema de la industria en una herramienta práctica últil y siempre actualizada.")
-// t("landing:LA BRÚJULA es un instrumento de orientación, su funcionamiento se basa en el magnetismo. La Brújula de Romelia, es una herramienta, un instrumento de comunicación, una red. Nos ayuda a seguir el rumbo para encontrarnos y conocernos, apoya y crea sinergias para descubrir la diversidad y funciona. Reúne, sistematiza, promueve y vincula. Labor inmensa, Romelia Alvarez ha logrado ese magnetismo.")
-// t("landing:En el tupido y creciente universo audiovisual jalisciense hacía falta una brújula para que los involucrados no perdieran la orientación. Así nació La Brújula creada e impulsada por Romelia Álvarez. En sus inicios fue modesta pero creció y se enriqueció. Hoy, la guía para los creadores, productores y trabajadores del audiovisual no sólo se ha convertido en una herramienta necesaria sino que ha construido comunidad. Ahora que La Brújula entra en una nueva etapa, el cine y las demás expresiones audiovisuales producidas en nuestra región, contarán con una brújula extendida con la que podrán crear historias con calidad e identidad.")
-// t("landing:Tengo el placer de haber visto nacer y haber patrocinado estando en Kodak desde su inicio sin pausas a una de las herramientas más importantes dentro de la industria Audiovisual que es La Brújula, y pude ser testigo a través de los productores y el gremio audiovisual en general que dió la bienvenida a este magnífico directorio usándolo en todo momento, nacionales y extranjeros que producen en nuestro país. Larga vida a La Brújula")
-// t("landing:Pensar en LA BRÚJULA, es como pensar en dibujar un mapa, orientarnos en la mejor dirección, y con una ruta fija. Y muchas veces, nuestras tareas en el campo audiovisual, y en el desarrollo de proyectos, requieren fijar muy bien nuestro destino, por eso... muchos años para este compás, LA BRÚJULA.")
+// t("quotes:Avelino RodríguezQuote")
+// t("quotes:Rosa Adela López ZuckermannQuote")
+// t("quotes:Annmarie MeierQuote")
+// t("quotes:Luis ChávezQuote")
+// t("quotes:Inti CorderaQuote")
 
 // title
-// t("landing:Director de Thelift y Presidente de CANACINE")
-// t("landing:Casa Productora ROSA MEDIA")
-// t("landing:Crítica y Académica")
-// t("landing:Business Development Manager & Brand Ambassador @ Kino Flo Systems")
-// t("landing:Director ejecutivo DocsMX")
+// t("quotes:Director de Thelift y Presidente de CANACINE")
+// t("quotes:Casa Productora ROSA MEDIA")
+// t("quotes:Crítica y Académica")
+// t("quotes:Business Development Manager & Brand Ambassador @ Kino Flo Systems")
+// t("quotes:Director ejecutivo DocsMX")
 
 function QuoteSlide({
   imageUrl,
@@ -32,7 +32,7 @@ function QuoteSlide({
   quote: string;
   title: string;
 }) {
-  const { t } = useTranslation('landing');
+  const { t } = useTranslation('quotes');
 
   return (
     <div
@@ -49,7 +49,14 @@ function QuoteSlide({
       <div className="relative text-primary w-full text-left">
         <h3 className="font-bold text-lg">{t(name)}</h3>
         <p className="font-normal text-sm mb-8 ">{t(title)}</p>
-        <p className="grow">{t(quote)}</p>
+        <p className="grow">
+          <Trans
+            i18nKey={name + 'Quote'}
+            t={t}
+          >
+            {quote}
+          </Trans>
+        </p>
       </div>
     </div>
   );
