@@ -17,7 +17,7 @@ function QuotesSlider() {
         interval={1000 * 17}
         stopOnHover={true}
       >
-        {quotes.map((quote, i) => (
+        {quotes.map((quote) => (
           <QuoteSlide
             key={quote.name}
             imageUrl={quote.imageUrl}
