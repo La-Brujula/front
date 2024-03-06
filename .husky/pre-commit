@@ -1,3 +1,3 @@
-yarn parse
+yarn i18next -c i18next-parser.config.mjs --fail-on-update
 yarn lint-staged
 yarn tsc

@@ -14,6 +14,12 @@ module.exports = {
       ],
     },
     extend: {
+      minHeight: {
+        footerAware: 'calc(100dvh - 17rem)',
+      },
+      height: {
+        footerAware: 'calc(100dvh - 17rem)',
+      },
       colors: {
         transparent: 'transparent',
         primary: '#2D7BBF',

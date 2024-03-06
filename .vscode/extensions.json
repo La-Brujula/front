@@ -10,6 +10,7 @@
     "csstools.postcss",
     "esbenp.prettier-vscode",
     "streetsidesoftware.code-spell-checker-spanish",
-    "stivo.tailwind-fold"
+    "stivo.tailwind-fold",
+    "lokalise.i18n-ally"
   ]
 }

@@ -1,5 +1,6 @@
 import { Container } from '@shared/layout/container';
 import Strip from './strip';
+import { Trans, useTranslation } from 'react-i18next';
 
 const BrujulasColors = {
   occidente: ['#63C7EB', '#1CAFE5', '#0091C8', '#006FAE'],
@@ -10,6 +11,7 @@ const BrujulasColors = {
 };
 
 function DownloadGuides() {
+  const { t } = useTranslation('landing');
   return (
     <Container>
       <div className="grid grid-cols-1 md:grid-cols-3">
@@ -18,9 +20,14 @@ function DownloadGuides() {
         flex-row justify-end w-full"
         >
           <div className="max-w-lg">
-            <h2>
-              Descarga <span className="text-blue">La Brújula</span> en PDF para
-              utilizarla sin conexión
+            <h2 className="text-blue">
+              <Trans
+                i18nKey="landing"
+                t={t}
+              >
+                Descarga <span className="text-blue">{'La Brújula'}</span> en
+                PDF para utilizarla sin conexión
+              </Trans>
             </h2>
           </div>
         </div>
@@ -30,27 +37,27 @@ function DownloadGuides() {
         >
           <Strip
             colors={BrujulasColors.occidente}
-            label="Occidente"
+            label={t('Occidente')}
             link="/guias/pdfs/laBrujulaOccidente2023.pdf"
           />
           <Strip
             colors={BrujulasColors.centro}
-            label="Centro"
+            label={t('Centro')}
             link="/guias/pdfs/labrujulaCentro2023.pdf"
           />
           <Strip
             colors={BrujulasColors.norte}
-            label="Norte"
+            label={t('Norte')}
             link="/guias/pdfs/labrujulaNorte2023.pdf"
           />
           <Strip
             colors={BrujulasColors.noreste}
-            label="Noreste"
+            label={t('Noreste')}
             link="/guias/pdfs/labrujulaNoroeste2023.pdf"
           />
           <Strip
             colors={BrujulasColors.sureste}
-            label="Sureste"
+            label={t('Sureste')}
             link="/guias/pdfs/labrujulaSureste2023.pdf"
           />
         </div>

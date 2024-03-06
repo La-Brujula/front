@@ -98,7 +98,21 @@ export default {
   // for that key across locales are reset to the default value, and existing translations are moved to
   // the `_old` file.
 
-  i18nextOptions: null,
+  i18nextOptions: {
+    cache: {
+      enabled: true,
+    },
+
+    // react-i18next options
+    react: {
+      bindI18n: 'languageChanged',
+      bindI18nStore: '',
+      transEmptyNodeValue: '',
+      transSupportBasicHtmlNodes: true,
+      transKeepBasicHtmlNodesFor: ['br', 'strong', 'i'],
+      useSuspense: true,
+    },
+  },
   // If you wish to customize options in internally used i18next instance, you can define an object with any
   // configuration property supported by i18next (https://www.i18next.com/overview/configuration-options).
   // { compatibilityJSON: 'v3' } can be used to generate v3 compatible plurals.

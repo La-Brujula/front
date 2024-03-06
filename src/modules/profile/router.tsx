@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { BaseProfilePage } from './pages/base';
 import CurrentUserPage from './pages/currentUserPage';
 import UserProfilePage from './pages/userProfile';
-
+import Page404 from '@/shared/navigation/page404';
 export default () => (
   <Routes>
     <Route
@@ -20,12 +20,7 @@ export default () => (
     </Route>
     <Route
       path="*"
-      element={
-        <h1 className="leading-[25vh] text-center">
-          uwu
-          <br /> <span className="text-xl">no ta</span>
-        </h1>
-      }
+      element={<Page404 />}
     ></Route>
   </Routes>
 );
