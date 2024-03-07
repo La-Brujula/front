@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 
-interface SearchItem {
+export interface SearchItem {
   [k: string]: any;
   name: string;
   id: string;
