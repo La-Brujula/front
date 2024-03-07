@@ -4,13 +4,21 @@ import { LoadingSpinner } from '@shared/components/loadingSpinner';
 import genders from '@shared/constants/genders.json';
 import { useUserInfo } from '@shared/hooks/useUserInfo';
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
-import { ChangeEvent, useEffect, useMemo, useState } from 'react';
+import {
+  ChangeEvent,
+  ChangeEventHandler,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { UniversidadesSelect } from '../components/universidadesSelect';
 import { useAuth } from '@shared/context/auth';
 import { IFirebaseProfileUpdate } from '@/shared/types/user';
+import { Input } from '@/shared/components/input';
+import CountrySelect from '@/shared/components/countrySelect';
 
 export const BasicInfo = () => {
   const auth = useAuth();
@@ -59,64 +67,41 @@ export const BasicInfo = () => {
         className="grid grid-cols-[max-content_minmax(12rem,_24rem)]
       text-right gap-4"
       >
-        <label
-          htmlFor="name"
-          className="col-span-1"
-        >
-          {user.type == 'moral' ? t('Razón Social') : t('Nombre (s)')} *
-        </label>
-        <input
+        <Input
+          label={user.type == 'moral' ? t('Razón Social') : t('Nombre (s)')}
           type="text"
-          id="name"
-          {...register('name', { required: true })}
           autoComplete={user?.type != 'moral' ? 'given-name' : ''}
-          required
+          register={register}
+          fieldName="name"
+          divClass="!grid grid-cols-subgrid col-span-2"
+          required={true}
         />
         {user.type != 'moral' && (
           <>
-            <label
-              htmlFor="lastName"
-              className="col-span-1"
-            >
-              {t('Apellido (s)')} *
-            </label>
-            <input
+            <Input
+              label={t('Apellido (s)')}
               type="text"
-              id="lastName"
-              {...register('lastname', {
-                required: true,
-              })}
               autoComplete="family-name"
+              register={register}
+              fieldName="lastname"
+              divClass="!grid grid-cols-subgrid col-span-2"
               required={true}
             />
           </>
         )}
         {user?.type != 'moral' ? (
-          <>
-            <label htmlFor="gender">{t('Género')}*</label>
-            <select
-              id="gender"
-              {...register('gender', {
-                required: true,
-              })}
-              defaultValue={''}
-            >
-              <option
-                value=""
-                disabled
-              >
-                {t('Género')} *
-              </option>
-              {genders.map((gender) => (
-                <option
-                  value={gender == 'Prefiero no decir' ? 'No binario' : gender}
-                  key={gender}
-                >
-                  {t(gender)}
-                </option>
-              ))}
-            </select>
-          </>
+          <Input
+            label={t('Género')}
+            type="select"
+            register={register}
+            fieldName="gender"
+            divClass="!grid grid-cols-subgrid col-span-2"
+            required={true}
+            items={genders.map((gender) => ({
+              key: gender == 'Prefiero no decir' ? 'No binario' : gender,
+              label: t(gender),
+            }))}
+          />
         ) : (
           <input
             type="hidden"
@@ -125,116 +110,96 @@ export const BasicInfo = () => {
           />
         )}
         {user?.type != 'moral' && (
-          <>
-            <label
-              htmlFor="birthday"
-              className="col-span-1"
-            >
-              {t('Fecha de nacimiento')}
-            </label>
-            <input
-              type="date"
-              id="birthday"
-              {...register('birthday')}
-              autoComplete="birthday"
-            />
-          </>
+          <Input
+            label={t('Fecha de nacimiento')}
+            type="date"
+            register={register}
+            fieldName="birthday"
+            autoComplete="birthday"
+            divClass="!grid grid-cols-subgrid col-span-2"
+            required={true}
+          />
         )}
         <p className="col-span-full text-xs">
-          Este dato solamente es para uso interno
+          {t('Este dato solamente es para uso interno')}
         </p>
         <div className="col-span-2 flex flex-col gap-4 text-center">
-          <label
-            htmlFor="nickname"
-            className="col-span-1"
-          >
-            {t('Nombre con el que quieres aparecer')}
-          </label>
-          <input
-            type="text"
-            id="nickname"
-            {...register('nickname')}
-            autoComplete="nickname"
+          <Input
+            label={t('Fecha de nacimiento')}
+            type="date"
+            register={register}
+            fieldName="birthday"
+            autoComplete="birthday"
+            divClass="!grid grid-cols-subgrid col-span-2"
           />
         </div>
         <p className="col-span-2 text-center">
           {t('¿Dónde resides actualmente?')}
         </p>
-        <label
-          htmlFor="city"
-          className="col-span-1"
-        >
-          {t('Ciudad')}
-        </label>
-        <input
-          type="text"
-          id="city"
-          {...register('city')}
+        <Input
+          label={t('País')}
+          type="custom"
+          register={register}
+          fieldName="country"
+          autoComplete="country"
+          divClass="!grid grid-cols-subgrid col-span-2"
+          component={<CountrySelect {...register('country')} />}
         />
-        <label
-          htmlFor="state"
-          className="col-span-1"
-        >
-          {t('Estado')}
-        </label>
-        <input
-          type="text"
-          id="state"
-          {...register('state')}
+        <Input
+          label={t('Estado')}
+          type="state"
+          register={register}
+          fieldName="state"
+          autoComplete="state"
+          divClass="!grid grid-cols-subgrid col-span-2"
         />
-        <label
-          htmlFor="country"
-          className="col-span-1"
-        >
-          {t('País')}
-        </label>
-        <input
-          type="text"
-          id="country"
-          {...register('country')}
+        <Input
+          label={t('Ciudad')}
+          type="city"
+          register={register}
+          fieldName="city"
+          autoComplete="city"
+          divClass="!grid grid-cols-subgrid col-span-2"
         />
-        <label
-          htmlFor="phone"
-          className="col-span-1"
-        >
-          {t('Teléfono')}
-        </label>
-        <input
+        <Input
+          label={t('Teléfono')}
           type="phone"
-          id="phone"
-          {...register('phone')}
+          register={register}
+          fieldName="phone"
+          autoComplete="phone"
+          divClass="!grid grid-cols-subgrid col-span-2"
         />
       </div>
       {user?.type != 'moral' && (
         <>
-          <label
-            htmlFor="phone"
-            className="col-span-1"
-          >
-            {t('¿Te interesa ser becario o hacer servicio social?')}
-          </label>
-          <input
-            type="hidden"
-            {...register('probono')}
-          />
-          <ButtonSelect
+          <Input
+            label={t('¿Te interesa ser becario o hacer servicio social?')}
+            type="custom"
+            register={register}
             fieldName="probono"
-            values={[true, false]}
-            labels={['SÍ', 'NO']}
-            setValue={setValue}
-            getValue={getValues}
-          />
-          <label
-            htmlFor="university"
-            className="col-span-1"
-          >
-            {t('¿Estudias o estudiaste en alguna de estas escuelas?')}
-          </label>
-          <UniversidadesSelect
-            onChange={(ev: ChangeEvent<HTMLSelectElement>) =>
-              setValue('university', ev.currentTarget.value)
+            component={
+              <ButtonSelect
+                fieldName={'probono'}
+                values={[true, false]}
+                labels={['SÍ', 'NO']}
+                setValue={setValue}
+                getValue={getValues}
+              />
             }
-            placeholder={t('Universidad')}
+          />
+          <Input
+            label={t('¿Estudias o estudiaste en alguna de estas escuelas?')}
+            type="custom"
+            register={register}
+            fieldName="university"
+            component={
+              <UniversidadesSelect
+                onChange={(ev: ChangeEvent<HTMLSelectElement>) =>
+                  setValue('university', ev.currentTarget.value)
+                }
+                placeholder={t('Universidad')}
+              />
+            }
           />
         </>
       )}
