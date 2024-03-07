@@ -42,7 +42,7 @@ export function InformationCard() {
         <div className="grid grid-cols-[max-content_1fr] gap-x-4">
           {contactInformation.emails.map(({ name, email }) => (
             <>
-              <p>{name}</p>
+              <p>{t(name)}</p>
               <a
                 href={`mailto:${email}`}
                 className="block text-white truncate"
@@ -55,7 +55,7 @@ export function InformationCard() {
         <div className="h-[2px] rounded-lg bg-white lg:col-span-3" />
         <PinOutlined />
         <h2 className="text-lg lg:px-4">{t('Visítanos')}</h2>
-        <p>{contactInformation.address}</p>
+        <p>{t(contactInformation.address)}</p>
       </div>
       <SocialLinks />
     </Container>
