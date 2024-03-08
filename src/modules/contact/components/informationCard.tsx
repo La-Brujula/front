@@ -5,7 +5,13 @@ import WhatsApp from '@mui/icons-material/WhatsApp';
 import { SocialLinks } from '@shared/components/socials';
 import contactInformation from '@shared/constants/brujulaInformation.json';
 import { Container } from '@shared/layout/container';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
+//i18next-parser static types
+
+// name
+// t('contact:Directora')
+// t('contact:Diseño')
+// t('contact:Contacto')
 
 export function InformationCard() {
   const { t } = useTranslation('contact');
@@ -55,7 +61,12 @@ export function InformationCard() {
         <div className="h-[2px] rounded-lg bg-white lg:col-span-3" />
         <PinOutlined />
         <h2 className="text-lg lg:px-4">{t('Visítanos')}</h2>
-        <p>{t(contactInformation.address)}</p>
+        <Trans
+          i18nKey="address"
+          t={t}
+        >
+          <p>{contactInformation.address}</p>
+        </Trans>
       </div>
       <SocialLinks />
     </Container>
