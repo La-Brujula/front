@@ -5,11 +5,19 @@ import WhatsApp from '@mui/icons-material/WhatsApp';
 import { SocialLinks } from '@shared/components/socials';
 import contactInformation from '@shared/constants/brujulaInformation.json';
 import { Container } from '@shared/layout/container';
+import { Trans, useTranslation } from 'react-i18next';
+//i18next-parser static types
+
+// name
+// t('contact:Directora')
+// t('contact:Diseño')
+// t('contact:Contacto')
 
 export function InformationCard() {
+  const { t } = useTranslation('contact');
   return (
     <Container bg="bottom-half-grey">
-      <h1 className="mb-8 text-secondary text-4xl">Contacto</h1>
+      <h1 className="mb-8 text-secondary text-4xl">{t('Contacto')}</h1>
       <div
         className="bg-primary text-white p-8 grid max-w-6xl
       gap-x-4 gap-y-4 grid-cols-1 mx-auto rounded-lg text-left
@@ -17,7 +25,7 @@ export function InformationCard() {
       justify-center lg:justify-start mb-8"
       >
         <WhatsApp />
-        <h2 className="text-lg lg:px-4">Whatsapp</h2>
+        <h2 className="text-lg lg:px-4">{t('Whatsapp')}</h2>
         <a
           href={contactInformation.whatsapp}
           className="text-white"
@@ -26,7 +34,7 @@ export function InformationCard() {
         </a>
         <div className="h-[2px] rounded-lg bg-white lg:col-span-3" />
         <PhoneOutlined />
-        <h2 className="text-lg lg:px-4">Teléfono</h2>
+        <h2 className="text-lg lg:px-4">{t('Teléfono')}</h2>
         <p>
           {contactInformation.phoneNumbers.map((phone) => (
             <>
@@ -36,11 +44,11 @@ export function InformationCard() {
         </p>
         <div className="h-[2px] rounded-lg bg-white lg:col-span-3" />
         <EmailOutlined />
-        <h2 className="text-lg lg:px-4">Correo electrónico</h2>
+        <h2 className="text-lg lg:px-4">{t('Correo electrónico')}</h2>
         <div className="grid grid-cols-[max-content_1fr] gap-x-4">
           {contactInformation.emails.map(({ name, email }) => (
             <>
-              <p>{name}</p>
+              <p>{t(name)}</p>
               <a
                 href={`mailto:${email}`}
                 className="block text-white truncate"
@@ -52,8 +60,13 @@ export function InformationCard() {
         </div>
         <div className="h-[2px] rounded-lg bg-white lg:col-span-3" />
         <PinOutlined />
-        <h2 className="text-lg lg:px-4">Visítanos</h2>
-        <p>{contactInformation.address}</p>
+        <h2 className="text-lg lg:px-4">{t('Visítanos')}</h2>
+        <Trans
+          i18nKey="address"
+          t={t}
+        >
+          <p>{contactInformation.address}</p>
+        </Trans>
       </div>
       <SocialLinks />
     </Container>
