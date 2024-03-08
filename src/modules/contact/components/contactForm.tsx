@@ -22,7 +22,7 @@ export function ContactForm() {
         className="flex flex-col gap-4"
       >
         <Input
-          fieldname="subject"
+          fieldName="subject"
           label={t('Asunto')}
           type="text"
           register={register}
@@ -31,27 +31,27 @@ export function ContactForm() {
           text-black max-w-md bg-transparent"
         />
         <Input
-          fieldname="name"
+          fieldName="name"
           label={t('Nombre')}
           type="text"
           register={register}
-          autocomplete="name"
+          autoComplete="name"
           divClass="text-left text-primary"
           inputClass="border border-primary rounded-md
           text-black max-w-md bg-transparent"
         />
         <Input
-          fieldname="email"
+          fieldName="email"
           label={t('Correo electrónico')}
           type="email"
           register={register}
-          autocomplete="email"
+          autoComplete="email"
           divClass="text-left text-primary"
           inputClass="border border-primary rounded-md
           text-black max-w-md bg-transparent"
         />
         <Input
-          fieldname="message"
+          fieldName="message"
           label={t('Mensaje')}
           type="textarea"
           register={register}
