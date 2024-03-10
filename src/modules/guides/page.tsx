@@ -13,12 +13,12 @@ export function PDFGuidesPage() {
         className="text-white"
       >
         <h2>
-          La Brújula.
+          {t('La Brújula.')}
           <br />
-          Red de la industria <br />
-          audiovisual y cinematográfica
+          {t('Red de la industria')} <br />
+          {t('audiovisual y cinematográfica')}
           <br />
-          de México.
+          {t('de México.')}
         </h2>
         <div className="flex flex-row gap-4 lg:gap-12 items-center justify-center">
           <img
