@@ -1,7 +1,6 @@
-import { SearchFilters } from '@/shared/hooks/useSearch';
 import universidades from '@shared/constants/universidades.json';
 import { ChangeEventHandler } from 'react';
-import {} from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 
 export function UniversidadesSelect({
   onChange,
@@ -10,9 +9,10 @@ export function UniversidadesSelect({
   onChange: ChangeEventHandler;
   placeholder?: string;
 }) {
+  const { t } = useTranslation('auth');
   return (
     <select onChange={onChange}>
-      <option value="">{placeholder || 'Seleccione una opción'}</option>
+      <option value="">{placeholder || t('Seleccione una opción')}</option>
       {universidades.map((uni) => (
         <option
           value={uni}

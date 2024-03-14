@@ -53,13 +53,15 @@ export const SignUpForm = () => {
     setLoading(false);
     switch ((err as AuthError).code) {
       case 'auth/invalid-email':
-        setErrorMsg('Ingresa un correo valido.');
+        setErrorMsg(t('Ingresa un correo valido.'));
         break;
       case 'auth/email-already-in-use':
-        setErrorMsg('El correo ya esta registrado.');
+        setErrorMsg(t('El correo ya esta registrado.'));
         break;
       case 'auth/weak-password':
-        setErrorMsg('La contraseña tiene que tener como mínimo 6 caracteres.');
+        setErrorMsg(
+          t('La contraseña tiene que tener como mínimo 6 caracteres.'),
+        );
         break;
     }
   };

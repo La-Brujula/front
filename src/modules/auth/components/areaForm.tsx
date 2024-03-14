@@ -61,7 +61,7 @@ export const AreaForms = ({
     >
       <label htmlFor="area">{t('Área')}</label>
       <select {...register('area', { onChange: resetOthers })}>
-        <option value="">Selecciona una opción</option>
+        <option value="">{t('Selecciona una opción')}</option>
         {Object.keys(areas).map((area) =>
           areaHasValid(area as keyof typeof areas) ? (
             <option
@@ -79,7 +79,7 @@ export const AreaForms = ({
         <>
           <label htmlFor="subarea">{t('Subarea')}</label>
           <select {...register('subarea', { onChange: resetActivity })}>
-            <option value="">Selecciona una opción</option>
+            <option value="">{t('Selecciona una opción')}</option>
             {Object.keys(areas[formArea]).map((subarea) =>
               subareaHasValid(formArea, subarea) ? (
                 <option
@@ -97,12 +97,12 @@ export const AreaForms = ({
       )}
       {!!formArea && !!formSubarea && (
         <>
-          <label htmlFor="activity">Actividad</label>
+          <label htmlFor="activity">{t('Actividad')}</label>
           <select
             {...register('activity')}
             onChange={(event) => changeListener(event.target.value)}
           >
-            <option value="">Selecciona una opción</option>
+            <option value="">{t('Selecciona una opción')}</option>
             {!!formArea &&
               !!formSubarea &&
               Object.keys(getSubAreaObjectByName(formArea, formSubarea)).map(

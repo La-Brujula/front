@@ -17,7 +17,7 @@ export const ProfileSummary = () => {
   return loading ? (
     <LoadingSpinner />
   ) : error || !user ? (
-    <ErrorMessage message={(error || 'No user could be found').toString()} />
+    <ErrorMessage message={(error || t('No user could be found')).toString()} />
   ) : (
     <>
       <ProfileHeader user={user} />

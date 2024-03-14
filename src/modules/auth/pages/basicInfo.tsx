@@ -56,7 +56,7 @@ export const BasicInfo = () => {
   return loading || isLoading ? (
     <LoadingSpinner />
   ) : user === undefined ? (
-    <ErrorMessage message="Could not load user" />
+    <ErrorMessage message={t('Could not load user')} />
   ) : (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -181,7 +181,7 @@ export const BasicInfo = () => {
               <ButtonSelect
                 fieldName={'probono'}
                 values={[true, false]}
-                labels={['SÍ', 'NO']}
+                labels={[t('SÍ'), t('NO')]}
                 setValue={setValue}
                 getValue={getValues}
               />

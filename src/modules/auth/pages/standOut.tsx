@@ -155,7 +155,7 @@ export const StandoutPage = () => {
         <input
           type="text"
           {...register('googleMapsLink')}
-          placeholder="Link de google maps"
+          placeholder={t('Link de google maps')}
         />
         <hr className="col-span-2 my-2" />
         <div className="col-span-2 flex flex-col gap-4 text-center items-center">

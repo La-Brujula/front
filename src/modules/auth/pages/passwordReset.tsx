@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 
 const PasswordResetPage = () => {
-  const { t } = useTranslation('passwordReset');
+  const { t } = useTranslation('auth');
   const { register, handleSubmit } = useForm<{ email: string }>();
   const { resetUserPassword } = useAuth();
   const [loading, setLoading] = useState(false);
@@ -27,12 +27,16 @@ const PasswordResetPage = () => {
         switch ((e as AuthError).code) {
           case 'auth/user-not-found':
             setError(
-              'No tenemos registrada esta cuenta, por favor revisa tu información.',
+              t(
+                'No tenemos registrada esta cuenta, por favor revisa tu información.',
+              ),
             );
             break;
           case 'auth/no-account':
             setError(
-              'No hay una cuenta registrada con ese correo, por favor revisa tu información.',
+              t(
+                'No hay una cuenta registrada con ese correo, por favor revisa tu información.',
+              ),
             );
             break;
           default:
@@ -84,14 +88,16 @@ const PasswordResetPage = () => {
       ) : (
         <>
           <p className="px-4 py-2 rounded-md bg-emerald-400 text-white font-bold">
-            Se ha enviado el correo con el link para reiniciar tu contraseña
+            {t(
+              'Se ha enviado el correo con el link para reiniciar tu contraseña',
+            )}
           </p>
           <NavLink
             to="/iniciar-sesion"
             className="max-w-xs mx-auto bg-primary px-4 py-2 text-white
             rounded-md mt-4 block font-bold"
           >
-            Iniciar Sesión
+            {t('Iniciar Sesión')}
           </NavLink>
         </>
       )}

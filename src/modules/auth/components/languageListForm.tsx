@@ -104,7 +104,7 @@ export const LanguageListForm = ({
                       className="w-full"
                       value={lang.lang}
                     >
-                      <option value="other">Otro</option>
+                      <option value="other">{t('Otro')}</option>
                       {languages.map((defLang) => (
                         <option
                           value={defLang}
@@ -118,7 +118,7 @@ export const LanguageListForm = ({
                       <input
                         type="text"
                         onChange={updateValue(i, 'lang')}
-                        placeholder="Escribe aquí el nombre de tu idioma"
+                        placeholder={t('Escribe aquí el nombre de tu idioma')}
                       />
                     )}
                   </div>
@@ -158,7 +158,7 @@ export const LanguageListForm = ({
         rounded-md mx-auto w-fit"
           onClick={() => dispatch({ type: 'add' })}
         >
-          Agregar otro idioma
+          {t('Agregar otro idioma')}
         </div>
       </>
     </div>
