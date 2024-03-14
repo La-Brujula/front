@@ -5,6 +5,7 @@ import { useAuth } from '@shared/context/auth';
 import { useUserInfo } from '@shared/hooks/useUserInfo';
 import { brujulaUtils } from '@shared/utils/brujulaUtils';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Outlet, useNavigate } from 'react-router-dom';
 
 export const BaseStepPage = () => {
@@ -18,10 +19,12 @@ export const BaseStepPage = () => {
     if (!isLoggedIn) navigate('/iniciar-sesion');
   }, []);
 
+  const { t } = useTranslation('auth');
+
   return loading ? (
     <LoadingSpinner />
   ) : error || user == undefined ? (
-    <ErrorMessage message={(error || 'Could not find user').toString()} />
+    <ErrorMessage message={(error || t('Could not find user')).toString()} />
   ) : (
     <div className="max-w-3xl mx-auto">
       <ProfileBadge user={user} />

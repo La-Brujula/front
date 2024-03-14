@@ -30,7 +30,7 @@ export function ExtraFilters({
           </label>
           <input
             type="checkbox"
-            placeholder="remote"
+            placeholder={t('remote')}
             id="remote"
             onChange={updateFilterValue('remote')}
             className="size-4 cursor-pointer"
@@ -74,7 +74,7 @@ export function ExtraFilters({
           <input
             type="text"
             onChange={updateFilterValue('language')}
-            placeholder="Escribe aquí el nombre del idioma"
+            placeholder={t('Escribe aquí el nombre del idioma')}
           />
         )}
       </div>
