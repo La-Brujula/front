@@ -143,7 +143,15 @@ export const BasicInfo = () => {
           fieldName="country"
           autoComplete="country"
           divClass="!grid grid-cols-subgrid col-span-2"
-          component={<CountrySelect {...register('country')} />}
+          component={
+            <CountrySelect
+              {...register('country', {
+                onChange: (ev) => {
+                  setValue('country', ev.target.value);
+                },
+              })}
+            />
+          }
         />
         <Input
           label={t('Estado')}
