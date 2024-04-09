@@ -145,13 +145,13 @@ export const Navbar = () => {
             >
               {t('aboutUs')}
             </NavLink>
-            <a
+            <NavLink
               onClick={() => toggleOpen()}
-              href={import.meta.env.BASE_URL + 'pdf/privacy.pdf'}
+              to="/terminos-y-condiciones"
               className="font-bold leading-relaxed text-white"
             >
-              {t('privacyH')}
-            </a>
+              {t('Aviso legal y de privacidad')}
+            </NavLink>
             <NavLink
               onClick={() => toggleOpen()}
               to="/contacto"
