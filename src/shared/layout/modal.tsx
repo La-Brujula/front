@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import { ReactNode, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 export const Modal = (props: {
@@ -16,7 +16,7 @@ export const Modal = (props: {
         ></div>
         {children}
       </div>,
-      document.getElementById('modal') as HTMLElement,
+      document.getElementById('modal') as HTMLElement
     )
   ) : (
     <></>

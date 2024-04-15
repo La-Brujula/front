@@ -1,8 +1,8 @@
 import { ReactChild } from 'react';
-import { Carousel } from 'react-responsive-carousel';
+import { Carousel as ResponsiveCarousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 
-function Carusel(props: { children: ReactChild[]; noBackground?: boolean }) {
+function Carousel(props: { children: ReactChild[]; noBackground?: boolean }) {
   const { children, noBackground } = props;
   return (
     <div
@@ -11,7 +11,7 @@ function Carusel(props: { children: ReactChild[]; noBackground?: boolean }) {
         'flex items-center justify-center overflow-hidden',
       ].join(' ')}
     >
-      <Carousel
+      <ResponsiveCarousel
         showArrows={true}
         showThumbs={false}
         showStatus={false}
@@ -23,9 +23,9 @@ function Carusel(props: { children: ReactChild[]; noBackground?: boolean }) {
         stopOnHover={true}
       >
         {children}
-      </Carousel>
+      </ResponsiveCarousel>
     </div>
   );
 }
 
-export default Carusel;
+export default Carousel;

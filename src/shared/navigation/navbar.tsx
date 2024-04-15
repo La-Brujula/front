@@ -1,14 +1,14 @@
 import PersonOutline from '@mui/icons-material/PersonOutline';
+import { Link } from '@tanstack/react-router';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { NavLink } from 'react-router-dom';
-import { useAuth } from '../context/auth';
+import { useAuth } from '../providers/authProvider';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation('navigation');
 
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, account } = useAuth(['isLoggedIn', 'account']);
 
   const toggleOpen = () => {
     return setIsOpen(!isOpen);
@@ -20,7 +20,7 @@ export const Navbar = () => {
         className="w-full flex justify-between items-center sticky top-0 px-8
         py-2 bg-primary text-white z-50"
       >
-        <NavLink
+        <Link
           to="/"
           className="grow text-white"
         >
@@ -29,35 +29,36 @@ export const Navbar = () => {
             alt="La Brújula Audiovisual"
             className="h-20"
           />
-        </NavLink>
+        </Link>
         <div className="hidden md:flex grow flex-row gap-8 justify-end mr-8">
           {!isLoggedIn ? (
-            <NavLink
-              to="/iniciar-sesion"
+            <Link
+              to="/auth/login"
               className="font-bold text-white"
             >
               {t('login')}
-            </NavLink>
+            </Link>
           ) : (
-            <NavLink
-              to="/usuarios"
+            <Link
+              to="/profile/$userId"
+              params={{ userId: account!.ProfileId }}
               className="text-white order-last"
             >
               <PersonOutline />
-            </NavLink>
+            </Link>
           )}
-          <NavLink
-            to="/buscar"
+          <Link
+            to="/search"
             className="font-bold text-white"
           >
             {t('search')}
-          </NavLink>
-          <NavLink
-            to="/quienes-somos"
+          </Link>
+          <Link
+            to="/about"
             className="font-bold text-white"
           >
             {t('aboutUs')}
-          </NavLink>
+          </Link>
         </div>
         <div className="z-100">
           <button
@@ -91,60 +92,61 @@ export const Navbar = () => {
                 X
               </div>
             </button>
-            <NavLink
+            <Link
               onClick={() => toggleOpen()}
               to="/"
               className="font-bold leading-relaxed text-white"
             >
               {t('home')}
-            </NavLink>
+            </Link>
             {!isLoggedIn ? (
               <>
-                <NavLink
+                <Link
                   onClick={() => toggleOpen()}
-                  to="/iniciar-sesion"
+                  to="/auth/login"
                   className="font-bold leading-relaxed text-white"
                 >
                   {t('login')}
-                </NavLink>
-                <NavLink
+                </Link>
+                <Link
                   onClick={() => toggleOpen()}
-                  to="/crear-usuario"
+                  to="/auth/signup"
                   className="font-bold leading-relaxed text-white"
                 >
                   {t('createUser')}
-                </NavLink>
+                </Link>
               </>
             ) : (
-              <NavLink
+              <Link
                 onClick={() => toggleOpen()}
-                to="/usuarios"
+                to="/profile/$userId"
+                params={{ userId: account!.ProfileId }}
                 className="font-bold leading-relaxed text-white"
               >
                 {t('myUser')}
-              </NavLink>
+              </Link>
             )}
-            <NavLink
+            <Link
               onClick={() => toggleOpen()}
-              to="/buscar"
+              to="/search"
               className="font-bold leading-relaxed text-white"
             >
               {t('search')}
-            </NavLink>
-            <NavLink
+            </Link>
+            <Link
               onClick={() => toggleOpen()}
-              to="/guias"
+              to="/guides"
               className="font-bold leading-relaxed text-white"
             >
               {t('La Brújula en PDF')}
-            </NavLink>
-            <NavLink
+            </Link>
+            <Link
               onClick={() => toggleOpen()}
-              to="/quienes-somos"
+              to="/about"
               className="font-bold leading-relaxed text-white"
             >
               {t('aboutUs')}
-            </NavLink>
+            </Link>
             <a
               onClick={() => toggleOpen()}
               href={import.meta.env.BASE_URL + 'pdf/privacy.pdf'}
@@ -152,21 +154,21 @@ export const Navbar = () => {
             >
               {t('privacyH')}
             </a>
-            <NavLink
+            <Link
               onClick={() => toggleOpen()}
-              to="/contacto"
+              to="/contact"
               className="font-bold leading-relaxed text-white"
             >
               {t('contact')}
-            </NavLink>
+            </Link>
             {isLoggedIn && (
-              <NavLink
+              <Link
                 onClick={() => toggleOpen()}
-                to="/cerrar-sesion"
+                to="/auth/logout"
                 className="font-bold leading-relaxed text-white block mt-6"
               >
                 {t('logout')}
-              </NavLink>
+              </Link>
             )}
           </nav>
         </div>

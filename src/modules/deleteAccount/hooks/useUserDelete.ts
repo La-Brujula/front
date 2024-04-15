@@ -1,25 +1,35 @@
-import { useNavigate } from 'react-router-dom';
-import { brujulaUtils } from '@shared/utils/brujulaUtils';
-import { useAuth } from '@shared/context/auth';
+import { useAuth } from '@/shared/providers/authProvider';
+import { useNavigate } from '@tanstack/react-router';
+import { useTranslation } from 'react-i18next';
+import { deleteFetch } from '@/shared/services/backendFetcher';
+import { useMutation } from '@tanstack/react-query';
 
 export function useDeleteMyUser() {
-  const { deleteUser, getCurrentUserEmail, deleteUserPictures } =
-    brujulaUtils();
-  const auth = useAuth();
+  const { t } = useTranslation();
+  const { logout, account } = useAuth(['logout', 'account']);
   const navigate = useNavigate();
 
-  const deleteMyAccount = async () => {
+  async function deleteMyAccount() {
     if (
-      confirm(`Estás a punto de borrar tu cuenta ${getCurrentUserEmail()}, esto no se puede deshacer.
+      confirm(
+        t(
+          `Estás a punto de borrar tu cuenta {{email}}, esto no se puede deshacer.
         
-        ¿Quieres continuar?`)
+        ¿Quieres continuar?`,
+          { replace: { email: account!.email } }
+        )
+      )
     ) {
-      await deleteUser(getCurrentUserEmail());
-      await deleteUserPictures();
-      auth.logout();
-      navigate('/');
+      return await deleteFetch('/auth/me');
     }
-  };
+  }
 
-  return deleteMyAccount;
+  return useMutation({
+    mutationKey: ['profiles', account],
+    mutationFn: deleteMyAccount,
+    onSuccess: () => {
+      logout();
+      navigate({ to: '/' });
+    },
+  });
 }

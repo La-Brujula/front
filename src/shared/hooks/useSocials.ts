@@ -1,16 +1,14 @@
-export default function useSocials(
-  social:
-    | 'imdb'
-    | 'facebook'
-    | 'instagram'
-    | 'tiktok'
-    | 'twitter'
-    | 'vimeo'
-    | 'youtube'
-    | 'linkedin'
-    | string,
-  link: string,
-) {
+type SocialMedia =
+  | 'imdb'
+  | 'facebook'
+  | 'instagram'
+  | 'tiktok'
+  | 'twitter'
+  | 'vimeo'
+  | 'youtube'
+  | 'linkedin';
+
+export default function useSocials(social: SocialMedia | string, link: string) {
   if (!link) return '';
   return link;
   // try {

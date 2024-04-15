@@ -1,10 +1,10 @@
 import { SearchOutlined } from '@mui/icons-material';
+import { useNavigate } from '@tanstack/react-router';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { Form, useNavigate } from 'react-router-dom';
 
 export const NameSearchField = () => {
-  const { t } = useTranslation('search');
+  const { t } = useTranslation('landing');
   const { register, handleSubmit } = useForm({
     defaultValues: {
       search: '',
@@ -14,11 +14,11 @@ export const NameSearchField = () => {
   const navigate = useNavigate();
 
   return (
-    <Form
+    <form
       action="/buscar"
       method="get"
       onSubmit={handleSubmit((values) => {
-        navigate(`/buscar?search=${values.search}`);
+        navigate({ to: '/', search: { name: values.search } });
       })}
       className="grid grid-cols-[1fr_min-content] lg:grid-cols-[1fr_min-content]
       gap-4 justify-items-stretch flex-grow w-full
@@ -49,6 +49,6 @@ export const NameSearchField = () => {
       >
         <SearchOutlined />
       </button>
-    </Form>
+    </form>
   );
 };

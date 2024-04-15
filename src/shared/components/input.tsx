@@ -1,51 +1,135 @@
-import React, {
-  HTMLInputTypeAttribute,
-  ReactElement,
-  ReactNode,
-  useMemo,
-} from 'react';
-import { UseFormRegister } from 'react-hook-form';
+import React, { HTMLInputTypeAttribute, useMemo } from 'react';
+import {
+  FieldError,
+  FieldValues,
+  Path,
+  RegisterOptions,
+  UseFormRegister,
+  UseFormRegisterReturn,
+} from 'react-hook-form';
 
 type InputProps<
-  Type extends 'textArea' | 'select' | 'custom' | HTMLInputTypeAttribute,
+  Type extends
+    | 'textArea'
+    | 'select'
+    | 'groupedSelect'
+    | 'custom'
+    | HTMLInputTypeAttribute,
+  FormFields extends FieldValues,
 > = {
   label: string;
-  register: UseFormRegister<any>;
-  fieldName: string;
+  register: UseFormRegister<FormFields>;
+  fieldName: Path<FormFields>;
   inputClass?: string;
   divClass?: string;
   labelClass?: string;
   required?: boolean;
-} & (Type extends 'textArea'
-  ? {
-      type: 'textArea';
-      rows?: number;
-    }
-  : Type extends 'select'
+  error?: FieldError;
+} & RegisterOptions &
+  (Type extends 'textArea'
     ? {
-        type: 'select';
-        items: { key: string; label: string }[];
+        type: 'textArea';
+        rows?: number;
+        maxLength: number;
       }
-    : Type extends 'custom'
+    : Type extends 'select'
       ? {
-          type: 'custom';
-          component: React.JSX.Element;
+          type: 'select';
+          items: { key: string; label: string }[];
         }
-      : Type extends HTMLInputTypeAttribute
+      : Type extends 'groupedSelect'
         ? {
-            type: HTMLInputTypeAttribute;
-            autoComplete?: string;
+            type: 'groupedSelect';
+            groupedItems: { [k: string]: { key: string; label: string }[] };
           }
-        : {});
+        : Type extends 'custom'
+          ?
+              | {
+                  type: 'custom';
+                  component: React.FunctionComponent<
+                    | {
+                        register: UseFormRegister<FormFields>;
+                        fieldName: Path<FormFields>;
+                      }
+                    | { [k: string]: any }
+                  >;
+                }
+              | { [k: string]: any }
+          : Type extends HTMLInputTypeAttribute
+            ? {
+                maxLength?: number;
+                type: HTMLInputTypeAttribute;
+                autoComplete?: string;
+              } & React.DetailedHTMLProps<
+                React.InputHTMLAttributes<HTMLInputElement>,
+                HTMLInputElement
+              >
+            : {});
 
-function buildSelect(props: InputProps<'select'>) {
+const internalProps = [
+  'label',
+  'register',
+  'fieldName',
+  'inputClass',
+  'divClass',
+  'labelClass',
+  'required',
+];
+function buildGroupedSelect<T extends FieldValues>(
+  props: InputProps<'groupedSelect', T>,
+  registerReturn: UseFormRegisterReturn
+) {
   return (
     <select
-      {...props.register(props.fieldName, { required: props.required })}
+      {...registerReturn}
       id={props.fieldName}
       className={props.inputClass}
       required={props.required}
+      defaultValue=""
     >
+      <option
+        value=""
+        unselectable="on"
+      >
+        {props.label}
+      </option>
+      {Object.entries(props.groupedItems).map(([group, items]) => (
+        <optgroup
+          key={group}
+          label={group}
+        >
+          {items.map(({ key, label }) => (
+            <option
+              key={key}
+              value={key}
+            >
+              {label}
+            </option>
+          ))}
+        </optgroup>
+      ))}
+    </select>
+  );
+}
+
+function buildSelect<T extends FieldValues>(
+  props: InputProps<'select', T>,
+  registerReturn: UseFormRegisterReturn
+) {
+  return (
+    <select
+      {...registerReturn}
+      id={props.fieldName}
+      className={props.inputClass}
+      required={props.required}
+      defaultValue=""
+    >
+      <option
+        value=""
+        unselectable="on"
+      >
+        {props.label}
+      </option>
       {props.items.map(({ key, label }) => (
         <option
           key={key}
@@ -58,52 +142,79 @@ function buildSelect(props: InputProps<'select'>) {
   );
 }
 
-function buildTextArea(props: InputProps<'textArea'>) {
+function buildTextArea<T extends FieldValues>(
+  props: InputProps<'textArea', T>,
+  registerReturn: UseFormRegisterReturn
+) {
   return (
     <textarea
-      {...props.register(props.fieldName, { required: props.required })}
       id={props.fieldName}
       className={props.inputClass}
       rows={props.rows || 3}
       required={props.required}
+      {...registerReturn}
     />
   );
 }
 
-function buildInput(props: InputProps<HTMLInputTypeAttribute>) {
+function buildInput<T extends FieldValues>(
+  props: InputProps<HTMLInputTypeAttribute, T>,
+  registerReturn: UseFormRegisterReturn
+) {
+  const allowedProps = Object.fromEntries(
+    Object.entries(props).filter(([k, _]) => !internalProps.includes(k))
+  );
   return (
     <input
       className={props.inputClass}
-      type={props.type}
-      {...props.register(props.fieldName, { required: props.required })}
+      {...allowedProps}
       id={props.fieldName}
-      autoComplete={props.autoComplete}
+      {...registerReturn}
     />
   );
 }
 
-export function Input(
+function Input<T extends FieldValues>(
   props:
-    | InputProps<'textArea'>
-    | InputProps<'select'>
-    | InputProps<'custom'>
-    | InputProps<HTMLInputTypeAttribute>,
+    | InputProps<'textArea', T>
+    | InputProps<'select', T>
+    | InputProps<'groupedSelect', T>
+    | InputProps<'custom', T>
+    | InputProps<HTMLInputTypeAttribute, T>
 ) {
-  const inputElement: ReactNode = useMemo(() => {
+  const registerReturn = useMemo(
+    () => props.register(props.fieldName, props),
+    [props]
+  );
+  const inputElement = useMemo(() => {
     switch (props.type) {
       case 'textArea':
-        return buildTextArea(props as InputProps<'textArea'>);
+        return buildTextArea(
+          props as InputProps<'textArea', T>,
+          registerReturn
+        );
       case 'select':
-        return buildSelect(props as InputProps<'select'>);
+        return buildSelect(props as InputProps<'select', T>, registerReturn);
+      case 'groupedSelect':
+        return buildGroupedSelect(
+          props as InputProps<'groupedSelect', T>,
+          registerReturn
+        );
       case 'custom':
-        return (props as InputProps<'custom'>).component;
+        const CustomElement = (props as InputProps<'custom', T>).component;
+        return <CustomElement {...props} />;
       default:
-        return buildInput(props);
+        return buildInput(
+          props as InputProps<HTMLInputTypeAttribute, T>,
+          registerReturn
+        );
     }
   }, [props]);
 
   return (
-    <div className={['flex flex-col gap-2', props.divClass].join(' ')}>
+    <div
+      className={['flex flex-col gap-2 text-left', props.divClass].join(' ')}
+    >
       <label
         htmlFor={props.fieldName}
         className={props.labelClass}
@@ -112,6 +223,11 @@ export function Input(
         {props.required && ' *'}
       </label>
       {inputElement}
+      {props.error !== undefined && (
+        <p className="text-red-500 font-bold">{props.error.message}</p>
+      )}
     </div>
   );
 }
+
+export default Input;

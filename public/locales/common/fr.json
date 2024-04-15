@@ -1,4 +1,7 @@
 {
+  "Estás a punto de borrar tu cuenta {{email}}, esto no se puede deshacer": {
+    "\n        \n        ¿Quieres continuar?": "TODO"
+  },
   "basic": "TODO",
   "intermediate": "TODO",
   "advanced": "TODO",
@@ -9,11 +12,12 @@
   "de": "TODO",
   "it": "TODO",
   "zh": "TODO",
-  "¡Siguenos en nuestras redes sociales!": "TODO",
+  "¡Síguenos en nuestras redes sociales!": "TODO",
   "errorTitle": "TODO",
   "Regresar": "TODO",
   "Refrescar página actual": "TODO",
   "errorDescription": "TODO",
+  "reportSent": "TODO",
   "Esta página no existe": "TODO",
   "Sentimos las molestias": "TODO",
   "Página principal": "TODO"

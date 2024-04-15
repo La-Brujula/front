@@ -1,6 +1,6 @@
-import IMDB from '@shared/icons/imdb';
-import TikTok from '@shared/icons/tiktok';
-import Vimeo from '@shared/icons/vimeo';
+import IMDB from '@/shared/icons/imdb';
+import TikTok from '@/shared/icons/tiktok';
+import Vimeo from '@/shared/icons/vimeo';
 import EmailOutlined from '@mui/icons-material/EmailOutlined';
 import FacebookOutlined from '@mui/icons-material/FacebookOutlined';
 import Instagram from '@mui/icons-material/Instagram';
@@ -10,122 +10,83 @@ import PhoneOutlined from '@mui/icons-material/PhoneOutlined';
 import WhatsApp from '@mui/icons-material/WhatsApp';
 import Twitter from '@mui/icons-material/X';
 import YouTube from '@mui/icons-material/YouTube';
-import { IFirebaseProfile } from '@/shared/types/user';
+import { IBackendProfile } from '@/shared/types/user';
+import { useTranslation } from 'react-i18next';
 
-export const ContactSection = ({ user }: { user: IFirebaseProfile }) => {
+export const ContactSection = ({ user }: { user: IBackendProfile }) => {
+  const { t } = useTranslation('profile');
   return (
     <div
       className="grid grid-cols-[max-content_1fr] max-w-md
       text-left gap-4 mx-auto xl:mx-0 items-center gap-x-6 overflow-hidden"
     >
-      {!!user.phone && (
-        <>
-          <h3>
-            <PhoneOutlined />
-          </h3>
-          <div className="w-full">
-            <a
-              target="_blank"
-              className="truncate block w-full"
-              href={'tel:' + user.phone}
-            >
-              {user.phone}
-            </a>
-          </div>
-        </>
-      )}
-      {!!user.altPhone && (
-        <>
-          <h3>
-            <PhoneOutlined />
-          </h3>
-          <div className="w-full">
-            <a
-              target="_blank"
-              className="truncate block w-full"
-              href={'tel:' + user.altPhone}
-            >
-              {user.altPhone}
-            </a>
-          </div>
-        </>
-      )}
-      {!!user.altPhone2 && (
-        <>
-          <h3>
-            <PhoneOutlined />
-          </h3>
-          <div className="w-full">
-            <a
-              target="_blank"
-              className="truncate block w-full"
-              href={'tel:' + user.altPhone2}
-            >
-              {user.altPhone2}
-            </a>
-          </div>
-        </>
-      )}
-      {!!user.email && !(user.type == 'moral' && user.altEmail) && (
-        <>
-          <h3>
-            <EmailOutlined />
-          </h3>
-          <a
-            target="_blank"
-            className="truncate block w-full"
-            href={'mailto:' + user.email}
+      <h3>{t('Contacto')}</h3>
+      {!!user.phoneNumbers &&
+        user.phoneNumbers.length > 0 &&
+        user.phoneNumbers.map((phoneNumber) => (
+          <div
+            className="grid grid-cols-subgrid col-span-2"
+            key={phoneNumber}
           >
-            {user.email}
-          </a>
-        </>
-      )}
-      {!!user.altEmail && (
-        <>
-          <h3>
-            <EmailOutlined />
-          </h3>
-          <div className="w-full">
-            <a
-              target="_blank"
-              className="truncate block w-full"
-              href={'mailto:' + user.altEmail}
-            >
-              {user.altEmail}
-            </a>
+            <h3>
+              <PhoneOutlined />
+            </h3>
+            <div className="w-full">
+              <a
+                target="_blank"
+                className="truncate block w-full"
+                href={'tel:' + phoneNumber}
+              >
+                {phoneNumber}
+              </a>
+            </div>
           </div>
-        </>
-      )}
-      {!!user.altEmail2 && (
-        <>
-          <h3>
-            <EmailOutlined />
-          </h3>
-          <div className="w-full">
-            <a
-              target="_blank"
-              className="truncate block w-full"
-              href={'mailto:' + user.altEmail2}
+        ))}
+      {(user.type != 'moral'
+        ? [user.primaryEmail, user.secondaryEmails]
+        : user.secondaryEmails !== undefined &&
+            user.secondaryEmails[0] !== undefined
+          ? user.secondaryEmails
+          : [user.primaryEmail]
+      )
+        .flat()
+        .map((email: string | undefined) =>
+          email !== undefined ? (
+            <div
+              className="grid grid-cols-subgrid col-span-2"
+              key={email}
             >
-              {user.altEmail2}
-            </a>
-          </div>
-        </>
-      )}
-      {!!user.website && (
-        <>
-          <h3>
-            <LinkOutlined />
-          </h3>
-          <a
-            target="_blank"
-            className="truncate block w-full"
-            href={user.website}
+              <h3>
+                <EmailOutlined />
+              </h3>
+              <a
+                target="_blank"
+                className="truncate block w-full"
+                href={'mailto:' + email}
+              >
+                {email}
+              </a>
+            </div>
+          ) : null
+        )}
+      {!!user.externalLinks &&
+        user.externalLinks.map((link) => (
+          <div
+            className="grid grid-cols-subgrid col-span-full"
+            key={link}
           >
-            {user.website}
-          </a>
-        </>
-      )}
+            <h3>
+              <LinkOutlined />
+            </h3>
+            <a
+              target="_blank"
+              className="truncate block w-full"
+              href={link}
+            >
+              {link}
+            </a>
+          </div>
+        ))}
       {!!user.whatsapp && (
         <>
           <h3>

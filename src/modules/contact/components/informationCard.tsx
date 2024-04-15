@@ -37,9 +37,9 @@ export function InformationCard() {
         <h2 className="text-lg lg:px-4">{t('Teléfono')}</h2>
         <p>
           {contactInformation.phoneNumbers.map((phone) => (
-            <>
+            <span key={phone}>
               {phone} <br />
-            </>
+            </span>
           ))}
         </p>
         <div className="h-[2px] rounded-lg bg-white lg:col-span-3" />
@@ -47,7 +47,7 @@ export function InformationCard() {
         <h2 className="text-lg lg:px-4">{t('Correo electrónico')}</h2>
         <div className="grid grid-cols-[max-content_1fr] gap-x-4">
           {contactInformation.emails.map(({ name, email }) => (
-            <>
+            <div key={email}>
               <p>{t(name)}</p>
               <a
                 href={`mailto:${email}`}
@@ -55,18 +55,20 @@ export function InformationCard() {
               >
                 {email}
               </a>
-            </>
+            </div>
           ))}
         </div>
         <div className="h-[2px] rounded-lg bg-white lg:col-span-3" />
         <PinOutlined />
         <h2 className="text-lg lg:px-4">{t('Visítanos')}</h2>
-        <Trans
-          i18nKey="address"
-          t={t}
-        >
-          <p>{contactInformation.address}</p>
-        </Trans>
+        <p>
+          <Trans
+            i18nKey="address"
+            t={t}
+          >
+            {contactInformation.address}
+          </Trans>
+        </p>
       </div>
       <SocialLinks />
     </Container>

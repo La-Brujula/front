@@ -57,6 +57,10 @@
     px-5 py-3 cursor-pointer border-none font-bold;
   }
 
+  input[type='submit']:disabled {
+    @apply bg-gray-500 cursor-not-allowed;
+  }
+
   input[type='checkbox']:checked {
     @apply bg-primary border-none;
   }

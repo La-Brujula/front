@@ -1,21 +1,19 @@
 import { DetailedHTMLProps, SelectHTMLAttributes, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import countries from '@shared/constants/countryCodes.json';
+import { FieldValues, Path, UseFormRegister } from 'react-hook-form';
 
-function CountrySelect(
-  props: DetailedHTMLProps<
-    SelectHTMLAttributes<HTMLSelectElement>,
-    HTMLSelectElement
-  >,
-) {
+function CountrySelect<T extends FieldValues>(props: {
+  register: UseFormRegister<T>;
+  fieldName: Path<T>;
+}) {
   const { t } = useTranslation('countries');
   const translatedCountries = useMemo(
     () => countries.map((country) => ({ id: country, name: t(country) })),
-    [countries, t],
+    [countries, t]
   );
   return (
-    <select {...props}>
-      <option value="">{t('Por favor selecciona una opción')}</option>
+    <select {...props.register(props.fieldName)}>
       {translatedCountries.map((country) => (
         <option
           key={country.id}

@@ -19,36 +19,30 @@ type Activity = {
 type Subarea = Record<string, Activity>;
 type Area = Record<string, Subarea>;
 export type AreaName = keyof typeof areas;
-type AreasFile = Record<string, Area>;
+// type AreasFile = Record<string, Area>;
 
 export function getTitle(
   userActivity: string,
-  gender: EnumGender = 'No Binario',
+  gender: EnumGender = 'other'
 ): string {
   let genderForTitle: keyof Activity;
   if (!userActivity) return '';
-  if (
-    ![
-      'Femenino',
-      'Masculino',
-      'No Binario',
-      'Prefiero no decir',
-      'Persona Moral',
-    ].includes(gender)
-  ) {
+  if (!['male', 'female', 'other'].includes(gender)) {
     throw Error(
       'Unknown gender please use one of "Femenino", "Masculino", "No binario", "Prefiero no decir"' +
-        gender,
+        gender
     );
   }
-  if (
-    gender == 'No Binario' ||
-    gender == 'Prefiero no decir' ||
-    gender == 'Persona Moral'
-  ) {
-    genderForTitle = 'Alias Genérico';
-  } else {
-    genderForTitle = gender;
+  switch (gender) {
+    case 'male':
+      genderForTitle = 'Masculino';
+      break;
+    case 'female':
+      genderForTitle = 'Femenino';
+      break;
+    case 'other':
+      genderForTitle = 'Alias Genérico';
+      break;
   }
   const area: Area = areas[getAreaFromId(userActivity)];
   const subarea: Subarea = area[getSubAreaFromId(userActivity)];
@@ -63,9 +57,7 @@ export function getAreaObjectByIndex(area: number) {
   return Object.entries(areas)[area - 1][1];
 }
 
-export function getAreaObjectByName(areaName: string) {
-  if (!Object.hasOwn(areas, areaName)) throw 'Not a valida area';
-  // @ts-expect-error
+export function getAreaObjectByName(areaName: keyof typeof areas) {
   return areas[areaName] as Area;
 }
 
@@ -75,15 +67,19 @@ export function getAreaByIndex(area: number): keyof typeof areas {
 
 export function getSubAreaObjectByName(
   area: keyof typeof areas,
-  subareaName: string,
+  subareaName: string
 ) {
-  // @ts-expect-error
-  return areas[area][subareaName];
+  const areaObj = areas[area] as Record<string, any>;
+  const subareaObj = areaObj[subareaName];
+  if (subareaObj === undefined) {
+    throw Error('Subarea not found in area');
+  }
+  return subareaObj;
 }
 
 export function getSubAreaObject(
   area: keyof typeof areas,
-  subareaIndex: number,
+  subareaIndex: number
 ) {
   return Object.entries(areas[area])[subareaIndex - 1][1];
 }
@@ -108,13 +104,13 @@ export function getAreaFromId(activity: string): keyof typeof areas {
 export function getSubAreaObjectFromId(activity: string) {
   return getSubAreaObject(
     getAreaFromId(activity),
-    parseInt(activity.split('-')[0].slice(1)),
+    parseInt(activity.split('-')[0].slice(1))
   );
 }
 
 export function getSubAreaFromId(activity: string): string {
   return getSubAreaByIndex(
     getAreaObjectFromId(activity),
-    parseInt(activity.split('-')[0].slice(1)),
+    parseInt(activity.split('-')[0].slice(1))
   );
 }

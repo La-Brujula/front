@@ -4,6 +4,7 @@
   "Nombre": "Nombre",
   "Correo electrónico": "Correo electrónico",
   "Mensaje": "Mensaje",
+  "Se mandó con éxito el mensaje, pronto estaremos en contacto": "Se mandó con éxito el mensaje, pronto estaremos en contacto",
   "Enviar": "Enviar",
   "Directora": "Directora",
   "Diseño": "Diseño",
@@ -11,5 +12,5 @@
   "Whatsapp": "Whatsapp",
   "Teléfono": "Teléfono",
   "Visítanos": "Visítanos",
-  "address": "Haz tu cita en nuestro número de whatsapp +52 33 1385 2068 PLAi, C. Independencia 55, Zona Centro, 44100 Guadalajara, Jal."
+  "address": "<0>{contactInformation.address}</0>"
 }

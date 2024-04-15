@@ -1,0 +1,20 @@
+{
+  "AE01": "Ya existe la cuenta",
+  "AE02": "Credenciales incorrectas",
+  "AE03": "No existe la cuenta",
+  "AE04": "No hay una sesión activa",
+  "AE05": "Sesión expirada",
+  "AE06": "No se pudo borrar la cuenta",
+  "AE07": "No se pudo cambiar la contraseña",
+  "AE08": "Demasiados intentos de reinicio de contraseña",
+  "AE09": "Código incorrecto para reiniciar contraseña",
+  "AE10": "Código para reiniciar contraseña expirado",
+  "AE11": "Permisos insuficientes",
+  "PE01": "El perfil ya existe",
+  "PE02": "El perfil no existe",
+  "PE03": "El perfil ya fue recomendado",
+  "PE04": "El perfil no ha sido recomendado",
+  "SE01": "Error de formato",
+  "PE05": "No se encontraron valores para el campo",
+  "PE06": "El campo no pudo ser enumerado"
+}

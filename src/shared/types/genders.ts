@@ -1,6 +1,5 @@
-export type EnumGender =
-  | 'Masculino'
-  | 'Femenino'
-  | 'No Binario'
-  | 'Prefiero no decir'
-  | 'Persona Moral';
+export type EnumGender = 'male' | 'female' | 'other';
+
+// t("genders:male")
+// t("genders:female")
+// t("genders:other")

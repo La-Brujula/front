@@ -24,7 +24,7 @@ interface ActivityReducerState {
 
 function activityReducer(
   state: ActivityReducerState,
-  action: ActivityReducerAction,
+  action: ActivityReducerAction
 ): ActivityReducerState {
   switch (action.type) {
     case 'add':
@@ -34,13 +34,13 @@ function activityReducer(
     case 'remove':
       return {
         activities: state.activities.filter(
-          (_, index) => action.index !== index,
+          (_, index) => action.index !== index
         ),
       };
     case 'change':
       return {
         activities: state.activities.map((element, index) =>
-          action.index === index ? action.item : element,
+          action.index === index ? action.item : element
         ),
       };
     case 'clear':
@@ -52,16 +52,20 @@ function activityReducer(
   }
 }
 
-export function useAreasReducer(subareas?: string[]) {
-  const [state, dispatch] = useReducer(activityReducer, {
-    activities: subareas || [],
-  });
+export function useAreasReducer(subareas?: string[], initializer?: any) {
+  const [state, dispatch] = useReducer(
+    activityReducer,
+    {
+      activities: subareas || [],
+    },
+    () => ({ activities: initializer() })
+  );
 
   const removeElement = useCallback(
     (i: number) => () => {
       dispatch({ type: 'remove', index: i });
     },
-    [dispatch],
+    [dispatch]
   );
 
   return { state: state.activities, dispatch, removeElement };

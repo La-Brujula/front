@@ -1,10 +1,12 @@
 import { ReactNode } from 'react';
 
-export const Button = (props: {
-  color: string;
-  variant: 'outline' | 'filled';
-  children: ReactNode;
-}) => {
+export const Button = (
+  props: {
+    color: string;
+    variant: 'outline' | 'filled';
+    children: ReactNode;
+  } & React.ButtonHTMLAttributes<HTMLButtonElement>
+) => {
   const { color, variant, children } = props;
   switch (variant) {
     case 'outline':

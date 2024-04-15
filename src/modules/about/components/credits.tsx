@@ -1,5 +1,6 @@
 import credits from '@shared/constants/credits.json';
 import { Container } from '@shared/layout/container';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 // i18next-parser static types
@@ -43,7 +44,7 @@ function Credit({ title, name }: { title: string; name: string }) {
   );
 }
 
-export function CreditsSection() {
+function CreditsSection() {
   const { t } = useTranslation('about');
   return (
     <Container>
@@ -84,3 +85,5 @@ export function CreditsSection() {
     </Container>
   );
 }
+
+export default React.memo(CreditsSection);

@@ -48,7 +48,7 @@ export function SocialLinks() {
         </a>
       </div>
       <p className="font-bold text-primary">
-        {t('¡Siguenos en nuestras redes sociales!')}
+        {t('¡Síguenos en nuestras redes sociales!')}
       </p>
     </div>
   );
