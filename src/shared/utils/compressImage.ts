@@ -15,8 +15,10 @@ export async function compress(
       convertSize,
       success: resolve,
       error: reject,
-      convertTypes: 'image/jpeg',
+      mimeType: 'image/jpeg',
+      convertTypes: ['image/png', 'image/webp'],
       resize: 'cover',
+      retainExif: false,
     });
   });
 }
