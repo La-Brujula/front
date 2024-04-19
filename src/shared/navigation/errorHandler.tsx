@@ -11,12 +11,13 @@ function ErrorHandler(props: ErrorComponentProps) {
 
   useMemo(() => {
     const error = props.error as Error;
-    mutate({
-      pathname: window.location.pathname,
-      name: error.name,
-      stack: error.stack || '',
-      message: error.message,
-    });
+    import.meta.env.DEV ||
+      mutate({
+        pathname: window.location.pathname,
+        name: error.name,
+        stack: error.stack || '',
+        message: error.message,
+      });
   }, [props.error]);
 
   return (
