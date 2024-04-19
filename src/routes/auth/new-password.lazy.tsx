@@ -42,7 +42,7 @@ function NewPasswordPage() {
       mutate(
         { email, password: values.password, code },
         {
-          onSuccess: () => navigate({ to: '/auth/login' }),
+          onSuccess: () => navigate({ to: '/auth/login', resetScroll: true }),
           onError: (error) => {
             if (
               isApiError(error) &&

@@ -14,6 +14,7 @@ import {
 import { useUpdateMe } from '@/shared/hooks/useUpdateMe.js';
 import DataSuspense from '@/shared/components/dataSuspense.js';
 import { Button } from '@/shared/components/button.js';
+import { isApiError } from '@/shared/services/backendFetcher.js';
 
 export const Route = createLazyFileRoute('/profile/_edit/areas')({
   component: AreasRegistration,
@@ -82,7 +83,8 @@ function AreasRegistration() {
         thirdActivity: activities.length >= 2 ? activities[2] : undefined,
       },
       {
-        onSuccess: () => navigate({ to: '/profile/edit/summary' }),
+        onSuccess: () =>
+          navigate({ to: '/profile/edit/summary', resetScroll: true }),
       }
     );
   }, [mutate, setError, activities]);
@@ -153,7 +155,13 @@ function AreasRegistration() {
         )}
         {!!mutateError && (
           <div className="col-span-full">
-            <ErrorMessage message={mutateError.message} />
+            <ErrorMessage
+              message={
+                isApiError(mutateError)
+                  ? mutateError.errorCode
+                  : mutateError.message
+              }
+            />
           </div>
         )}
         <div className="grid grid-cols-2 col-span-full">

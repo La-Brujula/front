@@ -98,6 +98,7 @@ export const Recommendations = ({ user }: { user: IBackendProfile }) => {
               to="/profile/$userId"
               params={{ userId: a.id }}
               className="text-primary"
+              resetScroll
             >
               {a.fullName}
             </Link>

@@ -24,6 +24,7 @@ import Vimeo from '@/shared/icons/vimeo';
 import IMDB from '@/shared/icons/imdb';
 import TikTok from '@/shared/icons/tiktok';
 import { Tooltip } from '@mui/material';
+import { isApiError } from '@/shared/services/backendFetcher';
 
 export const Route = createLazyFileRoute('/profile/_edit/contact')({
   component: ContactPage,
@@ -65,7 +66,8 @@ function ContactPage() {
       externalLinks: [data.externalLinks],
     } as IUpdateBackendProfile;
     mutate(processedData, {
-      onSuccess: () => navigate({ to: '/profile/edit/characteristics' }),
+      onSuccess: () =>
+        navigate({ to: '/profile/edit/characteristics', resetScroll: true }),
     });
   };
 
@@ -215,7 +217,11 @@ function ContactPage() {
             />
           </div>
         </div>
-        {!!error && <ErrorMessage message={error.message} />}
+        {!!error && (
+          <ErrorMessage
+            message={isApiError(error) ? error.errorCode : error.message}
+          />
+        )}
         <div className="flex flex-row gap-4 self-center">
           <div
             className="button font-bold bg-transparent border border-primary text-black"

@@ -21,6 +21,7 @@ export const PorCategorias = ({
             to={cat.search.length != 6 ? '/search/$label' : '/search'}
             params={{ label: cat.label }}
             search={{ search: cat.search }}
+            resetScroll
           >
             <img
               src={`${import.meta.env.BASE_URL}img/${cat.iconUrl}.svg`}

@@ -18,12 +18,14 @@ export default () => {
               /* El tipado es incompleto, con -1 rediriges a la página anterior */
               // @ts-ignore
               to={-1}
+              resetScroll
               className="button bg-transparent text-current h-11"
             >
               {t('Regresar')}
             </Link>
             <Link
               to="/"
+              resetScroll
               className="button h-11"
             >
               {t('Página principal')}

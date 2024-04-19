@@ -11,6 +11,7 @@ export const SearchModules = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 md:flex-row gap-8">
         <NameSearchField />
         <Link
+          resetScroll
           to="/search/category"
           className="button font-bold flex flex-col items-center justify-center
             bg-primary py-8 text-xl"

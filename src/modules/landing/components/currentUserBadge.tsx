@@ -26,6 +26,7 @@ export const CurrentUserBadge = () => {
         <Link
           to="/profile/$userId"
           params={{ userId: user.id || '' }}
+          resetScroll
         >
           <ProfileBadge user={user} />
         </Link>

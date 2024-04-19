@@ -13,6 +13,7 @@ import { useUpdateMe } from '@/shared/hooks/useUpdateMe';
 import { ErrorMessage } from '@/shared/components/errorMessage';
 import Input from '@/shared/components/input';
 import DataSuspense from '@/shared/components/dataSuspense';
+import { isApiError } from '@/shared/services/backendFetcher';
 
 export const Route = createLazyFileRoute('/profile/_edit/characteristics')({
   component: CharacteristicsPage,
@@ -40,7 +41,11 @@ function CharacteristicsPage() {
       if (user === undefined) throw Error('User is not loaded');
       mutate(data, {
         onSuccess: () =>
-          navigate({ to: '/profile/$userId', params: { userId: user!.id } }),
+          navigate({
+            to: '/profile/$userId',
+            params: { userId: user!.id },
+            resetScroll: true,
+          }),
       });
     },
     [mutate, navigate, user]
@@ -124,7 +129,15 @@ function CharacteristicsPage() {
             inputClass="rounded-md bg-black bg-opacity-20 resize-none col-span-2 p-4"
           />
         </div>
-        {!!mutateError && <ErrorMessage message={mutateError.message} />}
+        {!!mutateError && (
+          <ErrorMessage
+            message={
+              isApiError(mutateError)
+                ? mutateError.errorCode
+                : mutateError.message
+            }
+          />
+        )}
         <div className="flex flex-row gap-4 self-center">
           <div
             className="button font-bold bg-transparent border border-primary text-black"

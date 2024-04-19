@@ -88,6 +88,7 @@ function SubCategoryPage() {
         navigate({
           to: '/search',
           search: { activity: search, category: search.slice(0, 3) },
+          resetScroll: true,
         });
         return [];
       default:
@@ -130,6 +131,7 @@ function SubCategoryPage() {
       <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 auto-rows-fr">
         {linkList.map((linkObject, i) => (
           <Link
+            resetScroll
             to={linkObject.link}
             search={linkObject.search}
             key={encodeURI(linkObject.name)}

@@ -23,7 +23,7 @@ export const ResultsFilter = (props: {
 
   const clearFilters = useCallback(() => {
     props.reset(searchSchema.parse({}));
-    navigate({ to: '/search', search: {}, replace: true });
+    navigate({ to: '/search', search: {}, replace: true, resetScroll: true });
   }, [props.reset, navigate]);
 
   return (

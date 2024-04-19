@@ -3,6 +3,7 @@ import { ErrorMessage } from '@/shared/components/errorMessage';
 import Input from '@/shared/components/input';
 import { useCurrentProfile } from '@/shared/hooks/useCurrentProfile';
 import { useUpdateMe } from '@/shared/hooks/useUpdateMe';
+import { isApiError } from '@/shared/services/backendFetcher';
 import { IUpdateBackendProfile } from '@/shared/types/user';
 import { ButtonSelect } from '@shared/components/buttonSelect';
 import { LoadingSpinner } from '@shared/components/loadingSpinner';
@@ -54,7 +55,8 @@ function StandoutPage() {
 
   const onSubmit = async (data: IUpdateBackendProfile) => {
     mutate(data, {
-      onSuccess: () => navigate({ to: '/profile/edit/contact' }),
+      onSuccess: () =>
+        navigate({ to: '/profile/edit/contact', resetScroll: true }),
     });
   };
 
@@ -132,7 +134,15 @@ function StandoutPage() {
           ]}
         />
       </div>
-      {mutateError && <ErrorMessage message={mutateError.message} />}
+      {mutateError && (
+        <ErrorMessage
+          message={
+            isApiError(mutateError)
+              ? mutateError.errorCode
+              : mutateError.message
+          }
+        />
+      )}
       <div className="flex flex-row gap-4 self-center">
         <div
           className="button font-bold bg-transparent border border-primary text-black"

@@ -11,6 +11,7 @@ export const UserCard = ({ user }: { user: UserDTO }) => {
       params={{ userId: user.id }}
       className="grid grid-cols-[5rem_1fr_1fr] lg:grid-cols-[5rem_5fr_4fr] lg:gap-4
       gap-4 pt-4 gap-y-4 items-center"
+      resetScroll
     >
       {!!user.profilePictureUrl ? (
         <img

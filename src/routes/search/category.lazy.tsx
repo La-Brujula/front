@@ -42,7 +42,11 @@ function SearchByCategory() {
                 : firstId.length == 3
                   ? 'subarea'
                   : 'activity';
-            navigate({ to: '/search', search: { [queryType]: parsed } });
+            navigate({
+              to: '/search',
+              search: { [queryType]: parsed },
+              resetScroll: true,
+            });
           })}
           className="flex flex-col lg:flex-row items-center justify-center
         gap-4 bg-primary p-4 rounded-lg lg:-mx-4 font-bold"

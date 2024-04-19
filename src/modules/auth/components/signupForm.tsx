@@ -1,15 +1,11 @@
-import { useCallback, useState } from 'react';
 import { Path, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { LoadingSpinner } from '@shared/components/loadingSpinner';
 import { PrivacyPolicy } from './privacyPolicy';
 import { useAuth } from '@/shared/providers/authProvider';
 import { Link, useNavigate } from '@tanstack/react-router';
-import { signUpService } from '@/shared/services/authServices';
 import useAuthFunction from '@/shared/hooks/useAuthFuncton';
 import { ErrorMessage } from '@/shared/components/errorMessage';
 import Input from '@/shared/components/input';
-import { ButtonSelect } from '@/shared/components/buttonSelect';
 import { isApiError } from '@/shared/services/backendFetcher';
 
 type SignupForm = {
@@ -29,8 +25,6 @@ export const SignUpForm = () => {
   const navigate = useNavigate();
 
   const onSubmit = async (data: SignupForm) => {
-    if (loading) return;
-    if (!data.email || !data.password) return;
     mutate(
       { email: data.email, password: data.password, type: data.persona },
       {
@@ -49,7 +43,7 @@ export const SignUpForm = () => {
           }
         },
         onSuccess: () => {
-          navigate({ to: '/profile/edit/basic' });
+          navigate({ to: '/profile/edit/basic', resetScroll: true });
         },
       }
     );
@@ -91,10 +85,10 @@ export const SignUpForm = () => {
       </div>
       <Input
         label={t('¿Eres persona física o persona moral?')}
+        divClass="text-center"
         register={register}
         fieldName="persona"
-        type="custom"
-        component={ButtonSelect<SignupForm>}
+        type="radioGroup"
         items={[
           { value: 'fisica', label: t('Persona física') },
           { value: 'moral', label: t('Persona moral') },
@@ -118,6 +112,7 @@ export const SignUpForm = () => {
         <Link
           to="/auth/login"
           className="mt-4"
+          resetScroll
         >
           {t('Inicia Sesión')}
         </Link>

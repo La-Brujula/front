@@ -55,6 +55,7 @@ function SearchHomepage() {
         Object.entries(data).filter(([_, value]) => !!value)
       ),
       replace: true,
+      resetScroll: true,
     });
 
   useEffect(() => {

@@ -14,7 +14,7 @@ function LogoutPage() {
   const { logout } = useAuth(['logout']);
   useEffect(() => {
     logout();
-    navigate({ to: '/' });
+    navigate({ to: '/', resetScroll: true });
   }, []);
 
   return (

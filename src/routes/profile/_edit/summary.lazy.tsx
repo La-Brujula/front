@@ -86,7 +86,10 @@ function ProfileSummary() {
         ))}
       </div>
       <div className="flex flex-row gap-4 self-center justify-center my-8">
-        <Link to="/profile/edit/stand-out">
+        <Link
+          to="/profile/edit/stand-out"
+          resetScroll
+        >
           <div className="button font-bold">{t('Continuar')}</div>
         </Link>
       </div>
