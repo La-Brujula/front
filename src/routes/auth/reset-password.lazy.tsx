@@ -99,7 +99,7 @@ function PasswordResetPage() {
         </form>
       ) : (
         <>
-          <p className="px-4 py-2 rounded-md bg-green-400 text-white font-bold">
+          <p className="px-4 py-2 rounded-md bg-secondary text-white font-bold">
             {t(
               'Se ha enviado el correo con el link para reiniciar tu contraseña'
             )}
