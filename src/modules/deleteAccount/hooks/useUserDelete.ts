@@ -29,7 +29,7 @@ export function useDeleteMyUser() {
     mutationFn: deleteMyAccount,
     onSuccess: () => {
       logout();
-      navigate({ to: '/' });
+      navigate({ to: '/', resetScroll: true });
     },
   });
 }
