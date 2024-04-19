@@ -61,7 +61,6 @@ export interface IUpdateBackendProfile {
   characteristics?: string;
   city?: string;
   country?: string;
-  coverPictureUrl?: string;
   facebook?: string;
   firstName?: string;
   gender?: EnumGender;
@@ -77,8 +76,6 @@ export interface IUpdateBackendProfile {
   postalCode?: string;
   primaryActivity?: string;
   probono?: string | boolean;
-  profilePicture?: string;
-  profilePictureUrl?: string;
   remote?: boolean | string;
   secondaryActivity?: string;
   secondaryEmails?: string[];
