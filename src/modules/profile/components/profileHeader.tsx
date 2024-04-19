@@ -134,7 +134,7 @@ function UpdateImageControls(props: {
   imageUrl: string;
   imageType: 'profile' | 'cover';
 }) {
-  const upload = useUploadProfileImage();
+  const { mutate: upload } = useUploadProfileImage();
   const uploadImage = useCallback(async () => {
     const imageFile = await fetch(props.imageUrl)
       .then((r) => r.blob())
@@ -142,14 +142,19 @@ function UpdateImageControls(props: {
         (blobFile) =>
           new File([blobFile], props.imageType, { type: blobFile.type })
       );
-    const uploadRes = await upload(imageFile, props.imageType);
-    if (uploadRes.isSuccess) {
-      props.setImageUrl(
-        props.imageType == 'cover'
-          ? uploadRes.entity.headerPictureUrl!
-          : uploadRes.entity.profilePictureUrl!
-      );
-    }
+    upload(
+      { imageFile, imageType: props.imageType },
+      {
+        onSuccess: (data) => {
+          const imageUrl =
+            props.imageType === 'cover'
+              ? data.entity.headerPictureUrl!
+              : data.entity.profilePictureUrl!;
+          props.setImageUrl(imageUrl);
+          fetch(imageUrl, { cache: 'no-cache' });
+        },
+      }
+    );
   }, [upload]);
 
   const resetInput = useCallback(
