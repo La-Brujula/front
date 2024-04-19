@@ -24,6 +24,7 @@ import { Route as AuthNewPasswordImport } from './routes/auth/new-password';
 const IndexLazyImport = createFileRoute('/')();
 const GuidesIndexLazyImport = createFileRoute('/guides/')();
 const ContactIndexLazyImport = createFileRoute('/contact/')();
+const AnnouncementsIndexLazyImport = createFileRoute('/announcements/')();
 const AboutIndexLazyImport = createFileRoute('/about/')();
 const SearchCategoryLazyImport = createFileRoute('/search/category')();
 const AuthSignupLazyImport = createFileRoute('/auth/signup')();
@@ -63,6 +64,13 @@ const ContactIndexLazyRoute = ContactIndexLazyImport.update({
   getParentRoute: () => rootRoute,
 } as any).lazy(() =>
   import('./routes/contact/index.lazy').then((d) => d.Route)
+);
+
+const AnnouncementsIndexLazyRoute = AnnouncementsIndexLazyImport.update({
+  path: '/announcements/',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() =>
+  import('./routes/announcements/index.lazy').then((d) => d.Route)
 );
 
 const AboutIndexLazyRoute = AboutIndexLazyImport.update({
@@ -238,6 +246,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutIndexLazyImport;
       parentRoute: typeof rootRoute;
     };
+    '/announcements/': {
+      preLoaderRoute: typeof AnnouncementsIndexLazyImport;
+      parentRoute: typeof rootRoute;
+    };
     '/contact/': {
       preLoaderRoute: typeof ContactIndexLazyImport;
       parentRoute: typeof rootRoute;
@@ -296,6 +308,7 @@ export const routeTree = rootRoute.addChildren([
   SearchCategoryLazyRoute,
   SearchIndexRoute,
   AboutIndexLazyRoute,
+  AnnouncementsIndexLazyRoute,
   ContactIndexLazyRoute,
   GuidesIndexLazyRoute,
 ]);
