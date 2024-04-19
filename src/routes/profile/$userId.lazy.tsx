@@ -49,6 +49,7 @@ export function UserProfilePage() {
     <DataSuspense
       loading={loading}
       error={error}
+      key={userId}
     >
       <ProfileHeader user={user!} />
       <div className="max-w-lg xl:max-w-4xl mx-auto px-8 w-full justify-start items-start mb-4">
@@ -138,6 +139,7 @@ export function UserProfilePage() {
           <Link
             to="/auth/delete-account"
             className="!text-slate-400 text-sm text-center block"
+            resetScroll
           >
             {t('Borrar cuenta')}
           </Link>
