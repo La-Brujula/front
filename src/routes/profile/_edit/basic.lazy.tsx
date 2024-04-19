@@ -1,6 +1,6 @@
 import ErrorMessage from '@shared/components/errorMessage';
 import genders from '@shared/constants/genders.json';
-import { useForm } from 'react-hook-form';
+import { Path, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { IUpdateBackendProfile } from '@/shared/types/user';
 import Input from '@/shared/components/input';
@@ -14,6 +14,7 @@ import { useCurrentProfile } from '@/shared/hooks/useCurrentProfile';
 import { useUpdateMe } from '@/shared/hooks/useUpdateMe';
 import DataSuspense from '@/shared/components/dataSuspense';
 import { useCallback } from 'react';
+import { isApiError } from '@/shared/services/backendFetcher';
 
 export const Route = createLazyFileRoute('/profile/_edit/basic')({
   component: BasicInfo,
@@ -28,24 +29,40 @@ function BasicInfo() {
   const { mutate, isPending, error: mutateError } = useUpdateMe();
   const { data: user, isLoading: loading, error } = useCurrentProfile();
 
-  const { register, handleSubmit, formState } = useForm<IUpdateBackendProfile>({
-    defaultValues: {
-      ...user,
-      gender: user?.type === 'moral' ? 'other' : user?.gender || 'other',
-      probono:
-        user?.probono !== undefined
-          ? user.probono === true
-            ? 'true'
-            : 'false'
-          : undefined,
-      birthday: user?.birthday !== undefined ? user.birthday?.slice(0, 10) : '',
-    },
-  });
+  const { register, handleSubmit, formState, setError } =
+    useForm<IUpdateBackendProfile>({
+      defaultValues: {
+        ...user,
+        gender: user?.type === 'moral' ? 'other' : user?.gender || 'other',
+        probono:
+          user?.probono !== undefined
+            ? user.probono === true
+              ? 'true'
+              : 'false'
+            : undefined,
+        birthday:
+          user?.birthday !== undefined ? user.birthday?.slice(0, 10) : '',
+      },
+    });
 
   const onSubmit = useCallback(
     async (data: IUpdateBackendProfile) => {
       mutate(data, {
-        onSuccess: () => navigate({ to: '/profile/edit/areas' }),
+        onSuccess: () =>
+          navigate({ to: '/profile/edit/areas', resetScroll: true }),
+        onError: (error) => {
+          if (
+            isApiError(error) &&
+            error.errorCode === 'SE01' &&
+            !(typeof error.message === 'string')
+          ) {
+            for (const err of error.message) {
+              setError(err.path as Path<IUpdateBackendProfile>, {
+                message: t(err.msg),
+              });
+            }
+          }
+        },
       });
     },
     [navigate, mutate]
@@ -74,6 +91,7 @@ function BasicInfo() {
             fieldName="firstName"
             divClass={user?.type == 'moral' ? 'col-span-full' : ''}
             required={true}
+            error={formState.errors.firstName}
           />
           {user?.type != 'moral' ? (
             <>
@@ -85,6 +103,7 @@ function BasicInfo() {
                 fieldName="lastName"
                 divClass=""
                 required={true}
+                error={formState.errors.lastName}
               />
               <Input
                 label={t('Nombre con el que quieres aparecer')}
@@ -94,6 +113,7 @@ function BasicInfo() {
                 fieldName="nickName"
                 divClass="col-span-full"
                 required={false}
+                error={formState.errors.nickName}
               />
               <Input
                 label={t('Género')}
@@ -106,6 +126,7 @@ function BasicInfo() {
                   key: gender == 'Prefiero no decir' ? 'other' : gender,
                   label: t(gender, { ns: 'genders' }),
                 }))}
+                error={formState.errors.gender}
               />
               <Input
                 label={t('Fecha de nacimiento')}
@@ -115,6 +136,7 @@ function BasicInfo() {
                 autoComplete="birthday"
                 divClass="col-span-full"
                 required={false}
+                error={formState.errors.birthday}
               />
               <p className="col-span-full text-xs -mt-2">
                 {t('Este dato solamente es para uso interno')}
@@ -139,6 +161,7 @@ function BasicInfo() {
             divClass="col-span-full"
             component={CountrySelect<IUpdateBackendProfile>}
             required={true}
+            error={formState.errors.country}
           />
           <Input
             label={t('Estado')}
@@ -148,6 +171,7 @@ function BasicInfo() {
             autoComplete="state"
             divClass="col-span-full"
             required={true}
+            error={formState.errors.state}
           />
           <Input
             label={t('Ciudad')}
@@ -157,6 +181,7 @@ function BasicInfo() {
             autoComplete="city"
             divClass="col-span-full"
             required={true}
+            error={formState.errors.city}
           />
           <Input
             divClass="col-span-full"
@@ -165,9 +190,18 @@ function BasicInfo() {
             fieldName="postalCode"
             autoComplete="postal-code"
             register={register}
+            error={formState.errors.postalCode}
           />
         </div>
-        {!!mutateError && <ErrorMessage message={mutateError.toString()} />}
+        {mutateError !== null && (
+          <ErrorMessage
+            message={
+              isApiError(mutateError)
+                ? mutateError.errorCode
+                : mutateError.message
+            }
+          />
+        )}
         <div className="col-span-full flex flex-row gap-4 justify-center">
           <div
             className="button font-bold bg-transparent border border-primary text-black"
