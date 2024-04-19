@@ -7,6 +7,7 @@ import {
   UseFormRegister,
   UseFormRegisterReturn,
 } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 
 type InputProps<
   Type extends
@@ -14,6 +15,7 @@ type InputProps<
     | 'select'
     | 'groupedSelect'
     | 'custom'
+    | 'radioGroup'
     | HTMLInputTypeAttribute,
   FormFields extends FieldValues,
 > = {
@@ -42,29 +44,34 @@ type InputProps<
             type: 'groupedSelect';
             groupedItems: { [k: string]: { key: string; label: string }[] };
           }
-        : Type extends 'custom'
-          ?
-              | {
-                  type: 'custom';
-                  component: React.FunctionComponent<
-                    | {
-                        register: UseFormRegister<FormFields>;
-                        fieldName: Path<FormFields>;
-                      }
-                    | { [k: string]: any }
-                  >;
-                }
-              | { [k: string]: any }
-          : Type extends HTMLInputTypeAttribute
-            ? {
-                maxLength?: number;
-                type: HTMLInputTypeAttribute;
-                autoComplete?: string;
-              } & React.DetailedHTMLProps<
-                React.InputHTMLAttributes<HTMLInputElement>,
-                HTMLInputElement
-              >
-            : {});
+        : Type extends 'radioGroup'
+          ? {
+              type: 'radioGroup';
+              items: { label: string; value: string }[];
+            }
+          : Type extends 'custom'
+            ?
+                | {
+                    type: 'custom';
+                    component: React.FunctionComponent<
+                      | {
+                          register: UseFormRegister<FormFields>;
+                          fieldName: Path<FormFields>;
+                        }
+                      | { [k: string]: any }
+                    >;
+                  }
+                | { [k: string]: any }
+            : Type extends HTMLInputTypeAttribute
+              ? {
+                  maxLength?: number;
+                  type: HTMLInputTypeAttribute;
+                  autoComplete?: string;
+                } & React.DetailedHTMLProps<
+                  React.InputHTMLAttributes<HTMLInputElement>,
+                  HTMLInputElement
+                >
+              : {});
 
 const internalProps = [
   'label',
@@ -173,15 +180,48 @@ function buildInput<T extends FieldValues>(
     />
   );
 }
+function buildRadioGroup<T extends FieldValues>(
+  props: InputProps<'radioGroup', T>,
+  register: UseFormRegister<T>
+) {
+  const allowedProps = Object.fromEntries(
+    Object.entries(props).filter(
+      ([k, _]) => k == 'type' || !internalProps.includes(k)
+    )
+  );
+  return (
+    <fieldset className="flex flex-row flex-wrap gap-4 items-stretch md:items-center justify-center mb-4">
+      {props.items.map((item) => (
+        <div
+          className="relative w-fit rounded-md ring-2 ring-primary
+        text-primary has-[:checked]:bg-primary has-[:checked]:text-white
+        flex items-center justify-center py-2 px-4"
+        >
+          <input
+            className="absolute h-full w-full cursor-pointer opacity-0"
+            {...allowedProps}
+            type="radio"
+            value={item.value}
+            id={props.fieldName + item.label}
+            {...register(props.fieldName)}
+          />
+          <label htmlFor={item.value}>{item.label}</label>
+        </div>
+      ))}
+    </fieldset>
+  );
+}
 
 function Input<T extends FieldValues>(
   props:
     | InputProps<'textArea', T>
     | InputProps<'select', T>
     | InputProps<'groupedSelect', T>
+    | InputProps<'radioGroup', T>
     | InputProps<'custom', T>
     | InputProps<HTMLInputTypeAttribute, T>
 ) {
+  const { t } = useTranslation('errors');
   const registerReturn = useMemo(
     () => props.register(props.fieldName, props),
     [props]
@@ -200,6 +240,11 @@ function Input<T extends FieldValues>(
           props as InputProps<'groupedSelect', T>,
           registerReturn
         );
+      case 'radioGroup':
+        return buildRadioGroup(
+          props as InputProps<'radioGroup', T>,
+          props.register
+        );
       case 'custom':
         const CustomElement = (props as InputProps<'custom', T>).component;
         return <CustomElement {...props} />;
@@ -217,14 +262,17 @@ function Input<T extends FieldValues>(
     >
       <label
         htmlFor={props.fieldName}
-        className={props.labelClass}
+        className={
+          props.labelClass ||
+          '' + (props.error !== undefined && ' text-red-500')
+        }
       >
         {props.label}
         {props.required && ' *'}
       </label>
       {inputElement}
       {props.error !== undefined && (
-        <p className="text-red-500 font-bold">{props.error.message}</p>
+        <p className="text-red-500">{t(props.error.message || '')}</p>
       )}
     </div>
   );
