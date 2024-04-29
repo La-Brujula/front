@@ -4,6 +4,7 @@ import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../providers/authProvider';
 import { AnnouncementBanner } from './banner';
+import LocalizationMenu from '../components/localizationMenu';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -180,15 +181,19 @@ export const Navbar = () => {
               >
                 {t('contact')}
               </Link>
+              <LocalizationMenu />
               {isLoggedIn && (
-                <Link
-                  onClick={() => toggleOpen()}
-                  to="/auth/logout"
-                  resetScroll
-                  className="font-bold leading-relaxed text-white block mt-6"
-                >
-                  {t('logout')}
-                </Link>
+                <>
+                  <Link
+                    onClick={() => toggleOpen()}
+                    to="/auth/logout"
+                    resetScroll
+                    className="font-bold leading-relaxed text-white block mt-6"
+                  >
+                    {t('logout')}
+                    <hr />
+                  </Link>
+                </>
               )}
             </nav>
           </div>

@@ -1,13 +1,13 @@
 {
-  "Otro": "TODO",
-  "es": "TODO",
-  "en": "TODO",
-  "fr": "TODO",
-  "de": "TODO",
-  "it": "TODO",
-  "zh": "TODO",
-  "basic": "TODO",
-  "intermediate": "TODO",
-  "advanced": "TODO",
-  "native": "TODO"
+  "Otro": "Other",
+  "es": "Spanish",
+  "en": "English",
+  "fr": "French",
+  "de": "German",
+  "it": "Italian",
+  "zh": "Mandarin",
+  "basic": "Basic",
+  "intermediate": "Intermediate",
+  "advanced": "Advanced",
+  "native": "Native"
 }

@@ -2,7 +2,7 @@ import { changeLanguage } from 'i18next';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-export type SupportedLocal = 'es';
+export type SupportedLocal = 'es' | 'en';
 
 export default function useLocalization() {
   const { i18n } = useTranslation();
@@ -11,7 +11,7 @@ export default function useLocalization() {
   }, []);
   return {
     locale: i18n.language as SupportedLocal,
-    locales: ['es', 'fr', 'en'] as SupportedLocal[],
+    locales: ['es', 'en'] as SupportedLocal[],
     setLanguage: setNewLocale,
   };
 }

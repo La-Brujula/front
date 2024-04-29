@@ -5,15 +5,15 @@ import useLocalization, { SupportedLocal } from '../hooks/useLocalization';
 const LocaleList = (props: {
   currentLocale: SupportedLocal;
   locales: SupportedLocal[];
-  setLocale: (locale: SupportedLocal) => void;
+  setLocale: (locale: SupportedLocal) => MouseEventHandler;
 }) => {
   return props.locales.map((locale) => (
     <button
       key={locale}
       className={
-        props.currentLocale === locale ? 'bg-primary bg-opacity-20' : ''
+        props.currentLocale == locale ? 'bg-primary bg-opacity-20' : ''
       }
-      onClick={() => props.setLocale(locale)}
+      onClick={props.setLocale(locale)}
     >
       <p>{locale.toUpperCase()}</p>
     </button>
@@ -44,10 +44,13 @@ export default function LocalizationMenu(props: {
   const { locale, locales, setLanguage } = useLocalization();
   const [isOpen, setIsOpen] = useState(false);
 
-  const setLocale = (lang: SupportedLocal) => {
-    setLanguage(lang);
-    props.onLocaleCallback && props.onLocaleCallback();
-  };
+  const setLocale = useCallback(
+    (lang: SupportedLocal) => () => {
+      setLanguage(lang);
+      props.onLocaleCallback !== undefined && props.onLocaleCallback();
+    },
+    [props.onLocaleCallback, setLanguage]
+  );
 
   const toggleOpen = useCallback(() => setIsOpen((v) => !v), [setIsOpen]);
 

@@ -1,6 +1,6 @@
 {
-  "Reiniciar contraseña": "TODO",
-  "Escribe tu correo aquí y si está registrado te llegará un correo para reiniciar tu contraseña": "TODO",
-  "email": "TODO",
-  "Enviar Correo": "TODO"
+  "Reiniciar contraseña": "Reset password",
+  "Escribe tu correo aquí y si está registrado te llegará un correo para reiniciar tu contraseña": "Enter your email and if it's registered to an account we'll send you an email with instructions on how to reset your password",
+  "email": "email",
+  "Enviar Correo": "Send email"
 }
