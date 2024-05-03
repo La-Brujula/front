@@ -1,5 +1,5 @@
 import { createLazyFileRoute, useNavigate } from '@tanstack/react-router';
-import { useEffect, useMemo } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { ResultsFilter } from '../../modules/search/components/resultsFilters';
 import { UsersList } from '../../modules/search/components/userList';
 import { LoadingSpinner } from '@/shared/components/loadingSpinner';
@@ -8,7 +8,7 @@ import ErrorMessage from '@/shared/components/errorMessage';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { searchQueryOptions } from '@/modules/search/queries/searchQuery';
 import { useTranslation } from 'react-i18next';
-import { Search } from '@/modules/search/types/searchParams';
+import { Search, defaultSearch } from '@/modules/search/types/searchParams';
 import { useForm } from 'react-hook-form';
 import Input from '@/shared/components/input';
 import { SearchOutlined } from '@mui/icons-material';
@@ -43,10 +43,19 @@ function SearchHomepage() {
 
   const navigate = useNavigate();
 
-  const { register, watch, handleSubmit, reset } = useForm<Search>({
+  const {
+    register,
+    watch,
+    handleSubmit,
+    reset: formReset,
+  } = useForm<Search>({
     defaultValues: {},
     values: search,
   });
+
+  const reset = useCallback(() => {
+    formReset(defaultSearch);
+  }, [formReset, defaultSearch]);
 
   const onSubmit = (data: Search) =>
     navigate({

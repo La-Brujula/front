@@ -95,6 +95,7 @@ export const Recommendations = ({ user }: { user: IBackendProfile }) => {
         >
           {user.recommendations.map((a) => (
             <Link
+              key={a.id}
               to="/profile/$userId"
               params={{ userId: a.id }}
               className="text-primary"

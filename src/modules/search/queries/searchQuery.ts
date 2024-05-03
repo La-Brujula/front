@@ -23,15 +23,19 @@ export const searchQueryOptions = (search: Search) =>
   infiniteQueryOptions({
     initialPageParam: 0,
     queryKey: ['search', search],
-    queryFn: (queryParams) =>
-      getFetch<UserDTO[]>('/profiles', {
+    queryFn: (queryParams) => {
+      if (Object.entries(search).length == 0) {
+        throw Error('Realiza una búsqueda para comenzar');
+      }
+      return getFetch<UserDTO[]>('/profiles', {
         params: {
           ...search,
           activity: search.activity || search.category,
           offset: queryParams.pageParam,
         },
         signal: queryParams.signal,
-      }),
+      });
+    },
     getPreviousPageParam: (firstPage) => {
       const next = firstPage.meta.offset - firstPage.meta.limit;
       if (next <= 0) {

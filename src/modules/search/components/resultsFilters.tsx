@@ -1,30 +1,23 @@
 import genders from '@shared/constants/genders.json';
 import regiones from '@shared/constants/regiones.json';
-import { useCallback, useState } from 'react';
+import { EventHandler, useState } from 'react';
 import { ExtraFilters } from './extraFilters';
-import { Search, searchSchema } from '../types/searchParams';
+import { Search } from '../types/searchParams';
 import Input from '@/shared/components/input';
 import { IconButton } from '@mui/material';
 import { DeleteOutlined } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import { UseFormRegister, UseFormReset } from 'react-hook-form';
 import ActivityFilter from './activityFilter';
-import { useNavigate } from '@tanstack/react-router';
 
 export const ResultsFilter = (props: {
   filters: Search;
   register: UseFormRegister<Search>;
-  reset: UseFormReset<Search>;
+  reset: () => void;
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [moreFiltersVisible, setMoreFiltersVisible] = useState(false);
-  const { t } = useTranslation('search');
-  const navigate = useNavigate();
-
-  const clearFilters = useCallback(() => {
-    props.reset(searchSchema.parse({}));
-    navigate({ to: '/search', search: {}, replace: true, resetScroll: true });
-  }, [props.reset, navigate]);
+  const { t } = useTranslation(['search', 'genders']);
 
   return (
     <div className="">
@@ -46,7 +39,7 @@ export const ResultsFilter = (props: {
           <div className="w-full flex flex-row-reverse">
             <IconButton
               className="text-white cursor-pointer w-fit ml-auto"
-              onClick={clearFilters}
+              onClick={props.reset}
             >
               <DeleteOutlined />
             </IconButton>
