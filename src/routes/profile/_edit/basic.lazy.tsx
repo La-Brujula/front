@@ -15,6 +15,7 @@ import { useUpdateMe } from '@/shared/hooks/useUpdateMe';
 import DataSuspense from '@/shared/components/dataSuspense';
 import { useCallback } from 'react';
 import { isApiError } from '@/shared/services/backendFetcher';
+import regions from '@shared/constants/regiones.json';
 
 export const Route = createLazyFileRoute('/profile/_edit/basic')({
   component: BasicInfo,
@@ -29,7 +30,7 @@ function BasicInfo() {
   const { mutate, isPending, error: mutateError } = useUpdateMe();
   const { data: user, isLoading: loading, error } = useCurrentProfile();
 
-  const { register, handleSubmit, formState, setError } =
+  const { register, handleSubmit, formState, setError, watch } =
     useForm<IUpdateBackendProfile>({
       defaultValues: {
         ...user,
@@ -44,6 +45,8 @@ function BasicInfo() {
           user?.birthday !== undefined ? user.birthday?.slice(0, 10) : '',
       },
     });
+
+  const country = watch('country');
 
   const onSubmit = useCallback(
     async (data: IUpdateBackendProfile) => {
@@ -163,16 +166,35 @@ function BasicInfo() {
             required={true}
             error={formState.errors.country}
           />
-          <Input
-            label={t('Estado')}
-            type="state"
-            register={register}
-            fieldName="state"
-            autoComplete="state"
-            divClass="col-span-full"
-            required={true}
-            error={formState.errors.state}
-          />
+          {country !== undefined && country == 'MX' ? (
+            <Input
+              label={t('Estado')}
+              type="select"
+              register={register}
+              fieldName="state"
+              autoComplete="state"
+              divClass="col-span-full"
+              required={true}
+              error={formState.errors.state}
+              items={regions.flatMap((region) =>
+                region.estados.map((estado) => ({
+                  key: estado,
+                  label: estado,
+                }))
+              )}
+            />
+          ) : (
+            <Input
+              label={t('Estado')}
+              type="text"
+              register={register}
+              fieldName="state"
+              autoComplete="state"
+              divClass="col-span-full"
+              required={true}
+              error={formState.errors.state}
+            />
+          )}
           <Input
             label={t('Ciudad')}
             type="city"
