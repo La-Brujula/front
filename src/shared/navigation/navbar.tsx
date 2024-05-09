@@ -179,6 +179,13 @@ export const Navbar = () => {
                 {t('aboutUs')}
               </Link>
               <Link
+                to="/announcements"
+                resetScroll
+                className="font-bold text-white"
+              >
+                {t('announcements')}
+              </Link>
+              <Link
                 onClick={() => toggleOpen()}
                 to="/privacy"
                 className="font-bold leading-relaxed text-white"
