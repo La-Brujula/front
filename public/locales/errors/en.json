@@ -1,0 +1,20 @@
+{
+  "AE01": "Account already exists",
+  "AE02": "Wrong credentials",
+  "AE03": "Account does not exist",
+  "AE04": "Not logged in",
+  "AE05": "Bad jwt token",
+  "AE06": "Could not delete account",
+  "AE07": "Could not change password",
+  "AE08": "Too many password reset attempts",
+  "AE09": "Invalid password reset pin",
+  "AE10": "Password reset pin is expired",
+  "AE11": "Insufficient permissions to complete request",
+  "PE01": "Profile already exists",
+  "PE02": "Profile does not exist",
+  "PE03": "Profile already recommended",
+  "PE04": "Profile is not recommended",
+  "SE01": "Wrong format",
+  "PE05": "No values found for column",
+  "PE06": "Field cannot be enumerated"
+}

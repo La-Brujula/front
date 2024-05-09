@@ -1,5 +1,7 @@
 import credits from '@shared/constants/credits.json';
 import { Container } from '@shared/layout/container';
+import { Link } from '@tanstack/react-router';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 // i18next-parser static types
@@ -43,7 +45,7 @@ function Credit({ title, name }: { title: string; name: string }) {
   );
 }
 
-export function CreditsSection() {
+function CreditsSection() {
   const { t } = useTranslation('about');
   return (
     <Container>
@@ -69,18 +71,17 @@ export function CreditsSection() {
       <div style={{ textAlign: 'center' }}>
         <p style={{ fontSize: '24px' }}>
           {t('SeeOurPoli')}&nbsp;
-          <a
-            href={
-              import.meta.env.BASE_URL +
-              'pdf/Políticas_de_uso_La_Brujula_Audiovisual.pdf'
-            }
+          <Link
+            to="/privacy"
             className="text-primary"
           >
             {t('Politicas')}
-          </a>
+          </Link>
         </p>
       </div>
       <br></br>
     </Container>
   );
 }
+
+export default React.memo(CreditsSection);

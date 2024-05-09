@@ -1,3 +1,4 @@
+import { Link } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
 
 export const PrivacyPolicy = () => {
@@ -6,13 +7,13 @@ export const PrivacyPolicy = () => {
   return (
     <p>
       {t('Al continuar, aceptas nuestro ')}
-      <a
-        href={import.meta.env.BASE_URL + 'pdf/privacy.pdf'}
+      <Link
+        to="/privacy"
         className="text-primary"
         target="_blank"
       >
         {t('aviso legal y de privacidad')}
-      </a>
+      </Link>
     </p>
   );
 };

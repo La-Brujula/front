@@ -7,11 +7,12 @@
   "Norte": "Norte",
   "Noreste": "Noreste",
   "Sureste": "Sureste",
-  "heroTitle": "La Brújula.<1></1>Red de la industria'<3></3>audiovisual y<5></5>cinematográfica<7></7>de México.",
+  "heroTitle": "La Brújula.<1></1>Red de la industria<3></3>audiovisual y<5></5>cinematográfica<7></7>de México.",
   "mexicoDestinoDeFilmacion": "Logo México destino de filmación",
   "14YearsBruj": "Logo La Brújula 14 años",
   "landingParagraph": "Durante 14 años nos hemos dedicado a reunir a las personas, empresas e instituciones del medio audiovisual y cinematográfico de México para que las puedas encontrar en un solo lugar.<1></1><2>¡En La Brújula seguimos construyendo!</2>",
   "¡Hola! Inicia sesión": "¡Hola! Inicia sesión",
   "contactCTA": "Contacta a la persona, empresa o institución que necesites para tu proyecto",
-  "Buscar por especialidad": "Buscar por especialidad"
+  "Buscar por especialidad": "Buscar por especialidad",
+  "searchByName": "Buscar por nombre"
 }

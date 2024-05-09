@@ -8,6 +8,6 @@
   "jsxSingleQuote": false,
   "semi": true,
   "singleAttributePerLine": true,
-  "trailingComma": "all",
+  "trailingComma": "es5",
   "htmlWhitespaceSensitivity": "css"
 }

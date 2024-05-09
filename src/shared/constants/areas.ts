@@ -75,9 +75,9 @@ const areas = Object.entries(areasJson as JsonAreas).map(
             referents: (value as JsonActivity).Referentes,
           };
         }),
-      }),
+      })
     ),
-  }),
+  })
 );
 
 export default areas as TArea[];

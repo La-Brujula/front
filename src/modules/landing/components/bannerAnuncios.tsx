@@ -1,17 +1,18 @@
-import Carusel from '@shared/layout/carusel';
+import ResponsiveCarousel from '@shared/layout/carusel';
 import { AnuncioSlide } from './anuncioSlide';
+import React, { useMemo } from 'react';
 
-export const BannerAnuncios = (props: {
+function BannerAnuncios(props: {
   anuncios: {
     horizontalImage?: string;
     verticalImage?: string;
     image?: string;
     linkUrl?: string;
   }[];
-}) => {
-  return (
-    <Carusel>
-      {props.anuncios.map((anuncio, i) => (
+}) {
+  const anuncios = useMemo(
+    () =>
+      props.anuncios.map((anuncio, i) => (
         <AnuncioSlide
           key={anuncio.linkUrl + '' + i}
           horizontalImage={anuncio.horizontalImage}
@@ -19,7 +20,10 @@ export const BannerAnuncios = (props: {
           imageUrl={anuncio.image}
           linkUrl={anuncio.linkUrl}
         />
-      ))}
-    </Carusel>
+      )),
+    [props.anuncios]
   );
-};
+  return <ResponsiveCarousel>{anuncios}</ResponsiveCarousel>;
+}
+
+export default React.memo(BannerAnuncios);

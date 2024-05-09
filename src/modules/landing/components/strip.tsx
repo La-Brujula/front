@@ -37,6 +37,7 @@ function Strip(props: { colors: string[]; link: string; label: string }) {
   return (
     <a
       href={link}
+      target="__blank"
       download
       className={stripStyles.strip}
     >

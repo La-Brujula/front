@@ -1,136 +1,96 @@
 import languages from '@shared/constants/languages.json';
+import { Search } from '../types/searchParams';
 import { useTranslation } from 'react-i18next';
-import { UniversidadesSelect } from '../../auth/components/universidadesSelect';
-import { SearchFilters } from '@/shared/hooks/useSearch';
-import { ChangeEvent } from 'react';
+import Input from '@/shared/components/input';
+import { UseFormRegister } from 'react-hook-form';
 
 export function ExtraFilters({
-  setFilters,
   filters,
-  updateFilterValue,
+  register,
 }: {
-  setFilters: (v: SearchFilters) => void;
-  filters: SearchFilters;
-  updateFilterValue: (
-    fieldName: keyof SearchFilters,
-  ) => (ev: ChangeEvent<HTMLSelectElement | HTMLInputElement>) => void;
+  filters: Search;
+  register: UseFormRegister<Search>;
 }) {
   const { t } = useTranslation('search');
-  const lang = filters.language;
   return (
     <div className="pt-4 border-t border-black flex flex-col gap-4">
       <div className="grid grid-cols-[min-content_1fr]">
         {/* Tipo de persona */}
-        <div className="grid grid-cols-[1fr,2rem] gap-4 items-center text-left border-b border-b-black border-opacity-20">
-          <label
-            className="font-normal w-full cursor-pointer"
-            htmlFor="remote"
-          >
-            {t('Remoto')}
-          </label>
-          <input
-            type="checkbox"
-            placeholder={t('remote')}
-            id="remote"
-            onChange={updateFilterValue('remote')}
-            className="size-4 cursor-pointer"
-          />
-        </div>
-        <select
-          onChange={updateFilterValue('type')}
-          className="w-full dark"
-          defaultValue={filters.type}
-        >
-          <option
-            value=""
-            selected
-            unselectable="on"
-          >
-            {t('Tipo de persona')}
-          </option>
-          <option value="moral">{t('Moral')}</option>
-          <option value="fisica">{t('Física')}</option>
-        </select>
+        <Input
+          label={t('Remoto')}
+          type="checkbox"
+          fieldName="remote"
+          register={register}
+          inputClass="size-4 cursor-pointer"
+          divClass="grid grid-cols-[1fr,2rem] gap-4 items-center text-left border-b border-b-black border-opacity-20"
+        />
+        <Input
+          label={t('Tipo de persona')}
+          type="select"
+          fieldName="type"
+          register={register}
+          divClass="w-full dark"
+          items={[
+            { key: 'moral', label: 'Moral' },
+            { key: 'fisica', label: 'Física' },
+          ]}
+        />
       </div>
       {/* Idioma */}
       <div className="flex flex-col gap-4 w-full">
-        <select
-          onChange={updateFilterValue('language')}
-          defaultValue={lang}
-          className="w-full dark"
-        >
-          <option value="">Idioma</option>
-          {languages.map((defLang) => (
-            <option
-              value={defLang}
-              key={defLang}
-            >
-              {t(defLang)}
-            </option>
-          ))}
-          <option value="other">Otro</option>
-        </select>
-        {!!lang && !languages.includes(lang) && (
-          <input
+        <Input
+          label={t('Idioma')}
+          type="select"
+          fieldName="language"
+          register={register}
+          divClass="w-full dark"
+          items={[
+            ...languages.map((defLang) => ({
+              key: defLang,
+              label: t(defLang, { ns: 'languages' }),
+            })),
+            { key: 'other', label: t('Otro', { ns: 'languages' }) },
+          ]}
+        />
+        {!!filters.language && !languages.includes(filters.language) && (
+          <Input
             type="text"
-            onChange={updateFilterValue('language')}
+            register={register}
+            label={t('Language')}
+            fieldName="language"
             placeholder={t('Escribe aquí el nombre del idioma')}
           />
         )}
       </div>
-      {/* Escuela */}
-      <UniversidadesSelect
-        onChange={updateFilterValue('schools')}
-        placeholder={t('Escuela o universidad')}
+      <Input
+        label={t('Universidad')}
+        fieldName="schools"
+        register={register}
+        type="text"
+        divClass="grid gap-1 items-center text-left border-b border-b-black border-opacity-20"
       />
-      {/* Servicio de becario */}
-      <div className="grid grid-cols-[1fr,2rem] gap-4 items-center text-left border-b border-b-black border-opacity-20">
-        <label
-          className="font-normal w-full cursor-pointer"
-          htmlFor="socialService"
-        >
-          {t('Disponible para sevicio social o de becario')}
-        </label>
-        <input
-          type="checkbox"
-          placeholder=""
-          id="socialService"
-          onChange={updateFilterValue('socialService')}
-          className="size-4 cursor-pointer"
-        />
-      </div>
-      {/* Asociaciones */}
-      <div className="grid gap-1 items-center text-left border-b border-b-black border-opacity-20">
-        <label
-          className="font-normal w-full cursor-pointer"
-          htmlFor="associations"
-        >
-          {t('Asociaciones')}
-        </label>
-        <input
-          type="text"
-          placeholder=""
-          id="associations"
-          onChange={updateFilterValue('associations')}
-          defaultValue={filters.associations}
-        />
-      </div>
-      {/* Certificaciones */}
-      <div className="grid gap-1 items-center text-left border-b border-b-black border-opacity-20">
-        <label
-          className="font-normal w-full cursor-pointer"
-          htmlFor="certifications"
-        >
-          {t('Certificaciones')}
-        </label>
-        <input
-          type="text"
-          placeholder=""
-          id="certifications"
-          onChange={updateFilterValue('certifications')}
-          defaultValue={filters.certifications}
-        />
-      </div>
+      <Input
+        label={t('Disponible para servicio social o de becario')}
+        fieldName="socialService"
+        register={register}
+        type="checkbox"
+        inputClass="size-4 cursor-pointer"
+        divClass="grid grid-cols-[1fr,2rem] gap-4 items-center text-left border-b border-b-black border-opacity-20"
+      />
+      <Input
+        label={t('Asociaciones')}
+        fieldName="associations"
+        register={register}
+        type="text"
+        divClass="grid gap-1 items-center text-left border-b border-b-black border-opacity-20"
+      />
+      <Input
+        label={t('Certificaciones')}
+        fieldName="certifications"
+        register={register}
+        type="text"
+        divClass="grid gap-1 items-center text-left border-b border-b-black border-opacity-20"
+      />
     </div>
   );
 }
