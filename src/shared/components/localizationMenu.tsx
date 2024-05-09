@@ -1,5 +1,5 @@
 import TranslateOutlined from '@mui/icons-material/TranslateOutlined';
-import { MouseEventHandler, useCallback, useState } from 'react';
+import { MouseEventHandler, useCallback } from 'react';
 import useLocalization, { SupportedLocal } from '../hooks/useLocalization';
 
 const LocaleList = (props: {
@@ -10,9 +10,10 @@ const LocaleList = (props: {
   return props.locales.map((locale) => (
     <button
       key={locale}
-      className={
-        props.currentLocale == locale ? 'bg-primary bg-opacity-20' : ''
-      }
+      className={[
+        'px-2 py-1',
+        props.currentLocale == locale ? 'bg-secondary' : 'bg-transparent',
+      ].join(' ')}
       onClick={props.setLocale(locale)}
     >
       <p>{locale.toUpperCase()}</p>
@@ -20,29 +21,10 @@ const LocaleList = (props: {
   ));
 };
 
-const IconButtonMenu = (props: {
-  isOpen: boolean;
-  onClick: MouseEventHandler;
-}) => {
-  return (
-    <button
-      id="locale-button"
-      aria-controls={props.isOpen ? 'locale-menu' : undefined}
-      aria-haspopup="true"
-      aria-expanded={props.isOpen}
-      onClick={props.onClick}
-      className="text-white w-auto self-start bg-transparent"
-    >
-      <TranslateOutlined />
-    </button>
-  );
-};
-
 export default function LocalizationMenu(props: {
   onLocaleCallback?: Function;
 }) {
   const { locale, locales, setLanguage } = useLocalization();
-  const [isOpen, setIsOpen] = useState(false);
 
   const setLocale = useCallback(
     (lang: SupportedLocal) => () => {
@@ -52,26 +34,19 @@ export default function LocalizationMenu(props: {
     [props.onLocaleCallback, setLanguage]
   );
 
-  const toggleOpen = useCallback(() => setIsOpen((v) => !v), [setIsOpen]);
-
   return (
-    <div className="relative flex-col">
-      <IconButtonMenu
-        isOpen={isOpen}
-        onClick={toggleOpen}
-      />
-      {isOpen && (
-        <div
-          id="locale-menu"
-          className="relative"
-        >
-          <LocaleList
-            currentLocale={locale}
-            locales={locales}
-            setLocale={setLocale}
-          />
-        </div>
-      )}
+    <div className="relative flex flex-col gap-2">
+      <TranslateOutlined />
+      <div
+        id="locale-menu"
+        className="relative flex gap-2"
+      >
+        <LocaleList
+          currentLocale={locale}
+          locales={locales}
+          setLocale={setLocale}
+        />
+      </div>
     </div>
   );
 }

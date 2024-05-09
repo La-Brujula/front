@@ -15,7 +15,10 @@ export function AnnouncementBanner(props: { closeBanner: Function }) {
         <p>{t('Conoce lo nuevo que tenemos para ti')}</p>
       </div>
       <button
-        onClick={() => props.closeBanner()}
+        onClick={(ev) => {
+          props.closeBanner();
+          ev.preventDefault();
+        }}
         className="absolute right-4 bg-transparent p-0 top-1/2 -translate-y-1/2 transform"
       >
         <CloseOutlined fontSize="medium" />
