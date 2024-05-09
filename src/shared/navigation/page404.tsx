@@ -1,9 +1,10 @@
-import { Link } from '@tanstack/react-router';
+import { Link, useRouter } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
 import { Container } from '../layout/container';
 
 export default () => {
   const { t } = useTranslation();
+  const router = useRouter();
   return (
     <Container bg="lightblue">
       <div className="bg-secondary h-footerAware bg-opacity-20 gap-10 flex flex-col items-center pt-32 pb-16 pl-8 pr-8">
@@ -14,15 +15,12 @@ export default () => {
             <p className="text-xs">{location.pathname}</p>
           </div>
           <div className="flex flex-row justify-center gap-8">
-            <Link
-              /* El tipado es incompleto, con -1 rediriges a la página anterior */
-              // @ts-ignore
-              to={-1}
-              resetScroll
+            <div
+              onClick={router.history.back}
               className="button bg-transparent text-current h-11"
             >
               {t('Regresar')}
-            </Link>
+            </div>
             <Link
               to="/"
               resetScroll
