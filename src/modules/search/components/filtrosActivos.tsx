@@ -1,5 +1,4 @@
 import { SearchFilters } from '@/shared/hooks/useSearch';
-import Close from '@mui/icons-material/CloseOutlined';
 import { useCallback } from 'react';
 
 export const FiltrosActivos = ({
@@ -17,7 +16,7 @@ export const FiltrosActivos = ({
       } as SearchFilters;
       setFilters(obj);
     },
-    [],
+    []
   );
   return (
     <div className="flex flex-row flex-wrap gap-4 mt-4 items-center">
@@ -31,9 +30,9 @@ export const FiltrosActivos = ({
                 className="px-2 py-1 outline-primary outline rounded-lg cursor-pointer"
                 onClick={removeFromFilters(k as keyof SearchFilters)}
               >
-                <Close /> <b>{k}</b>: {v.toString()}
+                X <b>{k}</b>: {v.toString()}
               </p>
-            ),
+            )
         )}
     </div>
   );

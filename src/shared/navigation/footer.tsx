@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { NavLink } from 'react-router-dom';
 import { SocialLinks } from '../components/socials';
+import { Link } from '@tanstack/react-router';
 
 export const Footer = () => {
   const { t } = useTranslation('navigation');
@@ -13,22 +13,22 @@ export const Footer = () => {
         className="grid grid-cols-1 md:grid-cols-[1fr,_3fr,_1fr]
       max-w-6xl mx-auto w-full items-center gap-6 md:gap-0"
       >
-        <NavLink
-          to="contacto"
+        <Link
+          to="/"
           className="text-primary font-bold md:order-first"
         >
           {t('contactUs')}
-        </NavLink>
+        </Link>
         <SocialLinks />
         <p>
           {t('seeOur')}&nbsp;
-          <a
-            href={import.meta.env.BASE_URL + 'pdf/privacy.pdf'}
+          <Link
+            to="/privacy"
             className="text-primary"
             target="_blank"
           >
             {t('privacy')}
-          </a>
+          </Link>
         </p>
       </div>
       <p>{t('trademark')}</p>

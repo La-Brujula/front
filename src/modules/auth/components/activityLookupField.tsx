@@ -20,7 +20,7 @@ export function ActivityLookupField({
           activity: id,
         }))
         .filter((a) => !!a),
-    [RefList],
+    [RefList]
   );
 
   return (

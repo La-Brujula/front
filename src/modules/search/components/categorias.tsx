@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { NavLink } from 'react-router-dom';
 import categories from '@shared/constants/categories.json';
+import { Link } from '@tanstack/react-router';
 
 export const PorCategorias = ({
   categorias,
@@ -12,17 +12,16 @@ export const PorCategorias = ({
     <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 auto-rows-fr">
       {categorias.length > 0 &&
         categorias.map((cat, i) => (
-          <NavLink
+          <Link
             key={cat.label}
             className={[
               'button font-bold flex flex-col items-center justify-center',
               !(i % 2) ? 'bg-primary' : 'bg-secondary',
             ].join(' ')}
-            to={
-              cat.search.length != 6
-                ? `/buscar/${cat.label}?search=${cat.search}`
-                : `/buscar?activity=${cat.search}`
-            }
+            to={cat.search.length != 6 ? '/search/$label' : '/search'}
+            params={{ label: cat.label }}
+            search={{ search: cat.search }}
+            resetScroll
           >
             <img
               src={`${import.meta.env.BASE_URL}img/${cat.iconUrl}.svg`}
@@ -31,7 +30,7 @@ export const PorCategorias = ({
               loading="lazy"
             />
             <span>{t(cat.label)}</span>
-          </NavLink>
+          </Link>
         ))}
     </div>
   );

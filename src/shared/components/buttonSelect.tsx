@@ -1,65 +1,34 @@
-import { useState } from 'react';
-import { UseFormGetValues, UseFormSetValue } from 'react-hook-form';
+import { FieldValues, Path, UseFormRegister } from 'react-hook-form';
+import Input from './input';
 
-export const ButtonSelect = ({
-  fieldName,
-  values,
-  labels,
-  setValue,
-  getValue,
-  classname,
-  itemClassname,
-  onClick,
-}: {
-  fieldName: string;
-  values: any[];
-  labels: string[];
-  setValue: UseFormSetValue<any>;
-  getValue: UseFormGetValues<any>;
-  classname?: string;
-  itemClassname?: string;
-  onClick?: (ev: any) => void;
-}) => {
-  const [currValue, forceRerender] = useState(getValue(fieldName));
-
+export function ButtonSelect<T extends FieldValues>(props: {
+  register: UseFormRegister<T>;
+  fieldName: Path<T>;
+  items: { value: any; label: string }[];
+  buttonDivClass?: string;
+}) {
   return (
     <div
       className={[
-        'flex flex-col md:flex-row flex-wrap gap-4',
+        'flex flex-row flex-wrap gap-4',
         'items-stretch md:items-center justify-center mb-4',
-        classname,
+        props.buttonDivClass,
       ].join(' ')}
     >
-      {values.map((value, i) => (
-        <div
+      {props.items.map(({ value, label }) => (
+        <Input
           key={value}
-          className={[
-            'outline outline-primary outline-1 px-8 py-4 rounded-lg cursor-pointer',
-            itemClassname,
-            currValue == value
-              ? 'bg-primary text-white'
-              : 'bg-transparent text-primary',
-          ].join(' ')}
-          onClick={
-            (onClick !== undefined &&
-              ((ev) => {
-                onClick(ev);
-                forceRerender(value);
-              })) ||
-            ((ev) => {
-              setValue(fieldName, value, {
-                shouldDirty: true,
-                shouldTouch: true,
-                shouldValidate: true,
-              });
-              ev.preventDefault();
-              forceRerender(value);
-            })
-          }
-        >
-          {labels[i]}
-        </div>
+          type="radio"
+          register={props.register}
+          fieldName={props.fieldName}
+          value={value}
+          label={label}
+          divClass="relative w-fit rounded-md ring-2 ring-primary
+          text-primary has-[:checked]:bg-primary has-[:checked]:text-white
+          flex items-center justify-center py-2 px-4"
+          inputClass="absolute h-full w-full cursor-pointer opacity-0"
+        />
       ))}
     </div>
   );
-};
+}
