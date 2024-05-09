@@ -22,7 +22,7 @@ export const Route = createRootRouteWithContext<QueryClientProvider>()({
       <ScrollRestoration getKey={(location) => location.pathname} />
       <Outlet />
       <Footer />
-      {import.meta.env.DEV && (
+      {(import.meta.env.DEV || localStorage.getItem('dev') === 'true') && (
         <>
           <TanStackRouterDevtools />
           <ReactQueryDevtools />
