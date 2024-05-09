@@ -1,5 +1,4 @@
 import { DetailedHTMLProps, SelectHTMLAttributes, useMemo } from 'react';
-import { TextSelectField } from './textSelect';
 import { useTranslation } from 'react-i18next';
 import countries from '@shared/constants/countryCodes.json';
 
@@ -16,8 +15,14 @@ function CountrySelect(
   );
   return (
     <select {...props}>
+      <option value="">{t('Por favor selecciona una opción')}</option>
       {translatedCountries.map((country) => (
-        <option value={country.id}>{country.name}</option>
+        <option
+          key={country.id}
+          value={country.id}
+        >
+          {country.name}
+        </option>
       ))}
     </select>
   );
