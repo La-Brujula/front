@@ -14,6 +14,8 @@
     "com": "ejemplo@labrujula.com"
   },
   "password": "Contraseña",
+  "¿Problemas iniciando sesión?": "¿Problemas iniciando sesión?",
+  "ResetPasswordReminder": "No olvides <2>reiniciar tu contraseña</2> si la última vez que lo hiciste fue antes del 8 de Mayo<6>¿Por qué tengo que actualizarla?</6>",
   "Inicia sesión": "Inicia sesión",
   "createUser": "Crear un nuevo usuario",
   "forgotPassword": "¿Olvidaste tu contraseña?",

@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { FieldValues, Path, useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { useAuth } from '@/shared/providers/authProvider';
 import { Link, useNavigate } from '@tanstack/react-router';
 import Input from '@/shared/components/input';
@@ -78,9 +78,39 @@ export const LoginForm = () => {
           error={formState.errors.password}
         />
         {error !== null && (
-          <ErrorMessage
-            message={isApiError(error) ? error.errorCode : error.message}
-          />
+          <>
+            <ErrorMessage
+              message={isApiError(error) ? error.errorCode : error.message}
+            />
+            {isApiError(error) && error.errorCode == 'AE02' && (
+              <div className="flex flex-col gap-2">
+                <h3 className="text-red-500">
+                  {t('¿Problemas iniciando sesión?')}
+                </h3>
+                <p>
+                  <Trans
+                    i18nKey="ResetPasswordReminder"
+                    t={t}
+                  >
+                    No olvides{' '}
+                    <Link
+                      to="/auth/reset-password"
+                      className="font-bold underline"
+                    >
+                      reiniciar tu contraseña
+                    </Link>{' '}
+                    si la última vez que lo hiciste fue antes del{' '}
+                    <Link
+                      to="/announcements"
+                      className="font-bold underline"
+                    >
+                      8 de Mayo 2024
+                    </Link>
+                  </Trans>
+                </p>
+              </div>
+            )}
+          </>
         )}
         <input
           type="submit"
