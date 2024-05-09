@@ -22,6 +22,7 @@ import { Route as AuthNewPasswordImport } from './routes/auth/new-password';
 // Create Virtual Routes
 
 const IndexLazyImport = createFileRoute('/')();
+const PrivacyIndexLazyImport = createFileRoute('/privacy/')();
 const GuidesIndexLazyImport = createFileRoute('/guides/')();
 const ContactIndexLazyImport = createFileRoute('/contact/')();
 const AnnouncementsIndexLazyImport = createFileRoute('/announcements/')();
@@ -53,6 +54,13 @@ const IndexLazyRoute = IndexLazyImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route));
+
+const PrivacyIndexLazyRoute = PrivacyIndexLazyImport.update({
+  path: '/privacy/',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() =>
+  import('./routes/privacy/index.lazy').then((d) => d.Route)
+);
 
 const GuidesIndexLazyRoute = GuidesIndexLazyImport.update({
   path: '/guides/',
@@ -258,6 +266,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuidesIndexLazyImport;
       parentRoute: typeof rootRoute;
     };
+    '/privacy/': {
+      preLoaderRoute: typeof PrivacyIndexLazyImport;
+      parentRoute: typeof rootRoute;
+    };
     '/profile/_edit/areas': {
       preLoaderRoute: typeof ProfileEditAreasLazyImport;
       parentRoute: typeof ProfileEditImport;
@@ -311,6 +323,7 @@ export const routeTree = rootRoute.addChildren([
   AnnouncementsIndexLazyRoute,
   ContactIndexLazyRoute,
   GuidesIndexLazyRoute,
+  PrivacyIndexLazyRoute,
 ]);
 
 /* prettier-ignore-end */

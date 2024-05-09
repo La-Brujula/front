@@ -1,5 +1,6 @@
 import credits from '@shared/constants/credits.json';
 import { Container } from '@shared/layout/container';
+import { Link } from '@tanstack/react-router';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -70,15 +71,12 @@ function CreditsSection() {
       <div style={{ textAlign: 'center' }}>
         <p style={{ fontSize: '24px' }}>
           {t('SeeOurPoli')}&nbsp;
-          <a
-            href={
-              import.meta.env.BASE_URL +
-              'pdf/Políticas_de_uso_La_Brujula_Audiovisual.pdf'
-            }
+          <Link
+            to="/privacy"
             className="text-primary"
           >
             {t('Politicas')}
-          </a>
+          </Link>
         </p>
       </div>
       <br></br>

@@ -1,6 +1,6 @@
 import PersonOutline from '@mui/icons-material/PersonOutline';
 import { Link } from '@tanstack/react-router';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../providers/authProvider';
 import { AnnouncementBanner } from './banner';
@@ -8,7 +8,9 @@ import LocalizationMenu from '../components/localizationMenu';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [bannerOpen, setBannerOpen] = useState(true);
+  const [bannerOpen, setBannerOpen] = useState(
+    localStorage.getItem('banner') !== 'false'
+  );
   const { t } = useTranslation('navigation');
 
   const { isLoggedIn, account } = useAuth(['isLoggedIn', 'account']);
@@ -16,7 +18,17 @@ export const Navbar = () => {
   const toggleOpen = useCallback(() => {
     return setIsOpen((current) => !current);
   }, [setIsOpen]);
+
+  useEffect(() => {
+    const localStorageBanner = localStorage.getItem('banner');
+    if (localStorageBanner === null || localStorageBanner === 'true') {
+      setBannerOpen(true);
+      localStorage.setItem('banner', 'true');
+    }
+  }, []);
+
   const closeBanner = useCallback(() => {
+    localStorage.setItem('banner', 'false');
     return setBannerOpen(false);
   }, [setBannerOpen]);
 
@@ -166,13 +178,13 @@ export const Navbar = () => {
               >
                 {t('aboutUs')}
               </Link>
-              <a
+              <Link
                 onClick={() => toggleOpen()}
-                href={import.meta.env.BASE_URL + 'pdf/privacy.pdf'}
+                to="/privacy"
                 className="font-bold leading-relaxed text-white"
               >
                 {t('privacyH')}
-              </a>
+              </Link>
               <Link
                 onClick={() => toggleOpen()}
                 to="/contact"
@@ -181,6 +193,7 @@ export const Navbar = () => {
               >
                 {t('contact')}
               </Link>
+              <hr />
               <LocalizationMenu />
               {isLoggedIn && (
                 <>

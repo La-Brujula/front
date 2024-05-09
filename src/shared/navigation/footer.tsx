@@ -22,13 +22,13 @@ export const Footer = () => {
         <SocialLinks />
         <p>
           {t('seeOur')}&nbsp;
-          <a
-            href={import.meta.env.BASE_URL + 'pdf/privacy.pdf'}
+          <Link
+            to="/privacy"
             className="text-primary"
             target="_blank"
           >
             {t('privacy')}
-          </a>
+          </Link>
         </p>
       </div>
       <p>{t('trademark')}</p>
