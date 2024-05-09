@@ -23,7 +23,8 @@ export type AreaName = keyof typeof areas;
 
 export function getTitle(
   userActivity: string,
-  gender: EnumGender = 'other'
+  gender: EnumGender = 'other',
+  locale: 'en' | 'es' = 'es'
 ): string {
   let genderForTitle: keyof Activity;
   if (!userActivity) return '';
@@ -47,9 +48,9 @@ export function getTitle(
   const area: Area = areas[getAreaFromId(userActivity)];
   const subarea: Subarea = area[getSubAreaFromId(userActivity)];
   const activity: Activity = subarea[userActivity];
-  return !!activity[genderForTitle].es
-    ? activity[genderForTitle].es || ''
-    : activity['Alias Genérico'].es || '';
+  return !!activity[genderForTitle]
+    ? activity[genderForTitle][locale] || ''
+    : activity['Alias Genérico'][locale] || '';
 }
 
 export function getAreaObjectByIndex(area: number) {
