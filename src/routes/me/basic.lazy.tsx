@@ -17,7 +17,7 @@ import { useCallback } from 'react';
 import { isApiError } from '@/shared/services/backendFetcher';
 import regions from '@shared/constants/regiones.json';
 
-export const Route = createLazyFileRoute('/profile/_edit/basic')({
+export const Route = createLazyFileRoute('/me/basic')({
   component: BasicInfo,
 });
 
@@ -51,8 +51,7 @@ function BasicInfo() {
   const onSubmit = useCallback(
     async (data: IUpdateBackendProfile) => {
       mutate(data, {
-        onSuccess: () =>
-          navigate({ to: '/profile/edit/areas', resetScroll: true }),
+        onSuccess: () => navigate({ to: '/me/areas', resetScroll: true }),
         onError: (error) => {
           if (
             isApiError(error) &&

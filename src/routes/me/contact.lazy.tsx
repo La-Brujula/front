@@ -17,7 +17,7 @@ import {
 } from '@tanstack/react-router';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { StringArrayForm } from '../../../modules/auth/components/stringArrayForm';
+import { StringArrayForm } from '../../modules/auth/components/stringArrayForm';
 import DataSuspense from '@/shared/components/dataSuspense';
 import ErrorMessage from '@/shared/components/errorMessage';
 import Vimeo from '@/shared/icons/vimeo';
@@ -26,7 +26,7 @@ import TikTok from '@/shared/icons/tiktok';
 import { Tooltip } from '@mui/material';
 import { isApiError } from '@/shared/services/backendFetcher';
 
-export const Route = createLazyFileRoute('/profile/_edit/contact')({
+export const Route = createLazyFileRoute('/me/contact')({
   component: ContactPage,
 });
 
@@ -67,7 +67,7 @@ function ContactPage() {
     } as IUpdateBackendProfile;
     mutate(processedData, {
       onSuccess: () =>
-        navigate({ to: '/profile/edit/characteristics', resetScroll: true }),
+        navigate({ to: '/me/characteristics', resetScroll: true }),
     });
   };
 

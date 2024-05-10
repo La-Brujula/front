@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { LanguageListForm } from '../../../modules/auth/components/languageListForm';
+import { LanguageListForm } from '../../modules/auth/components/languageListForm';
 import { IUpdateBackendProfile } from '@/shared/types/user';
 import {
   createLazyFileRoute,
@@ -15,17 +15,19 @@ import Input from '@/shared/components/input';
 import DataSuspense from '@/shared/components/dataSuspense';
 import { isApiError } from '@/shared/services/backendFetcher';
 
-export const Route = createLazyFileRoute('/profile/_edit/characteristics')({
+export const Route = createLazyFileRoute('/me/characteristics')({
   component: CharacteristicsPage,
 });
 
 function CharacteristicsPage() {
+  const navigate = useNavigate();
+  const { history } = useRouter();
+
+  const { t } = useTranslation('auth');
+
   const { data: user, isLoading, error } = useCurrentProfile();
   const { register, handleSubmit, setValue, formState } =
     useForm<IUpdateBackendProfile>({ defaultValues: user });
-  const { t } = useTranslation('auth');
-  const navigate = useNavigate();
-  const { history } = useRouter();
 
   useMemo(() => {
     !!user &&

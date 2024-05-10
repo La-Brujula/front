@@ -2,9 +2,9 @@ import CloseOutlined from '@mui/icons-material/CloseOutlined';
 import ErrorMessage from '@shared/components/errorMessage';
 import { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ActivityLookupField } from '../../../modules/auth/components/activityLookupField.js';
-import AreaForms from '../../../modules/auth/components/areaForm.js';
-import { useAreasReducer } from '../../../modules/auth/hooks/useAreasReducer.js';
+import { ActivityLookupField } from '../../modules/auth/components/activityLookupField.js';
+import AreaForms from '../../modules/auth/components/areaForm.js';
+import { useAreasReducer } from '../../modules/auth/hooks/useAreasReducer.js';
 import { useCurrentProfile } from '@/shared/hooks/useCurrentProfile.js';
 import {
   createLazyFileRoute,
@@ -16,7 +16,7 @@ import DataSuspense from '@/shared/components/dataSuspense.js';
 import { Button } from '@/shared/components/button.js';
 import { isApiError } from '@/shared/services/backendFetcher.js';
 
-export const Route = createLazyFileRoute('/profile/_edit/areas')({
+export const Route = createLazyFileRoute('/me/areas')({
   component: AreasRegistration,
 });
 
@@ -83,8 +83,7 @@ function AreasRegistration() {
         thirdActivity: activities.length >= 2 ? activities[2] : undefined,
       },
       {
-        onSuccess: () =>
-          navigate({ to: '/profile/edit/summary', resetScroll: true }),
+        onSuccess: () => navigate({ to: '/me/summary', resetScroll: true }),
       }
     );
   }, [mutate, setError, activities]);

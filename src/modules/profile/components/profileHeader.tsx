@@ -116,7 +116,7 @@ export const ProfileHeader = ({ user }: { user: IBackendProfile }) => {
         </div>
         {isCurrentUser && (
           <Link
-            to="/profile/edit/basic"
+            to="/me/basic"
             className="bg-primary p-4 py-2 rounded-md text-white"
           >
             {t('Editar perfil')}

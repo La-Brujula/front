@@ -7,7 +7,7 @@ import { getTitle } from '@shared/utils/areaUtils';
 import { Link, createLazyFileRoute } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
 
-export const Route = createLazyFileRoute('/profile/_edit/summary')({
+export const Route = createLazyFileRoute('/me/summary')({
   component: ProfileSummary,
 });
 
@@ -87,7 +87,7 @@ function ProfileSummary() {
       </div>
       <div className="flex flex-row gap-4 self-center justify-center my-8">
         <Link
-          to="/profile/edit/stand-out"
+          to="/me/stand-out"
           resetScroll
         >
           <div className="button font-bold">{t('Continuar')}</div>

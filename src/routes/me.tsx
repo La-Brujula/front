@@ -1,7 +1,7 @@
 import { profileQueryOptions } from '@/modules/profile/queries/userProfile';
 import { createFileRoute, redirect } from '@tanstack/react-router';
 
-export const Route = createFileRoute('/profile/_edit')({
+export const Route = createFileRoute('/me')({
   beforeLoad: async ({ location }) => {
     if (localStorage.getItem('jwt') === null) {
       throw redirect({

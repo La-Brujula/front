@@ -43,7 +43,7 @@ export const SignUpForm = () => {
           }
         },
         onSuccess: () => {
-          navigate({ to: '/profile/edit/basic', resetScroll: true });
+          navigate({ to: '/me/basic', resetScroll: true });
         },
       }
     );
