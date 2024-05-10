@@ -93,7 +93,7 @@ function SubCategoryPage() {
         return [];
       default:
         // Es una lista de actividades
-        return search.split(' ').map((activityId) => {
+        return search.split(' ').map((activityId: string) => {
           const areaId = activityId.charAt(0),
             subareaId = activityId.slice(0, 3);
 

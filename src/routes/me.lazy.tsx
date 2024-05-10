@@ -6,7 +6,7 @@ import ErrorMessage from '@shared/components/errorMessage';
 import { Outlet, createLazyFileRoute } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
 
-export const Route = createLazyFileRoute('/profile/_edit')({
+export const Route = createLazyFileRoute('/me')({
   component: BaseStepPage,
 });
 

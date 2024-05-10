@@ -13,9 +13,9 @@ import { createFileRoute } from '@tanstack/react-router';
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root';
+import { Route as MeImport } from './routes/me';
 import { Route as SearchIndexImport } from './routes/search/index';
 import { Route as SearchLabelImport } from './routes/search/$label';
-import { Route as ProfileEditImport } from './routes/profile/_edit';
 import { Route as ProfileUserIdImport } from './routes/profile/$userId';
 import { Route as AuthNewPasswordImport } from './routes/auth/new-password';
 
@@ -28,27 +28,24 @@ const ContactIndexLazyImport = createFileRoute('/contact/')();
 const AnnouncementsIndexLazyImport = createFileRoute('/announcements/')();
 const AboutIndexLazyImport = createFileRoute('/about/')();
 const SearchCategoryLazyImport = createFileRoute('/search/category')();
+const MeSummaryLazyImport = createFileRoute('/me/summary')();
+const MeStandOutLazyImport = createFileRoute('/me/stand-out')();
+const MeContactLazyImport = createFileRoute('/me/contact')();
+const MeCharacteristicsLazyImport = createFileRoute('/me/characteristics')();
+const MeBasicLazyImport = createFileRoute('/me/basic')();
+const MeAreasLazyImport = createFileRoute('/me/areas')();
 const AuthSignupLazyImport = createFileRoute('/auth/signup')();
 const AuthResetPasswordLazyImport = createFileRoute('/auth/reset-password')();
 const AuthLogoutLazyImport = createFileRoute('/auth/logout')();
 const AuthLoginLazyImport = createFileRoute('/auth/login')();
 const AuthDeleteAccountLazyImport = createFileRoute('/auth/delete-account')();
-const ProfileEditSummaryLazyImport = createFileRoute(
-  '/profile/_edit/summary'
-)();
-const ProfileEditStandOutLazyImport = createFileRoute(
-  '/profile/_edit/stand-out'
-)();
-const ProfileEditContactLazyImport = createFileRoute(
-  '/profile/_edit/contact'
-)();
-const ProfileEditCharacteristicsLazyImport = createFileRoute(
-  '/profile/_edit/characteristics'
-)();
-const ProfileEditBasicLazyImport = createFileRoute('/profile/_edit/basic')();
-const ProfileEditAreasLazyImport = createFileRoute('/profile/_edit/areas')();
 
 // Create/Update Routes
+
+const MeRoute = MeImport.update({
+  path: '/me',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/me.lazy').then((d) => d.Route));
 
 const IndexLazyRoute = IndexLazyImport.update({
   path: '/',
@@ -98,6 +95,38 @@ const SearchCategoryLazyRoute = SearchCategoryLazyImport.update({
   import('./routes/search/category.lazy').then((d) => d.Route)
 );
 
+const MeSummaryLazyRoute = MeSummaryLazyImport.update({
+  path: '/summary',
+  getParentRoute: () => MeRoute,
+} as any).lazy(() => import('./routes/me/summary.lazy').then((d) => d.Route));
+
+const MeStandOutLazyRoute = MeStandOutLazyImport.update({
+  path: '/stand-out',
+  getParentRoute: () => MeRoute,
+} as any).lazy(() => import('./routes/me/stand-out.lazy').then((d) => d.Route));
+
+const MeContactLazyRoute = MeContactLazyImport.update({
+  path: '/contact',
+  getParentRoute: () => MeRoute,
+} as any).lazy(() => import('./routes/me/contact.lazy').then((d) => d.Route));
+
+const MeCharacteristicsLazyRoute = MeCharacteristicsLazyImport.update({
+  path: '/characteristics',
+  getParentRoute: () => MeRoute,
+} as any).lazy(() =>
+  import('./routes/me/characteristics.lazy').then((d) => d.Route)
+);
+
+const MeBasicLazyRoute = MeBasicLazyImport.update({
+  path: '/basic',
+  getParentRoute: () => MeRoute,
+} as any).lazy(() => import('./routes/me/basic.lazy').then((d) => d.Route));
+
+const MeAreasLazyRoute = MeAreasLazyImport.update({
+  path: '/areas',
+  getParentRoute: () => MeRoute,
+} as any).lazy(() => import('./routes/me/areas.lazy').then((d) => d.Route));
+
 const AuthSignupLazyRoute = AuthSignupLazyImport.update({
   path: '/auth/signup',
   getParentRoute: () => rootRoute,
@@ -134,13 +163,6 @@ const SearchLabelRoute = SearchLabelImport.update({
   import('./routes/search/$label.lazy').then((d) => d.Route)
 );
 
-const ProfileEditRoute = ProfileEditImport.update({
-  path: '/profile/edit',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() =>
-  import('./routes/profile/_edit.lazy').then((d) => d.Route)
-);
-
 const ProfileUserIdRoute = ProfileUserIdImport.update({
   path: '/profile/$userId',
   getParentRoute: () => rootRoute,
@@ -155,49 +177,6 @@ const AuthNewPasswordRoute = AuthNewPasswordImport.update({
   import('./routes/auth/new-password.lazy').then((d) => d.Route)
 );
 
-const ProfileEditSummaryLazyRoute = ProfileEditSummaryLazyImport.update({
-  path: '/summary',
-  getParentRoute: () => ProfileEditRoute,
-} as any).lazy(() =>
-  import('./routes/profile/_edit/summary.lazy').then((d) => d.Route)
-);
-
-const ProfileEditStandOutLazyRoute = ProfileEditStandOutLazyImport.update({
-  path: '/stand-out',
-  getParentRoute: () => ProfileEditRoute,
-} as any).lazy(() =>
-  import('./routes/profile/_edit/stand-out.lazy').then((d) => d.Route)
-);
-
-const ProfileEditContactLazyRoute = ProfileEditContactLazyImport.update({
-  path: '/contact',
-  getParentRoute: () => ProfileEditRoute,
-} as any).lazy(() =>
-  import('./routes/profile/_edit/contact.lazy').then((d) => d.Route)
-);
-
-const ProfileEditCharacteristicsLazyRoute =
-  ProfileEditCharacteristicsLazyImport.update({
-    path: '/characteristics',
-    getParentRoute: () => ProfileEditRoute,
-  } as any).lazy(() =>
-    import('./routes/profile/_edit/characteristics.lazy').then((d) => d.Route)
-  );
-
-const ProfileEditBasicLazyRoute = ProfileEditBasicLazyImport.update({
-  path: '/basic',
-  getParentRoute: () => ProfileEditRoute,
-} as any).lazy(() =>
-  import('./routes/profile/_edit/basic.lazy').then((d) => d.Route)
-);
-
-const ProfileEditAreasLazyRoute = ProfileEditAreasLazyImport.update({
-  path: '/areas',
-  getParentRoute: () => ProfileEditRoute,
-} as any).lazy(() =>
-  import('./routes/profile/_edit/areas.lazy').then((d) => d.Route)
-);
-
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -206,16 +185,16 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexLazyImport;
       parentRoute: typeof rootRoute;
     };
+    '/me': {
+      preLoaderRoute: typeof MeImport;
+      parentRoute: typeof rootRoute;
+    };
     '/auth/new-password': {
       preLoaderRoute: typeof AuthNewPasswordImport;
       parentRoute: typeof rootRoute;
     };
     '/profile/$userId': {
       preLoaderRoute: typeof ProfileUserIdImport;
-      parentRoute: typeof rootRoute;
-    };
-    '/profile/_edit': {
-      preLoaderRoute: typeof ProfileEditImport;
       parentRoute: typeof rootRoute;
     };
     '/search/$label': {
@@ -241,6 +220,30 @@ declare module '@tanstack/react-router' {
     '/auth/signup': {
       preLoaderRoute: typeof AuthSignupLazyImport;
       parentRoute: typeof rootRoute;
+    };
+    '/me/areas': {
+      preLoaderRoute: typeof MeAreasLazyImport;
+      parentRoute: typeof MeImport;
+    };
+    '/me/basic': {
+      preLoaderRoute: typeof MeBasicLazyImport;
+      parentRoute: typeof MeImport;
+    };
+    '/me/characteristics': {
+      preLoaderRoute: typeof MeCharacteristicsLazyImport;
+      parentRoute: typeof MeImport;
+    };
+    '/me/contact': {
+      preLoaderRoute: typeof MeContactLazyImport;
+      parentRoute: typeof MeImport;
+    };
+    '/me/stand-out': {
+      preLoaderRoute: typeof MeStandOutLazyImport;
+      parentRoute: typeof MeImport;
+    };
+    '/me/summary': {
+      preLoaderRoute: typeof MeSummaryLazyImport;
+      parentRoute: typeof MeImport;
     };
     '/search/category': {
       preLoaderRoute: typeof SearchCategoryLazyImport;
@@ -270,30 +273,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyIndexLazyImport;
       parentRoute: typeof rootRoute;
     };
-    '/profile/_edit/areas': {
-      preLoaderRoute: typeof ProfileEditAreasLazyImport;
-      parentRoute: typeof ProfileEditImport;
-    };
-    '/profile/_edit/basic': {
-      preLoaderRoute: typeof ProfileEditBasicLazyImport;
-      parentRoute: typeof ProfileEditImport;
-    };
-    '/profile/_edit/characteristics': {
-      preLoaderRoute: typeof ProfileEditCharacteristicsLazyImport;
-      parentRoute: typeof ProfileEditImport;
-    };
-    '/profile/_edit/contact': {
-      preLoaderRoute: typeof ProfileEditContactLazyImport;
-      parentRoute: typeof ProfileEditImport;
-    };
-    '/profile/_edit/stand-out': {
-      preLoaderRoute: typeof ProfileEditStandOutLazyImport;
-      parentRoute: typeof ProfileEditImport;
-    };
-    '/profile/_edit/summary': {
-      preLoaderRoute: typeof ProfileEditSummaryLazyImport;
-      parentRoute: typeof ProfileEditImport;
-    };
   }
 }
 
@@ -301,16 +280,16 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren([
   IndexLazyRoute,
+  MeRoute.addChildren([
+    MeAreasLazyRoute,
+    MeBasicLazyRoute,
+    MeCharacteristicsLazyRoute,
+    MeContactLazyRoute,
+    MeStandOutLazyRoute,
+    MeSummaryLazyRoute,
+  ]),
   AuthNewPasswordRoute,
   ProfileUserIdRoute,
-  ProfileEditRoute.addChildren([
-    ProfileEditAreasLazyRoute,
-    ProfileEditBasicLazyRoute,
-    ProfileEditCharacteristicsLazyRoute,
-    ProfileEditContactLazyRoute,
-    ProfileEditStandOutLazyRoute,
-    ProfileEditSummaryLazyRoute,
-  ]),
   SearchLabelRoute,
   AuthDeleteAccountLazyRoute,
   AuthLoginLazyRoute,

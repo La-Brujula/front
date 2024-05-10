@@ -16,7 +16,7 @@ import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
-export const Route = createLazyFileRoute('/profile/_edit/stand-out')({
+export const Route = createLazyFileRoute('/me/stand-out')({
   component: StandoutPage,
 });
 
@@ -55,8 +55,7 @@ function StandoutPage() {
 
   const onSubmit = async (data: IUpdateBackendProfile) => {
     mutate(data, {
-      onSuccess: () =>
-        navigate({ to: '/profile/edit/contact', resetScroll: true }),
+      onSuccess: () => navigate({ to: '/me/contact', resetScroll: true }),
     });
   };
 
