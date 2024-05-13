@@ -76,6 +76,7 @@ export const LoginForm = () => {
           placeholder={t('password')}
           autoComplete="password"
           error={formState.errors.password}
+          minLength={8}
         />
         {error !== null && (
           <>
