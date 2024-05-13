@@ -61,7 +61,7 @@ function AreasRegistration() {
 
   const addOnClick = useCallback(
     (activity: string) => {
-      if (!activities.includes(activity))
+      if (!activities?.includes(activity))
         dispatch({ type: 'add', item: activity });
     },
     [dispatch, activities]

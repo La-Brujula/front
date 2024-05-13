@@ -7,7 +7,7 @@ import { Link } from '@tanstack/react-router';
 
 export const CurrentUserBadge = () => {
   const loggedInAccount = useLoggedInAccount();
-  if (loggedInAccount === null)
+  if (!loggedInAccount)
     return <ErrorMessage message={'Could not find user'.toString()} />;
   const {
     data: user,
