@@ -85,7 +85,7 @@ function ErrorHandler(props: ErrorComponentProps) {
                     ?.split('\n')
                     .flatMap((line: string) => {
                       const [func, loc] = line.split('@');
-                      if (loc.includes('node_modules')) return;
+                      if (loc?.includes('node_modules')) return;
                       return (
                         <div
                           className="flex flex-col"

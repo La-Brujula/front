@@ -19,11 +19,14 @@
   "Inicia sesión": "Inicia sesión",
   "createUser": "Crear un nuevo usuario",
   "forgotPassword": "¿Olvidaste tu contraseña?",
-  "Tu correo electrónico será tu nombre de usuario": "Tu correo electrónico será tu nombre de usuario",
-  "Escribe una contraseña": "Escribe una contraseña",
-  "¿Eres persona física o persona moral?": "¿Eres persona física o persona moral?",
   "Persona física": "Persona física",
   "Persona moral": "Persona moral",
+  "Las contraseñas no son iguales": "Las contraseñas no son iguales",
+  "Tu correo electrónico será tu nombre de usuario": "Tu correo electrónico será tu nombre de usuario",
+  "Escribe una contraseña": "Escribe una contraseña",
+  "La contraseña debe tener al menos 8 caracteres": "La contraseña debe tener al menos 8 caracteres",
+  "confirmPassword": "Confirmar contraseña",
+  "¿Eres persona física o persona moral?": "¿Eres persona física o persona moral?",
   "Crear usuario": "Crear usuario",
   "¿Ya tienes una cuenta?": "¿Ya tienes una cuenta?",
   "Inicia Sesión": "Inicia Sesión",
@@ -103,6 +106,5 @@
   "Actividad Principal": "Actividad Principal",
   "No se encontró una cuenta con ese correo y contraseña": "No se encontró una cuenta con ese correo y contraseña.",
   "Ocurrió un error": "Ocurrió un error.",
-  "No has especificado qué tipo de perfil quieres crear": "No has especificado qué tipo de perfil quieres crear.",
-  "Las contraseñas no son iguales": "Las contraseñas no son iguales"
+  "No has especificado qué tipo de perfil quieres crear": "No has especificado qué tipo de perfil quieres crear."
 }

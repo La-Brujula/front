@@ -18,6 +18,7 @@ import { Route as SearchIndexImport } from './routes/search/index';
 import { Route as SearchLabelImport } from './routes/search/$label';
 import { Route as ProfileUserIdImport } from './routes/profile/$userId';
 import { Route as AuthNewPasswordImport } from './routes/auth/new-password';
+import { Route as AuthLoginImport } from './routes/auth/login';
 
 // Create Virtual Routes
 
@@ -37,7 +38,6 @@ const MeAreasLazyImport = createFileRoute('/me/areas')();
 const AuthSignupLazyImport = createFileRoute('/auth/signup')();
 const AuthResetPasswordLazyImport = createFileRoute('/auth/reset-password')();
 const AuthLogoutLazyImport = createFileRoute('/auth/logout')();
-const AuthLoginLazyImport = createFileRoute('/auth/login')();
 const AuthDeleteAccountLazyImport = createFileRoute('/auth/delete-account')();
 
 // Create/Update Routes
@@ -144,11 +144,6 @@ const AuthLogoutLazyRoute = AuthLogoutLazyImport.update({
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/auth/logout.lazy').then((d) => d.Route));
 
-const AuthLoginLazyRoute = AuthLoginLazyImport.update({
-  path: '/auth/login',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/auth/login.lazy').then((d) => d.Route));
-
 const AuthDeleteAccountLazyRoute = AuthDeleteAccountLazyImport.update({
   path: '/auth/delete-account',
   getParentRoute: () => rootRoute,
@@ -177,6 +172,11 @@ const AuthNewPasswordRoute = AuthNewPasswordImport.update({
   import('./routes/auth/new-password.lazy').then((d) => d.Route)
 );
 
+const AuthLoginRoute = AuthLoginImport.update({
+  path: '/auth/login',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/auth/login.lazy').then((d) => d.Route));
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -187,6 +187,10 @@ declare module '@tanstack/react-router' {
     };
     '/me': {
       preLoaderRoute: typeof MeImport;
+      parentRoute: typeof rootRoute;
+    };
+    '/auth/login': {
+      preLoaderRoute: typeof AuthLoginImport;
       parentRoute: typeof rootRoute;
     };
     '/auth/new-password': {
@@ -203,10 +207,6 @@ declare module '@tanstack/react-router' {
     };
     '/auth/delete-account': {
       preLoaderRoute: typeof AuthDeleteAccountLazyImport;
-      parentRoute: typeof rootRoute;
-    };
-    '/auth/login': {
-      preLoaderRoute: typeof AuthLoginLazyImport;
       parentRoute: typeof rootRoute;
     };
     '/auth/logout': {
@@ -288,11 +288,11 @@ export const routeTree = rootRoute.addChildren([
     MeStandOutLazyRoute,
     MeSummaryLazyRoute,
   ]),
+  AuthLoginRoute,
   AuthNewPasswordRoute,
   ProfileUserIdRoute,
   SearchLabelRoute,
   AuthDeleteAccountLazyRoute,
-  AuthLoginLazyRoute,
   AuthLogoutLazyRoute,
   AuthResetPasswordLazyRoute,
   AuthSignupLazyRoute,
