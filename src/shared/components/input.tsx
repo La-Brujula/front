@@ -4,6 +4,7 @@ import {
   FieldValues,
   Path,
   RegisterOptions,
+  SetFieldValue,
   UseFormRegister,
   UseFormRegisterReturn,
 } from 'react-hook-form';
@@ -27,6 +28,7 @@ type InputProps<
   labelClass?: string;
   required?: boolean;
   error?: FieldError;
+  helperText?: string;
 } & RegisterOptions &
   (Type extends 'textArea'
     ? {
@@ -48,6 +50,7 @@ type InputProps<
           ? {
               type: 'radioGroup';
               items: { label: string; value: string }[];
+              setValue: SetFieldValue<FormFields>;
             }
           : Type extends 'custom'
             ?
@@ -180,22 +183,25 @@ function buildInput<T extends FieldValues>(
     />
   );
 }
+
+const radioGroupInvalidProps = [...internalProps, 'type', 'items', 'error'];
 function buildRadioGroup<T extends FieldValues>(
   props: InputProps<'radioGroup', T>,
-  register: UseFormRegister<T>
+  setValue: SetFieldValue<T>
 ) {
   const allowedProps = Object.fromEntries(
     Object.entries(props).filter(
-      ([k, _]) => k == 'type' || !internalProps.includes(k)
+      ([k, _]) => !radioGroupInvalidProps.includes(k)
     )
   );
   return (
-    <fieldset className="flex flex-row flex-wrap gap-4 items-stretch md:items-center justify-center mb-4">
-      {props.items.map((item) => (
+    <div className="flex flex-row flex-wrap gap-4 items-stretch md:items-center justify-center mb-4">
+      {props.items.map((item, i) => (
         <div
           className="relative w-fit rounded-md ring-2 ring-primary
         text-primary has-[:checked]:bg-primary has-[:checked]:text-white
         flex items-center justify-center py-2 px-4"
+          key={item.value}
         >
           <input
             className="absolute h-full w-full cursor-pointer opacity-0"
@@ -203,12 +209,13 @@ function buildRadioGroup<T extends FieldValues>(
             type="radio"
             value={item.value}
             id={props.fieldName + item.label}
-            {...register(props.fieldName)}
+            name={props.fieldName}
+            onClick={() => setValue(props.fieldName, item.value)}
           />
-          <label htmlFor={item.value}>{item.label}</label>
+          <label htmlFor={props.fieldName + item.label}>{item.label}</label>
         </div>
       ))}
-    </fieldset>
+    </div>
   );
 }
 
@@ -243,7 +250,7 @@ function Input<T extends FieldValues>(
       case 'radioGroup':
         return buildRadioGroup(
           props as InputProps<'radioGroup', T>,
-          props.register
+          (props as InputProps<'radioGroup', T>).setValue
         );
       case 'custom':
         const CustomElement = (props as InputProps<'custom', T>).component;
@@ -271,6 +278,9 @@ function Input<T extends FieldValues>(
         {props.required && ' *'}
       </label>
       {inputElement}
+      {props.helperText !== undefined && props.error === undefined && (
+        <p className="text-xs">{props.helperText}</p>
+      )}
       {props.error !== undefined && (
         <p className="text-red-500">{t(props.error.message || '')}</p>
       )}
