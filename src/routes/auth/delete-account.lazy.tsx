@@ -1,7 +1,7 @@
 import { Container } from '@shared/layout/container';
 import { useDeleteMyUser } from '../../modules/deleteAccount/hooks/useUserDelete';
 import { Trans, useTranslation } from 'react-i18next';
-import { Link, createLazyFileRoute } from '@tanstack/react-router';
+import { Link, createLazyFileRoute, useNavigate } from '@tanstack/react-router';
 import { useAuth } from '@/shared/providers/authProvider';
 
 export const Route = createLazyFileRoute('/auth/delete-account')({
@@ -12,6 +12,7 @@ function DeleteUserPage() {
   const { mutate: deleteMyAccount } = useDeleteMyUser();
   const { account } = useAuth(['account']);
   const { t } = useTranslation('deleteAccount');
+  const navigate = useNavigate();
   return (
     <Container>
       <h1>{t('Borrar mi usuario')}</h1>
@@ -30,16 +31,20 @@ function DeleteUserPage() {
           de autenticación
         </Trans>
       </p>
-      <Link
-        to="/profile/$userId"
-        params={{ userId: account!.ProfileId }}
-        className="button mb-4 block w-fit mx-auto"
-      >
-        {t('Regresar')}
-      </Link>
+      {account !== null && (
+        <Link
+          to="/profile/$userId"
+          params={{ userId: account.ProfileId }}
+          className="button mb-4 block w-fit mx-auto"
+        >
+          {t('Regresar')}
+        </Link>
+      )}
       <button
         className="px-4 py-2 text-slate-400 cursor-pointer bg-transparent"
-        onClick={() => deleteMyAccount()}
+        onClick={() =>
+          deleteMyAccount(undefined, { onSuccess: () => navigate({ to: '/' }) })
+        }
       >
         {t('Deseo eliminar mi cuenta de manera definitiva')}
       </button>
