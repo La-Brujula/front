@@ -1,4 +1,4 @@
-import { Path, useForm } from 'react-hook-form';
+import { FormProvider, Path, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { PrivacyPolicy } from './privacyPolicy';
 import { useAuth } from '@/shared/providers/authProvider';
@@ -7,24 +7,41 @@ import useAuthFunction from '@/shared/hooks/useAuthFuncton';
 import { ErrorMessage } from '@/shared/components/errorMessage';
 import Input from '@/shared/components/input';
 import { isApiError } from '@/shared/services/backendFetcher';
+import { TFunction } from 'i18next';
+import { useMemo } from 'react';
 
 type SignupForm = {
   email: string;
   password: string;
+  confirmPassword: string;
   persona: 'moral' | 'fisica';
   acceptPrivacy: boolean;
 };
 
+const personTypeOptionsGenerator = (t: TFunction) => [
+  { value: 'fisica', label: t('Persona física') },
+  { value: 'moral', label: t('Persona moral') },
+];
+
 export const SignUpForm = () => {
   const { signup } = useAuth(['signup']);
-  const { register, handleSubmit, watch, formState, setError } =
+  const { register, handleSubmit, watch, formState, setError, setValue } =
     useForm<SignupForm>();
   const { t } = useTranslation('auth');
   const acceptedPrivacy = watch('acceptPrivacy');
   const { isPending: loading, error, mutate } = useAuthFunction(signup);
   const navigate = useNavigate();
 
+  const personTypeOptions = useMemo(() => personTypeOptionsGenerator(t), [t]);
+
   const onSubmit = async (data: SignupForm) => {
+    if (data.password !== data.confirmPassword) {
+      setError('confirmPassword', {
+        type: 'custom',
+        message: t('Las contraseñas no son iguales'),
+      });
+      return;
+    }
     mutate(
       { email: data.email, password: data.password, type: data.persona },
       {
@@ -35,6 +52,9 @@ export const SignUpForm = () => {
             typeof err.message !== 'string'
           ) {
             for (const error of err.message) {
+              if (error.path == 'type') {
+                error.path = 'persona';
+              }
               setError(error.path as Path<SignupForm>, {
                 type: 'custom',
                 message: error.msg,
@@ -59,7 +79,7 @@ export const SignUpForm = () => {
         {...register('persona')}
         required
       />
-      <div className="flex flex-col md:items-center gap-8 justify-stretch mb-12">
+      <div className="flex flex-col md:items-center gap-8 justify-stretch">
         <Input
           label={t('Tu correo electrónico será tu nombre de usuario')}
           type="email"
@@ -81,20 +101,30 @@ export const SignUpForm = () => {
           required={true}
           divClass="flex flex-col gap-2 items-start grow max-w-xs w-full"
           error={formState.errors.password}
+          helperText={t('La contraseña debe tener al menos 8 caracteres')}
+        />
+        <Input
+          label={t('Escribe una contraseña')}
+          type="password"
+          fieldName="confirmPassword"
+          placeholder={t('confirmPassword')}
+          autoComplete="password"
+          register={register}
+          required={true}
+          divClass="flex flex-col gap-2 items-start grow max-w-xs w-full"
+          error={formState.errors.confirmPassword}
+        />
+        <Input
+          label={t('¿Eres persona física o persona moral?')}
+          divClass="text-center"
+          register={register}
+          fieldName="persona"
+          type="radioGroup"
+          items={personTypeOptions}
+          error={formState.errors.persona}
+          setValue={setValue}
         />
       </div>
-      <Input
-        label={t('¿Eres persona física o persona moral?')}
-        divClass="text-center"
-        register={register}
-        fieldName="persona"
-        type="radioGroup"
-        items={[
-          { value: 'fisica', label: t('Persona física') },
-          { value: 'moral', label: t('Persona moral') },
-        ]}
-        error={formState.errors.persona}
-      />
       {error !== null && (
         <ErrorMessage
           message={isApiError(error) ? error.errorCode : error.message}

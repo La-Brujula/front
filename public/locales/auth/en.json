@@ -19,11 +19,14 @@
   "Inicia sesión": "Log in",
   "createUser": "Create a new user",
   "forgotPassword": "Forgot your password?",
-  "Tu correo electrónico será tu nombre de usuario": "Your email will become your ",
-  "Escribe una contraseña": "Enter a password",
-  "¿Eres persona física o persona moral?": "Are you an individual or a company/institution?",
   "Persona física": "Individual",
   "Persona moral": "Company/Institution",
+  "Las contraseñas no son iguales": "The passwords do not match",
+  "Tu correo electrónico será tu nombre de usuario": "Your email will become your ",
+  "Escribe una contraseña": "Enter a password",
+  "La contraseña debe tener al menos 8 caracteres": "The password must be at least 8 characters long",
+  "confirmPassword": "Confirm Password",
+  "¿Eres persona física o persona moral?": "Are you an individual or a company/institution?",
   "Crear usuario": "Create user",
   "¿Ya tienes una cuenta?": "Already registered?",
   "Inicia Sesión": "Log in",
@@ -103,6 +106,5 @@
   "Actividad Principal": "Primary Activity",
   "No se encontró una cuenta con ese correo y contraseña": "No account with those credentials was found",
   "Ocurrió un error": "An error occurred",
-  "No has especificado qué tipo de perfil quieres crear": "You have not specified the type of profile you want to create",
-  "Las contraseñas no son iguales": "The passwords do not match"
+  "No has especificado qué tipo de perfil quieres crear": "You have not specified the type of profile you want to create"
 }
