@@ -12,7 +12,7 @@ function LoginPage() {
   return (
     <Container bg="light">
       <h1 className="mb-8 text-secondary text-4xl">{t('login')}</h1>
-      <LoginForm />
+      <LoginForm redirectUrl={Route.useSearch().redirect} />
     </Container>
   );
 }

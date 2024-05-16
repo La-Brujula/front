@@ -13,7 +13,7 @@ type LoginFormFields = {
   password: string;
 };
 
-export const LoginForm = () => {
+export const LoginForm = (props: { redirectUrl?: string }) => {
   const { t } = useTranslation('auth');
   const { register, handleSubmit, formState, setError } =
     useForm<LoginFormFields>();
@@ -30,7 +30,7 @@ export const LoginForm = () => {
         {
           onSuccess: (res) =>
             navigate({
-              to: '/profile/$userId',
+              to: props.redirectUrl || '/profile/$userId',
               params: { userId: res.account.ProfileId },
               resetScroll: true,
             }),
