@@ -81,8 +81,8 @@ function SearchHomepage() {
   }, [fetchNextPage, inView]);
 
   return (
-    <Container>
-      <div className="bg-primary absolute top-0 h-48 w-full left-0 -z-10" />
+    <Container className="relative">
+      <div className="bg-primary absolute top-0 h-24 w-full left-0 -z-10" />
       <div
         className="w-full grid grid-cols-[1fr_max-content]
       gap-4 text-white font-bold items-center px-4"
