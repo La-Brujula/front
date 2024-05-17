@@ -79,8 +79,8 @@ function AreasRegistration() {
     mutate(
       {
         primaryActivity: activities[0],
-        secondaryActivity: activities.length >= 1 ? activities[1] : undefined,
-        thirdActivity: activities.length >= 2 ? activities[2] : undefined,
+        secondaryActivity: activities.length >= 2 ? activities[1] : undefined,
+        thirdActivity: activities.length >= 3 ? activities[2] : undefined,
       },
       {
         onSuccess: () => navigate({ to: '/me/summary', resetScroll: true }),

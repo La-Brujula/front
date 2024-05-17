@@ -134,7 +134,7 @@ function UpdateImageControls(props: {
   imageUrl: string;
   imageType: 'profile' | 'cover';
 }) {
-  const { mutate: upload } = useUploadProfileImage();
+  const { mutate: upload, isPending } = useUploadProfileImage();
   const uploadImage = useCallback(async () => {
     const imageFile = await fetch(props.imageUrl)
       .then((r) => r.blob())
@@ -151,7 +151,6 @@ function UpdateImageControls(props: {
               ? data.entity.headerPictureUrl!
               : data.entity.profilePictureUrl!;
           props.setImageUrl(imageUrl);
-          fetch(imageUrl, { cache: 'no-cache' });
         },
       }
     );
@@ -180,7 +179,11 @@ function UpdateImageControls(props: {
             onClick={uploadImage}
             className="p-2 rounded-md bg-green-500 text-white"
           >
-            <SaveOutlined />
+            {isPending ? (
+              <div className="size-4 border rounded-xl border-dashed border-white" />
+            ) : (
+              <SaveOutlined />
+            )}
           </button>
         </>
       )}

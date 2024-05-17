@@ -61,6 +61,16 @@ function ProfileSummary() {
           {!!user?.primaryActivity &&
             getTitle(user?.primaryActivity, user?.gender)}
         </p>
+        {user?.secondaryActivity && (
+          <>
+            <h3>{t('Otras actividades')}</h3>
+            <p className="text-left text-primary">
+              {[user.secondaryActivity, user.thirdActivity]
+                .filter((a) => a != undefined)
+                .map((activity) => getTitle(activity!, user?.gender))}
+            </p>
+          </>
+        )}
         <div className="col-span-2"></div>
         <h3>{t('Ciudad')}</h3>
         <p className="text-left text-primary">{user?.city}</p>

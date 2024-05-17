@@ -85,9 +85,10 @@ export function UserProvider(props: { children: ReactNode }) {
     if (!account) return;
     localStorage.setItem('account', JSON.stringify(account));
   }, [account]);
+
   useEffect(() => {
     if (!token) return;
-    localStorage.setItem('jwt', JSON.stringify(token));
+    localStorage.setItem('jwt', `"${token}"`);
   }, [token]);
 
   const isLoggedIn = token !== null && account !== null;
