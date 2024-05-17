@@ -7,8 +7,9 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 export function useUploadProfileImage() {
   const queryClient = useQueryClient();
   const account = useLoggedInAccount();
+  if (account === null) throw 'No account found';
   return useMutation({
-    mutationKey: ['profiles', account!.ProfileId],
+    mutationKey: ['profiles', account.ProfileId],
     mutationFn: async (vars: {
       imageFile: File;
       imageType: 'profile' | 'cover';
@@ -26,6 +27,11 @@ export function useUploadProfileImage() {
         '/profiles/me/' + vars.imageType,
         formdata
       );
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ['profiles', account.ProfileId],
+      });
     },
   });
 }
