@@ -93,15 +93,17 @@ export const AreaForms = ({
 
   const validSubareas = useMemo(
     () =>
-      Object.keys(areas[formArea])
-        .map(
-          (subarea) =>
-            subareaHasValid(formArea, subarea) && {
-              key: subarea,
-              label: subarea,
-            }
-        )
-        .filter((v) => !!v) as { key: string; label: string }[],
+      !!formArea
+        ? Object.keys(areas[formArea])
+            .map(
+              (subarea) =>
+                subareaHasValid(formArea, subarea) && {
+                  key: subarea,
+                  label: subarea,
+                }
+            )
+            .filter((v) => !!v)
+        : [],
     [subareaHasValid, formArea]
   );
 
@@ -155,6 +157,7 @@ export const AreaForms = ({
           items={validActivities}
           inputClass="w-full"
           divClass="w-full"
+          onChange={(ev) => changeListener(ev.currentTarget.value)}
         />
       )}
     </div>
