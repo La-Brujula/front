@@ -8,7 +8,7 @@ import {
   getTitle,
   getSubAreaObjectByName,
 } from '@shared/utils/areaUtils';
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { RegisterOptions, UseFormRegister, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
@@ -39,13 +39,23 @@ export const AreaForms = ({
 
   const { t } = useTranslation('auth');
 
-  const areaHasValid = (area: keyof typeof areas) => {
-    return Object.keys(getAreaObjectByName(area)).some((subarea) =>
-      Object.keys(getAreaObjectByName(area)[subarea]).some((activity) =>
+  const subareaHasValid = useCallback(
+    (area: keyof typeof areas, subarea: string) => {
+      return Object.keys(getAreaObjectByName(area)[subarea]).some((activity) =>
         getTitle(activity, gender)
-      )
-    );
-  };
+      );
+    },
+    [gender]
+  );
+
+  const areaHasValid = useCallback(
+    (area: keyof typeof areas) => {
+      return Object.keys(getAreaObjectByName(area)).some((subarea) =>
+        subareaHasValid(area, subarea)
+      );
+    },
+    [gender]
+  );
   const resetActivity = useCallback(() => {
     setValue('activity', '');
   }, [setValue]);
@@ -54,12 +64,6 @@ export const AreaForms = ({
     setValue('subarea', '');
     resetActivity();
   }, [setValue, resetActivity]);
-
-  const subareaHasValid = (area: keyof typeof areas, subarea: string) => {
-    return Object.keys(getAreaObjectByName(area)[subarea]).some((activity) =>
-      getTitle(activity, gender)
-    );
-  };
 
   const areaRegister = useCallback(
     (fieldName: 'area', options: RegisterOptions) =>
@@ -73,6 +77,50 @@ export const AreaForms = ({
     [register, resetActivity]
   ) as UseFormRegister<AreasForm>;
 
+  const validAreas = useMemo(
+    () =>
+      Object.keys(areas)
+        .map(
+          (area) =>
+            areaHasValid(area as keyof typeof areas) && {
+              key: area,
+              label: area,
+            }
+        )
+        .filter((v) => !!v),
+    [areaHasValid]
+  );
+
+  const validSubareas = useMemo(
+    () =>
+      Object.keys(areas[formArea])
+        .map(
+          (subarea) =>
+            subareaHasValid(formArea, subarea) && {
+              key: subarea,
+              label: subarea,
+            }
+        )
+        .filter((v) => !!v) as { key: string; label: string }[],
+    [subareaHasValid, formArea]
+  );
+
+  const validActivities = useMemo(
+    () =>
+      !!formArea && !!formSubarea
+        ? Object.keys(getSubAreaObjectByName(formArea, formSubarea))
+            .map(
+              (activity) =>
+                getTitle(activity, gender) && {
+                  key: activity,
+                  label: getTitle(activity, gender),
+                }
+            )
+            .filter((v) => !!v)
+        : [],
+    [formArea, formSubarea, gender]
+  );
+
   return (
     <div className="col-span-full flex flex-col items-start justify-stretch text-left gap-4 w-full">
       <Input
@@ -81,13 +129,7 @@ export const AreaForms = ({
         register={areaRegister}
         fieldName="area"
         placeholder={t('Selecciona una opción')}
-        items={Object.keys(areas).map(
-          (area) =>
-            areaHasValid(area as keyof typeof areas) && {
-              key: area,
-              label: area,
-            }
-        )}
+        items={validAreas}
         inputClass="w-full"
         divClass="w-full"
       />
@@ -98,13 +140,7 @@ export const AreaForms = ({
           label={t('Subarea')}
           register={subareaRegister}
           placeholder={t('Selecciona una opción')}
-          items={Object.keys(areas[formArea]).map(
-            (subarea) =>
-              subareaHasValid(formArea, subarea) && {
-                key: subarea,
-                label: subarea,
-              }
-          )}
+          items={validSubareas}
           inputClass="w-full"
           divClass="w-full"
         />
@@ -116,18 +152,7 @@ export const AreaForms = ({
           register={register}
           placeholder={t('Selecciona una opción')}
           type="select"
-          items={
-            (!!formArea &&
-              !!formSubarea &&
-              Object.keys(getSubAreaObjectByName(formArea, formSubarea)).map(
-                (activity) =>
-                  getTitle(activity, gender) && {
-                    key: activity,
-                    label: getTitle(activity, gender),
-                  }
-              )) ||
-            []
-          }
+          items={validActivities}
           inputClass="w-full"
           divClass="w-full"
         />
