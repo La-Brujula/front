@@ -18,6 +18,4 @@ npx yarn build
 
 echo "built $(date)" >> builds.log
 
-rm -rf ~/apps/www_labrujula_com_mx_https/*
-
 cp -rf dist/. ~/apps/www_labrujula_com_mx_https/
