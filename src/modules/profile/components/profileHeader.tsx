@@ -1,21 +1,26 @@
 import { useLoggedInAccount } from '@/shared/hooks/useLoggedInAccount';
 import { IBackendProfile } from '@/shared/types/user';
-import { CancelOutlined, SaveOutlined } from '@mui/icons-material';
 import ErrorMessage from '@shared/components/errorMessage';
 import { getTitle } from '@shared/utils/areaUtils';
 import { Link } from '@tanstack/react-router';
-import { Dispatch, useCallback, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import UploadImage from './uploadImage';
-import { useUploadProfileImage } from '../hooks/useUploadProfileImage';
+import { UpdateImageControls } from './UpdateImageControls';
 
 export const ProfileHeader = ({ user }: { user: IBackendProfile }) => {
   const { t } = useTranslation('user');
   const account = useLoggedInAccount();
 
   const isCurrentUser = useMemo(
-    () => account !== null && account.email == user.primaryEmail,
-    [account, user.primaryEmail]
+    () => account !== null && account.ProfileId == user.id,
+    [account, user.id]
+  );
+
+  const [profilePictureUrl, setProfilePictureUrl] = useState(
+    user.profilePictureUrl || ''
+  );
+  const [headerPictureUrl, setHeaderPictureUrl] = useState(
+    user.headerPictureUrl || ''
   );
 
   const activities = useMemo(
@@ -40,13 +45,6 @@ export const ProfileHeader = ({ user }: { user: IBackendProfile }) => {
     ]
   );
 
-  const [profilePictureUrl, setProfilePictureUrl] = useState(
-    user.profilePictureUrl
-  );
-  const [headerPictureUrl, setHeaderPictureUrl] = useState(
-    user.headerPictureUrl
-  );
-
   return !!user ? (
     <div className="max-w-2xl mx-auto w-full">
       <div className="flex flex-col gap-2 mx-auto xl:ml-0 items-center max-w-xs">
@@ -66,9 +64,9 @@ export const ProfileHeader = ({ user }: { user: IBackendProfile }) => {
         )}
         {isCurrentUser && (
           <UpdateImageControls
+            user={user}
+            imageUrl={headerPictureUrl}
             setImageUrl={setHeaderPictureUrl}
-            userSetPictureUrl={user.headerPictureUrl}
-            imageUrl={headerPictureUrl!}
             imageType="cover"
           />
         )}
@@ -95,9 +93,9 @@ export const ProfileHeader = ({ user }: { user: IBackendProfile }) => {
           )}
           {isCurrentUser && (
             <UpdateImageControls
+              user={user}
+              imageUrl={profilePictureUrl}
               setImageUrl={setProfilePictureUrl}
-              userSetPictureUrl={user.profilePictureUrl}
-              imageUrl={profilePictureUrl!}
               imageType="profile"
             />
           )}
@@ -128,65 +126,3 @@ export const ProfileHeader = ({ user }: { user: IBackendProfile }) => {
     <ErrorMessage message={t('No se encontró el usuario')} />
   );
 };
-function UpdateImageControls(props: {
-  setImageUrl: Dispatch<string>;
-  userSetPictureUrl: string | undefined;
-  imageUrl: string;
-  imageType: 'profile' | 'cover';
-}) {
-  const { mutate: upload, isPending } = useUploadProfileImage();
-  const uploadImage = useCallback(async () => {
-    const imageFile = await fetch(props.imageUrl)
-      .then((r) => r.blob())
-      .then(
-        (blobFile) =>
-          new File([blobFile], props.imageType, { type: blobFile.type })
-      );
-    upload(
-      { imageFile, imageType: props.imageType },
-      {
-        onSuccess: (data) => {
-          const imageUrl =
-            props.imageType === 'cover'
-              ? data.entity.headerPictureUrl!
-              : data.entity.profilePictureUrl!;
-          props.setImageUrl(imageUrl);
-        },
-      }
-    );
-  }, [upload]);
-
-  const resetInput = useCallback(
-    () => props.setImageUrl(props.userSetPictureUrl!),
-    [props.setImageUrl]
-  );
-  return (
-    <div className="flex flex-row gap-4 justify-end">
-      {props.userSetPictureUrl === props.imageUrl ? (
-        <UploadImage
-          setImageUrl={props.setImageUrl}
-          imageType={props.imageType}
-        />
-      ) : (
-        <>
-          <button
-            onClick={resetInput}
-            className="p-2 rounded-md bg-red-500 text-white"
-          >
-            <CancelOutlined />
-          </button>
-          <button
-            onClick={uploadImage}
-            className="p-2 rounded-md bg-green-500 text-white"
-          >
-            {isPending ? (
-              <div className="size-4 border rounded-xl border-dashed border-white" />
-            ) : (
-              <SaveOutlined />
-            )}
-          </button>
-        </>
-      )}
-    </div>
-  );
-}

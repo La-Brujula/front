@@ -45,7 +45,7 @@ function CharacteristicsPage() {
         onSuccess: () =>
           navigate({
             to: '/profile/$userId',
-            params: { userId: user!.id },
+            params: { userId: 'me' },
             resetScroll: true,
           }),
       });

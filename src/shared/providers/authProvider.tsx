@@ -50,7 +50,9 @@ export function UserProvider(props: { children: ReactNode }) {
     }): Promise<IAuthResponse> => {
       const res = await loginService(authValues.email, authValues.password);
       setAccount(res.entity.account);
+      localStorage.setItem('account', JSON.stringify(account));
       setToken(res.entity.token);
+      localStorage.setItem('jwt', `"${token}"`);
       return res.entity;
     },
     [setAccount, setToken]
@@ -68,7 +70,9 @@ export function UserProvider(props: { children: ReactNode }) {
         authValues.type
       );
       setAccount(res.entity.account);
+      localStorage.setItem('account', JSON.stringify(account));
       setToken(res.entity.token);
+      localStorage.setItem('jwt', `"${token}"`);
       return res.entity;
     },
     [setAccount, setToken]

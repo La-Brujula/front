@@ -4,7 +4,7 @@ import { Tooltip } from '@mui/material';
 import { ChangeEvent, useCallback, useMemo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
-function UploadImage(props: {
+function ImageField(props: {
   setImageUrl: (imageUrl: string) => void;
   imageType: 'profile' | 'cover';
 }) {
@@ -48,4 +48,4 @@ function UploadImage(props: {
   );
 }
 
-export default UploadImage;
+export default ImageField;

@@ -1,4 +1,3 @@
-import { useLoggedInAccount } from '@/shared/hooks/useLoggedInAccount';
 import { postFetch } from '@/shared/services/backendFetcher';
 import { IBackendProfile } from '@/shared/types/user';
 import { compress } from '@/shared/utils/compressImage';
@@ -6,10 +5,8 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 export function useUploadProfileImage() {
   const queryClient = useQueryClient();
-  const account = useLoggedInAccount();
-  if (account === null) throw 'No account found';
   return useMutation({
-    mutationKey: ['profiles', account.ProfileId],
+    mutationKey: ['profiles', 'me'],
     mutationFn: async (vars: {
       imageFile: File;
       imageType: 'profile' | 'cover';
@@ -28,10 +25,8 @@ export function useUploadProfileImage() {
         formdata
       );
     },
-    onSuccess: () => {
-      queryClient.invalidateQueries({
-        queryKey: ['profiles', account.ProfileId],
-      });
+    onSuccess: (res) => {
+      queryClient.setQueryData(['profiles', 'me'], res.entity);
     },
   });
 }

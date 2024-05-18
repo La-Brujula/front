@@ -39,8 +39,17 @@ export function UserProfilePage() {
   const { userId } = Route.useParams();
 
   const account = useLoggedInAccount();
+  let assignedProfileId: string;
+  if (account?.ProfileId === userId) {
+    assignedProfileId = 'me';
+  } else {
+    assignedProfileId = userId;
+  }
 
-  const queryOptions = useMemo(() => profileQueryOptions(userId), [userId]);
+  const queryOptions = useMemo(
+    () => profileQueryOptions(assignedProfileId),
+    [assignedProfileId]
+  );
 
   const { data: user, isLoading: loading, error } = useQuery(queryOptions);
   const { t } = useTranslation('profile');
