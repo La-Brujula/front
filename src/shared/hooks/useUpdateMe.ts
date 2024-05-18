@@ -18,9 +18,9 @@ export function useUpdateMe() {
   >({
     mutationKey: ['currentUser'],
     mutationFn: (userInfo: IUpdateBackendProfile) => updateMe(userInfo),
-    onSuccess: (data) => {
-      if (data.isSuccess === false) return;
-      queryClient.invalidateQueries({ queryKey: ['profiles', data.entity.id] });
+    onSuccess: (res) => {
+      if (res.isSuccess === false) return;
+      queryClient.setQueryData(['profiles', 'me'], res.entity);
     },
   });
 }

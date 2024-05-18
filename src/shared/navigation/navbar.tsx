@@ -64,7 +64,7 @@ export const Navbar = () => {
               <Link
                 resetScroll
                 to="/profile/$userId"
-                params={{ userId: account!.ProfileId }}
+                params={{ userId: 'me' }}
                 className="text-white order-last"
               >
                 <PersonOutline />
