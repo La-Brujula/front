@@ -42,7 +42,11 @@ function NewPasswordPage() {
       mutate(
         { email, password: values.password, code },
         {
-          onSuccess: () => navigate({ to: '/auth/login', resetScroll: true }),
+          onSuccess: () =>
+            navigate({
+              to: '/auth/login',
+              resetScroll: true,
+            }),
           onError: (error) => {
             if (
               isApiError(error) &&
@@ -65,12 +69,10 @@ function NewPasswordPage() {
   return (
     <Container>
       <h1 className="mb-8 text-secondary text-4xl">
-        {t('Reiniciar contraseña')}
+        {t('Cambio de contraseña')}
       </h1>
       <p className="mb-4">
-        {t(
-          'Escribe tu correo aquí y si está registrado te llegará un correo para reiniciar tu contraseña'
-        )}
+        {t('A continuación ingresa la nueva contraseña que quieres usar')}
       </p>
       <form
         onSubmit={handleSubmit(formHandler)}
