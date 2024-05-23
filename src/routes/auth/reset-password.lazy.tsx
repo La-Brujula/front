@@ -8,7 +8,7 @@ import { Container } from '@shared/layout/container';
 import { Link, createLazyFileRoute } from '@tanstack/react-router';
 import { useCallback, useState } from 'react';
 import { Path, useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 export const Route = createLazyFileRoute('/auth/reset-password')({
   component: PasswordResetPage,
@@ -69,6 +69,25 @@ function PasswordResetPage() {
         {t(
           'Escribe tu correo aquí y si está registrado te llegará un correo para reiniciar tu contraseña'
         )}
+      </p>
+      <p className="mb-4">
+        <Trans
+          t={t}
+          i18nKey="porCuestiones"
+        >
+          Por cuestiones de seguridad sólo podrás pedir <b>3 veces el código</b>{' '}
+          antes de tener que contactar a nuestro equipo
+        </Trans>
+      </p>
+      <p className="mb-4">
+        <Trans
+          t={t}
+          i18nKey="cadaCodigo"
+        >
+          Cada código tiene una validez de 45 minutos. Te recomendamos{' '}
+          <b>esperar al menos 30</b> antes de pedir otro porque hacerlo invalida
+          automáticamente el anterior
+        </Trans>
       </p>
       {!emailSent ? (
         <form

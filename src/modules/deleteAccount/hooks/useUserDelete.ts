@@ -2,7 +2,7 @@ import { useAuth } from '@/shared/providers/authProvider';
 import { useNavigate } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
 import { deleteFetch } from '@/shared/services/backendFetcher';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 export function useDeleteMyUser() {
   const { t } = useTranslation();
@@ -23,13 +23,14 @@ export function useDeleteMyUser() {
       return await deleteFetch('/auth/me');
     }
   }
-
+  const queryClient = useQueryClient();
   return useMutation({
-    mutationKey: ['profiles', account],
+    mutationKey: ['profiles', 'me'],
     mutationFn: deleteMyAccount,
     onSuccess: () => {
       logout();
       navigate({ to: '/', resetScroll: true });
+      queryClient.removeQueries({ queryKey: ['profiles', 'me'] });
     },
   });
 }
