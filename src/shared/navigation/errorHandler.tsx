@@ -1,6 +1,10 @@
 import { Trans, useTranslation } from 'react-i18next';
 import { Container } from '../layout/container';
-import { ErrorComponentProps, useRouter } from '@tanstack/react-router';
+import {
+  ErrorComponentProps,
+  Navigate,
+  useRouter,
+} from '@tanstack/react-router';
 import useReportError from '../hooks/useSendBugReport';
 import { useMemo } from 'react';
 
@@ -8,6 +12,12 @@ function ErrorHandler(props: ErrorComponentProps) {
   const { t } = useTranslation();
   const { history } = useRouter();
   const { mutate, error, isSuccess } = useReportError();
+
+  const moduleLoadFailedRegex = useMemo(
+    () =>
+      new RegExp('(Failed to fetch dynamically imported module)|(preload CSS)'),
+    []
+  );
 
   useMemo(() => {
     const error = props.error as Error;
@@ -20,6 +30,15 @@ function ErrorHandler(props: ErrorComponentProps) {
       });
   }, [props.error]);
 
+  if (moduleLoadFailedRegex.test((props.error as Error)?.message || '')) {
+    location.replace(location.href + '?n=0');
+    return (
+      <Navigate
+        to={location.href}
+        search={{ n: 0 }}
+      />
+    );
+  }
   return (
     <Container
       bg="primary"

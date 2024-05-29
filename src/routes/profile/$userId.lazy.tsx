@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { ContactSection } from '@/modules/profile/components/contactInfo';
 import { ProfileHeader } from '@/modules/profile/components/profileHeader';
 import { Recommendations } from '@/modules/profile/components/recommend';
-import { Link, createLazyFileRoute } from '@tanstack/react-router';
+import { Link, createLazyFileRoute, useNavigate } from '@tanstack/react-router';
 import { useMemo } from 'react';
 import { profileQueryOptions } from '@/modules/profile/queries/userProfile';
 import { useQuery } from '@tanstack/react-query';
@@ -37,6 +37,7 @@ function PendingUserProfilePage() {
 
 export function UserProfilePage() {
   const { userId } = Route.useParams();
+  const navigate = useNavigate();
 
   const account = useLoggedInAccount();
   let assignedProfileId: string;
@@ -53,6 +54,10 @@ export function UserProfilePage() {
 
   const { data: user, isLoading: loading, error } = useQuery(queryOptions);
   const { t } = useTranslation('profile');
+
+  if (userId == 'me' && account === null) {
+    return navigate({ to: '/auth/login', search: { redirect: '/profile/me' } });
+  }
 
   return (
     <DataSuspense
