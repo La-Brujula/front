@@ -3,7 +3,6 @@ import useAuthFunction from '@/shared/hooks/useAuthFuncton';
 import { useAuth } from '@/shared/providers/authProvider';
 import { isApiError } from '@/shared/services/backendFetcher';
 import ErrorMessage from '@shared/components/errorMessage';
-import { LoadingSpinner } from '@shared/components/loadingSpinner';
 import { Container } from '@shared/layout/container';
 import { Link, createLazyFileRoute } from '@tanstack/react-router';
 import { useCallback, useState } from 'react';
@@ -45,8 +44,6 @@ function PasswordResetPage() {
               !(typeof error.message === 'string')
             ) {
               for (const err of error.message) {
-                console.log(err.path, err.msg);
-
                 setError(err.path as Path<PasswordResetForm>, {
                   type: 'custom',
                   message: t(err.msg),

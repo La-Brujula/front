@@ -19,9 +19,7 @@ function BaseStepPage() {
       loading={loading}
       error={error}
       errorComponent={
-        <ErrorMessage
-          message={(error || t('Could not find user')).toString()}
-        />
+        <ErrorMessage message={error?.message || t('Could not find user')} />
       }
     >
       <Container>

@@ -49,10 +49,10 @@ export function UserProvider(props: { children: ReactNode }) {
       password: string;
     }): Promise<IAuthResponse> => {
       const res = await loginService(authValues.email, authValues.password);
+      localStorage.setItem('jwt', `"${res.entity.token}"`);
+      localStorage.setItem('account', JSON.stringify(res.entity.account));
       setAccount(res.entity.account);
-      localStorage.setItem('account', JSON.stringify(account));
       setToken(res.entity.token);
-      localStorage.setItem('jwt', `"${token}"`);
       return res.entity;
     },
     [setAccount, setToken]
@@ -69,10 +69,10 @@ export function UserProvider(props: { children: ReactNode }) {
         authValues.password,
         authValues.type
       );
+      localStorage.setItem('jwt', `"${res.entity.token}"`);
+      localStorage.setItem('account', JSON.stringify(res.entity.account));
       setAccount(res.entity.account);
-      localStorage.setItem('account', JSON.stringify(account));
       setToken(res.entity.token);
-      localStorage.setItem('jwt', `"${token}"`);
       return res.entity;
     },
     [setAccount, setToken]
@@ -84,16 +84,6 @@ export function UserProvider(props: { children: ReactNode }) {
     localStorage.removeItem('jwt');
     localStorage.removeItem('account');
   }, [setAccount, setToken]);
-
-  useEffect(() => {
-    if (!account) return;
-    localStorage.setItem('account', JSON.stringify(account));
-  }, [account]);
-
-  useEffect(() => {
-    if (!token) return;
-    localStorage.setItem('jwt', `"${token}"`);
-  }, [token]);
 
   const isLoggedIn = token !== null && account !== null;
 
@@ -112,9 +102,13 @@ export function UserProvider(props: { children: ReactNode }) {
         authValues.password,
         authValues.code
       );
+      setAccount(res.entity.account);
+      localStorage.setItem('account', JSON.stringify(account));
+      setToken(res.entity.token);
+      localStorage.setItem('jwt', `"${token}"`);
       return res.entity;
     },
-    []
+    [setAccount, setToken]
   );
 
   const providerValue = useMemo(
