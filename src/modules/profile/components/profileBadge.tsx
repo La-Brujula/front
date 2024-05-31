@@ -1,11 +1,16 @@
 import { IBackendProfile } from '@/shared/types/user';
 import ErrorMessage from '@shared/components/errorMessage';
 import { getTitle } from '@shared/utils/areaUtils';
+import { Link } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
 
-export const ProfileBadge = ({ user }: { user: IBackendProfile }) => {
+export const ProfileBadge = ({
+  user,
+}: {
+  user: IBackendProfile | undefined;
+}) => {
   const { t } = useTranslation('profile');
-  return !!user ? (
+  return !!user?.id ? (
     <div className="flex flex-row gap-6 max-w-xs mx-auto items-center">
       {!!user.profilePictureUrl ? (
         <img
@@ -40,6 +45,14 @@ export const ProfileBadge = ({ user }: { user: IBackendProfile }) => {
           <p className="text-sm">
             {getTitle(user.primaryActivity, user.gender)}
           </p>
+        )}
+        {!user.fullName && (
+          <Link
+            to="/me/basic"
+            resetScroll
+          >
+            {t('Completa tu usuario')}
+          </Link>
         )}
       </div>
     </div>
