@@ -2,7 +2,7 @@ import credits from '@shared/constants/credits.json';
 import { Container } from '@shared/layout/container';
 import { Link } from '@tanstack/react-router';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 // i18next-parser static types
 
@@ -60,6 +60,7 @@ function CreditsSection() {
         >
           {credits.map(({ title, name }) => (
             <Credit
+              key={title}
               title={t(title)}
               name={t(name)}
             />
@@ -70,13 +71,18 @@ function CreditsSection() {
 
       <div style={{ textAlign: 'center' }}>
         <p style={{ fontSize: '24px' }}>
-          {t('SeeOurPoli')}&nbsp;
-          <Link
-            to="/privacy"
-            className="text-primary"
+          <Trans
+            i18nKey={'SeeOurPoli'}
+            t={t}
           >
-            {t('Politicas')}
-          </Link>
+            Conoce nuestra
+            <Link
+              to="/privacy"
+              className="text-primary"
+            >
+              Política de privacidad
+            </Link>
+          </Trans>
         </p>
       </div>
       <br></br>

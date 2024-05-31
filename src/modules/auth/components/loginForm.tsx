@@ -31,7 +31,7 @@ export const LoginForm = (props: { redirectUrl?: string }) => {
           onSuccess: (res) =>
             navigate({
               to: props.redirectUrl || '/profile/$userId',
-              params: { userId: res.account.ProfileId },
+              params: { userId: 'me' },
               resetScroll: true,
             }),
           onError: (error) => {

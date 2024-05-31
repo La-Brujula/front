@@ -4,34 +4,29 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query';
-import { ReactNode, useCallback, useMemo, useState } from 'react';
+import { ReactNode, useMemo } from 'react';
 import { useAuth } from './authProvider';
-import { AxiosError } from 'axios';
 import React from 'react';
+import { ApiError, isApiError } from '../services/backendFetcher';
 
-const unauthorizedStatuses = [401];
+const unauthorizedStatuses = ['AE05'];
 
 function useGlobalErrors({
   onAuthError = () => {},
   onServerError = () => {},
   onRecover = () => {},
 }) {
-  const triggerError = (error: Error | AxiosError) => {
-    let status = 500;
-    if (error instanceof AxiosError && error.response !== undefined) {
-      status = error.response.status || 500;
-    }
-
-    if (unauthorizedStatuses.includes(status)) {
+  const triggerError = (error: ApiError) => {
+    if (unauthorizedStatuses.includes(error.errorCode)) {
       onAuthError();
-    } else if (status === 500) {
+    } else if (error.errorCode == 'EE00') {
       onServerError();
     }
   };
 
   const queryCache = new QueryCache({
     onError(error) {
-      if (error) {
+      if (isApiError(error)) {
         triggerError(error);
       }
     },
@@ -42,7 +37,7 @@ function useGlobalErrors({
 
   const mutationCache = new MutationCache({
     onError(error) {
-      if (error) {
+      if (isApiError(error)) {
         triggerError(error);
       }
     },

@@ -15,7 +15,9 @@ export type ValidationError = {
   location: string;
 };
 
-export function isApiError(err: ApiError | AxiosError): err is ApiError {
+export function isApiError(
+  err: ApiError | AxiosError | Error
+): err is ApiError {
   return (err as ApiError).errorCode !== undefined;
 }
 

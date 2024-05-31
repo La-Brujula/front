@@ -1,6 +1,10 @@
 import { Trans, useTranslation } from 'react-i18next';
 import { Container } from '../layout/container';
-import { ErrorComponentProps, useRouter } from '@tanstack/react-router';
+import {
+  ErrorComponentProps,
+  Navigate,
+  useRouter,
+} from '@tanstack/react-router';
 import useReportError from '../hooks/useSendBugReport';
 import { useMemo } from 'react';
 
@@ -9,9 +13,16 @@ function ErrorHandler(props: ErrorComponentProps) {
   const { history } = useRouter();
   const { mutate, error, isSuccess } = useReportError();
 
+  const moduleLoadFailedRegex = useMemo(
+    () =>
+      new RegExp('(Failed to fetch dynamically imported module)|(preload CSS)'),
+    []
+  );
+
   useMemo(() => {
     const error = props.error as Error;
     import.meta.env.DEV ||
+      moduleLoadFailedRegex.test(error.message) ||
       mutate({
         pathname: window.location.pathname,
         name: error.name,
@@ -19,6 +30,12 @@ function ErrorHandler(props: ErrorComponentProps) {
         message: error.message,
       });
   }, [props.error]);
+
+  if (moduleLoadFailedRegex.test((props.error as Error)?.message || '')) {
+    location.replace(location.href + '?n=0');
+    // Return navigate component so route always returns element
+    return <Navigate to={location.href + '?n=0'} />;
+  }
 
   return (
     <Container
@@ -44,13 +61,13 @@ function ErrorHandler(props: ErrorComponentProps) {
           </h1>
           <div className="flex flex-row justify-start gap-8">
             <button
-              onClick={history.back}
+              onClick={() => history.back()}
               className="button bg-secondary text-current h-11"
             >
               {t('Regresar')}
             </button>
             <button
-              onClick={window.location.reload}
+              onClick={() => window.location.reload()}
               className="button bg-secondary h-11"
             >
               {t('Refrescar página actual')}

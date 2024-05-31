@@ -9,8 +9,7 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 import { searchQueryOptions } from '@/modules/search/queries/searchQuery';
 import { useTranslation } from 'react-i18next';
 import { Search, defaultSearch } from '@/modules/search/types/searchParams';
-import { useForm } from 'react-hook-form';
-import Input from '@/shared/components/input';
+import { Controller, useForm } from 'react-hook-form';
 import { SearchOutlined } from '@mui/icons-material';
 import { Container } from '@/shared/layout/container';
 
@@ -48,29 +47,36 @@ function SearchHomepage() {
     watch,
     handleSubmit,
     reset: formReset,
+    setValue,
+    control,
   } = useForm<Search>({
-    defaultValues: {},
     values: search,
   });
+
+  const filters = watch();
 
   const reset = useCallback(() => {
     formReset(defaultSearch);
   }, [formReset, defaultSearch]);
 
-  const onSubmit = (data: Search) =>
-    navigate({
-      to: '/search',
-      search: Object.fromEntries(
-        Object.entries(data).filter(([_, value]) => !!value)
-      ),
-      replace: true,
-      resetScroll: true,
-    });
+  const onSubmit = useCallback(
+    (data: Search) => {
+      navigate({
+        to: '/search',
+        search: Object.fromEntries(
+          Object.entries(data).filter(([_, value]) => !!value) || []
+        ),
+        replace: true,
+        resetScroll: true,
+      });
+    },
+    [navigate]
+  );
 
   useEffect(() => {
-    const subscription = watch(() => handleSubmit(onSubmit)());
+    const subscription = watch((data) => handleSubmit(onSubmit)());
     return () => subscription.unsubscribe();
-  }, [handleSubmit, watch]);
+  }, [onSubmit, handleSubmit, watch]);
 
   const { t } = useTranslation('search');
 
@@ -94,14 +100,27 @@ function SearchHomepage() {
         z-10 w-full"
         >
           <SearchOutlined />
-          <Input
-            type="text"
-            register={register}
-            fieldName="query"
-            label="query"
-            labelClass="hidden"
-            divClass="w-full"
-            inputClass="border-none bg-transparent focus:outline-none"
+          <Controller
+            name="query"
+            control={control}
+            render={({ field: { onChange, ...field } }) => (
+              <input
+                type="text"
+                {...field}
+                id="search-field"
+                className="border-none bg-transparent focus:outline-none w-full
+                placeholder:text-white placeholder:opacity-50"
+                placeholder={t('Ingresa tu búsqueda')}
+                onChange={(ev) => {
+                  if (ev.target.value === '') {
+                    formReset({ ...filters, query: '' });
+                  } else {
+                    setValue('query', ev.target.value);
+                  }
+                  onChange(ev);
+                }}
+              />
+            )}
           />
         </div>
         <p>
@@ -112,7 +131,7 @@ function SearchHomepage() {
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-[20rem_1fr] gap-12 mt-16">
         <ResultsFilter
-          filters={search}
+          filters={filters}
           register={register}
           reset={reset}
         />
