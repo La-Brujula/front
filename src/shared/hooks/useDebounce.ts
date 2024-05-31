@@ -1,21 +1,25 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
-import { act } from 'react-dom/test-utils';
 
 function useDebounce<T>(
   initialValue: T,
   delay: number = 300,
   onChange?: (value: T) => void
 ): [T, Dispatch<SetStateAction<T>>] {
-  const [actualValue, setActualValue] = useState(initialValue);
-  const [debounceValue, setDebounceValue] = useState(initialValue);
+  const [realtimeValue, setValue] = useState(initialValue);
+  const [value, setDebouncedValue] = useState(initialValue);
+
   useEffect(() => {
     const debounceId = setTimeout(() => {
-      setDebounceValue(actualValue);
-      onChange !== undefined && onChange(actualValue);
+      setDebouncedValue(realtimeValue);
     }, delay);
     return () => clearTimeout(debounceId);
-  }, [actualValue, delay]);
-  return [debounceValue, setActualValue];
+  }, [realtimeValue, delay]);
+
+  useEffect(() => {
+    onChange !== undefined && onChange(value);
+  }, [value]);
+
+  return [value, setValue];
 }
 
 export default useDebounce;

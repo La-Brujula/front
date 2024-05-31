@@ -18,9 +18,9 @@ function ActivityFilter(props: {
   const categories = useMemo(
     () =>
       Object.fromEntries(
-        areas.map((area, i) => [
+        areas.map((area) => [
           t(area.name, { ns: 'activityMatrix' }),
-          area.subareas.map((subarea, n) => ({
+          area.subareas.map((subarea) => ({
             key: subarea.id,
             label: t(subarea.name, { ns: 'activityMatrix' }),
           })),
@@ -31,7 +31,7 @@ function ActivityFilter(props: {
 
   const activities = useMemo(
     () =>
-      props.filters.category !== undefined
+      props.filters.category !== undefined && props.filters.category.length > 0
         ? Object.keys(getSubAreaObjectFromId(props.filters.category))
             .filter((activity) => getTitle(activity, 'other'))
             .map((activity) => ({
