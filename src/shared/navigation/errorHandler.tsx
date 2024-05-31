@@ -22,6 +22,7 @@ function ErrorHandler(props: ErrorComponentProps) {
   useMemo(() => {
     const error = props.error as Error;
     import.meta.env.DEV ||
+      moduleLoadFailedRegex.test(error.message) ||
       mutate({
         pathname: window.location.pathname,
         name: error.name,
@@ -32,13 +33,10 @@ function ErrorHandler(props: ErrorComponentProps) {
 
   if (moduleLoadFailedRegex.test((props.error as Error)?.message || '')) {
     location.replace(location.href + '?n=0');
-    return (
-      <Navigate
-        to={location.href}
-        search={{ n: 0 }}
-      />
-    );
+    // Return navigate component so route always returns element
+    return <Navigate to={location.href + '?n=0'} />;
   }
+
   return (
     <Container
       bg="primary"
@@ -63,13 +61,13 @@ function ErrorHandler(props: ErrorComponentProps) {
           </h1>
           <div className="flex flex-row justify-start gap-8">
             <button
-              onClick={history.back}
+              onClick={() => history.back()}
               className="button bg-secondary text-current h-11"
             >
               {t('Regresar')}
             </button>
             <button
-              onClick={window.location.reload}
+              onClick={() => window.location.reload()}
               className="button bg-secondary h-11"
             >
               {t('Refrescar página actual')}
