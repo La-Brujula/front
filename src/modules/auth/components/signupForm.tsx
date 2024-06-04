@@ -16,6 +16,7 @@ type SignupForm = {
   confirmPassword: string;
   persona: 'moral' | 'fisica';
   acceptPrivacy: boolean;
+  referal?: string;
 };
 
 const personTypeOptionsGenerator = (t: TFunction) => [
@@ -23,10 +24,10 @@ const personTypeOptionsGenerator = (t: TFunction) => [
   { value: 'moral', label: t('Persona moral') },
 ];
 
-export const SignUpForm = () => {
+export const SignUpForm = (props: { referal?: string }) => {
   const { signup } = useAuth(['signup']);
   const { register, handleSubmit, watch, formState, setError, setValue } =
-    useForm<SignupForm>();
+    useForm<SignupForm>({ defaultValues: { referal: props.referal } });
   const { t } = useTranslation('auth');
   const acceptedPrivacy = watch('acceptPrivacy');
   const { isPending: loading, error, mutate } = useAuthFunction(signup);
@@ -43,7 +44,12 @@ export const SignUpForm = () => {
       return;
     }
     mutate(
-      { email: data.email, password: data.password, type: data.persona },
+      {
+        email: data.email,
+        password: data.password,
+        type: data.persona,
+        referal: data.referal,
+      },
       {
         onError: (err) => {
           if (
