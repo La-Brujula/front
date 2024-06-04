@@ -23,6 +23,7 @@ interface IAuthContext {
     email: string;
     password: string;
     type: UserType;
+    referal?: string;
   }) => Promise<IAuthResponse>;
   isLoggedIn: boolean;
   sendPasswordReset: (authValues: { email: string }) => Promise<undefined>;
@@ -63,11 +64,13 @@ export function UserProvider(props: { children: ReactNode }) {
       email: string;
       password: string;
       type: 'moral' | 'fisica';
+      referal?: string;
     }): Promise<IAuthResponse> => {
       const res = await signUpService(
         authValues.email,
         authValues.password,
-        authValues.type
+        authValues.type,
+        authValues.referal
       );
       localStorage.setItem('jwt', `"${res.entity.token}"`);
       localStorage.setItem('account', JSON.stringify(res.entity.account));

@@ -8,6 +8,7 @@ export const Route = createLazyFileRoute('/auth/signup')({
 });
 
 function SignUpPage() {
+  const { referal } = Route.useSearch();
   const { t } = useTranslation('auth');
   return (
     <div className="flex flex-col xl:flex-row w-full">
@@ -53,7 +54,7 @@ function SignUpPage() {
       </div>
       <Container>
         <h1 className="mb-8 text-secondary text-4xl">{t('createUser')}</h1>
-        <SignUpForm />
+        <SignUpForm referal={referal} />
       </Container>
     </div>
   );
