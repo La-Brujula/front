@@ -16,7 +16,7 @@ const LocaleList = (props: {
       ].join(' ')}
       onClick={props.setLocale(locale)}
     >
-      <p>{locale.toUpperCase()}</p>
+      <p className="text-sm">{locale.toUpperCase()}</p>
     </button>
   ));
 };
@@ -35,11 +35,11 @@ export default function LocalizationMenu(props: {
   );
 
   return (
-    <div className="relative flex flex-col gap-2">
+    <div className="relative flex flex-row gap-4 items-center">
       <TranslateOutlined />
       <div
         id="locale-menu"
-        className="relative flex gap-2"
+        className="relative flex flex-row gap-2"
       >
         <LocaleList
           currentLocale={locale}
