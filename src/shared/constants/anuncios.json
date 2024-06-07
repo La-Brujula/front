@@ -1,50 +1,62 @@
 {
   "hero": [
     {
-      "verticalImage": "/anuncios/Barraca_1920_1080.jpg",
-      "linkUrl": "https://barracaproducciones.mx/"
+      "verticalImage": "/anuncios/hero/1.jpg",
+      "linkUrl": "https://barracaproducciones.mx"
     },
     {
-      "verticalImage": "/anuncios/Brujula Horizontal-01.jpg",
-      "linkUrl": "https://www.imcine.gob.mx/"
-    },
-    {
-      "verticalImage": "/anuncios/EfdTraining.jpg",
+      "verticalImage": "/anuncios/hero/2.jpg",
       "linkUrl": "https://www.efdinternational.com/"
     },
     {
-      "verticalImage": "/anuncios/CanacineHorizontal2.png",
+      "verticalImage": "/anuncios/hero/3.png",
+      "linkUrl": "https://cecinematograficos.edu.mx"
+    },
+    {
+      "verticalImage": "/anuncios/hero/5.jpg",
+      "linkUrl": "https://thelift.mx"
+    },
+    {
+      "verticalImage": "/anuncios/hero/6.png",
       "linkUrl": "https://canacine.org.mx/"
     },
     {
-      "verticalImage": "/anuncios/CEC_hor.png",
-      "linkUrl": "https://www.cecinematograficos.edu.mx/"
+      "verticalImage": "/anuncios/hero/7.jpg",
+      "linkUrl": "https://www.efdinternational.com/"
+    },
+    {
+      "verticalImage": "/anuncios/hero/8.jpg",
+      "linkUrl": "https://www.imcine.gob.mx/"
     }
   ],
   "bottom": [
     {
-      "verticalImage": "/anuncios/RAINDANCE.png",
+      "verticalImage": "/anuncios/bottom/1.png",
       "linkUrl": "https://raindance.org/"
     },
     {
-      "verticalImage": "/anuncios/LCLvertical.jpeg",
-      "linkUrl": "https://lcicorporativo.com/"
-    },
-    {
-      "verticalImage": "/anuncios/Brujula Horizontal-03.jpg",
+      "verticalImage": "/anuncios/bottom/2.jpg",
       "linkUrl": "https://www.imcine.gob.mx/"
     },
     {
-      "verticalImage": "/anuncios/EFDcar.jpg",
-      "linkUrl": "https://www.efdinternational.com/"
+      "verticalImage": "/anuncios/bottom/3.jpg",
+      "linkUrl": "https://canacine.org.mx/"
     },
     {
-      "verticalImage": "/anuncios/Brujula Horizontal-02.jpg",
+      "verticalImage": "/anuncios/bottom/4.png",
+      "linkUrl": "https://plai.mx"
+    },
+    {
+      "verticalImage": "/anuncios/bottom/5.jpg",
       "linkUrl": "https://www.imcine.gob.mx/"
     },
     {
-      "verticalImage": "/anuncios/vivamexico_anuncioHorizontal.png",
-      "linkUrl": "https://www.viva-mexico-cinema.org/es/"
+      "verticalImage": "/anuncios/bottom/6.png",
+      "linkUrl": "https://canacine.org.mx/"
+    },
+    {
+      "verticalImage": "/anuncios/bottom/7.jpg",
+      "linkUrl": "https://www.imcine.gob.mx/"
     }
   ]
 }
