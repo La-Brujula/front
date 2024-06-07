@@ -85,6 +85,7 @@ export const Navbar = () => {
               {t('aboutUs')}
             </Link>
           </div>
+          <LocalizationMenu />
           <div className="z-100">
             <button
               onClick={toggleOpen}
@@ -201,7 +202,6 @@ export const Navbar = () => {
                 {t('contact')}
               </Link>
               <hr />
-              <LocalizationMenu />
               {isLoggedIn && (
                 <>
                   <Link
