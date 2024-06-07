@@ -23,6 +23,10 @@
   ],
   "bottom": [
     {
+      "verticalImage": "/anuncios/RAINDANCE.png",
+      "linkUrl": "https://raindance.org/"
+    },
+    {
       "verticalImage": "/anuncios/LCLvertical.jpeg",
       "linkUrl": "https://lcicorporativo.com/"
     },
@@ -41,10 +45,6 @@
     {
       "verticalImage": "/anuncios/vivamexico_anuncioHorizontal.png",
       "linkUrl": "https://www.viva-mexico-cinema.org/es/"
-    },
-    {
-      "verticalImage": "/anuncios/RAINDANCE.png",
-      "linkUrl": "https://raindance.org/"
     }
   ]
 }
