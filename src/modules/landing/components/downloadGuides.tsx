@@ -38,27 +38,27 @@ function DownloadGuides() {
           <Strip
             colors={BrujulasColors.occidente}
             label={t('Occidente')}
-            link="/guias/pdfs/laBrujulaOccidente2023.pdf"
+            link="/guias/pdfs/La_Brujula_Occidente_2023_Digital.pdf"
           />
           <Strip
             colors={BrujulasColors.centro}
             label={t('Centro')}
-            link="/guias/pdfs/labrujulaCentro2023.pdf"
+            link="/guias/pdfs/La_Brujula_CDMX_2023_Digital.pdf"
           />
           <Strip
             colors={BrujulasColors.norte}
             label={t('Norte')}
-            link="/guias/pdfs/labrujulaNorte2023.pdf"
+            link="/guias/pdfs/La_Brujula_Norte_2023_Digital.pdf"
           />
           <Strip
             colors={BrujulasColors.noreste}
             label={t('Noreste')}
-            link="/guias/pdfs/labrujulaNoroeste2023.pdf"
+            link="/guias/pdfs/La_Brujula_Noroeste_2023_Digital.pdf"
           />
           <Strip
             colors={BrujulasColors.sureste}
             label={t('Sureste')}
-            link="/guias/pdfs/labrujulaSureste2023.pdf"
+            link="/guias/pdfs/La_Brujula_Sureste_2023_Digital.pdf"
           />
         </div>
       </div>
