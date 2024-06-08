@@ -3,27 +3,27 @@
     {
       "name": "Occidente",
       "thumbnail": "/guias/thumbnails/Portada_Occidente.jpeg",
-      "link": "/guias/pdfs/La_Brujula_Occidente_2023_Digital.pdf"
+      "link": "/guias/pdfs/La_Brujula_2024_OCCIDENTE.pdf"
     },
     {
       "name": "Centro",
       "thumbnail": "/guias/thumbnails/Portada_Centro.jpeg",
-      "link": "/guias/pdfs/La_Brújula_CDMX_Digital.pdf"
+      "link": "/guias/pdfs/La_Brujula_2024_CENTRO.pdf"
     },
     {
       "name": "Norte",
       "thumbnail": "/guias/thumbnails/Portada_Norte.jpeg",
-      "link": "/guias/pdfs/La_Brujula_Norte_2023_Digital.pdf"
+      "link": "/guias/pdfs/La_Brujula_2024_NORTE.pdf"
     },
     {
       "name": "Noreste",
       "thumbnail": "/guias/thumbnails/Portada_Noroeste.jpeg",
-      "link": "/guias/pdfs/La_Brujula_Noroeste_2023_Digital.pdf"
+      "link": "/guias/pdfs/La_Brujula_2024_NOROESTE.pdf"
     },
     {
       "name": "Sureste",
       "thumbnail": "/guias/thumbnails/Portada_Sureste.jpeg",
-      "link": "/guias/pdfs/La_Brujula_Sureste_2023_Digital.pdf"
+      "link": "/guias/pdfs/La_Brujula_2024_SURESTE.pdf"
     }
   ],
   "specials": [
