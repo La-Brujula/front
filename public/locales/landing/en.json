@@ -5,7 +5,7 @@
   "Occidente": "West",
   "Centro": "Center",
   "Norte": "North",
-  "Noreste": "North-east",
+  "Noroeste": "North-west",
   "Sureste": "South-east",
   "heroTitle": "La Brújula.<1></1>Networking for the audiovisual and film industry in Mexico.",
   "mexicoDestinoDeFilmacion": "Mexico logo film destination",
@@ -14,5 +14,6 @@
   "¡Hola! Inicia sesión": "Hello! Log in",
   "contactCTA": "Contact the person, company, or institution you need for your project",
   "Buscar por especialidad": "Search by specialty",
-  "searchByName": "Search by name"
+  "searchByName": "Search by name",
+  "Noreste": "North-east"
 }
