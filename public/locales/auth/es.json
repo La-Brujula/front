@@ -27,6 +27,7 @@
   "La contraseña debe tener al menos 8 caracteres": "La contraseña debe tener al menos 8 caracteres",
   "confirmPassword": "Confirmar contraseña",
   "¿Eres persona física o persona moral?": "¿Eres persona física o persona moral?",
+  "Registering with": "Código de referencia:<1></1><2>{{referal}}</2>",
   "Crear usuario": "Crear usuario",
   "¿Ya tienes una cuenta?": "¿Ya tienes una cuenta?",
   "Inicia Sesión": "Inicia Sesión",
