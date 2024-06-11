@@ -1,5 +1,5 @@
-import { FormProvider, Path, useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
+import { Path, useForm } from 'react-hook-form';
+import { Trans, useTranslation } from 'react-i18next';
 import { PrivacyPolicy } from './privacyPolicy';
 import { useAuth } from '@/shared/providers/authProvider';
 import { Link, useNavigate } from '@tanstack/react-router';
@@ -135,6 +135,19 @@ export const SignUpForm = (props: { referal?: string }) => {
         <ErrorMessage
           message={isApiError(error) ? error.errorCode : error.message}
         />
+      )}
+      {!!props.referal && (
+        <p className="p-2 bg-primary bg-opacity-20 rounded-md">
+          <Trans
+            t={t}
+            i18nKey={'Registering with'}
+            values={{ referal: props.referal }}
+          >
+            Código de referencia:
+            <br />
+            <b></b>
+          </Trans>
+        </p>
       )}
       {acceptedPrivacy !== true && <PrivacyPolicy />}
       <input
