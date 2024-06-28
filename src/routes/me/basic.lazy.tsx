@@ -223,6 +223,11 @@ function BasicInfo() {
             }
           />
         )}
+        {!formState.isValid && (
+          <p className="text-center w-full col-span-full">
+            {t('Llena todos los campos marcados con "*"')}
+          </p>
+        )}
         <div className="col-span-full flex flex-row gap-4 justify-center">
           <div
             className="button font-bold bg-transparent border border-primary text-black"
