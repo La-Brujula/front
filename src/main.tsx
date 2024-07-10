@@ -11,8 +11,8 @@ import App from './App';
 import { PostHogProvider } from 'posthog-js/react';
 import posthog from 'posthog-js';
 
-posthog.init(import.meta.env.VITE_POSTHOG_KEY, {
-  api_host: import.meta.env.VITE_POSTHOG_HOST,
+posthog.init('phc_T1b8Jh0gnQ6NsNQeqxBKiWCrYW5UygDG2n5RlTQbWBA', {
+  api_host: 'https://us.i.posthog.com',
   person_profiles: 'identified_only',
 });
 
