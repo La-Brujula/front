@@ -10,7 +10,7 @@ import {
 import { UserType } from '../types/user';
 
 import { createContext, useContextSelector } from 'use-context-selector';
-// import { usePostHog } from 'posthog-js/react';
+import { usePostHog } from 'posthog-js/react';
 
 interface IAuthContext {
   account: Account | null;
@@ -38,7 +38,7 @@ interface IAuthContext {
 const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 
 export function UserProvider(props: { children: ReactNode }) {
-  // const posthog = usePostHog();
+  const posthog = usePostHog();
   const [account, setAccount] = useState<Account | null>(
     JSON.parse(localStorage.getItem('account') || 'null')
   );
@@ -46,15 +46,15 @@ export function UserProvider(props: { children: ReactNode }) {
     JSON.parse(localStorage.getItem('jwt') || 'null') || ''
   );
 
-  // useEffect(() => {
-  //   if (account !== null && !!posthog) {
-  //     // Identify sends an event, so you want may want to limit how often you call it
-  //     posthog.identify(account.ProfileId, {
-  //       email: account.email,
-  //     });
-  //     posthog.group('role', account.role);
-  //   }
-  // }, [posthog, account]);
+  useEffect(() => {
+    if (account !== null && !!posthog) {
+      // Identify sends an event, so you want may want to limit how often you call it
+      posthog.identify(account.ProfileId, {
+        email: account.email,
+      });
+      posthog.group('role', account.role);
+    }
+  }, [posthog, account]);
 
   const login = useCallback(
     async (authValues: {
