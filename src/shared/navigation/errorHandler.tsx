@@ -7,10 +7,10 @@ import {
 } from '@tanstack/react-router';
 import useReportError from '../hooks/useSendBugReport';
 import { useMemo } from 'react';
-import { usePostHog } from 'posthog-js/react';
+// import { usePostHog } from 'posthog-js/react';
 
 function ErrorHandler(props: ErrorComponentProps) {
-  const posthog = usePostHog();
+  // const posthog = usePostHog();
   const { t } = useTranslation();
   const { history } = useRouter();
   const { mutate, error, isSuccess } = useReportError();
@@ -39,10 +39,10 @@ function ErrorHandler(props: ErrorComponentProps) {
     return <Navigate to={location.href + '?n=0'} />;
   }
 
-  posthog.capture('encountered_bug', {
-    name: (props.error as Error).name,
-    message: (props.error as Error).message,
-  });
+  // posthog.capture('encountered_bug', {
+  //   name: (props.error as Error).name,
+  //   message: (props.error as Error).message,
+  // });
   return (
     <Container
       bg="primary"
