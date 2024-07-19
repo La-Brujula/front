@@ -150,7 +150,7 @@ function CharacteristicsPage() {
           <input
             type="submit"
             className="border-none"
-            disabled={user === undefined || isPending || !formState.isValid}
+            disabled={user === undefined || isPending}
             value={t('Finalizar')}
           />
         </div>
