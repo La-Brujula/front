@@ -22,8 +22,18 @@ export function loginService(email: string, password: string) {
   return postFetch<IAuthResponse>('/auth/login', { email, password });
 }
 
-export function signUpService(email: string, password: string, type: UserType) {
-  return postFetch<IAuthResponse>('/auth/signup', { email, password, type });
+export function signUpService(
+  email: string,
+  password: string,
+  type: UserType,
+  referal?: string
+) {
+  return postFetch<IAuthResponse>('/auth/signup', {
+    email,
+    password,
+    type,
+    referal,
+  });
 }
 
 export function meService() {

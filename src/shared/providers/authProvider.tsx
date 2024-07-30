@@ -10,6 +10,7 @@ import {
 import { UserType } from '../types/user';
 
 import { createContext, useContextSelector } from 'use-context-selector';
+import { usePostHog } from 'posthog-js/react';
 
 interface IAuthContext {
   account: Account | null;
@@ -23,6 +24,7 @@ interface IAuthContext {
     email: string;
     password: string;
     type: UserType;
+    referal?: string;
   }) => Promise<IAuthResponse>;
   isLoggedIn: boolean;
   sendPasswordReset: (authValues: { email: string }) => Promise<undefined>;
@@ -36,12 +38,23 @@ interface IAuthContext {
 const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 
 export function UserProvider(props: { children: ReactNode }) {
+  const posthog = usePostHog();
   const [account, setAccount] = useState<Account | null>(
     JSON.parse(localStorage.getItem('account') || 'null')
   );
   const [token, setToken] = useState<string | null>(
     JSON.parse(localStorage.getItem('jwt') || 'null') || ''
   );
+
+  useEffect(() => {
+    if (account !== null && !!posthog) {
+      // Identify sends an event, so you want may want to limit how often you call it
+      posthog.identify(account.ProfileId, {
+        email: account.email,
+      });
+      posthog.group('role', account.role);
+    }
+  }, [posthog, account]);
 
   const login = useCallback(
     async (authValues: {
@@ -63,11 +76,13 @@ export function UserProvider(props: { children: ReactNode }) {
       email: string;
       password: string;
       type: 'moral' | 'fisica';
+      referal?: string;
     }): Promise<IAuthResponse> => {
       const res = await signUpService(
         authValues.email,
         authValues.password,
-        authValues.type
+        authValues.type,
+        authValues.referal
       );
       localStorage.setItem('jwt', `"${res.entity.token}"`);
       localStorage.setItem('account', JSON.stringify(res.entity.account));

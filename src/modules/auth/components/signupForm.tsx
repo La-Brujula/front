@@ -1,5 +1,5 @@
-import { FormProvider, Path, useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
+import { Path, useForm } from 'react-hook-form';
+import { Trans, useTranslation } from 'react-i18next';
 import { PrivacyPolicy } from './privacyPolicy';
 import { useAuth } from '@/shared/providers/authProvider';
 import { Link, useNavigate } from '@tanstack/react-router';
@@ -16,6 +16,7 @@ type SignupForm = {
   confirmPassword: string;
   persona: 'moral' | 'fisica';
   acceptPrivacy: boolean;
+  referal?: string;
 };
 
 const personTypeOptionsGenerator = (t: TFunction) => [
@@ -23,10 +24,10 @@ const personTypeOptionsGenerator = (t: TFunction) => [
   { value: 'moral', label: t('Persona moral') },
 ];
 
-export const SignUpForm = () => {
+export const SignUpForm = (props: { referal?: string }) => {
   const { signup } = useAuth(['signup']);
   const { register, handleSubmit, watch, formState, setError, setValue } =
-    useForm<SignupForm>();
+    useForm<SignupForm>({ defaultValues: { referal: props.referal } });
   const { t } = useTranslation('auth');
   const acceptedPrivacy = watch('acceptPrivacy');
   const { isPending: loading, error, mutate } = useAuthFunction(signup);
@@ -43,7 +44,12 @@ export const SignUpForm = () => {
       return;
     }
     mutate(
-      { email: data.email, password: data.password, type: data.persona },
+      {
+        email: data.email,
+        password: data.password,
+        type: data.persona,
+        referal: data.referal,
+      },
       {
         onError: (err) => {
           if (
@@ -129,6 +135,19 @@ export const SignUpForm = () => {
         <ErrorMessage
           message={isApiError(error) ? error.errorCode : error.message}
         />
+      )}
+      {!!props.referal && (
+        <p className="p-2 bg-primary bg-opacity-20 rounded-md">
+          <Trans
+            t={t}
+            i18nKey={'Registering with'}
+            values={{ referal: props.referal }}
+          >
+            Código de referencia:
+            <br />
+            <b></b>
+          </Trans>
+        </p>
       )}
       {acceptedPrivacy !== true && <PrivacyPolicy />}
       <input

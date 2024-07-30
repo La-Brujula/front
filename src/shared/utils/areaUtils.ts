@@ -48,9 +48,11 @@ export function getTitle(
   const area: Area = areas[getAreaFromId(userActivity)];
   const subarea: Subarea = area[getSubAreaFromId(userActivity)];
   const activity: Activity = subarea[userActivity];
-  return !!activity[genderForTitle]
-    ? activity[genderForTitle][locale] || ''
-    : activity['Alias Genérico'][locale] || '';
+  return !!activity
+    ? !!activity[genderForTitle]
+      ? activity[genderForTitle][locale] || ''
+      : activity['Alias Genérico'][locale] || ''
+    : userActivity;
 }
 
 export function getAreaObjectByIndex(area: number) {

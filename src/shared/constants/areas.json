@@ -1,5 +1,5 @@
 {
-  "Desarrollo de proyectos y preproducción": {
+  "Desarrollo de proyectos": {
     "Guionismo": {
       "101-01": {
         "Femenino": {
@@ -23,13 +23,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
-          "es": "Guionista audiovisual",
+          "fr": "Écriture de scénarios audiovisuels",
+          "es": "Guionismo audiovisual",
           "en": "Scriptwriting"
         },
         "Referentes": [
-          "Desarrollo de Proyectos",
-          "Guionismo",
           "Escritores cine y TV",
           "Asesoría de guión",
           "Sinopsis",
@@ -62,13 +60,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Écriture de scénarios pour le cinéma",
           "es": "Guionismo para cine",
           "en": "Screenplay"
         },
         "Referentes": [
-          "Desarrollo de Proyectos",
-          "Guionismo",
           "Escritores cine y TV",
           "Asesoría de guión",
           "Sinopsis",
@@ -101,13 +97,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Écriture de scénarios pour la télévision",
           "es": "Guionismo para TV",
           "en": "TV Scriptwriting"
         },
         "Referentes": [
-          "Desarrollo de Proyectos",
-          "Guionismo",
           "Escritores cine y TV",
           "Asesoría de guión",
           "Sinopsis",
@@ -142,13 +136,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "",
           "es": "Guionismo para series",
-          "en": "TV Scriptwriting"
+          "en": "Series Scriptwriting"
         },
         "Referentes": [
-          "Desarrollo de Proyectos",
-          "Guionismo",
           "Escritores cine y TV",
           "Asesoría de guión",
           "Sinopsis",
@@ -157,7 +149,6 @@
           "Scénaristes",
           "Script",
           "Screenplay",
-          "Broadcast",
           "Showrunner",
           "Serie"
         ]
@@ -184,13 +175,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "",
           "es": "Asesoría de guion",
           "en": "Script Doctor"
         },
         "Referentes": [
-          "Desarrollo de Proyectos",
-          "Guionismo",
           "Escritores cine y TV",
           "Asesoría de guión",
           "Sinopsis",
@@ -199,9 +188,8 @@
           "Scénaristes",
           "Script",
           "Screenplay",
-          "Broadcast",
-          "Showrunner",
-          "Serie"
+          "Script Doctor",
+          "Supervisores de guion"
         ]
       }
     },
@@ -228,16 +216,14 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Développement créatif",
           "es": "Dirección creativa",
           "en": "Creative Directors"
         },
         "Referentes": [
-          "Desarrollo de Proyectos",
           "Desarrollo creativo",
           "Copy",
           "Copies",
-          "Creatividad",
           "Boutique creativa",
           "Eslógan",
           "Slogan"
@@ -265,16 +251,14 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Développement créatif",
           "es": "Desarrollo creativo",
           "en": "Creative Development"
         },
         "Referentes": [
-          "Desarrollo de Proyectos",
           "Desarrollo creativo",
           "Copy",
           "Copies",
-          "Creatividad",
           "Boutique creativa",
           "Eslógan",
           "Slogan"
@@ -298,20 +282,18 @@
         },
         "Persona Moral": {
           "fr": null,
-          "es": "Investigadores",
+          "es": null,
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Développement créatif",
           "es": "Creatividad",
           "en": "Copy Writers"
         },
         "Referentes": [
-          "Desarrollo de Proyectos",
           "Desarrollo creativo",
           "Copy",
           "Copies",
-          "Creatividad",
           "Boutique creativa",
           "Eslógan",
           "Slogan"
@@ -341,14 +323,12 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Chercheur",
           "es": "Investigadores",
           "en": "Researchers"
         },
         "Referentes": [
-          "Desarrollo de Proyectos",
           "Escritores",
-          "Investigación",
           "Investigadores",
           "Reporteros",
           "Periodistas"
@@ -376,14 +356,12 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Journaliste",
           "es": "Reporteros",
           "en": "Reporters"
         },
         "Referentes": [
-          "Desarrollo de Proyectos",
           "Escritores",
-          "Investigación",
           "Investigadores",
           "Reporteros",
           "Periodistas"
@@ -411,15 +389,13 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Journaliste",
           "es": "Redactores",
           "en": "Copy Writers"
         },
         "Referentes": [
-          "Desarrollo de Proyectos",
           "Copy",
           "Copies",
-          "Creatividad",
           "Redacción",
           "Redactores",
           "Escritura",
@@ -449,14 +425,13 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Traducteur",
           "es": "Traductores",
           "en": "Translators"
         },
         "Referentes": [
-          "Desarrollo de Proyectos",
           "Traducción",
-          "Intérpretes- traductores",
+          "Intérpretes-traductores",
           "Traductores",
           "Translators",
           "Traducteurs"
@@ -484,12 +459,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Transcripteur",
           "es": "Transcriptores",
           "en": "Transcriptors"
         },
         "Referentes": [
-          "Desarrollo de Proyectos",
           "Transcripción",
           "Transcriptores",
           "Word",
@@ -520,13 +494,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Conception graphique",
           "es": "Diseño gráfico",
           "en": "Graphic Designers"
         },
         "Referentes": [
-          "Desarrollo de Proyectos",
-          "Arte",
           "Diseño",
           "Diseñadores",
           "Diseño gráfico",
@@ -556,13 +528,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Illustrateur",
           "es": "Ilustradores",
           "en": "Illustration Artists"
         },
         "Referentes": [
-          "Desarrollo de Proyectos",
-          "Arte",
           "Dibujo",
           "Ilustración",
           "Ilustradores",
@@ -594,13 +564,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Caricaturistes",
           "es": "Dibujantes",
           "en": "Cartoonists"
         },
         "Referentes": [
-          "Desarrollo de Proyectos",
-          "Dibujo",
           "Dibujantes",
           "Ilustración",
           "Cómic",
@@ -631,15 +599,13 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Bordistes",
           "es": "Bordistas",
           "en": "Storyboard Artists"
         },
         "Referentes": [
-          "Desarrollo de Proyectos",
-          "Arte",
           "Storyboard",
-          "Tabla d` Histoire ",
+          "Tabla d` Histoire",
           "Dibujo",
           "Dibujantes"
         ]
@@ -666,13 +632,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "",
           "es": "Diseño editorial",
           "en": "Editorial Designers"
         },
         "Referentes": [
-          "Desarrollo de Proyectos",
-          "Arte",
           "Diseño",
           "Diseñadores",
           "Diseño gráfico",
@@ -708,13 +672,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Conseiller juridique",
           "es": "Asesores legales",
           "en": "Legal Advisors"
         },
         "Referentes": [
-          "Desarrollo de Proyectos",
-          "Asesoría",
           "Asesores legales",
           "Abogados",
           "Derechos de autor",
@@ -745,13 +707,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Conseillers juridiques en matière de droits d'auteur",
           "es": "Asesores legales en derechos de autor",
           "en": "Copyright Advisors"
         },
         "Referentes": [
-          "Desarrollo de Proyectos",
-          "Asesoría",
           "Asesores legales",
           "Abogados",
           "Derechos de autor",
@@ -782,13 +742,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Conseillers financiers",
           "es": "Asesores financieros",
           "en": "Financial Advisor"
         },
         "Referentes": [
-          "Desarrollo de Proyectos",
-          "Asesoría",
           "Asesores financieros",
           "Impuestos",
           "Asesoría financiera",
@@ -818,13 +776,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Conseillers administratifs",
           "es": "Asesores administrativos",
           "en": "Administrative Advisors"
         },
         "Referentes": [
-          "Desarrollo de Proyectos",
-          "Asesoría",
           "Asesores administrativos",
           "Administración",
           "Sistemas de administración",
@@ -856,18 +812,15 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Compteurs",
           "es": "Contadores de producción",
           "en": "Accountants"
         },
         "Referentes": [
-          "Desarrollo de Proyectos",
-          "Asesoría",
           "Contadores de producción",
           "Contabilidad para películas",
           "Impuestos",
-          "Devolución de IVA",
-          "Cortometrajes"
+          "Devolución de IVA"
         ]
       },
       "105-06": {
@@ -892,13 +845,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Conseillers de production",
           "es": "Asesores de producción",
           "en": "Production Advisors"
         },
         "Referentes": [
-          "Desarrollo de Proyectos",
-          "Asesoría",
           "Asesores de producción",
           "Carpetas de producción",
           "Proyectos",
@@ -908,7 +859,7 @@
           "Desarrollo de carpetas",
           "Conception de dossier",
           "Guilds",
-          "Cortometrajes"
+          "Product Placement"
         ]
       },
       "105-07": {
@@ -933,13 +884,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Promotion de la production",
           "es": "Promoción de producción",
           "en": "Film Promoters"
         },
         "Referentes": [
-          "Desarrollo de Proyectos",
-          "Asesoría",
           "Promotores",
           "Fundraiser",
           "Eficine",
@@ -953,46 +902,12 @@
           "Gestión cultural",
           "Promotores culturales",
           "Cortometrajes",
-          "Festivales"
-        ]
-      },
-      "105-08": {
-        "Femenino": {
-          "fr": null,
-          "es": "Supervisora de protocolo de perspectiva de género",
-          "en": null
-        },
-        "Masculino": {
-          "fr": null,
-          "es": "Supervisor de protocolo de perspectiva de género",
-          "en": null
-        },
-        "No Binario": {
-          "fr": null,
-          "es": "Supervisión de protocolo de perspectiva de género",
-          "en": null
-        },
-        "Persona Moral": {
-          "fr": null,
-          "es": "Supervisión de protocolo de perspectiva de género",
-          "en": null
-        },
-        "Alias Genérico": {
-          "fr": null,
-          "es": "Supervisión de protocolo de perspectiva de género",
-          "en": null
-        },
-        "Referentes": [
-          "Supervisores",
-          "Protocolos",
-          " Perspectiva de género",
-          "Violencias",
-          "Inclusión",
-          "Equidad de género",
-          "Género",
-          "Certiificaciones",
-          "Sensibilzación",
-          "Diversidad"
+          "Festivales",
+          "Product Placement",
+          "Relaciones públicas",
+          "PR",
+          "RRPP",
+          "Publirrelacionistas"
         ]
       }
     }
@@ -1021,16 +936,14 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Moulage",
           "es": "Casting",
           "en": "Casting"
         },
         "Referentes": [
-          "Talento",
           "Castineras",
           "Búsqueda de talento",
           "Cast",
-          "Casting",
           "Reparto",
           "Actores",
           "Actrices",
@@ -1062,15 +975,13 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
-          "es": "Agencia de actores",
+          "fr": "Agence d'acteurs",
+          "es": "Agencias de actores",
           "en": "Actors Agencies"
         },
         "Referentes": [
-          "Talento",
           "Cast",
           "Búsqueda de talento",
-          "Casting",
           "Reparto",
           "Actores",
           "Actrices",
@@ -1101,16 +1012,14 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
-          "es": "Agencia de modelos",
+          "fr": "Agence de modélisme",
+          "es": "Agencias de modelos",
           "en": "Modeling Agencies"
         },
         "Referentes": [
-          "Talento",
           "Bits de acción",
           "Cast",
           "Búsqueda de talento",
-          "Casting",
           "Reparto",
           "Modelos",
           "Extras",
@@ -1140,14 +1049,12 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
-          "es": "Agencia de locutores",
+          "fr": "Agence de voix off",
+          "es": "Agencias de locutores",
           "en": "Voiceover Agencies"
         },
         "Referentes": [
-          "Talento",
           "Casting de voz",
-          "Locución",
           "Doblaje",
           "Locutores",
           "Voice Over",
@@ -1180,18 +1087,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
-          "es": "Agencia de edecanes",
+          "fr": "Agence d'aide de camp",
+          "es": "Agencias de edecanes",
           "en": "Hostess Agencies"
         },
-        "Referentes": [
-          "Talento",
-          "Eventos",
-          "Modelos",
-          "Hostess",
-          "Edecanes",
-          "Agencias"
-        ]
+        "Referentes": ["Eventos", "Modelos", "Hostess", "Edecanes", "Agencias"]
       },
       "201-06": {
         "Femenino": {
@@ -1215,12 +1115,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
-          "es": "Academia de actuación",
+          "fr": "Académie d'art dramatique",
+          "es": "Academias de actuación",
           "en": "Acting Academies"
         },
         "Referentes": [
-          "Talento",
           "Actores",
           "Actrices",
           "Maestros de actuación",
@@ -1254,12 +1153,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Représentants du talents",
           "es": "Representantes de talento",
           "en": "Talent Agents"
         },
         "Referentes": [
-          "Talento",
           "Talent handlers",
           "Representantes",
           "Agentes",
@@ -1292,12 +1190,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Agents artistiques",
           "es": "Agentes artísticos",
           "en": "Artists Agents"
         },
         "Referentes": [
-          "Talento",
           "Talent handlers",
           "Representantes",
           "Agentes",
@@ -1332,17 +1229,15 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Acteurs",
           "es": "Actores",
           "en": "Actors"
         },
         "Referentes": [
-          "Talento",
           "Actores",
           "Actrices",
           "Actors",
           "Acteurs",
-          "Actuación",
           "Películas",
           "Largometrajes",
           "Cortometrajes"
@@ -1370,12 +1265,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Modèles",
           "es": "Modelos",
           "en": "Models"
         },
         "Referentes": [
-          "Talento",
           "Modelos",
           "Models",
           "Modèles",
@@ -1406,12 +1300,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Modèles de lingerie",
           "es": "Modelos lencería",
           "en": "Lingerie Models"
         },
         "Referentes": [
-          "Talento",
           "Modelos",
           "Models",
           "Modèles",
@@ -1442,55 +1335,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Modèles de défilé",
           "es": "Modelos pasarela",
           "en": "Runway Models"
         },
-        "Referentes": [
-          "Talento",
-          "Modelos",
-          "Models",
-          "Modèles",
-          "Modelaje",
-          "Pasarela"
-        ]
-      },
-      "202-05": {
-        "Femenino": {
-          "fr": null,
-          "es": "Modelo de manos/pies",
-          "en": null
-        },
-        "Masculino": {
-          "fr": null,
-          "es": "Modelo de manos/pies",
-          "en": null
-        },
-        "No Binario": {
-          "fr": null,
-          "es": "Modelo de manos/pies",
-          "en": null
-        },
-        "Persona Moral": {
-          "fr": null,
-          "es": null,
-          "en": null
-        },
-        "Alias Genérico": {
-          "fr": null,
-          "es": "Modelo de manos/pies",
-          "en": "Hands, Feet Model"
-        },
-        "Referentes": [
-          "Modelos",
-          "Models",
-          "Modèles",
-          "Modelaje",
-          "Manos",
-          "Piés",
-          "Hands model",
-          "Feet model"
-        ]
+        "Referentes": ["Modelos", "Models", "Modèles", "Modelaje", "Pasarela"]
       }
     },
     "Especialistas": {
@@ -1516,12 +1365,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Chorégraphie",
           "es": "Coreografía",
           "en": "Choreographers"
         },
         "Referentes": [
-          "Talento",
           "Coreografía",
           "Coreógrafos",
           "Baile",
@@ -1552,12 +1400,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Danseurs",
           "es": "Bailarines",
           "en": "Dancers"
         },
         "Referentes": [
-          "Talento",
           "Baile",
           "Bailarinas",
           "Bailarines",
@@ -1583,16 +1430,15 @@
         },
         "Persona Moral": {
           "fr": null,
-          "es": null,
+          "es": "Dobles de riesgo",
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Risque doublé",
           "es": "Dobles de riesgo",
           "en": "Stunt Doubles"
         },
         "Referentes": [
-          "Talento",
           "Stunts",
           "Dobles de riesgo",
           "Stunt double",
@@ -1625,12 +1471,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Directeurs d'action",
           "es": "Directores de acción",
           "en": "Action Directors"
         },
         "Referentes": [
-          "Talento",
           "Stunts",
           "Dobles de riesgo",
           "Stunt double",
@@ -1662,17 +1507,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Acrobates",
           "es": "Acróbatas",
           "en": "Acrobats"
         },
-        "Referentes": [
-          "Talento",
-          "Cirqueros",
-          "Zanqueros",
-          "Circo",
-          "Acróbatas"
-        ]
+        "Referentes": ["Cirqueros", "Zanqueros", "Circo", "Acróbatas"]
       },
       "203-06": {
         "Femenino": {
@@ -1696,12 +1535,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Dresseurs d'animaux",
           "es": "Entrenadores de animales",
           "en": "Wranglers"
         },
         "Referentes": [
-          "Talento",
           "Animales entrenados",
           "Entrenadores de animales",
           "Wrangler",
@@ -1732,20 +1570,19 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Pilotes automobilistes",
           "es": "Pilotos automovilistas",
           "en": "Car Pilots"
         },
         "Referentes": [
-          "Talento",
-          "Action Drivers ",
+          "Action Drivers",
           "Pilotos",
-          "Conductores de acción ",
+          "Conductores de acción",
           "Automovilistas"
         ]
       }
     },
-    "Locución": {
+    "Conductores y locutores": {
       "204-01": {
         "Femenino": {
           "fr": null,
@@ -1768,18 +1605,20 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
-          "es": "Conducción acuadro",
+          "fr": "Entraînement du cadre",
+          "es": "Conducción a cuadro",
           "en": "TV Hosting"
         },
         "Referentes": [
-          "Talento",
           "Maestros de ceremonias",
           "Presentadores",
           "TV Hosting",
           "Conductores a cuadro",
           "Televisión",
-          "Broadcast"
+          "Broadcast",
+          "Talk show",
+          "Programas de TV",
+          "Transmisión en vivo"
         ]
       },
       "204-02": {
@@ -1804,20 +1643,18 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Voix off",
           "es": "Locución",
           "en": "Voice-Over"
         },
         "Referentes": [
-          "Talento",
           "Voz Off",
           "Voice Over",
-          "VO (Voice Over) ",
+          "VO",
           "Narración",
           "Narradores",
           "Actores de voz",
           "Doblaje",
-          "Locución",
           "Voice Actors",
           "Acteurs de la voix",
           "Doublage"
@@ -1845,17 +1682,14 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Doublage",
           "es": "Doblaje",
           "en": "Dubbing"
         },
         "Referentes": [
-          "Talento",
           "Doblaje",
           "Dobladores",
-          "Talento",
           "Actores de voz",
-          "Locución",
           "Voice Actors",
           "Acteurs de la voix",
           "Doublage",
@@ -1885,22 +1719,20 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "",
           "es": "Directores de doblaje",
           "en": "Dubbing Directors"
         },
         "Referentes": [
-          "Talento",
           "Doblaje",
           "Dobladores",
-          "Talento",
           "Actores de voz",
-          "Locución",
           "Voice Actors",
           "Acteurs de la voix",
           "Doublage",
           "Dubbing",
-          " ADR (Automatic Dialogue Replacement)"
+          "Directores de doblaje",
+          "Supervisión de doblaje"
         ]
       },
       "204-05": {
@@ -1925,22 +1757,23 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "",
           "es": "Conducción de radio",
           "en": "Radio Host"
         },
         "Referentes": [
-          "Talento",
-          "Doblaje",
-          "Dobladores",
-          "Talento",
-          "Actores de voz",
-          "Locución",
-          "Voice Actors",
-          "Acteurs de la voix",
-          "Doublage",
-          "Dubbing",
-          " ADR (Automatic Dialogue Replacement)"
+          "Voz Off",
+          "Voice Over",
+          "VO",
+          "Narración",
+          "Narradores",
+          "Conductores de radio",
+          "Radio hosting",
+          "Radio DJ",
+          "Talk shows",
+          "Programas de radio",
+          "Radio personality",
+          "Broadcasting"
         ]
       }
     },
@@ -1967,19 +1800,17 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Production musicale",
           "es": "Producción musical",
           "en": "Musical Production"
         },
         "Referentes": [
-          "Talento",
-          "Músicos",
           "Producción musical",
           "Productores musicales",
           "Coposición musical",
           "Jingles",
           "Música original",
-          "Original Motion Picture Soundtrack ",
+          "Original Motion Picture Soundtrack",
           "Musique originale",
           "Conciertos",
           "Live Performance"
@@ -2007,19 +1838,17 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Composition musicale",
           "es": "Composición musical",
           "en": "Music Composers"
         },
         "Referentes": [
-          "Talento",
-          "Músicos",
           "Producción musical",
           "Productores musicales",
           "Coposición musical",
           "Jingles",
           "Música original",
-          "2k",
+          "Original Motion Picture Soundtrack",
           "Musique originale",
           "Composers",
           "Musicians",
@@ -2039,7 +1868,7 @@
         },
         "No Binario": {
           "fr": null,
-          "es": "Intérpretes",
+          "es": "Interpretación musical",
           "en": null
         },
         "Persona Moral": {
@@ -2048,13 +1877,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Interprètes",
           "es": "Intérpretes",
           "en": "Singers"
         },
         "Referentes": [
-          "Talento",
-          "Músicos",
           "Música original",
           "Musique originale",
           "Intérpretes",
@@ -2068,7 +1895,7 @@
       }
     }
   },
-  "Equipo Humano": {
+  "Equipo humano": {
     "Producción": {
       "301-01": {
         "Femenino": {
@@ -2092,12 +1919,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Production cinématographique",
           "es": "Producción cinematográfica",
           "en": "Film Producers"
         },
         "Referentes": [
-          "Equipo humano",
           "Producción cinematográfica",
           "Productores cinematográficos",
           "Productores",
@@ -2108,7 +1934,6 @@
           "Line producers",
           "Productores ejecutivos",
           "Filmmaking",
-          "Film Crew",
           "Telefilm",
           "Cortometrajes",
           "Serie"
@@ -2136,38 +1961,35 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Production audiovisuelle",
           "es": "Producción audiovisual",
           "en": "Video Production"
         },
         "Referentes": [
-          "Equipo humano",
-          "Producción",
+          "Line producers",
           "Productores",
           "Producer",
           "Line Producers",
           "Logística",
-          "Production Crew",
           "Telefilm",
           "Videos",
-          "Producción de videos",
-          "Crew"
+          "Producción de videos"
         ]
       },
       "301-03": {
         "Femenino": {
           "fr": null,
-          "es": "Productora ejecutiva, agencia",
+          "es": "Productora ejecutiva / agencia",
           "en": null
         },
         "Masculino": {
           "fr": null,
-          "es": "Productor ejecutivo, agencia",
+          "es": "Productor ejecutivo / agencia",
           "en": null
         },
         "No Binario": {
           "fr": null,
-          "es": "Producción ejecutiva, agencia",
+          "es": "Producción ejecutiva / agencia",
           "en": null
         },
         "Persona Moral": {
@@ -2176,17 +1998,15 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
-          "es": "Producción ejecutiva, agencia",
-          "en": "Agency, Executive Producer"
+          "fr": "Production exécutive/ Agence",
+          "es": "Producción ejecutiva / agencia",
+          "en": "Agency / Executive Producer"
         },
         "Referentes": [
-          "Equipo humano",
           "Agencias",
           "Productores",
           "Producer",
-          "Productores ejecutivos",
-          "Crew"
+          "Productores ejecutivos"
         ]
       },
       "301-04": {
@@ -2211,22 +2031,17 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Gestion de production cinématographique",
           "es": "Gerencia de producción cinematográfica",
           "en": "Line Producers"
         },
         "Referentes": [
-          "Equipo humano",
-          "Producción",
           "Line Producers",
           "Productores",
           "Producer",
           "Gerentes de producción",
           "Logística",
-          "Production Crew",
-          "Film Crew",
-          "Coordinación de producción",
-          "Crew"
+          "Coordinación de producción"
         ]
       },
       "301-05": {
@@ -2251,21 +2066,17 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Coordination de production audiovisuelle",
           "es": "Coordinación de producción audiovisual",
           "en": "Production Coordinators"
         },
         "Referentes": [
-          "Equipo humano",
-          "Producción",
           "Line producers",
           "Coordinadores de producción",
           "Production Coordinator",
           "Coordonnatrice de production",
           "Logística",
-          "Production Crew",
-          "Coordinación de producción",
-          "Crew"
+          "Coordinación de producción"
         ]
       },
       "301-06": {
@@ -2290,22 +2101,17 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Gestion de location",
           "es": "Gerencia de locaciones",
           "en": "Location Managers"
         },
         "Referentes": [
-          "Equipo humano",
-          "Producción",
           "Locaciones",
           "Managers de locaciones",
           "Locations",
           "Emplacements",
           "Gerentes de locaciones",
-          "Logística",
-          "Film Crew",
-          "Production Crew",
-          "Crew"
+          "Logística"
         ]
       },
       "301-07": {
@@ -2330,22 +2136,17 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Scouting",
           "es": "Scouting",
           "en": "Scouting"
         },
         "Referentes": [
-          "Equipo humano",
-          "Producción",
           "Locaciones",
           "Managers de locaciones",
           "Locations",
           "Emplacements",
           "Gerentes de locaciones",
-          "Scouters",
-          "Film Crew",
-          "Production Crew",
-          "Crew"
+          "Scouters"
         ]
       },
       "301-08": {
@@ -2370,19 +2171,16 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Agence de locations",
           "es": "Agentes de locaciones",
           "en": "Location Agents"
         },
         "Referentes": [
-          "Equipo humano",
-          "Producción",
           "Locaciones",
           "Manager de locaciones",
           "Locations",
           "Emplacements",
-          "Scouters",
-          "Crew"
+          "Scouters"
         ]
       },
       "301-09": {
@@ -2407,21 +2205,16 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Assistant de production",
           "es": "Asistentes de producción",
           "en": "Production Assistants"
         },
         "Referentes": [
-          "Equipo humano",
-          "Producción",
           "Asistentes",
           "PA (Production Assistants)",
           "Asistentes de producción",
           "Runners",
-          "Logística",
-          "Film Crew",
-          "Production Crew",
-          "Crew"
+          "Logística"
         ]
       },
       "301-10": {
@@ -2446,21 +2239,16 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Coordinateurs des transports",
           "es": "Coordinadores de transporte",
           "en": "Transport Coordinators"
         },
         "Referentes": [
-          "Equipo humano",
-          "Producción",
           "Transporte de producción",
           "Capitanes de transporte",
           "Coordinadores de transporte",
           "Choferes",
-          "Logística",
-          "Film Crew",
-          "Production Crew",
-          "Crew"
+          "Logística"
         ]
       },
       "301-11": {
@@ -2485,21 +2273,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Facteurs de production",
           "es": "Choferes de producción",
           "en": "Production Drivers"
         },
-        "Referentes": [
-          "Equipo humano",
-          "Producción",
-          "Transporte",
-          "Choferes",
-          "Runners",
-          "Logística",
-          "Film Crew",
-          "Production Crew",
-          "Crew"
-        ]
+        "Referentes": ["Transporte", "Choferes", "Runners", "Logística"]
       },
       "301-12": {
         "Femenino": {
@@ -2523,20 +2301,15 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Sécurité des lieux",
           "es": "Seguridad en locación",
           "en": "On-site Security"
         },
         "Referentes": [
-          "Equipo humano",
-          "Producción",
           "Personal de seguridad",
           "Guardias",
           "Logística",
-          "Seguridad en locación",
-          "Film Crew",
-          "Production Crew",
-          "Crew"
+          "Seguridad en locación"
         ]
       },
       "301-13": {
@@ -2561,9 +2334,9 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "",
           "es": "Médicos de producción",
-          "en": "production doctors"
+          "en": ""
         },
         "Referentes": [
           "Personal de seguridad",
@@ -2599,21 +2372,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Directeurs",
           "es": "Directores",
           "en": "Directors"
         },
-        "Referentes": [
-          "Equipo humano",
-          "Realizadores",
-          "Dirección",
-          "Directores",
-          "Directors",
-          "Réalisateur",
-          "Film Crew",
-          "Production Crew",
-          "Crew"
-        ]
+        "Referentes": ["Realizadores", "Directores", "Directors", "Réalisateur"]
       },
       "302-02": {
         "Femenino": {
@@ -2637,20 +2400,15 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Assistants de direction",
           "es": "Primeros asistentes de dirección",
-          "en": "First Direction Assistantss"
+          "en": "First Direction Assistants"
         },
         "Referentes": [
-          "Equipo humano",
           "DA",
-          "Dirección",
           "Asistentes de dirección",
           "Assistant Director",
           "Assistant réalisateur",
-          "Film Crew",
-          "Production Crew",
-          "Crew",
           "1º asistente"
         ]
       },
@@ -2676,22 +2434,17 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Continuistes",
           "es": "Continuistas",
           "en": "Script Supervisors"
         },
         "Referentes": [
-          "Equipo humano",
           "Scripts",
           "Script Supervisors",
-          "Dirección",
           "Continuistas",
           "Continuity",
           "Raccord",
-          "Continuistas",
-          "Film Crew",
-          "Production Crew",
-          "Crew"
+          "Continuistas"
         ]
       },
       "302-04": {
@@ -2716,19 +2469,15 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Documentalistes",
           "es": "Documentalistas",
           "en": "Documentalists"
         },
         "Referentes": [
-          "Equipo humano",
           "Realizadores",
           "Documentalistas",
           "Documentary",
-          "Documentariste",
-          "Film Crew",
-          "Production Crew",
-          "Crew"
+          "Documentariste"
         ]
       },
       "302-05": {
@@ -2753,18 +2502,16 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Producteurs de télévision",
           "es": "Productores de televisión",
           "en": "TV Producers"
         },
         "Referentes": [
-          "Equipo humano",
           "Realizadores",
           "Productores",
           "TV Producer",
           "Producer",
           "Productores de televisión",
-          "Production Crew",
           "Videos",
           "Producción de video",
           "TX",
@@ -2773,10 +2520,9 @@
           "Transmisión en directo",
           "Transmisión en directo",
           "Transmisión en vivo",
-          "Transmisión de señal ",
-          "Distribución de señal ",
+          "Transmisión de señal",
+          "Distribución de señal",
           "Showrunner",
-          "Crew",
           "Broadcast"
         ]
       },
@@ -2802,17 +2548,14 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "",
           "es": "Directores de cámaras",
           "en": "TV Directors"
         },
         "Referentes": [
-          "Equipo humano",
           "Realizadores",
           "TV Producer",
           "Productores de televisión",
-          "Production Crew",
-          "Technical Crew",
           "Directores de cámaras",
           "Videos",
           "Producción de video",
@@ -2825,7 +2568,6 @@
           "Transmisión en directo",
           "Transmisión en vivo",
           "Distribución de señal",
-          "Crew",
           "Broadcast"
         ]
       },
@@ -2851,22 +2593,18 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "",
           "es": "Directores de escena",
           "en": "Stage Managers"
         },
         "Referentes": [
-          "Equipo humano",
           "Realizadores",
           "TV Producer",
           "Productores de televisión",
-          "Production Crew",
-          "Technical Crew",
           "Directores de escena",
           "Televisión",
           "Teatro",
-          "Actuación",
-          "Crew"
+          "Actuación"
         ]
       },
       "302-08": {
@@ -2891,21 +2629,52 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "",
           "es": "Segundos asistentes de dirección",
           "en": "Second Direction Assistants"
         },
         "Referentes": [
-          "Equipo humano",
           "DA",
-          "Dirección",
           "Asistentes de dirección",
           "Assistant Director",
           "Assistant réalisateur",
-          "Film Crew",
-          "Production Crew",
-          "Crew",
           "2º asistente"
+        ]
+      },
+      "302-09": {
+        "Femenino": {
+          "fr": null,
+          "es": "Coordinadora de intimidad",
+          "en": null
+        },
+        "Masculino": {
+          "fr": null,
+          "es": "Coordinador de intimidad",
+          "en": null
+        },
+        "No Binario": {
+          "fr": null,
+          "es": "Coordinación de intimidad",
+          "en": null
+        },
+        "Persona Moral": {
+          "fr": null,
+          "es": "",
+          "en": null
+        },
+        "Alias Genérico": {
+          "fr": "",
+          "es": "Coordinadores de intimidad",
+          "en": ""
+        },
+        "Referentes": [
+          "Coordinadores",
+          "Intimidad",
+          "Privacidad",
+          "Derechos Humanos",
+          "Perspectiva de género",
+          "Desnudos",
+          "#MeToo"
         ]
       }
     },
@@ -2932,22 +2701,17 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
-          "es": "Direcctores de fotografía",
+          "fr": "Directeurs de la photographie",
+          "es": "Directores de fotografía",
           "en": "Directors of Photography"
         },
         "Referentes": [
-          "Equipo humano",
           "DP (Directors of Photography)",
           "Cinefotógrafos",
           "Directores de fotografía",
           "Cinematographers",
           "Head Cameraman",
-          "Chef opérateur",
-          "Film Crew",
-          "Production Crew",
-          "Technical Crew",
-          "Crew"
+          "Chef opérateur"
         ]
       },
       "303-02": {
@@ -2972,21 +2736,16 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Opérateurs de caméra",
           "es": "Operadores de cámara cinematográfica",
           "en": "Head Camera Operators"
         },
         "Referentes": [
-          "Equipo humano",
           "Cinefotógrafos",
           "Cameraman",
           "Operadores de cámara cinematográfica",
           "Focus puller",
-          "Foquistas",
-          "Film Crew",
-          "Production Crew",
-          "Technical Crew",
-          "Crew"
+          "Foquistas"
         ]
       },
       "303-03": {
@@ -3011,23 +2770,18 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Assistants de caméra cinematographique",
           "es": "Asistentes de cámara cinematográfica",
           "en": "Focus Pullers"
         },
         "Referentes": [
-          "Equipo humano",
           "Primer asistente",
           "Asistente de fotografía",
           "Foquistas",
           "Focus puller",
           "Clapper loader",
           "Assistant chef operateur",
-          "Asistentes de cámara cinamtográfica",
-          "Film Crew",
-          "Production Crew",
-          "Technical Crew",
-          "Crew"
+          "Asistentes de cámara cinamtográfica"
         ]
       },
       "303-04": {
@@ -3052,21 +2806,16 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Photographes aériens",
           "es": "Fotógrafos aéreos",
           "en": "Aerial Photographers"
         },
         "Referentes": [
-          "Equipo humano",
           "Cinefotógrafos",
           "Fotografía aérea",
           "Fotógrafos aéreos",
           "Drones",
-          "Helicópteros",
-          "Film Crew",
-          "Production Crew",
-          "Technical Crew",
-          "Crew"
+          "Helicópteros"
         ]
       },
       "303-05": {
@@ -3091,21 +2840,16 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Photographes sous-marins",
           "es": "Fotógrafos submarinos",
           "en": "Underwater Photographers"
         },
         "Referentes": [
-          "Equipo humano",
           "Cinefotógrafos",
           "Fotografía submarina",
           "Fotógrafos submarinos",
           "Buzos",
-          "Buceo",
-          "Film Crew",
-          "Production Crew",
-          "Technical Crew",
-          "Crew"
+          "Buceo"
         ]
       },
       "303-06": {
@@ -3130,22 +2874,22 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Photographes",
           "es": "Fotógrafos",
           "en": "Photographers"
         },
         "Referentes": [
-          "Equipo humano",
           "Cinefotógrafos",
           "Foto fija",
           "Still photography",
           "Photographe",
-          "Fotografía",
-          "Fotógrafos",
-          "Film Crew",
-          "Production Crew",
-          "Technical Crew",
-          "Crew"
+          "Exposición fotográfica",
+          "Fotografía artística",
+          "Taste Shot",
+          "Product Shot",
+          "Table Top",
+          "Fotografía publicitaria",
+          "Fotógrafos"
         ]
       },
       "303-07": {
@@ -3170,20 +2914,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Cameramen",
           "es": "Camarógrafos",
           "en": "Cameramen"
         },
-        "Referentes": [
-          "Equipo humano",
-          "Operadores de cámara",
-          "Camarógrafos",
-          "Fotógrafos",
-          "Film Crew",
-          "Production Crew",
-          "Technical Crew",
-          "Crew"
-        ]
+        "Referentes": ["Operadores de cámara", "Camarógrafos", "Fotógrafos"]
       },
       "303-08": {
         "Femenino": {
@@ -3207,20 +2942,15 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Opérateurs Steadicam",
           "es": "Operadores Steadicam",
           "en": "Steadicam Operators"
         },
         "Referentes": [
-          "Equipo humano",
           "Operadores de cámara",
           "Camarógrafos",
           "Fotógrafos",
-          "Operadores de Steadycam",
-          "Film Crew",
-          "Production Crew",
-          "Technical Crew",
-          "Crew"
+          "Operadores de Steadycam"
         ]
       },
       "303-09": {
@@ -3245,21 +2975,16 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Pilotes de drones",
           "es": "Pilotos de dron",
           "en": "Drone Pilots"
         },
         "Referentes": [
-          "Equipo humano",
           "Operadores de dron",
           "Drones",
           "Fotografía aérea",
           "Fotógrafos aéreos",
-          "Film Crew",
-          "Production Crew",
-          "Technical Crew",
-          "Aerial shots",
-          "Crew"
+          "Aerial shots"
         ]
       },
       "303-10": {
@@ -3284,12 +3009,12 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Photographes de plateau",
           "es": "Fotógrafos still",
           "en": "Still Photographers"
         },
         "Referentes": [
-          "Equipo humano",
+          "Foto fija",
           "Fotografía publicitaria",
           "Fotografía artística",
           "Foto fija",
@@ -3299,11 +3024,9 @@
           "Retratos",
           "Fotoperiodismo",
           "Fotógrafos",
-          "Fotografía",
-          "Film Crew",
-          "Production Crew",
-          "Technical Crew",
-          "Crew"
+          "Taste Shot",
+          "Table Top",
+          "Exposición fotográfica"
         ]
       },
       "303-11": {
@@ -3328,24 +3051,20 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
-          "es": "Data managers",
+          "fr": "Data management",
+          "es": "Data manager",
           "en": "Data Managers"
         },
         "Referentes": [
-          "Equipo humano",
           "Data",
           "Data Manager",
           "Técnico en imagen digital",
+          "Data Manager",
           "Data Wrangler",
           "DIT (Digital Imaging Technician)",
           "Manager de données",
           "Technicien en imagerie numérique",
           "Workflow",
-          "Film Crew",
-          "Production Crew",
-          "Technical Crew",
-          "Crew",
           "Rushes",
           "Daylies",
           "RAW",
@@ -3354,7 +3073,7 @@
         ]
       }
     },
-    "Técnicos": {
+    "Personal de iluminación y tramoya": {
       "304-01": {
         "Femenino": {
           "fr": null,
@@ -3377,22 +3096,16 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Gaffers",
           "es": "Gaffers",
           "en": "Gaffers"
         },
         "Referentes": [
-          "Equipo humano",
-          "Iluminación",
-          "Iluminadores",
           "Gaffers",
           "Jefes de staff",
           "Best Boy",
-          "Film Crew",
-          "Production Crew",
-          "Technical Crew",
           "Riggers",
-          "Crew"
+          "Iluminadores"
         ]
       },
       "304-02": {
@@ -3417,24 +3130,18 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Équipe électrique",
           "es": "Crew eléctrico",
           "en": "Electrical Crew"
         },
         "Referentes": [
-          "Equipo humano",
-          "Iluminación",
-          "Iluminadores",
           "Gaffers",
           "Jefes de staff",
           "Best Boy",
           "Key Grip",
           "Grip",
-          "Film Crew",
-          "Production Crew",
-          "Technical Crew",
           "Riggers",
-          "Crew"
+          "Iluminadores"
         ]
       },
       "304-03": {
@@ -3459,95 +3166,18 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Personnel",
           "es": "Staff",
           "en": "Grip Crew"
         },
         "Referentes": [
-          "Equipo humano",
-          "Iluminación",
           "Eléctricos",
-          "Iluminadores",
-          "Personal",
-          "Staff",
-          "Best Boy",
-          "Key Grip",
-          "Grip",
-          "Film Crew",
-          "Production Crew",
-          "Technical Crew",
-          "Riggers",
-          "Crew"
-        ]
-      },
-      "304-04": {
-        "Femenino": {
-          "fr": null,
-          "es": "Jefa de tramoya",
-          "en": null
-        },
-        "Masculino": {
-          "fr": null,
-          "es": "Jefe de tramoya",
-          "en": null
-        },
-        "No Binario": {
-          "fr": null,
-          "es": "Tramoya",
-          "en": null
-        },
-        "Persona Moral": {
-          "fr": null,
-          "es": null,
-          "en": null
-        },
-        "Alias Genérico": {
-          "fr": null,
-          "es": "Jefes de tramoya",
-          "en": "Key Grip"
-        },
-        "Referentes": [
           "Personal",
           "Best Boy",
           "Key Grip",
           "Grip",
           "Riggers",
-          "Tramoya"
-        ]
-      },
-      "304-05": {
-        "Femenino": {
-          "fr": null,
-          "es": "Dolista",
-          "en": null
-        },
-        "Masculino": {
-          "fr": null,
-          "es": "Dolista",
-          "en": null
-        },
-        "No Binario": {
-          "fr": null,
-          "es": "Dolista",
-          "en": null
-        },
-        "Persona Moral": {
-          "fr": null,
-          "es": null,
-          "en": null
-        },
-        "Alias Genérico": {
-          "fr": null,
-          "es": "Dolistas",
-          "en": "Dolly"
-        },
-        "Referentes": [
-          "Personal",
-          "Grip",
-          "Riggers",
-          "Tramoya",
-          "Dollies",
-          "Operadores de dolly"
+          "Iluminadores"
         ]
       }
     },
@@ -3574,29 +3204,24 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Ingénieurs du son",
           "es": "Ingenieros de sonido",
           "en": "Sound Engineers"
         },
         "Referentes": [
-          "Equipo humano",
-          "Sonido",
           "Audio",
           "Sonido sincrónico",
           "Sonido directo",
           "Sound",
           "Sounoists",
-          "Ingenieros de sonido Diseño de audio",
+          "Ingenieros de sonido",
+          "Diseño de audio",
           "Grabación de audio",
           "Grabación musical",
-          "Film Crew",
-          "Production Crew",
-          "Technical Crew",
           "Producción musical",
           "Conciertos",
           "Live Performance",
-          "Sonorización",
-          "Crew"
+          "Sonorización"
         ]
       },
       "305-02": {
@@ -3621,13 +3246,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Ingénieurs de son",
           "es": "Sonidistas",
           "en": "Recordists"
         },
         "Referentes": [
-          "Equipo humano",
-          "Sonido",
           "Sonidistas",
           "Audio",
           "Sonido sincrónico",
@@ -3636,11 +3259,7 @@
           "Sounoists",
           "Ingenieros de sonido",
           "Diseño de audio",
-          "Grabación de audio",
-          "Film Crew",
-          "Production Crew",
-          "Technical Crew",
-          "Crew"
+          "Grabación de audio"
         ]
       },
       "305-03": {
@@ -3656,7 +3275,7 @@
         },
         "No Binario": {
           "fr": null,
-          "es": "Microfonista",
+          "es": "Sonido",
           "en": null
         },
         "Persona Moral": {
@@ -3665,24 +3284,18 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
-          "es": "MIcrofonistas",
+          "fr": "Son",
+          "es": "Sonido",
           "en": "Sound Technicians"
         },
         "Referentes": [
-          "Equipo humano",
-          "Sonido",
           "Sonidistas",
           "Audio",
           "Sonido sincrónico",
           "Sonido directo",
           "Sound",
           "Sounoists",
-          "Grabación de audio",
-          "Film Crew",
-          "Production Crew",
-          "Technical Crew",
-          "Crew"
+          "Grabación de audio"
         ]
       },
       "305-04": {
@@ -3707,18 +3320,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Soufflers",
           "es": "Apuntadores",
           "en": "Prompters"
         },
-        "Referentes": [
-          "Equipo humano",
-          "Aparatos",
-          "Apuntadores",
-          "Prompters",
-          "Script",
-          "Crew"
-        ]
+        "Referentes": ["Aparatos", "Apuntadores", "Prompters", "Script"]
       },
       "305-05": {
         "Femenino": {
@@ -3742,28 +3348,24 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "",
           "es": "Sonorizadores",
           "en": "Sound Technicians"
         },
         "Referentes": [
-          "Equipo humano",
           "Sonido",
           "Audio",
           "Sound",
           "Sounoists",
           "Ingenieros de sonido",
           "Grabación musical",
-          "Production Crew",
-          "Technical Crew",
           "Producción musical",
           "Conciertos",
           "Live Performance",
           "Sonorización",
           "Secres",
           "Backstage",
-          "Performance Support",
-          "Crew"
+          "Performance Support"
         ]
       }
     },
@@ -3790,21 +3392,16 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Concepteurs de la production",
           "es": "Diseñadores de producción",
           "en": "Production Designers"
         },
         "Referentes": [
-          "Equipo humano",
-          "Arte",
           "Diseño de producción",
           "Production Design",
           "Création des décors",
           "Diseñadores de producción",
-          "Atmósfera",
-          "Film Crew",
-          "Production Crew",
-          "Crew"
+          "Atmósfera"
         ]
       },
       "306-02": {
@@ -3829,22 +3426,17 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Directeurs artistiques",
           "es": "Directores de arte",
           "en": "Art Directors"
         },
         "Referentes": [
-          "Equipo humano",
-          "Arte",
           "Dirección de arte",
           "Art Direction",
           "Direction artistique",
           "Diseñadores de producción",
-          "Directores de Arte",
-          "Atmósfera",
-          "Film Crew",
-          "Production Crew",
-          "Crew"
+          "Directores de arte",
+          "Atmósfera"
         ]
       },
       "306-03": {
@@ -3869,23 +3461,18 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Assistants artistiques",
           "es": "Asistentes de arte",
           "en": "Art Assistants"
         },
         "Referentes": [
-          "Equipo humano",
-          "Arte",
           "Dirección de arte",
           "Art Direction",
           "Direction artistique",
           "Asistentes",
           "Decorado",
           "Atrezzo",
-          "Swings",
-          "Film Crew",
-          "Production Crew",
-          "Crew"
+          "Swings"
         ]
       },
       "306-04": {
@@ -3910,28 +3497,23 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Décorateurs",
           "es": "Escenógrafos",
           "en": "Set Designers"
         },
         "Referentes": [
-          "Equipo humano",
-          "Arte",
           "Escenografía",
           "Escenógrafos",
           "Scenery",
           "Decorado",
           "Constructores",
-          "Swings",
-          "Film Crew",
-          "Production Crew",
-          "Crew"
+          "Swings"
         ]
       },
       "306-05": {
         "Femenino": {
           "fr": null,
-          "es": "Constructora",
+          "es": "Constructora ",
           "en": null
         },
         "Masculino": {
@@ -3950,23 +3532,18 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Constructeurs",
           "es": "Constructores",
           "en": "Set Builders"
         },
         "Referentes": [
-          "Equipo humano",
-          "Arte",
           "Escenografía",
           "Swings",
           "Carpinteros",
           "Carpenters",
           "Charpentiers",
           "Escenógrafos",
-          "Constructores",
-          "Film Crew",
-          "Production Crew",
-          "Crew"
+          "Constructores"
         ]
       },
       "306-06": {
@@ -3991,23 +3568,18 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Production d'ambiance",
           "es": "Ambientadores",
           "en": "Ambiance Production"
         },
         "Referentes": [
-          "Equipo humano",
-          "Arte",
           "Ambientación",
           "Ambientadores",
           "Decoradores",
           "Decorado",
           "Atmósfera",
           "Atrezzo",
-          "Atrecistas",
-          "Film Crew",
-          "Production Crew",
-          "Crew"
+          "Atrecistas"
         ]
       },
       "306-07": {
@@ -4032,23 +3604,18 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Props",
           "es": "Utileros",
           "en": "Prop Masters"
         },
         "Referentes": [
-          "Equipo humano",
-          "Arte",
           "Utilería",
           "Utileros",
           "Props",
           "Prop Master",
           "Props Man",
           "Atrezzo",
-          "Atrecistas",
-          "Film Crew",
-          "Production Crew",
-          "Crew"
+          "Atrecistas"
         ]
       },
       "306-08": {
@@ -4073,19 +3640,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Armuriers",
           "es": "Armeros",
           "en": "Gunsmiths"
         },
-        "Referentes": [
-          "Equipo humano",
-          "Armas",
-          "Armeros",
-          "Estopines",
-          "Film Crew",
-          "Production Crew",
-          "Crew"
-        ]
+        "Referentes": ["Armas", "Armeros", "Estopines"]
       },
       "306-09": {
         "Femenino": {
@@ -4109,21 +3668,16 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Intendants",
           "es": "Ecónomos",
           "en": "Food Stylists"
         },
         "Referentes": [
-          "Equipo humano",
-          "Arte",
           "Ecónomos",
           "Estilistas de alimentos",
           "Food Styling",
           "Stylisme Culinare",
-          "Taste Shots",
-          "Film Crew",
-          "Production Crew",
-          "Crew"
+          "Taste Shots"
         ]
       },
       "306-10": {
@@ -4148,20 +3702,15 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Costumiers",
           "es": "Vestuaristas",
           "en": "Costume Designers"
         },
         "Referentes": [
-          "Equipo humano",
-          "Arte",
           "Vestuario",
           "Vestuaristas",
           "Costume Designers",
-          "Film Crew",
-          "Production Crew",
-          "Wardrobe",
-          "Crew"
+          "Wardrobe"
         ]
       },
       "306-11": {
@@ -4186,21 +3735,17 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Maquilleurs",
           "es": "Maquillistas",
           "en": "Make-up Artists"
         },
         "Referentes": [
-          "Equipo humano",
           "Maquillaje",
           "Makeup",
           "Maquillistas",
           "Makeup artist",
           "Maquilleuse",
-          "Caracterizadores",
-          "Film Crew",
-          "Production Crew",
-          "Crew"
+          "Caracterizadores"
         ]
       },
       "306-12": {
@@ -4225,20 +3770,16 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Coiffeurs",
           "es": "Peinados",
           "en": "Hairstylists"
         },
         "Referentes": [
-          "Equipo humano",
           "Maquillaje",
           "Peinados",
           "Peinadores",
           "Hairdo",
-          "Estilistas",
-          "Film Crew",
-          "Production Crew",
-          "Crew"
+          "Estilistas"
         ]
       },
       "306-13": {
@@ -4263,12 +3804,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Caractérisation des personnages",
           "es": "Caracterización de personajes",
           "en": "Characterization"
         },
         "Referentes": [
-          "Equipo humano",
           "Maquillaje",
           "Postizos",
           "Prostéticos",
@@ -4276,10 +3816,7 @@
           "Make up artist",
           "Maquilleuse",
           "Caracterizadores",
-          "Caracterización de personajes",
-          "Film Crew",
-          "Production Crew",
-          "Crew"
+          "Caracterización de personajes"
         ]
       }
     },
@@ -4306,13 +3843,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Post producteurs vidéo",
           "es": "Postproductores de video",
           "en": "Video Post-Producers"
         },
         "Referentes": [
-          "Equipo humano",
-          "Postproducción",
           "Postproductores",
           "Postproduction",
           "Directores de postproduction",
@@ -4320,7 +3855,6 @@
           "Etalonaje",
           "LUT",
           "DaVinci Resolve",
-          "Crew",
           "RAW",
           "Formatos",
           "Códecs",
@@ -4350,13 +3884,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Éditeurs d'images",
           "es": "Editores de imagen",
           "en": "Image Editors"
         },
         "Referentes": [
-          "Equipo humano",
-          "Postproducción",
           "Postproductores",
           "Editores de video",
           "Edición",
@@ -4368,8 +3900,7 @@
           "FinalCut",
           "Adobe Premiere",
           "Sony Vegas",
-          "DaVinci Resolve ",
-          "Crew",
+          "DaVinci Resolve",
           "RAW",
           "Formatos",
           "Códecs",
@@ -4399,20 +3930,17 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Post-producteurs de films",
           "es": "Postproductores cinematográficos",
           "en": "Film Post-Producers"
         },
         "Referentes": [
-          "Equipo humano",
-          "Postproducción",
           "Procesos cinematográficos",
           "DCP",
           "Digital Cinema Package",
           "Postproductores cinematográficos",
           "Etalonaje",
           "LUT",
-          "Crew",
           "Rushes",
           "Daylies",
           "RAW",
@@ -4444,19 +3972,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Coloristes",
           "es": "Coloristas",
           "en": "Color Technician"
         },
-        "Referentes": [
-          "Equipo humano",
-          "Postproducción",
-          "Corrección de color",
-          "Coloristas",
-          "Etalonaje",
-          "LUT",
-          "Crew"
-        ]
+        "Referentes": ["Corrección de color", "Coloristas", "Etalonaje", "LUT"]
       },
       "307-05": {
         "Femenino": {
@@ -4480,13 +4000,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Directeurs d'animation",
           "es": "Directores de animación",
           "en": "Animation Directors"
         },
         "Referentes": [
-          "Equipo humano",
-          "Postproducción",
           "Animación",
           "Diseño de animación",
           "Personajes de animacíon",
@@ -4496,8 +4014,7 @@
           "Directores de animación",
           "Animadores",
           "2D",
-          "3D",
-          "Crew"
+          "3D"
         ]
       },
       "307-06": {
@@ -4522,13 +4039,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Animateurs",
           "es": "Animadores",
           "en": "Animation Artists"
         },
         "Referentes": [
-          "Equipo humano",
-          "Postproducción",
           "Animación",
           "Diseño de animación",
           "Personajes de animacíon",
@@ -4538,8 +4053,7 @@
           "Directores de animación",
           "Animadores",
           "2D",
-          "3D",
-          "Crew"
+          "3D"
         ]
       },
       "307-07": {
@@ -4564,13 +4078,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "",
           "es": "Coordinadores de postproducción",
           "en": "Postproduction Managers"
         },
         "Referentes": [
-          "Equipo humano",
-          "Postproducción",
           "Postproductores",
           "Postproduction",
           "Directores de postproduction",
@@ -4578,7 +4090,6 @@
           "Etalonaje",
           "LUT",
           "DaVinci Resolve",
-          "Crew",
           "RAW",
           "Formatos",
           "Códecs",
@@ -4587,21 +4098,21 @@
         ]
       }
     },
-    "Postproducción de audio": {
+    "Producción de audio": {
       "308-01": {
         "Femenino": {
           "fr": null,
-          "es": "Productora de audio radio",
+          "es": "Productora de audio / radio",
           "en": null
         },
         "Masculino": {
           "fr": null,
-          "es": "Productor de radio",
+          "es": "Productor de audio / radio",
           "en": null
         },
         "No Binario": {
           "fr": null,
-          "es": "Producción de audio radio",
+          "es": "Producción de audio / radio",
           "en": null
         },
         "Persona Moral": {
@@ -4610,13 +4121,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
-          "es": "Productores de audio radio",
+          "fr": "Post-producteurs audio",
+          "es": "Productores de audio/radio",
           "en": "Audio Post-Producers"
         },
         "Referentes": [
-          "Equipo humano",
-          "Postproducción de sonido",
           "Diseño sonoro",
           "Sound design",
           "Design sonore",
@@ -4628,7 +4137,6 @@
           "Audio mixing",
           "Foley Artists",
           "Incidentalistas",
-          "Crew",
           "Broadcast",
           "Webcast"
         ]
@@ -4655,13 +4163,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Producteurs audio/ radio",
           "es": "Postproductores de audio",
-          "en": "Audio Radio Producers"
+          "en": "Audio/ Radio Producers"
         },
         "Referentes": [
-          "Equipo humano",
-          "Postproducción de sonido",
           "Diseño sonoro",
           "Sound design",
           "Design sonore",
@@ -4673,8 +4179,7 @@
           "THX",
           "Sistemas 5.1",
           "Foley Astists",
-          "incidentalistas",
-          "Crew"
+          "incidentalistas"
         ]
       },
       "308-03": {
@@ -4699,13 +4204,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Concepteurs sonores",
           "es": "Diseñadores de sonido",
           "en": "Sound Designers"
         },
         "Referentes": [
-          "Equipo humano",
-          "Postproducción de sonido",
           "Diseño sonoro",
           "Sound design",
           "Design sonore",
@@ -4718,8 +4221,7 @@
           "THX",
           "Sistemas 5.1",
           "Foley Aristis",
-          "Incidentalistas",
-          "Crew"
+          "Incidentalistas"
         ]
       },
       "308-04": {
@@ -4744,12 +4246,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Superviseurs musicaux",
           "es": "Supervisores musicales",
           "en": "Music Supervisors"
         },
         "Referentes": [
-          "Equipo humano",
           "Asesoría musical",
           "Asesores musicales",
           "Supervisores músicales",
@@ -4764,8 +4265,7 @@
           "ASCAP",
           "SACM",
           "Somexfon",
-          "Audio mixing",
-          "Crew"
+          "Audio mixing"
         ]
       },
       "308-05": {
@@ -4790,12 +4290,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "",
           "es": "Musicalizadores",
           "en": "Musicalizers"
         },
         "Referentes": [
-          "Equipo humano",
           "Postproducción de audio",
           "Musicalizadores",
           "Stock de audio",
@@ -4806,14 +4305,13 @@
           "Musicalización",
           "ProTools",
           "Banda sonora",
-          "Audio mixing",
-          "Crew"
+          "Audio mixing"
         ]
       }
     }
   },
-  "Empresas de producción": {
-    "Empresas de producción": {
+  "Compañias de producción": {
+    "Compañías de producción": {
       "401-01": {
         "Femenino": {
           "fr": null,
@@ -4836,12 +4334,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Maisons de production",
           "es": "Casas productoras",
           "en": "Production Companies"
         },
         "Referentes": [
-          "Producción audiovisual",
           "Comerciales",
           "TV Spots",
           "Filmadoras",
@@ -4859,7 +4356,6 @@
           "Filmmaking",
           "Videos",
           "Producción de videos",
-          "Production Crew",
           "Cortometrajes",
           "Coordinación de producción"
         ]
@@ -4886,12 +4382,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Sociétés de production audio",
           "es": "Productoras de audio",
           "en": "Audio Production Companies"
         },
         "Referentes": [
-          "Producción audiovisual",
           "Audio Post",
           "Sonido",
           "Diseño de audio",
@@ -4924,12 +4419,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Sociétés de production de événements",
           "es": "Productoras de eventos",
           "en": "Event Production Companies"
         },
         "Referentes": [
-          "Producción audiovisual",
           "Eventos",
           "BTL",
           "Templetes",
@@ -4967,15 +4461,13 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
-          "es": "Estudios de fotografías",
+          "fr": "Studios de photographie",
+          "es": "Estudios de fotografía",
           "en": "Photography Studios"
         },
         "Referentes": [
-          "Producción audiovisual",
-          "Fotografía publicitaria ",
+          "Fotografía publicitaria",
           "Fotografía artística",
-          "Fotografía",
           "Fotógráfos",
           "Fotografía still",
           "Retratos",
@@ -5002,127 +4494,171 @@
         },
         "Persona Moral": {
           "fr": null,
-          "es": null,
+          "es": "Agencia de locaciones",
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
-          "es": null,
-          "en": null
+          "fr": "Agences de lieux",
+          "es": "Agencias de locaciones",
+          "en": "Location Agencies"
         },
-        "Referentes": []
+        "Referentes": [
+          "Scouting",
+          "Scouters",
+          "Locaciones",
+          "Agencias de locaciones",
+          "Managers de locaciones",
+          "Locations",
+          "Emplacements",
+          "Scouters",
+          "Agencias"
+        ]
       },
       "401-06": {
         "Femenino": {
           "fr": null,
-          "es": null,
+          "es": "Seguridad para talento",
           "en": null
         },
         "Masculino": {
           "fr": null,
-          "es": null,
+          "es": "Seguridad para talento",
           "en": null
         },
         "No Binario": {
           "fr": null,
-          "es": null,
+          "es": "Seguridad para talento",
           "en": null
         },
         "Persona Moral": {
           "fr": null,
-          "es": null,
+          "es": "Seguridad para talento",
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
-          "es": null,
-          "en": null
+          "fr": "Sécurité des talents",
+          "es": "Seguridad para talento",
+          "en": "Security for Talent"
         },
-        "Referentes": []
+        "Referentes": [
+          "Seguridad",
+          "Talent handler",
+          "Escoltas",
+          "Bodyguards",
+          "Seguridad para talento",
+          "Logística",
+          "Conciertos",
+          "Live Performance",
+          "Performance Support"
+        ]
       },
       "401-07": {
         "Femenino": {
           "fr": null,
-          "es": null,
+          "es": "Seguridad en locaciones",
           "en": null
         },
         "Masculino": {
           "fr": null,
-          "es": null,
+          "es": "Seguridad en locaciones",
           "en": null
         },
         "No Binario": {
           "fr": null,
-          "es": null,
+          "es": "Seguridad en locaciones",
           "en": null
         },
         "Persona Moral": {
           "fr": null,
-          "es": null,
+          "es": "Seguridad en locaciones",
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
-          "es": null,
-          "en": null
+          "fr": "Sécurité des lieux",
+          "es": "Seguridad en locaciones",
+          "en": "Location Security"
         },
-        "Referentes": []
+        "Referentes": [
+          "Seguridad",
+          "Personal de seguridad",
+          "Guardias",
+          "Seguridad en locación",
+          "Performance Support"
+        ]
       },
       "401-08": {
         "Femenino": {
           "fr": null,
-          "es": null,
+          "es": "Servicios de alimentación",
           "en": null
         },
         "Masculino": {
           "fr": null,
-          "es": null,
+          "es": "Servicios de alimentación",
           "en": null
         },
         "No Binario": {
           "fr": null,
-          "es": null,
+          "es": "Servicio de alimentación",
           "en": null
         },
         "Persona Moral": {
           "fr": null,
-          "es": null,
+          "es": "Servicio de alimentación",
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
-          "es": null,
-          "en": null
+          "fr": "Services de norriture",
+          "es": "Servicios de alimentación",
+          "en": "Catering"
         },
-        "Referentes": []
+        "Referentes": [
+          "Catering",
+          "Comida producción",
+          "Box lunch",
+          "Café",
+          "Meseros",
+          "Atención al cliente",
+          "Crafty",
+          "Alimentación",
+          "Catering",
+          "Cantine"
+        ]
       },
       "401-09": {
         "Femenino": {
           "fr": null,
-          "es": null,
+          "es": "Seguros de producción",
           "en": null
         },
         "Masculino": {
           "fr": null,
-          "es": null,
+          "es": "Seguros de producción",
           "en": null
         },
         "No Binario": {
           "fr": null,
-          "es": null,
+          "es": "Seguros de producción",
           "en": null
         },
         "Persona Moral": {
           "fr": null,
-          "es": null,
+          "es": "Seguros de producción",
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
-          "es": null,
-          "en": null
+          "fr": "Assurance de la production",
+          "es": "Seguros de producción",
+          "en": "Production Insurances"
         },
-        "Referentes": []
+        "Referentes": [
+          "Brokers",
+          "Seguros de producción",
+          "Insurances",
+          "Assurances",
+          "Aseguradoras",
+          "Rain Day"
+        ]
       },
       "401-10": {
         "Femenino": {
@@ -5146,12 +4682,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "",
           "es": "Servicios de producción",
           "en": "Production services"
         },
         "Referentes": [
-          "Producción audiovisual",
           "Comerciales",
           "TV Spots",
           "Filmadoras",
@@ -5169,13 +4704,12 @@
           "Filmmaking",
           "Videos",
           "Producción de videos",
-          "Production Crew",
           "Cortometrajes",
           "Coordinación de producción"
         ]
       }
     },
-    "Transportación de producción": {
+    "Transportación": {
       "402-01": {
         "Femenino": {
           "fr": null,
@@ -5198,21 +4732,18 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Transport de la production",
           "es": "Transportes de producción",
           "en": "Production Transportation"
         },
         "Referentes": [
-          "Producción audiovisual",
-          "Transportación de producción",
           "Transportes",
           "Camionetas de producción",
           "Choferes de producción",
           "Runners",
           "Choferes",
           "Coordinadores de transporte",
-          "Logística",
-          "Renta"
+          "Logística"
         ]
       },
       "402-02": {
@@ -5237,19 +4768,17 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Transport des clients",
           "es": "Transportes para clientes",
           "en": "Clients Transportation"
         },
         "Referentes": [
-          "Producción audiovisual",
           "Transportación VIP",
           "Transportes para clientes",
           "Camionetas",
           "Suburbans",
           "Choferes",
-          "Logística",
-          "Renta"
+          "Logística"
         ]
       },
       "402-03": {
@@ -5274,19 +4803,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Transport des décirs",
           "es": "Transportes de escenografía",
           "en": "Set Design Transportation"
         },
-        "Referentes": [
-          "Producción audiovisual",
-          "Transportación de producción",
-          "Carga",
-          "Vanettes",
-          "Transportes",
-          "Logística",
-          "Renta"
-        ]
+        "Referentes": ["Carga", "Vanettes", "Transportes", "Logística"]
       },
       "402-04": {
         "Femenino": {
@@ -5310,20 +4831,17 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Transport",
           "es": "Transportes",
           "en": "Transportation"
         },
         "Referentes": [
-          "Producción audiovisual",
-          "Transportación de producción",
           "Autobuses",
           "Microbuses",
           "Sprinters",
           "Transportes",
           "Choferes",
-          "Logística",
-          "Renta"
+          "Logística"
         ]
       },
       "402-05": {
@@ -5348,18 +4866,16 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Campers",
           "es": "Campers",
           "en": "Campers"
         },
         "Referentes": [
-          "Producción audiovisual",
           "Oficinas móviles",
           "Campers",
           "Remolques",
           "Camerinos",
-          "Logística",
-          "Renta"
+          "Logística"
         ]
       },
       "402-06": {
@@ -5384,18 +4900,16 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Vestiaires",
           "es": "Camerinos",
           "en": "Dressing Rooms"
         },
         "Referentes": [
-          "Producción audiovisual",
           "Oficinas móviles",
           "Campers",
           "Remolques",
           "Camerinos",
-          "Logística",
-          "Renta"
+          "Logística"
         ]
       },
       "402-07": {
@@ -5420,19 +4934,17 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Toilettes mobiles",
           "es": "Sanitarios móviles",
           "en": "Mobile Toilets"
         },
         "Referentes": [
-          "Producción audiovisual",
           "Sanitarios móviles",
           "Mobile Toilets",
           "Sales de bain mobiles",
           "Baños en locación",
           "Logística",
-          "10-200 ",
-          "Renta"
+          "10-200"
         ]
       }
     },
@@ -5459,19 +4971,17 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Forums",
           "es": "Foros",
           "en": "Film Stages"
         },
         "Referentes": [
-          "Producción audiovisual",
           "Foros",
           "Studios",
           "Estudios",
           "Plató",
           "Sets",
-          "Plateaux",
-          "Renta"
+          "Plateaux"
         ]
       },
       "403-02": {
@@ -5496,18 +5006,15 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Studios de télévision",
           "es": "Estudios de TV",
           "en": "TV Studios"
         },
         "Referentes": [
-          "Producción audiovisual",
           "Estudios de TV",
           "TV Studios",
           "Televisión",
-          "Broadcast",
-          "Renta de equipo",
-          "Renta"
+          "Broadcast"
         ]
       },
       "403-03": {
@@ -5532,12 +5039,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Conception de la production",
           "es": "Diseño de producción",
           "en": "Production Design"
         },
         "Referentes": [
-          "Producción audiovisual",
           "Arte",
           "Diseño de producción",
           "Escenografía",
@@ -5568,12 +5074,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Developpement de l'ensemble",
           "es": "Desarrollo escenográfico",
           "en": "Set Design"
         },
         "Referentes": [
-          "Producción audiovisual",
           "Arte",
           "Diseño de producción",
           "Escenografía",
@@ -5605,18 +5110,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Assistants vidéo",
           "es": "Video Assistants",
           "en": "Video Assistants"
         },
-        "Referentes": [
-          "Producción audiovisual",
-          "Video Assistant",
-          "Videoasist",
-          "Monitoreo",
-          "Renta de equipo",
-          "Renta"
-        ]
+        "Referentes": ["Video Assistant", "Videoasist", "Monitoreo"]
       },
       "403-06": {
         "Femenino": {
@@ -5640,17 +5138,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Téléprompteurs",
           "es": "Teleprompters",
           "en": "Teleprompters"
         },
-        "Referentes": [
-          "Producción audiovisual",
-          "Teleprompters",
-          "Apuntadores",
-          "Renta de equipo",
-          "Renta"
-        ]
+        "Referentes": ["Teleprompters", "Apuntadores"]
       },
       "403-07": {
         "Femenino": {
@@ -5674,12 +5166,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Animaux formées",
           "es": "Animales entrenados",
           "en": "Wranglers"
         },
         "Referentes": [
-          "Producción audiovisual",
           "Animales",
           "Animals",
           "Animaux",
@@ -5687,8 +5178,7 @@
           "Entrenadores de animales",
           "Wranglers",
           "Animaleros",
-          "Semovientes",
-          "Renta"
+          "Semovientes"
         ]
       },
       "403-08": {
@@ -5713,12 +5203,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Effets spéciaux",
           "es": "Efectos especiales",
           "en": "Special Effects"
         },
         "Referentes": [
-          "Producción audiovisual",
           "FX",
           "Estopines",
           "Sangre",
@@ -5742,20 +5231,20 @@
         },
         "No Binario": {
           "fr": null,
-          "es": "Fabricante de dummies",
+          "es": "Fabricación de dummies",
           "en": null
         },
         "Persona Moral": {
           "fr": null,
-          "es": "Fabricante de dummies",
+          "es": "Fabricación de dummies",
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
-          "es": "Fabricante de dummies",
+          "fr": "Fabricants de mannequins",
+          "es": "Fabricantes de dummies",
           "en": "Dummy Manufacturers"
         },
-        "Referentes": ["Producción audiovisual", "Dummies", "Maquetas"]
+        "Referentes": ["Dummies", "Maquetas"]
       },
       "403-10": {
         "Femenino": {
@@ -5779,12 +5268,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Costumes et perruques",
           "es": "Disfraces y pelucas",
           "en": "Costumes and Wigs"
         },
         "Referentes": [
-          "Producción audiovisual",
           "Disfraces",
           "Pelucas",
           "Costumes",
@@ -5814,22 +5302,20 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Location d'accesoires",
           "es": "Alquiler de utilería",
           "en": "Props Rental"
         },
         "Referentes": [
-          "Producción audiovisual",
           "Alquiler de utilería",
           "Arte",
           "Utilería",
           "Utileros",
           "Props",
           "Prop Master",
-          "Props Man ",
+          "Props Man",
           "Atrezzo",
-          "Atrecistas",
-          "Renta"
+          "Atrecistas"
         ]
       },
       "403-12": {
@@ -5854,19 +5340,17 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Location de meubles",
           "es": "Alquiler de muebles",
           "en": "Furniture Rental"
         },
         "Referentes": [
-          "Producción audiovisual",
           "Muebles en renta",
           "Furniture Rental",
           "Location de meublés",
           "Escenografía",
           "Ambientación",
-          "Atrezzo",
-          "Renta"
+          "Atrezzo"
         ]
       },
       "403-13": {
@@ -5891,11 +5375,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Modèles",
           "es": "Maquetas",
           "en": "Dioramas"
         },
-        "Referentes": ["Producción audiovisual", "Dummies", "Maquetas"]
+        "Referentes": ["Dummies", "Maquetas"]
       },
       "403-14": {
         "Femenino": {
@@ -5919,18 +5403,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Machines à fumèe",
           "es": "Máquinas de humo",
           "en": "Smoke Machines"
         },
-        "Referentes": [
-          "Producción audiovisual",
-          "Máquinas de humo ",
-          "FX",
-          "Efectos especiales",
-          "Renta de equipo",
-          "Renta"
-        ]
+        "Referentes": ["Máquinas de humo", "FX", "Efectos especiales"]
       },
       "403-15": {
         "Femenino": {
@@ -5954,19 +5431,17 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Conduites d'eau",
           "es": "Pipas de agua",
           "en": "Water Tankers"
         },
         "Referentes": [
-          "Producción audiovisual",
           "Pipas de agua",
           "Water Tankers",
           "Conduites D eau",
           "Lluvia",
           "FX",
-          "Efectos especiales",
-          "Renta"
+          "Efectos especiales"
         ]
       },
       "403-16": {
@@ -5991,7 +5466,7 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "",
           "es": "Estudios de maquillaje",
           "en": "Makeup Studios"
         },
@@ -6005,267 +5480,6 @@
           "Peinados",
           "Hairdo",
           "Estilistas"
-        ]
-      },
-      "403-17": {
-        "Femenino": {
-          "fr": null,
-          "es": null,
-          "en": null
-        },
-        "Masculino": {
-          "fr": null,
-          "es": null,
-          "en": null
-        },
-        "No Binario": {
-          "fr": null,
-          "es": null,
-          "en": null
-        },
-        "Persona Moral": {
-          "fr": null,
-          "es": "Agencia de locaciones",
-          "en": null
-        },
-        "Alias Genérico": {
-          "fr": null,
-          "es": "Agencias de locaciones",
-          "en": "Location Agencies"
-        },
-        "Referentes": [
-          "Scouting",
-          "Scouters",
-          "Locaciones",
-          "Agencias de locaciones",
-          "Managers de locaciones",
-          "Locations",
-          "Emplacements",
-          "Scouters",
-          "Agencias"
-        ]
-      },
-      "403-18": {
-        "Femenino": {
-          "fr": null,
-          "es": "Seguridad para talento",
-          "en": null
-        },
-        "Masculino": {
-          "fr": null,
-          "es": "Seguridad para talento",
-          "en": null
-        },
-        "No Binario": {
-          "fr": null,
-          "es": "Seguridad para talento",
-          "en": null
-        },
-        "Persona Moral": {
-          "fr": null,
-          "es": "Seguridad para talento",
-          "en": null
-        },
-        "Alias Genérico": {
-          "fr": null,
-          "es": "Seguridad para talento",
-          "en": "Security for Talent"
-        },
-        "Referentes": [
-          "Seguridad",
-          "Talent handler",
-          "Escoltas",
-          "Bodyguards",
-          "Seguridad para talento",
-          "Logística",
-          "Conciertos",
-          "Live Performance",
-          "Performance Support"
-        ]
-      },
-      "403-19": {
-        "Femenino": {
-          "fr": null,
-          "es": "Seguridad en locaciones",
-          "en": null
-        },
-        "Masculino": {
-          "fr": null,
-          "es": "Seguridad en locaciones",
-          "en": null
-        },
-        "No Binario": {
-          "fr": null,
-          "es": "Seguridad en locaciones",
-          "en": null
-        },
-        "Persona Moral": {
-          "fr": null,
-          "es": "Seguridad en locaciones",
-          "en": null
-        },
-        "Alias Genérico": {
-          "fr": null,
-          "es": "Seguridad en locaciones",
-          "en": "Location Security"
-        },
-        "Referentes": [
-          "Seguridad",
-          "Personal de seguridad",
-          "Guardias",
-          "Seguridad en locación",
-          " Performance Support"
-        ]
-      },
-      "403-20": {
-        "Femenino": {
-          "fr": null,
-          "es": "Servicios de alimentación",
-          "en": null
-        },
-        "Masculino": {
-          "fr": null,
-          "es": "Servicios de alimentación",
-          "en": null
-        },
-        "No Binario": {
-          "fr": null,
-          "es": "Servicios de alimentación",
-          "en": null
-        },
-        "Persona Moral": {
-          "fr": null,
-          "es": "Servicios de alimentación",
-          "en": null
-        },
-        "Alias Genérico": {
-          "fr": null,
-          "es": "Servicios de alimentación",
-          "en": "Catering"
-        },
-        "Referentes": [
-          "Catering",
-          "Comida producción",
-          "Box lunch",
-          "Café",
-          "Meseros",
-          "Atención al cliente",
-          "Crafty",
-          "Alimentación",
-          "Catering",
-          "Cantine"
-        ]
-      },
-      "403-22": {
-        "Femenino": {
-          "fr": null,
-          "es": null,
-          "en": null
-        },
-        "Masculino": {
-          "fr": null,
-          "es": null,
-          "en": null
-        },
-        "No Binario": {
-          "fr": null,
-          "es": null,
-          "en": null
-        },
-        "Persona Moral": {
-          "fr": null,
-          "es": "Almacenamiento de vestuario",
-          "en": null
-        },
-        "Alias Genérico": {
-          "fr": null,
-          "es": "Bodegas de vestuario",
-          "en": "Production Insurances"
-        },
-        "Referentes": [
-          "Bodegas",
-          "Almacenamiento",
-          "Vestuario",
-          "Warehouse",
-          "Stock",
-          "Época",
-          "Baúl Cinematográfico",
-          "Teatro",
-          "Wardrobe"
-        ]
-      },
-      "403-23": {
-        "Femenino": {
-          "fr": null,
-          "es": null,
-          "en": null
-        },
-        "Masculino": {
-          "fr": null,
-          "es": null,
-          "en": null
-        },
-        "No Binario": {
-          "fr": null,
-          "es": null,
-          "en": null
-        },
-        "Persona Moral": {
-          "fr": null,
-          "es": "Almacenamiento de arte",
-          "en": null
-        },
-        "Alias Genérico": {
-          "fr": null,
-          "es": "Bodegas de arte",
-          "en": "Production Insurances"
-        },
-        "Referentes": [
-          "Bodegas",
-          "Almacenamiento",
-          "Arte",
-          "Warehouse",
-          "Stock",
-          "Ambientación",
-          "Baúl Cinematográfico",
-          "Teatro",
-          "Escenografía",
-          "Galería"
-        ]
-      },
-      "403-21": {
-        "Femenino": {
-          "fr": null,
-          "es": "Seguros de producción",
-          "en": null
-        },
-        "Masculino": {
-          "fr": null,
-          "es": "Seguros de producción",
-          "en": null
-        },
-        "No Binario": {
-          "fr": null,
-          "es": "Seguros de producción",
-          "en": null
-        },
-        "Persona Moral": {
-          "fr": null,
-          "es": "Seguros de producción",
-          "en": null
-        },
-        "Alias Genérico": {
-          "fr": null,
-          "es": "Seguros de producción",
-          "en": "Production Insurances"
-        },
-        "Referentes": [
-          "Brokers",
-          "Seguros de producción",
-          "Insurances",
-          "Assurances",
-          "Aseguradoras",
-          "Rain Day"
         ]
       }
     },
@@ -6292,12 +5506,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Vente d'articles spécialisés",
           "es": "Venta de artículos especializados",
           "en": "Specialized items for sale"
         },
         "Referentes": [
-          "Producción audiovisual",
           "Jardinería",
           "Gardening",
           "Jardinage",
@@ -6310,31 +5523,30 @@
       "404-02": {
         "Femenino": {
           "fr": null,
-          "es": "Material óptico, magnéticos",
+          "es": "Material óptico / magnéticos",
           "en": null
         },
         "Masculino": {
           "fr": null,
-          "es": "Material óptico, magnéticos",
+          "es": "Material óptico / magnéticos",
           "en": null
         },
         "No Binario": {
           "fr": null,
-          "es": "Material óptico, magnéticos",
+          "es": "Material óptico / magnético",
           "en": null
         },
         "Persona Moral": {
           "fr": null,
-          "es": "Material óptico, magnéticos",
+          "es": "Material óptico / magnético",
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
-          "es": "Materiales ópticos, magnéticos",
-          "en": "Optical, Magnetic Stock"
+          "fr": "Matériaux optiques/ magnétiques",
+          "es": "Materiales ópticos / magnéticos",
+          "en": "Optical / Magnetic Stock"
         },
         "Referentes": [
-          "Producción audiovisual",
           "Discos",
           "Hard disk",
           "Materiales ópticos",
@@ -6345,17 +5557,17 @@
       "404-03": {
         "Femenino": {
           "fr": null,
-          "es": null,
+          "es": "Material cinematográfico",
           "en": null
         },
         "Masculino": {
           "fr": null,
-          "es": null,
+          "es": "Material cinematográfico",
           "en": null
         },
         "No Binario": {
           "fr": null,
-          "es": null,
+          "es": "Material cinematográfico",
           "en": null
         },
         "Persona Moral": {
@@ -6364,12 +5576,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Matériaux de film",
           "es": "Materiales cinematográficos",
           "en": "Film Stock"
         },
         "Referentes": [
-          "Producción audiovisual",
           "Película",
           "Film",
           "Negativo",
@@ -6403,12 +5614,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Expendables",
           "es": "Expendables",
           "en": "Expendables"
         },
         "Referentes": [
-          "Producción audiovisual",
           "Consumibles",
           "Gaffer tape",
           "Filtros",
@@ -6430,6 +5640,7 @@
           "Gel",
           "Gelatinas",
           "Filtros",
+          "Aire comprimido",
           "Dust off",
           "Lens tissue",
           "Dulling spray",
@@ -6465,12 +5676,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Lampes et matériel d'éclairage",
           "es": "Lámparas y materiales de iluminación",
           "en": "Lamps and lighting materials"
         },
         "Referentes": [
-          "Producción audiovisual",
           "Repuestos para lámparas",
           "Luminarias",
           "Lámparas",
@@ -6502,16 +5712,15 @@
         },
         "Persona Moral": {
           "fr": null,
-          "es": "Tramoyaa",
+          "es": "Tramoya",
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Fabricants de décors de théâtre",
           "es": "Tramoya",
           "en": "Grip Manufacturers"
         },
         "Referentes": [
-          "Producción audiovisual",
           "Tramoya",
           "Distribuidores de tramoya",
           "Fabricantes de tramoya",
@@ -6534,16 +5743,13 @@
           "Slate",
           "Clapper",
           "Pizarras",
-          "Venta",
-          "Renta",
-          "Renta de equipo",
-          "Renta"
+          "Venta"
         ]
       }
     }
   },
-  "Alquiler de equipos": {
-    "Equipos cinematográficos": {
+  "Renta de equipo": {
+    "Equipo cinematográfico": {
       "501-01": {
         "Femenino": {
           "fr": null,
@@ -6566,32 +5772,28 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Matériel cinématographique",
           "es": "Equipos cinematográficos",
           "en": "Film Equipment"
         },
         "Referentes": [
-          "Alquiler de equipos",
-          "Equipos cinematográficos",
           "Cinematografía digital",
           "Cinematography Equipment",
           "Equipment cinematographique",
           "Cámaras cinematográficas",
-          "Cámara de alto perfil",
+          "Cámaras de alto perfil",
           "Cámaras",
           "Iluminación",
           "Lighting",
           "Iluminación cinematográfica",
-          "Klieg lights ",
+          "Klieg lights",
           "Chimera",
           "Soft Boxes",
           "Lentes",
           "Óptica cinematográfica",
           "Lenses",
           "Ultraprime",
-          "Cook",
-          "Renta",
-          "Renta de equipo"
+          "Cook"
         ]
       },
       "501-02": {
@@ -6616,14 +5818,13 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Équipement vidéo professionnel",
           "es": "Equipos de video profesional",
           "en": "Professional Video Equipment"
         },
         "Referentes": [
-          "Alquiler de equipos",
           "Cámaras profesionales",
-          "Cámara de televisión",
+          "Cámaras de televisión",
           "Cámaras de alto perfil",
           "Cámaras",
           "Lentes",
@@ -6633,9 +5834,7 @@
           "Iluminación",
           "Iluminación para TV",
           "TV Lighting",
-          "Renta",
-          "Broadcast",
-          "Renta de equipo"
+          "Broadcast"
         ]
       },
       "501-03": {
@@ -6660,21 +5859,17 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Caméras Hi Profile",
           "es": "Cámaras Hi Profile",
           "en": "Hi Profile Cameras"
         },
         "Referentes": [
-          "Alquiler de equipos",
-          "Equipo cinematográfico",
           "Cinematografía digital",
           "Cinematography Equipment",
           "Equipment cinematographique",
           "Cámaras cinematográficas",
           "Cámaras de alto perfil",
-          "Cámaras",
-          "Renta",
-          "Renta de equipo"
+          "Cámaras"
         ]
       },
       "501-04": {
@@ -6699,24 +5894,21 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Autres cameras",
           "es": "Otras cámaras",
           "en": "Special Cameras"
         },
         "Referentes": [
-          "Alquiler de equipos",
           "POV Cameras",
           "Microcámaras",
           "Lipstick",
           "Cámaras especiales",
           "Fotografía científica",
-          "Cámaras",
-          "Renta",
-          "Renta de equipo"
+          "Cámaras"
         ]
       }
     },
-    "Equipos televisivos": {
+    "Equipo televisivo": {
       "502-01": {
         "Femenino": {
           "fr": null,
@@ -6739,12 +5931,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Équipement de production vidéo",
           "es": "Equipos de producción de video",
           "en": "Video Production Equipment"
         },
         "Referentes": [
-          "Alquiler de equipos",
           "Producción de TV",
           "Televisión",
           "Video",
@@ -6754,10 +5945,8 @@
           "Tricaster",
           "Streaming",
           "TX",
-          "Renta",
           "Broadcast",
-          "Webcast",
-          "Renta de equipo"
+          "Webcast"
         ]
       },
       "502-02": {
@@ -6782,12 +5971,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Suites de production de vidéo",
           "es": "Suites de producción de video",
           "en": "Workstations"
         },
         "Referentes": [
-          "Alquiler de equipos",
           "Producción de TV",
           "Televisión",
           "Video",
@@ -6797,10 +5985,8 @@
           "Tricaster",
           "Streaming",
           "TX",
-          "Renta",
           "Broadcast",
-          "Webcast",
-          "Renta de equipo"
+          "Webcast"
         ]
       },
       "502-03": {
@@ -6825,12 +6011,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Unités mobiles",
           "es": "Unidades móviles",
           "en": "OB Units"
         },
         "Referentes": [
-          "Alquiler de equipos",
           "Unidades móviles",
           "OB (Outside Broadcasting Vehicles)",
           "Producción de TV",
@@ -6842,10 +6027,8 @@
           "Tricaster",
           "Streaming",
           "TX",
-          "Renta",
           "Broadcast",
-          "Webcast",
-          "Renta de equipo"
+          "Webcast"
         ]
       },
       "502-04": {
@@ -6870,12 +6053,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
-          "es": "Sistemas de transmisión de señal",
+          "fr": "Systèmes de transmission de signaux",
+          "es": "Sistemas de transmisión satelital",
           "en": "Satellite Trucks"
         },
         "Referentes": [
-          "Alquiler de equipos",
           "Transmisión de señal",
           "Distribución de señal",
           "Flyaway",
@@ -6890,10 +6072,8 @@
           "Microondas",
           "Streaming",
           "Diffusion",
-          "Renta",
           "Broadcast",
-          "Starlink",
-          "Renta de equipo"
+          "Starlink"
         ]
       },
       "502-05": {
@@ -6918,12 +6098,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
-          "es": "Sistemas de distribución de señal",
+          "fr": "Systèmes de distribution de signaux",
+          "es": "Sistemas de transmisión digital",
           "en": "Webcasting"
         },
         "Referentes": [
-          "Alquiler de equipos",
           "Transmisión de señal",
           "Distribución de señal",
           "TX",
@@ -6933,10 +6112,8 @@
           "Transmisión",
           "Streaming",
           "Diffusion",
-          "Renta",
           "Broadcast",
-          "Webcast",
-          "Renta de equipo"
+          "Webcast"
         ]
       }
     },
@@ -6963,12 +6140,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Optiques et accessoires pour caméras",
           "es": "Óptica y accesorios de cámara",
           "en": "Lenses and Accesories"
         },
         "Referentes": [
-          "Alquiler de equipos",
           "Óptica",
           "Accesorios de cámara",
           "Angenieux",
@@ -6979,9 +6155,7 @@
           "Fuji",
           "Fujinon",
           "DJ",
-          "Zoom",
-          "Renta",
-          "Renta de equipo"
+          "Zoom"
         ]
       },
       "503-02": {
@@ -7006,12 +6180,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Équipement pour caméra",
           "es": "Equipos para cámara",
           "en": "Camera Rigs"
         },
         "Referentes": [
-          "Alquiler de equipos",
           "Accesorios de cámara",
           "Equipos de cámara",
           "Rigs",
@@ -7024,9 +6197,7 @@
           "Rigs",
           "Dollies",
           "Monturas aéreas",
-          "Snorkel",
-          "Renta",
-          "Renta de equipo"
+          "Snorkel"
         ]
       },
       "503-03": {
@@ -7051,18 +6222,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Contrôle du mouvement",
           "es": "Motion Control",
           "en": "Motion Control"
         },
-        "Referentes": [
-          "Alquiler de equipos",
-          "Snorkel",
-          "Power Pod",
-          "Motion Control",
-          "Renta",
-          "Renta de equipo"
-        ]
+        "Referentes": ["Snorkel", "Power Pod", "Motion Control"]
       },
       "503-04": {
         "Femenino": {
@@ -7086,18 +6250,15 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Photographie aérienne",
           "es": "Fotografía aérea",
           "en": "Aerial Photography"
         },
         "Referentes": [
-          "Alquiler de equipos",
           "Helicópteros",
           "Drones",
           "Fotografía aérea",
-          "Aerial shots",
-          "Renta",
-          "Renta de equipo"
+          "Aerial shots"
         ]
       },
       "503-05": {
@@ -7122,18 +6283,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Potographie sous-marine",
           "es": "Fotografía submarina",
           "en": "Underwater Photography"
         },
-        "Referentes": [
-          "Alquiler de equipos",
-          "Fotografía submarina",
-          "Buzos",
-          "Cámaras submarinas",
-          "Renta",
-          "Renta de equipo"
-        ]
+        "Referentes": ["Fotografía submarina", "Buzos", "Cámaras submarinas"]
       },
       "503-06": {
         "Femenino": {
@@ -7157,12 +6311,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Matériel d'éclairage",
           "es": "Equipos de iluminación",
           "en": "Lighting Equipment"
         },
         "Referentes": [
-          "Alquiler de equipos",
           "Móvil de iluminación",
           "Minimóvil",
           "Equipos de iluminación",
@@ -7181,9 +6334,7 @@
           "K 5600",
           "Joker",
           "Klieg lights",
-          "Iluminación",
-          "Renta",
-          "Renta de equipo"
+          "Iluminación"
         ]
       },
       "503-07": {
@@ -7208,12 +6359,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Éclairage spécial",
           "es": "Iluminación especial",
           "en": "Special Lighting"
         },
         "Referentes": [
-          "Alquiler de equipos",
           "Lighting",
           "Iluminación especial",
           "Stage Lighting",
@@ -7224,9 +6374,7 @@
           "LED Strips",
           "DJ Lighting",
           "Xenon",
-          "Venta",
-          "Renta",
-          "Renta de equipo"
+          "Venta"
         ]
       },
       "503-08": {
@@ -7251,21 +6399,18 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Générateurs d'électricité",
           "es": "Generadores de electricidad",
           "en": "Power Generators"
         },
         "Referentes": [
-          "Alquiler de equipos",
           "Plantas de luz",
           "Plantas eléctricas",
           "Generadores eléctricos",
           "Electrical generator",
           "Des générateurs électriques",
           "Iluminación",
-          "Lighting",
-          "Renta",
-          "Renta de equipo"
+          "Lighting"
         ]
       },
       "503-09": {
@@ -7290,18 +6435,15 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Autres équipements",
           "es": "Otros equipos",
           "en": "Other Equipment"
         },
         "Referentes": [
-          "Alquiler de equipos",
           "Equipos especiales",
           "Snorkel",
           "Power Pod",
-          "Motion Control",
-          "Renta",
-          "Renta de equipo"
+          "Motion Control"
         ]
       },
       "503-10": {
@@ -7326,12 +6468,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Matériels de son",
           "es": "Equipos de sonido",
           "en": "Sound Recording Equipment"
         },
         "Referentes": [
-          "Alquiler de equipos",
           "Equipos de sonido",
           "Mezcladoras",
           "Micrófonos",
@@ -7348,25 +6489,23 @@
           "Amplificadores",
           "Sonorización",
           "Mezcladoras",
-          "Audio mixing",
-          "Renta",
-          "Renta de equipo"
+          "Audio mixing"
         ]
       },
       "503-11": {
         "Femenino": {
           "fr": null,
-          "es": null,
+          "es": "Equipos de sonorización",
           "en": null
         },
         "Masculino": {
           "fr": null,
-          "es": null,
+          "es": "Equipos de sonorización",
           "en": null
         },
         "No Binario": {
           "fr": null,
-          "es": null,
+          "es": "Equipos de sonorización",
           "en": null
         },
         "Persona Moral": {
@@ -7375,12 +6514,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Matériel de sonirisation",
           "es": "Equipos de sonorización",
           "en": "Sound Amplifying Equipment"
         },
         "Referentes": [
-          "Alquiler de equipos",
           "Equipos de sonido",
           "Consolas",
           "Amplificadores",
@@ -7393,25 +6531,23 @@
           "Conciertos",
           "Sonorizadores",
           "Secres",
-          "Backstage",
-          "Renta",
-          "Renta de equipo"
+          "Backstage"
         ]
       },
       "503-12": {
         "Femenino": {
           "fr": null,
-          "es": null,
+          "es": "Equipos de comunicación",
           "en": null
         },
         "Masculino": {
           "fr": null,
-          "es": null,
+          "es": "Equipos de comunicación",
           "en": null
         },
         "No Binario": {
           "fr": null,
-          "es": null,
+          "es": "Equipos de comunicación",
           "en": null
         },
         "Persona Moral": {
@@ -7420,39 +6556,36 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Équipement de communication",
           "es": "Equipos de comunicación",
           "en": "Communication Equipment"
         },
         "Referentes": [
-          "Alquiler de equipos",
           "Equipos de comunicación",
           "Walkie-talkies",
           "Radios",
           "Intercom",
-          "Renta",
           "Logística",
           "Internet",
           "Starlink",
           "Proveedores de internet",
-          "ISP (Internet Service Providers)",
-          "Renta de equipo"
+          "ISP (Internet Service Providers)"
         ]
       },
       "503-13": {
         "Femenino": {
           "fr": null,
-          "es": null,
+          "es": "Alquiler de pantallas",
           "en": null
         },
         "Masculino": {
           "fr": null,
-          "es": null,
+          "es": "Alquiler de pantallas",
           "en": null
         },
         "No Binario": {
           "fr": null,
-          "es": null,
+          "es": "Alquiler de pantallas",
           "en": null
         },
         "Persona Moral": {
@@ -7461,21 +6594,18 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Écrans et modules LED",
           "es": "Pantallas y módulos LED",
-          "en": "LED"
+          "en": "Screen Rentals"
         },
         "Referentes": [
-          "Alquiler de equipos",
           "Pantallas de LED",
           "LED",
           "Módulos LED",
           "Eventos",
           "Pantallas",
           "Live Performance",
-          "Conciertos",
-          "Renta",
-          "Renta de equipo"
+          "Conciertos"
         ]
       },
       "503-14": {
@@ -7500,12 +6630,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Matériel de projection",
           "es": "Equipos de proyección",
           "en": "Screening Equipment"
         },
         "Referentes": [
-          "Alquiler de equipos",
           "Equipos de proyección",
           "Pantallas",
           "Proyectores",
@@ -7516,9 +6645,7 @@
           "Screening",
           "Eventos",
           "Conciertos",
-          "Live Performance",
-          "Renta",
-          "Renta de equipo"
+          "Live Performance"
         ]
       },
       "503-15": {
@@ -7543,29 +6670,21 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "",
           "es": "Video 360",
           "en": "360 degrees video"
         },
         "Referentes": [
-          "Alquiler de equipos",
-          "Equipos de proyección",
-          "Pantallas",
-          "Proyectores",
-          "Jumbotrón",
-          "Barco",
-          "Salas cinematográficas",
-          "Proyección",
-          "Screening",
-          "Eventos",
-          "Conciertos",
-          "Live Performance",
-          "Renta",
-          "Renta de equipo"
+          "360-degree video",
+          "Cámaras 360",
+          "Cámaras omnidireccionales",
+          "Video inmersivo",
+          "Video esférico",
+          "Surround video"
         ]
       }
     },
-    "Venta y reparación de equipos": {
+    "Venta de equipos profesionales": {
       "504-01": {
         "Femenino": {
           "fr": null,
@@ -7588,12 +6707,12 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Vente d'équipements professionnels",
           "es": "Venta de equipos profesionales",
           "en": "Professional equipment for sale"
         },
         "Referentes": [
-          "Equipos profesionales ",
+          "Equipos profesionales",
           "Equipos de video",
           "Equipos de sonido",
           "Equipos de cámara",
@@ -7626,12 +6745,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Location de matériel",
           "es": "Alquiler de equipos",
           "en": "Video Equipment Rental"
         },
         "Referentes": [
-          "Alquiler de equipos",
           "Equipos profesionales",
           "Equipos de video",
           "Equipos de sonido",
@@ -7643,9 +6761,7 @@
           "Zeppelin",
           "Lavalier",
           "Boom pole",
-          "Shotgun",
-          "Renta",
-          "Renta de equipo"
+          "Shotgun"
         ]
       },
       "504-03": {
@@ -7670,7 +6786,7 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Entretien et réparation des équipements",
           "es": "Servicio y reparación de equipos",
           "en": "Equipment maintenance and repair"
         },
@@ -7684,7 +6800,7 @@
     }
   },
   "Servicios de soporte a la producción": {
-    "Servicios generales": {
+    "Servicios generales de soporte": {
       "601-01": {
         "Femenino": {
           "fr": null,
@@ -7698,24 +6814,23 @@
         },
         "No Binario": {
           "fr": null,
-          "es": "Agente de viajes",
+          "es": "Agencia de viajes",
           "en": null
         },
         "Persona Moral": {
           "fr": null,
-          "es": "Agente de viajes",
+          "es": "Agencia de viajes",
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Agence de voyage",
           "es": "Agencias de viaje",
           "en": "Travel Agencies"
         },
         "Referentes": [
-          "Servicios generales",
           "Agencias de viaje",
           "Travel agencies",
-          "Agences de voyages "
+          "Agences de voyages"
         ]
       },
       "601-02": {
@@ -7740,12 +6855,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Compagnies aériennes",
           "es": "Aerolíneas",
           "en": "Airlines"
         },
         "Referentes": [
-          "Servicios generales",
           "Aerolíneas",
           "Airlines",
           "Compagnies aériennes",
@@ -7775,17 +6889,15 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Location de voitures",
           "es": "Autos en renta",
           "en": "Car Rentals"
         },
         "Referentes": [
-          "Servicios generales",
           "Autos en renta",
           "Car Rental",
           "Location de voitures",
-          "Transportación",
-          "Renta"
+          "Transportación"
         ]
       },
       "601-04": {
@@ -7810,17 +6922,15 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Location d'hélicoptères",
           "es": "Renta de helicópteros",
           "en": "Helicopter Rentals"
         },
         "Referentes": [
-          "Servicios generales",
           "Helicópteros",
           "Helicopters",
           "Hélicotères",
-          "Transportación VIP",
-          "Renta"
+          "Transportación VIP"
         ]
       },
       "601-05": {
@@ -7845,16 +6955,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Avions privés",
           "es": "Aviones privados",
           "en": "Private Airplanes"
         },
-        "Referentes": [
-          "Servicios generales",
-          "Aviones privados",
-          "Transportación VIP",
-          "Renta"
-        ]
+        "Referentes": ["Aviones privados", "Transportación VIP"]
       },
       "601-06": {
         "Femenino": {
@@ -7878,19 +6983,18 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Spectaculaire",
           "es": "Espectaculares",
           "en": "Billboards"
         },
         "Referentes": [
-          "Servicios generales",
           "Carteleras",
+          "Billboards",
           "BTL",
           "Outdoor Publicity",
           "Espectaculares",
           "Billboards",
-          "Panneaux d’affichage ",
-          "Renta"
+          "Panneaux d’affichage"
         ]
       },
       "601-07": {
@@ -7915,12 +7019,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Événements",
           "es": "Eventos",
           "en": "Events"
         },
         "Referentes": [
-          "Servicios generales",
           "Eventos",
           "Events",
           "Événements",
@@ -7951,16 +7054,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Location de bureaux",
           "es": "Renta de oficinas",
           "en": "Office Rentals"
         },
-        "Referentes": [
-          "Servicios generales",
-          "Renta de oficinas",
-          "Oficinas de producción",
-          "Renta"
-        ]
+        "Referentes": ["Renta de oficinas", "Oficinas de producción"]
       },
       "601-09": {
         "Femenino": {
@@ -7984,16 +7082,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Hôpitaux",
           "es": "Hospitales",
           "en": "Hospitals"
         },
-        "Referentes": [
-          "Servicios generales",
-          "Hospitales",
-          "Hospitals",
-          "Hopitaux"
-        ]
+        "Referentes": ["Hospitales", "Hospitals", "Hopitaux"]
       },
       "601-10": {
         "Femenino": {
@@ -8017,17 +7110,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Hôtels",
           "es": "Hoteles",
           "en": "Hotels"
         },
-        "Referentes": [
-          "Servicios generales",
-          "Hoteles",
-          "Hotels",
-          "Hoatels",
-          "Logística"
-        ]
+        "Referentes": ["Hoteles", "Hotels", "Hoatels", "Logística"]
       },
       "601-11": {
         "Femenino": {
@@ -8051,12 +7138,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Imprimantes",
           "es": "Imprentas",
           "en": "Printing"
         },
         "Referentes": [
-          "Servicios generales",
           "Imprentas",
           "Printing",
           "Impression",
@@ -8069,17 +7155,17 @@
       "601-12": {
         "Femenino": {
           "fr": null,
-          "es": null,
+          "es": "Instrumentos musicales",
           "en": null
         },
         "Masculino": {
           "fr": null,
-          "es": null,
+          "es": "Instrumentos musicales",
           "en": null
         },
         "No Binario": {
           "fr": null,
-          "es": null,
+          "es": "Instrumentos musicales",
           "en": null
         },
         "Persona Moral": {
@@ -8088,12 +7174,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Instruments de musique",
           "es": "Instrumentos musicales",
           "en": "Musical Instruments"
         },
         "Referentes": [
-          "Servicios generales",
           "Instrumentos musicales",
           "Musical instruments",
           "Instruments de musique",
@@ -8122,12 +7207,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Travail du bois",
           "es": "Madererías",
           "en": "Lumber stores"
         },
         "Referentes": [
-          "Servicios generales",
           "Madererías",
           "Timber Merchants",
           "Négociants en bois",
@@ -8158,16 +7242,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Menuiseries",
           "es": "Carpinterías",
           "en": "Carpentry"
         },
-        "Referentes": [
-          "Servicios generales",
-          "Carpinteros",
-          "Constructores",
-          "Construcción"
-        ]
+        "Referentes": ["Carpinteros", "Constructores", "Construcción"]
       },
       "601-15": {
         "Femenino": {
@@ -8191,16 +7270,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Papeterie",
           "es": "Papelerías",
           "en": "Stationers"
         },
-        "Referentes": [
-          "Servicios generales",
-          "Papelerías",
-          "Stationery",
-          "Papeterie"
-        ]
+        "Referentes": ["Papelerías", "Stationery", "Papeterie"]
       },
       "601-16": {
         "Femenino": {
@@ -8224,17 +7298,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Pépinières",
           "es": "Viveros",
           "en": "Plant Nurseries"
         },
-        "Referentes": [
-          "Servicios generales",
-          "Plantas",
-          "Jardinería",
-          "Escenografía",
-          "Ambientación"
-        ]
+        "Referentes": ["Plantas", "Jardinería", "Escenografía", "Ambientación"]
       },
       "601-17": {
         "Femenino": {
@@ -8258,12 +7326,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Transport de marchandises",
           "es": "Transportación de carga",
           "en": "Cargo Transportation"
         },
         "Referentes": [
-          "Servicios generales",
           "Transportación",
           "Cargo",
           "Transportación de carga",
@@ -8293,17 +7360,15 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Transport de passagers",
           "es": "Transportación de pasajeros",
           "en": "Passenger Transportation"
         },
         "Referentes": [
-          "Servicios generales",
           "Transportación",
           "Transportación de pasajeros",
           "Passenger transportation",
-          "Transport de passengers",
-          "Renta"
+          "Transport de passengers"
         ]
       },
       "601-19": {
@@ -8328,12 +7393,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Terminaux de bus et compagnies",
           "es": "Terminales y compañías de autobuses",
           "en": "Bus Stations"
         },
         "Referentes": [
-          "Servicios generales",
           "Transportación",
           "Terminales y compañías de autobuses",
           "Bus terminals and bus transportation",
@@ -8362,22 +7426,58 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Jardinage",
           "es": "Jardinería",
           "en": "Gardening"
         },
         "Referentes": [
-          "Servicios generales",
-          "Transportación",
-          " Terminales y compañías de autobuses",
-          "Bus terminals and bus transportation",
-          " Gare de bus"
+          "Jardinería",
+          "Gardening",
+          "Jardinage",
+          "Plantas",
+          "Ambientación",
+          "Escenografía",
+          "Atmósfera"
+        ]
+      },
+      "601-21": {
+        "Femenino": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "Masculino": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "No Binario": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "Persona Moral": {
+          "fr": null,
+          "es": "Aseguradora",
+          "en": null
+        },
+        "Alias Genérico": {
+          "fr": "",
+          "es": "Compañías de seguros",
+          "en": "Insurance companies"
+        },
+        "Referentes": [
+          "Seguros",
+          "Insurances",
+          "Assurances",
+          "Aseguradoras",
+          "Compañías de seguros"
         ]
       }
     }
   },
-  "Empresas de post": {
-    "Postproducción de video": {
+  "Compañías de postproducción": {
+    "Compañías de postproducción": {
       "701-01": {
         "Femenino": {
           "fr": null,
@@ -8400,16 +7500,13 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Studios de post-production",
           "es": "Estudios de postproducción",
           "en": "Post-Production Studios"
         },
         "Referentes": [
-          "Postproducción de video",
           "Casas de postproducción",
           "Estudios de postproducción",
-          "Compañías de postproducción",
-          "Postproducción",
           "Postproduction",
           "Animación",
           "Efectos visuales",
@@ -8444,12 +7541,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Correction des couleurs",
           "es": "Corrección de color",
           "en": "Color Grading"
         },
         "Referentes": [
-          "Postproducción",
           "Postproduction",
           "Corrección de color",
           "Coloristas",
@@ -8480,18 +7576,17 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Post-production de films",
           "es": "Postproducción cinematográfica",
           "en": "Film Post-Production"
         },
         "Referentes": [
-          "Postproducción",
           "Postproduction",
           "Postproducción cinematográfica",
           "DCP (Digital Cinema Package)",
           "Laboratorios cinematográficos",
           "Procesos cinematográficos",
-          "Corrección de color ",
+          "Corrección de color",
           "Etalonaje",
           "LUT",
           "Rushes",
@@ -8523,12 +7618,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Reproductions",
           "es": "Reproducciones",
           "en": "Duplication"
         },
         "Referentes": [
-          "Postproducción",
           "Multicopiado",
           "Bulk",
           "Reproducciones",
@@ -8558,16 +7652,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Sous-titrage",
           "es": "Subtítulaje",
           "en": "Captions"
         },
-        "Referentes": [
-          "Postproducción",
-          "Subtítulos",
-          "Subtitles",
-          "Sous-titre"
-        ]
+        "Referentes": ["Subtítulos", "Subtitles", "Sous-titre"]
       }
     },
     "Postproducción de negativo": {
@@ -8593,12 +7682,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Laboratoires de cinéma",
           "es": "Laboratorios cinematográficos",
           "en": "Film Labs"
         },
         "Referentes": [
-          "Postproducción",
           "Revelado",
           "Película",
           "Laboratorios cinematográficos",
@@ -8632,12 +7720,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Laboratoires photographiques",
           "es": "Laboratorios fotográficos",
           "en": "Photo Labs"
         },
         "Referentes": [
-          "Postproducción",
           "Revelado foto fija",
           "Impresión de fotografías",
           "C45",
@@ -8670,12 +7757,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Transfert de matériel",
           "es": "Transferencia de material",
           "en": "Transcoding"
         },
         "Referentes": [
-          "Postproducción",
           "Conversiones",
           "Rank",
           "Digitalización",
@@ -8711,18 +7797,16 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Studios d'animation",
           "es": "Estudios de animación",
           "en": "Animation Studios"
         },
         "Referentes": [
-          "Postproducción",
           "3D",
           "2D",
           "2.5D",
           "Modelado",
           "Modelos 3D",
-          "Animación",
           "Animation",
           "Animations",
           "Animadores",
@@ -8756,17 +7840,15 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Animation traditionnelle",
           "es": "Animación tradicional",
           "en": "Traditional Animation"
         },
         "Referentes": [
-          "Postproducción",
           "Clay animation",
           "Stop Motion",
           "Pixilación",
           "Dibujos animados",
-          "Animación",
           "Animation",
           "Dibujantes",
           "Casas de animación",
@@ -8796,15 +7878,13 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "",
           "es": "Arte digital",
           "en": "Digital Art"
         },
         "Referentes": [
-          "Postproducción",
           "Arte",
           "Ilustración",
-          "Animación",
           "Efectos especiales",
           "Efectos visuales",
           "Visual Effects",
@@ -8835,12 +7915,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Banques d'images",
           "es": "Bancos de imágenes",
           "en": "Image Libraries"
         },
         "Referentes": [
-          "Postproducción",
           "Bancos de imágenes",
           "Imágenes de stock",
           "Stock de video",
@@ -8876,12 +7955,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Studios de son",
           "es": "Estudios de sonido",
           "en": "Sound Studios"
         },
         "Referentes": [
-          "Postproducción",
           "Grabación de audio",
           "Producción de audio",
           "Audio",
@@ -8920,12 +7998,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Studios de doublage",
           "es": "Estudios de doblaje",
           "en": "Dubbing Studios"
         },
         "Referentes": [
-          "Postproducción",
           "Grabación de audio",
           "Audio",
           "Estudios de grabación",
@@ -8966,12 +8043,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Studios de répétition",
           "es": "Estudios para ensayo",
           "en": "Rehearsal Studios"
         },
         "Referentes": [
-          "Postproducción",
           "Grabación de audio",
           "Audio",
           "Ensayos",
@@ -9002,12 +8078,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Studios de production musicale",
           "es": "Estudios de producción musical",
           "en": "Music Production Studios"
         },
         "Referentes": [
-          "Postproducción",
           "Grabación de audio",
           "Producción de discos",
           "Reproducción de CDs",
@@ -9040,12 +8115,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Cabines voix-off",
           "es": "Cabinas de locución",
           "en": "Voice-Over Booths"
         },
         "Referentes": [
-          "Postproducción",
           "Grabación de audio",
           "Audio",
           "Estudios de grabación",
@@ -9075,12 +8149,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Chambres THX",
           "es": "Salas de audio",
           "en": "THX Studios"
         },
         "Referentes": [
-          "Postproducción",
           "Grabación de audio",
           "Producción de audio",
           "Audio",
@@ -9115,12 +8188,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Conception sonore",
           "es": "Diseño sonoro",
           "en": "Sound Design"
         },
         "Referentes": [
-          "Postproducción",
           "Producción de audio",
           "Diseño sonoro",
           "Sound Design",
@@ -9157,12 +8229,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Restauration du son",
           "es": "Restauración de sonido",
           "en": "Sound Restoration"
         },
         "Referentes": [
-          "Postproducción",
           "Producción de audio",
           "Diseño sonoro",
           "Sound Design",
@@ -9196,12 +8267,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Musique originale",
           "es": "Música original",
           "en": "Original Music Soundtracks"
         },
         "Referentes": [
-          "Postproducción",
           "Jingles",
           "Música original",
           "Composición musical",
@@ -9235,12 +8305,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Bibliothèques de musique",
           "es": "Librerías musicales",
           "en": "Music Libraries"
         },
         "Referentes": [
-          "Postproducción",
           "Stock de audio",
           "Librerías",
           "Librerías musicales",
@@ -9254,11 +8323,11 @@
     }
   },
   "Tecnologías de la información": {
-    "Desarrollos digitales": {
+    "Desarrollo": {
       "801-01": {
         "Femenino": {
           "fr": null,
-          "es": "Desarrolladora web",
+          "es": "Desarrolladora  web",
           "en": null
         },
         "Masculino": {
@@ -9277,12 +8346,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Développeurs web",
           "es": "Desarrolladores web",
           "en": "Web Developers"
         },
         "Referentes": [
-          "Desarrollos digitales",
           "Internet",
           "Páginas web",
           "Desarrolladores web",
@@ -9315,12 +8383,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Développeurs d'applications",
           "es": "Desarrolladores de aplicaciones",
           "en": "Computer Progammers"
         },
         "Referentes": [
-          "Desarrollos digitales",
           "Internet",
           "Aplicaciones",
           "Desarrollo de aplicaciones",
@@ -9351,12 +8418,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Développeurs de jeux vidéo",
           "es": "Desarrolladores de videojuegos",
           "en": "Videogame Developers"
         },
         "Referentes": [
-          "Desarrollos digitales",
           "Internet",
           "Programación",
           "Programadores",
@@ -9390,18 +8456,16 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Agence de marketing",
           "es": "Agencias de marketing digital",
           "en": "Digital Marketing Agencies"
         },
         "Referentes": [
-          "Desarrollos digitales",
           "Internet",
           "Medios online",
           "Difusión",
           "Campañas",
           "Estrategia de redes",
-          "Marketing digital",
           "Community managers",
           "Gestores de redes",
           "Redes sociales",
@@ -9427,7 +8491,7 @@
         },
         "No Binario": {
           "fr": null,
-          "es": "Administrador de redes",
+          "es": "Administración de redes",
           "en": null
         },
         "Persona Moral": {
@@ -9436,15 +8500,13 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Administrateurs de réseau",
           "es": "Administradores de redes",
           "en": "Network Managment"
         },
         "Referentes": [
-          "Desarrollos digitales",
           "Internet",
           "Estrategia de redes",
-          "Marketing digital",
           "Community managers",
           "Gestores de redes",
           "Redes sociales",
@@ -9479,15 +8541,13 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Gestionnaires communauté",
           "es": "Community managers",
           "en": "Community managers"
         },
         "Referentes": [
-          "Desarrollos digitales",
           "Internet",
           "Estrategia de redes",
-          "Marketing digital",
           "Community managers",
           "Gestores de redes",
           "Redes sociales",
@@ -9503,7 +8563,7 @@
     }
   },
   "Industria": {
-    "Distribución y exhibición y medios": {
+    "Distribución y exhibición": {
       "901-01": {
         "Femenino": {
           "fr": null,
@@ -9526,12 +8586,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Agences de publicité",
           "es": "Agencias de publicidad",
           "en": "Advertising Agencies"
         },
         "Referentes": [
-          "Industria",
           "Agencias de publicidad",
           "Advertising Agencies",
           "Agences de publicité",
@@ -9564,12 +8623,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Agence d'études de marché",
           "es": "Agencias de investigación de mercado",
           "en": "Marketing Research"
         },
         "Referentes": [
-          "Industria",
           "Grupos focales",
           "Investigadores",
           "Agencias de investigación de mercado",
@@ -9598,16 +8656,15 @@
         },
         "Persona Moral": {
           "fr": null,
-          "es": "Distribuidor cinemtográfico",
+          "es": "Distribuidor cinematográfico",
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Distributeurs",
           "es": "Distribuidores",
           "en": "Film Distributors"
         },
         "Referentes": [
-          "Industria",
           "Distribuidoras cinematográficas",
           "Distribuidores",
           "Distributors",
@@ -9618,9 +8675,9 @@
           "Canacine",
           "Representates",
           "Junkets",
-          "Cortometrajes",
           "Largometrajes",
-          "Territorios"
+          "Territorios",
+          "Regalías"
         ]
       },
       "901-04": {
@@ -9645,12 +8702,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Exposants",
           "es": "Exhibidores",
           "en": "Film Exhibitors"
         },
         "Referentes": [
-          "Industria",
           "Circuitos de exhibición",
           "Cinépolis",
           "Cinemex",
@@ -9662,7 +8718,10 @@
           "IMAX",
           "Cortometrajes",
           "Largomentrajes",
-          "Territorios"
+          "Territorios",
+          "Taquilla",
+          "Box Office",
+          "Premiere"
         ]
       },
       "901-05": {
@@ -9687,12 +8746,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Théâtres",
           "es": "Teatros",
           "en": "Theaters"
         },
         "Referentes": [
-          "Industria",
           "Escenarios",
           "Teatros",
           "Theaters",
@@ -9722,12 +8780,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Chambres et associations",
           "es": "Cámaras y asociaciones",
           "en": "Chambers and Associations"
         },
         "Referentes": [
-          "Industria",
           "Canacine",
           "Agrupaciones",
           "Amfi",
@@ -9762,12 +8819,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Moyens",
           "es": "Medios",
           "en": "Media"
         },
         "Referentes": [
-          "Industria",
           "Promoción",
           "Media",
           "Moyens",
@@ -9782,17 +8838,17 @@
       "901-08": {
         "Femenino": {
           "fr": null,
-          "es": null,
+          "es": "Relaciones públicas",
           "en": null
         },
         "Masculino": {
           "fr": null,
-          "es": null,
+          "es": "Relaciones públicas",
           "en": null
         },
         "No Binario": {
           "fr": null,
-          "es": null,
+          "es": "Relaciones públicas",
           "en": null
         },
         "Persona Moral": {
@@ -9801,12 +8857,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Relations publiques",
           "es": "Relaciones públicas",
           "en": "Public Relations Agencies"
         },
         "Referentes": [
-          "Industria",
           "Promoción",
           "Media",
           "Moyens",
@@ -9815,7 +8870,10 @@
           "Eventos",
           "Agencias",
           "Junkets",
-          "Webcast"
+          "Webcast",
+          "PR",
+          "RRPP",
+          "Festivales"
         ]
       },
       "901-09": {
@@ -9840,16 +8898,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "",
           "es": "Operadoras de medios",
-          "en": "Media Planing"
+          "en": "Media Planning"
         },
-        "Referentes": [
-          "Broadcast",
-          "Webcast",
-          "Pauta en internet",
-          "Media planning"
-        ]
+        "Referentes": ["Webcast", "Pauta en internet", "Media planning"]
       },
       "901-10": {
         "Femenino": {
@@ -9873,18 +8926,16 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "",
           "es": "Sindicatos",
           "en": "Unions"
         },
         "Referentes": [
-          "Industria",
           "Agrupaciones",
           "Organizaciones",
           "Sindicatos",
           "Unions",
           "Syndicats",
-          "Equipo humano",
           "Guilds"
         ]
       }
@@ -9912,12 +8963,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Commandes de films",
           "es": "Comisiones fílmicas",
           "en": "Film Commissions"
         },
         "Referentes": [
-          "Industria",
           "Permisos de filmación",
           "Avisos de filmación",
           "Autoridades",
@@ -9925,7 +8975,7 @@
           "Film Commissions",
           "Des commissions de filage",
           "Gobierno",
-          "Comisiones fílmicas"
+          "Comsiones fílmicas"
         ]
       },
       "902-02": {
@@ -9950,12 +9000,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Secrétariats à la culture",
           "es": "Secretarías de Cultura",
           "en": "Culture Ministries"
         },
         "Referentes": [
-          "Industria",
           "Autoridades",
           "Instituciones",
           "Institutes",
@@ -9988,12 +9037,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Organismes gouvernementaux",
           "es": "Organismos de gobierno",
           "en": "Government Agencies"
         },
         "Referentes": [
-          "Industria",
           "Autoridades",
           "Instituciones",
           "Institutes",
@@ -10025,12 +9073,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Écoles et universités",
           "es": "Escuelas y universidades",
           "en": "Schools and Universities"
         },
         "Referentes": [
-          "Industria",
           "Capacitación",
           "Escuelas y universidades",
           "Schools and Universities",
@@ -10066,12 +9113,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Ateliers",
           "es": "Talleres",
           "en": "Workshops"
         },
         "Referentes": [
-          "Industria",
           "Capacitación",
           "Escuelas",
           "Talleres",
@@ -10107,25 +9153,279 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Festivals du film au Mexique",
           "es": "Festivales de cine en México",
           "en": "Film Festivals in México"
         },
         "Referentes": [
-          "Industria",
           "Festivales de cine en México",
           "Film Festivals in Mexico",
-          "Festivals de cinéma ",
+          "Festivals de cinéma",
           "Mercados",
           "Películas",
           "Concursos",
-          "Exhibidores",
+          "Exhibición",
           "Festivales",
           "Cortometrajes",
-          "Largometrajes"
+          "Largometrajes",
+          "Muestras",
+          "Encuentros",
+          "Competencia"
         ]
       },
       "903-02": {
+        "Femenino": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "Masculino": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "No Binario": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "Persona Moral": {
+          "fr": null,
+          "es": "Foro de cine",
+          "en": null
+        },
+        "Alias Genérico": {
+          "fr": "",
+          "es": "Foros de cine en México",
+          "en": ""
+        },
+        "Referentes": [
+          "Festivales de cine en México",
+          "Film Festivals in Mexico",
+          "Festivals de cinéma",
+          "Mercados",
+          "Películas",
+          "Concursos",
+          "Exhibición",
+          "Festivales",
+          "Cortometrajes",
+          "Largometrajes",
+          "Muestras",
+          "Encuentros",
+          "Competencia"
+        ]
+      },
+      "903-03": {
+        "Femenino": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "Masculino": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "No Binario": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "Persona Moral": {
+          "fr": null,
+          "es": "Encuentro de cine",
+          "en": null
+        },
+        "Alias Genérico": {
+          "fr": "",
+          "es": "Encuentros de cine en México",
+          "en": ""
+        },
+        "Referentes": [
+          "Festivales de cine en México",
+          "Film Festivals in Mexico",
+          "Festivals de cinéma",
+          "Mercados",
+          "Películas",
+          "Concursos",
+          "Exhibición",
+          "Festivales",
+          "Cortometrajes",
+          "Largometrajes",
+          "Muestras",
+          "Encuentros",
+          "Competencia"
+        ]
+      },
+      "903-04": {
+        "Femenino": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "Masculino": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "No Binario": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "Persona Moral": {
+          "fr": null,
+          "es": "Muestra de cine",
+          "en": null
+        },
+        "Alias Genérico": {
+          "fr": "",
+          "es": "Muestras de cine en México",
+          "en": ""
+        },
+        "Referentes": [
+          "Festivales de cine en México",
+          "Film Festivals in Mexico",
+          "Festivals de cinéma",
+          "Mercados",
+          "Películas",
+          "Concursos",
+          "Exhibición",
+          "Festivales",
+          "Cortometrajes",
+          "Largometrajes",
+          "Muestras",
+          "Encuentros",
+          "Competencia"
+        ]
+      },
+      "903-05": {
+        "Femenino": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "Masculino": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "No Binario": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "Persona Moral": {
+          "fr": null,
+          "es": "Concurso de cine universitario",
+          "en": null
+        },
+        "Alias Genérico": {
+          "fr": "",
+          "es": "Concursos de cine universitario en México",
+          "en": ""
+        },
+        "Referentes": [
+          "Festivales de cine en México",
+          "Film Festivals in Mexico",
+          "Festivals de cinéma",
+          "Mercados",
+          "Películas",
+          "Concursos",
+          "Exhibición",
+          "Festivales",
+          "Cortometrajes",
+          "Largometrajes",
+          "Muestras",
+          "Encuentros",
+          "Competencia"
+        ]
+      },
+      "903-06": {
+        "Femenino": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "Masculino": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "No Binario": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "Persona Moral": {
+          "fr": null,
+          "es": "Concurso de cine",
+          "en": null
+        },
+        "Alias Genérico": {
+          "fr": "",
+          "es": "Concursos de cine en México",
+          "en": ""
+        },
+        "Referentes": [
+          "Festivales de cine en México",
+          "Film Festivals in Mexico",
+          "Festivals de cinéma",
+          "Mercados",
+          "Películas",
+          "Concursos",
+          "Exhibición",
+          "Festivales",
+          "Cortometrajes",
+          "Largometrajes",
+          "Muestras",
+          "Encuentros",
+          "Competencia"
+        ]
+      },
+      "903-07": {
+        "Femenino": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "Masculino": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "No Binario": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "Persona Moral": {
+          "fr": null,
+          "es": "Mercado cinematográfico",
+          "en": null
+        },
+        "Alias Genérico": {
+          "fr": "",
+          "es": "Mercados cinematográfico en México",
+          "en": ""
+        },
+        "Referentes": [
+          "Festivales de cine en México",
+          "Film Festivals in Mexico",
+          "Festivals de cinéma",
+          "Mercados",
+          "Películas",
+          "Concursos",
+          "Exhibición",
+          "Festivales",
+          "Cortometrajes",
+          "Largometrajes",
+          "Muestras",
+          "Encuentros",
+          "Competencia"
+        ]
+      },
+      "903-08": {
         "Femenino": {
           "fr": null,
           "es": null,
@@ -10147,21 +9447,66 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Festivals de cinéma dans le monde",
           "es": "Festivales de cine en el mundo",
           "en": "Film Festivals Around the World"
         },
         "Referentes": [
-          "Industria",
-          "Festivales de cine en el mundo",
-          "World Film Festivals",
-          "Festivals de cinéma ",
+          "Festivales de cine en México",
+          "Film Festivals in Mexico",
+          "Festivals de cinéma",
           "Mercados",
           "Películas",
           "Concursos",
+          "Exhibición",
           "Festivales",
           "Cortometrajes",
-          "Largometrajes"
+          "Largometrajes",
+          "Muestras",
+          "Encuentros",
+          "Competencia"
+        ]
+      },
+      "903-09": {
+        "Femenino": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "Masculino": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "No Binario": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "Persona Moral": {
+          "fr": null,
+          "es": "Mercado internacional de cine",
+          "en": null
+        },
+        "Alias Genérico": {
+          "fr": "",
+          "es": "Mercados internacionales de cine",
+          "en": ""
+        },
+        "Referentes": [
+          "Festivales de cine en México",
+          "Film Festivals in Mexico",
+          "Festivals de cinéma",
+          "Mercados",
+          "Películas",
+          "Concursos",
+          "Exhibición",
+          "Festivales",
+          "Cortometrajes",
+          "Largometrajes",
+          "Muestras",
+          "Encuentros",
+          "Competencia"
         ]
       }
     },
@@ -10188,12 +9533,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Académique",
           "es": "Académicos",
           "en": "Faculty"
         },
         "Referentes": [
-          "Industria",
           "Academias",
           "Escuelas y universidades",
           "Enseñanza",
@@ -10216,7 +9560,7 @@
         },
         "No Binario": {
           "fr": null,
-          "es": "Empresa",
+          "es": "Ejecutivo",
           "en": null
         },
         "Persona Moral": {
@@ -10225,17 +9569,22 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Cadres supérieurs",
           "es": "Ejecutivos",
           "en": "Executives"
         },
         "Referentes": [
-          "Industria",
           "Decision Makers",
           "Ejecutivos",
           "Organizaciones",
-          "Cortometrajes",
-          "Largometrajes"
+          "Largometrajes",
+          "Festivales",
+          "Mercados",
+          "Distribución",
+          "Contratos",
+          "Territorios",
+          "Licencias",
+          "Regalías"
         ]
       },
       "904-03": {
@@ -10260,33 +9609,33 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "Fonctionnaires publiques",
           "es": "Funcionarios públicos",
           "en": "Goverment Officials"
         },
         "Referentes": [
-          "Industria",
           "Gobierno",
           "Imcine",
           "Funcionarios",
           "Ejecutivos",
-          "Autoridades"
+          "Autoridades",
+          "Festivales"
         ]
       },
       "904-04": {
         "Femenino": {
           "fr": null,
-          "es": "Investigadora, docente",
+          "es": "Investigadora / docente",
           "en": null
         },
         "Masculino": {
           "fr": null,
-          "es": "Investigador, docente",
+          "es": "Investigador / docente",
           "en": null
         },
         "No Binario": {
           "fr": null,
-          "es": "Investigación, docencia",
+          "es": "Investigación / docencia",
           "en": null
         },
         "Persona Moral": {
@@ -10295,12 +9644,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
-          "es": "Investigación, docencia",
-          "en": "Research, Teaching"
+          "fr": "Recherche/ Enseignement",
+          "es": "Investigación / docencia",
+          "en": "Research / Teaching"
         },
         "Referentes": [
-          "Industria",
           "Investigadores",
           "Docentes",
           "Maestros",
@@ -10333,12 +9681,11 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": null,
+          "fr": "",
           "es": "Críticos y periodistas",
           "en": "Film Critics and Journalists"
         },
         "Referentes": [
-          "Industria",
           "Promoción",
           "Media",
           "Moyens",
@@ -10349,7 +9696,6 @@
           "Difusión",
           "Críticos cinematográficos",
           "Periodistas",
-          "Cortometrajes",
           "Largometrajes",
           "Crítica"
         ]

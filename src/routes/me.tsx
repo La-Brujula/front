@@ -15,8 +15,8 @@ export const Route = createFileRoute('/me')({
       });
     }
   },
-  loader: ({ context: { queryClient } }) => {
+  loader: ({ context }) => {
     const profileId = JSON.parse(localStorage.getItem('account')!).ProfileId;
-    queryClient.prefetchQuery(profileQueryOptions(profileId));
+    context.queryClient.prefetchQuery(profileQueryOptions(profileId));
   },
 });

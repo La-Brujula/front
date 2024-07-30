@@ -5,7 +5,7 @@
   "Occidente": "Occidente",
   "Centro": "Centro",
   "Norte": "Norte",
-  "Noreste": "Noreste",
+  "Noroeste": "Noroeste",
   "Sureste": "Sureste",
   "heroTitle": "La Brújula.<1></1>Red de la industria<3></3>audiovisual y<5></5>cinematográfica<7></7>de México.",
   "mexicoDestinoDeFilmacion": "Logo México destino de filmación",
@@ -14,5 +14,6 @@
   "¡Hola! Inicia sesión": "¡Hola! Inicia sesión",
   "contactCTA": "Contacta a la persona, empresa o institución que necesites para tu proyecto",
   "Buscar por especialidad": "Buscar por especialidad",
-  "searchByName": "Buscar por nombre"
+  "searchByName": "Buscar por nombre",
+  "Noreste": "Noreste"
 }
