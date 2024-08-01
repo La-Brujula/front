@@ -15,11 +15,11 @@ export const NameSearchField = () => {
 
   return (
     <form
-      action="/buscar"
+      action="/search"
       method="get"
       onSubmit={handleSubmit((values) => {
         navigate({
-          to: '/',
+          to: '/search',
           search: { name: values.search },
           resetScroll: true,
         });
