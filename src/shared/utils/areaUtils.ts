@@ -84,6 +84,9 @@ export function getSubAreaObject(
   area: keyof typeof areas,
   subareaIndex: number
 ) {
+  const subarea = areas[area];
+  if (!subarea)
+    throw Error(`Can't find area ${area} with index ${subareaIndex}`);
   return Object.entries(areas[area])[subareaIndex - 1][1];
 }
 
