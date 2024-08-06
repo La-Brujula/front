@@ -14,7 +14,7 @@ export const Footer = () => {
       max-w-6xl mx-auto w-full items-center gap-6 md:gap-0"
       >
         <Link
-          to="/"
+          to="/contact"
           className="text-primary font-bold md:order-first"
         >
           {t('contactUs')}
