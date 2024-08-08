@@ -20,7 +20,7 @@ export const NameSearchField = () => {
       onSubmit={handleSubmit((values) => {
         navigate({
           to: '/search',
-          search: { name: values.search },
+          search: { query: values.search },
           resetScroll: true,
         });
       })}
@@ -45,7 +45,7 @@ export const NameSearchField = () => {
           color: 'rgb(237 237 237 / var(--tw-text-opacity))',
           zIndex: 1,
         }}
-        placeholder={t('searchByName')}
+        placeholder={t('search')}
       />
       <button
         type="submit"
