@@ -21,6 +21,7 @@ export const SeccionAliades = () => {
             href={aliade.linkUrl}
             key={aliade.imageUrl}
             target="_blank"
+            className="flex items-center justify-center"
           >
             <img
               src={aliade.imageUrl}

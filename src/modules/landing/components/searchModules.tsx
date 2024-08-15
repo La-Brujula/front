@@ -1,24 +1,28 @@
 import { Container } from '@shared/layout/container';
 import { useTranslation } from 'react-i18next';
 import { NameSearchField } from '@modules/search/components/nameSearchField';
-import { Link } from '@tanstack/react-router';
+import categories from '@shared/constants/categories.json';
+import { PorCategorias } from '@/modules/search/components/categorias';
 
 export const SearchModules = () => {
-  const { t } = useTranslation('landing');
+  const { t } = useTranslation(['landing', 'search']);
   return (
-    <Container bg="whitetoblue">
-      <p className="text-primary font-bold text-xl mb-4">{t('contactCTA')}</p>
-      <div className="grid grid-cols-1 md:grid-cols-2 md:flex-row gap-8">
-        <NameSearchField />
-        <Link
-          resetScroll
-          to="/search/category"
-          className="button font-bold flex flex-col items-center justify-center
-            bg-primary py-8 text-xl"
-        >
-          {t('Buscar por especialidad')}
-        </Link>
-      </div>
-    </Container>
+    <>
+      <Container bg="lightblue">
+        <h3 className="text-primary font-bold text-xl mb-4">
+          {t('contactCTA')}
+        </h3>
+        <div className="grid grid-cols-1 gap-8">
+          <NameSearchField />
+        </div>
+      </Container>
+      <Container bg="light">
+        <h3 className="text-lg">{t('¿No encuentras lo que buscas?')}</h3>
+        <p className="mb-8">
+          {t('Intenta buscando entre nuestras categorías')}
+        </p>
+        <PorCategorias categorias={categories} />
+      </Container>
+    </>
   );
 };
