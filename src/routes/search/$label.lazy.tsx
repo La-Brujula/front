@@ -118,7 +118,7 @@ function SubCategoryPage() {
           if (localeLanguage === undefined) throw 'Something went wrong! AE05';
           return {
             name: localeLanguage.title || activityId,
-            link: '/buscar',
+            link: '/search',
             search: { activity: activityId, category: activityId.slice(0, 3) },
           };
         });
