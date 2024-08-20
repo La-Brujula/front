@@ -15,7 +15,7 @@ import { useUpdateMe } from '@/shared/hooks/useUpdateMe';
 import DataSuspense from '@/shared/components/dataSuspense';
 import { useCallback } from 'react';
 import { isApiError } from '@/shared/services/backendFetcher';
-import regions from '@shared/constants/regiones.json';
+import estados from '@shared/constants/estados.json';
 
 export const Route = createLazyFileRoute('/me/basic')({
   component: BasicInfo,
@@ -165,7 +165,7 @@ function BasicInfo() {
             required={true}
             error={formState.errors.country}
           />
-          {country !== undefined && country == 'MX' ? (
+          {country !== undefined && Object.keys(estados).includes(country) ? (
             <Input
               label={t('Estado')}
               type="select"
@@ -175,12 +175,10 @@ function BasicInfo() {
               divClass="col-span-full"
               required={true}
               error={formState.errors.state}
-              items={regions.flatMap((region) =>
-                region.estados.map((estado) => ({
-                  key: estado,
-                  label: estado,
-                }))
-              )}
+              items={estados[country as 'MX' | 'CO'].flatMap((estado) => ({
+                key: estado,
+                label: estado,
+              }))}
             />
           ) : (
             <Input
