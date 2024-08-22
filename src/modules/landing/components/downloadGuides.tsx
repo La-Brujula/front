@@ -81,7 +81,7 @@ function DownloadGuides() {
           </div>
         </div>
         <div
-          className="md:col-span-2 flex flex-row justify-start gap-4 font-bold text-lg
+          className="md:col-span-2 flex flex-col md:flex-row justify-start gap-4 font-bold text-lg
         text-left isolate transform overflow-hidden w-full"
         >
           {guides.specials.map((guide, i) => (
