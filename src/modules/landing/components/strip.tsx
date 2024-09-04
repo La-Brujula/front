@@ -62,7 +62,7 @@ function Strip(props: { colors: string[]; link: string; label: string }) {
         className={stripStyles.textTag}
         style={{ backgroundColor: colors[1] }}
       >
-        <span className="cursor-events-none">{label}</span>
+        <span className="cursor-events-none px-2 py-4">{label}</span>
       </div>
     </a>
   );

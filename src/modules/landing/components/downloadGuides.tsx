@@ -66,9 +66,9 @@ function DownloadGuides() {
           />
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 mt-16 gap-4">
-        <div className="text-left flex md:order-last flex-row justify-end w-full">
-          <div className="md:max-w-lg lg:text-center sm:text-left">
+      <div className="grid grid-cols-1 lg:grid-cols-3 mt-16 gap-4">
+        <div className="text-left flex lg:order-last flex-row justify-end w-full">
+          <div className="text-left">
             <h2 className="">
               <Trans
                 i18nKey="specialGuides"
@@ -81,7 +81,7 @@ function DownloadGuides() {
           </div>
         </div>
         <div
-          className="md:col-span-2 flex flex-col md:flex-row justify-start gap-4 font-bold text-lg
+          className="lg:col-span-2 flex flex-col lg:flex-row justify-start gap-4 font-bold text-lg
         text-left isolate transform overflow-hidden w-full"
         >
           {guides.specials.map((guide, i) => (
