@@ -1,5 +1,5 @@
 .strip {
-  @apply flex rounded-2xl overflow-hidden h-16 content-start min-w-80
+  @apply flex rounded-2xl overflow-hidden h-16 content-start min-w-64
     transform transition-all duration-300 relative isolate items-start;
 }
 

@@ -48,7 +48,26 @@
   "Enviar Correo": "Enviar Correo",
   "Se ha enviado el correo con el link para reiniciar tu contraseña": "Se ha enviado el correo con el link para reiniciar tu contraseña. Recuerda que puede tardar hasta 30 minutos.",
   "Iniciar Sesión": "Iniciar Sesión",
+  "Verificación de correo": "Verificación de correo",
+  "Te enviaremos una liga especial al correo de tu cuenta": {
+    " Tienes 30 minutos para hacer click en ella y verificar tu correo": "Te enviaremos una liga especial al correo de tu cuenta. Tienes 30 minutos para hacer click en ella y verificar tu correo"
+  },
+  "Haz click aquí para enviar el correo": "Haz click aquí para enviar el correo",
+  "Enviando": {
+    "": "Enviando..."
+  },
+  "Se envió el correo": "Se envió el correo",
+  "Revisa tu correo registrado y haz click en la liga que te enviamos para verificar tu correo": "Revisa tu correo registrado y haz click en la liga que te enviamos para verificar tu correo.",
   "signUpParagraph": "¡Hola!<1></1>Estás a un paso de formar parte de La Brújula. Crea tu usuario y agrega tu información para que otros miembros de la industria audiovisual puedan encontrarte.<3></3><4></4>Queremos que tu empresa, tu proyecto y tú mismo, sean parte de La Brújula.",
+  "Cargando": {
+    "": "Cargando..."
+  },
+  "Se verificó tu correo existósamente": "Se verificó tu correo existósamente",
+  "Haz click aquí para regresar a tu perfil": "Haz click aquí para regresar a tu perfil",
+  "Algo salió mal": "Algo salió mal",
+  "La liga para esta página no es válida": {
+    " Por favor intenta de nuevo": "La liga para esta página no es válida. Por favor intenta de nuevo"
+  },
   "Could not find user": "Could not find user",
   "Tienes que tener al menos una actividad": "Tienes que tener al menos una actividad",
   "Áreas": "Áreas",

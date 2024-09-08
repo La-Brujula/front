@@ -50,6 +50,7 @@ export interface IBackendProfile {
   whatsapp?: string;
   workRadius?: string;
   youtube?: string;
+  verified: boolean;
 }
 export interface IUpdateBackendProfile {
   address?: string;

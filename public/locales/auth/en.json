@@ -48,7 +48,26 @@
   "Enviar Correo": "Send email",
   "Se ha enviado el correo con el link para reiniciar tu contraseña": "An email has been sent with instructions to reset your password. Remember it can take up to 30 minutes to arrive.",
   "Iniciar Sesión": "Log in",
+  "Verificación de correo": "Email verification",
+  "Te enviaremos una liga especial al correo de tu cuenta": {
+    " Tienes 30 minutos para hacer click en ella y verificar tu correo": "We will send you a special link in an email. You have 30 minutes to click the link."
+  },
+  "Haz click aquí para enviar el correo": "Click to send the email",
+  "Enviando": {
+    "": "Sending..."
+  },
+  "Se envió el correo": "The email was sent",
+  "Revisa tu correo registrado y haz click en la liga que te enviamos para verificar tu correo": "Check your email and click the link we will send you in order to confirm your email address.",
   "signUpParagraph": "Hello!<1></1>You're one step away from joining La Brújula. Create your user, add your information, and connect with other industry members.<3></3><4></4>We want you to be a part of La Brújula.",
+  "Cargando": {
+    "": "Loading..."
+  },
+  "Se verificó tu correo existósamente": "Your email was successfully confirmed",
+  "Haz click aquí para regresar a tu perfil": "Click here to return to your profile",
+  "Algo salió mal": "Something went wrong",
+  "La liga para esta página no es válida": {
+    " Por favor intenta de nuevo": "The link is not valid. Please try again."
+  },
   "Could not find user": "Could not find user",
   "Tienes que tener al menos una actividad": "You need to register at least one activity",
   "Áreas": "Areas",

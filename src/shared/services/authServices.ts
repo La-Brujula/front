@@ -1,11 +1,5 @@
 import { UserType } from '../types/user';
-import {
-  BackendResponse,
-  deleteFetch,
-  getFetch,
-  patchFetch,
-  postFetch,
-} from './backendFetcher';
+import { deleteFetch, getFetch, patchFetch, postFetch } from './backendFetcher';
 
 export type Account = {
   email: string;
