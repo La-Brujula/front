@@ -1,4 +1,4 @@
-import stripStyles from './strip.module.css';
+import stripStyles from './horizontalStrip.module.css';
 
 let Brujula = ({
   color,
@@ -32,7 +32,11 @@ let Brujula = ({
   </div>
 );
 
-function Strip(props: { colors: string[]; link: string; label: string }) {
+function HorizontalStrip(props: {
+  colors: string[];
+  link: string;
+  label: string;
+}) {
   const { colors, link, label } = props;
   return (
     <a
@@ -62,10 +66,10 @@ function Strip(props: { colors: string[]; link: string; label: string }) {
         className={stripStyles.textTag}
         style={{ backgroundColor: colors[1] }}
       >
-        <span className="cursor-events-none px-2 py-4">{label}</span>
+        <span className="cursor-events-none">{label}</span>
       </div>
     </a>
   );
 }
 
-export default Strip;
+export default HorizontalStrip;

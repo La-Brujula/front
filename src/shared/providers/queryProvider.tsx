@@ -62,11 +62,10 @@ function QueryProvider({ children }: { children: ReactNode }) {
         mutationCache,
         defaultOptions: {
           queries: {
+            staleTime: 200,
             retry: false,
           },
-          mutations: {
-            retry: false,
-          },
+          mutations: { retry: false },
         },
       }),
     []

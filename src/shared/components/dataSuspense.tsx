@@ -8,10 +8,11 @@ type DataSuspenseProps = {
   children: ReactNode;
   error: Error | null;
   errorComponent?: ReactNode;
+  fallback?: ReactNode;
 };
 
 function DataSuspense(props: DataSuspenseProps) {
-  if (props.loading === true) return <Skeleton></Skeleton>;
+  if (props.loading === true) return props.fallback || <Skeleton></Skeleton>;
   if (!!props.error) {
     if (props.errorComponent) return props.errorComponent;
     return <ErrorMessage message={props.error?.message} />;

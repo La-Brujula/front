@@ -17,6 +17,7 @@ export type UserDTO = {
   location?: string;
   profilePictureUrl?: string;
   headline?: string;
+  verified: boolean;
 };
 
 export const profileQueryOptions = (profileId: string) =>

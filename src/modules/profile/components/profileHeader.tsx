@@ -6,6 +6,7 @@ import { Link } from '@tanstack/react-router';
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { UpdateImageControls } from './UpdateImageControls';
+import { OpenInNewOutlined } from '@mui/icons-material';
 
 export const ProfileHeader = ({ user }: { user: IBackendProfile }) => {
   const { t } = useTranslation('user');
@@ -100,6 +101,21 @@ export const ProfileHeader = ({ user }: { user: IBackendProfile }) => {
             />
           )}
         </div>
+        {user.verified ? (
+          <p className="font-bold bg-emerald-200 border-2 border-emerald-500 text-emerald-500 p-1 px-2 rounded-full">
+            {t('Correo verificado')}
+          </p>
+        ) : (
+          <Link
+            to="/auth/send-verification"
+            disabled={!isCurrentUser}
+          >
+            <p className="font-bold bg-rose-200 border-2 border-rose-500 text-rose-500 p-1 px-2 rounded-full">
+              {t('Correo no verificado')}{' '}
+              {isCurrentUser && <OpenInNewOutlined fontSize="small" />}
+            </p>
+          </Link>
+        )}
         {!!user.headline && (
           <p className="relative text-center italic text-sm mb-2">
             {user.headline}

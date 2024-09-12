@@ -14,6 +14,10 @@
   "PE02": "El perfil no existe",
   "PE03": "El perfil ya fue recomendado",
   "PE04": "El perfil no ha sido recomendado",
+  "AE-VE": "Ocurrió un error verificando tu correo, por favor intenta de nuevo.",
+  "AE12": "El código de verificación expiró.",
+  "AE13": "El código de verificación es incorrecto.",
+  "AE14": "No encontramos un flujo de verificación activo. Por favor empieza de nuevo.",
   "SE01": "Error de formato",
   "PE05": "No se encontraron valores para el campo",
   "PE06": "El campo no pudo ser enumerado"

@@ -7,8 +7,16 @@ import Input from '@/shared/components/input';
 import { IconButton } from '@mui/material';
 import { DeleteOutlined } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
-import { UseFormRegister, UseFormReset } from 'react-hook-form';
+import { UseFormRegister } from 'react-hook-form';
 import ActivityFilter from './activityFilter';
+
+const LOCATION_SELECT_ITEMS = regiones?.flatMap((region) => {
+  const estados = region.estados?.map((estado) => ({
+    key: estado,
+    label: estado,
+  }));
+  return [{ key: region.nombre, label: region.nombre }, ...estados];
+});
 
 export const ResultsFilter = (props: {
   filters: Search;
@@ -52,16 +60,8 @@ export const ResultsFilter = (props: {
             label={t('Ubicación')}
             register={props.register}
             fieldName="location"
-            type="groupedSelect"
-            groupedItems={Object.fromEntries(
-              regiones?.map((region) => [
-                region.nombre,
-                region.estados?.map((estado) => ({
-                  key: estado,
-                  label: estado,
-                })),
-              ])
-            )}
+            type="select"
+            items={LOCATION_SELECT_ITEMS}
           />
           <Input
             label={t('Género')}

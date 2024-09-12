@@ -14,6 +14,11 @@
   "PE02": "Profile does not exist",
   "PE03": "Profile already recommended",
   "PE04": "Profile is not recommended",
+  "AE-VE": "Something went wrong while verifying your email. Please try again.",
+  "AE12": "The verifiaction code has expired, please try again.",
+  "AE13": "The verifiaction code was incorrect, please try again.",
+  "AE14": "Could not verify the verification code expiration time. Please start over.",
+  "AE15": "No active verification flow found. Please start over.",
   "SE01": "Wrong format",
   "PE05": "No values found for column",
   "PE06": "Field cannot be enumerated"

@@ -1,12 +1,13 @@
 {
   "Aliad@s": "Aliad@s",
   "Gracias por hacer posible La Brújula": "Gracias por hacer posible La Brújula",
-  "landing": " <1>Descarga <1>La Brújula</1> en PDF para  utilizarla sin conexión</1>",
+  "regionalGuides": "Descarga los directorios regionales para utilizar <2>La Brújula</2> sin conexión",
   "Occidente": "Occidente",
   "Centro": "Centro",
   "Norte": "Norte",
   "Noroeste": "Noroeste",
   "Sureste": "Sureste",
+  "specialGuides": "Conoce los directorios especiales, realizados con el apoyo de nuestros Estados Aliados",
   "heroTitle": "La Brújula.<1></1>Red de la industria<3></3>audiovisual y<5></5>cinematográfica<7></7>de México.",
   "mexicoDestinoDeFilmacion": "Logo México destino de filmación",
   "14YearsBruj": "Logo La Brújula 14 años",
@@ -16,6 +17,7 @@
   "¿No encuentras lo que buscas?": "¿No encuentras lo que buscas?",
   "Intenta buscando entre nuestras categorías": "Intenta buscando entre nuestras categorías",
   "search": "Búsqueda",
+  "landing": " <1>Descarga <1>La Brújula</1> en PDF para  utilizarla sin conexión</1>",
   "Buscar por especialidad": "Buscar por especialidad",
   "searchByName": "Buscar por nombre",
   "Noreste": "Noreste"

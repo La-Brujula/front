@@ -1,0 +1,22 @@
+.strip {
+  @apply flex rounded-2xl overflow-hidden h-16 content-start min-w-64
+    transform transition-all duration-300 relative isolate items-start;
+}
+
+.brujulas {
+  @apply grid grid-cols-3 gap-0 absolute bottom-0 bg-primary
+  w-full items-center justify-center -z-10 h-20;
+}
+
+.brujula {
+  @apply !p-2 !fill-black flex items-center justify-center;
+}
+
+.strip:hover {
+  @apply h-36;
+}
+
+.textTag {
+  @apply grow text-[#fff] flex items-center cursor-pointer p-4
+  text-2xl uppercase h-16 w-full -tracking-tighter;
+}

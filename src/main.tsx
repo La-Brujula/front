@@ -11,10 +11,11 @@ import App from './App';
 import { PostHogProvider } from 'posthog-js/react';
 import posthog from 'posthog-js';
 
-posthog.init('phc_T1b8Jh0gnQ6NsNQeqxBKiWCrYW5UygDG2n5RlTQbWBA', {
-  api_host: 'https://us.i.posthog.com',
-  person_profiles: 'identified_only',
-});
+!import.meta.env.DEV &&
+  posthog.init('phc_T1b8Jh0gnQ6NsNQeqxBKiWCrYW5UygDG2n5RlTQbWBA', {
+    api_host: 'https://us.i.posthog.com',
+    person_profiles: 'identified_only',
+  });
 
 // Render the app
 const rootElement = document.getElementById('root')!;

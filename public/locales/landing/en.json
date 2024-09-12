@@ -1,12 +1,13 @@
 {
   "Aliad@s": "Allies",
   "Gracias por hacer posible La Brújula": "Thank you for making La Brújula possible",
-  "landing": "Download La Brújula in PDF to use it offline",
+  "regionalGuides": "Download the regional directories to use <2>La Brújula</2> offline",
   "Occidente": "West",
   "Centro": "Center",
   "Norte": "North",
   "Noroeste": "North-west",
   "Sureste": "South-east",
+  "specialGuides": "Use our special directories, made possible by our Allied States",
   "heroTitle": "La Brújula.<1></1>Networking for the audiovisual and film industry in Mexico.",
   "mexicoDestinoDeFilmacion": "Mexico logo film destination",
   "14YearsBruj": "La Brújula 14 years logo",
@@ -16,6 +17,7 @@
   "¿No encuentras lo que buscas?": "Can't find what you're looking for?",
   "Intenta buscando entre nuestras categorías": "Try searching through our categories",
   "search": "search",
+  "landing": "Download La Brújula in PDF to use it offline",
   "Buscar por especialidad": "Search by specialty",
   "searchByName": "Search by name",
   "Noreste": "North-east"
