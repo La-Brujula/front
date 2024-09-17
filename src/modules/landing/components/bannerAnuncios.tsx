@@ -12,15 +12,17 @@ function BannerAnuncios(props: {
 }) {
   const anuncios = useMemo(
     () =>
-      props.anuncios.map((anuncio, i) => (
-        <AnuncioSlide
-          key={anuncio.linkUrl + '' + i}
-          horizontalImage={anuncio.horizontalImage}
-          verticalImage={anuncio.verticalImage}
-          imageUrl={anuncio.image}
-          linkUrl={anuncio.linkUrl}
-        />
-      )),
+      props.anuncios
+        .sort(() => Math.random() - 0.5)
+        .map((anuncio, i) => (
+          <AnuncioSlide
+            key={anuncio.linkUrl + '' + i}
+            horizontalImage={anuncio.horizontalImage}
+            verticalImage={anuncio.verticalImage}
+            imageUrl={anuncio.image}
+            linkUrl={anuncio.linkUrl}
+          />
+        )),
     [props.anuncios]
   );
   return <ResponsiveCarousel>{anuncios}</ResponsiveCarousel>;

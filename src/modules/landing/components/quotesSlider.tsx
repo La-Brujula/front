@@ -17,15 +17,17 @@ function QuotesSlider() {
         interval={1000 * 17}
         stopOnHover={true}
       >
-        {quotes.map((quote) => (
-          <QuoteSlide
-            key={quote.name}
-            imageUrl={quote.imageUrl}
-            name={quote.name}
-            quote={quote.quote}
-            title={quote.title}
-          />
-        ))}
+        {quotes
+          .sort(() => Math.random() - 0.5)
+          .map((quote) => (
+            <QuoteSlide
+              key={quote.name}
+              imageUrl={quote.imageUrl}
+              name={quote.name}
+              quote={quote.quote}
+              title={quote.title}
+            />
+          ))}
       </Carousel>
     </Container>
   );
