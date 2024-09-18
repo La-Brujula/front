@@ -12,6 +12,7 @@ import { Search, defaultSearch } from '@/modules/search/types/searchParams';
 import { Controller, useForm } from 'react-hook-form';
 import { SearchOutlined } from '@mui/icons-material';
 import { Container } from '@/shared/layout/container';
+import DownloadResultsButton from '@/modules/search/components/downloadResults';
 
 export const Route = createLazyFileRoute('/search/')({
   component: SearchHomepage,
@@ -123,11 +124,14 @@ function SearchHomepage() {
             )}
           />
         </div>
-        <p>
-          {t('{{count}} resultado', {
-            count: results?.pages[0].meta?.total || 0,
-          })}
-        </p>
+        <div className="flex flex-row gap-2 items-center">
+          <p>
+            {t('{{count}} resultado', {
+              count: results?.pages[0].meta?.total || 0,
+            })}
+          </p>
+          <DownloadResultsButton search={search} />
+        </div>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-[20rem_1fr] gap-12 mt-16">
         <ResultsFilter
