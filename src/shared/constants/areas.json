@@ -2678,7 +2678,7 @@
         ]
       }
     },
-    "Fotografía": {
+    "Imagen": {
       "303-01": {
         "Femenino": {
           "fr": null,
@@ -3704,13 +3704,14 @@
         "Alias Genérico": {
           "fr": "Costumiers",
           "es": "Vestuaristas",
-          "en": "Costume Designers"
+          "en": "Customs"
         },
         "Referentes": [
           "Vestuario",
           "Vestuaristas",
           "Costume Designers",
-          "Wardrobe"
+          "Wardrobe",
+          "Customs"
         ]
       },
       "306-11": {
@@ -3818,9 +3819,44 @@
           "Caracterizadores",
           "Caracterización de personajes"
         ]
+      },
+      "306-14": {
+        "Femenino": {
+          "fr": null,
+          "es": "Diseñadora de vestuario",
+          "en": null
+        },
+        "Masculino": {
+          "fr": null,
+          "es": "Diseñador de vestuario",
+          "en": null
+        },
+        "No Binario": {
+          "fr": null,
+          "es": "Diseño de vestuario",
+          "en": null
+        },
+        "Persona Moral": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "Alias Genérico": {
+          "fr": "",
+          "es": "Diseñadores de vestuario",
+          "en": "Costume Designers"
+        },
+        "Referentes": [
+          "Vestuario",
+          "Vestuaristas",
+          "Costume Designers",
+          "Wardrobe",
+          "Diseñadores",
+          "Costumes"
+        ]
       }
     },
-    "Postproducción": {
+    "Postproducción de imagen": {
       "307-01": {
         "Femenino": {
           "fr": null,
@@ -4310,7 +4346,7 @@
       }
     }
   },
-  "Compañias de producción": {
+  "Servicios de producción": {
     "Compañías de producción": {
       "401-01": {
         "Femenino": {
@@ -4707,6 +4743,42 @@
           "Cortometrajes",
           "Coordinación de producción"
         ]
+      },
+      "401-11": {
+        "Femenino": {
+          "fr": null,
+          "es": "Pruebas Covid",
+          "en": null
+        },
+        "Masculino": {
+          "fr": null,
+          "es": "Pruebas Covid",
+          "en": null
+        },
+        "No Binario": {
+          "fr": null,
+          "es": "Pruebas Covid",
+          "en": null
+        },
+        "Persona Moral": {
+          "fr": null,
+          "es": "Pruebas Covid",
+          "en": null
+        },
+        "Alias Genérico": {
+          "fr": "",
+          "es": "Pruebas Covid",
+          "en": "Covid Test"
+        },
+        "Referentes": [
+          "Covid",
+          "Pruebas de laboratorio",
+          "Coronavirus",
+          "Test",
+          "CV-19",
+          "Exámenes en locación",
+          "Médicos de producción"
+        ]
       }
     },
     "Transportación": {
@@ -4948,7 +5020,7 @@
         ]
       }
     },
-    "Proveedores": {
+    "Proveedores de producción": {
       "403-01": {
         "Femenino": {
           "fr": null,
@@ -5480,6 +5552,87 @@
           "Peinados",
           "Hairdo",
           "Estilistas"
+        ]
+      },
+      "403-17": {
+        "Femenino": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "Masculino": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "No Binario": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "Persona Moral": {
+          "fr": null,
+          "es": "Almacén de arte",
+          "en": null
+        },
+        "Alias Genérico": {
+          "fr": "",
+          "es": "Almacenaje de arte",
+          "en": "Warehouses"
+        },
+        "Referentes": [
+          "Alquiler de utilería",
+          "Arte",
+          "Utilería",
+          "Utileros",
+          "Atrezzo",
+          "Muebles en renta",
+          "Furniture Rental",
+          "Location de meublés",
+          "Escenografía",
+          "Ambientación",
+          "Almacenamiento para arte",
+          "Bodegas para arte",
+          "Almacenaje de producción"
+        ]
+      },
+      "403-18": {
+        "Femenino": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "Masculino": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "No Binario": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "Persona Moral": {
+          "fr": null,
+          "es": "Vehículos de acción",
+          "en": null
+        },
+        "Alias Genérico": {
+          "fr": "",
+          "es": "Vehículos de acción",
+          "en": ""
+        },
+        "Referentes": [
+          "Automóviles",
+          "Autos antiguos",
+          "Ambientación",
+          "Autos clásicos",
+          "Diseño de producción",
+          "Arte",
+          "Diseño de producción",
+          "Production Design",
+          "Création des décors",
+          "Diseñadores de producción"
         ]
       }
     },
@@ -7473,11 +7626,88 @@
           "Aseguradoras",
           "Compañías de seguros"
         ]
+      },
+      "601-22": {
+        "Femenino": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "Masculino": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "No Binario": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "Persona Moral": {
+          "fr": null,
+          "es": "Mensajería",
+          "en": null
+        },
+        "Alias Genérico": {
+          "fr": "",
+          "es": "Mensajería",
+          "en": "Courier"
+        },
+        "Referentes": [
+          "Envíos",
+          "Paquetería",
+          "FedEx",
+          "UPS",
+          "Courier",
+          "DHL",
+          "Estafeta",
+          "Pakmail"
+        ]
+      },
+      "601-23": {
+        "Femenino": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "Masculino": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "No Binario": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "Persona Moral": {
+          "fr": null,
+          "es": "Ambulancias",
+          "en": null
+        },
+        "Alias Genérico": {
+          "fr": "",
+          "es": "Ambulancias",
+          "en": ""
+        },
+        "Referentes": [
+          "Ambulancia",
+          "Protección civil",
+          "Seguridad",
+          "",
+          "Personal de seguridad",
+          "Logística",
+          "Seguridad en locación",
+          "Médicos de producción",
+          "Atención médica en el set",
+          "Primeros auxilios",
+          "Paramédicos"
+        ]
       }
     }
   },
   "Compañías de postproducción": {
-    "Compañías de postproducción": {
+    "Postproducción de imagen": {
       "701-01": {
         "Femenino": {
           "fr": null,
