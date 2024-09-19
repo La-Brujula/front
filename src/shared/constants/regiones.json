@@ -64,42 +64,6 @@
   {
     "nombre": "Colombia",
     "id": 5,
-    "estados": [
-      "Amazonas",
-      "Antioquía",
-      "Arauca",
-      "Atlántico",
-      "Bolívar",
-      "Boyacá",
-      "Bogotá",
-      "Caldas",
-      "Cali",
-      "Caquetá",
-      "Casanare",
-      "Cauca",
-      "Cesar",
-      "Chocó",
-      "Córdoba",
-      "Cundinamarca",
-      "Guainía",
-      "Guaviare",
-      "Huila",
-      "La Guajira",
-      "Magdalena",
-      "Meta",
-      "Medellin",
-      "Nariño",
-      "Norte de Santander",
-      "Putumayo",
-      "Quindío",
-      "Risaralda",
-      "San Andrés y Providencia",
-      "Santander",
-      "Sucre",
-      "Tolima",
-      "Valle del Cauca",
-      "Vaupés",
-      "Vichada"
-    ]
+    "estados": ["Bogotá", "Cali", "Medellin"]
   }
 ]
