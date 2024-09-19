@@ -1,9 +1,10 @@
+import { verifyEmail } from '@/modules/auth/hooks/emailVerification';
 import DataSuspense from '@/shared/components/dataSuspense';
 import { ErrorMessage } from '@/shared/components/errorMessage';
 import { useCurrentProfile } from '@/shared/hooks/useCurrentProfile';
 import { Container } from '@/shared/layout/container';
-import { createLazyFileRoute, Link } from '@tanstack/react-router';
-import React from 'react';
+import { createLazyFileRoute, Link, useNavigate } from '@tanstack/react-router';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export const Route = createLazyFileRoute('/auth/verify-email')({
@@ -11,8 +12,20 @@ export const Route = createLazyFileRoute('/auth/verify-email')({
 });
 
 function VerifyEmail() {
+  const { code } = Route.useSearch();
   const { t } = useTranslation('auth');
   const { data: user, isLoading, error } = useCurrentProfile();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (user !== undefined) {
+      verifyEmail(code).then((verifyRes) => {
+        if (verifyRes.isSuccess) {
+          navigate({ to: '/profile/$userId', params: { userId: 'me' } });
+        }
+      });
+    }
+    return () => {};
+  }, [user, isLoading]);
 
   return (
     <Container
