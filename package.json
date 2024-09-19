@@ -35,7 +35,6 @@
     "react-responsive-carousel": "^3.2.23",
     "react-search-autocomplete": "^8.5.2",
     "scheduler": "^0.23.0",
-    "unicode-emoji-json": "^0.6.0",
     "use-context-selector": "^1.4.4",
     "zod": "^3.22.4"
   },
