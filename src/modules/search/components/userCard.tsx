@@ -2,6 +2,7 @@ import { getTitle } from '@shared/utils/areaUtils';
 import { useTranslation } from 'react-i18next';
 import { UserDTO } from '../queries/searchQuery';
 import { Link } from '@tanstack/react-router';
+import CountryFlag from '@/shared/components/countryFlag';
 
 export const UserCard = ({ user }: { user: UserDTO }) => {
   const { t } = useTranslation('search');
@@ -48,20 +49,26 @@ export const UserCard = ({ user }: { user: UserDTO }) => {
         </div>
       </div>
       <div className="">
-        {[user.primaryActivity, user.secondaryActivity, user.thirdActivity].map(
+        {!!user.primaryActivity && (
+          <p className="text-sm opacity-80 font-bold">
+            {getTitle(user.primaryActivity, user.gender || 'other')}
+          </p>
+        )}
+        {[user.secondaryActivity, user.thirdActivity].map(
           (subarea, i) =>
             subarea !== undefined && (
               <p
-                className={['text-sm opacity-80', i == 0 && 'font-bold'].join(
-                  ' '
-                )}
+                className="text-xs opacity-80"
                 key={subarea + i}
               >
                 {getTitle(subarea, user.gender || 'other')}
               </p>
             )
         )}
-        <p className="text-xs mt-2 font-medium">{user.location}</p>
+        <p className="text-xs mt-2 font-medium">
+          {user.location}{' '}
+          {!!user.country && <CountryFlag country={user.country} />}
+        </p>
       </div>
       <div className="grid lg:grid-cols-[4rem_1fr] lg:gap-4 items-center justify-center">
         <img
