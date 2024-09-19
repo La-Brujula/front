@@ -15,8 +15,6 @@ export type VerifySchema = z.infer<typeof verifyEmailSchema>;
 
 export const Route = createFileRoute('/auth/verify-email')({
   validateSearch: (search) => verifyEmailSchema.parse(search),
-  loaderDeps: ({ search }: { search: VerifySchema }) => search,
-  loader: ({ deps: searchParams }) => verifyEmail(searchParams.code),
   errorComponent: WrongCode,
 });
 
