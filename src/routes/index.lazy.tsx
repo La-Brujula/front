@@ -8,6 +8,7 @@ import { LoginOrProfile } from '@modules/landing/components/loginOrProfile';
 import { SearchModules } from '@modules/landing/components/searchModules';
 import { createLazyFileRoute } from '@tanstack/react-router';
 import { LoadingSpinner } from '@/shared/components/loadingSpinner';
+import BrujulaBio from '@/modules/landing/components/bio';
 
 export const Route = createLazyFileRoute('/')({
   component: LandingPage,
@@ -21,17 +22,14 @@ function LandingPage() {
   return (
     <>
       <HeroSection />
-      <div className="grid grid-cols-1 lg:grid-cols-2">
-        <BannerAnuncios anuncios={anuncios.hero} />
-        <LoginOrProfile />
-      </div>
       <SearchModules />
       <DownloadGuides />
+      <BrujulaBio />
       <Suspense fallback={<LoadingSpinner />}>
         <QuotesSlider />
       </Suspense>
       <div className="my-8"></div>
-      <BannerAnuncios anuncios={anuncios.bottom} />
+      <BannerAnuncios anuncios={[...anuncios.bottom, ...anuncios.hero]} />
       <div className="py-8 bg-primary"></div>
       <SeccionAliades />
     </>

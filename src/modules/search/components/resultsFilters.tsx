@@ -15,7 +15,10 @@ const LOCATION_SELECT_ITEMS = regiones?.flatMap((region) => {
     key: estado,
     label: estado,
   }));
-  return [{ key: region.nombre, label: region.nombre }, ...estados];
+  return [
+    { key: region.nombre, label: region.nombre, className: '!font-bold' },
+    ...estados,
+  ];
 });
 
 export const ResultsFilter = (props: {

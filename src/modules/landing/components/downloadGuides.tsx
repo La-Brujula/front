@@ -17,12 +17,9 @@ const BrujulasColors = {
 function DownloadGuides() {
   const { t } = useTranslation('landing');
   return (
-    <Container>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div
-          className="text-left flex
-        flex-row justify-end w-full"
-        >
+    <Container bg="lightblue">
+      <div className="grid grid-cols-1 gap-4">
+        <div className="text-left flex flex-row justify-end w-full">
           <div className="md:max-w-lg">
             <h2 className="">
               <Trans
@@ -36,7 +33,7 @@ function DownloadGuides() {
           </div>
         </div>
         <div
-          className="md:col-span-2 flex flex-col md:flex-row justify-end gap-4 font-bold text-lg
+          className="grid-cols-2 md:grid-flow-col grid justify-end gap-4 font-bold text-lg
         text-right isolate transform overflow-hidden w-full"
         >
           <Strip
@@ -81,7 +78,7 @@ function DownloadGuides() {
           </div>
         </div>
         <div
-          className="lg:col-span-2 flex flex-col lg:flex-row justify-start gap-4 font-bold text-lg
+          className="lg:col-span-2 flex flex-row justify-start gap-4 font-bold text-lg
         text-left isolate transform overflow-hidden w-full"
         >
           {guides.specials.map((guide, i) => (

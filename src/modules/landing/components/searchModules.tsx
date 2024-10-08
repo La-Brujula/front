@@ -8,7 +8,10 @@ export const SearchModules = () => {
   const { t } = useTranslation(['landing', 'search']);
   return (
     <>
-      <Container bg="lightblue">
+      <Container bg="light">
+        <h3 className="text-secondary font-bold text-xl mb-4">
+          {t('Buscador')}
+        </h3>
         <h3 className="text-primary font-bold text-xl mb-4">
           {t('contactCTA')}
         </h3>

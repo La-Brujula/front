@@ -29,7 +29,7 @@ export const PorCategorias = ({
               className="h-16 mb-6 hidden lg:block"
               loading="lazy"
             />
-            <span>{t(cat.label)}</span>
+            <span className="text-center">{t(cat.label)}</span>
           </Link>
         ))}
     </div>
