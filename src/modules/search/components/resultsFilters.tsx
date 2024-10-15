@@ -1,6 +1,6 @@
 import genders from '@shared/constants/genders.json';
 import regiones from '@shared/constants/regiones.json';
-import { EventHandler, useState } from 'react';
+import { useState } from 'react';
 import { ExtraFilters } from './extraFilters';
 import { Search } from '../types/searchParams';
 import Input from '@/shared/components/input';
@@ -14,9 +14,14 @@ const LOCATION_SELECT_ITEMS = regiones?.flatMap((region) => {
   const estados = region.estados?.map((estado) => ({
     key: estado,
     label: estado,
+    className: '!pl-6',
   }));
   return [
-    { key: region.nombre, label: region.nombre, className: '!font-bold' },
+    {
+      key: region.nombre,
+      label: region.nombre,
+      className: '!font-bold !uppercase',
+    },
     ...estados,
   ];
 });

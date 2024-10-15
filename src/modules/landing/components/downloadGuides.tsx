@@ -18,7 +18,7 @@ function DownloadGuides() {
   const { t } = useTranslation('landing');
   return (
     <Container bg="lightblue">
-      <div className="grid grid-cols-1 gap-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         <div className="text-left flex flex-row justify-end w-full">
           <div className="md:max-w-lg">
             <h2 className="">
@@ -33,7 +33,7 @@ function DownloadGuides() {
           </div>
         </div>
         <div
-          className="grid-cols-2 md:grid-flow-col grid justify-end gap-4 font-bold text-lg
+          className="grid-cols-2 md:flex md:flex-row md:col-span-2 grid justify-end gap-4 font-bold text-lg
         text-right isolate transform overflow-hidden w-full"
         >
           <Strip

@@ -20,6 +20,17 @@ export const SearchModules = () => {
         </div>
       </Container>
       <Container bg="light">
+        <div className="flex justify-center items-center">
+          <iframe
+            src="https://player.vimeo.com/video/1014498180?autoplay=1&muted=1&controls=0&loop=1"
+            width="640"
+            height="360"
+            frameBorder="0"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </Container>
+      <Container bg="light">
         <h3 className="text-lg">{t('¿No encuentras lo que buscas?')}</h3>
         <p className="mb-8">
           {t('Intenta buscando entre nuestras categorías')}
