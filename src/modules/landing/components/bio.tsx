@@ -5,6 +5,9 @@ function BrujulaBio() {
   const { t } = useTranslation('landing');
   return (
     <Container bg="primary">
+      <p className="grow w-full font-medium text-center text-white text-5xl">
+        🇲🇽 🇨🇴
+      </p>
       <p className="grow w-full font-medium text-lg text-justify text-white">
         <Trans
           i18nKey="landingParagraph"

@@ -1,13 +1,24 @@
+import Input from '@/shared/components/input';
 import { SearchOutlined } from '@mui/icons-material';
 import { useNavigate } from '@tanstack/react-router';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import CountryFlag from '@/shared/components/countryFlag';
+
+const COUNTRIES = (
+  ['MX', 'CO', 'AR', 'US'] as (keyof typeof CountryFlag)[]
+).map((country) => ({
+  key: country,
+  label: <CountryFlag country={country} />,
+  className: '!text-5xl',
+}));
 
 export const NameSearchField = () => {
   const { t } = useTranslation('landing');
   const { register, handleSubmit } = useForm({
     defaultValues: {
       search: '',
+      location: 'MX',
     },
   });
 
@@ -20,11 +31,11 @@ export const NameSearchField = () => {
       onSubmit={handleSubmit((values) => {
         navigate({
           to: '/search',
-          search: { query: values.search },
+          search: { query: values.search, location: values.location },
           resetScroll: true,
         });
       })}
-      className="grid grid-cols-[1fr_min-content] lg:grid-cols-[1fr_min-content]
+      className="grid grid-cols-[1fr_min-content_min-content]
       gap-4 justify-items-stretch flex-grow w-full
       bg-primary p-4 rounded-lg"
       style={{ fontWeight: '700' }}
@@ -46,6 +57,15 @@ export const NameSearchField = () => {
           zIndex: 1,
         }}
         placeholder={t('search')}
+      />
+      <Input
+        type="select"
+        register={register}
+        label={''}
+        fieldName="location"
+        defaultValue={'MX'}
+        items={COUNTRIES}
+        inputClass="!text-5xl *:!py-0"
       />
       <button
         type="submit"

@@ -10,21 +10,28 @@ import { useTranslation } from 'react-i18next';
 import { UseFormRegister } from 'react-hook-form';
 import ActivityFilter from './activityFilter';
 
-const LOCATION_SELECT_ITEMS = regiones?.flatMap((region) => {
-  const estados = region.estados?.map((estado) => ({
-    key: estado,
-    label: estado,
-    className: '!pl-6',
-  }));
-  return [
-    {
-      key: region.nombre,
-      label: region.nombre,
-      className: '!font-bold !uppercase',
-    },
-    ...estados,
-  ];
-});
+const LOCATION_SELECT_ITEMS = [
+  {
+    key: 'MX',
+    label: 'MX',
+    className: '!font-bold text-2xl !uppercase',
+  },
+  ...regiones?.flatMap((region) => {
+    const estados = region.estados?.map((estado) => ({
+      key: estado,
+      label: estado,
+      className: '!pl-6',
+    }));
+    return [
+      {
+        key: region.nombre,
+        label: region.nombre,
+        className: '!font-bold !uppercase',
+      },
+      ...estados,
+    ];
+  }),
+];
 
 export const ResultsFilter = (props: {
   filters: Search;

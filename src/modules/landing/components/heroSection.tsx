@@ -22,7 +22,7 @@ function HeroSection() {
             de México.
           </Trans>
         </h1>
-        <div className="flex items-end justify-start h-full w-full">
+        <div className="flex items-end justify-start md:items-start lg:items-end h-full w-full">
           <img
             src={import.meta.env.BASE_URL + 'img/Logo14anos.svg'}
             alt={t('14YearsBruj')}
