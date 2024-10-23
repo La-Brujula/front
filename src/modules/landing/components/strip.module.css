@@ -1,10 +1,10 @@
 .strip {
-  @apply flex rounded-2xl overflow-hidden h-16 content-end
-    transform transition-all duration-300 relative isolate items-end;
+  @apply flex rounded-2xl overflow-hidden h-16 content-start
+    transform transition-all duration-300 relative isolate items-start;
 }
 
 .brujulas {
-  @apply grid grid-cols-3 gap-0 absolute top-0 bg-primary
+  @apply grid grid-cols-3 gap-0 absolute bottom-0 bg-primary
   w-full items-center justify-center -z-10 h-20;
 }
 

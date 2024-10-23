@@ -1,27 +1,27 @@
 {
   "regional": [
     {
-      "name": "Occidente",
+      "name": "MX - Occidente",
       "thumbnail": "/guias/thumbnails/Portada_Occidente.jpeg",
       "link": "/guias/pdfs/La_Brujula_2024_OCCIDENTE.pdf"
     },
     {
-      "name": "Centro",
+      "name": "MX - Centro",
       "thumbnail": "/guias/thumbnails/Portada_Centro.jpeg",
       "link": "/guias/pdfs/La_Brujula_2024_CENTRO.pdf"
     },
     {
-      "name": "Norte",
+      "name": "MX - Norte",
       "thumbnail": "/guias/thumbnails/Portada_Norte.jpeg",
       "link": "/guias/pdfs/La_Brujula_2024_NORTE.pdf"
     },
     {
-      "name": "Noreste",
+      "name": "MX - Noreste",
       "thumbnail": "/guias/thumbnails/Portada_Noroeste.jpeg",
       "link": "/guias/pdfs/La_Brujula_2024_NOROESTE.pdf"
     },
     {
-      "name": "Sureste",
+      "name": "MX - Sureste",
       "thumbnail": "/guias/thumbnails/Portada_Sureste.jpeg",
       "link": "/guias/pdfs/La_Brujula_2024_SURESTE.pdf"
     }

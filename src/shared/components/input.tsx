@@ -1,4 +1,11 @@
-import React, { HTMLInputTypeAttribute, useMemo } from 'react';
+import {
+  FormControl,
+  InputLabel,
+  ListSubheader,
+  MenuItem,
+  Select,
+} from '@mui/material';
+import React, { HTMLInputTypeAttribute, useMemo, useState } from 'react';
 import {
   FieldError,
   FieldValues,
@@ -39,7 +46,7 @@ type InputProps<
     : Type extends 'select'
       ? {
           type: 'select';
-          items: { key: string; label: string }[];
+          items: { key: string; label: string; className?: string }[];
         }
       : Type extends 'groupedSelect'
         ? {
@@ -90,35 +97,31 @@ function buildGroupedSelect<T extends FieldValues>(
   registerReturn: UseFormRegisterReturn
 ) {
   return (
-    <select
-      {...registerReturn}
-      id={props.fieldName}
-      className={props.inputClass}
-      required={props.required}
-      defaultValue=""
-    >
-      <option
-        value=""
-        unselectable="on"
+    <FormControl size="small">
+      <InputLabel>{props.label}</InputLabel>
+      <Select
+        {...registerReturn}
+        id={props.fieldName}
+        className={props.inputClass}
+        required={props.required}
+        defaultValue=""
+        label={props.label}
       >
-        {props.label}
-      </option>
-      {Object.entries(props.groupedItems).map(([group, items]) => (
-        <optgroup
-          key={group}
-          label={group}
-        >
-          {items.map(({ key, label }) => (
-            <option
-              key={key}
-              value={key}
-            >
-              {label}
-            </option>
-          ))}
-        </optgroup>
-      ))}
-    </select>
+        {Object.entries(props.groupedItems).map(([group, items]) => (
+          <>
+            <ListSubheader>{group}</ListSubheader>
+            {items.map(({ key, label }) => (
+              <MenuItem
+                key={key}
+                value={key}
+              >
+                {label}
+              </MenuItem>
+            ))}
+          </>
+        ))}
+      </Select>
+    </FormControl>
   );
 }
 
@@ -127,28 +130,27 @@ function buildSelect<T extends FieldValues>(
   registerReturn: UseFormRegisterReturn
 ) {
   return (
-    <select
-      {...registerReturn}
-      id={props.fieldName}
-      className={props.inputClass}
-      required={props.required}
-      defaultValue=""
-    >
-      <option
-        value=""
-        unselectable="on"
+    <FormControl size="small">
+      <InputLabel>{props.label}</InputLabel>
+      <Select
+        {...registerReturn}
+        id={props.fieldName}
+        className={props.inputClass}
+        required={props.required}
+        defaultValue=""
+        label={props.label}
       >
-        {props.label}
-      </option>
-      {props.items.map(({ key, label }) => (
-        <option
-          key={key}
-          value={key}
-        >
-          {label}
-        </option>
-      ))}
-    </select>
+        {props.items.map(({ key, label, className }) => (
+          <MenuItem
+            key={key}
+            value={key}
+            className={className}
+          >
+            {label}
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
   );
 }
 
