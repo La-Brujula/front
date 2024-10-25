@@ -5,7 +5,7 @@ function HeroSection() {
   const { t } = useTranslation('landing');
   return (
     <Container bg="primary">
-      <div className="grid grid-cols-2 gap-4 lg:gap-16 text-white pb-2 pt-0 xl:py-8 items-center ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-16 text-white pb-2 pt-0 xl:py-8 items-center">
         <h1 className="font-bold text-3xl md:text-6xl lg:text-5xl leading-tight text-start">
           <Trans
             i18nKey="heroTitle"
@@ -22,7 +22,7 @@ function HeroSection() {
             de México.
           </Trans>
         </h1>
-        <div className="flex items-end justify-start md:items-start lg:items-end h-full w-full">
+        <div className="flex items-center justify-center lg:items-end h-full w-full">
           <img
             src={import.meta.env.BASE_URL + 'img/Logo14anos.svg'}
             alt={t('14YearsBruj')}
