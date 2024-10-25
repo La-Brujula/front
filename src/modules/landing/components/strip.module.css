@@ -42,7 +42,7 @@
   }
 
   .textTag {
-    @apply h-full w-20 flex items-center justify-start self-end;
+    @apply h-full w-24 flex items-center justify-start self-end;
     writing-mode: vertical-lr;
   }
 }
