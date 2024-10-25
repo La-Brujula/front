@@ -1,7 +1,7 @@
 [
   {
     "id": 0,
-    "nombre": "Noroeste",
+    "nombre": "MX - Noroeste",
     "estados": [
       "Baja California",
       "Baja California Sur",
@@ -13,7 +13,7 @@
   },
   {
     "id": 1,
-    "nombre": "Norte",
+    "nombre": "MX - Norte",
     "estados": [
       "Coahuila",
       "Durango",
@@ -24,7 +24,7 @@
     ]
   },
   {
-    "nombre": "Occidente",
+    "nombre": "MX - Occidente",
     "id": 2,
     "estados": [
       "Aguascalientes",
@@ -36,7 +36,7 @@
     ]
   },
   {
-    "nombre": "Centro",
+    "nombre": "MX - Centro",
     "id": 3,
     "estados": [
       "CDMX",
@@ -48,7 +48,7 @@
     ]
   },
   {
-    "nombre": "Sureste",
+    "nombre": "MX - Sureste",
     "id": 4,
     "estados": [
       "Campeche",
