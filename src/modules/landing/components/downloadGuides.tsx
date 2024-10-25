@@ -12,6 +12,7 @@ const BrujulasColors = {
   sureste: ['#A6C37A', '#00933D', '#41A85A', '#00592D'],
   guanajuato: ['#384c72', '#2c3059', '#a7ccf1', '#5776b7'],
   aguascalientes: ['#d09239', '#aa5f2a', '#e8ca9b', '#d29776'],
+  colombia: ['#8d1630', '#e7254d', '#b41d40', '#cc1f3c'],
 };
 
 function DownloadGuides() {
@@ -33,7 +34,7 @@ function DownloadGuides() {
           </div>
         </div>
         <div
-          className="grid-cols-2 md:flex md:flex-row md:col-span-2 grid justify-end gap-4 font-bold text-lg
+          className="grid-cols-1 sm:grid-cols-2 md:flex md:flex-row md:col-span-2 grid justify-end gap-4 font-bold text-lg
         text-right isolate transform overflow-hidden w-full"
         >
           <Strip
@@ -61,12 +62,16 @@ function DownloadGuides() {
             label={t('Sureste')}
             link="/guias/pdfs/La_Brujula_2024_SURESTE.pdf"
           />
+          <Strip
+            colors={BrujulasColors.colombia}
+            label={t('Colombia')}
+          />
         </div>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 mt-16 gap-4">
         <div className="text-left flex lg:order-last flex-row justify-end w-full">
           <div className="text-left">
-            <h2 className="">
+            <h2 className="text-xl">
               <Trans
                 i18nKey="specialGuides"
                 t={t}
@@ -78,7 +83,7 @@ function DownloadGuides() {
           </div>
         </div>
         <div
-          className="lg:col-span-2 flex flex-row justify-start gap-4 font-bold text-lg
+          className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 md:flex flex-row justify-start gap-4 font-bold text-lg
         text-left isolate transform overflow-hidden w-full"
         >
           {guides.specials.map((guide, i) => (
