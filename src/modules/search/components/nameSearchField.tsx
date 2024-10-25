@@ -5,13 +5,13 @@ import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import CountryFlag from '@/shared/components/countryFlag';
 
-const COUNTRIES = (
-  ['MX', 'CO', 'AR', 'US'] as (keyof typeof CountryFlag)[]
-).map((country) => ({
-  key: country,
-  label: <CountryFlag country={country} />,
-  className: '!text-5xl',
-}));
+const COUNTRIES = (['MX', 'CO', 'AR'] as (keyof typeof CountryFlag)[]).map(
+  (country) => ({
+    key: country,
+    label: <CountryFlag country={country} />,
+    className: '!text-5xl',
+  })
+);
 
 export const NameSearchField = () => {
   const { t } = useTranslation('landing');

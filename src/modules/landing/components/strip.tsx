@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import stripStyles from './strip.module.css';
 
 let Brujula = ({
@@ -32,14 +33,17 @@ let Brujula = ({
   </div>
 );
 
-function Strip(props: { colors: string[]; link: string; label: string }) {
+function Strip(props: { colors: string[]; link?: string; label: string }) {
+  const { t } = useTranslation('landing');
   const { colors, link, label } = props;
-  return (
+  return link !== undefined ? (
     <a
       href={link}
-      target="__blank"
-      download
+      target={link !== undefined ? '__blank' : undefined}
+      download={link !== undefined}
+      data-link={link !== undefined ? 'linked' : 'none'}
       className={stripStyles.strip}
+      aria-disabled={link !== undefined}
     >
       <div className={stripStyles.brujulas}>
         <Brujula
@@ -65,6 +69,38 @@ function Strip(props: { colors: string[]; link: string; label: string }) {
         <span className="cursor-events-none px-2 py-4">{label}</span>
       </div>
     </a>
+  ) : (
+    <div
+      data-link={link !== undefined ? 'linked' : 'none'}
+      className={stripStyles.strip}
+    >
+      <div className={stripStyles.brujulas}>
+        <Brujula
+          color={colors[0]}
+          backgroundColor={colors[2]}
+          className={stripStyles.brujula}
+        />
+        <Brujula
+          color={colors[1]}
+          backgroundColor={colors[3]}
+          className={stripStyles.brujula}
+        />
+        <Brujula
+          color={colors[2]}
+          backgroundColor={colors[0]}
+          className={stripStyles.brujula}
+        />
+        <div className="absolute text-white [writing-mode:vertical-lr] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          {t('Próximamente')}
+        </div>
+      </div>
+      <div
+        className={stripStyles.textTag}
+        style={{ backgroundColor: colors[1] }}
+      >
+        <span className="cursor-events-none px-2 py-4">{label}</span>
+      </div>
+    </div>
   );
 }
 
