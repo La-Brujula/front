@@ -70,6 +70,8 @@ function AreasRegistration() {
   const { mutate, isPending, error: mutateError } = useUpdateMe();
 
   const changeListener = (index: number) => (activity: string) => {
+    console.log(index, activity);
+
     dispatch({ type: 'change', index: index, item: activity });
   };
 

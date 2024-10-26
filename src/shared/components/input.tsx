@@ -5,7 +5,7 @@ import {
   MenuItem,
   Select,
 } from '@mui/material';
-import React, { HTMLInputTypeAttribute, useMemo, useState } from 'react';
+import React, { HTMLInputTypeAttribute, useMemo } from 'react';
 import {
   FieldError,
   FieldValues,
@@ -137,7 +137,7 @@ function buildSelect<T extends FieldValues>(
         id={props.fieldName}
         className={props.inputClass}
         required={props.required}
-        defaultValue=""
+        defaultValue={props.value}
         label={props.label}
       >
         {props.items.map(({ key, label, className }) => (
