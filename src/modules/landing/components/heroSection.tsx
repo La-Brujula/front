@@ -26,7 +26,7 @@ function HeroSection() {
           <img
             src={import.meta.env.BASE_URL + 'img/Logo14anos.svg'}
             alt={t('14YearsBruj')}
-            className="h-20 lg:h-32"
+            className="h-24 lg:h-32"
           />
         </div>
       </div>
