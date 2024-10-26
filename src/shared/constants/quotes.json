@@ -1,5 +1,11 @@
 [
   {
+    "imageUrl": "/quotes/yalitza.jpeg",
+    "name": "Yalitza Aparicio",
+    "title": "Galardonada actriz mexicana",
+    "quote": "Yalitza ya usa la brújula"
+  },
+  {
     "imageUrl": "/quotes/avelino.jpg",
     "name": "Avelino Rodríguez",
     "title": "Director de Thelift y Presidente de CANACINE",
