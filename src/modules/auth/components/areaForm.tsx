@@ -13,9 +13,9 @@ import { RegisterOptions, UseFormRegister, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 type AreasForm = {
-  area: keyof typeof areas;
-  subarea: string;
-  activity: string;
+  area: keyof typeof areas | '';
+  subarea: string | '';
+  activity: string | '';
 };
 
 export const AreaForms = ({
@@ -29,13 +29,12 @@ export const AreaForms = ({
 }) => {
   const { register, watch, setValue } = useForm<AreasForm>({
     defaultValues: {
-      area: defaultValue ? getAreaFromId(defaultValue) : undefined,
-      subarea: defaultValue ? getSubAreaFromId(defaultValue) : undefined,
-      activity: defaultValue || undefined,
+      area: defaultValue ? getAreaFromId(defaultValue) : '',
+      subarea: defaultValue ? getSubAreaFromId(defaultValue) : '',
+      activity: defaultValue || '',
     },
   });
-  const formArea = watch('area');
-  const formSubarea = watch('subarea');
+  const formValues = watch();
 
   const { t } = useTranslation('auth');
 
@@ -93,24 +92,27 @@ export const AreaForms = ({
 
   const validSubareas = useMemo(
     () =>
-      !!formArea
-        ? Object.keys(areas[formArea])
+      !!formValues.area
+        ? Object.keys(areas[formValues.area])
             .map(
               (subarea) =>
-                subareaHasValid(formArea, subarea) && {
+                formValues.area !== '' &&
+                subareaHasValid(formValues.area, subarea) && {
                   key: subarea,
                   label: subarea,
                 }
             )
             .filter((v) => !!v)
         : [],
-    [subareaHasValid, formArea]
+    [subareaHasValid, formValues.area]
   );
 
   const validActivities = useMemo(
     () =>
-      !!formArea && !!formSubarea
-        ? Object.keys(getSubAreaObjectByName(formArea, formSubarea))
+      !!formValues.area && !!formValues.subarea
+        ? Object.keys(
+            getSubAreaObjectByName(formValues.area, formValues.subarea)
+          )
             .map(
               (activity) =>
                 getTitle(activity, gender) && {
@@ -120,7 +122,7 @@ export const AreaForms = ({
             )
             .filter((v) => !!v)
         : [],
-    [formArea, formSubarea, gender]
+    [formValues.area, formValues.subarea, gender]
   );
 
   return (
@@ -129,16 +131,18 @@ export const AreaForms = ({
         label={t('Área')}
         type="select"
         register={areaRegister}
+        value={formValues.area}
         fieldName="area"
         placeholder={t('Selecciona una opción')}
         items={validAreas}
         inputClass="w-full"
         divClass="w-full"
       />
-      {!!formArea && (
+      {!!formValues.area && (
         <Input
           type="select"
           fieldName="subarea"
+          value={formValues.subarea}
           label={t('Subarea')}
           register={subareaRegister}
           placeholder={t('Selecciona una opción')}
@@ -147,7 +151,7 @@ export const AreaForms = ({
           divClass="w-full"
         />
       )}
-      {!!formArea && !!formSubarea && (
+      {!!formValues.area && !!formValues.subarea && (
         <Input
           fieldName="activity"
           label={t('Actividad')}
@@ -155,9 +159,10 @@ export const AreaForms = ({
           placeholder={t('Selecciona una opción')}
           type="select"
           items={validActivities}
+          value={formValues.activity}
           inputClass="w-full"
           divClass="w-full"
-          onChange={(ev) => changeListener(ev.currentTarget.value)}
+          onChange={(ev) => changeListener(ev.target.value)}
         />
       )}
     </div>
