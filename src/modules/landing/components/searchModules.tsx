@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { NameSearchField } from '@modules/search/components/nameSearchField';
 import categories from '@shared/constants/categories.json';
 import { PorCategorias } from '@/modules/search/components/categorias';
+import { LoginOrProfile } from './loginOrProfile';
 
 export const SearchModules = () => {
   const { t } = useTranslation(['landing', 'search']);
@@ -30,6 +31,7 @@ export const SearchModules = () => {
           ></iframe>
         </div>
       </Container>
+      <LoginOrProfile />
       <Container bg="light">
         <h3 className="text-lg">{t('¿No encuentras lo que buscas?')}</h3>
         <p className="mb-8">
