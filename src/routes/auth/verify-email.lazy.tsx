@@ -17,15 +17,14 @@ function VerifyEmail() {
   const { data: user, isLoading, error } = useCurrentProfile();
   const navigate = useNavigate();
   useEffect(() => {
-    if (user !== undefined) {
+    if (!!user?.id) {
       verifyEmail(code).then((verifyRes) => {
         if (verifyRes.isSuccess) {
           navigate({ to: '/profile/$userId', params: { userId: 'me' } });
         }
       });
     }
-    return () => {};
-  }, [user, isLoading]);
+  }, [user, code, navigate]);
 
   return (
     <Container
