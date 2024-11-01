@@ -1606,6 +1606,11 @@ convert-source-map@^2.0.0:
   resolved "https://registry.yarnpkg.com/convert-source-map/-/convert-source-map-2.0.0.tgz#4b560f649fc4e918dd0ab75cf4961e8bc882d82a"
   integrity sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==
 
+core-js@^3.38.1:
+  version "3.38.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.38.1.tgz#aa375b79a286a670388a1a363363d53677c0383e"
+  integrity sha512-OP35aUorbU3Zvlx7pjsFdu1rGNnD4pgw/CWoYzRY3t2EzoVT7shKHY1dlAy3f41cGIO7ZDPQimhGFTlEYkG/Hw==
+
 core-util-is@~1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.3.tgz#a6042d3634c2b27e9328f837b965fac83808db85"
@@ -3494,14 +3499,15 @@ postcss@^8.4.23, postcss@^8.4.35, postcss@^8.4.38:
     picocolors "^1.0.0"
     source-map-js "^1.2.0"
 
-posthog-js@^1.144.0:
-  version "1.144.0"
-  resolved "https://registry.yarnpkg.com/posthog-js/-/posthog-js-1.144.0.tgz#0b881a698f5a7175ba822b4fcc0a7e4a1ee9b4e9"
-  integrity sha512-MkouL8cn2Z5s+JwFd4RS+93mFyu7uxnZfp9H2wj0HPf4oeXiJ1ZyhTeCZ3hPXu0H8A2lCXwGFzsoQEMjxiqXBQ==
+posthog-js@^1.177.0:
+  version "1.177.0"
+  resolved "https://registry.yarnpkg.com/posthog-js/-/posthog-js-1.177.0.tgz#58c4c56bf25af3ff5df5837df50b0d1f279d84df"
+  integrity sha512-0Qt3qTkyfsFW89bveqEzYhhX8YRNFAES9OqhzuxbvbHId/PSyxx/Pzgmgp+N5k45lon3ibwYRAbTlQ4yQacODQ==
   dependencies:
+    core-js "^3.38.1"
     fflate "^0.4.8"
     preact "^10.19.3"
-    web-vitals "^4.0.1"
+    web-vitals "^4.2.0"
 
 preact@^10.19.3:
   version "10.22.1"
@@ -4434,10 +4440,10 @@ walk-sync@^2.2.0:
     matcher-collection "^2.0.0"
     minimatch "^3.0.4"
 
-web-vitals@^4.0.1:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/web-vitals/-/web-vitals-4.2.1.tgz#67eec387ddd0ef4c25574a01ab9dae723eee2b97"
-  integrity sha512-U6bAxeudnhDqcXNl50JC4hLlqox9DZnngxfISZm3DMZnonW35xtJOVUc091L+DOY+6hVZVpKXoiCP0RiT6339Q==
+web-vitals@^4.2.0:
+  version "4.2.4"
+  resolved "https://registry.yarnpkg.com/web-vitals/-/web-vitals-4.2.4.tgz#1d20bc8590a37769bd0902b289550936069184b7"
+  integrity sha512-r4DIlprAGwJ7YM11VZp4R884m0Vmgr6EAKe3P+kO0PPj3Unqyvv59rczf6UiGcb9Z8QxZVcqKNwv/g0WNdWwsw==
 
 webpack-sources@^3.2.3:
   version "3.2.3"

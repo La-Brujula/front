@@ -46,7 +46,6 @@ function SearchHomepage() {
   const {
     register,
     watch,
-    handleSubmit,
     reset: formReset,
     setValue,
     control,
@@ -75,9 +74,9 @@ function SearchHomepage() {
   );
 
   useEffect(() => {
-    const subscription = watch((data) => handleSubmit(onSubmit)());
+    const subscription = watch((data) => onSubmit(data));
     return () => subscription.unsubscribe();
-  }, [onSubmit, handleSubmit, watch]);
+  }, [onSubmit, watch]);
 
   const { t } = useTranslation('search');
 

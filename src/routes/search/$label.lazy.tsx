@@ -27,15 +27,16 @@ export const Route = createLazyFileRoute('/search/$label')({
  */
 
 function SubCategoryPage() {
-  const { label } = useParams({ from: '/search/$label' });
-  const { search } = useSearch({ from: '/search/$label' });
+  const { label } = Route.useParams();
+  const { area, category, activities } = Route.useSearch();
   const { locale } = useLocalization();
-
-  const navigate = useNavigate();
 
   const { t } = useTranslation('search');
 
-  if (search === null || label === undefined)
+  if (
+    (area === '' && category === '' && activities === '') ||
+    label === undefined
+  )
     return (
       <ErrorMessage
         message={t('Algo salió mal, por favor vuelve a casa AE00')}
@@ -53,77 +54,74 @@ function SubCategoryPage() {
     link: string;
     search: object;
   }[] => {
-    let area: TArea | undefined, subarea: TSubArea | undefined;
-    switch (search.length) {
-      case 1:
-        // Es una categoría
-        area = areas!.find((area) => area.id.toString() == search);
-        if (area === undefined) throw 'Something went wrong! AE01';
-        return area.subareas.map((subarea) => ({
-          name: subarea.name,
-          link: `/search/${subarea.name}`,
-          search: { search: subarea.id },
-        }));
-      case 3:
-        // Es una sub-categoría
-        area = areas!.find((area) => area.id.toString() == search.charAt(0));
-        if (area === undefined) throw 'Something went wrong! AE01';
-        subarea = area.subareas.find(
-          (subarea) => subarea.id.toString() == search
-        );
-        if (subarea === undefined) throw 'Something went wrong! AE02';
-        return subarea.activities.map((activity) => {
-          const activityName: string =
-            activity.genders
-              .find((v) => v.gender == 'Alias Genérico')
-              ?.titles.find((title) => title.language == locale)?.title ||
-            activity.id;
-          return {
-            name: activityName,
-            link: `/search/${activityName}`,
-            search: { search: activity.id },
-          };
-        });
-      case 6:
-        navigate({
-          to: '/search',
-          search: { activity: search, category: search.slice(0, 3) },
-          resetScroll: true,
-        });
-        return [];
-      default:
-        // Es una lista de actividades
-        return search.split(' ').map((activityId: string) => {
-          const areaId = activityId.charAt(0),
-            subareaId = activityId.slice(0, 3);
-
-          const area = areas.find((area) => area.id == areaId);
-          if (area === undefined) throw 'Something went wrong! AE01';
-          const subarea = area.subareas.find(
-            (subarea) => subarea.id == subareaId
-          );
-          if (subarea === undefined) throw 'Something went wrong! AE02';
-          const activity = subarea.activities.find(
-            (activity) => activity.id == activityId
-          );
-          if (activity === undefined) throw 'Something went wrong! AE03';
-
-          const neutralAlias = activity.genders.find(
-            (gender) => gender.gender == 'Alias Genérico'
-          );
-          if (neutralAlias === undefined) throw 'Something went wrong! AE04';
-          const localeLanguage = neutralAlias.titles.find(
-            (title) => title.language == locale
-          );
-          if (localeLanguage === undefined) throw 'Something went wrong! AE05';
-          return {
-            name: localeLanguage.title || activityId,
-            link: '/search',
-            search: { activity: activityId, category: activityId.slice(0, 3) },
-          };
-        });
+    let areaObj: TArea | undefined, subareaObj: TSubArea | undefined;
+    if (area !== '') {
+      areaObj = areas!.find((currArea) => currArea.id.toString() == area);
+      if (areaObj === undefined) throw 'Something went wrong! AE01';
+      return areaObj.subareas.map((subarea) => ({
+        name: subarea.name,
+        link: `/search/${subarea.name}`,
+        search: { category: subarea.id, area: subarea.id.charAt(0) },
+      }));
     }
-  }, [search]);
+    if (category !== '') {
+      areaObj = areas!.find((area) => area.id.toString() == category.charAt(0));
+      if (areaObj === undefined) throw 'Something went wrong! AE01';
+      subareaObj = areaObj.subareas.find(
+        (subarea) => subarea.id.toString() == category
+      );
+      if (subareaObj === undefined) throw 'Something went wrong! AE02';
+      return subareaObj.activities.map((activity) => {
+        const activityName: string =
+          activity.genders
+            .find((v) => v.gender == 'Alias Genérico')
+            ?.titles.find((title) => title.language == locale)?.title ||
+          activity.id;
+        return {
+          name: activityName,
+          link: `/search`,
+          search: {
+            activity: activity.id,
+            category: activity.id.slice(0, 3),
+            area: activity.id.charAt(0),
+          },
+        };
+      });
+    }
+    return activities.split(' ').map((activityId: string) => {
+      const areaId = activityId.charAt(0),
+        subareaId = activityId.slice(0, 3);
+
+      const areaObj = areas.find((area) => area.id == areaId);
+      if (areaObj === undefined) throw 'Something went wrong! AE01';
+      const subarea = areaObj.subareas.find(
+        (subarea) => subarea.id == subareaId
+      );
+      if (subarea === undefined) throw 'Something went wrong! AE02';
+      const activity = subarea.activities.find(
+        (activity) => activity.id == activityId
+      );
+      if (activity === undefined) throw 'Something went wrong! AE03';
+
+      const neutralAlias = activity.genders.find(
+        (gender) => gender.gender == 'Alias Genérico'
+      );
+      if (neutralAlias === undefined) throw 'Something went wrong! AE04';
+      const localeLanguage = neutralAlias.titles.find(
+        (title) => title.language == locale
+      );
+      if (localeLanguage === undefined) throw 'Something went wrong! AE05';
+      return {
+        name: localeLanguage.title || activityId,
+        link: '/search',
+        search: {
+          activity: activityId,
+          category: activityId.slice(0, 3),
+          area: activityId.charAt(0),
+        },
+      };
+    });
+  }, [area, category, activities]);
 
   return (
     <Container>

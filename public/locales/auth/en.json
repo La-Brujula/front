@@ -25,6 +25,7 @@
   "Tu correo electrónico será tu nombre de usuario": "Your email will become your ",
   "Escribe una contraseña": "Enter a password",
   "La contraseña debe tener al menos 8 caracteres": "The password must be at least 8 characters long",
+  "Confirma tu contraseña": "Confirm your password",
   "confirmPassword": "Confirm Password",
   "¿Eres persona física o persona moral?": "Are you an individual or a company/institution?",
   "Registering with": "Reference code:<1></1><2>{{referal}}</2>",

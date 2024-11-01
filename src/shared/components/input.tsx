@@ -1,10 +1,4 @@
-import {
-  FormControl,
-  InputLabel,
-  ListSubheader,
-  MenuItem,
-  Select,
-} from '@mui/material';
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import React, { HTMLInputTypeAttribute, useMemo } from 'react';
 import {
   FieldError,
@@ -104,12 +98,12 @@ function buildGroupedSelect<T extends FieldValues>(
         id={props.fieldName}
         className={props.inputClass}
         required={props.required}
-        defaultValue=""
+        value={props.value}
         label={props.label}
       >
         {Object.entries(props.groupedItems).map(([group, items]) => (
           <>
-            <ListSubheader>{group}</ListSubheader>
+            {/* <ListSubheader>{group}</ListSubheader> */}
             {items.map(({ key, label }) => (
               <MenuItem
                 key={key}
@@ -137,7 +131,7 @@ function buildSelect<T extends FieldValues>(
         id={props.fieldName}
         className={props.inputClass}
         required={props.required}
-        defaultValue={props.value}
+        value={props.value}
         label={props.label}
       >
         {props.items.map(({ key, label, className }) => (

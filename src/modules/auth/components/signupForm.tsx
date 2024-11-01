@@ -110,7 +110,7 @@ export const SignUpForm = (props: { referal?: string }) => {
           helperText={t('La contraseña debe tener al menos 8 caracteres')}
         />
         <Input
-          label={t('Escribe una contraseña')}
+          label={t('Confirma tu contraseña')}
           type="password"
           fieldName="confirmPassword"
           placeholder={t('confirmPassword')}

@@ -34,6 +34,7 @@ export function ExtraFilters({
             { key: 'moral', label: 'Moral' },
             { key: 'fisica', label: 'Física' },
           ]}
+          value={filters.type}
         />
       </div>
       {/* Idioma */}
@@ -51,6 +52,7 @@ export function ExtraFilters({
             })),
             { key: 'other', label: t('Otro', { ns: 'languages' }) },
           ]}
+          value={filters.language}
         />
         {!!filters.language && !languages.includes(filters.language) && (
           <Input

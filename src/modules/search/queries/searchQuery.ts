@@ -32,7 +32,7 @@ export const searchQueryOptions = (search: Search) =>
       return getFetch<UserDTO[]>('/profiles', {
         params: {
           ...search,
-          activity: search.activity || search.category,
+          activity: search.activity || search.category || search.area,
           offset: queryParams.pageParam,
         },
         signal: queryParams.signal,
