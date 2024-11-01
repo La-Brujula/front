@@ -1,10 +1,4 @@
-import {
-  FormControl,
-  InputLabel,
-  ListSubheader,
-  MenuItem,
-  Select,
-} from '@mui/material';
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import React, { HTMLInputTypeAttribute, useMemo } from 'react';
 import {
   FieldError,
@@ -96,23 +90,6 @@ function buildGroupedSelect<T extends FieldValues>(
   props: InputProps<'groupedSelect', T>,
   registerReturn: UseFormRegisterReturn
 ) {
-  const options = useMemo(
-    () =>
-      Object.entries(props.groupedItems).map(([group, items]) => (
-        <>
-          {/* <ListSubheader>{group}</ListSubheader> */}
-          {items.map(({ key, label }) => (
-            <MenuItem
-              key={key}
-              value={key}
-            >
-              {label}
-            </MenuItem>
-          ))}
-        </>
-      )),
-    [props.groupedItems]
-  );
   return (
     <FormControl size="small">
       <InputLabel>{props.label}</InputLabel>
@@ -124,7 +101,19 @@ function buildGroupedSelect<T extends FieldValues>(
         value={props.value}
         label={props.label}
       >
-        {options}
+        {Object.entries(props.groupedItems).map(([group, items]) => (
+          <>
+            {/* <ListSubheader>{group}</ListSubheader> */}
+            {items.map(({ key, label }) => (
+              <MenuItem
+                key={key}
+                value={key}
+              >
+                {label}
+              </MenuItem>
+            ))}
+          </>
+        ))}
       </Select>
     </FormControl>
   );
@@ -134,19 +123,6 @@ function buildSelect<T extends FieldValues>(
   props: InputProps<'select', T>,
   registerReturn: UseFormRegisterReturn
 ) {
-  const options = useMemo(
-    () =>
-      props.items.map(({ key, label, className }) => (
-        <MenuItem
-          key={key}
-          value={key}
-          className={className}
-        >
-          {label}
-        </MenuItem>
-      )),
-    [props.items]
-  );
   return (
     <FormControl size="small">
       <InputLabel>{props.label}</InputLabel>
@@ -158,7 +134,15 @@ function buildSelect<T extends FieldValues>(
         value={props.value}
         label={props.label}
       >
-        {options}
+        {props.items.map(({ key, label, className }) => (
+          <MenuItem
+            key={key}
+            value={key}
+            className={className}
+          >
+            {label}
+          </MenuItem>
+        ))}
       </Select>
     </FormControl>
   );
