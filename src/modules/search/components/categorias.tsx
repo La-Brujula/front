@@ -18,9 +18,11 @@ export const PorCategorias = ({
               'button font-bold flex flex-col items-center justify-center',
               !(i % 2) ? 'bg-primary' : 'bg-secondary',
             ].join(' ')}
-            to={cat.search.length != 6 ? '/search/$label' : '/search'}
+            to={
+              cat.search.activity === undefined ? '/search/$label' : '/search'
+            }
             params={{ label: cat.label }}
-            search={{ search: cat.search }}
+            search={cat.search}
             resetScroll
           >
             <img
