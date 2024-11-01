@@ -48,7 +48,12 @@ export const Navbar = () => {
             <img
               src={import.meta.env.BASE_URL + 'img/LogoWhite.svg'}
               alt="La Brújula Audiovisual"
-              className="h-20"
+              className="hidden md:block h-20"
+            />
+            <img
+              src={import.meta.env.BASE_URL + 'img/BrujulaWhite.svg'}
+              alt="La Brújula Audiovisual"
+              className="md:hidden h-16"
             />
           </Link>
           <div className="hidden md:flex grow flex-row gap-8 justify-end mr-8">

@@ -35,18 +35,15 @@ export default function LocalizationMenu(props: {
   );
 
   return (
-    <div className="relative flex flex-row gap-4 items-center">
-      <TranslateOutlined />
-      <div
-        id="locale-menu"
-        className="relative flex flex-row gap-2"
-      >
-        <LocaleList
-          currentLocale={locale}
-          locales={locales}
-          setLocale={setLocale}
-        />
-      </div>
+    <div
+      id="locale-menu"
+      className="relative flex flex-row gap-1"
+    >
+      <LocaleList
+        currentLocale={locale}
+        locales={locales}
+        setLocale={setLocale}
+      />
     </div>
   );
 }

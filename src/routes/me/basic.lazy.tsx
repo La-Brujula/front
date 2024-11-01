@@ -77,43 +77,59 @@ function BasicInfo() {
     >
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="grid grid-cols-[max-content_minmax(12rem,_24rem)]
-        text-left gap-8 mx-auto max-w-lg"
+        className="flex flex-col text-left gap-8 mx-auto max-w-lg w-full"
       >
-        <p className="col-span-full text-sm">*{t('información obligatoria')}</p>
-        <div className="grid col-span-full grid-cols-subgrid gap-4">
-          <h2 className="col-span-full text-primary">
-            {t('Información básica')}
-          </h2>
-          <Input
-            label={user?.type == 'moral' ? t('Razón Social') : t('Nombre (s)')}
-            type="text"
-            autoComplete={user?.type != 'moral' ? 'given-name' : ''}
-            register={register}
-            fieldName="firstName"
-            divClass={user?.type == 'moral' ? 'col-span-full' : ''}
-            required={true}
-            error={formState.errors.firstName}
-          />
-          {user?.type != 'moral' ? (
+        <p className="text-sm">*{t('información obligatoria')}</p>
+        <div className="flex flex-col gap-4 w-full">
+          <h2 className="text-primary">{t('Información básica')}</h2>
+          {user?.type == 'moral' ? (
             <>
               <Input
-                label={t('Apellido (s)')}
+                label={t('Razón Social')}
                 type="text"
-                autoComplete="family-name"
+                autoComplete=""
                 register={register}
-                fieldName="lastName"
+                fieldName="firstName"
                 divClass=""
                 required={true}
-                error={formState.errors.lastName}
+                error={formState.errors.firstName}
               />
+              <input
+                type="hidden"
+                {...register('gender', { required: true })}
+                value="other"
+              />
+            </>
+          ) : (
+            <>
+              <div className="flex flex-col md:grid md:grid-cols-2 gap-4">
+                <Input
+                  label={t('Nombre (s)')}
+                  type="text"
+                  autoComplete="given-name"
+                  register={register}
+                  fieldName="firstName"
+                  divClass=""
+                  required={true}
+                  error={formState.errors.firstName}
+                />
+                <Input
+                  label={t('Apellido (s)')}
+                  type="text"
+                  autoComplete="family-name"
+                  register={register}
+                  fieldName="lastName"
+                  required={true}
+                  error={formState.errors.lastName}
+                />
+              </div>
               <Input
                 label={t('Nombre con el que quieres aparecer')}
                 type="text"
                 autoComplete={undefined}
                 register={register}
                 fieldName="nickName"
-                divClass="col-span-full"
+                divClass=""
                 required={false}
                 error={formState.errors.nickName}
               />
@@ -122,7 +138,7 @@ function BasicInfo() {
                 type="select"
                 register={register}
                 fieldName="gender"
-                divClass="col-span-full"
+                divClass=""
                 required={true}
                 items={genders.map((gender) => ({
                   key: gender == 'Prefiero no decir' ? 'other' : gender,
@@ -136,31 +152,25 @@ function BasicInfo() {
                 register={register}
                 fieldName="birthday"
                 autoComplete="birthday"
-                divClass="col-span-full"
+                divClass=""
                 required={false}
                 error={formState.errors.birthday}
               />
-              <p className="col-span-full text-xs -mt-2">
+              <p className="text-xs -mt-2">
                 {t('Este dato solamente es para uso interno')}
               </p>
             </>
-          ) : (
-            <input
-              type="hidden"
-              {...register('gender', { required: true })}
-              value="other"
-            />
           )}
         </div>
-        <div className="grid col-span-full grid-cols-subgrid gap-4 text-left">
-          <h2 className="col-span-full text-primary">{t('Ubicación')}</h2>
+        <div className="flex flex-col gap-4 text-left">
+          <h2 className="text-primary">{t('Ubicación')}</h2>
           <Input
             label={t('País')}
             type="custom"
             register={register}
             fieldName="country"
             autoComplete="country"
-            divClass="col-span-full"
+            divClass=""
             component={CountrySelect<IUpdateBackendProfile>}
             required={true}
             error={formState.errors.country}
@@ -172,9 +182,10 @@ function BasicInfo() {
               register={register}
               fieldName="state"
               autoComplete="state"
-              divClass="col-span-full"
+              divClass=""
               required={true}
               error={formState.errors.state}
+              value={formState.defaultValues?.state}
               items={estados[country as 'MX' | 'CO'].flatMap((estado) => ({
                 key: estado,
                 label: estado,
@@ -187,23 +198,23 @@ function BasicInfo() {
               register={register}
               fieldName="state"
               autoComplete="state"
-              divClass="col-span-full"
+              divClass=""
               required={true}
               error={formState.errors.state}
             />
           )}
           <Input
             label={t('Ciudad')}
-            type="city"
+            type="text"
             register={register}
             fieldName="city"
             autoComplete="city"
-            divClass="col-span-full"
+            divClass=""
             required={true}
             error={formState.errors.city}
           />
           <Input
-            divClass="col-span-full"
+            divClass=""
             label={t('CP')}
             type="text"
             fieldName="postalCode"
@@ -222,11 +233,11 @@ function BasicInfo() {
           />
         )}
         {!formState.isValid && (
-          <p className="text-center w-full col-span-full">
+          <p className="text-center w-full ">
             {t('Llena todos los campos marcados con "*"')}
           </p>
         )}
-        <div className="col-span-full flex flex-row gap-4 justify-center">
+        <div className="flex flex-row gap-4 justify-center">
           <div
             className="button font-bold bg-transparent border border-primary text-black"
             onClick={history.back}

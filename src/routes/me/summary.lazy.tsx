@@ -26,60 +26,72 @@ function ProfileSummary() {
       }
     >
       <div
-        className="grid grid-cols-[max-content_max-content]
-      text-right gap-x-8 gap-y-4 mx-auto mt-8 w-auto justify-center"
+        className="flex flex-col gap-x-8 gap-y-4
+        mx-auto mt-8 w-auto text-left max-w-sm"
       >
-        <h3>
-          <EmailOutlined />
-        </h3>
-        <a
-          href={`mailto:${user?.primaryEmail}`}
-          className="text-left text-primary underline"
-        >
-          {user?.primaryEmail}
-        </a>
+        <div className="grid gap-2">
+          <h3>
+            <EmailOutlined />
+          </h3>
+          <a
+            href={`mailto:${user?.primaryEmail}`}
+            className="text-left text-primary underline"
+          >
+            {user?.primaryEmail}
+          </a>
+        </div>
         <div className="col-span-2"></div>
-        <h3>{user?.type != 'moral' ? t('Nombre') : t('Razón Social')}</h3>
-        <p className="text-left text-primary">{user?.fullName}</p>
+        <div className="grid gap-2">
+          <h3>{user?.type != 'moral' ? t('Nombre') : t('Razón Social')}</h3>
+          <p className="text-left text-primary">{user?.fullName}</p>
+        </div>
         {user?.nickName && (
-          <>
+          <div className="grid gap-2">
             <h3>{t('Nickname')}</h3>
             <p className="text-left text-primary">{user?.nickName}</p>
-          </>
+          </div>
         )}
         {user?.type != 'moral' && (
-          <>
+          <div className="grid gap-2">
             <h3>{t('Género')}</h3>
             <p className="text-left text-primary">
               {t(user!.gender || 'other', { ns: 'genders' })}
             </p>
-          </>
+          </div>
         )}
         <div className="col-span-2"></div>
-        <h3>{t('Actividad Principal')}</h3>
-        <p className="text-left text-primary">
-          {!!user?.primaryActivity &&
-            getTitle(user?.primaryActivity, user?.gender)}
-        </p>
+        <div className="grid gap-2">
+          <h3>{t('Actividad Principal')}</h3>
+          <p className="text-left text-primary">
+            {!!user?.primaryActivity &&
+              getTitle(user?.primaryActivity, user?.gender)}
+          </p>
+        </div>
         {user?.secondaryActivity && (
-          <>
+          <div className="grid gap-2">
             <h3>{t('Otras actividades')}</h3>
             <p className="text-left text-primary">
               {[user.secondaryActivity, user.thirdActivity]
                 .filter((a) => a != undefined)
                 .map((activity) => getTitle(activity!, user?.gender))}
             </p>
-          </>
+          </div>
         )}
         <div className="col-span-2"></div>
-        <h3>{t('Ciudad')}</h3>
-        <p className="text-left text-primary">{user?.city}</p>
-        <h3>{t('Estado')}</h3>
-        <p className="text-left text-primary">{user?.state}</p>
-        <h3>{t('País')}</h3>
-        <p className="text-left text-primary">
-          {t(user?.country || 'MX', { ns: 'countries' })}
-        </p>
+        <div className="grid gap-2">
+          <h3>{t('Ciudad')}</h3>
+          <p className="text-left text-primary">{user?.city}</p>
+        </div>
+        <div className="grid gap-2">
+          <h3>{t('Estado')}</h3>
+          <p className="text-left text-primary">{user?.state}</p>
+        </div>
+        <div className="grid gap-2">
+          <h3>{t('País')}</h3>
+          <p className="text-left text-primary">
+            {t(user?.country || 'MX', { ns: 'countries' })}
+          </p>
+        </div>
         {user?.phoneNumbers?.map((tel) => (
           <div className="grid grid-cols-subgrid col-span-full">
             <h3>
