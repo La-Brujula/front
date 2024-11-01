@@ -15,17 +15,25 @@ function ActivityFilter(props: {
   const { t } = useTranslation(['search', 'activityMatrix']);
   const { locale } = useLocalization();
 
+  const areasOptions = useMemo(
+    () =>
+      areas.map((area) => ({
+        key: area.id,
+        label: t(area.name, { ns: 'activityMatrix' }),
+        className: 'font-bold text-xs',
+      })),
+    [areas]
+  );
   const categories = useMemo(
     () =>
-      Object.fromEntries(
-        areas.map((area) => [
-          t(area.name, { ns: 'activityMatrix' }),
-          area.subareas.map((subarea) => ({
-            key: subarea.id,
-            label: t(subarea.name, { ns: 'activityMatrix' }),
-          })),
-        ])
-      ),
+      props.filters.area !== undefined && props.filters.area.length > 0
+        ? areas
+            .find((area) => area.id == props.filters.area)
+            ?.subareas.map((subarea) => ({
+              key: subarea.id,
+              label: t(subarea.name, { ns: 'activityMatrix' }),
+            }))
+        : undefined,
     [areas]
   );
 
@@ -45,12 +53,23 @@ function ActivityFilter(props: {
   return (
     <>
       <Input
-        label={t('Categoría')}
+        label={t('Área')}
         register={props.register}
-        fieldName="category"
-        type="groupedSelect"
-        groupedItems={categories}
+        fieldName="area"
+        type="select"
+        items={areasOptions}
+        value={props.filters.area}
       />
+      {categories !== undefined && (
+        <Input
+          label={t('Categoría')}
+          register={props.register}
+          fieldName="category"
+          type="select"
+          items={categories}
+          value={props.filters.category}
+        />
+      )}
       {activities !== undefined && (
         <Input
           label={t('Actividad')}
@@ -58,6 +77,7 @@ function ActivityFilter(props: {
           fieldName="activity"
           type="select"
           items={activities}
+          value={props.filters.activity}
         />
       )}
     </>

@@ -73,10 +73,11 @@ export const ResultsFilter = (props: {
           />
           <Input
             label={t('Ubicación')}
-            register={props.register}
             fieldName="location"
+            register={props.register}
             type="select"
             items={LOCATION_SELECT_ITEMS}
+            value={props.filters.location}
           />
           <Input
             label={t('Género')}
@@ -87,6 +88,7 @@ export const ResultsFilter = (props: {
               key: gender,
               label: t(gender, { ns: 'genders' }),
             }))}
+            value={props.filters.gender}
           />
           {moreFiltersVisible && (
             <ExtraFilters

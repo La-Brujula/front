@@ -96,6 +96,23 @@ function buildGroupedSelect<T extends FieldValues>(
   props: InputProps<'groupedSelect', T>,
   registerReturn: UseFormRegisterReturn
 ) {
+  const options = useMemo(
+    () =>
+      Object.entries(props.groupedItems).map(([group, items]) => (
+        <>
+          {/* <ListSubheader>{group}</ListSubheader> */}
+          {items.map(({ key, label }) => (
+            <MenuItem
+              key={key}
+              value={key}
+            >
+              {label}
+            </MenuItem>
+          ))}
+        </>
+      )),
+    [props.groupedItems]
+  );
   return (
     <FormControl size="small">
       <InputLabel>{props.label}</InputLabel>
@@ -104,22 +121,10 @@ function buildGroupedSelect<T extends FieldValues>(
         id={props.fieldName}
         className={props.inputClass}
         required={props.required}
-        defaultValue=""
+        value={props.value}
         label={props.label}
       >
-        {Object.entries(props.groupedItems).map(([group, items]) => (
-          <>
-            <ListSubheader>{group}</ListSubheader>
-            {items.map(({ key, label }) => (
-              <MenuItem
-                key={key}
-                value={key}
-              >
-                {label}
-              </MenuItem>
-            ))}
-          </>
-        ))}
+        {options}
       </Select>
     </FormControl>
   );
@@ -129,6 +134,19 @@ function buildSelect<T extends FieldValues>(
   props: InputProps<'select', T>,
   registerReturn: UseFormRegisterReturn
 ) {
+  const options = useMemo(
+    () =>
+      props.items.map(({ key, label, className }) => (
+        <MenuItem
+          key={key}
+          value={key}
+          className={className}
+        >
+          {label}
+        </MenuItem>
+      )),
+    [props.items]
+  );
   return (
     <FormControl size="small">
       <InputLabel>{props.label}</InputLabel>
@@ -137,18 +155,10 @@ function buildSelect<T extends FieldValues>(
         id={props.fieldName}
         className={props.inputClass}
         required={props.required}
-        defaultValue={props.value}
+        value={props.value}
         label={props.label}
       >
-        {props.items.map(({ key, label, className }) => (
-          <MenuItem
-            key={key}
-            value={key}
-            className={className}
-          >
-            {label}
-          </MenuItem>
-        ))}
+        {options}
       </Select>
     </FormControl>
   );
