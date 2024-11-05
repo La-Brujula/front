@@ -45,7 +45,7 @@ export function InformationCard() {
         <div className="h-[2px] rounded-lg bg-white lg:col-span-3" />
         <EmailOutlined />
         <h2 className="text-lg lg:px-4">{t('Correo electrónico')}</h2>
-        <div className="grid grid-cols-[max-content_1fr] gap-x-4">
+        <div className="grid md:grid-cols-[max-content_1fr] gap-x-4">
           {contactInformation.emails.map(({ name, email }) => (
             <div key={email}>
               <p>{t(name)}</p>
