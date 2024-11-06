@@ -20,7 +20,10 @@ export const SearchModules = () => {
           <NameSearchField />
         </div>
       </Container>
-      <Container bg="light">
+      <Container
+        bg="light"
+        className="!py-0 md:py-8"
+      >
         <div className="flex justify-center items-center">
           <iframe
             src="https://player.vimeo.com/video/1014498180?autoplay=1&muted=1&controls=0&loop=1"
