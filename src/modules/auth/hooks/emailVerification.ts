@@ -9,9 +9,10 @@ export function useSendEmailVerification() {
   });
 }
 
-export async function verifyEmail(code: string) {
+export async function verifyEmail(code: string, email: string) {
   return await postFetch(`${BASE_URL}/verify`, {
     code,
+    email,
   });
 }
 

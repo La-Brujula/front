@@ -13,7 +13,7 @@ export const SeccionAliades = () => {
         </p>
       </div>
       <div
-        className="max-w-6xl grid grid-cols-3
+        className="max-w-6xl grid grid-cols-2 sm:grid-cols-3
         md:grid-cols-4 xl:grid-cols-6 mx-auto gap-8"
       >
         {aliades.map((aliade, i) => (

@@ -12,13 +12,13 @@ export const Route = createLazyFileRoute('/auth/verify-email')({
 });
 
 function VerifyEmail() {
-  const { code } = Route.useSearch();
+  const { code, email } = Route.useSearch();
   const { t } = useTranslation('auth');
   const { data: user, isLoading, error } = useCurrentProfile();
   const navigate = useNavigate();
   useEffect(() => {
     if (!!user?.id) {
-      verifyEmail(code).then((verifyRes) => {
+      verifyEmail(code, email).then((verifyRes) => {
         if (verifyRes.isSuccess) {
           navigate({ to: '/profile/$userId', params: { userId: 'me' } });
         }
