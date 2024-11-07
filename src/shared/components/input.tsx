@@ -8,6 +8,7 @@ import {
   SetFieldValue,
   UseFormRegister,
   UseFormRegisterReturn,
+  UseFormSetValue,
 } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
@@ -39,6 +40,7 @@ type InputProps<
       }
     : Type extends 'select'
       ? {
+          setValue: UseFormSetValue<FormFields>;
           type: 'select';
           items: { key: string; label: string; className?: string }[];
         }
@@ -124,27 +126,22 @@ function buildSelect<T extends FieldValues>(
   registerReturn: UseFormRegisterReturn
 ) {
   return (
-    <FormControl size="small">
-      <InputLabel>{props.label}</InputLabel>
-      <Select
-        {...registerReturn}
-        id={props.fieldName}
-        className={props.inputClass}
-        required={props.required}
-        value={props.value}
-        label={props.label}
-      >
-        {props.items.map(({ key, label, className }) => (
-          <MenuItem
-            key={key}
-            value={key}
-            className={className}
-          >
-            {label}
-          </MenuItem>
-        ))}
-      </Select>
-    </FormControl>
+    <select
+      {...registerReturn}
+      id={props.fieldName}
+      className={props.inputClass}
+      required={props.required}
+    >
+      {props.items.map(({ key, label, className }) => (
+        <option
+          key={key}
+          value={key}
+          className={className}
+        >
+          {label}
+        </option>
+      ))}
+    </select>
   );
 }
 
