@@ -2336,7 +2336,7 @@
         "Alias Genérico": {
           "fr": "",
           "es": "Médicos de producción",
-          "en": ""
+          "en": "Set Doctor"
         },
         "Referentes": [
           "Personal de seguridad",
@@ -2665,7 +2665,7 @@
         "Alias Genérico": {
           "fr": "",
           "es": "Coordinadores de intimidad",
-          "en": ""
+          "en": "Intimacy Coordinator"
         },
         "Referentes": [
           "Coordinadores",
@@ -5620,7 +5620,7 @@
         "Alias Genérico": {
           "fr": "",
           "es": "Vehículos de acción",
-          "en": ""
+          "en": "Action Cars"
         },
         "Referentes": [
           "Automóviles",
@@ -6350,7 +6350,8 @@
           "Rigs",
           "Dollies",
           "Monturas aéreas",
-          "Snorkel"
+          "Snorkel",
+          "Lowboy"
         ]
       },
       "503-03": {
@@ -7688,7 +7689,7 @@
         "Alias Genérico": {
           "fr": "",
           "es": "Ambulancias",
-          "en": ""
+          "en": "Ambulance"
         },
         "Referentes": [
           "Ambulancia",
@@ -8045,7 +8046,10 @@
           "Personajes de animación",
           "Efectos visuales",
           "Realidad virtual",
-          "CGI (Computer Generated Imagery)"
+          "CGI",
+          "Computer Generated Imagery",
+          "Producción virtual",
+          "Realidad extendida"
         ]
       },
       "703-02": {
@@ -8120,7 +8124,12 @@
           "Visual Effects",
           "Effects visuels",
           "Realidad virtual",
-          "CGI (Computer Generated Imagery)"
+          "CGI",
+          "Computer Generated Imagery",
+          "AI",
+          "IA",
+          "Producción virtual",
+          "Realidad extendida"
         ]
       },
       "703-04": {
@@ -8659,7 +8668,87 @@
           "Aplicaciones",
           "Videojuegos",
           "Desarrollo de videojuegos",
-          "Diseño de videojuegos"
+          "Diseño de videojuegos",
+          "CGI",
+          "Computer Generated Imagery"
+        ]
+      },
+      "801-04": {
+        "Femenino": {
+          "fr": null,
+          "es": "Desarrolladora de producción virtual",
+          "en": null
+        },
+        "Masculino": {
+          "fr": null,
+          "es": "Desarrollador de producción virtual",
+          "en": null
+        },
+        "No Binario": {
+          "fr": null,
+          "es": "Desarrollo de producción virtual",
+          "en": null
+        },
+        "Persona Moral": {
+          "fr": null,
+          "es": "Desarrollo de producción virtual",
+          "en": null
+        },
+        "Alias Genérico": {
+          "fr": "",
+          "es": "Producción virtual",
+          "en": "Virtual Production Developers"
+        },
+        "Referentes": [
+          "AI",
+          "IA",
+          "Programación",
+          "Realidad virtual",
+          "Producción virtual",
+          "Inteligencia artificial",
+          "Prompting",
+          "Animación",
+          "CGI",
+          "Computer Generated Imagery"
+        ]
+      },
+      "801-05": {
+        "Femenino": {
+          "fr": null,
+          "es": "Desarrolladora de realidad extendida",
+          "en": null
+        },
+        "Masculino": {
+          "fr": null,
+          "es": "Desarrollador de realidad extendida",
+          "en": null
+        },
+        "No Binario": {
+          "fr": null,
+          "es": "Desarrollo de realidad extendida",
+          "en": null
+        },
+        "Persona Moral": {
+          "fr": null,
+          "es": "Desarrollo de realidad extendida",
+          "en": null
+        },
+        "Alias Genérico": {
+          "fr": "",
+          "es": "Realidades extendidas",
+          "en": "Virtual Reality Developers"
+        },
+        "Referentes": [
+          "AI",
+          "IA",
+          "Programación",
+          "Realidad virtual",
+          "Producción virtual",
+          "Inteligencia artificial",
+          "Prompting",
+          "Animación",
+          "CGI",
+          "Computer Generated Imagery"
         ]
       }
     },
@@ -9383,9 +9472,9 @@
           "en": null
         },
         "Alias Genérico": {
-          "fr": "Festivals du film au Mexique",
-          "es": "Festivales de cine en México",
-          "en": "Film Festivals in México"
+          "fr": "",
+          "es": "Festivales nacionales de cine",
+          "en": "National Film Festivals"
         },
         "Referentes": [
           "Festivales de cine en México",
@@ -9426,8 +9515,8 @@
         },
         "Alias Genérico": {
           "fr": "",
-          "es": "Foros de cine en México",
-          "en": ""
+          "es": "Foros nacionales de cine",
+          "en": "National Film Forums"
         },
         "Referentes": [
           "Festivales de cine en México",
@@ -9468,8 +9557,8 @@
         },
         "Alias Genérico": {
           "fr": "",
-          "es": "Encuentros de cine en México",
-          "en": ""
+          "es": "Encuentros de cine",
+          "en": "Filmmaking Symposia"
         },
         "Referentes": [
           "Festivales de cine en México",
@@ -9510,8 +9599,8 @@
         },
         "Alias Genérico": {
           "fr": "",
-          "es": "Muestras de cine en México",
-          "en": ""
+          "es": "Muestras de cine nacional",
+          "en": "National Film Showcases"
         },
         "Referentes": [
           "Festivales de cine en México",
@@ -9552,8 +9641,8 @@
         },
         "Alias Genérico": {
           "fr": "",
-          "es": "Concursos de cine universitario en México",
-          "en": ""
+          "es": "Concursos de cine universitario",
+          "en": "Film School Contests"
         },
         "Referentes": [
           "Festivales de cine en México",
@@ -9594,8 +9683,8 @@
         },
         "Alias Genérico": {
           "fr": "",
-          "es": "Concursos de cine en México",
-          "en": ""
+          "es": "Concursos de cine nacional",
+          "en": "Local Film Contests"
         },
         "Referentes": [
           "Festivales de cine en México",
@@ -9636,8 +9725,8 @@
         },
         "Alias Genérico": {
           "fr": "",
-          "es": "Mercados cinematográfico en México",
-          "en": ""
+          "es": "Mercados cinematográficos locales",
+          "en": "Local Film Markets"
         },
         "Referentes": [
           "Festivales de cine en México",
@@ -9721,7 +9810,7 @@
         "Alias Genérico": {
           "fr": "",
           "es": "Mercados internacionales de cine",
-          "en": ""
+          "en": "International Film & TV Markets"
         },
         "Referentes": [
           "Festivales de cine en México",
