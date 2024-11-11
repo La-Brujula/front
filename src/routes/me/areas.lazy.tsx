@@ -1,6 +1,6 @@
 import CloseOutlined from '@mui/icons-material/CloseOutlined';
 import ErrorMessage from '@shared/components/errorMessage';
-import { useCallback, useMemo, useState } from 'react';
+import { act, useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ActivityLookupField } from '../../modules/auth/components/activityLookupField.js';
 import AreaForms from '../../modules/auth/components/areaForm.js';
@@ -35,12 +35,14 @@ function AreasRegistration() {
     state: activities,
     dispatch,
     removeElement,
-  } = useAreasReducer([], () =>
-    [
-      user?.primaryActivity,
-      user?.secondaryActivity,
-      user?.thirdActivity,
-    ].filter((f) => f !== null)
+  } = useAreasReducer(
+    [],
+    () =>
+      [
+        user?.primaryActivity,
+        user?.secondaryActivity,
+        user?.thirdActivity,
+      ].filter((f) => f !== null) || ['']
   );
 
   const { t } = useTranslation('auth');
@@ -59,19 +61,9 @@ function AreasRegistration() {
     }
   }, [user]);
 
-  const addOnClick = useCallback(
-    (activity: string) => {
-      if (!activities?.includes(activity))
-        dispatch({ type: 'add', item: activity });
-    },
-    [dispatch, activities]
-  );
-
   const { mutate, isPending, error: mutateError } = useUpdateMe();
 
   const changeListener = (index: number) => (activity: string) => {
-    console.log(index, activity);
-
     dispatch({ type: 'change', index: index, item: activity });
   };
 
@@ -118,37 +110,18 @@ function AreasRegistration() {
               defaultValue={activity}
               changeListener={changeListener(i)}
               gender={user?.gender || 'other'}
+              removeElement={removeElement(i)}
             />
-            {activities?.length > 1 && (
-              <div className="col-span-full grid justify-center">
-                <Button
-                  variant="filled"
-                  color="secondary"
-                  onClick={removeElement(i)}
-                  className="cursor-pointer"
-                >
-                  {t('Borrar')}
-                </Button>
-              </div>
-            )}
           </div>
         ))}
-        {activities?.length < 3 && (
-          <div className="grid col-span-full justify-center w-full">
-            <ActivityLookupField setValue={addOnClick} />
-          </div>
-        )}
-        {activities?.length < 3 && (
-          <div className="col-span-full grid justify-center">
-            <button
-              className="cursor-pointer px-4 py-2 bg-secondary text-white
-            rounded-md mx-auto w-fit"
-              onClick={() => dispatch({ type: 'add' })}
-            >
-              {t('Encontrar actividad manualmente')}
-            </button>
-          </div>
-        )}
+        <Button
+          onClick={() => dispatch({ type: 'add' })}
+          color="primary"
+          variant="filled"
+          className="justify-self-center col-span-full"
+        >
+          {t('Registrar otra actividad')}
+        </Button>
         {!!error && (
           <div className="col-span-full">
             <ErrorMessage message={error.toString()} />

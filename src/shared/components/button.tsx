@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 export const Button = (
   props: {
-    color: string;
+    color: 'primary' | 'secondary';
     variant: 'outline' | 'filled';
     children: ReactNode;
   } & React.ButtonHTMLAttributes<HTMLButtonElement>
@@ -12,10 +12,10 @@ export const Button = (
     case 'outline':
       return (
         <button
+          {...props}
           className={[
-            'text-black px-12 py-4 rounded-md',
-            'outline',
-            'bg-transparent',
+            'text-black px-12 py-4 rounded-md outline bg-transparent',
+            props.className,
             (() => {
               switch (color) {
                 case 'primary':
@@ -25,7 +25,6 @@ export const Button = (
               }
             })(),
           ].join(' ')}
-          {...props}
         >
           {children}
         </button>
@@ -33,8 +32,10 @@ export const Button = (
     case 'filled':
       return (
         <button
+          {...props}
           className={[
             'text-white px-12 py-4 rounded-md',
+            props.className,
             (() => {
               switch (color) {
                 case 'primary':
@@ -44,7 +45,6 @@ export const Button = (
               }
             })(),
           ].join(' ')}
-          {...props}
         >
           {children}
         </button>
