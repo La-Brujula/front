@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import CountryFlag from '@/shared/components/countryFlag';
 
-const COUNTRIES = (['MX', 'CO', 'AR'] as (keyof typeof CountryFlag)[]).map(
+const COUNTRIES = (['MX', 'CO'] as (keyof typeof CountryFlag)[]).map(
   (country) => ({
     key: country,
     label: <CountryFlag country={country} />,
