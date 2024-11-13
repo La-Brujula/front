@@ -114,45 +114,6 @@
           "Showrunner"
         ]
       },
-      "101-04": {
-        "Femenino": {
-          "fr": null,
-          "es": "Guionista",
-          "en": null
-        },
-        "Masculino": {
-          "fr": null,
-          "es": "Guionista",
-          "en": null
-        },
-        "No Binario": {
-          "fr": null,
-          "es": "Guionista",
-          "en": null
-        },
-        "Persona Moral": {
-          "fr": null,
-          "es": null,
-          "en": null
-        },
-        "Alias Genérico": {
-          "fr": "",
-          "es": "Guionismo para series",
-          "en": "Series Scriptwriting"
-        },
-        "Referentes": [
-          "Escritores cine y TV",
-          "Asesoría de guión",
-          "Sinopsis",
-          "Guionistas",
-          "Screenwriters",
-          "Scénaristes",
-          "Script",
-          "Screenplay",
-          "Showrunner",
-          "Serie"
-        ]
-      },
       "101-05": {
         "Femenino": {
           "fr": null,
