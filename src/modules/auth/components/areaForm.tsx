@@ -6,6 +6,8 @@ import { getTitle } from '@shared/utils/areaUtils';
 import { useCallback, useMemo, useReducer } from 'react';
 import { useTranslation } from 'react-i18next';
 import { TextSelectField } from '@/shared/components/textSelect';
+import { IconButton } from '@mui/material';
+import { DeleteOutlined } from '@mui/icons-material';
 
 type ReducerAction =
   | {
@@ -130,14 +132,15 @@ export const AreaForms = ({
     <div className="col-span-full grid md:grid-cols-2 items-start justify-stretch text-left gap-4 w-full">
       {!!validActivities && validActivities.length > 0 ? (
         validActivities.length === 1 ? (
-          <Button
-            onClick={clearInput}
-            color="primary"
-            variant="filled"
-            className="w-full hover:bg-red-500"
-          >
-            {validActivities[0].label}
-          </Button>
+          <div className="grid grid-cols-[2rem_1fr] gap-2 items-center">
+            <IconButton
+              onClick={clearInput}
+              className="!p-2"
+            >
+              <DeleteOutlined />
+            </IconButton>
+            <p>{validActivities[0].label}</p>
+          </div>
         ) : (
           validActivities?.map(({ key: activity, label }, i) => (
             <Button
