@@ -114,14 +114,16 @@ function AreasRegistration() {
             />
           </div>
         ))}
-        <Button
-          onClick={() => dispatch({ type: 'add' })}
-          color="primary"
-          variant="filled"
-          className="justify-self-center col-span-full"
-        >
-          {t('Registrar otra actividad')}
-        </Button>
+        {activities.length < 3 && (
+          <Button
+            onClick={() => dispatch({ type: 'add' })}
+            color="primary"
+            variant="filled"
+            className="justify-self-center col-span-full"
+          >
+            {t('Registrar otra actividad')}
+          </Button>
+        )}
         {!!error && (
           <div className="col-span-full">
             <ErrorMessage message={error.toString()} />
