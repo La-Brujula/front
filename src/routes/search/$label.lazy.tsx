@@ -55,7 +55,7 @@ function SubCategoryPage() {
     search: object;
   }[] => {
     let areaObj: TArea | undefined, subareaObj: TSubArea | undefined;
-    if (category !== '') {
+    if (category !== undefined) {
       areaObj = areas!.find((area) => area.id.toString() == category.charAt(0));
       if (areaObj === undefined) throw 'Something went wrong! AE01';
       subareaObj = areaObj.subareas.find(
@@ -79,7 +79,7 @@ function SubCategoryPage() {
         };
       });
     }
-    if (area !== '') {
+    if (area !== undefined) {
       areaObj = areas!.find((currArea) => currArea.id.toString() == area);
       if (areaObj === undefined) throw 'Something went wrong! AE01';
       return areaObj.subareas.map((subarea) => ({
@@ -88,7 +88,7 @@ function SubCategoryPage() {
         search: { category: subarea.id, area: subarea.id.charAt(0) },
       }));
     }
-    return activities.split(' ').map((activityId: string) => {
+    return activities!.split(' ').map((activityId: string) => {
       const areaId = activityId.charAt(0),
         subareaId = activityId.slice(0, 3);
 

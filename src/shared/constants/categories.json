@@ -45,6 +45,13 @@
     "search": { "area": "8" }
   },
   {
+    "iconUrl": "",
+    "label": "Inteligencia Artificial en Audiovisuales",
+    "search": {
+      "activities": "801-03 801-04 801-05"
+    }
+  },
+  {
     "iconUrl": "DistIcon",
     "label": "Distribución, exhibición y medios",
     "search": { "activities": "901-03 901-04 901-05 904-02 901-07 904-05" }
@@ -65,14 +72,9 @@
     "search": { "activities": "902-01 902-02 902-03 904-03" }
   },
   {
-    "iconUrl": "FestivalIcon",
-    "label": "Festivales y mercados de cine en México",
-    "search": { "activity": "903-01", "area": "9", "category": "903" }
-  },
-  {
     "iconUrl": "IntFestIcon",
-    "label": "Festivales de cine en el mundo",
-    "search": { "activity": "903-02", "area": "9", "category": "903" }
+    "label": "Festivales de cine",
+    "search": { "activities": "903-02 903-01" }
   },
   {
     "iconUrl": "AssocIcon",
