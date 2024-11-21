@@ -18,19 +18,19 @@ export const PorCategorias = ({
               'button font-bold flex flex-col items-center justify-center',
               !(i % 2) ? 'bg-primary' : 'bg-secondary',
             ].join(' ')}
-            to={
-              cat.search.activity === undefined ? '/search/$label' : '/search'
-            }
+            to="/search/$label"
             params={{ label: cat.label }}
             search={cat.search}
             resetScroll
           >
-            <img
-              src={`${import.meta.env.BASE_URL}img/${cat.iconUrl}.svg`}
-              alt={cat.label}
-              className="h-16 mb-6 hidden lg:block"
-              loading="lazy"
-            />
+            {!!cat.iconUrl && (
+              <img
+                src={`${import.meta.env.BASE_URL}img/${cat.iconUrl}.svg`}
+                alt={cat.label}
+                className="h-16 mb-6 hidden lg:block"
+                loading="lazy"
+              />
+            )}
             <span className="text-center">{t(cat.label)}</span>
           </Link>
         ))}

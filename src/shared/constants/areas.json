@@ -111,44 +111,6 @@
           "Script",
           "Screenplay",
           "Broadcast",
-          "Showrunner"
-        ]
-      },
-      "101-04": {
-        "Femenino": {
-          "fr": null,
-          "es": "Guionista",
-          "en": null
-        },
-        "Masculino": {
-          "fr": null,
-          "es": "Guionista",
-          "en": null
-        },
-        "No Binario": {
-          "fr": null,
-          "es": "Guionista",
-          "en": null
-        },
-        "Persona Moral": {
-          "fr": null,
-          "es": null,
-          "en": null
-        },
-        "Alias Genérico": {
-          "fr": "",
-          "es": "Guionismo para series",
-          "en": "Series Scriptwriting"
-        },
-        "Referentes": [
-          "Escritores cine y TV",
-          "Asesoría de guión",
-          "Sinopsis",
-          "Guionistas",
-          "Screenwriters",
-          "Scénaristes",
-          "Script",
-          "Screenplay",
           "Showrunner",
           "Serie"
         ]
@@ -7845,20 +7807,38 @@
         },
         "Persona Moral": {
           "fr": null,
-          "es": "Reproducciones",
+          "es": "Reproducciones y transferencias",
           "en": null
         },
         "Alias Genérico": {
           "fr": "Reproductions",
-          "es": "Reproducciones",
-          "en": "Duplication"
+          "es": "Reproducciones y transferencias",
+          "en": "Duplication & Transfers"
         },
         "Referentes": [
           "Multicopiado",
           "Bulk",
           "Reproducciones",
           "Reproductions",
-          "Copiado de materiales"
+          "Copiado de materiales",
+          "Formatos de video",
+          "DVC Pro",
+          "DVCam",
+          "Betacam",
+          "D2",
+          "MiniDV",
+          "Transfers",
+          "PAL",
+          "NTSC",
+          "SECAM",
+          "VHS",
+          "Betamax",
+          "DAT",
+          "Video 8mm",
+          "Rank",
+          "16 mm",
+          "35 mm",
+          "Súper 8"
         ]
       },
       "701-05": {

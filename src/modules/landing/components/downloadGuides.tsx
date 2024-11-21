@@ -62,6 +62,7 @@ function DownloadGuides() {
             label={t('Sureste')}
             link="/guias/pdfs/La_Brujula_2024_SURESTE.pdf"
           />
+          <div className="w-11/12 bg-black opacity-20 h-0.5 justify-self-center sm:hidden" />
           <Strip
             colors={BrujulasColors.colombia}
             label={t('Colombia')}

@@ -132,6 +132,13 @@ function buildSelect<T extends FieldValues>(
       className={props.inputClass}
       required={props.required}
     >
+      <option
+        value=""
+        disabled
+        selected
+      >
+        Selecciona una opción
+      </option>
       {props.items.map(({ key, label, className }) => (
         <option
           key={key}

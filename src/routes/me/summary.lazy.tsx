@@ -70,10 +70,12 @@ function ProfileSummary() {
         {user?.secondaryActivity && (
           <div className="grid gap-2">
             <h3>{t('Otras actividades')}</h3>
-            <p className="text-left text-primary">
+            <p className="text-left text-primary grid gap-2">
               {[user.secondaryActivity, user.thirdActivity]
                 .filter((a) => a != undefined)
-                .map((activity) => getTitle(activity!, user?.gender))}
+                .map((activity) => (
+                  <span>{getTitle(activity!, user?.gender)}</span>
+                ))}
             </p>
           </div>
         )}
