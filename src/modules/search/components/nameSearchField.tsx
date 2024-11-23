@@ -35,7 +35,7 @@ export const NameSearchField = () => {
           resetScroll: true,
         });
       })}
-      className="grid grid-cols-[1fr_min-content_min-content]
+      className="grid grid-cols-2 md:grid-cols-[1fr_min-content_min-content]
       gap-4 justify-items-stretch flex-grow w-full
       bg-primary p-4 rounded-lg"
       style={{ fontWeight: '700' }}
@@ -43,8 +43,8 @@ export const NameSearchField = () => {
       <input
         type="text"
         {...register('search')}
-        className="font-bold border-2 col-span-full sm:col-span-1 border-white bg-transparent
-        text-white placeholder:text-white grow"
+        className="font-bold border-2 col-span-full md:col-span-1 border-white bg-transparent
+        text-white placeholder:text-white"
         style={{
           backgroundColor: 'rgb(45 123 191 / var(--tw-bg-opacity))',
           fontWeight: '700',
@@ -58,7 +58,6 @@ export const NameSearchField = () => {
         }}
         placeholder={t('search')}
       />
-      <div className="sm:hidden"></div>
       <Input
         type="select"
         register={register}
