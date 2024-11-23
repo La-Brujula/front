@@ -151,7 +151,7 @@ function StandoutPage() {
         </div>
         <input
           type="submit"
-          disabled={isPending || !formState.isValid}
+          disabled={user === undefined || isPending}
           className="border-none"
           value={t('Continuar')}
         />
