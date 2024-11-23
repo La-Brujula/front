@@ -1,15 +1,17 @@
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 
+import { PostHogProvider } from 'posthog-js/react';
+import posthog from 'posthog-js';
+
+import { polyfillCountryFlagEmojis } from 'country-flag-emoji-polyfill';
+
 import './index.css';
 import './i18n.ts';
 
 import QueryProvider from './shared/providers/queryProvider';
 import { UserProvider } from './shared/providers/authProvider';
 import App from './App';
-
-import { PostHogProvider } from 'posthog-js/react';
-import posthog from 'posthog-js';
 
 !import.meta.env.DEV &&
   posthog.init('phc_T1b8Jh0gnQ6NsNQeqxBKiWCrYW5UygDG2n5RlTQbWBA', {
@@ -33,3 +35,5 @@ if (!rootElement.innerHTML) {
     </StrictMode>
   );
 }
+
+polyfillCountryFlagEmojis();
