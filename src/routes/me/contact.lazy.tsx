@@ -232,7 +232,7 @@ function ContactPage() {
           <input
             type="submit"
             className="border-none"
-            disabled={isPending}
+            disabled={user === undefined || isPending}
             value={t('Continuar')}
           />
         </div>
