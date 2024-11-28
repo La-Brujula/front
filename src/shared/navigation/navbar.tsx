@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useAuth } from '../providers/authProvider';
 import { AnnouncementBanner } from './banner';
 import LocalizationMenu from '../components/localizationMenu';
+import contactInformation from '../constants/brujulaInformation.json';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -207,8 +208,21 @@ export const Navbar = () => {
                 {t('contact')}
               </Link>
               <hr />
+              <a
+                target="_blank"
+                href={contactInformation.whatsapp}
+                className="flex flex-row gap-4 items-center self-center px-4 py-2 rounded-full bg-primary text-white"
+              >
+                <img
+                  src={import.meta.env.BASE_URL + 'img/support.svg'}
+                  alt="Soporte"
+                  className="h-10"
+                />
+                <p className="font-bold text-2xl">Soporte</p>
+              </a>
               {isLoggedIn && (
                 <>
+                  <hr />
                   <Link
                     onClick={() => toggleOpen()}
                     to="/auth/logout"

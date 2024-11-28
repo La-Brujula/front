@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     fontFamily: {
       DEFAULT: [
+        'Twemoji Country Flags',
         'Montserrat',
         'Roboto',
         '-apple-system',
@@ -11,6 +12,13 @@ module.exports = {
         'BlinkMacSystemFont',
         'Arial',
         'sans-serif',
+        'ui-sans-serif',
+        'system-ui',
+        'sans-serif',
+        'Apple Color Emoji',
+        'Segoe UI Emoji',
+        'Segoe UI Symbol',
+        'Noto Color Emoji',
       ],
     },
     extend: {

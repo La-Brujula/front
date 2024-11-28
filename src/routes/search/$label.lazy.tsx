@@ -55,7 +55,7 @@ function SubCategoryPage() {
     search: object;
   }[] => {
     let areaObj: TArea | undefined, subareaObj: TSubArea | undefined;
-    if (category !== '') {
+    if (category !== undefined) {
       areaObj = areas!.find((area) => area.id.toString() == category.charAt(0));
       if (areaObj === undefined) throw 'Something went wrong! AE01';
       subareaObj = areaObj.subareas.find(
@@ -79,7 +79,7 @@ function SubCategoryPage() {
         };
       });
     }
-    if (area !== '') {
+    if (area !== undefined) {
       areaObj = areas!.find((currArea) => currArea.id.toString() == area);
       if (areaObj === undefined) throw 'Something went wrong! AE01';
       return areaObj.subareas.map((subarea) => ({
@@ -88,39 +88,48 @@ function SubCategoryPage() {
         search: { category: subarea.id, area: subarea.id.charAt(0) },
       }));
     }
-    return activities.split(' ').map((activityId: string) => {
-      const areaId = activityId.charAt(0),
-        subareaId = activityId.slice(0, 3);
+    if (activities !== undefined) {
+      return activities.split(' ').map((activityId: string) => {
+        const areaId = activityId.charAt(0),
+          subareaId = activityId.slice(0, 3);
 
-      const areaObj = areas.find((area) => area.id == areaId);
-      if (areaObj === undefined) throw 'Something went wrong! AE01';
-      const subarea = areaObj.subareas.find(
-        (subarea) => subarea.id == subareaId
-      );
-      if (subarea === undefined) throw 'Something went wrong! AE02';
-      const activity = subarea.activities.find(
-        (activity) => activity.id == activityId
-      );
-      if (activity === undefined) throw 'Something went wrong! AE03';
+        const areaObj = areas.find((area) => area.id == areaId);
+        if (areaObj === undefined) throw 'Something went wrong! AE01';
+        const subarea = areaObj.subareas.find(
+          (subarea) => subarea.id == subareaId
+        );
+        if (subarea === undefined) throw 'Something went wrong! AE02';
+        const activity = subarea.activities.find(
+          (activity) => activity.id == activityId
+        );
+        if (activity === undefined) throw 'Something went wrong! AE03';
 
-      const neutralAlias = activity.genders.find(
-        (gender) => gender.gender == 'Alias Genérico'
-      );
-      if (neutralAlias === undefined) throw 'Something went wrong! AE04';
-      const localeLanguage = neutralAlias.titles.find(
-        (title) => title.language == locale
-      );
-      if (localeLanguage === undefined) throw 'Something went wrong! AE05';
-      return {
-        name: localeLanguage.title || activityId,
-        link: '/search',
-        search: {
-          activity: activityId,
-          category: activityId.slice(0, 3),
-          area: activityId.charAt(0),
-        },
-      };
-    });
+        const neutralAlias = activity.genders.find(
+          (gender) => gender.gender == 'Alias Genérico'
+        );
+        if (neutralAlias === undefined) throw 'Something went wrong! AE04';
+        const localeLanguage = neutralAlias.titles.find(
+          (title) => title.language == locale
+        );
+        if (localeLanguage === undefined) throw 'Something went wrong! AE05';
+        return {
+          name: localeLanguage.title || activityId,
+          link: '/search',
+          search: {
+            activity: activityId,
+            category: activityId.slice(0, 3),
+            area: activityId.charAt(0),
+          },
+        };
+      });
+    }
+    return [
+      {
+        name: 'Algo salió mal. Haz click para volver al inicio',
+        link: `/`,
+        search: {},
+      },
+    ];
   }, [area, category, activities]);
 
   return (

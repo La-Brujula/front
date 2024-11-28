@@ -1,118 +1,99 @@
-import Input from '@/shared/components/input';
-import { EnumGender } from '@/shared/types/genders';
-import areas from '@shared/constants/areas.json';
-import {
-  getAreaObjectByName,
-  getAreaFromId,
-  getSubAreaFromId,
-  getTitle,
-  getSubAreaObjectByName,
-} from '@shared/utils/areaUtils';
-import { useCallback, useMemo } from 'react';
-import { RegisterOptions, UseFormRegister, useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
+import RefList from '@shared/constants/inductiveReferents.json';
 
-type AreasForm = {
-  area: keyof typeof areas | '';
-  subarea: string | '';
-  activity: string | '';
-};
+import { Button } from '@/shared/components/button';
+import { EnumGender } from '@/shared/types/genders';
+import { getTitle } from '@shared/utils/areaUtils';
+import { useCallback, useMemo, useReducer } from 'react';
+import { useTranslation } from 'react-i18next';
+import { TextSelectField } from '@/shared/components/textSelect';
+import { IconButton } from '@mui/material';
+import { DeleteOutlined } from '@mui/icons-material';
+
+type ReducerAction =
+  | {
+      type: 'clear';
+    }
+  | {
+      type: 'select';
+      activity: string;
+    }
+  | {
+      type: 'rebase';
+      state: string[];
+    };
+
+function reducer(
+  state: string[] | undefined,
+  action: ReducerAction
+): string[] | undefined {
+  switch (action.type) {
+    case 'clear':
+      return undefined;
+    case 'select':
+      if (action.activity === undefined) throw 'Missing activity';
+      return [action.activity];
+    case 'rebase':
+      if (action.state === undefined) return [];
+      return action.state;
+    default:
+      return state;
+  }
+}
+
+export function CustomActivityLookupField({
+  setValue,
+}: {
+  setValue: (value: string) => void;
+}) {
+  const { t } = useTranslation('auth');
+
+  const refToId = useMemo(
+    () =>
+      RefList &&
+      Object.entries(RefList)
+        .filter((a) => !!a && a[1].length > 6)
+        .map(([name, id], i) => ({
+          id: 'activityMap' + i,
+          name,
+          activity: id,
+        })),
+    [RefList]
+  );
+
+  return (
+    <div className="w-full">
+      <TextSelectField
+        placeholder={t('Buscar tu actividad')}
+        items={refToId}
+        setValue={setValue}
+        onSelect={(item) => {
+          setValue(item.activity);
+        }}
+      />
+    </div>
+  );
+}
 
 export const AreaForms = ({
   defaultValue,
   gender,
   changeListener,
+  removeElement,
 }: {
   defaultValue: string;
   gender: EnumGender;
+  removeElement: () => void;
   changeListener: (value: string) => void;
 }) => {
-  const { register, watch, setValue } = useForm<AreasForm>({
-    defaultValues: {
-      area: defaultValue ? getAreaFromId(defaultValue) : '',
-      subarea: defaultValue ? getSubAreaFromId(defaultValue) : '',
-      activity: defaultValue || '',
-    },
-  });
-  const formValues = watch();
-
-  const { t } = useTranslation('auth');
-
-  const subareaHasValid = useCallback(
-    (area: keyof typeof areas, subarea: string) => {
-      return Object.keys(getAreaObjectByName(area)[subarea]).some((activity) =>
-        getTitle(activity, gender)
-      );
-    },
-    [gender]
-  );
-
-  const areaHasValid = useCallback(
-    (area: keyof typeof areas) => {
-      return Object.keys(getAreaObjectByName(area)).some((subarea) =>
-        subareaHasValid(area, subarea)
-      );
-    },
-    [gender]
-  );
-  const resetActivity = useCallback(() => {
-    setValue('activity', '');
-  }, [setValue]);
-
-  const resetOthers = useCallback(() => {
-    setValue('subarea', '');
-    resetActivity();
-  }, [setValue, resetActivity]);
-
-  const areaRegister = useCallback(
-    (fieldName: 'area', options: RegisterOptions) =>
-      register(fieldName, { ...options, onChange: resetOthers }),
-    [register, resetOthers]
-  ) as UseFormRegister<AreasForm>;
-
-  const subareaRegister = useCallback(
-    (fieldName: 'subarea', options: RegisterOptions) =>
-      register(fieldName, { ...options, onChange: resetActivity }),
-    [register, resetActivity]
-  ) as UseFormRegister<AreasForm>;
-
-  const validAreas = useMemo(
-    () =>
-      Object.keys(areas)
-        .map(
-          (area) =>
-            areaHasValid(area as keyof typeof areas) && {
-              key: area,
-              label: area,
-            }
-        )
-        .filter((v) => !!v),
-    [areaHasValid]
-  );
-
-  const validSubareas = useMemo(
-    () =>
-      !!formValues.area
-        ? Object.keys(areas[formValues.area])
-            .map(
-              (subarea) =>
-                formValues.area !== '' &&
-                subareaHasValid(formValues.area, subarea) && {
-                  key: subarea,
-                  label: subarea,
-                }
-            )
-            .filter((v) => !!v)
-        : [],
-    [subareaHasValid, formValues.area]
+  const [state, dispatch] = useReducer(
+    reducer,
+    defaultValue !== '' ? [defaultValue] : undefined
   );
 
   const validActivities = useMemo(
     () =>
-      !!formValues.area && !!formValues.subarea
-        ? Object.keys(
-            getSubAreaObjectByName(formValues.area, formValues.subarea)
-          )
+      !!state
+        ? (state
             .map(
               (activity) =>
                 getTitle(activity, gender) && {
@@ -120,50 +101,61 @@ export const AreaForms = ({
                   label: getTitle(activity, gender),
                 }
             )
-            .filter((v) => !!v)
+            .filter((v) => !!v) as {
+            key: string;
+            label: string;
+          }[])
         : [],
-    [formValues.area, formValues.subarea, gender]
+    [state, gender]
+  );
+
+  const setActivities = useCallback(
+    (activities: string) => {
+      dispatch({ type: 'rebase', state: [...activities.split(' ')] });
+    },
+    [dispatch]
+  );
+
+  const clearInput = useCallback(() => {
+    dispatch({ type: 'clear' });
+    removeElement();
+  }, [dispatch, removeElement]);
+  const setActivity = useCallback(
+    (activity: string) => () => {
+      dispatch({ type: 'select', activity });
+      changeListener(activity);
+    },
+    [dispatch]
   );
 
   return (
-    <div className="col-span-full flex flex-col items-start justify-stretch text-left gap-4 w-full">
-      <Input
-        label={t('Área')}
-        type="select"
-        register={areaRegister}
-        value={formValues.area}
-        fieldName="area"
-        placeholder={t('Selecciona una opción')}
-        items={validAreas}
-        inputClass="w-full"
-        divClass="w-full"
-      />
-      {!!formValues.area && (
-        <Input
-          type="select"
-          fieldName="subarea"
-          value={formValues.subarea}
-          label={t('Subarea')}
-          register={subareaRegister}
-          placeholder={t('Selecciona una opción')}
-          items={validSubareas}
-          inputClass="w-full"
-          divClass="w-full"
-        />
-      )}
-      {!!formValues.area && !!formValues.subarea && (
-        <Input
-          fieldName="activity"
-          label={t('Actividad')}
-          register={register}
-          placeholder={t('Selecciona una opción')}
-          type="select"
-          items={validActivities}
-          value={formValues.activity}
-          inputClass="w-full"
-          divClass="w-full"
-          onChange={(ev) => changeListener(ev.target.value)}
-        />
+    <div className="col-span-full grid md:grid-cols-2 items-start justify-stretch text-left gap-4 w-full">
+      {!!validActivities && validActivities.length > 0 ? (
+        validActivities.length === 1 ? (
+          <div className="grid grid-cols-[2rem_1fr] gap-2 items-center">
+            <IconButton
+              onClick={clearInput}
+              className="!p-2"
+            >
+              <DeleteOutlined />
+            </IconButton>
+            <p>{validActivities[0].label}</p>
+          </div>
+        ) : (
+          validActivities?.map(({ key: activity, label }, i) => (
+            <Button
+              onClick={setActivity(activity)}
+              color={i % 2 === 0 ? 'primary' : 'secondary'}
+              variant="filled"
+              className="w-full"
+              key={activity}
+            >
+              {label}
+            </Button>
+          ))
+        )
+      ) : (
+        <CustomActivityLookupField setValue={setActivities} />
       )}
     </div>
   );

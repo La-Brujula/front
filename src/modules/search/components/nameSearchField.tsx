@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import CountryFlag from '@/shared/components/countryFlag';
 
-const COUNTRIES = (['MX', 'CO', 'AR'] as (keyof typeof CountryFlag)[]).map(
+const COUNTRIES = (['MX', 'CO'] as (keyof typeof CountryFlag)[]).map(
   (country) => ({
     key: country,
     label: <CountryFlag country={country} />,
@@ -35,7 +35,7 @@ export const NameSearchField = () => {
           resetScroll: true,
         });
       })}
-      className="grid grid-cols-[1fr_min-content_min-content]
+      className="grid grid-cols-2 md:grid-cols-[1fr_min-content_min-content]
       gap-4 justify-items-stretch flex-grow w-full
       bg-primary p-4 rounded-lg"
       style={{ fontWeight: '700' }}
@@ -43,8 +43,8 @@ export const NameSearchField = () => {
       <input
         type="text"
         {...register('search')}
-        className="font-bold border-2 border-white bg-transparent
-        text-white placeholder:text-white grow"
+        className="font-bold border-2 col-span-full md:col-span-1 border-white bg-transparent
+        text-white placeholder:text-white"
         style={{
           backgroundColor: 'rgb(45 123 191 / var(--tw-bg-opacity))',
           fontWeight: '700',

@@ -32,6 +32,10 @@ function activityReducer(
         activities: [...state.activities, action.item || ''],
       };
     case 'remove':
+      if (state.activities.length === 1)
+        return {
+          activities: [''],
+        };
       return {
         activities: state.activities.filter(
           (_, index) => action.index !== index
