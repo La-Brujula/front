@@ -84,11 +84,11 @@ export const Navbar = () => {
               {t('search')}
             </Link>
             <Link
-              to="/about"
+              to="/jobs"
               resetScroll
-              className="font-bold text-white"
+              className="font-bold leading-relaxed text-white"
             >
-              {t('aboutUs')}
+              {t('jobs')}
             </Link>
           </div>
           <LocalizationMenu />
@@ -168,6 +168,14 @@ export const Navbar = () => {
                 className="font-bold leading-relaxed text-white"
               >
                 {t('search')}
+              </Link>
+              <Link
+                onClick={() => toggleOpen()}
+                to="/jobs"
+                resetScroll
+                className="font-bold leading-relaxed text-white"
+              >
+                {t('jobs')}
               </Link>
               <Link
                 onClick={() => toggleOpen()}

@@ -77,6 +77,7 @@ export function LanguageListForm<T extends FieldValues>(props: {
   setValue: SetFieldValue<T>;
   fieldName: Path<T>;
   defaultState?: { lang: lang; proficiency: proficiency }[];
+  allowNull?: boolean;
 }) {
   const { t } = useTranslation('auth');
   const [state, dispatch] = useReducer(
@@ -162,7 +163,7 @@ export function LanguageListForm<T extends FieldValues>(props: {
                     </div>
                   )}
                 </div>
-                {state.length > 1 && (
+                {(state.length > 1 || props.allowNull) && (
                   <IconButton
                     onClick={() =>
                       dispatch({

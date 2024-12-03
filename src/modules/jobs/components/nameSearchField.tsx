@@ -3,13 +3,11 @@ import { SearchOutlined } from '@mui/icons-material';
 import { useNavigate } from '@tanstack/react-router';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import CountryFlag from '@/shared/components/countryFlag';
 import countries from '@/shared/constants/countryFlags.json';
 
-const COUNTRIES = (['MX', 'CO'] as (keyof typeof CountryFlag)[]).map(
+const COUNTRIES = (['MX', 'CO'] as (keyof typeof countries)[]).map(
   (country) => ({
     key: country,
-    // label: <CountryFlag country={country} />,
     label: countries[country],
     className: '!text-5xl',
   })
@@ -37,7 +35,7 @@ export const NameSearchField = () => {
           resetScroll: true,
         });
       })}
-      className="grid grid-cols-2 md:grid-cols-[1fr_6rem_5rem]
+      className="grid grid-cols-2 md:grid-cols-[1fr_min-content_min-content]
       gap-4 justify-items-stretch flex-grow w-full
       bg-primary p-4 rounded-lg"
       style={{ fontWeight: '700' }}
