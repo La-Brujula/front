@@ -56,9 +56,6 @@
   "Se envió el correo": "Se envió el correo",
   "Revisa tu correo registrado y haz click en la liga que te enviamos para verificar tu correo": "Revisa tu correo registrado y haz click en la liga que te enviamos para verificar tu correo.",
   "signUpParagraph": "¡Hola!<1></1>Estás a un paso de formar parte de La Brújula. Crea tu usuario y agrega tu información para que otros miembros de la industria audiovisual puedan encontrarte.<3></3><4></4>Queremos que tu empresa, tu proyecto y tú mismo, sean parte de La Brújula.",
-  "Cargando": {
-    "": "Cargando..."
-  },
   "Se verificó tu correo existósamente": "Se verificó tu correo existósamente",
   "Haz click aquí para regresar a tu perfil": "Haz click aquí para regresar a tu perfil",
   "Algo salió mal": "Algo salió mal",
@@ -127,6 +124,9 @@
   "Nickname": "Apodo",
   "Actividad Principal": "Actividad Principal",
   "Otras actividades": "Otras actividades",
+  "Cargando": {
+    "": "Cargando..."
+  },
   "Área": "Área",
   "Selecciona una opción": "Selecciona una opción",
   "Subarea": "Subarea",
