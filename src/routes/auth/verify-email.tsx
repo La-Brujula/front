@@ -1,4 +1,6 @@
+import { verifyEmail } from '@/modules/auth/hooks/emailVerification';
 import { ErrorMessage } from '@/shared/components/errorMessage';
+import { LoadingSpinner } from '@/shared/components/loadingSpinner';
 import { Container } from '@/shared/layout/container';
 import { ApiError } from '@/shared/services/backendFetcher';
 import { createFileRoute, ErrorComponentProps } from '@tanstack/react-router';
@@ -15,7 +17,17 @@ export type VerifySchema = z.infer<typeof verifyEmailSchema>;
 
 export const Route = createFileRoute('/auth/verify-email')({
   validateSearch: verifyEmailSchema.parse,
+  loaderDeps: (opts) => opts.search,
+  loader: async (match) => {
+    await verifyEmail(match.deps.code, match.deps.email).then(
+      (res) => res.entity
+    );
+    match.context.queryClient.invalidateQueries({
+      queryKey: ['profiles', 'me'],
+    });
+  },
   errorComponent: WrongCode,
+  pendingComponent: LoadingSpinner,
 });
 
 function WrongCode({ error }: ErrorComponentProps) {
