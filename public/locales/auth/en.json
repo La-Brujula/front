@@ -56,9 +56,6 @@
   "Se envió el correo": "The email was sent",
   "Revisa tu correo registrado y haz click en la liga que te enviamos para verificar tu correo": "Check your email and click the link we will send you in order to confirm your email address.",
   "signUpParagraph": "Hello!<1></1>You're one step away from joining La Brújula. Create your user, add your information, and connect with other industry members.<3></3><4></4>We want you to be a part of La Brújula.",
-  "Cargando": {
-    "": "Loading..."
-  },
   "Se verificó tu correo existósamente": "Your email was successfully confirmed",
   "Haz click aquí para regresar a tu perfil": "Click here to return to your profile",
   "Algo salió mal": "Something went wrong",
@@ -127,6 +124,9 @@
   "Nickname": "Nickname",
   "Actividad Principal": "Primary Activity",
   "Otras actividades": "Other activities",
+  "Cargando": {
+    "": "Loading..."
+  },
   "Área": "Area",
   "Selecciona una opción": "Select an option",
   "Subarea": "Subarea",
