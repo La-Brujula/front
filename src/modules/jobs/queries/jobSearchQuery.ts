@@ -6,6 +6,8 @@ import {
 } from '@tanstack/react-query';
 import { JobSearch, TJobPosting } from '../types/searchParams';
 import { getFetch, postFetch } from '@/shared/services/backendFetcher';
+import { IBackendProfile } from '@/shared/types/user';
+import { UserDTO } from '@/modules/profile/queries/userProfile';
 
 export type JobDetailDTO = {
   id: string;
@@ -45,7 +47,18 @@ export type JobDTO = {
   ageRangeMin?: number;
   ageRangeMax?: number;
   languages?: string;
-  requester: string;
+  requester: {
+    id: string;
+    primaryEmail: string;
+    type: 'fisica' | 'moral';
+    fullName: string;
+    searchable: boolean;
+    subscriber: boolean;
+    recommendationsCount: number;
+    verified: boolean;
+    profilePictureUrl?: string;
+    nickName: string;
+  };
   location: string;
   workRadius: 'local' | 'state' | 'national' | 'international';
   employment: 'freelance' | 'determinate' | 'indeterminate';
@@ -92,6 +105,15 @@ export const jobDetailOptions = (jobId: string) =>
       }).then((res) => res.entity),
   });
 
+export const jobApplicantsOptions = (jobId: string) =>
+  queryOptions({
+    queryKey: ['jobs', jobId, 'applicants'],
+    queryFn: (queryOptions) =>
+      getFetch<UserDTO[]>(`/jobs/${jobId}/applicants`, {
+        signal: queryOptions.signal,
+      }).then((res) => res.entity),
+  });
+
 export const useCreateJob = () => {
   const queryClient = useQueryClient();
   return useMutation({
@@ -101,6 +123,19 @@ export const useCreateJob = () => {
     onSuccess: (job) => {
       queryClient.setQueryData(['jobs', job.id], () => job);
       queryClient.invalidateQueries({ queryKey: ['jobs'] });
+    },
+  });
+};
+export const useApplyToJob = (jobId: string) => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationKey: ['jobs', jobId, 'applicants'],
+    mutationFn: () =>
+      postFetch<JobDetailDTO>(`/jobs/${jobId}/applicants`).then(
+        (res) => res.entity
+      ),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['jobs', jobId] });
     },
   });
 };

@@ -20,5 +20,8 @@
   "reportSent": "Don't worry, we've let our team know about this issue to improve your experience",
   "Esta página no existe": "This page does not exist",
   "Sentimos las molestias": "We're sorry",
-  "Página principal": "Home"
+  "Página principal": "Home",
+  "female": "Female",
+  "male": "Male",
+  "other": "Other"
 }
