@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { TJobOpening } from '../types/searchParams';
 import { FieldError, FieldErrorsImpl, Merge, useForm } from 'react-hook-form';
 import AreaForms from '@/modules/auth/components/areaForm';
@@ -32,6 +32,8 @@ export default function JobOpeningForm(props: {
   const { register, formState, setValue, watch } = useForm<TJobOpening>({
     defaultValues: { ...DEFAULT_VALUES, ...props.initialValues },
   });
+
+  const [showMore, setShowMore] = useState(false);
 
   const selectActivity = useCallback(
     (activity: string) => {
@@ -83,8 +85,21 @@ export default function JobOpeningForm(props: {
         ]}
         setValue={setValue}
       />
-      {formState.isValid && (
+      {!showMore ? (
+        <div
+          className="justify-self-center cursor-pointer text-lg font-bold bg-primary px-4 py-2 rounded-md text-white w-fit"
+          onClick={() => setShowMore(true)}
+        >
+          +
+        </div>
+      ) : (
         <>
+          <div
+            className="justify-self-center cursor-pointer text-lg font-bold bg-primary px-4 py-2 rounded-md text-white w-fit"
+            onClick={() => setShowMore(false)}
+          >
+            ^
+          </div>
           <div className="grid grid-cols-[1fr_1rem_1fr] gap-y-2 gap-x-2">
             <p className="opacity-80 col-span-full">{t('Rango de edad')}</p>
             <Input

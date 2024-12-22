@@ -9,6 +9,7 @@ import { LoadingSpinner } from '@/shared/components/loadingSpinner';
 import { jobDetailOptions } from '@/modules/jobs/queries/jobSearchQuery';
 import { Container } from '@/shared/layout/container';
 import { getTitle } from '@/shared/utils/areaUtils';
+import Applicants from '@/modules/jobs/components/applicants';
 
 // i18next-parser static types
 
@@ -37,11 +38,11 @@ function PendingUserProfilePage() {
 
 export function JobDetailPage() {
   const { jobId } = Route.useParams();
+  const { t } = useTranslation('jobs');
 
   const queryOptions = useMemo(() => jobDetailOptions(jobId), [jobId]);
 
   const { data: job, isLoading: loading, error } = useQuery(queryOptions);
-  const { t } = useTranslation('jobs');
 
   return (
     <Container>
@@ -119,6 +120,7 @@ export function JobDetailPage() {
           </div>
         </div>
       </DataSuspense>
+      <Applicants jobId={jobId} />
     </Container>
   );
 }

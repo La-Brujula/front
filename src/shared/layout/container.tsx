@@ -12,6 +12,7 @@ export const Container = (props: {
     | 'bottom-half-grey'
     | 'whitetoblue';
   className?: string;
+  bodyClass?: string;
 }) => {
   const { children, bg, className } = props;
   return (
@@ -50,7 +51,9 @@ export const Container = (props: {
         className,
       ].join(' ')}
     >
-      <div className="max-w-6xl mx-auto w-full">{children}</div>
+      <div className={['max-w-6xl mx-auto w-full', props.bodyClass].join(' ')}>
+        {children}
+      </div>
     </div>
   );
 };

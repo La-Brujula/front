@@ -1,7 +1,7 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 import { JobPosting, TJobOpening, TJobPosting } from '../types/searchParams';
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { ZodError } from 'zod';
 import Input from '@/shared/components/input';
 import JobOpeningForm from './jobOpeningForm';
@@ -11,10 +11,16 @@ import {
   WORK_RADIUS_OPTIONS,
 } from '../types/jobEnums';
 
-const EMPLOYMENT_RADIO_OPTIONS = EMPLOYMENT_OPTIONS.map((option) => ({
-  value: option,
-  label: option,
-}));
+// t('jobs:online')
+// t('jobs:hybrid')
+// t('jobs:in-person')
+// t('jobs:local')
+// t('jobs:state')
+// t('jobs:national')
+// t('jobs:international')
+// t('jobs:freelance')
+// t('jobs:determinate')
+// t('jobs:indeterminate')
 
 const INITIAL_VALUES: TJobPosting = {
   contactStartDate: new Date(),
@@ -36,7 +42,10 @@ const INITIAL_VALUES: TJobPosting = {
   notes: undefined,
 };
 
-export default function JobCreationForm(props: { onCreate: Function }) {
+export default function JobCreationForm(props: {
+  onCreate: Function;
+  isPending: boolean;
+}) {
   const { t } = useTranslation(['jobs', 'errors']);
 
   const { handleSubmit, register, setError, formState, setValue, watch } =
@@ -54,7 +63,7 @@ export default function JobCreationForm(props: { onCreate: Function }) {
         props.onCreate(validatedForm);
       } catch (e) {
         const error = e as unknown as ZodError<TJobPosting>;
-        console.log(error);
+        console.error(error);
 
         for (const [field, errors] of Object.entries(
           error.formErrors.fieldErrors
@@ -76,6 +85,15 @@ export default function JobCreationForm(props: { onCreate: Function }) {
       setValue(`openings.${i}`, values);
     },
     [setValue]
+  );
+
+  const EMPLOYMENT_RADIO_OPTIONS = useMemo(
+    () =>
+      EMPLOYMENT_OPTIONS.map((option) => ({
+        value: option,
+        label: t(option),
+      })),
+    [t]
   );
 
   return (
@@ -139,6 +157,19 @@ export default function JobCreationForm(props: { onCreate: Function }) {
         {openings?.length > 0 &&
           openings.map((o, i) => (
             <>
+              {openings.length > 1 && (
+                <div
+                  className="cursor-pointer text-sm bg-red-500 px-2 py-1 rounded-md text-white w-fit ml-auto"
+                  onClick={() =>
+                    setValue(
+                      'openings',
+                      openings.filter((oo) => oo != o)
+                    )
+                  }
+                >
+                  {t('Quitar posición')}
+                </div>
+              )}
               <JobOpeningForm
                 key={o.activity}
                 i={i}
@@ -308,7 +339,7 @@ export default function JobCreationForm(props: { onCreate: Function }) {
         <input
           type="submit"
           className="border-none"
-          disabled={!formState.isValid}
+          disabled={props.isPending}
           value={t('Continuar')}
         />
       </div>

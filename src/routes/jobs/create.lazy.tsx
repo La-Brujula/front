@@ -38,7 +38,10 @@ function CreateJobPostingPage() {
         error={error}
         fallback={<LoadingSpinner />}
       >
-        <JobCreationForm onCreate={onSubmit} />
+        <JobCreationForm
+          onCreate={onSubmit}
+          isPending={isPending}
+        />
       </DataSuspense>
     </Container>
   );
