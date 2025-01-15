@@ -10,6 +10,8 @@ import { jobDetailOptions } from '@/modules/jobs/queries/jobSearchQuery';
 import { Container } from '@/shared/layout/container';
 import { getTitle } from '@/shared/utils/areaUtils';
 import Applicants from '@/modules/jobs/components/applicants';
+import { ArrowBackIosOutlined } from '@mui/icons-material';
+import { UserCard } from '@/modules/search/components/userCard';
 
 // i18next-parser static types
 
@@ -45,82 +47,137 @@ export function JobDetailPage() {
   const { data: job, isLoading: loading, error } = useQuery(queryOptions);
 
   return (
-    <Container>
-      <DataSuspense
-        loading={loading}
-        error={error}
-        key={jobId}
+    <>
+      <Container
+        bg="light-gray"
+        bodyClass="grid grid-cols-[2rem_1fr_2rem] items-center"
+        className="!p-4"
       >
-        <h1 className="font-normal text-primary">{t('Oferta laboral')}</h1>
-        <div className="max-w-lg xl:max-w-4xl mx-auto px-8 w-full justify-start items-start mb-4">
-          <div className="flex flex-col xl:flex-row xl:gap-16 order-last xl:order-first xl:shrink">
-            <div
-              className="flex flex-col gap-6 w-full justify-items-stretch mt-8 max-w-lg
-            xl:max-w-3xl mx-auto xl:mx-0 text-left xl:-translate-y-42"
-            >
-              {!!job?.activity && (
-                <div>
-                  <h4 className="font-normal text-primary">{t('Buscando')}</h4>
-                  <p className="text-lg">
-                    {job.count} {getTitle(job.activity)}
-                  </p>
-                </div>
-              )}
-              {!!job?.description && (
-                <div>
-                  <h4 className="font-normal text-primary">
-                    {t('Description')}
-                  </h4>
-                  <p>{job.description}</p>
-                </div>
-              )}
-              {!!job?.notes && (
-                <div>
-                  <h4 className="font-normal text-primary">{t('Notes')}</h4>
-                  <p>{job.notes}</p>
-                </div>
-              )}
-              {!!job?.benefits && (
-                <div>
-                  <h4 className="font-normal text-primary">{t('Benefits')}</h4>
-                  <p>{job.benefits}</p>
-                </div>
-              )}
-              {!!job?.employment && (
-                <div>
-                  <h4 className="font-normal text-primary">
-                    {t('Employment')}
-                  </h4>
-                  <p>{job.employment}</p>
-                </div>
-              )}
-              {!!job?.specialRequirements && (
-                <div>
-                  <h4 className="font-normal text-primary">
-                    {t('Special Requirements')}
-                  </h4>
-                  <p>{job.specialRequirements}</p>
-                </div>
-              )}
-              <div className="flex flex-col gap-4 justify-items-stretch mt-8 max-w-sm w-full mx-auto text-left">
-                {!!job?.probono && (
-                  <div className="py-8">
-                    <div className="absolute left-0 -z-10 -my-4 overflow-hidden transform w-full">
-                      <div className="bg-black bg-opacity-20 w-full h-20 xl:w-1/2 xl:rounded-r-md"></div>
-                    </div>
-                    <h4 className="font-normal text-primary">
-                      {t('Trabajo no remunerado')}
-                    </h4>
-                    <p>{t('Sí')}</p>
+        <Link
+          to="/jobs"
+          className="flex flex-row gap-1"
+        >
+          <ArrowBackIosOutlined />
+          {t('Regresar')}
+        </Link>
+        <h1 className="font-normal text-primary text-4xl">
+          {t('Oferta laboral')}
+        </h1>
+        <div></div>
+      </Container>
+      <Container
+        bg="light"
+        bodyClass="grid justify-center"
+      >
+        <DataSuspense
+          loading={loading}
+          error={error}
+          key={jobId}
+        >
+          {job?.requester && (
+            <UserCard
+              user={job.requester}
+              showRecommendations={false}
+            />
+          )}
+          <div className="max-w-lg xl:max-w-4xl mx-auto px-8 w-full justify-start items-start mb-4">
+            <div className="flex flex-col xl:flex-row xl:gap-16 order-last xl:order-first xl:shrink">
+              <div
+                className="flex flex-col gap-6 w-full justify-items-stretch mt-8 max-w-lg
+              xl:max-w-3xl mx-auto xl:mx-0 text-left xl:-translate-y-42"
+              >
+                {!!job?.activity && (
+                  <div>
+                    <h2 className="font-normal text-primary text-xl">
+                      {t('Busca {{count}} {{title}}', {
+                        replace: {
+                          count: job.count,
+                          title: getTitle(job.activity, job.gender || 'other'),
+                        },
+                      })}
+                    </h2>
                   </div>
                 )}
+                {!!job?.description && (
+                  <div>
+                    <h4 className="font-normal text-primary">
+                      {t('Description')}
+                    </h4>
+                    <p>{job.description}</p>
+                  </div>
+                )}
+                {!!job?.createdAt && (
+                  <div>
+                    <h4 className="font-normal text-primary">
+                      {t('Fecha de publicación')}
+                    </h4>
+                    <p>{job.createdAt.toLocaleDateString()}</p>
+                  </div>
+                )}
+                {!!job?.jobStartDate && (
+                  <div>
+                    <h4 className="font-normal text-primary">
+                      {t('Fecha de inicio')}
+                    </h4>
+                    <p>{job.jobStartDate.toLocaleDateString()}</p>
+                  </div>
+                )}
+                {!!job?.location && (
+                  <div>
+                    <h4 className="font-normal text-primary">
+                      {t('Tipo de empleo')}
+                    </h4>
+                    <p>
+                      {t(job.location)}
+                      {!!job?.employment && ` - ${t(job.employment)}`}
+                    </p>
+                  </div>
+                )}
+                {!!job?.probono && (
+                  <div>
+                    <h4 className="font-normal text-primary">
+                      {t('Trabajo remunerado')}
+                    </h4>
+                    <p>{t(!job.probono ? 'Sí' : 'No')}</p>
+                  </div>
+                )}
+                {!!job?.requester.location && (
+                  <div>
+                    <h4 className="font-normal text-primary">
+                      {t('Ubicación')}
+                    </h4>
+                    <p>{job.requester.location}</p>
+                  </div>
+                )}
+                {!!job?.notes && (
+                  <div>
+                    <h4 className="font-normal text-primary">{t('Notes')}</h4>
+                    <p>{job.notes}</p>
+                  </div>
+                )}
+                {!!job?.benefits && (
+                  <div>
+                    <h4 className="font-normal text-primary">
+                      {t('Benefits')}
+                    </h4>
+                    <p>{job.benefits}</p>
+                  </div>
+                )}
+                {!!job?.specialRequirements && (
+                  <div>
+                    <h4 className="font-normal text-primary">
+                      {t('Special Requirements')}
+                    </h4>
+                    <p>{job.specialRequirements}</p>
+                  </div>
+                )}
+                <div className="mt-4"></div>
               </div>
-              <div className="my-8"></div>
             </div>
           </div>
-        </div>
-      </DataSuspense>
-      <Applicants jobId={jobId} />
-    </Container>
+        </DataSuspense>
+        <Applicants jobId={jobId} />
+      </Container>
+    </>
   );
 }

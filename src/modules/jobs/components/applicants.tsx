@@ -48,7 +48,9 @@ export default function Applicants(props: { jobId: string }) {
       key={props.jobId}
     >
       <div className="py-8 flex flex-col justify-center items-center">
-        <h2 className="font-normal text-primary">{t('Aplicantes')}</h2>
+        {((applicants && applicants?.length > 0) || loggedInAccount) && (
+          <h2 className="font-normal text-primary">{t('Aplicantes')}</h2>
+        )}
         {!alreadyApplied && (
           <DataSuspense
             loading={isPending}
