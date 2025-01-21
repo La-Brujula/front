@@ -11,31 +11,40 @@ import { UserDTO } from '@/modules/profile/queries/userProfile';
 
 export type JobDetailDTO = {
   id: string;
-  requesterId: string;
-  contactStartDate: Date;
-  contactEndDate: Date;
-  contactEmail: string;
-  whatsapp: string;
-  phoneNumbers: string[];
-  location: string;
+  requester: {
+    id: string;
+    primaryEmail: string;
+    type: 'fisica' | 'moral';
+    fullName: string;
+    searchable: boolean;
+    subscriber: boolean;
+    recommendationsCount: number;
+    verified: boolean;
+    nickName: string;
+    profilePictureUrl: string;
+    location: string;
+  };
+  count: number;
+  activity: string;
+  probono: boolean;
+  gender: 'male' | 'female' | 'other';
+  location: 'online' | 'hybrid' | 'in-person';
   workRadius: 'local' | 'state' | 'national' | 'international';
-  specialRequirements: string;
   employment: 'freelance' | 'determinate' | 'indeterminate';
   description: string;
   jobStartDate: Date;
-  jobEndDate: Date;
+  jobEndDate?: Date;
+  notes?: string;
+  phoneNumbers?: string[];
+  benefits?: string;
+  whatsapp?: string;
+  contactEmail?: string;
+  specialRequirements?: string;
   budgetLow?: number;
   budgetHigh?: number;
-  benefits?: string;
-  notes?: string;
-  // Opening
-  activity: string;
-  count: number;
-  probono: boolean;
-  gender?: 'male' | 'female' | 'other';
-  ageRangeMin?: number;
-  ageRangeMax?: number;
-  languages?: string;
+  contactEndDate: Date;
+  contactStartDate: Date;
+  createdAt: Date;
 };
 
 export type JobDTO = {
@@ -67,6 +76,15 @@ export type JobDTO = {
   jobEndDate?: Date;
 };
 
+export const getCreatedJobs = () =>
+  queryOptions({
+    queryKey: ['jobs', 'created'],
+    queryFn: (ctx) => {
+      return getFetch<JobDTO[]>('/jobs/me', {
+        signal: ctx.signal,
+      });
+    },
+  });
 export const jobSearchQueryOptions = (search: JobSearch) =>
   infiniteQueryOptions({
     initialPageParam: 0,
@@ -102,7 +120,16 @@ export const jobDetailOptions = (jobId: string) =>
     queryFn: (queryOptions) =>
       getFetch<JobDetailDTO>(`/jobs/${jobId}`, {
         signal: queryOptions.signal,
-      }).then((res) => res.entity),
+      })
+        .then((res) => res.entity)
+        .then((job) => ({
+          ...job,
+          createdAt: new Date(job.createdAt),
+          contactStartDate: new Date(job.contactStartDate),
+          contactEndDate: new Date(job.contactEndDate),
+          jobStartDate: new Date(job.jobStartDate),
+          jobEndDate: job.jobEndDate ? new Date(job.jobEndDate) : undefined,
+        })),
   });
 
 export const jobApplicantsOptions = (jobId: string) =>

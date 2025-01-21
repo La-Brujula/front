@@ -2,6 +2,7 @@ import { getTitle } from '@shared/utils/areaUtils';
 import { useTranslation } from 'react-i18next';
 import { JobDTO } from '../queries/jobSearchQuery';
 import { Link } from '@tanstack/react-router';
+import { UserCard } from '@/modules/search/components/userCard';
 
 export const JobCard = ({ job }: { job: JobDTO }) => {
   const { t } = useTranslation('jobs');
@@ -14,44 +15,23 @@ export const JobCard = ({ job }: { job: JobDTO }) => {
       resetScroll={false}
     >
       <div className="grid grid-cols-[1fr_max-content] gap-8">
-        <div className="flex flex-col">
-          {!!job.requester.profilePictureUrl ? (
-            <img
-              src={job.requester.profilePictureUrl}
-              crossOrigin="anonymous"
-              alt={`${job.requester.nickName || job.requester.fullName} profile picture`}
-              className="size-20 rounded-full shrink-0 row-span-2 object-cover
-          object-center"
+        <div className="flex flex-col gap-2">
+          <div className="">
+            <UserCard
+              user={job.requester}
+              showRecommendations={false}
+              hasLink={false}
             />
-          ) : (
-            <img
-              src={
-                job.requester.type == 'moral'
-                  ? '/guias/fotoDePerfil/casita.jpg'
-                  : '/guias/fotoDePerfil/Monito.jpg'
-              }
-              alt="ImagenPredeterminada"
-              className="size-20 rounded-full bg-white shrink-0 row-span-2
-          object-cover object-center"
-              loading="eager"
-            />
-          )}
-          <p className="text-lg opacity-80 font-bold">
-            {t('{{requester}} busca a {{count}} {{title}}', {
+          </div>
+          <p className="text-lg opacity-80 text-primary font-bold">
+            {t('Busca {{count}} {{title}}', {
               replace: {
-                requester: job.requester.nickName || job.requester.fullName,
                 count: job.count,
                 title: getTitle(job.activity, job.gender || 'other'),
               },
             })}
           </p>
           <p className="text-sm opacity-70 text-black">{job.description}</p>
-        </div>
-        <div className="flex flex-col">
-          <p className="text-sm mt-2 font-medium">{t(job.location)} </p>
-          {job.location === 'online' && (
-            <span className="text-xs">{t(job.workRadius)}</span>
-          )}
         </div>
       </div>
     </Link>

@@ -10,7 +10,8 @@ export const Container = (props: {
     | 'top-half-blue'
     | 'bottom-half-blue'
     | 'bottom-half-grey'
-    | 'whitetoblue';
+    | 'whitetoblue'
+    | 'light-gray';
   className?: string;
   bodyClass?: string;
 }) => {
@@ -34,6 +35,8 @@ export const Container = (props: {
               return 'bg-[linear-gradient(180deg,_#ededed00_60%,_#edededff_60%)]';
             case 'whitetoblue':
               return 'bg-[linear-gradient(180deg,_#0000_80%,_#2d7bbf33_80%)]';
+            case 'light-gray':
+              return 'bg-black bg-opacity-20';
             default:
               return 'bg-transparent';
           }

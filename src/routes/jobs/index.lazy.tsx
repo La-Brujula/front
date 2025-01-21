@@ -88,12 +88,12 @@ function SearchHomepage() {
   return (
     <>
       <Container
-        className="relative !pb-2"
+        className="relative !pb-4"
         bodyClass={[
           'grid grid-cols-1 gap-2',
           isLoggedIn ? 'md:grid-cols-[max-content_1fr]' : '',
         ].join(' ')}
-        bg="lightblue"
+        bg="light-gray"
       >
         {isLoggedIn && (
           <Link
@@ -146,11 +146,11 @@ function SearchHomepage() {
           </div>
         </div>
       </Container>
-      <Container className="relative !pt-2">
+      <Container className="relative !pt-0">
         <div className="grid grid-cols-1 gap-12 mt-16">
           <div
             className="flex flex-col gap-8 text-left bg-black bg-opacity-20
-          rounded-l-3xl p-8 w-full relative"
+          rounded-l-3xl px-8 pb-8 w-full relative"
           >
             <div
               className="w-[50vw] absolute left-[100%] top-0 h-full bg-black

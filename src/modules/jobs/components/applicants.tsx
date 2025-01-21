@@ -5,8 +5,6 @@ import { jobApplicantsOptions, useApplyToJob } from '../queries/jobSearchQuery';
 import { useTranslation } from 'react-i18next';
 import { UserCard } from '@/modules/search/components/userCard';
 import { useLoggedInAccount } from '@/shared/hooks/useLoggedInAccount';
-import { useCurrentProfile } from '@/shared/hooks/useCurrentProfile';
-import { useProfile } from '@/shared/hooks/useUser';
 
 export default function Applicants(props: { jobId: string }) {
   const { t } = useTranslation('jobs');
@@ -48,7 +46,9 @@ export default function Applicants(props: { jobId: string }) {
       key={props.jobId}
     >
       <div className="py-8 flex flex-col justify-center items-center">
-        <h2 className="font-normal text-primary">{t('Aplicantes')}</h2>
+        {((applicants && applicants?.length > 0) || loggedInAccount) && (
+          <h2 className="font-normal text-primary">{t('Aplicantes')}</h2>
+        )}
         {!alreadyApplied && (
           <DataSuspense
             loading={isPending}
