@@ -33,7 +33,7 @@ export const NameSearchField = () => {
       onSubmit={handleSubmit((values) => {
         navigate({
           to: '/search',
-          search: { query: values.search, location: values.location },
+          search: { query: values.search, country: values.location },
           resetScroll: true,
         });
       })}

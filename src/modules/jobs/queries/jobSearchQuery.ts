@@ -76,6 +76,15 @@ export type JobDTO = {
   jobEndDate?: Date;
 };
 
+export const getCreatedJobs = () =>
+  queryOptions({
+    queryKey: ['jobs', 'created'],
+    queryFn: (ctx) => {
+      return getFetch<JobDTO[]>('/jobs/me', {
+        signal: ctx.signal,
+      });
+    },
+  });
 export const jobSearchQueryOptions = (search: JobSearch) =>
   infiniteQueryOptions({
     initialPageParam: 0,

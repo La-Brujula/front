@@ -34,6 +34,7 @@ export const searchQueryOptions = (search: Search) =>
           ...search,
           activity: search.activity || search.category || search.area,
           offset: queryParams.pageParam,
+          country: search.country,
         },
         signal: queryParams.signal,
       });

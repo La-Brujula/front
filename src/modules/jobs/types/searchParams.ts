@@ -65,6 +65,9 @@ export const jobSearchSchema = z.object({
   location: z.optional(z.string()),
   probono: z.optional(z.boolean()),
   employment: z.optional(z.enum(['freelance', 'determinate', 'indeterminate'])),
+  requesterId: z.optional(z.string()),
+  limit: z.optional(z.number()),
+  offset: z.optional(z.number()),
 });
 
 export const defaultSearch = {
@@ -73,6 +76,7 @@ export const defaultSearch = {
   location: undefined,
   probono: undefined,
   employment: undefined,
+  requesterId: undefined,
 };
 
 export type JobSearch = z.infer<typeof jobSearchSchema>;

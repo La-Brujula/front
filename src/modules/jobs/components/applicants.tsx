@@ -5,8 +5,6 @@ import { jobApplicantsOptions, useApplyToJob } from '../queries/jobSearchQuery';
 import { useTranslation } from 'react-i18next';
 import { UserCard } from '@/modules/search/components/userCard';
 import { useLoggedInAccount } from '@/shared/hooks/useLoggedInAccount';
-import { useCurrentProfile } from '@/shared/hooks/useCurrentProfile';
-import { useProfile } from '@/shared/hooks/useUser';
 
 export default function Applicants(props: { jobId: string }) {
   const { t } = useTranslation('jobs');

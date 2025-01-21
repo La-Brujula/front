@@ -14,7 +14,7 @@ export const UserCard = ({
   showRecommendations?: boolean;
   hasLink?: boolean;
 }) => {
-  const { t } = useTranslation('search');
+  const { t } = useTranslation(['search', 'countries']);
   const content = useMemo(
     () => (
       <>
@@ -70,8 +70,15 @@ export const UserCard = ({
               )
           )}
           <p className="text-xs mt-2 font-medium">
-            {user.location}{' '}
-            {!!user.country && <CountryFlag country={user.country} />}
+            {user.country ? (
+              <>
+                {user.location?.replace(user.country, '')}
+                {t(`countries:${user.country}`)}{' '}
+                <CountryFlag country={user.country} />
+              </>
+            ) : (
+              user.location
+            )}
           </p>
         </div>
         {showRecommendations && (

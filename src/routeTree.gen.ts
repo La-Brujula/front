@@ -26,6 +26,7 @@ import { Route as AuthLoginImport } from './routes/auth/login';
 
 // Create Virtual Routes
 
+const JobsLazyImport = createFileRoute('/jobs')();
 const IndexLazyImport = createFileRoute('/')();
 const PrivacyIndexLazyImport = createFileRoute('/privacy/')();
 const GuidesIndexLazyImport = createFileRoute('/guides/')();
@@ -48,6 +49,11 @@ const AuthLogoutLazyImport = createFileRoute('/auth/logout')();
 const AuthDeleteAccountLazyImport = createFileRoute('/auth/delete-account')();
 
 // Create/Update Routes
+
+const JobsLazyRoute = JobsLazyImport.update({
+  path: '/jobs',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/jobs.lazy').then((d) => d.Route));
 
 const MeRoute = MeImport.update({
   path: '/me',
@@ -96,8 +102,8 @@ const SearchIndexRoute = SearchIndexImport.update({
 } as any).lazy(() => import('./routes/search/index.lazy').then((d) => d.Route));
 
 const JobsIndexRoute = JobsIndexImport.update({
-  path: '/jobs/',
-  getParentRoute: () => rootRoute,
+  path: '/',
+  getParentRoute: () => JobsLazyRoute,
 } as any).lazy(() => import('./routes/jobs/index.lazy').then((d) => d.Route));
 
 const SearchCategoryLazyRoute = SearchCategoryLazyImport.update({
@@ -140,8 +146,8 @@ const MeAreasLazyRoute = MeAreasLazyImport.update({
 } as any).lazy(() => import('./routes/me/areas.lazy').then((d) => d.Route));
 
 const JobsCreateLazyRoute = JobsCreateLazyImport.update({
-  path: '/jobs/create',
-  getParentRoute: () => rootRoute,
+  path: '/create',
+  getParentRoute: () => JobsLazyRoute,
 } as any).lazy(() => import('./routes/jobs/create.lazy').then((d) => d.Route));
 
 const AuthSendVerificationLazyRoute = AuthSendVerificationLazyImport.update({
@@ -185,8 +191,8 @@ const ProfileUserIdRoute = ProfileUserIdImport.update({
 );
 
 const JobsJobIdRoute = JobsJobIdImport.update({
-  path: '/jobs/$jobId',
-  getParentRoute: () => rootRoute,
+  path: '/$jobId',
+  getParentRoute: () => JobsLazyRoute,
 } as any).lazy(() => import('./routes/jobs/$jobId.lazy').then((d) => d.Route));
 
 const AuthVerifyEmailRoute = AuthVerifyEmailImport.update({
@@ -225,6 +231,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MeImport;
       parentRoute: typeof rootRoute;
     };
+    '/jobs': {
+      preLoaderRoute: typeof JobsLazyImport;
+      parentRoute: typeof rootRoute;
+    };
     '/auth/login': {
       preLoaderRoute: typeof AuthLoginImport;
       parentRoute: typeof rootRoute;
@@ -243,7 +253,7 @@ declare module '@tanstack/react-router' {
     };
     '/jobs/$jobId': {
       preLoaderRoute: typeof JobsJobIdImport;
-      parentRoute: typeof rootRoute;
+      parentRoute: typeof JobsLazyImport;
     };
     '/profile/$userId': {
       preLoaderRoute: typeof ProfileUserIdImport;
@@ -271,7 +281,7 @@ declare module '@tanstack/react-router' {
     };
     '/jobs/create': {
       preLoaderRoute: typeof JobsCreateLazyImport;
-      parentRoute: typeof rootRoute;
+      parentRoute: typeof JobsLazyImport;
     };
     '/me/areas': {
       preLoaderRoute: typeof MeAreasLazyImport;
@@ -303,7 +313,7 @@ declare module '@tanstack/react-router' {
     };
     '/jobs/': {
       preLoaderRoute: typeof JobsIndexImport;
-      parentRoute: typeof rootRoute;
+      parentRoute: typeof JobsLazyImport;
     };
     '/search/': {
       preLoaderRoute: typeof SearchIndexImport;
@@ -344,20 +354,22 @@ export const routeTree = rootRoute.addChildren([
     MeStandOutLazyRoute,
     MeSummaryLazyRoute,
   ]),
+  JobsLazyRoute.addChildren([
+    JobsJobIdRoute,
+    JobsCreateLazyRoute,
+    JobsIndexRoute,
+  ]),
   AuthLoginRoute,
   AuthNewPasswordRoute,
   AuthSignupRoute,
   AuthVerifyEmailRoute,
-  JobsJobIdRoute,
   ProfileUserIdRoute,
   SearchLabelRoute,
   AuthDeleteAccountLazyRoute,
   AuthLogoutLazyRoute,
   AuthResetPasswordLazyRoute,
   AuthSendVerificationLazyRoute,
-  JobsCreateLazyRoute,
   SearchCategoryLazyRoute,
-  JobsIndexRoute,
   SearchIndexRoute,
   AboutIndexLazyRoute,
   AnnouncementsIndexLazyRoute,
