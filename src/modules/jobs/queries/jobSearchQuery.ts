@@ -84,11 +84,13 @@ export const getCreatedJobs = () =>
         signal: ctx.signal,
       });
     },
+    refetchOnWindowFocus: true,
   });
 export const jobSearchQueryOptions = (search: JobSearch) =>
   infiniteQueryOptions({
     initialPageParam: 0,
     queryKey: ['jobs', search],
+    refetchOnWindowFocus: true,
     queryFn: (queryParams) => {
       return getFetch<JobDTO[]>('/jobs', {
         params: {
@@ -147,9 +149,8 @@ export const useCreateJob = () => {
     mutationKey: ['jobs'],
     mutationFn: (job: TJobPosting) =>
       postFetch<JobDetailDTO>(`/jobs`, job).then((res) => res.entity),
-    onSuccess: (job) => {
-      queryClient.setQueryData(['jobs', job.id], () => job);
-      queryClient.invalidateQueries({ queryKey: ['jobs'] });
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: ['jobs'] });
     },
   });
 };
