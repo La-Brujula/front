@@ -5,7 +5,7 @@ import { z } from 'zod';
 export const JobOpening = z.object({
   activity: z.string().length(6),
   count: z.number({ coerce: true }),
-  probono: z.boolean({ coerce: true }).catch(false),
+  probono: z.boolean({ coerce: true }),
   gender: z.optional(z.enum(['male', 'female', 'other'])).catch(undefined),
   ageRangeMin: z.optional(z.number({ coerce: true }).min(0).max(120)),
   ageRangeMax: z.optional(z.number({ coerce: true }).min(0).max(120)),
@@ -25,19 +25,15 @@ export const JobPosting = z
   .object({
     // Post
     requesterId: z.optional(z.string().max(128)),
-    contactStartDate: z.date({ coerce: true }).catch(new Date()),
-    contactEndDate: z
-      .date({ coerce: true })
-      .catch(
-        new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 5) /* 5 days */
-      ),
+    contactStartDate: z.date({ coerce: true, required_error: 'invalid_type' }),
+    contactEndDate: z.date({ coerce: true }),
     contactEmail: z.optional(z.string().email()),
     whatsapp: z.optional(z.string()),
-    phoneNumbers: z.optional(z.array(z.optional(z.string()))).catch([]),
+    phoneNumbers: z.optional(z.string()),
     // Service
     openings: z.array(JobOpening).max(10),
     location: z.enum(['online', 'hybrid', 'in-person']),
-    workRadius: z.enum(WORK_RADIUS_OPTIONS),
+    workRadius: z.optional(z.enum(WORK_RADIUS_OPTIONS)).catch(undefined),
     specialRequirements: z.optional(z.string()),
     // Proyect
     employment: z.enum(EMPLOYMENT_OPTIONS),

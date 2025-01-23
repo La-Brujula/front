@@ -1,8 +1,7 @@
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { FieldErrorsImpl, Path, SubmitHandler, useForm } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 import { JobPosting, TJobOpening, TJobPosting } from '../types/searchParams';
-import { useCallback, useMemo } from 'react';
-import { ZodError } from 'zod';
+import { useCallback, useMemo, useState } from 'react';
 import Input from '@/shared/components/input';
 import JobOpeningForm from './jobOpeningForm';
 import {
@@ -46,38 +45,44 @@ export default function JobCreationForm(props: {
   onCreate: Function;
   isPending: boolean;
 }) {
+  const [isParsing, setIsParsing] = useState(false);
   const { t } = useTranslation(['jobs', 'errors']);
 
-  const { handleSubmit, register, setError, formState, setValue, watch } =
-    useForm<TJobPosting>({
-      defaultValues: INITIAL_VALUES,
-    });
+  const {
+    handleSubmit,
+    register,
+    setError,
+    formState,
+    setValue,
+    watch,
+    setFocus,
+  } = useForm<TJobPosting>({
+    defaultValues: INITIAL_VALUES,
+  });
 
   const openings = watch('openings');
   const location = watch('location');
 
   const onSubmit = useCallback(
     async (values) => {
-      try {
-        const validatedForm = await JobPosting.parseAsync(values);
-        props.onCreate(validatedForm);
-      } catch (e) {
-        const error = e as unknown as ZodError<TJobPosting>;
-        console.error(error);
-
-        for (const [field, errors] of Object.entries(
-          error.formErrors.fieldErrors
-        )) {
-          if (errors === undefined) continue;
-          setError(field as keyof typeof error.formErrors.fieldErrors, {
-            types: Object.fromEntries(
-              errors.map((err) => [err, t(err, { ns: 'errors' })])
-            ),
-          });
-        }
+      setIsParsing(true);
+      const res = JobPosting.safeParse(values);
+      console.error(res);
+      if (res.success) {
+        setIsParsing(false);
+        return props.onCreate(res.data);
       }
+
+      for (const valError of res.error.issues) {
+        setError(valError.path.join('.') as Path<TJobPosting>, {
+          type: valError.code,
+          message: valError.code,
+        });
+        setFocus(valError.path.join('.') as Path<TJobPosting>);
+      }
+      setIsParsing(false);
     },
-    [props.onCreate, setError]
+    [props.onCreate, setError, setIsParsing]
   ) as SubmitHandler<TJobPosting>;
 
   const updateOpening = useCallback(
@@ -95,7 +100,6 @@ export default function JobCreationForm(props: {
       })),
     [t]
   );
-
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -125,6 +129,9 @@ export default function JobCreationForm(props: {
             error={formState.errors.contactEndDate}
           />
         </div>
+        <p className="mt-4">
+          {t('Ingresa al menos uno de los siguientes campos')}:
+        </p>
         <Input
           label={t('Correo para contacto')}
           type="email"
@@ -149,7 +156,7 @@ export default function JobCreationForm(props: {
           fieldName="phoneNumbers"
           autoComplete=""
           required={false}
-          error={formState.errors.phoneNumbers?.[0]}
+          error={formState.errors.phoneNumbers}
         />
       </div>
       <div className="flex flex-col gap-4 text-left">
@@ -173,9 +180,12 @@ export default function JobCreationForm(props: {
               <JobOpeningForm
                 key={o.activity}
                 i={i}
-                onChange={updateOpening(i)}
+                register={register}
+                setValue={setValue}
                 initialValues={o}
-                errors={formState.errors.openings?.[i]}
+                errors={
+                  formState.errors.openings?.[i] as FieldErrorsImpl<TJobOpening>
+                }
               />
               <hr />
             </>
@@ -339,7 +349,7 @@ export default function JobCreationForm(props: {
         <input
           type="submit"
           className="border-none"
-          disabled={props.isPending}
+          disabled={props.isPending || isParsing}
           value={t('Continuar')}
         />
       </div>

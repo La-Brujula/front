@@ -21,5 +21,9 @@
   "AE15": "No active verification flow found. Please start over.",
   "SE01": "Wrong format",
   "PE05": "No values found for column",
-  "PE06": "Field cannot be enumerated"
+  "PE06": "Field cannot be enumerated",
+  "invalid_enum_value": "Select a valid value",
+  "invalid_type": "Enter a valid value",
+  "invalid_string": "Enter a valid value",
+  "too_small": "Invalid format"
 }

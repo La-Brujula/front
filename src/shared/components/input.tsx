@@ -11,6 +11,10 @@ import {
 } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
+// t(errors:invalid_enum_value)
+// t(errors:invalid_type)
+// t(errors:invalid_string)
+
 type InputProps<
   Type extends
     | 'textArea'
@@ -90,7 +94,6 @@ function buildGroupedSelect<T extends FieldValues>(
         {...registerReturn}
         id={props.fieldName}
         className={props.inputClass}
-        required={props.required}
         value={props.value}
         label={props.label}
       >
@@ -121,7 +124,6 @@ function buildSelect<T extends FieldValues>(
       {...registerReturn}
       id={props.fieldName}
       className={props.inputClass}
-      required={props.required}
     >
       <option
         value=""
@@ -152,7 +154,6 @@ function buildTextArea<T extends FieldValues>(
       id={props.fieldName}
       className={props.inputClass}
       rows={props.rows || 3}
-      required={props.required}
       {...registerReturn}
     />
   );
@@ -186,7 +187,7 @@ function buildRadioGroup<T extends FieldValues>(
     )
   );
   return (
-    <div className="flex flex-row flex-wrap gap-4 items-stretch md:items-center justify-center mb-4">
+    <div className="flex flex-row flex-wrap gap-4 items-stretch md:items-center justify-center">
       {props.items.map((item, i) => (
         <div
           className="relative w-fit rounded-md ring-2 ring-primary
@@ -223,7 +224,7 @@ function Input<F extends InputTypes, T extends FieldValues>(
 ) {
   const { t } = useTranslation('errors');
   const registerReturn = useMemo(
-    () => props.register(props.fieldName, props),
+    () => props.register(props.fieldName, { ...props, required: false }),
     [props]
   );
   const inputElement = useMemo(() => {

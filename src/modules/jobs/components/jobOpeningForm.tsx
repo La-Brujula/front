@@ -1,6 +1,14 @@
 import { useCallback, useEffect, useState } from 'react';
-import { TJobOpening } from '../types/searchParams';
-import { FieldError, FieldErrorsImpl, Merge, useForm } from 'react-hook-form';
+import { TJobOpening, TJobPosting } from '../types/searchParams';
+import {
+  FieldError,
+  FieldErrorsImpl,
+  Merge,
+  Path,
+  useForm,
+  UseFormRegister,
+  UseFormSetValue,
+} from 'react-hook-form';
 import AreaForms from '@/modules/auth/components/areaForm';
 import { useTranslation } from 'react-i18next';
 import Input from '@/shared/components/input';
@@ -22,68 +30,69 @@ const DEFAULT_VALUES: TJobOpening = {
 export default function JobOpeningForm(props: {
   i: number;
   initialValues?: TJobOpening;
-  onChange: (values: TJobOpening) => void;
-  errors?: Merge<
-    FieldError,
-    (Merge<FieldError, FieldErrorsImpl<TJobOpening>> | undefined)[]
-  >;
+  register: UseFormRegister<TJobPosting>;
+  errors?: FieldErrorsImpl<TJobOpening>;
+  setValue: UseFormSetValue<TJobPosting>;
 }) {
+  const { register, errors } = props;
   const { t } = useTranslation('jobs');
-  const { register, formState, setValue, watch } = useForm<TJobOpening>({
-    defaultValues: { ...DEFAULT_VALUES, ...props.initialValues },
-  });
 
   const [showMore, setShowMore] = useState(false);
 
   const selectActivity = useCallback(
     (activity: string) => {
-      setValue('activity', activity);
+      props.setValue(`openings.${props.i}.activity`, activity);
     },
-    [setValue]
+    [props.setValue]
   );
-
-  useEffect(
-    () =>
-      watch((values) => {
-        props.onChange(values as TJobOpening);
-      }).unsubscribe,
-    [props.onChange]
-  );
-
-  const activity = watch('activity');
 
   return (
     <div className="flex flex-col gap-4">
-      <p className="font-bold">{t('Actividad')} *</p>
+      <p
+        className={[
+          'font-bold',
+          props.errors?.activity !== undefined && ' text-red-500',
+        ].join(' ')}
+      >
+        {t('Actividad')} *
+      </p>
       <AreaForms
-        defaultValue={activity}
+        defaultValue={props.initialValues?.activity || ''}
         changeListener={selectActivity}
         gender={'other'}
         removeElement={() => selectActivity('')}
       />
+      <input
+        type="hidden"
+        {...props.register(`openings.${props.i}.activity` as Path<TJobPosting>)}
+        value={props.initialValues?.activity}
+      />
+      {props.errors?.activity !== undefined && (
+        <p className="text-red-500">{t(props.errors?.activity.type || '')}</p>
+      )}
       <Input
         label={t('Número de vacantes')}
         type="text"
         autoComplete=""
         register={register}
-        fieldName="count"
+        fieldName={`openings.${props.i}.count`}
         divClass=""
         required={true}
-        error={formState.errors.count}
+        error={errors?.count}
       />
       <Input
-        label={t('Trabajo no remunerado')}
+        label={t('Trabajo remunerado')}
         type="radioGroup"
         register={register}
-        fieldName="probono"
+        fieldName={`openings.${props.i}.probono`}
         divClass=""
         required={true}
-        error={formState.errors.probono}
+        error={errors?.probono}
         items={[
-          { label: t('Sí'), value: 'true' },
-          { label: t('No'), value: 'false' },
+          { label: t('Sí'), value: '' },
+          { label: t('No'), value: 'true' },
         ]}
-        setValue={setValue}
+        setValue={props.setValue}
       />
       {!showMore ? (
         <div
@@ -108,10 +117,10 @@ export default function JobOpeningForm(props: {
               type="text"
               autoComplete=""
               register={register}
-              fieldName="ageRangeMin"
+              fieldName={`openings.${props.i}.ageRangeMin`}
               divClass=""
               required={true}
-              error={formState.errors.ageRangeMin}
+              error={errors?.ageRangeMin}
             />
             <p className="text-center w-full font-bold">-</p>
             <Input
@@ -120,20 +129,20 @@ export default function JobOpeningForm(props: {
               type="text"
               autoComplete=""
               register={register}
-              fieldName="ageRangeMax"
+              fieldName={`openings.${props.i}.ageRangeMax`}
               divClass=""
               required={true}
-              error={formState.errors.ageRangeMax}
+              error={errors?.ageRangeMax}
             />
           </div>
           <Input
             label={t('Género')}
             type="select"
             register={register}
-            fieldName="gender"
+            fieldName={`openings.${props.i}.gender`}
             divClass=""
             items={GENDERS.map((gender) => ({ key: gender, label: t(gender) }))}
-            error={formState.errors.gender}
+            error={errors?.gender}
           />
           <label
             htmlFor="languages"
@@ -142,8 +151,8 @@ export default function JobOpeningForm(props: {
             {t('Idioma')}:
           </label>
           <LanguageListForm
-            setValue={setValue}
-            fieldName="languages"
+            setValue={props.setValue}
+            fieldName={`openings.${props.i}.languages`}
             defaultState={[]}
             allowNull={true}
           />
@@ -151,9 +160,9 @@ export default function JobOpeningForm(props: {
             label={t('Escuela/Universidad')}
             type="custom"
             register={register}
-            fieldName="school"
-            component={UniversidadesSelect<TJobOpening>}
-            error={formState.errors.school}
+            fieldName={`openings.${props.i}.school`}
+            component={UniversidadesSelect<TJobPosting>}
+            error={errors?.school}
           />
         </>
       )}

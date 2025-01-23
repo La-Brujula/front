@@ -20,5 +20,9 @@
   "AE14": "No encontramos un flujo de verificación activo. Por favor empieza de nuevo.",
   "SE01": "Error de formato",
   "PE05": "No se encontraron valores para el campo",
-  "PE06": "El campo no pudo ser enumerado"
+  "PE06": "El campo no pudo ser enumerado",
+  "invalid_enum_value": "Selecciona un valor válido",
+  "invalid_type": "Ingresa un valor válido",
+  "invalid_string": "Ingresa un valor válido",
+  "too_small": "Formato no válido"
 }
