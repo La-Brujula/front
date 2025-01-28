@@ -67,6 +67,13 @@ export const ResultsFilter = (props: {
               <DeleteOutlined />
             </IconButton>
           </div>
+          <Input
+            label={t('Nombre')}
+            fieldName="name"
+            register={props.register}
+            type="text"
+            value={props.filters.name}
+          />
           <ActivityFilter
             register={props.register}
             filters={props.filters}

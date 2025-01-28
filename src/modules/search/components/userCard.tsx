@@ -41,16 +41,31 @@ export const UserCard = ({
         )}
         <div
           className="flex flex-row gap-8 text-left w-full border-b-black
-        border-opacity-40 col-span-2"
+        border-opacity-40"
         >
-          <div className="w-full">
-            <h2 className="font-normal text-xl lg:text-lg">
-              {!!user.nickName ? user.nickName : user.fullName}
-            </h2>
-            {!!user.nickName && (
-              <p className="font-normal text-sm">{user.fullName}</p>
+          <div className="w-full flex flex-col gap-2">
+            <div className="flex flex-col gap-0 ">
+              <h2 className="font-normal text-xl lg:text-lg">
+                {!!user.nickName ? user.nickName : user.fullName}
+              </h2>
+              {!!user.nickName && (
+                <p className="font-normal text-xs">{user.fullName}</p>
+              )}
+            </div>
+            {!!user.headline && (
+              <p className="text-sm opacity-70 text-black col-span-2 italic">
+                {user.headline}
+              </p>
             )}
           </div>
+        </div>
+        <div className="text-right">
+          {user.country && (
+            <CountryFlag
+              country={user.country}
+              className="text-4xl"
+            />
+          )}
         </div>
         <div className="">
           {!!user.primaryActivity && (
@@ -70,15 +85,12 @@ export const UserCard = ({
               )
           )}
           <p className="text-xs mt-2 font-medium">
-            {user.country ? (
-              <>
-                {user.location?.replace(user.country, '')}
-                {t(`countries:${user.country}`)}{' '}
-                <CountryFlag country={user.country} />
-              </>
-            ) : (
-              user.location
-            )}
+            {user.country
+              ? user.location?.replace(
+                  user.country,
+                  t(`countries:${user.country}`)
+                )
+              : user.location}
           </p>
         </div>
         {showRecommendations && (
@@ -97,11 +109,6 @@ export const UserCard = ({
               </span>
             </p>
           </div>
-        )}
-        {!!user.headline && (
-          <p className="text-sm opacity-70 text-black col-span-2">
-            {user.headline}
-          </p>
         )}
       </>
     ),

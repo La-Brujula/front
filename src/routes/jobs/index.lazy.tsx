@@ -13,6 +13,7 @@ import { jobSearchQueryOptions } from '@/modules/jobs/queries/jobSearchQuery';
 import DataSuspense from '@/shared/components/dataSuspense';
 import { JobsList } from '@/modules/jobs/components/jobList';
 import { useLoggedInAccount } from '@/shared/hooks/useLoggedInAccount';
+import { JobSearch } from '@/modules/jobs/types/searchParams';
 
 export const Route = createLazyFileRoute('/jobs/')({
   component: SearchHomepage,
@@ -54,14 +55,14 @@ function SearchHomepage() {
     reset: formReset,
     setValue,
     control,
-  } = useForm<Search>({
+  } = useForm<JobSearch>({
     values: search,
   });
 
   const filters = watch();
 
   const onSubmit = useCallback(
-    (data: Search) => {
+    (data: JobSearch) => {
       navigate({
         to: '/jobs',
         search: Object.fromEntries(

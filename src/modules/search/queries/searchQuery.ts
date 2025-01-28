@@ -26,7 +26,7 @@ export const searchQueryOptions = (search: Search) =>
     initialPageParam: 0,
     queryKey: ['search', search],
     queryFn: (queryParams) => {
-      if (Object.entries(search).length == 0) {
+      if (Object.entries(search).length == 1) {
         throw Error('Realiza una búsqueda para comenzar');
       }
       return getFetch<UserDTO[]>('/profiles', {

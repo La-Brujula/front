@@ -15,17 +15,16 @@ import { Container } from '@/shared/layout/container';
 import DownloadResultsButton from '@/modules/search/components/downloadResults';
 import Input from '@/shared/components/input';
 
-import CountryFlag from '@/shared/components/countryFlag';
 import countries from '@/shared/constants/countryFlags.json';
+import { TFunction } from 'i18next';
 
-const COUNTRIES = (['MX', 'CO'] as (keyof typeof CountryFlag)[]).map(
-  (country) => ({
+const COUNTRIES = (t: TFunction<'countries', undefined>) =>
+  (['MX', 'CO'] as const).map((country) => ({
     key: country,
     // label: <CountryFlag country={country} />,
-    label: `${countries[country]} ${country}`,
+    label: `${countries[country]} ${t(country, { ns: 'countries' })}`,
     className: '!text-5xl',
-  })
-);
+  }));
 
 export const Route = createLazyFileRoute('/search/')({
   component: SearchHomepage,
@@ -78,7 +77,7 @@ function SearchHomepage() {
         to: '/search',
         search: Object.fromEntries(
           Object.entries(data).filter(([_, value]) => !!value) || []
-        ),
+        ) as Search,
         replace: true,
         resetScroll: true,
       });
@@ -87,11 +86,13 @@ function SearchHomepage() {
   );
 
   useEffect(() => {
-    const subscription = watch((data) => onSubmit(data));
+    const subscription = watch((data) =>
+      onSubmit({ ...data, country: data.country || 'MX' })
+    );
     return () => subscription.unsubscribe();
   }, [onSubmit, watch]);
 
-  const { t } = useTranslation('search');
+  const { t } = useTranslation(['search', 'countries']);
 
   useEffect(() => {
     if (inView) {
@@ -103,7 +104,7 @@ function SearchHomepage() {
     <Container className="relative">
       <div className="bg-primary absolute top-0 h-24 w-full left-0 -z-10" />
       <div
-        className="w-full grid grid-cols-[8rem_1fr_max-content]
+        className="w-full grid grid-cols-[10rem_1fr_max-content]
       gap-4 text-white font-bold items-center px-4"
       >
         <Input
@@ -111,7 +112,7 @@ function SearchHomepage() {
           label=""
           register={register}
           fieldName="country"
-          items={COUNTRIES}
+          items={COUNTRIES(t)}
           inputClass="!bg-primary !pr-10 !h-9 !border-white !border-2"
           divClass="!-mt-2"
         />

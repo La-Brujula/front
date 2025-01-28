@@ -4,6 +4,7 @@ import { useNavigate } from '@tanstack/react-router';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import countries from '@/shared/constants/countryFlags.json';
+import { Search } from '@/modules/search/types/searchParams';
 
 const COUNTRIES = (['MX', 'CO'] as (keyof typeof countries)[]).map(
   (country) => ({
@@ -15,10 +16,10 @@ const COUNTRIES = (['MX', 'CO'] as (keyof typeof countries)[]).map(
 
 export const NameSearchField = () => {
   const { t } = useTranslation('landing');
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit } = useForm<Search>({
     defaultValues: {
-      search: '',
-      location: 'MX',
+      query: '',
+      country: 'MX',
     },
   });
 
@@ -31,7 +32,7 @@ export const NameSearchField = () => {
       onSubmit={handleSubmit((values) => {
         navigate({
           to: '/search',
-          search: { query: values.search, location: values.location },
+          search: values,
           resetScroll: true,
         });
       })}
@@ -42,7 +43,7 @@ export const NameSearchField = () => {
     >
       <input
         type="text"
-        {...register('search')}
+        {...register('query')}
         className="font-bold border-2 col-span-full md:col-span-1 border-white bg-transparent
         text-white placeholder:text-white"
         style={{
@@ -62,7 +63,7 @@ export const NameSearchField = () => {
         type="select"
         register={register}
         label={''}
-        fieldName="location"
+        fieldName="country"
         defaultValue={'MX'}
         items={COUNTRIES}
         inputClass="!text-5xl *:!py-0"

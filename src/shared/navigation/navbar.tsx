@@ -78,6 +78,7 @@ export const Navbar = () => {
             )}
             <Link
               to="/search"
+              search={{ country: 'MX' }}
               resetScroll
               className="font-bold text-white"
             >
@@ -164,6 +165,7 @@ export const Navbar = () => {
               <Link
                 onClick={() => toggleOpen()}
                 to="/search"
+                search={{ country: 'MX' }}
                 resetScroll
                 className="font-bold leading-relaxed text-white"
               >
