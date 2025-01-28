@@ -188,7 +188,7 @@ function buildRadioGroup<T extends FieldValues>(
   );
   return (
     <div className="flex flex-row flex-wrap gap-4 items-stretch md:items-center justify-center">
-      {props.items.map((item, i) => (
+      {props.items.map((item) => (
         <div
           className="relative w-fit rounded-md ring-2 ring-primary
         text-primary has-[:checked]:bg-primary has-[:checked]:text-white
@@ -202,7 +202,12 @@ function buildRadioGroup<T extends FieldValues>(
             value={item.value}
             id={props.fieldName + item.label}
             name={props.fieldName}
-            onClick={() => setValue(props.fieldName, item.value)}
+            onChange={() =>
+              setValue(props.fieldName, item.value, {
+                shouldValidate: true,
+                shouldTouch: true,
+              })
+            }
           />
           <label htmlFor={props.fieldName + item.label}>{item.label}</label>
         </div>
