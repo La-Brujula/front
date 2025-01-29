@@ -8,9 +8,12 @@ import {
   SetFieldValue,
   UseFormRegister,
   UseFormRegisterReturn,
-  UseFormSetValue,
 } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+
+// t(errors:invalid_enum_value)
+// t(errors:invalid_type)
+// t(errors:invalid_string)
 
 type InputProps<
   Type extends
@@ -22,6 +25,7 @@ type InputProps<
     | HTMLInputTypeAttribute,
   FormFields extends FieldValues,
 > = {
+  type: Type;
   label: string;
   register: UseFormRegister<FormFields>;
   fieldName: Path<FormFields>;
@@ -31,34 +35,26 @@ type InputProps<
   required?: boolean;
   error?: FieldError;
   helperText?: string;
+  hiddenLabel?: boolean;
 } & RegisterOptions &
   (Type extends 'textArea'
-    ? {
-        type: 'textArea';
-        rows?: number;
-        maxLength: number;
-      }
+    ? React.TextareaHTMLAttributes<HTMLTextAreaElement>
     : Type extends 'select'
       ? {
-          setValue: UseFormSetValue<FormFields>;
-          type: 'select';
           items: { key: string; label: string; className?: string }[];
-        }
+        } & React.SelectHTMLAttributes<HTMLSelectElement>
       : Type extends 'groupedSelect'
         ? {
-            type: 'groupedSelect';
             groupedItems: { [k: string]: { key: string; label: string }[] };
           }
         : Type extends 'radioGroup'
           ? {
-              type: 'radioGroup';
-              items: { label: string; value: string }[];
+              items: { label: string; value: string | number }[];
               setValue: SetFieldValue<FormFields>;
             }
           : Type extends 'custom'
             ?
                 | {
-                    type: 'custom';
                     component: React.FunctionComponent<
                       | {
                           register: UseFormRegister<FormFields>;
@@ -71,7 +67,6 @@ type InputProps<
             : Type extends HTMLInputTypeAttribute
               ? {
                   maxLength?: number;
-                  type: HTMLInputTypeAttribute;
                   autoComplete?: string;
                 } & React.DetailedHTMLProps<
                   React.InputHTMLAttributes<HTMLInputElement>,
@@ -99,7 +94,6 @@ function buildGroupedSelect<T extends FieldValues>(
         {...registerReturn}
         id={props.fieldName}
         className={props.inputClass}
-        required={props.required}
         value={props.value}
         label={props.label}
       >
@@ -130,7 +124,6 @@ function buildSelect<T extends FieldValues>(
       {...registerReturn}
       id={props.fieldName}
       className={props.inputClass}
-      required={props.required}
     >
       <option
         value=""
@@ -161,7 +154,6 @@ function buildTextArea<T extends FieldValues>(
       id={props.fieldName}
       className={props.inputClass}
       rows={props.rows || 3}
-      required={props.required}
       {...registerReturn}
     />
   );
@@ -195,8 +187,8 @@ function buildRadioGroup<T extends FieldValues>(
     )
   );
   return (
-    <div className="flex flex-row flex-wrap gap-4 items-stretch md:items-center justify-center mb-4">
-      {props.items.map((item, i) => (
+    <div className="flex flex-row flex-wrap gap-4 items-stretch md:items-center justify-center">
+      {props.items.map((item) => (
         <div
           className="relative w-fit rounded-md ring-2 ring-primary
         text-primary has-[:checked]:bg-primary has-[:checked]:text-white
@@ -210,7 +202,12 @@ function buildRadioGroup<T extends FieldValues>(
             value={item.value}
             id={props.fieldName + item.label}
             name={props.fieldName}
-            onClick={() => setValue(props.fieldName, item.value)}
+            onChange={() =>
+              setValue(props.fieldName, item.value, {
+                shouldValidate: true,
+                shouldTouch: true,
+              })
+            }
           />
           <label htmlFor={props.fieldName + item.label}>{item.label}</label>
         </div>
@@ -219,18 +216,20 @@ function buildRadioGroup<T extends FieldValues>(
   );
 }
 
-function Input<T extends FieldValues>(
-  props:
-    | InputProps<'textArea', T>
-    | InputProps<'select', T>
-    | InputProps<'groupedSelect', T>
-    | InputProps<'radioGroup', T>
-    | InputProps<'custom', T>
-    | InputProps<HTMLInputTypeAttribute, T>
+type InputTypes =
+  | 'textArea'
+  | 'select'
+  | 'groupedSelect'
+  | 'radioGroup'
+  | 'custom'
+  | HTMLInputTypeAttribute;
+
+function Input<F extends InputTypes, T extends FieldValues>(
+  props: InputProps<F, T>
 ) {
   const { t } = useTranslation('errors');
   const registerReturn = useMemo(
-    () => props.register(props.fieldName, props),
+    () => props.register(props.fieldName, { ...props, required: false }),
     [props]
   );
   const inputElement = useMemo(() => {
@@ -249,7 +248,7 @@ function Input<T extends FieldValues>(
         );
       case 'radioGroup':
         return buildRadioGroup(
-          props as InputProps<'radioGroup', T>,
+          { ...props, ...registerReturn } as InputProps<'radioGroup', T>,
           (props as InputProps<'radioGroup', T>).setValue
         );
       case 'custom':
@@ -267,16 +266,19 @@ function Input<T extends FieldValues>(
     <div
       className={['flex flex-col gap-2 text-left', props.divClass].join(' ')}
     >
-      <label
-        htmlFor={props.fieldName}
-        className={
-          props.labelClass ||
-          '' + (props.error !== undefined && ' text-red-500')
-        }
-      >
-        {props.label}
-        {props.required && ' *'}
-      </label>
+      {!props.hiddenLabel && (
+        <label
+          htmlFor={props.fieldName}
+          className={[
+            props.labelClass,
+            props.required !== true && ' opacity-80 font-normal',
+            props.error !== undefined && ' text-red-500',
+          ].join(' ')}
+        >
+          {props.label}
+          {props.required && ' *'}
+        </label>
+      )}
       {inputElement}
       {props.helperText !== undefined && props.error === undefined && (
         <p className="text-xs">{props.helperText}</p>

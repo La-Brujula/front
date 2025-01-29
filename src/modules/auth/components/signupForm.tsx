@@ -151,7 +151,7 @@ export const SignUpForm = (props: { referal?: string }) => {
       )}
       {acceptedPrivacy !== true && <PrivacyPolicy />}
       <input
-        disabled={loading || !formState.isValid}
+        disabled={loading}
         type="submit"
         className="max-w-xs mx-auto bg-primary"
         value={t('Crear usuario')}

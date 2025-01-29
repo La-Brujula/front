@@ -78,17 +78,11 @@ export const Navbar = () => {
             )}
             <Link
               to="/search"
+              search={{ country: 'MX' }}
               resetScroll
               className="font-bold text-white"
             >
               {t('search')}
-            </Link>
-            <Link
-              to="/about"
-              resetScroll
-              className="font-bold text-white"
-            >
-              {t('aboutUs')}
             </Link>
           </div>
           <LocalizationMenu />
@@ -164,6 +158,7 @@ export const Navbar = () => {
               <Link
                 onClick={() => toggleOpen()}
                 to="/search"
+                search={{ country: 'MX' }}
                 resetScroll
                 className="font-bold leading-relaxed text-white"
               >

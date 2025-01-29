@@ -4,7 +4,6 @@ import { LoadingSpinner } from '@/shared/components/loadingSpinner';
 import { Container } from '@/shared/layout/container';
 import { ApiError } from '@/shared/services/backendFetcher';
 import { createFileRoute, ErrorComponentProps } from '@tanstack/react-router';
-import { AxiosError } from 'axios';
 import { useTranslation } from 'react-i18next';
 import { z } from 'zod';
 
@@ -40,12 +39,7 @@ function WrongCode({ error }: ErrorComponentProps) {
     >
       <h1>{t('Algo salió mal')}</h1>
       {(error !== undefined && (
-        <ErrorMessage
-          message={
-            (error as AxiosError<{ error: ApiError }>)?.response?.data?.error
-              ?.errorCode || 'AE-VE'
-          }
-        />
+        <ErrorMessage message={(error as ApiError)?.errorCode || 'AE-VE'} />
       )) || (
         <p className="text-xl">
           {t(

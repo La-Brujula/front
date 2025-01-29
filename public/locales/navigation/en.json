@@ -5,13 +5,14 @@
   "trademark": "La Brújula is a registered trademark.",
   "login": "Log in",
   "search": "Search",
-  "aboutUs": "About us",
   "home": "Home",
   "createUser": "Register",
   "myUser": "My user",
   "La Brújula en PDF": "La Brújula in PDF",
+  "aboutUs": "About us",
   "announcements": "Announcements",
   "privacyH": "Privacy & security statement",
   "contact": "Contact",
-  "logout": "Logout"
+  "logout": "Logout",
+  "jobs": "Jobs"
 }

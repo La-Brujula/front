@@ -44,7 +44,7 @@ function SearchByCategory() {
                   : 'activity';
             navigate({
               to: '/search',
-              search: { [queryType]: parsed },
+              search: { [queryType]: parsed, country: 'MX' },
               resetScroll: true,
             });
           })}

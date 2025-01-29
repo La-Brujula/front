@@ -3,18 +3,18 @@ import { SearchOutlined } from '@mui/icons-material';
 import { useNavigate } from '@tanstack/react-router';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import CountryFlag from '@/shared/components/countryFlag';
+import countries from '@/shared/constants/countryFlags.json';
+import { TFunction } from 'i18next';
+import { useCallback } from 'react';
 
-const COUNTRIES = (['MX', 'CO'] as (keyof typeof CountryFlag)[]).map(
-  (country) => ({
-    key: country,
-    label: <CountryFlag country={country} />,
-    className: '!text-5xl',
-  })
-);
+const COUNTRIES = (['MX', 'CO'] as const).map((country) => ({
+  key: country,
+  label: countries[country],
+  className: '!text-5xl',
+}));
 
 export const NameSearchField = () => {
-  const { t } = useTranslation('landing');
+  const { t } = useTranslation(['landing', 'countries']);
   const { register, handleSubmit } = useForm({
     defaultValues: {
       search: '',
@@ -24,18 +24,24 @@ export const NameSearchField = () => {
 
   const navigate = useNavigate();
 
+  const goToSearch = useCallback(
+    () =>
+      handleSubmit((values) => {
+        navigate({
+          to: '/search',
+          search: { query: values.search, country: values.location },
+          resetScroll: true,
+        });
+      }),
+    [navigate, handleSubmit]
+  );
+
   return (
     <form
       action="/search"
       method="get"
-      onSubmit={handleSubmit((values) => {
-        navigate({
-          to: '/search',
-          search: { query: values.search, location: values.location },
-          resetScroll: true,
-        });
-      })}
-      className="grid grid-cols-2 md:grid-cols-[1fr_min-content_min-content]
+      onSubmit={goToSearch}
+      className="grid grid-cols-2 md:grid-cols-[1fr_6rem_5rem]
       gap-4 justify-items-stretch flex-grow w-full
       bg-primary p-4 rounded-lg"
       style={{ fontWeight: '700' }}

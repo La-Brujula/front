@@ -23,15 +23,12 @@ function NewPasswordPage() {
   const { code, email } = Route.useSearch();
   const { register, handleSubmit, setError, formState } =
     useForm<PasswordChangeForm>();
-  const { changeUserPassword, account } = useAuth([
-    'changeUserPassword',
-    'account',
-  ]);
+  const { changeUserPassword } = useAuth(['changeUserPassword']);
   const { isPending, mutate, error } = useAuthFunction(changeUserPassword);
   const navigate = useNavigate();
 
   const formHandler = useCallback(
-    async (values: { password: string; passwordConfirm: string }) => {
+    (values: { password: string; passwordConfirm: string }) => {
       if (values.password != values.passwordConfirm) {
         return setError(
           'passwordConfirm',
@@ -42,11 +39,12 @@ function NewPasswordPage() {
       mutate(
         { email, password: values.password, code },
         {
-          onSuccess: () =>
+          onSuccess: () => {
             navigate({
-              to: '/auth/login',
+              to: '/',
               resetScroll: true,
-            }),
+            });
+          },
           onError: (error) => {
             if (
               isApiError(error) &&
@@ -63,7 +61,7 @@ function NewPasswordPage() {
         }
       );
     },
-    [changeUserPassword, account, code]
+    [email, code, setError, mutate, navigate, t]
   );
 
   return (
