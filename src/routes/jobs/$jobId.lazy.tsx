@@ -12,6 +12,7 @@ import { getTitle } from '@/shared/utils/areaUtils';
 import Applicants from '@/modules/jobs/components/applicants';
 import { ArrowBackIosOutlined } from '@mui/icons-material';
 import { UserCard } from '@/modules/search/components/userCard';
+import { useLoggedInAccount } from '@/shared/hooks/useLoggedInAccount';
 
 // i18next-parser static types
 
@@ -41,16 +42,22 @@ function PendingUserProfilePage() {
 export function JobDetailPage() {
   const { jobId } = Route.useParams();
   const { t } = useTranslation('jobs');
+  const loggedInAccount = useLoggedInAccount();
 
   const queryOptions = useMemo(() => jobDetailOptions(jobId), [jobId]);
 
   const { data: job, isLoading: loading, error } = useQuery(queryOptions);
 
+  const ownOpening = useMemo(() => {
+    if (job === undefined || loggedInAccount === null) return false;
+    return loggedInAccount?.ProfileId === job.requester.id;
+  }, [loggedInAccount, job, loading]);
+
   return (
     <>
       <Container
         bg="light-gray"
-        bodyClass="grid grid-cols-[2rem_1fr_2rem] items-center"
+        bodyClass="grid sm:grid-cols-[4rem_1fr_4rem] items-center"
         className="!p-4"
       >
         <Link
@@ -60,7 +67,7 @@ export function JobDetailPage() {
           <ArrowBackIosOutlined />
           {t('Regresar')}
         </Link>
-        <h1 className="font-normal text-primary text-4xl">
+        <h1 className="font-normal text-primary text-4xl text-center">
           {t('Oferta laboral')}
         </h1>
         <div></div>
@@ -176,7 +183,10 @@ export function JobDetailPage() {
             </div>
           </div>
         </DataSuspense>
-        <Applicants jobId={jobId} />
+        <Applicants
+          jobId={jobId}
+          ownOpening={ownOpening}
+        />
       </Container>
     </>
   );

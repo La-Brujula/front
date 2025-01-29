@@ -6,7 +6,10 @@ import { useTranslation } from 'react-i18next';
 import { UserCard } from '@/modules/search/components/userCard';
 import { useLoggedInAccount } from '@/shared/hooks/useLoggedInAccount';
 
-export default function Applicants(props: { jobId: string }) {
+export default function Applicants(props: {
+  jobId: string;
+  ownOpening: boolean;
+}) {
   const { t } = useTranslation('jobs');
 
   const loggedInAccount = useLoggedInAccount();
@@ -49,7 +52,7 @@ export default function Applicants(props: { jobId: string }) {
         {((applicants && applicants?.length > 0) || loggedInAccount) && (
           <h2 className="font-normal text-primary">{t('Aplicantes')}</h2>
         )}
-        {!alreadyApplied && (
+        {!alreadyApplied && !props.ownOpening && (
           <DataSuspense
             loading={isPending}
             error={applyError}
@@ -63,12 +66,18 @@ export default function Applicants(props: { jobId: string }) {
           </DataSuspense>
         )}
         <div className="flex flex-col gap-2 text-left [&>*]:pb-4 [&>*]:border-b [&>*]:border-b-black [&>*]:border-opacity-20">
-          {applicants?.map((a) => (
-            <UserCard
-              user={a}
-              key={a.id}
-            />
-          ))}
+          {applicants && applicants.length > 0 ? (
+            applicants?.map((a) => (
+              <UserCard
+                user={a}
+                key={a.id}
+              />
+            ))
+          ) : (
+            <p className="text-lg">
+              {t('Nadie ha aplicado a esta oferta aún')}
+            </p>
+          )}
         </div>
       </div>
     </DataSuspense>
