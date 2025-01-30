@@ -35,6 +35,8 @@ export const SignUpForm = (props: { referal?: string }) => {
 
   const personTypeOptions = useMemo(() => personTypeOptionsGenerator(t), [t]);
 
+  const persona = watch('persona');
+
   const onSubmit = async (data: SignupForm) => {
     if (data.password !== data.confirmPassword) {
       setError('confirmPassword', {
@@ -129,6 +131,7 @@ export const SignUpForm = (props: { referal?: string }) => {
           items={personTypeOptions}
           error={formState.errors.persona}
           setValue={setValue}
+          value={persona}
         />
       </div>
       {error !== null && (
