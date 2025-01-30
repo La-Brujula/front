@@ -85,12 +85,7 @@ export default function JobCreationForm(props: {
     [props.onCreate, setError, setIsParsing]
   ) as SubmitHandler<TJobPosting>;
 
-  const updateOpening = useCallback(
-    (i: number) => (values: TJobOpening) => {
-      setValue(`openings.${i}`, values);
-    },
-    [setValue]
-  );
+  const values = watch();
 
   const EMPLOYMENT_RADIO_OPTIONS = useMemo(
     () =>
@@ -211,6 +206,7 @@ export default function JobCreationForm(props: {
             label: t(location),
           }))}
           setValue={setValue}
+          value={values.location}
         />
         {location === 'online' && (
           <Input
@@ -224,6 +220,7 @@ export default function JobCreationForm(props: {
               label: t(radius),
             }))}
             setValue={setValue}
+            value={values.workRadius || ''}
           />
         )}
         <Input
@@ -235,6 +232,7 @@ export default function JobCreationForm(props: {
           error={formState.errors.employment}
           items={EMPLOYMENT_RADIO_OPTIONS}
           setValue={setValue}
+          value={values.employment}
         />
         <Input
           label={t('Descripción de empleo / proyecto')}
