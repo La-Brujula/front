@@ -8,61 +8,48 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-router';
 
 // Import Routes
 
-import { Route as rootRoute } from './routes/__root'
-import { Route as MeImport } from './routes/me'
-<<<<<<< HEAD
-import { Route as AlertsImport } from './routes/alerts'
-import { Route as SearchIndexImport } from './routes/search/index'
-import { Route as JobsIndexImport } from './routes/jobs/index'
-=======
-import { Route as SearchIndexImport } from './routes/search/index'
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
-import { Route as SearchLabelImport } from './routes/search/$label'
-import { Route as ProfileUserIdImport } from './routes/profile/$userId'
-import { Route as AuthVerifyEmailImport } from './routes/auth/verify-email'
-import { Route as AuthSignupImport } from './routes/auth/signup'
-import { Route as AuthNewPasswordImport } from './routes/auth/new-password'
-import { Route as AuthLoginImport } from './routes/auth/login'
-<<<<<<< HEAD
-import { Route as JobsJobIdEditImport } from './routes/jobs_.$jobId.edit'
+import { Route as rootRoute } from './routes/__root';
+import { Route as MeImport } from './routes/me';
+import { Route as AlertsImport } from './routes/alerts';
+import { Route as SearchIndexImport } from './routes/search/index';
+import { Route as JobsIndexImport } from './routes/jobs/index';
+import { Route as SearchLabelImport } from './routes/search/$label';
+import { Route as ProfileUserIdImport } from './routes/profile/$userId';
+import { Route as AuthVerifyEmailImport } from './routes/auth/verify-email';
+import { Route as AuthSignupImport } from './routes/auth/signup';
+import { Route as AuthNewPasswordImport } from './routes/auth/new-password';
+import { Route as AuthLoginImport } from './routes/auth/login';
+import { Route as JobsJobIdEditImport } from './routes/jobs_.$jobId.edit';
 
 // Create Virtual Routes
 
-const JobsLazyImport = createFileRoute('/jobs')()
-=======
-
-// Create Virtual Routes
-
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
-const IndexLazyImport = createFileRoute('/')()
-const PrivacyIndexLazyImport = createFileRoute('/privacy/')()
-const GuidesIndexLazyImport = createFileRoute('/guides/')()
-const ContactIndexLazyImport = createFileRoute('/contact/')()
-const AnnouncementsIndexLazyImport = createFileRoute('/announcements/')()
-const AboutIndexLazyImport = createFileRoute('/about/')()
-const SearchCategoryLazyImport = createFileRoute('/search/category')()
-const MeSummaryLazyImport = createFileRoute('/me/summary')()
-const MeStandOutLazyImport = createFileRoute('/me/stand-out')()
-const MeContactLazyImport = createFileRoute('/me/contact')()
-const MeCharacteristicsLazyImport = createFileRoute('/me/characteristics')()
-const MeBasicLazyImport = createFileRoute('/me/basic')()
-const MeAreasLazyImport = createFileRoute('/me/areas')()
-<<<<<<< HEAD
-const JobsMeLazyImport = createFileRoute('/jobs/me')()
-const JobsCreateLazyImport = createFileRoute('/jobs/create')()
-const JobsJobIdLazyImport = createFileRoute('/jobs/$jobId')()
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
+const JobsLazyImport = createFileRoute('/jobs')();
+const IndexLazyImport = createFileRoute('/')();
+const PrivacyIndexLazyImport = createFileRoute('/privacy/')();
+const GuidesIndexLazyImport = createFileRoute('/guides/')();
+const ContactIndexLazyImport = createFileRoute('/contact/')();
+const AnnouncementsIndexLazyImport = createFileRoute('/announcements/')();
+const AboutIndexLazyImport = createFileRoute('/about/')();
+const SearchCategoryLazyImport = createFileRoute('/search/category')();
+const MeSummaryLazyImport = createFileRoute('/me/summary')();
+const MeStandOutLazyImport = createFileRoute('/me/stand-out')();
+const MeContactLazyImport = createFileRoute('/me/contact')();
+const MeCharacteristicsLazyImport = createFileRoute('/me/characteristics')();
+const MeBasicLazyImport = createFileRoute('/me/basic')();
+const MeAreasLazyImport = createFileRoute('/me/areas')();
+const JobsMeLazyImport = createFileRoute('/jobs/me')();
+const JobsCreateLazyImport = createFileRoute('/jobs/create')();
+const JobsJobIdLazyImport = createFileRoute('/jobs/$jobId')();
 const AuthSendVerificationLazyImport = createFileRoute(
-  '/auth/send-verification',
-)()
-const AuthResetPasswordLazyImport = createFileRoute('/auth/reset-password')()
-const AuthLogoutLazyImport = createFileRoute('/auth/logout')()
-const AuthDeleteAccountLazyImport = createFileRoute('/auth/delete-account')()
+  '/auth/send-verification'
+)();
+const AuthResetPasswordLazyImport = createFileRoute('/auth/reset-password')();
+const AuthLogoutLazyImport = createFileRoute('/auth/logout')();
+const AuthDeleteAccountLazyImport = createFileRoute('/auth/delete-account')();
 
 // Create/Update Routes
 
@@ -70,481 +57,460 @@ const JobsLazyRoute = JobsLazyImport.update({
   id: '/jobs',
   path: '/jobs',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/jobs.lazy').then((d) => d.Route))
+} as any).lazy(() => import('./routes/jobs.lazy').then((d) => d.Route));
 
 const MeRoute = MeImport.update({
   id: '/me',
   path: '/me',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/me.lazy').then((d) => d.Route))
-<<<<<<< HEAD
+} as any).lazy(() => import('./routes/me.lazy').then((d) => d.Route));
 
 const AlertsRoute = AlertsImport.update({
   id: '/alerts',
   path: '/alerts',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/alerts.lazy').then((d) => d.Route))
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
+} as any).lazy(() => import('./routes/alerts.lazy').then((d) => d.Route));
 
 const IndexLazyRoute = IndexLazyImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
+} as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route));
 
 const PrivacyIndexLazyRoute = PrivacyIndexLazyImport.update({
   id: '/privacy/',
   path: '/privacy/',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/privacy/index.lazy').then((d) => d.Route))
+} as any).lazy(() =>
+  import('./routes/privacy/index.lazy').then((d) => d.Route)
+);
 
 const GuidesIndexLazyRoute = GuidesIndexLazyImport.update({
   id: '/guides/',
   path: '/guides/',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/guides/index.lazy').then((d) => d.Route))
+} as any).lazy(() => import('./routes/guides/index.lazy').then((d) => d.Route));
 
 const ContactIndexLazyRoute = ContactIndexLazyImport.update({
   id: '/contact/',
   path: '/contact/',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/contact/index.lazy').then((d) => d.Route))
+} as any).lazy(() =>
+  import('./routes/contact/index.lazy').then((d) => d.Route)
+);
 
 const AnnouncementsIndexLazyRoute = AnnouncementsIndexLazyImport.update({
   id: '/announcements/',
   path: '/announcements/',
   getParentRoute: () => rootRoute,
 } as any).lazy(() =>
-  import('./routes/announcements/index.lazy').then((d) => d.Route),
-)
+  import('./routes/announcements/index.lazy').then((d) => d.Route)
+);
 
 const AboutIndexLazyRoute = AboutIndexLazyImport.update({
   id: '/about/',
   path: '/about/',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/about/index.lazy').then((d) => d.Route))
+} as any).lazy(() => import('./routes/about/index.lazy').then((d) => d.Route));
 
 const SearchIndexRoute = SearchIndexImport.update({
   id: '/search/',
   path: '/search/',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/search/index.lazy').then((d) => d.Route))
-<<<<<<< HEAD
+} as any).lazy(() => import('./routes/search/index.lazy').then((d) => d.Route));
 
 const JobsIndexRoute = JobsIndexImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => JobsLazyRoute,
-} as any).lazy(() => import('./routes/jobs/index.lazy').then((d) => d.Route))
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
+} as any).lazy(() => import('./routes/jobs/index.lazy').then((d) => d.Route));
 
 const SearchCategoryLazyRoute = SearchCategoryLazyImport.update({
   id: '/search/category',
   path: '/search/category',
   getParentRoute: () => rootRoute,
 } as any).lazy(() =>
-  import('./routes/search/category.lazy').then((d) => d.Route),
-)
+  import('./routes/search/category.lazy').then((d) => d.Route)
+);
 
 const MeSummaryLazyRoute = MeSummaryLazyImport.update({
   id: '/summary',
   path: '/summary',
   getParentRoute: () => MeRoute,
-} as any).lazy(() => import('./routes/me/summary.lazy').then((d) => d.Route))
+} as any).lazy(() => import('./routes/me/summary.lazy').then((d) => d.Route));
 
 const MeStandOutLazyRoute = MeStandOutLazyImport.update({
   id: '/stand-out',
   path: '/stand-out',
   getParentRoute: () => MeRoute,
-} as any).lazy(() => import('./routes/me/stand-out.lazy').then((d) => d.Route))
+} as any).lazy(() => import('./routes/me/stand-out.lazy').then((d) => d.Route));
 
 const MeContactLazyRoute = MeContactLazyImport.update({
   id: '/contact',
   path: '/contact',
   getParentRoute: () => MeRoute,
-} as any).lazy(() => import('./routes/me/contact.lazy').then((d) => d.Route))
+} as any).lazy(() => import('./routes/me/contact.lazy').then((d) => d.Route));
 
 const MeCharacteristicsLazyRoute = MeCharacteristicsLazyImport.update({
   id: '/characteristics',
   path: '/characteristics',
   getParentRoute: () => MeRoute,
 } as any).lazy(() =>
-  import('./routes/me/characteristics.lazy').then((d) => d.Route),
-)
+  import('./routes/me/characteristics.lazy').then((d) => d.Route)
+);
 
 const MeBasicLazyRoute = MeBasicLazyImport.update({
   id: '/basic',
   path: '/basic',
   getParentRoute: () => MeRoute,
-} as any).lazy(() => import('./routes/me/basic.lazy').then((d) => d.Route))
+} as any).lazy(() => import('./routes/me/basic.lazy').then((d) => d.Route));
 
 const MeAreasLazyRoute = MeAreasLazyImport.update({
   id: '/areas',
   path: '/areas',
   getParentRoute: () => MeRoute,
-} as any).lazy(() => import('./routes/me/areas.lazy').then((d) => d.Route))
-<<<<<<< HEAD
+} as any).lazy(() => import('./routes/me/areas.lazy').then((d) => d.Route));
 
 const JobsMeLazyRoute = JobsMeLazyImport.update({
   id: '/me',
   path: '/me',
   getParentRoute: () => JobsLazyRoute,
-} as any).lazy(() => import('./routes/jobs/me.lazy').then((d) => d.Route))
+} as any).lazy(() => import('./routes/jobs/me.lazy').then((d) => d.Route));
 
 const JobsCreateLazyRoute = JobsCreateLazyImport.update({
   id: '/create',
   path: '/create',
   getParentRoute: () => JobsLazyRoute,
-} as any).lazy(() => import('./routes/jobs/create.lazy').then((d) => d.Route))
+} as any).lazy(() => import('./routes/jobs/create.lazy').then((d) => d.Route));
 
 const JobsJobIdLazyRoute = JobsJobIdLazyImport.update({
   id: '/$jobId',
   path: '/$jobId',
   getParentRoute: () => JobsLazyRoute,
-} as any).lazy(() => import('./routes/jobs/$jobId.lazy').then((d) => d.Route))
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
+} as any).lazy(() => import('./routes/jobs/$jobId.lazy').then((d) => d.Route));
 
 const AuthSendVerificationLazyRoute = AuthSendVerificationLazyImport.update({
   id: '/auth/send-verification',
   path: '/auth/send-verification',
   getParentRoute: () => rootRoute,
 } as any).lazy(() =>
-  import('./routes/auth/send-verification.lazy').then((d) => d.Route),
-)
+  import('./routes/auth/send-verification.lazy').then((d) => d.Route)
+);
 
 const AuthResetPasswordLazyRoute = AuthResetPasswordLazyImport.update({
   id: '/auth/reset-password',
   path: '/auth/reset-password',
   getParentRoute: () => rootRoute,
 } as any).lazy(() =>
-  import('./routes/auth/reset-password.lazy').then((d) => d.Route),
-)
+  import('./routes/auth/reset-password.lazy').then((d) => d.Route)
+);
 
 const AuthLogoutLazyRoute = AuthLogoutLazyImport.update({
   id: '/auth/logout',
   path: '/auth/logout',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/auth/logout.lazy').then((d) => d.Route))
+} as any).lazy(() => import('./routes/auth/logout.lazy').then((d) => d.Route));
 
 const AuthDeleteAccountLazyRoute = AuthDeleteAccountLazyImport.update({
   id: '/auth/delete-account',
   path: '/auth/delete-account',
   getParentRoute: () => rootRoute,
 } as any).lazy(() =>
-  import('./routes/auth/delete-account.lazy').then((d) => d.Route),
-)
+  import('./routes/auth/delete-account.lazy').then((d) => d.Route)
+);
 
 const SearchLabelRoute = SearchLabelImport.update({
   id: '/search/$label',
   path: '/search/$label',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/search/$label.lazy').then((d) => d.Route))
+} as any).lazy(() =>
+  import('./routes/search/$label.lazy').then((d) => d.Route)
+);
 
 const ProfileUserIdRoute = ProfileUserIdImport.update({
   id: '/profile/$userId',
   path: '/profile/$userId',
   getParentRoute: () => rootRoute,
 } as any).lazy(() =>
-  import('./routes/profile/$userId.lazy').then((d) => d.Route),
-)
+  import('./routes/profile/$userId.lazy').then((d) => d.Route)
+);
 
 const AuthVerifyEmailRoute = AuthVerifyEmailImport.update({
   id: '/auth/verify-email',
   path: '/auth/verify-email',
   getParentRoute: () => rootRoute,
 } as any).lazy(() =>
-  import('./routes/auth/verify-email.lazy').then((d) => d.Route),
-)
+  import('./routes/auth/verify-email.lazy').then((d) => d.Route)
+);
 
 const AuthSignupRoute = AuthSignupImport.update({
   id: '/auth/signup',
   path: '/auth/signup',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/auth/signup.lazy').then((d) => d.Route))
+} as any).lazy(() => import('./routes/auth/signup.lazy').then((d) => d.Route));
 
 const AuthNewPasswordRoute = AuthNewPasswordImport.update({
   id: '/auth/new-password',
   path: '/auth/new-password',
   getParentRoute: () => rootRoute,
 } as any).lazy(() =>
-  import('./routes/auth/new-password.lazy').then((d) => d.Route),
-)
+  import('./routes/auth/new-password.lazy').then((d) => d.Route)
+);
 
 const AuthLoginRoute = AuthLoginImport.update({
   id: '/auth/login',
   path: '/auth/login',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/auth/login.lazy').then((d) => d.Route))
-<<<<<<< HEAD
+} as any).lazy(() => import('./routes/auth/login.lazy').then((d) => d.Route));
 
 const JobsJobIdEditRoute = JobsJobIdEditImport.update({
   id: '/jobs_/$jobId/edit',
   path: '/jobs/$jobId/edit',
   getParentRoute: () => rootRoute,
 } as any).lazy(() =>
-  import('./routes/jobs_.$jobId.edit.lazy').then((d) => d.Route),
-)
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
+  import('./routes/jobs_.$jobId.edit.lazy').then((d) => d.Route)
+);
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
     '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexLazyImport
-      parentRoute: typeof rootRoute
-    }
-<<<<<<< HEAD
+      id: '/';
+      path: '/';
+      fullPath: '/';
+      preLoaderRoute: typeof IndexLazyImport;
+      parentRoute: typeof rootRoute;
+    };
     '/alerts': {
-      id: '/alerts'
-      path: '/alerts'
-      fullPath: '/alerts'
-      preLoaderRoute: typeof AlertsImport
-      parentRoute: typeof rootRoute
-    }
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
+      id: '/alerts';
+      path: '/alerts';
+      fullPath: '/alerts';
+      preLoaderRoute: typeof AlertsImport;
+      parentRoute: typeof rootRoute;
+    };
     '/me': {
-      id: '/me'
-      path: '/me'
-      fullPath: '/me'
-      preLoaderRoute: typeof MeImport
-      parentRoute: typeof rootRoute
-    }
-<<<<<<< HEAD
+      id: '/me';
+      path: '/me';
+      fullPath: '/me';
+      preLoaderRoute: typeof MeImport;
+      parentRoute: typeof rootRoute;
+    };
     '/jobs': {
-      id: '/jobs'
-      path: '/jobs'
-      fullPath: '/jobs'
-      preLoaderRoute: typeof JobsLazyImport
-      parentRoute: typeof rootRoute
-    }
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
+      id: '/jobs';
+      path: '/jobs';
+      fullPath: '/jobs';
+      preLoaderRoute: typeof JobsLazyImport;
+      parentRoute: typeof rootRoute;
+    };
     '/auth/login': {
-      id: '/auth/login'
-      path: '/auth/login'
-      fullPath: '/auth/login'
-      preLoaderRoute: typeof AuthLoginImport
-      parentRoute: typeof rootRoute
-    }
+      id: '/auth/login';
+      path: '/auth/login';
+      fullPath: '/auth/login';
+      preLoaderRoute: typeof AuthLoginImport;
+      parentRoute: typeof rootRoute;
+    };
     '/auth/new-password': {
-      id: '/auth/new-password'
-      path: '/auth/new-password'
-      fullPath: '/auth/new-password'
-      preLoaderRoute: typeof AuthNewPasswordImport
-      parentRoute: typeof rootRoute
-    }
+      id: '/auth/new-password';
+      path: '/auth/new-password';
+      fullPath: '/auth/new-password';
+      preLoaderRoute: typeof AuthNewPasswordImport;
+      parentRoute: typeof rootRoute;
+    };
     '/auth/signup': {
-      id: '/auth/signup'
-      path: '/auth/signup'
-      fullPath: '/auth/signup'
-      preLoaderRoute: typeof AuthSignupImport
-      parentRoute: typeof rootRoute
-    }
+      id: '/auth/signup';
+      path: '/auth/signup';
+      fullPath: '/auth/signup';
+      preLoaderRoute: typeof AuthSignupImport;
+      parentRoute: typeof rootRoute;
+    };
     '/auth/verify-email': {
-      id: '/auth/verify-email'
-      path: '/auth/verify-email'
-      fullPath: '/auth/verify-email'
-      preLoaderRoute: typeof AuthVerifyEmailImport
-      parentRoute: typeof rootRoute
-    }
+      id: '/auth/verify-email';
+      path: '/auth/verify-email';
+      fullPath: '/auth/verify-email';
+      preLoaderRoute: typeof AuthVerifyEmailImport;
+      parentRoute: typeof rootRoute;
+    };
     '/profile/$userId': {
-      id: '/profile/$userId'
-      path: '/profile/$userId'
-      fullPath: '/profile/$userId'
-      preLoaderRoute: typeof ProfileUserIdImport
-      parentRoute: typeof rootRoute
-    }
+      id: '/profile/$userId';
+      path: '/profile/$userId';
+      fullPath: '/profile/$userId';
+      preLoaderRoute: typeof ProfileUserIdImport;
+      parentRoute: typeof rootRoute;
+    };
     '/search/$label': {
-      id: '/search/$label'
-      path: '/search/$label'
-      fullPath: '/search/$label'
-      preLoaderRoute: typeof SearchLabelImport
-      parentRoute: typeof rootRoute
-    }
+      id: '/search/$label';
+      path: '/search/$label';
+      fullPath: '/search/$label';
+      preLoaderRoute: typeof SearchLabelImport;
+      parentRoute: typeof rootRoute;
+    };
     '/auth/delete-account': {
-      id: '/auth/delete-account'
-      path: '/auth/delete-account'
-      fullPath: '/auth/delete-account'
-      preLoaderRoute: typeof AuthDeleteAccountLazyImport
-      parentRoute: typeof rootRoute
-    }
+      id: '/auth/delete-account';
+      path: '/auth/delete-account';
+      fullPath: '/auth/delete-account';
+      preLoaderRoute: typeof AuthDeleteAccountLazyImport;
+      parentRoute: typeof rootRoute;
+    };
     '/auth/logout': {
-      id: '/auth/logout'
-      path: '/auth/logout'
-      fullPath: '/auth/logout'
-      preLoaderRoute: typeof AuthLogoutLazyImport
-      parentRoute: typeof rootRoute
-    }
+      id: '/auth/logout';
+      path: '/auth/logout';
+      fullPath: '/auth/logout';
+      preLoaderRoute: typeof AuthLogoutLazyImport;
+      parentRoute: typeof rootRoute;
+    };
     '/auth/reset-password': {
-      id: '/auth/reset-password'
-      path: '/auth/reset-password'
-      fullPath: '/auth/reset-password'
-      preLoaderRoute: typeof AuthResetPasswordLazyImport
-      parentRoute: typeof rootRoute
-    }
+      id: '/auth/reset-password';
+      path: '/auth/reset-password';
+      fullPath: '/auth/reset-password';
+      preLoaderRoute: typeof AuthResetPasswordLazyImport;
+      parentRoute: typeof rootRoute;
+    };
     '/auth/send-verification': {
-      id: '/auth/send-verification'
-      path: '/auth/send-verification'
-      fullPath: '/auth/send-verification'
-      preLoaderRoute: typeof AuthSendVerificationLazyImport
-      parentRoute: typeof rootRoute
-    }
-<<<<<<< HEAD
+      id: '/auth/send-verification';
+      path: '/auth/send-verification';
+      fullPath: '/auth/send-verification';
+      preLoaderRoute: typeof AuthSendVerificationLazyImport;
+      parentRoute: typeof rootRoute;
+    };
     '/jobs/$jobId': {
-      id: '/jobs/$jobId'
-      path: '/$jobId'
-      fullPath: '/jobs/$jobId'
-      preLoaderRoute: typeof JobsJobIdLazyImport
-      parentRoute: typeof JobsLazyImport
-    }
+      id: '/jobs/$jobId';
+      path: '/$jobId';
+      fullPath: '/jobs/$jobId';
+      preLoaderRoute: typeof JobsJobIdLazyImport;
+      parentRoute: typeof JobsLazyImport;
+    };
     '/jobs/create': {
-      id: '/jobs/create'
-      path: '/create'
-      fullPath: '/jobs/create'
-      preLoaderRoute: typeof JobsCreateLazyImport
-      parentRoute: typeof JobsLazyImport
-    }
+      id: '/jobs/create';
+      path: '/create';
+      fullPath: '/jobs/create';
+      preLoaderRoute: typeof JobsCreateLazyImport;
+      parentRoute: typeof JobsLazyImport;
+    };
     '/jobs/me': {
-      id: '/jobs/me'
-      path: '/me'
-      fullPath: '/jobs/me'
-      preLoaderRoute: typeof JobsMeLazyImport
-      parentRoute: typeof JobsLazyImport
-    }
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
+      id: '/jobs/me';
+      path: '/me';
+      fullPath: '/jobs/me';
+      preLoaderRoute: typeof JobsMeLazyImport;
+      parentRoute: typeof JobsLazyImport;
+    };
     '/me/areas': {
-      id: '/me/areas'
-      path: '/areas'
-      fullPath: '/me/areas'
-      preLoaderRoute: typeof MeAreasLazyImport
-      parentRoute: typeof MeImport
-    }
+      id: '/me/areas';
+      path: '/areas';
+      fullPath: '/me/areas';
+      preLoaderRoute: typeof MeAreasLazyImport;
+      parentRoute: typeof MeImport;
+    };
     '/me/basic': {
-      id: '/me/basic'
-      path: '/basic'
-      fullPath: '/me/basic'
-      preLoaderRoute: typeof MeBasicLazyImport
-      parentRoute: typeof MeImport
-    }
+      id: '/me/basic';
+      path: '/basic';
+      fullPath: '/me/basic';
+      preLoaderRoute: typeof MeBasicLazyImport;
+      parentRoute: typeof MeImport;
+    };
     '/me/characteristics': {
-      id: '/me/characteristics'
-      path: '/characteristics'
-      fullPath: '/me/characteristics'
-      preLoaderRoute: typeof MeCharacteristicsLazyImport
-      parentRoute: typeof MeImport
-    }
+      id: '/me/characteristics';
+      path: '/characteristics';
+      fullPath: '/me/characteristics';
+      preLoaderRoute: typeof MeCharacteristicsLazyImport;
+      parentRoute: typeof MeImport;
+    };
     '/me/contact': {
-      id: '/me/contact'
-      path: '/contact'
-      fullPath: '/me/contact'
-      preLoaderRoute: typeof MeContactLazyImport
-      parentRoute: typeof MeImport
-    }
+      id: '/me/contact';
+      path: '/contact';
+      fullPath: '/me/contact';
+      preLoaderRoute: typeof MeContactLazyImport;
+      parentRoute: typeof MeImport;
+    };
     '/me/stand-out': {
-      id: '/me/stand-out'
-      path: '/stand-out'
-      fullPath: '/me/stand-out'
-      preLoaderRoute: typeof MeStandOutLazyImport
-      parentRoute: typeof MeImport
-    }
+      id: '/me/stand-out';
+      path: '/stand-out';
+      fullPath: '/me/stand-out';
+      preLoaderRoute: typeof MeStandOutLazyImport;
+      parentRoute: typeof MeImport;
+    };
     '/me/summary': {
-      id: '/me/summary'
-      path: '/summary'
-      fullPath: '/me/summary'
-      preLoaderRoute: typeof MeSummaryLazyImport
-      parentRoute: typeof MeImport
-    }
+      id: '/me/summary';
+      path: '/summary';
+      fullPath: '/me/summary';
+      preLoaderRoute: typeof MeSummaryLazyImport;
+      parentRoute: typeof MeImport;
+    };
     '/search/category': {
-      id: '/search/category'
-      path: '/search/category'
-      fullPath: '/search/category'
-      preLoaderRoute: typeof SearchCategoryLazyImport
-      parentRoute: typeof rootRoute
-    }
-<<<<<<< HEAD
+      id: '/search/category';
+      path: '/search/category';
+      fullPath: '/search/category';
+      preLoaderRoute: typeof SearchCategoryLazyImport;
+      parentRoute: typeof rootRoute;
+    };
     '/jobs/': {
-      id: '/jobs/'
-      path: '/'
-      fullPath: '/jobs/'
-      preLoaderRoute: typeof JobsIndexImport
-      parentRoute: typeof JobsLazyImport
-    }
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
+      id: '/jobs/';
+      path: '/';
+      fullPath: '/jobs/';
+      preLoaderRoute: typeof JobsIndexImport;
+      parentRoute: typeof JobsLazyImport;
+    };
     '/search/': {
-      id: '/search/'
-      path: '/search'
-      fullPath: '/search'
-      preLoaderRoute: typeof SearchIndexImport
-      parentRoute: typeof rootRoute
-    }
+      id: '/search/';
+      path: '/search';
+      fullPath: '/search';
+      preLoaderRoute: typeof SearchIndexImport;
+      parentRoute: typeof rootRoute;
+    };
     '/about/': {
-      id: '/about/'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutIndexLazyImport
-      parentRoute: typeof rootRoute
-    }
+      id: '/about/';
+      path: '/about';
+      fullPath: '/about';
+      preLoaderRoute: typeof AboutIndexLazyImport;
+      parentRoute: typeof rootRoute;
+    };
     '/announcements/': {
-      id: '/announcements/'
-      path: '/announcements'
-      fullPath: '/announcements'
-      preLoaderRoute: typeof AnnouncementsIndexLazyImport
-      parentRoute: typeof rootRoute
-    }
+      id: '/announcements/';
+      path: '/announcements';
+      fullPath: '/announcements';
+      preLoaderRoute: typeof AnnouncementsIndexLazyImport;
+      parentRoute: typeof rootRoute;
+    };
     '/contact/': {
-      id: '/contact/'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactIndexLazyImport
-      parentRoute: typeof rootRoute
-    }
+      id: '/contact/';
+      path: '/contact';
+      fullPath: '/contact';
+      preLoaderRoute: typeof ContactIndexLazyImport;
+      parentRoute: typeof rootRoute;
+    };
     '/guides/': {
-      id: '/guides/'
-      path: '/guides'
-      fullPath: '/guides'
-      preLoaderRoute: typeof GuidesIndexLazyImport
-      parentRoute: typeof rootRoute
-    }
+      id: '/guides/';
+      path: '/guides';
+      fullPath: '/guides';
+      preLoaderRoute: typeof GuidesIndexLazyImport;
+      parentRoute: typeof rootRoute;
+    };
     '/privacy/': {
-      id: '/privacy/'
-      path: '/privacy'
-      fullPath: '/privacy'
-      preLoaderRoute: typeof PrivacyIndexLazyImport
-      parentRoute: typeof rootRoute
-    }
-<<<<<<< HEAD
+      id: '/privacy/';
+      path: '/privacy';
+      fullPath: '/privacy';
+      preLoaderRoute: typeof PrivacyIndexLazyImport;
+      parentRoute: typeof rootRoute;
+    };
     '/jobs_/$jobId/edit': {
-      id: '/jobs_/$jobId/edit'
-      path: '/jobs/$jobId/edit'
-      fullPath: '/jobs/$jobId/edit'
-      preLoaderRoute: typeof JobsJobIdEditImport
-      parentRoute: typeof rootRoute
-    }
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
+      id: '/jobs_/$jobId/edit';
+      path: '/jobs/$jobId/edit';
+      fullPath: '/jobs/$jobId/edit';
+      preLoaderRoute: typeof JobsJobIdEditImport;
+      parentRoute: typeof rootRoute;
+    };
   }
 }
 
 // Create and export the route tree
 
 interface MeRouteChildren {
-  MeAreasLazyRoute: typeof MeAreasLazyRoute
-  MeBasicLazyRoute: typeof MeBasicLazyRoute
-  MeCharacteristicsLazyRoute: typeof MeCharacteristicsLazyRoute
-  MeContactLazyRoute: typeof MeContactLazyRoute
-  MeStandOutLazyRoute: typeof MeStandOutLazyRoute
-  MeSummaryLazyRoute: typeof MeSummaryLazyRoute
+  MeAreasLazyRoute: typeof MeAreasLazyRoute;
+  MeBasicLazyRoute: typeof MeBasicLazyRoute;
+  MeCharacteristicsLazyRoute: typeof MeCharacteristicsLazyRoute;
+  MeContactLazyRoute: typeof MeContactLazyRoute;
+  MeStandOutLazyRoute: typeof MeStandOutLazyRoute;
+  MeSummaryLazyRoute: typeof MeSummaryLazyRoute;
 }
 
 const MeRouteChildren: MeRouteChildren = {
@@ -554,16 +520,15 @@ const MeRouteChildren: MeRouteChildren = {
   MeContactLazyRoute: MeContactLazyRoute,
   MeStandOutLazyRoute: MeStandOutLazyRoute,
   MeSummaryLazyRoute: MeSummaryLazyRoute,
-}
+};
 
-const MeRouteWithChildren = MeRoute._addFileChildren(MeRouteChildren)
+const MeRouteWithChildren = MeRoute._addFileChildren(MeRouteChildren);
 
-<<<<<<< HEAD
 interface JobsLazyRouteChildren {
-  JobsJobIdLazyRoute: typeof JobsJobIdLazyRoute
-  JobsCreateLazyRoute: typeof JobsCreateLazyRoute
-  JobsMeLazyRoute: typeof JobsMeLazyRoute
-  JobsIndexRoute: typeof JobsIndexRoute
+  JobsJobIdLazyRoute: typeof JobsJobIdLazyRoute;
+  JobsCreateLazyRoute: typeof JobsCreateLazyRoute;
+  JobsMeLazyRoute: typeof JobsMeLazyRoute;
+  JobsIndexRoute: typeof JobsIndexRoute;
 }
 
 const JobsLazyRouteChildren: JobsLazyRouteChildren = {
@@ -571,167 +536,124 @@ const JobsLazyRouteChildren: JobsLazyRouteChildren = {
   JobsCreateLazyRoute: JobsCreateLazyRoute,
   JobsMeLazyRoute: JobsMeLazyRoute,
   JobsIndexRoute: JobsIndexRoute,
-}
+};
 
 const JobsLazyRouteWithChildren = JobsLazyRoute._addFileChildren(
-  JobsLazyRouteChildren,
-)
+  JobsLazyRouteChildren
+);
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexLazyRoute
-  '/alerts': typeof AlertsRoute
-  '/me': typeof MeRouteWithChildren
-  '/jobs': typeof JobsLazyRouteWithChildren
-=======
-export interface FileRoutesByFullPath {
-  '/': typeof IndexLazyRoute
-  '/me': typeof MeRouteWithChildren
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
-  '/auth/login': typeof AuthLoginRoute
-  '/auth/new-password': typeof AuthNewPasswordRoute
-  '/auth/signup': typeof AuthSignupRoute
-  '/auth/verify-email': typeof AuthVerifyEmailRoute
-  '/profile/$userId': typeof ProfileUserIdRoute
-  '/search/$label': typeof SearchLabelRoute
-  '/auth/delete-account': typeof AuthDeleteAccountLazyRoute
-  '/auth/logout': typeof AuthLogoutLazyRoute
-  '/auth/reset-password': typeof AuthResetPasswordLazyRoute
-  '/auth/send-verification': typeof AuthSendVerificationLazyRoute
-<<<<<<< HEAD
-  '/jobs/$jobId': typeof JobsJobIdLazyRoute
-  '/jobs/create': typeof JobsCreateLazyRoute
-  '/jobs/me': typeof JobsMeLazyRoute
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
-  '/me/areas': typeof MeAreasLazyRoute
-  '/me/basic': typeof MeBasicLazyRoute
-  '/me/characteristics': typeof MeCharacteristicsLazyRoute
-  '/me/contact': typeof MeContactLazyRoute
-  '/me/stand-out': typeof MeStandOutLazyRoute
-  '/me/summary': typeof MeSummaryLazyRoute
-  '/search/category': typeof SearchCategoryLazyRoute
-<<<<<<< HEAD
-  '/jobs/': typeof JobsIndexRoute
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
-  '/search': typeof SearchIndexRoute
-  '/about': typeof AboutIndexLazyRoute
-  '/announcements': typeof AnnouncementsIndexLazyRoute
-  '/contact': typeof ContactIndexLazyRoute
-  '/guides': typeof GuidesIndexLazyRoute
-  '/privacy': typeof PrivacyIndexLazyRoute
-<<<<<<< HEAD
-  '/jobs/$jobId/edit': typeof JobsJobIdEditRoute
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
+  '/': typeof IndexLazyRoute;
+  '/alerts': typeof AlertsRoute;
+  '/me': typeof MeRouteWithChildren;
+  '/jobs': typeof JobsLazyRouteWithChildren;
+  '/auth/login': typeof AuthLoginRoute;
+  '/auth/new-password': typeof AuthNewPasswordRoute;
+  '/auth/signup': typeof AuthSignupRoute;
+  '/auth/verify-email': typeof AuthVerifyEmailRoute;
+  '/profile/$userId': typeof ProfileUserIdRoute;
+  '/search/$label': typeof SearchLabelRoute;
+  '/auth/delete-account': typeof AuthDeleteAccountLazyRoute;
+  '/auth/logout': typeof AuthLogoutLazyRoute;
+  '/auth/reset-password': typeof AuthResetPasswordLazyRoute;
+  '/auth/send-verification': typeof AuthSendVerificationLazyRoute;
+  '/jobs/$jobId': typeof JobsJobIdLazyRoute;
+  '/jobs/create': typeof JobsCreateLazyRoute;
+  '/jobs/me': typeof JobsMeLazyRoute;
+  '/me/areas': typeof MeAreasLazyRoute;
+  '/me/basic': typeof MeBasicLazyRoute;
+  '/me/characteristics': typeof MeCharacteristicsLazyRoute;
+  '/me/contact': typeof MeContactLazyRoute;
+  '/me/stand-out': typeof MeStandOutLazyRoute;
+  '/me/summary': typeof MeSummaryLazyRoute;
+  '/search/category': typeof SearchCategoryLazyRoute;
+  '/jobs/': typeof JobsIndexRoute;
+  '/search': typeof SearchIndexRoute;
+  '/about': typeof AboutIndexLazyRoute;
+  '/announcements': typeof AnnouncementsIndexLazyRoute;
+  '/contact': typeof ContactIndexLazyRoute;
+  '/guides': typeof GuidesIndexLazyRoute;
+  '/privacy': typeof PrivacyIndexLazyRoute;
+  '/jobs/$jobId/edit': typeof JobsJobIdEditRoute;
 }
 
 export interface FileRoutesByTo {
-  '/': typeof IndexLazyRoute
-<<<<<<< HEAD
-  '/alerts': typeof AlertsRoute
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
-  '/me': typeof MeRouteWithChildren
-  '/auth/login': typeof AuthLoginRoute
-  '/auth/new-password': typeof AuthNewPasswordRoute
-  '/auth/signup': typeof AuthSignupRoute
-  '/auth/verify-email': typeof AuthVerifyEmailRoute
-  '/profile/$userId': typeof ProfileUserIdRoute
-  '/search/$label': typeof SearchLabelRoute
-  '/auth/delete-account': typeof AuthDeleteAccountLazyRoute
-  '/auth/logout': typeof AuthLogoutLazyRoute
-  '/auth/reset-password': typeof AuthResetPasswordLazyRoute
-  '/auth/send-verification': typeof AuthSendVerificationLazyRoute
-<<<<<<< HEAD
-  '/jobs/$jobId': typeof JobsJobIdLazyRoute
-  '/jobs/create': typeof JobsCreateLazyRoute
-  '/jobs/me': typeof JobsMeLazyRoute
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
-  '/me/areas': typeof MeAreasLazyRoute
-  '/me/basic': typeof MeBasicLazyRoute
-  '/me/characteristics': typeof MeCharacteristicsLazyRoute
-  '/me/contact': typeof MeContactLazyRoute
-  '/me/stand-out': typeof MeStandOutLazyRoute
-  '/me/summary': typeof MeSummaryLazyRoute
-  '/search/category': typeof SearchCategoryLazyRoute
-<<<<<<< HEAD
-  '/jobs': typeof JobsIndexRoute
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
-  '/search': typeof SearchIndexRoute
-  '/about': typeof AboutIndexLazyRoute
-  '/announcements': typeof AnnouncementsIndexLazyRoute
-  '/contact': typeof ContactIndexLazyRoute
-  '/guides': typeof GuidesIndexLazyRoute
-  '/privacy': typeof PrivacyIndexLazyRoute
-<<<<<<< HEAD
-  '/jobs/$jobId/edit': typeof JobsJobIdEditRoute
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
+  '/': typeof IndexLazyRoute;
+  '/alerts': typeof AlertsRoute;
+  '/me': typeof MeRouteWithChildren;
+  '/auth/login': typeof AuthLoginRoute;
+  '/auth/new-password': typeof AuthNewPasswordRoute;
+  '/auth/signup': typeof AuthSignupRoute;
+  '/auth/verify-email': typeof AuthVerifyEmailRoute;
+  '/profile/$userId': typeof ProfileUserIdRoute;
+  '/search/$label': typeof SearchLabelRoute;
+  '/auth/delete-account': typeof AuthDeleteAccountLazyRoute;
+  '/auth/logout': typeof AuthLogoutLazyRoute;
+  '/auth/reset-password': typeof AuthResetPasswordLazyRoute;
+  '/auth/send-verification': typeof AuthSendVerificationLazyRoute;
+  '/jobs/$jobId': typeof JobsJobIdLazyRoute;
+  '/jobs/create': typeof JobsCreateLazyRoute;
+  '/jobs/me': typeof JobsMeLazyRoute;
+  '/me/areas': typeof MeAreasLazyRoute;
+  '/me/basic': typeof MeBasicLazyRoute;
+  '/me/characteristics': typeof MeCharacteristicsLazyRoute;
+  '/me/contact': typeof MeContactLazyRoute;
+  '/me/stand-out': typeof MeStandOutLazyRoute;
+  '/me/summary': typeof MeSummaryLazyRoute;
+  '/search/category': typeof SearchCategoryLazyRoute;
+  '/jobs': typeof JobsIndexRoute;
+  '/search': typeof SearchIndexRoute;
+  '/about': typeof AboutIndexLazyRoute;
+  '/announcements': typeof AnnouncementsIndexLazyRoute;
+  '/contact': typeof ContactIndexLazyRoute;
+  '/guides': typeof GuidesIndexLazyRoute;
+  '/privacy': typeof PrivacyIndexLazyRoute;
+  '/jobs/$jobId/edit': typeof JobsJobIdEditRoute;
 }
 
 export interface FileRoutesById {
-  __root__: typeof rootRoute
-  '/': typeof IndexLazyRoute
-<<<<<<< HEAD
-  '/alerts': typeof AlertsRoute
-  '/me': typeof MeRouteWithChildren
-  '/jobs': typeof JobsLazyRouteWithChildren
-=======
-  '/me': typeof MeRouteWithChildren
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
-  '/auth/login': typeof AuthLoginRoute
-  '/auth/new-password': typeof AuthNewPasswordRoute
-  '/auth/signup': typeof AuthSignupRoute
-  '/auth/verify-email': typeof AuthVerifyEmailRoute
-  '/profile/$userId': typeof ProfileUserIdRoute
-  '/search/$label': typeof SearchLabelRoute
-  '/auth/delete-account': typeof AuthDeleteAccountLazyRoute
-  '/auth/logout': typeof AuthLogoutLazyRoute
-  '/auth/reset-password': typeof AuthResetPasswordLazyRoute
-  '/auth/send-verification': typeof AuthSendVerificationLazyRoute
-<<<<<<< HEAD
-  '/jobs/$jobId': typeof JobsJobIdLazyRoute
-  '/jobs/create': typeof JobsCreateLazyRoute
-  '/jobs/me': typeof JobsMeLazyRoute
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
-  '/me/areas': typeof MeAreasLazyRoute
-  '/me/basic': typeof MeBasicLazyRoute
-  '/me/characteristics': typeof MeCharacteristicsLazyRoute
-  '/me/contact': typeof MeContactLazyRoute
-  '/me/stand-out': typeof MeStandOutLazyRoute
-  '/me/summary': typeof MeSummaryLazyRoute
-  '/search/category': typeof SearchCategoryLazyRoute
-<<<<<<< HEAD
-  '/jobs/': typeof JobsIndexRoute
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
-  '/search/': typeof SearchIndexRoute
-  '/about/': typeof AboutIndexLazyRoute
-  '/announcements/': typeof AnnouncementsIndexLazyRoute
-  '/contact/': typeof ContactIndexLazyRoute
-  '/guides/': typeof GuidesIndexLazyRoute
-  '/privacy/': typeof PrivacyIndexLazyRoute
-<<<<<<< HEAD
-  '/jobs_/$jobId/edit': typeof JobsJobIdEditRoute
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
+  __root__: typeof rootRoute;
+  '/': typeof IndexLazyRoute;
+  '/alerts': typeof AlertsRoute;
+  '/me': typeof MeRouteWithChildren;
+  '/jobs': typeof JobsLazyRouteWithChildren;
+  '/auth/login': typeof AuthLoginRoute;
+  '/auth/new-password': typeof AuthNewPasswordRoute;
+  '/auth/signup': typeof AuthSignupRoute;
+  '/auth/verify-email': typeof AuthVerifyEmailRoute;
+  '/profile/$userId': typeof ProfileUserIdRoute;
+  '/search/$label': typeof SearchLabelRoute;
+  '/auth/delete-account': typeof AuthDeleteAccountLazyRoute;
+  '/auth/logout': typeof AuthLogoutLazyRoute;
+  '/auth/reset-password': typeof AuthResetPasswordLazyRoute;
+  '/auth/send-verification': typeof AuthSendVerificationLazyRoute;
+  '/jobs/$jobId': typeof JobsJobIdLazyRoute;
+  '/jobs/create': typeof JobsCreateLazyRoute;
+  '/jobs/me': typeof JobsMeLazyRoute;
+  '/me/areas': typeof MeAreasLazyRoute;
+  '/me/basic': typeof MeBasicLazyRoute;
+  '/me/characteristics': typeof MeCharacteristicsLazyRoute;
+  '/me/contact': typeof MeContactLazyRoute;
+  '/me/stand-out': typeof MeStandOutLazyRoute;
+  '/me/summary': typeof MeSummaryLazyRoute;
+  '/search/category': typeof SearchCategoryLazyRoute;
+  '/jobs/': typeof JobsIndexRoute;
+  '/search/': typeof SearchIndexRoute;
+  '/about/': typeof AboutIndexLazyRoute;
+  '/announcements/': typeof AnnouncementsIndexLazyRoute;
+  '/contact/': typeof ContactIndexLazyRoute;
+  '/guides/': typeof GuidesIndexLazyRoute;
+  '/privacy/': typeof PrivacyIndexLazyRoute;
+  '/jobs_/$jobId/edit': typeof JobsJobIdEditRoute;
 }
 
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
+  fileRoutesByFullPath: FileRoutesByFullPath;
   fullPaths:
     | '/'
-<<<<<<< HEAD
     | '/alerts'
     | '/me'
     | '/jobs'
-=======
-    | '/me'
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
     | '/auth/login'
     | '/auth/new-password'
     | '/auth/signup'
@@ -742,12 +664,9 @@ export interface FileRouteTypes {
     | '/auth/logout'
     | '/auth/reset-password'
     | '/auth/send-verification'
-<<<<<<< HEAD
     | '/jobs/$jobId'
     | '/jobs/create'
     | '/jobs/me'
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
     | '/me/areas'
     | '/me/basic'
     | '/me/characteristics'
@@ -755,27 +674,18 @@ export interface FileRouteTypes {
     | '/me/stand-out'
     | '/me/summary'
     | '/search/category'
-<<<<<<< HEAD
     | '/jobs/'
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
     | '/search'
     | '/about'
     | '/announcements'
     | '/contact'
     | '/guides'
     | '/privacy'
-<<<<<<< HEAD
-    | '/jobs/$jobId/edit'
-  fileRoutesByTo: FileRoutesByTo
+    | '/jobs/$jobId/edit';
+  fileRoutesByTo: FileRoutesByTo;
   to:
     | '/'
     | '/alerts'
-=======
-  fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
     | '/me'
     | '/auth/login'
     | '/auth/new-password'
@@ -787,12 +697,9 @@ export interface FileRouteTypes {
     | '/auth/logout'
     | '/auth/reset-password'
     | '/auth/send-verification'
-<<<<<<< HEAD
     | '/jobs/$jobId'
     | '/jobs/create'
     | '/jobs/me'
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
     | '/me/areas'
     | '/me/basic'
     | '/me/characteristics'
@@ -800,30 +707,20 @@ export interface FileRouteTypes {
     | '/me/stand-out'
     | '/me/summary'
     | '/search/category'
-<<<<<<< HEAD
     | '/jobs'
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
     | '/search'
     | '/about'
     | '/announcements'
     | '/contact'
     | '/guides'
     | '/privacy'
-<<<<<<< HEAD
-    | '/jobs/$jobId/edit'
+    | '/jobs/$jobId/edit';
   id:
     | '__root__'
     | '/'
     | '/alerts'
     | '/me'
     | '/jobs'
-=======
-  id:
-    | '__root__'
-    | '/'
-    | '/me'
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
     | '/auth/login'
     | '/auth/new-password'
     | '/auth/signup'
@@ -834,12 +731,9 @@ export interface FileRouteTypes {
     | '/auth/logout'
     | '/auth/reset-password'
     | '/auth/send-verification'
-<<<<<<< HEAD
     | '/jobs/$jobId'
     | '/jobs/create'
     | '/jobs/me'
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
     | '/me/areas'
     | '/me/basic'
     | '/me/characteristics'
@@ -847,64 +741,47 @@ export interface FileRouteTypes {
     | '/me/stand-out'
     | '/me/summary'
     | '/search/category'
-<<<<<<< HEAD
     | '/jobs/'
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
     | '/search/'
     | '/about/'
     | '/announcements/'
     | '/contact/'
     | '/guides/'
     | '/privacy/'
-<<<<<<< HEAD
-    | '/jobs_/$jobId/edit'
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
-  fileRoutesById: FileRoutesById
+    | '/jobs_/$jobId/edit';
+  fileRoutesById: FileRoutesById;
 }
 
 export interface RootRouteChildren {
-  IndexLazyRoute: typeof IndexLazyRoute
-<<<<<<< HEAD
-  AlertsRoute: typeof AlertsRoute
-  MeRoute: typeof MeRouteWithChildren
-  JobsLazyRoute: typeof JobsLazyRouteWithChildren
-=======
-  MeRoute: typeof MeRouteWithChildren
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
-  AuthLoginRoute: typeof AuthLoginRoute
-  AuthNewPasswordRoute: typeof AuthNewPasswordRoute
-  AuthSignupRoute: typeof AuthSignupRoute
-  AuthVerifyEmailRoute: typeof AuthVerifyEmailRoute
-  ProfileUserIdRoute: typeof ProfileUserIdRoute
-  SearchLabelRoute: typeof SearchLabelRoute
-  AuthDeleteAccountLazyRoute: typeof AuthDeleteAccountLazyRoute
-  AuthLogoutLazyRoute: typeof AuthLogoutLazyRoute
-  AuthResetPasswordLazyRoute: typeof AuthResetPasswordLazyRoute
-  AuthSendVerificationLazyRoute: typeof AuthSendVerificationLazyRoute
-  SearchCategoryLazyRoute: typeof SearchCategoryLazyRoute
-  SearchIndexRoute: typeof SearchIndexRoute
-  AboutIndexLazyRoute: typeof AboutIndexLazyRoute
-  AnnouncementsIndexLazyRoute: typeof AnnouncementsIndexLazyRoute
-  ContactIndexLazyRoute: typeof ContactIndexLazyRoute
-  GuidesIndexLazyRoute: typeof GuidesIndexLazyRoute
-  PrivacyIndexLazyRoute: typeof PrivacyIndexLazyRoute
-<<<<<<< HEAD
-  JobsJobIdEditRoute: typeof JobsJobIdEditRoute
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
+  IndexLazyRoute: typeof IndexLazyRoute;
+  AlertsRoute: typeof AlertsRoute;
+  MeRoute: typeof MeRouteWithChildren;
+  JobsLazyRoute: typeof JobsLazyRouteWithChildren;
+  AuthLoginRoute: typeof AuthLoginRoute;
+  AuthNewPasswordRoute: typeof AuthNewPasswordRoute;
+  AuthSignupRoute: typeof AuthSignupRoute;
+  AuthVerifyEmailRoute: typeof AuthVerifyEmailRoute;
+  ProfileUserIdRoute: typeof ProfileUserIdRoute;
+  SearchLabelRoute: typeof SearchLabelRoute;
+  AuthDeleteAccountLazyRoute: typeof AuthDeleteAccountLazyRoute;
+  AuthLogoutLazyRoute: typeof AuthLogoutLazyRoute;
+  AuthResetPasswordLazyRoute: typeof AuthResetPasswordLazyRoute;
+  AuthSendVerificationLazyRoute: typeof AuthSendVerificationLazyRoute;
+  SearchCategoryLazyRoute: typeof SearchCategoryLazyRoute;
+  SearchIndexRoute: typeof SearchIndexRoute;
+  AboutIndexLazyRoute: typeof AboutIndexLazyRoute;
+  AnnouncementsIndexLazyRoute: typeof AnnouncementsIndexLazyRoute;
+  ContactIndexLazyRoute: typeof ContactIndexLazyRoute;
+  GuidesIndexLazyRoute: typeof GuidesIndexLazyRoute;
+  PrivacyIndexLazyRoute: typeof PrivacyIndexLazyRoute;
+  JobsJobIdEditRoute: typeof JobsJobIdEditRoute;
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
-<<<<<<< HEAD
   AlertsRoute: AlertsRoute,
   MeRoute: MeRouteWithChildren,
   JobsLazyRoute: JobsLazyRouteWithChildren,
-=======
-  MeRoute: MeRouteWithChildren,
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
   AuthLoginRoute: AuthLoginRoute,
   AuthNewPasswordRoute: AuthNewPasswordRoute,
   AuthSignupRoute: AuthSignupRoute,
@@ -922,15 +799,12 @@ const rootRouteChildren: RootRouteChildren = {
   ContactIndexLazyRoute: ContactIndexLazyRoute,
   GuidesIndexLazyRoute: GuidesIndexLazyRoute,
   PrivacyIndexLazyRoute: PrivacyIndexLazyRoute,
-<<<<<<< HEAD
   JobsJobIdEditRoute: JobsJobIdEditRoute,
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
-}
+};
 
 export const routeTree = rootRoute
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>()
+  ._addFileTypes<FileRouteTypes>();
 
 /* ROUTE_MANIFEST_START
 {
@@ -939,13 +813,9 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-<<<<<<< HEAD
         "/alerts",
         "/me",
         "/jobs",
-=======
-        "/me",
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
         "/auth/login",
         "/auth/new-password",
         "/auth/signup",
@@ -962,23 +832,16 @@ export const routeTree = rootRoute
         "/announcements/",
         "/contact/",
         "/guides/",
-<<<<<<< HEAD
         "/privacy/",
         "/jobs_/$jobId/edit"
-=======
-        "/privacy/"
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
       ]
     },
     "/": {
       "filePath": "index.lazy.tsx"
     },
-<<<<<<< HEAD
     "/alerts": {
       "filePath": "alerts.tsx"
     },
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
     "/me": {
       "filePath": "me.tsx",
       "children": [
@@ -990,7 +853,6 @@ export const routeTree = rootRoute
         "/me/summary"
       ]
     },
-<<<<<<< HEAD
     "/jobs": {
       "filePath": "jobs.lazy.tsx",
       "children": [
@@ -1000,8 +862,6 @@ export const routeTree = rootRoute
         "/jobs/"
       ]
     },
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
     "/auth/login": {
       "filePath": "auth/login.tsx"
     },
@@ -1032,7 +892,6 @@ export const routeTree = rootRoute
     "/auth/send-verification": {
       "filePath": "auth/send-verification.lazy.tsx"
     },
-<<<<<<< HEAD
     "/jobs/$jobId": {
       "filePath": "jobs/$jobId.lazy.tsx",
       "parent": "/jobs"
@@ -1045,8 +904,6 @@ export const routeTree = rootRoute
       "filePath": "jobs/me.lazy.tsx",
       "parent": "/jobs"
     },
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
     "/me/areas": {
       "filePath": "me/areas.lazy.tsx",
       "parent": "/me"
@@ -1074,13 +931,10 @@ export const routeTree = rootRoute
     "/search/category": {
       "filePath": "search/category.lazy.tsx"
     },
-<<<<<<< HEAD
     "/jobs/": {
       "filePath": "jobs/index.tsx",
       "parent": "/jobs"
     },
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
     "/search/": {
       "filePath": "search/index.tsx"
     },
@@ -1098,12 +952,9 @@ export const routeTree = rootRoute
     },
     "/privacy/": {
       "filePath": "privacy/index.lazy.tsx"
-<<<<<<< HEAD
     },
     "/jobs_/$jobId/edit": {
       "filePath": "jobs_.$jobId.edit.tsx"
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
     }
   }
 }

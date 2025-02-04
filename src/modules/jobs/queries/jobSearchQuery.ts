@@ -189,7 +189,6 @@ export const useCreateJob = () => {
     },
   });
 };
-
 export const useApplyToJob = (jobId: string) => {
   const queryClient = useQueryClient();
   return useMutation({
