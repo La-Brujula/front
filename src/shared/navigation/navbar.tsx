@@ -84,13 +84,15 @@ export const Navbar = () => {
             >
               {t('search')}
             </Link>
-            <Link
-              to="/jobs"
-              resetScroll
-              className="font-bold leading-relaxed text-white"
-            >
-              {t('jobs')}
-            </Link>
+            {isLoggedIn && (
+              <Link
+                to="/jobs"
+                resetScroll
+                className="font-bold leading-relaxed text-white"
+              >
+                {t('jobs')}
+              </Link>
+            )}
           </div>
           <LocalizationMenu />
           <div className="z-100">
@@ -171,14 +173,16 @@ export const Navbar = () => {
               >
                 {t('search')}
               </Link>
-              <Link
-                onClick={() => toggleOpen()}
-                to="/jobs"
-                resetScroll
-                className="font-bold leading-relaxed text-white"
-              >
-                {t('jobs')}
-              </Link>
+              {isLoggedIn && (
+                <Link
+                  onClick={() => toggleOpen()}
+                  to="/jobs"
+                  resetScroll
+                  className="font-bold leading-relaxed text-white"
+                >
+                  {t('jobs')}
+                </Link>
+              )}
               <Link
                 onClick={() => toggleOpen()}
                 to="/guides"

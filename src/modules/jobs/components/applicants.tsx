@@ -48,11 +48,9 @@ export default function Applicants(props: {
       error={error}
       key={props.jobId}
     >
-      <div className="py-8 flex flex-col justify-center items-center">
-        {((applicants && applicants?.length > 0) || loggedInAccount) && (
-          <h2 className="font-normal text-primary">{t('Aplicantes')}</h2>
-        )}
-        {!alreadyApplied && !props.ownOpening && (
+      <div className="py-8 flex flex-col justify-center items-center gap-2">
+        <h2 className="font-normal text-primary">{t('Aplicantes')}</h2>
+        {!alreadyApplied && !props.ownOpening && !!loggedInAccount && (
           <DataSuspense
             loading={isPending}
             error={applyError}

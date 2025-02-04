@@ -23,6 +23,7 @@ import { Route as AuthVerifyEmailImport } from './routes/auth/verify-email';
 import { Route as AuthSignupImport } from './routes/auth/signup';
 import { Route as AuthNewPasswordImport } from './routes/auth/new-password';
 import { Route as AuthLoginImport } from './routes/auth/login';
+import { Route as JobsJobIdEditImport } from './routes/jobs/$jobId.edit';
 
 // Create Virtual Routes
 
@@ -40,6 +41,7 @@ const MeContactLazyImport = createFileRoute('/me/contact')();
 const MeCharacteristicsLazyImport = createFileRoute('/me/characteristics')();
 const MeBasicLazyImport = createFileRoute('/me/basic')();
 const MeAreasLazyImport = createFileRoute('/me/areas')();
+const JobsMeLazyImport = createFileRoute('/jobs/me')();
 const JobsCreateLazyImport = createFileRoute('/jobs/create')();
 const AuthSendVerificationLazyImport = createFileRoute(
   '/auth/send-verification'
@@ -145,6 +147,11 @@ const MeAreasLazyRoute = MeAreasLazyImport.update({
   getParentRoute: () => MeRoute,
 } as any).lazy(() => import('./routes/me/areas.lazy').then((d) => d.Route));
 
+const JobsMeLazyRoute = JobsMeLazyImport.update({
+  path: '/me',
+  getParentRoute: () => JobsLazyRoute,
+} as any).lazy(() => import('./routes/jobs/me.lazy').then((d) => d.Route));
+
 const JobsCreateLazyRoute = JobsCreateLazyImport.update({
   path: '/create',
   getParentRoute: () => JobsLazyRoute,
@@ -219,6 +226,13 @@ const AuthLoginRoute = AuthLoginImport.update({
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/auth/login.lazy').then((d) => d.Route));
 
+const JobsJobIdEditRoute = JobsJobIdEditImport.update({
+  path: '/edit',
+  getParentRoute: () => JobsJobIdRoute,
+} as any).lazy(() =>
+  import('./routes/jobs/$jobId.edit.lazy').then((d) => d.Route)
+);
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -283,6 +297,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof JobsCreateLazyImport;
       parentRoute: typeof JobsLazyImport;
     };
+    '/jobs/me': {
+      preLoaderRoute: typeof JobsMeLazyImport;
+      parentRoute: typeof JobsLazyImport;
+    };
     '/me/areas': {
       preLoaderRoute: typeof MeAreasLazyImport;
       parentRoute: typeof MeImport;
@@ -339,6 +357,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyIndexLazyImport;
       parentRoute: typeof rootRoute;
     };
+    '/jobs/$jobId/edit': {
+      preLoaderRoute: typeof JobsJobIdEditImport;
+      parentRoute: typeof JobsJobIdImport;
+    };
   }
 }
 
@@ -355,8 +377,9 @@ export const routeTree = rootRoute.addChildren([
     MeSummaryLazyRoute,
   ]),
   JobsLazyRoute.addChildren([
-    JobsJobIdRoute,
+    JobsJobIdRoute.addChildren([JobsJobIdEditRoute]),
     JobsCreateLazyRoute,
+    JobsMeLazyRoute,
     JobsIndexRoute,
   ]),
   AuthLoginRoute,

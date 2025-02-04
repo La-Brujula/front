@@ -10,9 +10,10 @@ import { jobDetailOptions } from '@/modules/jobs/queries/jobSearchQuery';
 import { Container } from '@/shared/layout/container';
 import { getTitle } from '@/shared/utils/areaUtils';
 import Applicants from '@/modules/jobs/components/applicants';
-import { ArrowBackIosOutlined } from '@mui/icons-material';
+import { ArrowBackIosOutlined, EditOutlined } from '@mui/icons-material';
 import { UserCard } from '@/modules/search/components/userCard';
 import { useLoggedInAccount } from '@/shared/hooks/useLoggedInAccount';
+import DeleteOpening from '@/modules/jobs/components/deleteOpening';
 
 // i18next-parser static types
 
@@ -70,7 +71,14 @@ export function JobDetailPage() {
         <h1 className="font-normal text-primary text-4xl text-center">
           {t('Oferta laboral')}
         </h1>
-        <div></div>
+        <Link
+          to="/jobs/$jobId/edit"
+          params={{ jobId }}
+          className="flex flex-row gap-1"
+        >
+          <EditOutlined />
+          {t('Editar')}
+        </Link>
       </Container>
       <Container
         bg="light"
@@ -179,6 +187,7 @@ export function JobDetailPage() {
                   </div>
                 )}
                 <div className="mt-4"></div>
+                {ownOpening && <DeleteOpening jobId={jobId} />}
               </div>
             </div>
           </div>

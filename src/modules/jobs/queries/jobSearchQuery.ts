@@ -4,9 +4,13 @@ import {
   useMutation,
   useQueryClient,
 } from '@tanstack/react-query';
-import { JobSearch, TJobPosting } from '../types/searchParams';
-import { getFetch, postFetch } from '@/shared/services/backendFetcher';
-import { IBackendProfile } from '@/shared/types/user';
+import { JobSearch, TJobOpening, TJobPosting } from '../types/searchParams';
+import {
+  deleteFetch,
+  getFetch,
+  patchFetch,
+  postFetch,
+} from '@/shared/services/backendFetcher';
 import { UserDTO } from '@/modules/profile/queries/userProfile';
 
 export type JobDetailDTO = {
@@ -78,7 +82,7 @@ export type JobDTO = {
 
 export const getCreatedJobs = () =>
   queryOptions({
-    queryKey: ['jobs', 'created'],
+    queryKey: ['jobs', { requesterId: 'me' }],
     queryFn: (ctx) => {
       return getFetch<JobDTO[]>('/jobs/me', {
         signal: ctx.signal,
@@ -86,8 +90,9 @@ export const getCreatedJobs = () =>
     },
     refetchOnWindowFocus: true,
   });
-export const jobSearchQueryOptions = (search: JobSearch) =>
+export const jobSearchQueryOptions = (search: JobSearch, enabled: boolean) =>
   infiniteQueryOptions({
+    enabled,
     initialPageParam: 0,
     queryKey: ['jobs', search],
     refetchOnWindowFocus: true,
@@ -118,7 +123,7 @@ export const jobSearchQueryOptions = (search: JobSearch) =>
 
 export const jobDetailOptions = (jobId: string) =>
   queryOptions({
-    queryKey: ['jobs', jobId],
+    queryKey: ['jobs', { jobId }],
     queryFn: (queryOptions) =>
       getFetch<JobDetailDTO>(`/jobs/${jobId}`, {
         signal: queryOptions.signal,
@@ -136,7 +141,7 @@ export const jobDetailOptions = (jobId: string) =>
 
 export const jobApplicantsOptions = (jobId: string) =>
   queryOptions({
-    queryKey: ['jobs', jobId, 'applicants'],
+    queryKey: ['jobs', { jobId }, 'applicants'],
     queryFn: (queryOptions) =>
       getFetch<UserDTO[]>(`/jobs/${jobId}/applicants`, {
         signal: queryOptions.signal,
@@ -151,19 +156,53 @@ export const useCreateJob = () => {
       postFetch<JobDetailDTO>(`/jobs`, job).then((res) => res.entity),
     onSuccess: async () => {
       await queryClient.invalidateQueries({ queryKey: ['jobs'] });
+      await queryClient.refetchQueries({
+        queryKey: ['jobs'],
+        stale: true,
+        type: 'all',
+      });
     },
   });
 };
 export const useApplyToJob = (jobId: string) => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationKey: ['jobs', jobId, 'applicants'],
+    mutationKey: ['jobs', { jobId }, 'applicants'],
     mutationFn: () =>
       postFetch<JobDetailDTO>(`/jobs/${jobId}/applicants`).then(
         (res) => res.entity
       ),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['jobs', jobId] });
+    },
+  });
+};
+export const useUpdateJob = (jobId: string) => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationKey: ['jobs', { jobId }],
+    mutationFn: (newJob: TJobOpening) =>
+      patchFetch<JobDetailDTO>(`/jobs/${jobId}`, newJob).then(
+        (res) => res.entity
+      ),
+    onSuccess: (job) => {
+      queryClient.invalidateQueries({ queryKey: ['jobs', jobId] });
+      queryClient.setQueryData(['jobs', jobId], job);
+    },
+  });
+};
+export const useDeleteJob = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationKey: ['jobs'],
+    mutationFn: (jobId: string) => deleteFetch(`/jobs/${jobId}`),
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ['jobs'],
+        type: 'all',
+        refetchType: 'active',
+      });
+      queryClient.refetchQueries({ queryKey: ['jobs'], type: 'all' });
     },
   });
 };

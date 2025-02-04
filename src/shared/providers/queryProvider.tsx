@@ -62,8 +62,9 @@ function QueryProvider({ children }: { children: ReactNode }) {
         mutationCache,
         defaultOptions: {
           queries: {
-            staleTime: 200,
+            staleTime: 10000,
             retry: false,
+            refetchOnWindowFocus: true,
           },
           mutations: { retry: false },
         },

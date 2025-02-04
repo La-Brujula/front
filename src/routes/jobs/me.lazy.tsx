@@ -1,20 +1,19 @@
 import { createLazyFileRoute, Link, useNavigate } from '@tanstack/react-router';
 import { useCallback, useEffect, useMemo } from 'react';
 import { LoadingSpinner } from '@/shared/components/loadingSpinner';
-import { useInView } from 'react-intersection-observer';
 import ErrorMessage from '@/shared/components/errorMessage';
-import { useInfiniteQuery } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import { Controller, useForm } from 'react-hook-form';
 import { SearchOutlined } from '@mui/icons-material';
 import { Container } from '@/shared/layout/container';
-import { jobSearchQueryOptions } from '@/modules/jobs/queries/jobSearchQuery';
+import { getCreatedJobs } from '@/modules/jobs/queries/jobSearchQuery';
 import DataSuspense from '@/shared/components/dataSuspense';
 import { JobsList } from '@/modules/jobs/components/jobList';
 import { JobSearch } from '@/modules/jobs/types/searchParams';
 import { useCurrentProfile } from '@/shared/hooks/useCurrentProfile';
 
-export const Route = createLazyFileRoute('/jobs/')({
+export const Route = createLazyFileRoute('/jobs/me')({
   component: SearchHomepage,
 });
 
@@ -24,30 +23,16 @@ function SearchHomepage() {
   const { t } = useTranslation('jobs');
   const { data: profile, isLoading } = useCurrentProfile();
 
-  const isVerified = useMemo(() => !!profile?.verified, [profile, isLoading]);
-
-  const queryOptions = useMemo(
-    () => jobSearchQueryOptions(search, !!profile),
-    [search]
+  const isVerified = useMemo(
+    () => false, //!!profile?.verified
+    [profile, isLoading]
   );
 
-  const {
-    data: results,
-    isLoading: loading,
-    error,
-    fetchNextPage,
-    hasNextPage,
-  } = useInfiniteQuery(queryOptions);
+  const queryOptions = useMemo(() => getCreatedJobs(), [search]);
 
-  const { ref, inView } = useInView();
+  const { data: res, isLoading: loading, error } = useQuery(queryOptions);
 
-  const jobs = useMemo(
-    () =>
-      results !== undefined
-        ? [...results.pages.flatMap((page) => page.entity)]
-        : [],
-    [results]
-  );
+  const jobs = res?.entity;
 
   const navigate = useNavigate();
 
@@ -81,18 +66,12 @@ function SearchHomepage() {
     return () => subscription.unsubscribe();
   }, [onSubmit, watch]);
 
-  useEffect(() => {
-    if (inView) {
-      fetchNextPage();
-    }
-  }, [fetchNextPage, inView]);
-
   return (
     <>
       <Container
         className="relative !pb-4"
         bodyClass="grid grid-cols-1 gap-2 md:grid-cols-[max-content_1fr]"
-        bg="light-gray"
+        bg="lightblue"
       >
         {isVerified ? (
           <Link
@@ -146,7 +125,7 @@ function SearchHomepage() {
           <div className="flex flex-row gap-2 items-center text-black">
             <p>
               {t('{{count}} resultado', {
-                count: results?.pages[0].meta?.total || 0,
+                count: res?.meta.total || 0,
               })}
             </p>
           </div>
@@ -154,55 +133,28 @@ function SearchHomepage() {
       </Container>
       <Container className="relative !pt-0">
         <div className="grid grid-cols-1 gap-12 mt-16">
-          {!profile && (
-            <div className="flex flex-col">
-              <h1>{t('Sesión no iniciada')}</h1>
-              <p>
-                {t('Para ver las ofertas laborales por favor inicia sesión')}
-              </p>
-              <div className="grid grid-cols-2">
-                <Link
-                  to="/auth/login"
-                  className="px-4 py-2 w-fit mx-auto rounded-md bg-primary text-white my-8"
-                >
-                  {t('Iniciar sesión')}
-                </Link>
-                <Link
-                  to="/auth/signup"
-                  className="px-4 py-2 w-fit mx-auto rounded-md bg-secondary text-white my-8"
-                >
-                  {t('Crear cuenta')}
-                </Link>
-              </div>
-            </div>
-          )}
-          {!!profile && (
-            <div
-              className="flex flex-col gap-8 text-left bg-black bg-opacity-20
+          <h1>{t('Ofertas creadas')}</h1>
+          <div
+            className="flex flex-col gap-8 text-left bg-black bg-opacity-20
           rounded-l-3xl px-8 pb-8 w-full relative"
-            >
-              <div
-                className="w-[50vw] absolute left-[100%] top-0 h-full bg-black
+          >
+            <div
+              className="w-[50vw] absolute left-[100%] top-0 h-full bg-black
             bg-opacity-20 -z-10 hidden"
-              ></div>
-              <DataSuspense
-                loading={loading}
-                error={error}
-              >
-                {jobs?.length ? (
-                  <JobsList jobs={jobs} />
-                ) : (
-                  <p className="mt-8">{t('No se encontraron resultados')}</p>
-                )}
-              </DataSuspense>
-              {!loading && hasNextPage && (
-                <div ref={ref}>
-                  <LoadingSpinner />
-                </div>
+            ></div>
+            <DataSuspense
+              loading={loading}
+              error={error}
+            >
+              {!!jobs && jobs.length > 0 ? (
+                <JobsList jobs={jobs} />
+              ) : (
+                <p>{t('No se encontraron resultados')}</p>
               )}
-              {!!error && <ErrorMessage message={error.toString()} />}
-            </div>
-          )}
+            </DataSuspense>
+            {loading && <LoadingSpinner />}
+            {!!error && <ErrorMessage message={error.toString()} />}
+          </div>
         </div>
       </Container>
     </>

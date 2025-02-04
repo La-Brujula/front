@@ -1,28 +1,41 @@
 import { createLazyFileRoute, useNavigate } from '@tanstack/react-router';
 import { useCallback } from 'react';
-import { Search } from '@/modules/search/types/searchParams';
 import { Container } from '@/shared/layout/container';
 import JobCreationForm from '@/modules/jobs/components/jobForm';
 import { useTranslation } from 'react-i18next';
-import { useCreateJob } from '@/modules/jobs/queries/jobSearchQuery';
+import {
+  JobDetailDTO,
+  jobDetailOptions,
+  useUpdateJob,
+} from '@/modules/jobs/queries/jobSearchQuery';
 import DataSuspense from '@/shared/components/dataSuspense';
-import { TJobPosting } from '@/modules/jobs/types/searchParams';
 import { LoadingSpinner } from '@/shared/components/loadingSpinner';
+import { useQuery } from '@tanstack/react-query';
 
-export const Route = createLazyFileRoute('/jobs/create')({
-  component: CreateJobPostingPage,
+export const Route = createLazyFileRoute('/jobs/$jobId/edit')({
+  component: EditJobPostingPage,
 });
 
-function CreateJobPostingPage() {
+function EditJobPostingPage() {
   const { t } = useTranslation('jobs');
-  const { mutate, isPending, error } = useCreateJob();
+
+  const { jobId } = Route.useParams();
+
+  const {
+    data: job,
+    isLoading,
+    error: jobError,
+  } = useQuery(jobDetailOptions(jobId));
+  const { mutate, isPending, error } = useUpdateJob(jobId);
+
   const navigate = useNavigate();
   const onSubmit = useCallback(
-    (data: TJobPosting) => {
+    (data: JobDetailDTO) => {
       mutate(data, {
         onSuccess: () =>
           navigate({
-            to: '/jobs',
+            to: '/jobs/$jobId',
+            params: { jobId },
             resetScroll: true,
           }),
       });
@@ -32,15 +45,16 @@ function CreateJobPostingPage() {
 
   return (
     <Container className="relative">
-      <h1>{t('Crear oferta laboral')}</h1>
+      <h1>{t('Editar oferta laboral')}</h1>
       <DataSuspense
-        loading={isPending}
-        error={error}
+        loading={isPending || isLoading}
+        error={error || jobError}
         fallback={<LoadingSpinner />}
       >
         <JobCreationForm
           onSubmit={onSubmit}
           isPending={isPending}
+          initialValues={job}
         />
       </DataSuspense>
     </Container>

@@ -9,6 +9,7 @@ import {
   LOCATION_OPTIONS,
   WORK_RADIUS_OPTIONS,
 } from '../types/jobEnums';
+import { JobDetailDTO } from '../queries/jobSearchQuery';
 
 // t('jobs:online')
 // t('jobs:hybrid')
@@ -42,8 +43,9 @@ const INITIAL_VALUES: TJobPosting = {
 };
 
 export default function JobCreationForm(props: {
-  onCreate: Function;
+  onSubmit: Function;
   isPending: boolean;
+  initialValues?: JobDetailDTO;
 }) {
   const [isParsing, setIsParsing] = useState(false);
   const { t } = useTranslation(['jobs', 'errors']);
@@ -57,7 +59,12 @@ export default function JobCreationForm(props: {
     watch,
     setFocus,
   } = useForm<TJobPosting>({
-    defaultValues: INITIAL_VALUES,
+    defaultValues: {
+      ...INITIAL_VALUES,
+      ...props.initialValues,
+      phoneNumbers:
+        props.initialValues?.phoneNumbers?.[0] || INITIAL_VALUES.phoneNumbers,
+    },
   });
 
   const openings = watch('openings');
@@ -70,7 +77,7 @@ export default function JobCreationForm(props: {
       console.error(res);
       if (res.success) {
         setIsParsing(false);
-        return props.onCreate(res.data);
+        return props.onSubmit(res.data);
       }
 
       for (const valError of res.error.issues) {
@@ -82,7 +89,7 @@ export default function JobCreationForm(props: {
       }
       setIsParsing(false);
     },
-    [props.onCreate, setError, setIsParsing]
+    [props.onSubmit, setError, setIsParsing]
   ) as SubmitHandler<TJobPosting>;
 
   const values = watch();
@@ -338,12 +345,13 @@ export default function JobCreationForm(props: {
         </p>
       )}
       <div className="flex flex-row gap-4 justify-center">
-        <div
+        <button
+          disabled={props.isPending}
           className="button font-bold bg-transparent border border-primary text-black"
           onClick={history.back}
         >
           {t('Regresar')}
-        </div>
+        </button>
         <input
           type="submit"
           className="border-none"
