@@ -1,9 +1,15 @@
 import { FieldErrorsImpl, Path, SubmitHandler, useForm } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
-import { JobPosting, TJobOpening, TJobPosting } from '../types/searchParams';
-import { useCallback, useMemo, useState } from 'react';
+import {
+  JobPosting,
+  JobPostingForm,
+  TJobForm,
+  TJobOpening,
+  TJobPosting,
+} from '../types/searchParams';
+import { memo, useCallback, useMemo, useState } from 'react';
 import Input from '@/shared/components/input';
-import JobOpeningForm from './jobOpeningForm';
+import JobOpeningForm from './jobOpeningEditingForm';
 import {
   EMPLOYMENT_OPTIONS,
   LOCATION_OPTIONS,
@@ -42,7 +48,7 @@ const INITIAL_VALUES: TJobPosting = {
   notes: undefined,
 };
 
-export default function JobCreationForm(props: {
+function JobEditingForm(props: {
   onSubmit: Function;
   isPending: boolean;
   initialValues?: JobDetailDTO;
@@ -58,39 +64,76 @@ export default function JobCreationForm(props: {
     setValue,
     watch,
     setFocus,
-  } = useForm<TJobPosting>({
+  } = useForm<TJobForm>({
     defaultValues: {
       ...INITIAL_VALUES,
       ...props.initialValues,
-      phoneNumbers:
-        props.initialValues?.phoneNumbers?.[0] || INITIAL_VALUES.phoneNumbers,
+      job: {
+        contactStartDate: (
+          props.initialValues?.contactStartDate ||
+          INITIAL_VALUES.contactStartDate
+        )
+          ?.toISOString()
+          ?.slice(0, 10),
+        contactEndDate: (
+          props.initialValues?.contactEndDate || INITIAL_VALUES.contactEndDate
+        )
+          ?.toISOString()
+          ?.slice(0, 10),
+        contactEmail:
+          props.initialValues?.contactEmail || INITIAL_VALUES.contactEmail,
+        whatsapp: props.initialValues?.whatsapp || INITIAL_VALUES.whatsapp,
+        phoneNumbers:
+          props.initialValues?.phoneNumbers?.[0] || INITIAL_VALUES.phoneNumbers,
+        location: props.initialValues?.location || INITIAL_VALUES.location,
+        workRadius:
+          props.initialValues?.workRadius || INITIAL_VALUES.workRadius,
+        specialRequirements:
+          props.initialValues?.specialRequirements ||
+          INITIAL_VALUES.specialRequirements,
+        employment:
+          props.initialValues?.employment || INITIAL_VALUES.employment,
+        description:
+          props.initialValues?.description || INITIAL_VALUES.description,
+        jobStartDate: (
+          props.initialValues?.jobStartDate || INITIAL_VALUES.jobStartDate
+        )
+          ?.toISOString()
+          ?.slice(0, 10),
+        jobEndDate: (
+          props.initialValues?.jobEndDate || INITIAL_VALUES.jobEndDate
+        )
+          ?.toISOString()
+          ?.slice(0, 10),
+        budgetLow: props.initialValues?.budgetLow || INITIAL_VALUES.budgetLow,
+        budgetHigh:
+          props.initialValues?.budgetHigh || INITIAL_VALUES.budgetHigh,
+        benefits: props.initialValues?.benefits || INITIAL_VALUES.benefits,
+        notes: props.initialValues?.notes || INITIAL_VALUES.notes,
+      },
     },
   });
-
-  const openings = watch('openings');
-  const location = watch('location');
 
   const onSubmit = useCallback(
     async (values) => {
       setIsParsing(true);
-      const res = JobPosting.safeParse(values);
-      console.error(res);
+      const res = JobPostingForm.safeParse(values);
       if (res.success) {
         setIsParsing(false);
         return props.onSubmit(res.data);
       }
 
       for (const valError of res.error.issues) {
-        setError(valError.path.join('.') as Path<TJobPosting>, {
+        setError(valError.path.join('.') as Path<TJobForm>, {
           type: valError.code,
           message: valError.code,
         });
-        setFocus(valError.path.join('.') as Path<TJobPosting>);
+        setFocus(valError.path.join('.') as Path<TJobForm>);
       }
       setIsParsing(false);
     },
     [props.onSubmit, setError, setIsParsing]
-  ) as SubmitHandler<TJobPosting>;
+  ) as SubmitHandler<TJobForm>;
 
   const values = watch();
 
@@ -116,9 +159,9 @@ export default function JobCreationForm(props: {
             type="date"
             autoComplete=""
             register={register}
-            fieldName="contactStartDate"
+            fieldName="job.contactStartDate"
             required={true}
-            error={formState.errors.contactStartDate}
+            error={formState.errors.job?.contactStartDate}
           />
 
           <Input
@@ -126,9 +169,9 @@ export default function JobCreationForm(props: {
             type="date"
             autoComplete={undefined}
             register={register}
-            fieldName="contactEndDate"
+            fieldName="job.contactEndDate"
             required={true}
-            error={formState.errors.contactEndDate}
+            error={formState.errors.job?.contactEndDate}
           />
         </div>
         <p className="mt-4">
@@ -138,71 +181,38 @@ export default function JobCreationForm(props: {
           label={t('Correo para contacto')}
           type="email"
           register={register}
-          fieldName="contactEmail"
+          fieldName="job.contactEmail"
           required={false}
-          error={formState.errors.contactEmail}
+          error={formState.errors.job?.contactEmail}
         />
         <Input
           label={t('Whatsapp de contacto')}
           type="text"
           register={register}
-          fieldName="whatsapp"
+          fieldName="job.whatsapp"
           autoComplete=""
           required={false}
-          error={formState.errors.whatsapp}
+          error={formState.errors.job?.whatsapp}
         />
         <Input
           label={t('Teléfono de contacto')}
           type="text"
           register={register}
-          fieldName="phoneNumbers"
+          fieldName="job.phoneNumbers"
           autoComplete=""
           required={false}
-          error={formState.errors.phoneNumbers}
+          error={formState.errors.job?.phoneNumbers}
         />
       </div>
       <div className="flex flex-col gap-4 text-left">
         <h2 className="text-primary">{t('Características del servicio')}</h2>
-        {openings?.length > 0 &&
-          openings.map((o, i) => (
-            <>
-              <div className="flex flex-row justify-between">
-                <h3>
-                  {t('Vacante')} {i + 1}
-                </h3>
-                {openings.length > 1 && (
-                  <div
-                    className="cursor-pointer text-sm bg-red-500 px-2 py-1 rounded-md text-white w-fit ml-auto"
-                    onClick={() =>
-                      setValue(
-                        'openings',
-                        openings.filter((oo) => oo != o)
-                      )
-                    }
-                  >
-                    {t('Eliminar vacante')}
-                  </div>
-                )}
-              </div>
-              <JobOpeningForm
-                key={o.activity}
-                i={i}
-                register={register}
-                setValue={setValue}
-                initialValues={o}
-                errors={
-                  formState.errors.openings?.[i] as FieldErrorsImpl<TJobOpening>
-                }
-              />
-              <hr />
-            </>
-          ))}
-        <div
-          className="cursor-pointer bg-primary px-4 py-2 rounded-md text-white"
-          onClick={() => setValue('openings', [...openings, {} as TJobOpening])}
-        >
-          {t('Agregar otra vacante')}
-        </div>
+        <JobOpeningForm
+          key={props.initialValues?.id || Math.random()}
+          register={register}
+          setValue={setValue}
+          initialValues={values}
+          errors={formState.errors as FieldErrorsImpl<TJobForm>}
+        />
       </div>
       <div className="flex flex-col gap-4 text-left">
         <h2 className="text-primary">{t('Características del proyecto')}</h2>
@@ -210,49 +220,49 @@ export default function JobCreationForm(props: {
           label={t('Ubicación')}
           type="radioGroup"
           register={register}
-          fieldName="location"
+          fieldName="job.location"
           required={true}
-          error={formState.errors.location}
+          error={formState.errors.job?.location}
           items={LOCATION_OPTIONS.map((location) => ({
             value: location,
             label: t(location),
           }))}
           setValue={setValue}
-          value={values.location}
+          value={values.job?.location || ''}
         />
-        {location === 'online' && (
+        {values.job?.location === 'online' && (
           <Input
             label={t('Radio de trabajo')}
             type="radioGroup"
             register={register}
-            fieldName="workRadius"
-            error={formState.errors.workRadius}
+            fieldName="job.workRadius"
+            error={formState.errors.job?.workRadius}
             items={WORK_RADIUS_OPTIONS.map((radius) => ({
               value: radius,
               label: t(radius),
             }))}
             setValue={setValue}
-            value={values.workRadius || ''}
+            value={values.job?.workRadius || ''}
           />
         )}
         <Input
           label={t('Tipo de empleo')}
           type="radioGroup"
           register={register}
-          fieldName="employment"
+          fieldName="job.employment"
           required={true}
-          error={formState.errors.employment}
+          error={formState.errors.job?.employment}
           items={EMPLOYMENT_RADIO_OPTIONS}
           setValue={setValue}
-          value={values.employment}
+          value={values.job?.employment || ''}
         />
         <Input
           label={t('Descripción de empleo / proyecto')}
           type="textArea"
           register={register}
-          fieldName="description"
+          fieldName="job.description"
           required={true}
-          error={formState.errors.description}
+          error={formState.errors.job?.description}
           rows={6}
           maxLength={60}
           inputClass="rounded-md bg-black bg-opacity-20 resize-none col-span-2 p-4 w-full"
@@ -272,18 +282,18 @@ export default function JobCreationForm(props: {
             hiddenLabel={true}
             type="date"
             register={register}
-            fieldName="jobStartDate"
+            fieldName="job.jobStartDate"
             required={true}
-            error={formState.errors.jobStartDate}
+            error={formState.errors.job?.jobStartDate}
           />
           <Input
             label={t('Fecha tentativa de terminación')}
             type="date"
             hiddenLabel={true}
             register={register}
-            fieldName="jobEndDate"
+            fieldName="job.jobEndDate"
             required={false}
-            error={formState.errors.jobEndDate}
+            error={formState.errors.job?.jobEndDate}
           />
         </div>
         <div className="grid grid-cols-2 gap-x-4 gap-y-1">
@@ -293,55 +303,55 @@ export default function JobCreationForm(props: {
             hiddenLabel={true}
             type="text"
             register={register}
-            fieldName="budgetLow"
+            fieldName="job.budgetLow"
             required={false}
-            error={formState.errors.budgetLow}
+            error={formState.errors.job?.budgetLow}
           />
           <Input
             label={t('Rango presupuesto alto')}
             hiddenLabel={true}
             type="text"
             register={register}
-            fieldName="budgetHigh"
+            fieldName="job.budgetHigh"
             required={false}
-            error={formState.errors.budgetHigh}
+            error={formState.errors.job?.budgetHigh}
           />
         </div>
         <Input
           label={t('Requerimientos especiales del servicio')}
           type="textArea"
           register={register}
-          fieldName="specialRequirements"
+          fieldName="job.specialRequirements"
           rows={3}
           maxLength={60}
           inputClass="rounded-md bg-black bg-opacity-20 resize-none col-span-2 p-4 w-full"
           divClass="w-full"
           required={false}
-          error={formState.errors.specialRequirements}
+          error={formState.errors.job?.specialRequirements}
         />
         <Input
           label={t('Prestaciones beneficios adicionales')}
           type="textArea"
           register={register}
-          fieldName="benefits"
+          fieldName="job.benefits"
           rows={3}
           maxLength={60}
           inputClass="rounded-md bg-black bg-opacity-20 resize-none col-span-2 p-4 w-full"
           divClass="w-full"
           required={false}
-          error={formState.errors.benefits}
+          error={formState.errors.job?.benefits}
         />
         <Input
           label={t('Notas adicionales')}
           type="textArea"
           register={register}
-          fieldName="notes"
+          fieldName="job.notes"
           rows={3}
           maxLength={60}
           inputClass="rounded-md bg-black bg-opacity-20 resize-none col-span-2 p-4 w-full"
           divClass="w-full"
           required={false}
-          error={formState.errors.notes}
+          error={formState.errors.job?.notes}
         />
       </div>
       {!formState.isValid && (
@@ -367,3 +377,5 @@ export default function JobCreationForm(props: {
     </form>
   );
 }
+
+export default memo(JobEditingForm);

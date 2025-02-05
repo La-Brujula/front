@@ -55,6 +55,52 @@ export const JobPosting = z
   );
 export type TJobPosting = z.infer<typeof JobPosting>;
 
+export const JobPostingForm = z
+  .object({
+    job: z.object({
+      contactStartDate: z.optional(z.string()),
+      contactEndDate: z.optional(z.string()),
+      contactEmail: z.optional(z.string().email()),
+      whatsapp: z.optional(z.string()),
+      phoneNumbers: z.optional(z.string()),
+      location: z.optional(z.enum(['online', 'hybrid', 'in-person'])),
+      workRadius: z.optional(z.enum(WORK_RADIUS_OPTIONS)).catch(undefined),
+      specialRequirements: z.optional(z.string()),
+      employment: z.optional(z.enum(EMPLOYMENT_OPTIONS)),
+      description: z.optional(z.string().max(1024)),
+      jobStartDate: z.optional(z.string()),
+      jobEndDate: z.optional(z.string()).catch(undefined),
+      budgetLow: z.optional(z.number({ coerce: true })),
+      budgetHigh: z.optional(z.number({ coerce: true })),
+      benefits: z.optional(z.string().max(1024)),
+      notes: z.optional(z.string().max(1024)),
+    }),
+    activity: z.optional(z.string().length(6)),
+    count: z.optional(z.number({ coerce: true })),
+    probono: z.optional(z.boolean()),
+    gender: z.optional(z.enum(['male', 'female', 'other'])).catch(undefined),
+    ageRangeMin: z.optional(z.number({ coerce: true }).min(0).max(120)),
+    ageRangeMax: z.optional(z.number({ coerce: true }).min(0).max(120)),
+    school: z.optional(z.string()),
+    languages: z.optional(
+      z.array(
+        z.object({
+          lang: z.string().length(2),
+          proficiency: z.enum(['basic', 'intermediate', 'advanced', 'native']),
+        })
+      )
+    ),
+  })
+  .refine(
+    ({ job: { contactEmail, whatsapp, phoneNumbers } }) =>
+      !!contactEmail || !!whatsapp || !!phoneNumbers,
+    {
+      message: 'One of contactEmail, whatsapp, phoneNumbers must be defined',
+      path: ['contactEmail'],
+    }
+  );
+export type TJobForm = z.infer<typeof JobPostingForm>;
+
 export const jobSearchSchema = z.object({
   query: z.optional(z.string()),
   activity: z.optional(z.string()),

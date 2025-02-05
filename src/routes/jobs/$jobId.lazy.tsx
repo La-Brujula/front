@@ -1,7 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { ContactSection } from '@/modules/profile/components/contactInfo';
 import { Recommendations } from '@/modules/profile/components/recommend';
-import { Link, createLazyFileRoute, useNavigate } from '@tanstack/react-router';
+import {
+  Link,
+  Outlet,
+  createLazyFileRoute,
+  useNavigate,
+} from '@tanstack/react-router';
 import { useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import DataSuspense from '@/shared/components/dataSuspense';
@@ -71,14 +76,18 @@ export function JobDetailPage() {
         <h1 className="font-normal text-primary text-4xl text-center">
           {t('Oferta laboral')}
         </h1>
-        <Link
-          to="/jobs/$jobId/edit"
-          params={{ jobId }}
-          className="flex flex-row gap-1"
-        >
-          <EditOutlined />
-          {t('Editar')}
-        </Link>
+        {ownOpening ? (
+          <Link
+            to="/jobs/$jobId/edit"
+            params={{ jobId }}
+            className="flex flex-row gap-1"
+          >
+            <EditOutlined />
+            {t('Editar')}
+          </Link>
+        ) : (
+          <div />
+        )}
       </Container>
       <Container
         bg="light"

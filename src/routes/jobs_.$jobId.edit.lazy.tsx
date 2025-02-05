@@ -1,7 +1,7 @@
 import { createLazyFileRoute, useNavigate } from '@tanstack/react-router';
 import { useCallback } from 'react';
 import { Container } from '@/shared/layout/container';
-import JobCreationForm from '@/modules/jobs/components/jobForm';
+import JobEditingForm from '@/modules/jobs/components/jobEditingForm';
 import { useTranslation } from 'react-i18next';
 import {
   JobDetailDTO,
@@ -51,7 +51,7 @@ function EditJobPostingPage() {
         error={error || jobError}
         fallback={<LoadingSpinner />}
       >
-        <JobCreationForm
+        <JobEditingForm
           onSubmit={onSubmit}
           isPending={isPending}
           initialValues={job}

@@ -23,7 +23,7 @@ import { Route as AuthVerifyEmailImport } from './routes/auth/verify-email';
 import { Route as AuthSignupImport } from './routes/auth/signup';
 import { Route as AuthNewPasswordImport } from './routes/auth/new-password';
 import { Route as AuthLoginImport } from './routes/auth/login';
-import { Route as JobsJobIdEditImport } from './routes/jobs/$jobId.edit';
+import { Route as JobsJobIdEditImport } from './routes/jobs_.$jobId.edit';
 
 // Create Virtual Routes
 
@@ -227,10 +227,10 @@ const AuthLoginRoute = AuthLoginImport.update({
 } as any).lazy(() => import('./routes/auth/login.lazy').then((d) => d.Route));
 
 const JobsJobIdEditRoute = JobsJobIdEditImport.update({
-  path: '/edit',
-  getParentRoute: () => JobsJobIdRoute,
+  path: '/jobs/$jobId/edit',
+  getParentRoute: () => rootRoute,
 } as any).lazy(() =>
-  import('./routes/jobs/$jobId.edit.lazy').then((d) => d.Route)
+  import('./routes/jobs_.$jobId.edit.lazy').then((d) => d.Route)
 );
 
 // Populate the FileRoutesByPath interface
@@ -359,7 +359,7 @@ declare module '@tanstack/react-router' {
     };
     '/jobs/$jobId/edit': {
       preLoaderRoute: typeof JobsJobIdEditImport;
-      parentRoute: typeof JobsJobIdImport;
+      parentRoute: typeof rootRoute;
     };
   }
 }
@@ -377,7 +377,7 @@ export const routeTree = rootRoute.addChildren([
     MeSummaryLazyRoute,
   ]),
   JobsLazyRoute.addChildren([
-    JobsJobIdRoute.addChildren([JobsJobIdEditRoute]),
+    JobsJobIdRoute,
     JobsCreateLazyRoute,
     JobsMeLazyRoute,
     JobsIndexRoute,
@@ -399,6 +399,7 @@ export const routeTree = rootRoute.addChildren([
   ContactIndexLazyRoute,
   GuidesIndexLazyRoute,
   PrivacyIndexLazyRoute,
+  JobsJobIdEditRoute,
 ]);
 
 /* prettier-ignore-end */

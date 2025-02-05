@@ -87,8 +87,8 @@ export const UserCard = ({
           <p className="text-xs mt-2 font-medium">
             {user.country
               ? user.location?.replace(
-                  user.country,
-                  t(`countries:${user.country}`)
+                  `, ${user.country}`,
+                  `, ${t(`countries:${user.country}`)}`
                 )
               : user.location}
           </p>

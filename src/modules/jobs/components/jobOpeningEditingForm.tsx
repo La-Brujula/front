@@ -1,8 +1,11 @@
-import { useCallback, useState } from 'react';
-import { TJobOpening, TJobPosting } from '../types/searchParams';
+import { useCallback, useEffect, useState } from 'react';
+import { TJobForm, TJobOpening, TJobPosting } from '../types/searchParams';
 import {
+  FieldError,
   FieldErrorsImpl,
+  Merge,
   Path,
+  useForm,
   UseFormRegister,
   UseFormSetValue,
 } from 'react-hook-form';
@@ -13,12 +16,22 @@ import GENDERS from '@/shared/constants/genders.json';
 import { LanguageListForm } from '@/modules/auth/components/languageListForm';
 import { UniversidadesSelect } from '@/modules/auth/components/universidadesSelect';
 
+const DEFAULT_VALUES: TJobOpening = {
+  activity: '',
+  count: 0,
+  probono: false,
+  gender: undefined,
+  ageRangeMin: undefined,
+  ageRangeMax: undefined,
+  languages: [],
+  school: undefined,
+};
+
 export default function JobOpeningForm(props: {
-  i: number;
-  initialValues?: TJobOpening;
-  register: UseFormRegister<TJobPosting>;
+  initialValues?: TJobForm;
+  register: UseFormRegister<TJobForm>;
   errors?: FieldErrorsImpl<TJobOpening>;
-  setValue: UseFormSetValue<TJobPosting>;
+  setValue: UseFormSetValue<TJobForm>;
 }) {
   const { register, errors } = props;
   const { t } = useTranslation('jobs');
@@ -27,7 +40,7 @@ export default function JobOpeningForm(props: {
 
   const selectActivity = useCallback(
     (activity: string) => {
-      props.setValue(`openings.${props.i}.activity`, activity);
+      props.setValue('activity', activity);
     },
     [props.setValue]
   );
@@ -50,7 +63,7 @@ export default function JobOpeningForm(props: {
       />
       <input
         type="hidden"
-        {...props.register(`openings.${props.i}.activity` as Path<TJobPosting>)}
+        {...props.register('activity')}
         value={props.initialValues?.activity}
       />
       {props.errors?.activity !== undefined && (
@@ -61,7 +74,7 @@ export default function JobOpeningForm(props: {
         type="text"
         autoComplete=""
         register={register}
-        fieldName={`openings.${props.i}.count`}
+        fieldName="count"
         divClass=""
         required={true}
         error={errors?.count}
@@ -70,7 +83,7 @@ export default function JobOpeningForm(props: {
         label={t('Trabajo remunerado')}
         type="radioGroup"
         register={register}
-        fieldName={`openings.${props.i}.probono`}
+        fieldName="probono"
         divClass=""
         required={true}
         error={errors?.probono}
@@ -104,7 +117,7 @@ export default function JobOpeningForm(props: {
               type="text"
               autoComplete=""
               register={register}
-              fieldName={`openings.${props.i}.ageRangeMin`}
+              fieldName="ageRangeMin"
               divClass=""
               required={true}
               error={errors?.ageRangeMin}
@@ -116,7 +129,7 @@ export default function JobOpeningForm(props: {
               type="text"
               autoComplete=""
               register={register}
-              fieldName={`openings.${props.i}.ageRangeMax`}
+              fieldName="ageRangeMax"
               divClass=""
               required={true}
               error={errors?.ageRangeMax}
@@ -126,7 +139,7 @@ export default function JobOpeningForm(props: {
             label={t('Género')}
             type="select"
             register={register}
-            fieldName={`openings.${props.i}.gender`}
+            fieldName="gender"
             divClass=""
             items={GENDERS.map((gender) => ({ key: gender, label: t(gender) }))}
             error={errors?.gender}
@@ -139,7 +152,7 @@ export default function JobOpeningForm(props: {
           </label>
           <LanguageListForm
             setValue={props.setValue}
-            fieldName={`openings.${props.i}.languages`}
+            fieldName="languages"
             defaultState={[]}
             allowNull={true}
           />
@@ -147,8 +160,8 @@ export default function JobOpeningForm(props: {
             label={t('Escuela/Universidad')}
             type="custom"
             register={register}
-            fieldName={`openings.${props.i}.school`}
-            component={UniversidadesSelect<TJobPosting>}
+            fieldName="school"
+            component={UniversidadesSelect<TJobForm>}
             error={errors?.school}
           />
         </>
