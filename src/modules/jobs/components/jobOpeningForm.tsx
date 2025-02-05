@@ -1,19 +1,8 @@
-<<<<<<< HEAD
 import { useCallback, useState } from 'react';
 import { TJobOpening, TJobPosting } from '../types/searchParams';
 import {
   FieldErrorsImpl,
   Path,
-=======
-import { useCallback, useEffect, useState } from 'react';
-import { TJobOpening, TJobPosting } from '../types/searchParams';
-import {
-  FieldError,
-  FieldErrorsImpl,
-  Merge,
-  Path,
-  useForm,
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
   UseFormRegister,
   UseFormSetValue,
 } from 'react-hook-form';
@@ -24,8 +13,6 @@ import GENDERS from '@/shared/constants/genders.json';
 import { LanguageListForm } from '@/modules/auth/components/languageListForm';
 import { UniversidadesSelect } from '@/modules/auth/components/universidadesSelect';
 
-<<<<<<< HEAD
-=======
 const DEFAULT_VALUES: TJobOpening = {
   activity: '',
   count: 0,
@@ -37,7 +24,6 @@ const DEFAULT_VALUES: TJobOpening = {
   school: undefined,
 };
 
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
 export default function JobOpeningForm(props: {
   i: number;
   initialValues?: TJobOpening;
@@ -46,27 +32,17 @@ export default function JobOpeningForm(props: {
   setValue: UseFormSetValue<TJobPosting>;
 }) {
   const { register, errors } = props;
-<<<<<<< HEAD
   const { t } = useTranslation(['jobs', 'errors']);
-=======
-  const { t } = useTranslation('jobs');
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
 
   const [showMore, setShowMore] = useState(false);
 
   const selectActivity = useCallback(
     (activity: string) => {
-<<<<<<< HEAD
       props.setValue(`openings.${props.i}.activity`, activity, {
         shouldValidate: true,
       });
     },
     [props.setValue, props.i]
-=======
-      props.setValue(`openings.${props.i}.activity`, activity);
-    },
-    [props.setValue]
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
   );
 
   return (
@@ -84,11 +60,8 @@ export default function JobOpeningForm(props: {
         changeListener={selectActivity}
         gender={'other'}
         removeElement={() => selectActivity('')}
-<<<<<<< HEAD
         // t('Busca una actividad')
         placeholder="Busca una actividad"
-=======
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
       />
       <input
         type="hidden"
@@ -96,13 +69,9 @@ export default function JobOpeningForm(props: {
         value={props.initialValues?.activity}
       />
       {props.errors?.activity !== undefined && (
-<<<<<<< HEAD
         <p className="text-red-500">
           {t(`errors:${props.errors?.activity.type}` || '')}
         </p>
-=======
-        <p className="text-red-500">{t(props.errors?.activity.type || '')}</p>
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
       )}
       <Input
         label={t('Número de vacantes')}
@@ -123,17 +92,9 @@ export default function JobOpeningForm(props: {
         required={true}
         error={errors?.probono}
         items={[
-<<<<<<< HEAD
           { label: t('Sí'), value: 'false' },
           { label: t('No'), value: 'true' },
         ]}
-=======
-          { label: t('Sí'), value: '' },
-          { label: t('No'), value: 'true' },
-        ]}
-        setValue={props.setValue}
-        value={props.initialValues?.probono ? 'true' : ''}
->>>>>>> e3e0a17 (fixed radioGroup on chrome)
       />
       {!showMore ? (
         <div
