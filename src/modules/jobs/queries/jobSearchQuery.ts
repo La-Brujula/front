@@ -78,15 +78,28 @@ export type JobDTO = {
   description: string;
   jobStartDate: Date;
   jobEndDate?: Date;
+  contactStartDate: Date;
+  contactEndDate: Date;
+  applicantsCount: number;
 };
 
 export const getCreatedJobs = () =>
   queryOptions({
     queryKey: ['jobs', { requesterId: 'me' }],
-    queryFn: (ctx) => {
+    queryFn: async (ctx) => {
       return getFetch<JobDTO[]>('/jobs/me', {
         signal: ctx.signal,
-      });
+      }).then((data) => ({
+        isSuccess: data.isSuccess,
+        meta: data.meta,
+        entity: data.entity.map((job) => ({
+          ...job,
+          contactStartDate: new Date(job.contactStartDate),
+          contactEndDate: new Date(job.contactEndDate),
+          jobStartDate: new Date(job.jobStartDate),
+          jobEndDate: job.jobEndDate ? new Date(job.jobEndDate) : undefined,
+        })),
+      }));
     },
     refetchOnWindowFocus: true,
   });
@@ -96,14 +109,24 @@ export const jobSearchQueryOptions = (search: JobSearch, enabled: boolean) =>
     initialPageParam: 0,
     queryKey: ['jobs', search],
     refetchOnWindowFocus: true,
-    queryFn: (queryParams) => {
+    queryFn: async (queryParams) => {
       return getFetch<JobDTO[]>('/jobs', {
         params: {
           ...search,
           offset: queryParams.pageParam,
         },
         signal: queryParams.signal,
-      });
+      }).then((data) => ({
+        isSuccess: data.isSuccess,
+        meta: data.meta,
+        entity: data.entity.map((job) => ({
+          ...job,
+          contactStartDate: new Date(job.contactStartDate),
+          contactEndDate: new Date(job.contactEndDate),
+          jobStartDate: new Date(job.jobStartDate),
+          jobEndDate: job.jobEndDate ? new Date(job.jobEndDate) : undefined,
+        })),
+      }));
     },
     getPreviousPageParam: (firstPage) => {
       const next = firstPage.meta.offset - firstPage.meta.limit;

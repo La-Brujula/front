@@ -6,6 +6,7 @@ import { UserCard } from '@/modules/search/components/userCard';
 
 export const JobCard = ({ job }: { job: JobDTO }) => {
   const { t } = useTranslation('jobs');
+
   return (
     <Link
       to="/jobs/$jobId"
@@ -32,6 +33,23 @@ export const JobCard = ({ job }: { job: JobDTO }) => {
             })}
           </p>
           <p className="text-sm opacity-70 text-black">{job.description}</p>
+          <div className="flex flex-row w-full justify-between">
+            <p className="text-sm opacity-40 text-black">
+              {t('Expira el {{fecha}}', {
+                replace: {
+                  fecha:
+                    typeof job.contactEndDate?.toLocaleDateString === 'function'
+                      ? job.contactEndDate.toLocaleDateString('es-MX')
+                      : '...',
+                },
+              }).replace(/&#x2F;/g, '/')}
+            </p>
+            <p className="text-sm opacity-40 text-black">
+              {t('Han aplicado {{count}} personas', {
+                count: job.applicantsCount,
+              })}
+            </p>
+          </div>
         </div>
       </div>
     </Link>
