@@ -92,7 +92,12 @@ export const ContactSection = ({ user }: { user: IBackendProfile }) => {
           <h3>
             <WhatsApp />
           </h3>
-          <p>{user.whatsapp}</p>
+          <a
+            target="_blank"
+            href={`https://wa.me/${user.whatsapp.replace(/[ +(){}-]/g, '')}`}
+          >
+            <p>{user.whatsapp}</p>
+          </a>
         </>
       )}
       {!!user.imdb && (
