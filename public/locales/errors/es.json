@@ -25,5 +25,5 @@
   "invalid_enum_value": "Selecciona un valor válido",
   "invalid_type": "Ingresa un valor válido",
   "invalid_string": "Ingresa un valor válido",
-  "too_small": "Formato no válido"
+  "too_small": "Ingresa un valor"
 }

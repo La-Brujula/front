@@ -1,5 +1,5 @@
 {
-  "Buscar tu actividad": "Search by activity",
+  "Buscar tu actividad": "Find your activity",
   "Otro": "Other",
   "Escribe aquí el nombre de tu idioma": "Please input the name of your language",
   "Volver a lista": "Go back to the list",
@@ -124,6 +124,7 @@
   "Nickname": "Nickname",
   "Actividad Principal": "Primary Activity",
   "Otras actividades": "Other activities",
+  "Busca una actividad": "Search for an activity",
   "Cargando": {
     "": "Loading..."
   },

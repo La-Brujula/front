@@ -25,5 +25,5 @@
   "invalid_enum_value": "Select a valid value",
   "invalid_type": "Enter a valid value",
   "invalid_string": "Enter a valid value",
-  "too_small": "Invalid format"
+  "too_small": "Enter a value"
 }

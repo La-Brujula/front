@@ -21,13 +21,15 @@ export default function JobOpeningForm(props: {
   setValue: UseFormSetValue<TJobPosting>;
 }) {
   const { register, errors } = props;
-  const { t } = useTranslation('jobs');
+  const { t } = useTranslation(['jobs', 'errors']);
 
   const [showMore, setShowMore] = useState(false);
 
   const selectActivity = useCallback(
     (activity: string) => {
-      props.setValue(`openings.${props.i}.activity`, activity);
+      props.setValue(`openings.${props.i}.activity`, activity, {
+        shouldValidate: true,
+      });
     },
     [props.setValue]
   );
@@ -47,6 +49,8 @@ export default function JobOpeningForm(props: {
         changeListener={selectActivity}
         gender={'other'}
         removeElement={() => selectActivity('')}
+        // t('Busca una actividad')
+        placeholder="Busca una actividad"
       />
       <input
         type="hidden"
@@ -54,7 +58,9 @@ export default function JobOpeningForm(props: {
         value={props.initialValues?.activity}
       />
       {props.errors?.activity !== undefined && (
-        <p className="text-red-500">{t(props.errors?.activity.type || '')}</p>
+        <p className="text-red-500">
+          {t(`errors:${props.errors?.activity.type}` || '')}
+        </p>
       )}
       <Input
         label={t('Número de vacantes')}

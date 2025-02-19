@@ -42,8 +42,10 @@ function reducer(
 
 export function CustomActivityLookupField({
   setValue,
+  placeholder = 'Buscar tu actividad',
 }: {
   setValue: (value: string) => void;
+  placeholder?: string;
 }) {
   const { t } = useTranslation('auth');
 
@@ -63,7 +65,7 @@ export function CustomActivityLookupField({
   return (
     <div className="w-full">
       <TextSelectField
-        placeholder={t('Buscar tu actividad')}
+        placeholder={t(placeholder)}
         items={refToId}
         setValue={setValue}
         onSelect={(item) => {
@@ -79,11 +81,13 @@ export const AreaForms = ({
   gender,
   changeListener,
   removeElement,
+  placeholder = 'Buscar tu actividad',
 }: {
   defaultValue: string;
   gender: EnumGender;
   removeElement: () => void;
   changeListener: (value: string) => void;
+  placeholder?: string;
 }) => {
   const [state, dispatch] = useReducer(
     reducer,
@@ -120,6 +124,7 @@ export const AreaForms = ({
     dispatch({ type: 'clear' });
     removeElement();
   }, [dispatch, removeElement]);
+
   const setActivity = useCallback(
     (activity: string) => () => {
       dispatch({ type: 'select', activity });
@@ -155,7 +160,10 @@ export const AreaForms = ({
           ))
         )
       ) : (
-        <CustomActivityLookupField setValue={setActivities} />
+        <CustomActivityLookupField
+          setValue={setActivities}
+          placeholder={placeholder}
+        />
       )}
     </div>
   );

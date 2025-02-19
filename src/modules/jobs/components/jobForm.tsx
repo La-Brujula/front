@@ -65,6 +65,7 @@ export default function JobCreationForm(props: {
       phoneNumbers:
         props.initialValues?.phoneNumbers?.[0] || INITIAL_VALUES.phoneNumbers,
     },
+    reValidateMode: 'onChange',
   });
 
   const openings = watch('openings');
@@ -74,7 +75,6 @@ export default function JobCreationForm(props: {
     async (values) => {
       setIsParsing(true);
       const res = JobPosting.safeParse(values);
-      console.error(res);
       if (res.success) {
         setIsParsing(false);
         return props.onSubmit(res.data);

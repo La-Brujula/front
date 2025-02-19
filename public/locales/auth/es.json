@@ -1,5 +1,5 @@
 {
-  "Buscar tu actividad": "Buscar tu actividad",
+  "Buscar tu actividad": "Busca tu actividad",
   "Otro": "Otro",
   "Escribe aquí el nombre de tu idioma": "Escribe aquí el nombre de tu idioma",
   "Volver a lista": "Volver a lista",
@@ -124,6 +124,7 @@
   "Nickname": "Apodo",
   "Actividad Principal": "Actividad Principal",
   "Otras actividades": "Otras actividades",
+  "Busca una actividad": "Busca una actividad",
   "Cargando": {
     "": "Cargando..."
   },
