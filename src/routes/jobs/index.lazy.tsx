@@ -77,8 +77,19 @@ function SearchHomepage() {
   );
 
   useEffect(() => {
-    const subscription = watch((data) => onSubmit(data));
-    return () => subscription.unsubscribe();
+    let timeoutId: NodeJS.Timeout;
+    const subscription = watch((data) => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+      timeoutId = setTimeout(() => {
+        onSubmit(data);
+      }, 200);
+    });
+    return () => {
+      clearTimeout(timeoutId);
+      subscription.unsubscribe();
+    };
   }, [onSubmit, watch]);
 
   useEffect(() => {
