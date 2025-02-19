@@ -63,7 +63,7 @@ export const UserCard = ({
           {user.country && (
             <CountryFlag
               country={user.country}
-              className="text-4xl"
+              className="!size-8"
             />
           )}
         </div>

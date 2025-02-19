@@ -1,3 +1,4 @@
+import countryCodes from '@/shared/constants/countryCodes';
 import { z } from 'zod';
 
 export const searchSchema = z.object({
@@ -15,7 +16,7 @@ export const searchSchema = z.object({
   activity: z.string().optional().catch(''),
   certifications: z.string().optional().catch(''),
   language: z.string().optional().catch(''),
-  country: z.string().optional().default('MX'),
+  country: z.enum(countryCodes).optional().default('MX'),
 });
 
 export const defaultSearch = {

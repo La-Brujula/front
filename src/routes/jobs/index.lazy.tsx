@@ -100,67 +100,69 @@ function SearchHomepage() {
 
   return (
     <>
+      <Container className="flex flex-row justify-center items-center">
+        <div className="flex flex-row justify-center !p-0">
+          {isVerified ? (
+            <Link
+              to="/jobs/create"
+              className="px-8 py-4 rounded-md bg-primary text-white text-base font-bold text-center"
+            >
+              {t('Crea una nueva oferta laboral')}
+            </Link>
+          ) : (
+            <Link
+              to="/auth/send-verification"
+              className="px-8 py-4 rounded-md bg-secondary text-white text-base font-bold text-center"
+            >
+              {t('Verifica tu cuenta para crear una oferta')}
+            </Link>
+          )}
+        </div>
+      </Container>
       <Container
-        className="relative !pb-4"
-        bodyClass="grid grid-cols-1 gap-2 md:grid-cols-[max-content_1fr]"
+        className="relative"
+        bodyClass="w-full flex flex-col md:grid grid-cols-[1fr_10rem] gap-4 text-white font-bold items-center px-4"
         bg="light-gray"
       >
-        {isVerified ? (
-          <Link
-            to="/jobs/create"
-            className="px-4 py-2 rounded-md bg-primary text-white my-8"
-          >
-            {t('Crear nueva oferta laboral')}
-          </Link>
-        ) : (
-          <Link
-            to="/auth/send-verification"
-            className="px-4 py-2 rounded-md bg-secondary text-white my-8"
-          >
-            {t('Verifica tu cuenta para crear una oferta')}
-          </Link>
-        )}
+        <h3 className="col-span-full text-primary font-bold text-xl">
+          {t('o encuentra un empleo')}:
+        </h3>
         <div
-          className="w-full grid grid-cols-[1fr_max-content]
-        gap-4 text-white font-bold items-center px-4"
-        >
-          <div
-            className="font-bold border-2 border-black bg-transparent
+          className="font-bold border-2 border-black bg-transparent
           text-black placeholder:text-black flex flex-row gap-1
           justify-start items-center px-2 mx-auto rounded-md
           z-10 w-full"
-          >
-            <SearchOutlined />
-            <Controller
-              name="query"
-              control={control}
-              render={({ field: { onChange, ...field } }) => (
-                <input
-                  type="text"
-                  {...field}
-                  id="search-field"
-                  className="border-none bg-transparent focus:outline-none w-full
+        >
+          <SearchOutlined />
+          <Controller
+            name="query"
+            control={control}
+            render={({ field: { onChange, ...field } }) => (
+              <input
+                type="text"
+                {...field}
+                id="search-field"
+                className="border-none bg-transparent focus:outline-none w-full
               placeholder:text-black placeholder:opacity-50"
-                  placeholder={t('Ingresa tu búsqueda')}
-                  onChange={(ev) => {
-                    if (ev.target.value === '') {
-                      formReset({ ...filters, query: '' });
-                    } else {
-                      setValue('query', ev.target.value);
-                    }
-                    onChange(ev);
-                  }}
-                />
-              )}
-            />
-          </div>
-          <div className="flex flex-row gap-2 items-center text-black">
-            <p>
-              {t('{{count}} resultado', {
-                count: results?.pages[0].meta?.total || 0,
-              })}
-            </p>
-          </div>
+                placeholder={t('Ingresa tu búsqueda')}
+                onChange={(ev) => {
+                  if (ev.target.value === '') {
+                    formReset({ ...filters, query: '' });
+                  } else {
+                    setValue('query', ev.target.value);
+                  }
+                  onChange(ev);
+                }}
+              />
+            )}
+          />
+        </div>
+        <div className="flex flex-row gap-2 items-center text-black">
+          <p>
+            {t('{{count}} resultado', {
+              count: results?.pages[0].meta?.total || 0,
+            })}
+          </p>
         </div>
       </Container>
       <Container className="relative !pt-0">

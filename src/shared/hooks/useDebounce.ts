@@ -19,7 +19,7 @@ function useDebounce<T>(
     onChange !== undefined && onChange(value);
   }, [value]);
 
-  return [value, setValue];
+  return [value, setValue] as const;
 }
 
 export default useDebounce;

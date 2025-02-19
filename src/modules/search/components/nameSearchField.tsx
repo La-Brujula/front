@@ -1,11 +1,10 @@
-import Input from '@/shared/components/input';
 import { SearchOutlined } from '@mui/icons-material';
 import { useNavigate } from '@tanstack/react-router';
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import countries from '@/shared/constants/countryFlags.json';
-import { TFunction } from 'i18next';
-import { useCallback } from 'react';
+import { FormEvent, useCallback } from 'react';
+import CountrySelect from '@/shared/components/countrySelect';
 
 const COUNTRIES = (['MX', 'CO'] as const).map((country) => ({
   key: country,
@@ -13,44 +12,49 @@ const COUNTRIES = (['MX', 'CO'] as const).map((country) => ({
   className: '!text-5xl',
 }));
 
+type LandingSearchForm = {
+  search: string;
+  location: keyof typeof countries;
+};
+
 export const NameSearchField = () => {
   const { t } = useTranslation(['landing', 'countries']);
-  const { register, handleSubmit } = useForm({
-    defaultValues: {
-      search: '',
-      location: 'MX',
-    },
-  });
+  const { register, handleSubmit, setValue, watch } =
+    useForm<LandingSearchForm>({
+      defaultValues: {
+        search: '',
+        location: 'MX',
+      },
+    });
+
+  const country = watch('location');
 
   const navigate = useNavigate();
 
-  const goToSearch = useCallback(
-    () =>
-      handleSubmit((values) => {
-        navigate({
-          to: '/search',
-          search: { query: values.search, country: values.location },
-          resetScroll: true,
-        });
-      }),
-    [navigate, handleSubmit]
+  const goToSearch: SubmitHandler<LandingSearchForm> = useCallback(
+    (values) => {
+      navigate({
+        to: '/search',
+        search: { query: values.search, country: values.location },
+        resetScroll: true,
+      });
+    },
+    [navigate, country]
   );
 
   return (
     <form
-      action="/search"
-      method="get"
-      onSubmit={goToSearch}
-      className="grid grid-cols-2 md:grid-cols-[1fr_6rem_5rem]
-      gap-4 justify-items-stretch flex-grow w-full
+      onSubmit={handleSubmit(goToSearch)}
+      className="grid grid-cols-[1fr_max-content] sm:grid-cols-[1fr_max-content_max-content]
+      gap-4 justify-items-end sm:justify-items-stretch flex-grow w-full
       bg-primary p-4 rounded-lg"
       style={{ fontWeight: '700' }}
     >
       <input
         type="text"
         {...register('search')}
-        className="font-bold border-2 col-span-full md:col-span-1 border-white bg-transparent
-        text-white placeholder:text-white"
+        className="font-bold col-span-2 sm:col-span-1 border-2 border-white bg-transparent
+        text-white placeholder:text-white placeholder:opacity-80 text-2xl w-full"
         style={{
           backgroundColor: 'rgb(45 123 191 / var(--tw-bg-opacity))',
           fontWeight: '700',
@@ -64,20 +68,19 @@ export const NameSearchField = () => {
         }}
         placeholder={t('search')}
       />
-      <Input
-        type="select"
-        register={register}
-        label={''}
+      <CountrySelect
+        setValue={setValue}
+        value={country}
         fieldName="location"
-        defaultValue={'MX'}
-        items={COUNTRIES}
-        inputClass="!text-5xl *:!py-0"
+        filterFn={(countries) =>
+          countries.filter((country) => country === 'CO' || country === 'MX')
+        }
       />
       <button
         type="submit"
         className="text-black bg-white p-4 size-16 rounded-full"
       >
-        <SearchOutlined />
+        <SearchOutlined fontSize="large" />
       </button>
     </form>
   );

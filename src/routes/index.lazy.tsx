@@ -4,7 +4,6 @@ import { SeccionAliades } from '@modules/landing/components/aliados';
 import BannerAnuncios from '@modules/landing/components/bannerAnuncios';
 import DownloadGuides from '@modules/landing/components/downloadGuides';
 import HeroSection from '@modules/landing/components/heroSection';
-import { LoginOrProfile } from '@modules/landing/components/loginOrProfile';
 import { SearchModules } from '@modules/landing/components/searchModules';
 import { createLazyFileRoute } from '@tanstack/react-router';
 import { LoadingSpinner } from '@/shared/components/loadingSpinner';

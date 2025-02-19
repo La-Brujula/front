@@ -1,30 +1,22 @@
-import { createLazyFileRoute, useNavigate } from '@tanstack/react-router';
 import { useCallback, useEffect, useMemo } from 'react';
-import { ResultsFilter } from '../../modules/search/components/resultsFilters';
-import { UsersList } from '../../modules/search/components/userList';
-import { LoadingSpinner } from '@/shared/components/loadingSpinner';
-import { useInView } from 'react-intersection-observer';
-import ErrorMessage from '@/shared/components/errorMessage';
-import { useInfiniteQuery } from '@tanstack/react-query';
-import { searchQueryOptions } from '@/modules/search/queries/searchQuery';
-import { useTranslation } from 'react-i18next';
-import { Search, defaultSearch } from '@/modules/search/types/searchParams';
-import { Controller, useForm } from 'react-hook-form';
+
 import { SearchOutlined } from '@mui/icons-material';
+import { Controller, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
+import { useInfiniteQuery } from '@tanstack/react-query';
+import { createLazyFileRoute, useNavigate } from '@tanstack/react-router';
+import { useInView } from 'react-intersection-observer';
+
 import { Container } from '@/shared/layout/container';
+import CountrySelect from '@/shared/components/countrySelect';
+import ErrorMessage from '@/shared/components/errorMessage';
+import { LoadingSpinner } from '@/shared/components/loadingSpinner';
+
+import { Search, defaultSearch } from '@/modules/search/types/searchParams';
+import { searchQueryOptions } from '@/modules/search/queries/searchQuery';
 import DownloadResultsButton from '@/modules/search/components/downloadResults';
-import Input from '@/shared/components/input';
-
-import countries from '@/shared/constants/countryFlags.json';
-import { TFunction } from 'i18next';
-
-const COUNTRIES = (t: TFunction<'countries', undefined>) =>
-  (['MX', 'CO'] as const).map((country) => ({
-    key: country,
-    // label: <CountryFlag country={country} />,
-    label: `${countries[country]} ${t(country, { ns: 'countries' })}`,
-    className: '!text-5xl',
-  }));
+import { ResultsFilter } from '@/modules/search/components/resultsFilters';
+import { UsersList } from '@/modules/search/components/userList';
 
 export const Route = createLazyFileRoute('/search/')({
   component: SearchHomepage,
@@ -104,17 +96,19 @@ function SearchHomepage() {
     <Container className="relative">
       <div className="bg-primary absolute top-0 h-24 w-full left-0 -z-10" />
       <div
-        className="w-full grid grid-cols-[10rem_1fr_max-content]
+        className="w-full grid grid-cols-[max-content_1fr_max-content]
       gap-4 text-white font-bold items-center px-4"
       >
-        <Input
-          type="select"
-          label=""
-          register={register}
+        <CountrySelect
+          setValue={setValue}
           fieldName="country"
-          items={COUNTRIES(t)}
-          inputClass="!bg-primary !pr-10 !h-9 !border-white !border-2"
-          divClass="!-mt-2"
+          value={filters.country}
+          filterFn={(countryArray) =>
+            countryArray.filter(
+              (country) => country === 'CO' || country === 'MX'
+            )
+          }
+          className="!size-10"
         />
         <div
           className="font-bold border-2 border-white bg-transparent

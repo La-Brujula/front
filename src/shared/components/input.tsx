@@ -36,7 +36,7 @@ type InputProps<
   error?: FieldError;
   helperText?: string;
   hiddenLabel?: boolean;
-} & RegisterOptions &
+} & RegisterOptions<FormFields> &
   (Type extends 'textArea'
     ? React.TextareaHTMLAttributes<HTMLTextAreaElement>
     : Type extends 'select'

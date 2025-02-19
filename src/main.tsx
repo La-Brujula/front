@@ -4,8 +4,6 @@ import ReactDOM from 'react-dom/client';
 import { PostHogProvider } from 'posthog-js/react';
 import posthog from 'posthog-js';
 
-import { polyfillCountryFlagEmojis } from 'country-flag-emoji-polyfill';
-
 import './index.css';
 import './i18n.ts';
 
@@ -35,5 +33,3 @@ if (!rootElement.innerHTML) {
     </StrictMode>
   );
 }
-
-polyfillCountryFlagEmojis();
