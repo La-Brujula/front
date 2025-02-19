@@ -1,4 +1,6 @@
 {
+  "timeout exceeded": "Something's wrong with your internet connection",
+  "Network Error": "Something's wrong with your internet connection",
   "AE01": "Account already exists",
   "AE02": "Wrong credentials",
   "AE03": "Account does not exist",

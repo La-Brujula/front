@@ -1,4 +1,6 @@
 {
+  "timeout exceeded": "Parece que tu conexión no está funcionando. Intenta de nuevo",
+  "Network Error": "Tu conexión no está funcionando, intenta de nuevo",
   "AE01": "Ya existe la cuenta",
   "AE02": "Credenciales incorrectas",
   "AE03": "No existe la cuenta",

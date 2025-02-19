@@ -1,6 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+// t('timeout exceeded')
+// t('Network Error')
+
 export function ErrorMessage(props: { message: string }) {
   const { t } = useTranslation('errors');
   return (
