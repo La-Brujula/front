@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 import posthog from 'posthog-js';
 import { PostHogProvider } from 'posthog-js/react';
 
+import './index.css';
 import './i18n.ts';
 import './index.css';
 

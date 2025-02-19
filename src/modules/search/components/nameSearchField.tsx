@@ -6,6 +6,7 @@ import countries from '@/shared/constants/countryFlags.json';
 import { useCallback } from 'react';
 import CountrySelect from '@/shared/components/countrySelect';
 import { Search } from '../types/searchParams';
+import CountrySelect from '@/shared/components/countrySelect';
 
 const COUNTRIES = (['MX', 'CO'] as const).map((country) => ({
   key: country,
@@ -20,12 +21,14 @@ type LandingSearchForm = {
 
 export const NameSearchField = () => {
   const { t } = useTranslation(['landing', 'countries']);
-  const { register, handleSubmit } = useForm<Search>({
+  const { register, handleSubmit, setValue, watch } = useForm<Search>({
     defaultValues: {
       query: '',
-      location: 'MX',
+      location: 'MX' as keyof typeof countries,
     },
   });
+
+  const country = watch('location');
 
   const navigate = useNavigate();
 

@@ -20,7 +20,7 @@ export const searchSchema = z.object({
   activity: z.string().optional().catch(''),
   certifications: z.string().optional().catch(''),
   language: z.string().optional().catch(''),
-  country: z.enum(countryCodes),
+  country: z.enum(countryCodes).optional().default('MX'),
 });
 
 export const defaultSearch = {
