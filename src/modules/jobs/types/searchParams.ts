@@ -4,7 +4,7 @@ import { z } from 'zod';
 
 export const JobOpening = z.object({
   activity: z.string().length(6),
-  count: z.number({ coerce: true }),
+  count: z.number({ coerce: true }).min(0).max(99),
   probono: z.boolean({ coerce: true }),
   gender: z.optional(z.enum(['male', 'female', 'other'])).catch(undefined),
   ageRangeMin: z.optional(z.number({ coerce: true }).min(0).max(120)),
@@ -40,8 +40,18 @@ export const JobPosting = z
     description: z.string().max(1024),
     jobStartDate: z.date({ coerce: true }).catch(new Date()),
     jobEndDate: z.optional(z.date({ coerce: true })).catch(undefined),
-    budgetLow: z.optional(z.number({ coerce: true })),
-    budgetHigh: z.optional(z.number({ coerce: true })),
+    budgetLow: z.optional(
+      z
+        .string()
+        .transform((v) => v.replace(/,/g, ''))
+        .pipe(z.number({ coerce: true }))
+    ),
+    budgetHigh: z.optional(
+      z
+        .string()
+        .transform((v) => v.replace(/,/g, ''))
+        .pipe(z.number({ coerce: true }))
+    ),
     benefits: z.optional(z.string().max(1024)),
     notes: z.optional(z.string().max(1024)),
   })
