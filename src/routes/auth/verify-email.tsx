@@ -24,6 +24,7 @@ export const Route = createFileRoute('/auth/verify-email')({
     await verifyEmail(deps.code).then((res) => res.entity);
     context.queryClient.invalidateQueries({
       queryKey: ['profiles', 'me'],
+      type: 'all',
     });
   },
   errorComponent: WrongCode,
