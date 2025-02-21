@@ -8,8 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { z } from 'zod';
 
 const verifyEmailSchema = z.object({
-  code: z.string().length(32, 'Badly formatted code, please check again'),
-  email: z.string().email(),
+  code: z.string().length(64, 'Badly formatted code, please check again'),
 });
 
 export type VerifySchema = z.infer<typeof verifyEmailSchema>;
@@ -18,9 +17,7 @@ export const Route = createFileRoute('/auth/verify-email')({
   validateSearch: verifyEmailSchema.parse,
   loaderDeps: (opts) => opts.search,
   loader: async (match) => {
-    await verifyEmail(match.deps.code, match.deps.email).then(
-      (res) => res.entity
-    );
+    await verifyEmail(match.deps.code).then((res) => res.entity);
     match.context.queryClient.invalidateQueries({
       queryKey: ['profiles', 'me'],
     });
