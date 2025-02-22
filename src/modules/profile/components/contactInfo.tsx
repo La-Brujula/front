@@ -70,23 +70,26 @@ export const ContactSection = ({ user }: { user: IBackendProfile }) => {
           ) : null
         )}
       {!!user.externalLinks &&
-        user.externalLinks.map((link) => (
-          <div
-            className="grid grid-cols-subgrid col-span-full"
-            key={link}
-          >
-            <h3>
-              <LinkOutlined />
-            </h3>
-            <a
-              target="_blank"
-              className="truncate block w-full"
-              href={link}
-            >
-              {link}
-            </a>
-          </div>
-        ))}
+        user.externalLinks.map(
+          (link) =>
+            !!link && (
+              <div
+                className="grid grid-cols-subgrid col-span-full"
+                key={link}
+              >
+                <h3>
+                  <LinkOutlined />
+                </h3>
+                <a
+                  target="_blank"
+                  className="truncate block w-full"
+                  href={link}
+                >
+                  {link}
+                </a>
+              </div>
+            )
+        )}
       {!!user.whatsapp && (
         <>
           <h3>
