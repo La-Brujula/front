@@ -178,11 +178,10 @@ export const useCreateJob = () => {
     mutationFn: (job: TJobPosting) =>
       postFetch<JobDetailDTO>(`/jobs`, job).then((res) => res.entity),
     onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: ['jobs'] });
-      await queryClient.refetchQueries({
+      await queryClient.invalidateQueries({
         queryKey: ['jobs'],
-        stale: true,
         type: 'all',
+        refetchType: 'active',
       });
     },
   });
@@ -196,7 +195,10 @@ export const useApplyToJob = (jobId: string) => {
         (res) => res.entity
       ),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['jobs', jobId] });
+      queryClient.refetchQueries({
+        queryKey: ['jobs', { jobId }],
+        type: 'all',
+      });
     },
   });
 };
@@ -209,8 +211,8 @@ export const useUpdateJob = (jobId: string) => {
         (res) => res.entity
       ),
     onSuccess: (job) => {
-      queryClient.invalidateQueries({ queryKey: ['jobs', jobId] });
-      queryClient.setQueryData(['jobs', jobId], job);
+      queryClient.invalidateQueries({ queryKey: ['jobs', { jobId }] });
+      queryClient.setQueryData(['jobs', { jobId }], job);
     },
   });
 };
@@ -225,7 +227,6 @@ export const useDeleteJob = () => {
         type: 'all',
         refetchType: 'active',
       });
-      queryClient.refetchQueries({ queryKey: ['jobs'], type: 'all' });
     },
   });
 };

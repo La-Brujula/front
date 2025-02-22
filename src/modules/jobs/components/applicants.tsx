@@ -55,12 +55,13 @@ export default function Applicants(props: {
             loading={isPending}
             error={applyError}
           >
-            <div
-              className="justify-self-center cursor-pointer text-lg font-bold bg-primary px-4 py-2 rounded-md text-white w-fit"
+            <button
+              className="justify-self-center cursor-pointer text-lg font-bold bg-primary px-4 py-2 rounded-md text-white w-fit disabled:bg-slate-400"
               onClick={applyToJob}
+              disabled={isPending || loading}
             >
               {t('Aplicar')}
-            </div>
+            </button>
           </DataSuspense>
         )}
         <div className="flex flex-col gap-2 text-left [&>*]:pb-4 [&>*]:border-b [&>*]:border-b-black [&>*]:border-opacity-20">
