@@ -23,10 +23,7 @@ function SearchHomepage() {
   const { t } = useTranslation('jobs');
   const { data: profile, isLoading } = useCurrentProfile();
 
-  const isVerified = useMemo(
-    () => false, //!!profile?.verified
-    [profile, isLoading]
-  );
+  const isVerified = useMemo(() => !!profile?.verified, [profile, isLoading]);
 
   const queryOptions = useMemo(() => getCreatedJobs(), [search]);
 
