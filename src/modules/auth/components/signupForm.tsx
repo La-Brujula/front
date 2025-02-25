@@ -27,7 +27,15 @@ const personTypeOptionsGenerator = (t: TFunction) => [
 export const SignUpForm = (props: { referal?: string }) => {
   const { signup } = useAuth(['signup']);
   const { register, handleSubmit, watch, formState, setError, setValue } =
-    useForm<SignupForm>({ defaultValues: { referal: props.referal } });
+    useForm<SignupForm>({
+      defaultValues: {
+        referal: props.referal,
+        email: undefined,
+        password: undefined,
+        confirmPassword: undefined,
+        persona: undefined,
+      },
+    });
   const { t } = useTranslation('auth');
   const acceptedPrivacy = watch('acceptPrivacy');
   const { isPending: loading, error, mutate } = useAuthFunction(signup);
@@ -128,6 +136,7 @@ export const SignUpForm = (props: { referal?: string }) => {
           register={register}
           fieldName="persona"
           type="radioGroup"
+          required
           items={personTypeOptions}
           error={formState.errors.persona}
           setValue={setValue}
@@ -154,9 +163,9 @@ export const SignUpForm = (props: { referal?: string }) => {
       )}
       {acceptedPrivacy !== true && <PrivacyPolicy />}
       <input
-        disabled={loading}
+        disabled={loading || !formState.isValid}
         type="submit"
-        className="max-w-xs mx-auto bg-primary"
+        className="max-w-xs mx-auto bg-primary disabled:bg-black disabled:bg-opacity-20"
         value={t('Crear usuario')}
       />
       <p>

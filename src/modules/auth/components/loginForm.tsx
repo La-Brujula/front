@@ -16,7 +16,12 @@ type LoginFormFields = {
 export const LoginForm = (props: { redirectUrl?: string }) => {
   const { t } = useTranslation('auth');
   const { register, handleSubmit, formState, setError } =
-    useForm<LoginFormFields>();
+    useForm<LoginFormFields>({
+      defaultValues: {
+        email: undefined,
+        password: undefined,
+      },
+    });
   const navigate = useNavigate();
   const { login } = useAuth(['login']);
   const { isPending: loading, error, mutate } = useAuthFunction(login);
@@ -66,6 +71,7 @@ export const LoginForm = (props: { redirectUrl?: string }) => {
           register={register}
           placeholder={t('ejemplo@labrujula.com')}
           autoComplete="email"
+          required
           error={formState.errors.email}
         />
         <Input
@@ -76,6 +82,7 @@ export const LoginForm = (props: { redirectUrl?: string }) => {
           placeholder={t('password')}
           autoComplete="password"
           error={formState.errors.password}
+          required
           minLength={8}
         />
         {error !== null && (
@@ -116,7 +123,7 @@ export const LoginForm = (props: { redirectUrl?: string }) => {
         <input
           type="submit"
           disabled={loading || !formState.isValid}
-          className="max-w-xs mx-auto bg-primary"
+          className="max-w-xs mx-auto bg-primary disabled:bg-black disabled:bg-opacity-20 disabled:cursor-default"
           onClick={attemptLogin}
           value={t('Inicia sesión')}
         />

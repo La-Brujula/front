@@ -231,7 +231,7 @@ function Input<F extends InputTypes, T extends FieldValues>(
 ) {
   const { t } = useTranslation('errors');
   const registerReturn = useMemo(
-    () => props.register(props.fieldName, { ...props, required: false }),
+    () => props.register(props.fieldName, props),
     [props]
   );
   const inputElement = useMemo(() => {
@@ -259,7 +259,10 @@ function Input<F extends InputTypes, T extends FieldValues>(
         return <CustomElement {...props} />;
       default:
         return buildInput(
-          props as InputProps<HTMLInputTypeAttribute, T>,
+          {
+            ...props,
+            inputClass: [props.inputClass, 'w-full'].join(' '),
+          } as InputProps<HTMLInputTypeAttribute, T>,
           registerReturn
         );
     }
