@@ -1,5 +1,5 @@
 import PersonOutline from '@mui/icons-material/PersonOutline';
-import { Link } from '@tanstack/react-router';
+import { Link, useRouterState } from '@tanstack/react-router';
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../providers/authProvider';
@@ -13,6 +13,10 @@ export const Navbar = () => {
     localStorage.getItem('banner') !== 'false'
   );
   const { t } = useTranslation('navigation');
+
+  // Typing too deep for tsc
+  // @ts-ignore
+  const { location } = useRouterState();
 
   const { isLoggedIn, account } = useAuth(['isLoggedIn', 'account']);
 
@@ -62,6 +66,7 @@ export const Navbar = () => {
               <Link
                 resetScroll
                 to="/auth/login"
+                search={{ redirect: location.pathname }}
                 className="font-bold text-white"
               >
                 {t('login')}
@@ -140,6 +145,7 @@ export const Navbar = () => {
                   <Link
                     onClick={() => toggleOpen()}
                     to="/auth/login"
+                    search={{ redirect: location.pathname }}
                     className="font-bold leading-relaxed text-white"
                   >
                     {t('login')}
