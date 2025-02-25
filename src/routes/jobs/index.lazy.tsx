@@ -102,19 +102,29 @@ function SearchHomepage() {
     <>
       <Container className="flex flex-row justify-center items-center">
         <div className="flex flex-row justify-center !p-0">
-          {isVerified ? (
-            <Link
-              to="/jobs/create"
-              className="px-8 py-4 rounded-md bg-primary text-white text-base font-bold text-center"
-            >
-              {t('Crea una nueva oferta laboral')}
-            </Link>
+          {profile ? (
+            isVerified ? (
+              <Link
+                to="/jobs/create"
+                className="px-8 py-4 rounded-md bg-primary text-white text-base font-bold text-center"
+              >
+                {t('Crea una nueva oferta laboral')}
+              </Link>
+            ) : (
+              <Link
+                to="/auth/send-verification"
+                className="px-8 py-4 rounded-md bg-secondary text-white text-base font-bold text-center"
+              >
+                {t('Verifica tu cuenta para crear una oferta')}
+              </Link>
+            )
           ) : (
             <Link
-              to="/auth/send-verification"
-              className="px-8 py-4 rounded-md bg-secondary text-white text-base font-bold text-center"
+              to="/auth/login"
+              search={{ redirect: '/jobs' }}
+              className="px-8 py-4 rounded-md bg-primary text-white text-base font-bold text-center"
             >
-              {t('Verifica tu cuenta para crear una oferta')}
+              {t('Inicia sesión')}
             </Link>
           )}
         </div>

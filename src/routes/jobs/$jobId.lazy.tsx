@@ -1,12 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { ContactSection } from '@/modules/profile/components/contactInfo';
-import { Recommendations } from '@/modules/profile/components/recommend';
-import {
-  Link,
-  Outlet,
-  createLazyFileRoute,
-  useNavigate,
-} from '@tanstack/react-router';
+import { Link, createLazyFileRoute } from '@tanstack/react-router';
 import { useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import DataSuspense from '@/shared/components/dataSuspense';
