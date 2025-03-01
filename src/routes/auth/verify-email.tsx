@@ -3,7 +3,11 @@ import { ErrorMessage } from '@/shared/components/errorMessage';
 import { LoadingSpinner } from '@/shared/components/loadingSpinner';
 import { Container } from '@/shared/layout/container';
 import { ApiError } from '@/shared/services/backendFetcher';
-import { createFileRoute, ErrorComponentProps } from '@tanstack/react-router';
+import {
+  createFileRoute,
+  ErrorComponentProps,
+  ErrorRouteComponent,
+} from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
 import { z } from 'zod';
 
