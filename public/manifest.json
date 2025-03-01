@@ -1,0 +1,35 @@
+{
+  "name": "La Brújula",
+  "short_name": "La Brújula",
+  "description": "Red de la industria audiovisual",
+  "display": "minimal-ui",
+  "icons": [
+    {
+      "sizes": "512x512",
+      "type": "image/png",
+      "src": "./Brujula_512.png",
+      "purpose": "any"
+    },
+    {
+      "sizes": "192x192",
+      "type": "image/png",
+      "src": "./Brujula_192.png",
+      "purpose": "any"
+    },
+    {
+      "sizes": "180x180",
+      "type": "image/png",
+      "src": "./Brujula_180.png",
+      "purpose": "any"
+    },
+    {
+      "sizes": "120x120",
+      "type": "image/png",
+      "src": "./Brujula_120.png",
+      "purpose": "any"
+    }
+  ],
+  "background_color": "#EDEDED",
+  "theme_color": "#2D7BBF",
+  "start_url": "https://labrujula.com.mx"
+}
