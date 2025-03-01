@@ -1,4 +1,5 @@
 import countryCodes from '@/shared/constants/countryCodes';
+import { Country } from 'react-phone-number-input';
 import { z } from 'zod';
 
 export const searchSchema = z.object({
@@ -16,7 +17,7 @@ export const searchSchema = z.object({
   activity: z.string().optional().catch(''),
   certifications: z.string().optional().catch(''),
   language: z.string().optional().catch(''),
-  country: z.enum(countryCodes).optional().default('MX'),
+  country: z.enum(countryCodes),
 });
 
 export const defaultSearch = {
@@ -34,6 +35,7 @@ export const defaultSearch = {
   activity: '',
   certifications: '',
   language: '',
+  country: 'MX' as const,
 };
 
 export type Search = z.infer<typeof searchSchema>;

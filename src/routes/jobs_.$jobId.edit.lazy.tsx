@@ -12,7 +12,7 @@ import DataSuspense from '@/shared/components/dataSuspense';
 import { LoadingSpinner } from '@/shared/components/loadingSpinner';
 import { useQuery } from '@tanstack/react-query';
 
-export const Route = createLazyFileRoute('/jobs/$jobId/edit')({
+export const Route = createLazyFileRoute('/jobs_/$jobId/edit')({
   component: EditJobPostingPage,
 });
 

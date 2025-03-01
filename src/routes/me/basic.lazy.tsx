@@ -30,9 +30,10 @@ function BasicInfo() {
   const { mutate, isPending, error: mutateError } = useUpdateMe();
   const { data: user, isLoading: loading, error } = useCurrentProfile();
 
-  const { register, handleSubmit, formState, setError, watch } =
+  const { register, handleSubmit, formState, setError, watch, setValue } =
     useForm<IUpdateBackendProfile>({
       defaultValues: {
+        country: 'MX',
         ...user,
         gender: user?.type === 'moral' ? 'other' : user?.gender || 'other',
         probono:
@@ -92,7 +93,7 @@ function BasicInfo() {
                 fieldName="firstName"
                 divClass=""
                 required={true}
-                error={formState.errors.firstName}
+                error={formState.errors?.firstName}
               />
               <input
                 type="hidden"
@@ -107,11 +108,12 @@ function BasicInfo() {
                   label={t('Nombre (s)')}
                   type="text"
                   autoComplete="given-name"
+                  defaultValue={formState.defaultValues?.firstName}
                   register={register}
                   fieldName="firstName"
                   divClass=""
                   required={true}
-                  error={formState.errors.firstName}
+                  error={formState.errors?.firstName}
                 />
                 <Input
                   label={t('Apellido (s)')}
@@ -120,7 +122,8 @@ function BasicInfo() {
                   register={register}
                   fieldName="lastName"
                   required={true}
-                  error={formState.errors.lastName}
+                  defaultValue={formState.defaultValues?.lastName}
+                  error={formState.errors?.lastName}
                 />
               </div>
               <Input
@@ -131,7 +134,8 @@ function BasicInfo() {
                 fieldName="nickName"
                 divClass=""
                 required={false}
-                error={formState.errors.nickName}
+                defaultValue={formState.defaultValues?.nickName}
+                error={formState.errors?.nickName}
               />
               <Input
                 label={t('Género')}
@@ -140,11 +144,12 @@ function BasicInfo() {
                 fieldName="gender"
                 divClass=""
                 required={true}
+                defaultValue={formState.defaultValues?.gender}
                 items={genders.map((gender) => ({
                   key: gender == 'Prefiero no decir' ? 'other' : gender,
                   label: t(gender, { ns: 'genders' }),
                 }))}
-                error={formState.errors.gender}
+                error={formState.errors?.gender}
               />
               <Input
                 label={t('Fecha de nacimiento')}
@@ -154,7 +159,8 @@ function BasicInfo() {
                 autoComplete="birthday"
                 divClass=""
                 required={false}
-                error={formState.errors.birthday}
+                defaultValue={formState.defaultValues?.birthday}
+                error={formState.errors?.birthday}
               />
               <p className="text-xs -mt-2">
                 {t('Este dato solamente es para uso interno')}
@@ -172,11 +178,14 @@ function BasicInfo() {
             autoComplete="country"
             divClass=""
             component={CountrySelect<IUpdateBackendProfile>}
+            value={country}
+            setValue={setValue}
             required={true}
-            error={formState.errors.country}
+            error={formState.errors?.country}
           />
           {country !== undefined && Object.keys(estados).includes(country) ? (
             <Input
+              key={country}
               label={t('Estado')}
               type="select"
               register={register}
@@ -184,8 +193,8 @@ function BasicInfo() {
               autoComplete="state"
               divClass=""
               required={true}
-              error={formState.errors.state}
-              value={formState.defaultValues?.state}
+              error={formState.errors?.state}
+              defaultValue={formState.defaultValues?.state}
               items={estados[country as 'MX' | 'CO'].flatMap((estado) => ({
                 key: estado,
                 label: estado,
@@ -200,7 +209,7 @@ function BasicInfo() {
               autoComplete="state"
               divClass=""
               required={true}
-              error={formState.errors.state}
+              error={formState.errors?.state}
             />
           )}
           <Input
@@ -211,7 +220,7 @@ function BasicInfo() {
             autoComplete="city"
             divClass=""
             required={true}
-            error={formState.errors.city}
+            error={formState.errors?.city}
           />
           <Input
             divClass=""
@@ -220,7 +229,7 @@ function BasicInfo() {
             fieldName="postalCode"
             autoComplete="postal-code"
             register={register}
-            error={formState.errors.postalCode}
+            error={formState.errors?.postalCode}
           />
         </div>
         {mutateError !== null && (
@@ -240,7 +249,7 @@ function BasicInfo() {
         <div className="flex flex-row gap-4 justify-center">
           <div
             className="button font-bold bg-transparent border border-primary text-black"
-            onClick={history.back}
+            onClick={() => history.back()}
           >
             {t('Regresar')}
           </div>

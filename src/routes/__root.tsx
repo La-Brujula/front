@@ -16,11 +16,19 @@ interface QueryClientProvider {
 }
 
 export const Route = createRootRouteWithContext<QueryClientProvider>()({
-  component: () => (
+  component: RootComponent,
+  errorComponent: ErrorHandler,
+  notFoundComponent: Page404,
+});
+
+function RootComponent() {
+  return (
     <>
       <Navbar />
       <ScrollRestoration getKey={(location) => location.pathname} />
-      <Outlet />
+      <div className="isolate">
+        <Outlet />
+      </div>
       <Footer />
       {(import.meta.env.DEV || localStorage.getItem('dev') === 'true') && (
         <>
@@ -29,7 +37,5 @@ export const Route = createRootRouteWithContext<QueryClientProvider>()({
         </>
       )}
     </>
-  ),
-  errorComponent: ErrorHandler,
-  notFoundComponent: Page404,
-});
+  );
+}

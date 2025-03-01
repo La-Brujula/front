@@ -1,8 +1,6 @@
-import CloseOutlined from '@mui/icons-material/CloseOutlined';
 import ErrorMessage from '@shared/components/errorMessage';
-import { act, useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ActivityLookupField } from '../../modules/auth/components/activityLookupField.js';
 import AreaForms from '../../modules/auth/components/areaForm.js';
 import { useAreasReducer } from '../../modules/auth/hooks/useAreasReducer.js';
 import { useCurrentProfile } from '@/shared/hooks/useCurrentProfile.js';
@@ -143,7 +141,7 @@ function AreasRegistration() {
         <div className="grid grid-cols-2 col-span-full">
           <div
             className="button font-bold bg-transparent border border-primary text-black"
-            onClick={history.back}
+            onClick={() => history.back()}
           >
             {t('Regresar')}
           </div>

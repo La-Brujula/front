@@ -2,14 +2,7 @@ import { useCurrentProfile } from '@/shared/hooks/useCurrentProfile';
 import { useUpdateMe } from '@/shared/hooks/useUpdateMe';
 import { IUpdateBackendProfile } from '@/shared/types/user';
 import EmailOutlined from '@mui/icons-material/EmailOutlined';
-import FacebookOutlined from '@mui/icons-material/FacebookOutlined';
-import Instagram from '@mui/icons-material/Instagram';
-import LinkOutlined from '@mui/icons-material/LinkOutlined';
-import LinkedIn from '@mui/icons-material/LinkedIn';
 import PhoneOutlined from '@mui/icons-material/PhoneOutlined';
-import WhatsApp from '@mui/icons-material/WhatsApp';
-import Twitter from '@mui/icons-material/X';
-import YouTube from '@mui/icons-material/YouTube';
 import {
   createLazyFileRoute,
   useNavigate,
@@ -20,11 +13,8 @@ import { useTranslation } from 'react-i18next';
 import { StringArrayForm } from '../../modules/auth/components/stringArrayForm';
 import DataSuspense from '@/shared/components/dataSuspense';
 import ErrorMessage from '@/shared/components/errorMessage';
-import Vimeo from '@/shared/icons/vimeo';
-import IMDB from '@/shared/icons/imdb';
-import TikTok from '@/shared/icons/tiktok';
-import { Tooltip } from '@mui/material';
 import { isApiError } from '@/shared/services/backendFetcher';
+import Input from '@/shared/components/input';
 
 export const Route = createLazyFileRoute('/me/contact')({
   component: ContactPage,
@@ -52,20 +42,16 @@ function ContactPage() {
   const { mutate, error, isPending } = useUpdateMe();
   const { data: user, isLoading, error: profileError } = useCurrentProfile();
 
-  const { register, handleSubmit, setValue } = useForm<ContactForm>({
-    defaultValues: {
-      ...user,
-      externalLinks:
-        user?.externalLinks === undefined ? undefined : user?.externalLinks[0],
-    },
-  });
+  const { register, handleSubmit, setValue, formState } =
+    useForm<IUpdateBackendProfile>({
+      defaultValues: {
+        ...user,
+        externalLinks: user?.externalLinks ?? [],
+      },
+    });
 
-  const onSubmit = async (data: ContactForm) => {
-    const processedData = {
-      ...data,
-      externalLinks: [data.externalLinks],
-    } as IUpdateBackendProfile;
-    mutate(processedData, {
+  const onSubmit = async (data: IUpdateBackendProfile) => {
+    mutate(data, {
       onSuccess: () =>
         navigate({ to: '/me/characteristics', resetScroll: true }),
     });
@@ -81,111 +67,91 @@ function ContactPage() {
         className="flex flex-col gap-8 w-full items-stretch"
       >
         <div
-          className="grid grid-cols-[min-content_1fr]
-      text-right gap-4 mx-auto items-center gap-x-8"
+          className="flex flex-col
+      text-right gap-4 mx-auto items-center"
         >
-          <h2 className="col-span-full text-secondary text-left">
-            {t('Redes sociales')}
-          </h2>
-          <label htmlFor="website">
-            <Tooltip title={t('Página web')}>
-              <LinkOutlined />
-            </Tooltip>
-          </label>
-          <input
+          <h2 className="text-secondary text-left">{t('Redes sociales')}</h2>
+          <Input
+            divClass="w-full"
             type="url"
-            {...register('externalLinks')}
+            label={t('Página web')}
+            fieldName="externalLinks.0"
+            register={register}
             autoComplete="externalLinks"
+            error={formState.errors.externalLinks?.[0]}
           />
-          <label htmlFor="whatsapp">
-            <Tooltip title="Whatsapp">
-              <WhatsApp />
-            </Tooltip>
-          </label>
-          <input
-            type="phone"
-            {...register('whatsapp')}
-            autoComplete="phone"
+          <Input
+            divClass="w-full"
+            type="tel"
+            label={t('Whatsapp')}
+            fieldName="whatsapp"
+            register={register}
+            error={formState.errors.whatsapp}
+            country={user?.country}
           />
-          <label htmlFor="imdb">
-            <Tooltip title="IMDB">
-              <IMDB />
-            </Tooltip>
-          </label>
-          <input
+          <Input
+            divClass="w-full"
             type="text"
-            {...register('imdb')}
-            autoComplete="imdb"
+            label={t('IMDB')}
+            register={register}
+            fieldName="imdb"
+            error={formState.errors.imdb}
           />
-          <label htmlFor="facebook">
-            <Tooltip title="Facebook">
-              <FacebookOutlined />
-            </Tooltip>
-          </label>
-          <input
+          <Input
+            divClass="w-full"
             type="text"
-            {...register('facebook')}
-            autoComplete="facebook"
+            label={t('Facebook')}
+            register={register}
+            fieldName="facebook"
+            error={formState.errors.facebook}
           />
-          <label htmlFor="instagram">
-            <Tooltip title="Instagram">
-              <Instagram />
-            </Tooltip>
-          </label>
-          <input
+          <Input
+            divClass="w-full"
             type="text"
-            {...register('instagram')}
-            autoComplete="instagram"
+            label={t('Instagram')}
+            register={register}
+            fieldName="instagram"
+            error={formState.errors.instagram}
           />
-          <label htmlFor="vimeo">
-            <Tooltip title="Vimeo">
-              <Vimeo />
-            </Tooltip>
-          </label>
-          <input
+          <Input
+            divClass="w-full"
             type="text"
-            {...register('vimeo')}
-            autoComplete="vimeo"
+            label={t('Vimeo')}
+            register={register}
+            fieldName="vimeo"
+            error={formState.errors.vimeo}
           />
-          <label htmlFor="youtube">
-            <Tooltip title="Youtube">
-              <YouTube />
-            </Tooltip>
-          </label>
-          <input
+          <Input
+            divClass="w-full"
             type="text"
-            {...register('youtube')}
-            autoComplete="youtube"
+            label={t('Youtube')}
+            register={register}
+            fieldName="youtube"
+            error={formState.errors.youtube}
           />
-          <label htmlFor="linkedin">
-            <Tooltip title="LinkedIn">
-              <LinkedIn />
-            </Tooltip>
-          </label>
-          <input
+          <Input
+            divClass="w-full"
             type="text"
-            {...register('linkedin')}
-            autoComplete="linkedin"
+            label={t('LinkedIn')}
+            register={register}
+            fieldName="linkedin"
+            error={formState.errors.linkedin}
           />
-          <label htmlFor="twitter">
-            <Tooltip title="Twitter">
-              <Twitter />
-            </Tooltip>
-          </label>
-          <input
+          <Input
+            divClass="w-full"
             type="text"
-            {...register('twitter')}
-            autoComplete="twitter"
+            label={t('Twitter')}
+            register={register}
+            fieldName="twitter"
+            error={formState.errors.twitter}
           />
-          <label htmlFor="tiktok">
-            <Tooltip title="Tiktok">
-              <TikTok />
-            </Tooltip>
-          </label>
-          <input
+          <Input
+            divClass="w-full"
             type="text"
-            {...register('tiktok')}
-            autoComplete="tiktok"
+            label={t('Tiktok')}
+            register={register}
+            fieldName="tiktok"
+            error={formState.errors.tiktok}
           />
         </div>
         <div className="flex flex-col text-left gap-8 mx-auto">
@@ -225,7 +191,7 @@ function ContactPage() {
         <div className="flex flex-row gap-4 self-center">
           <div
             className="button font-bold bg-transparent border border-primary text-black"
-            onClick={history.back}
+            onClick={() => history.back()}
           >
             {t('Regresar')}
           </div>

@@ -2,14 +2,16 @@ import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import React, { HTMLInputTypeAttribute, useMemo } from 'react';
 import {
   FieldError,
+  FieldPath,
   FieldValues,
   Path,
-  RegisterOptions,
   SetFieldValue,
   UseFormRegister,
   UseFormRegisterReturn,
 } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import 'react-phone-number-input/style.css';
+import PhoneInput, { Country } from 'react-phone-number-input';
 
 // t(errors:invalid_enum_value)
 // t(errors:invalid_type)
@@ -23,12 +25,12 @@ type InputProps<
     | 'custom'
     | 'radioGroup'
     | HTMLInputTypeAttribute,
-  FormFields extends FieldValues,
+  AssignedFormFields extends FieldValues,
 > = {
   type: Type;
   label: string;
-  register: UseFormRegister<FormFields>;
-  fieldName: Path<FormFields>;
+  register: UseFormRegister<AssignedFormFields>;
+  fieldName: FieldPath<AssignedFormFields>;
   inputClass?: string;
   divClass?: string;
   labelClass?: string;
@@ -36,35 +38,37 @@ type InputProps<
   error?: FieldError;
   helperText?: string;
   hiddenLabel?: boolean;
-} & RegisterOptions<FormFields> &
-  (Type extends 'textArea'
-    ? React.TextareaHTMLAttributes<HTMLTextAreaElement>
-    : Type extends 'select'
+} & (Type extends 'textArea'
+  ? React.TextareaHTMLAttributes<HTMLTextAreaElement>
+  : Type extends 'select'
+    ? {
+        items: { key: string; label: string; className?: string }[];
+      } & React.SelectHTMLAttributes<HTMLSelectElement>
+    : Type extends 'groupedSelect'
       ? {
-          items: { key: string; label: string; className?: string }[];
-        } & React.SelectHTMLAttributes<HTMLSelectElement>
-      : Type extends 'groupedSelect'
+          value: string;
+          groupedItems: { [k: string]: { key: string; label: string }[] };
+        }
+      : Type extends 'radioGroup'
         ? {
-            groupedItems: { [k: string]: { key: string; label: string }[] };
+            items: { label: string; value: string | number }[];
+            setValue: SetFieldValue<AssignedFormFields>;
+            value: string;
           }
-        : Type extends 'radioGroup'
-          ? {
-              items: { label: string; value: string | number }[];
-              setValue: SetFieldValue<FormFields>;
-              value: string;
-            }
-          : Type extends 'custom'
-            ?
-                | {
-                    component: React.FunctionComponent<
-                      | {
-                          register: UseFormRegister<FormFields>;
-                          fieldName: Path<FormFields>;
-                        }
-                      | { [k: string]: any }
-                    >;
-                  }
-                | { [k: string]: any }
+        : Type extends 'custom'
+          ?
+              | {
+                  component: React.FunctionComponent<
+                    | {
+                        register: UseFormRegister<AssignedFormFields>;
+                        fieldName: Path<AssignedFormFields>;
+                      }
+                    | { [k: string]: any }
+                  >;
+                }
+              | { [k: string]: any }
+          : Type extends 'tel'
+            ? { country?: Country; value?: string }
             : Type extends HTMLInputTypeAttribute
               ? {
                   maxLength?: number;
@@ -181,7 +185,7 @@ const radioGroupInvalidProps = [...internalProps, 'type', 'items', 'error'];
 function buildRadioGroup<T extends FieldValues>(
   props: InputProps<'radioGroup', T>,
   setValue: SetFieldValue<T>,
-  value: any
+  value: string
 ) {
   const allowedProps = Object.fromEntries(
     Object.entries(props).filter(
@@ -231,42 +235,63 @@ function Input<F extends InputTypes, T extends FieldValues>(
 ) {
   const { t } = useTranslation('errors');
   const registerReturn = useMemo(
-    () => props.register(props.fieldName, props),
+    () => props.register(props.fieldName, { required: props.required }),
     [props]
   );
-  const inputElement = useMemo(() => {
-    switch (props.type) {
-      case 'textArea':
-        return buildTextArea(
-          props as InputProps<'textArea', T>,
-          registerReturn
-        );
-      case 'select':
-        return buildSelect(props as InputProps<'select', T>, registerReturn);
-      case 'groupedSelect':
-        return buildGroupedSelect(
-          props as InputProps<'groupedSelect', T>,
-          registerReturn
-        );
-      case 'radioGroup':
-        return buildRadioGroup(
-          { ...props, ...registerReturn } as InputProps<'radioGroup', T>,
-          (props as InputProps<'radioGroup', T>).setValue,
-          props.value
-        );
-      case 'custom':
-        const CustomElement = (props as InputProps<'custom', T>).component;
-        return <CustomElement {...props} />;
-      default:
-        return buildInput(
-          {
-            ...props,
-            inputClass: [props.inputClass, 'w-full'].join(' '),
-          } as InputProps<HTMLInputTypeAttribute, T>,
-          registerReturn
-        );
-    }
-  }, [props]);
+  let inputElement;
+  switch (props.type) {
+    case 'textArea':
+      inputElement = buildTextArea(
+        props as InputProps<'textArea', T>,
+        registerReturn
+      );
+      break;
+    case 'select':
+      inputElement = buildSelect(
+        props as InputProps<'select', T>,
+        registerReturn
+      );
+      break;
+    case 'groupedSelect':
+      inputElement = buildGroupedSelect(
+        props as InputProps<'groupedSelect', T>,
+        registerReturn
+      );
+      break;
+    case 'radioGroup':
+      inputElement = buildRadioGroup(
+        { ...props, ...registerReturn } as InputProps<'radioGroup', T>,
+        (props as InputProps<'radioGroup', T>).setValue,
+        (props as InputProps<'radioGroup', T>).value
+      );
+      break;
+    case 'custom':
+      const CustomElement = (props as InputProps<'custom', T>).component;
+      inputElement = <CustomElement {...props} />;
+      break;
+    case 'tel':
+      inputElement = (
+        <PhoneInput
+          defaultCountry={(props as InputProps<'tel', T>).country}
+          {...props}
+          {...registerReturn}
+          value=""
+          onChange={(value) => {
+            registerReturn.onChange({ target: { value } });
+          }}
+        />
+      );
+      break;
+    default:
+      inputElement = buildInput(
+        {
+          ...props,
+          inputClass: [props.inputClass, 'w-full'].join(' '),
+        } as InputProps<HTMLInputTypeAttribute, T>,
+        registerReturn
+      );
+      break;
+  }
 
   return (
     <div

@@ -19,14 +19,14 @@ export const SearchModules = () => {
         <h3 className="text-secondary font-bold text-2xl mb-4">
           {t('Buscador')}
         </h3>
-        <h3 className="text-primary font-bold text-xl mb-4">
-          {t('contactCTA')}
+        <h3 className="text-primary font-bold text-xl mb-4 lg:text-center">
+          {t('contactCTA')}:
         </h3>
         <div className="grid grid-cols-1 gap-8">
           <NameSearchField />
         </div>
-        <p className="mb-4 font-bold text-xl text-primary mt-10">
-          {t('Ofrece o consulta empleos')}.
+        <p className="mb-4 font-bold text-xl text-primary mt-10 lg:text-center">
+          {t('Ofrece o consulta empleos')}:
         </p>
         <Link
           to="/jobs"

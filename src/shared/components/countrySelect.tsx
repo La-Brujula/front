@@ -8,7 +8,7 @@ import { ArrowDropDownOutlined } from '@mui/icons-material';
 function CountrySelect<T extends FieldValues>(props: {
   setValue: SetFieldValue<T>;
   fieldName: Path<T>;
-  value: (typeof countries)[number];
+  value?: (typeof countries)[number];
   filterFn?: (
     unfilteredCountries: typeof countries
   ) => (typeof countries)[number][];
@@ -30,21 +30,23 @@ function CountrySelect<T extends FieldValues>(props: {
     [props.filterFn]
   );
 
+  const toggleOpen = useCallback(() => setOpen((open) => !open), [setOpen]);
+
   return (
-    <div className="relative self-center w-fit isolate">
+    <div className="relative self-center w-fit isolate z-50">
       <div
         className="cursor-pointer self-center flex flex-row w-fit gap-2 items-center flex-shrink z-0"
-        onClick={() => setOpen((open) => !open)}
+        onClick={toggleOpen}
       >
         <CountryFlag
-          country={props.value}
+          country={props.value || 'MX'}
           className={props.className ?? 'block !size-16'}
           noTooltip={open}
         />
         <ArrowDropDownOutlined />
       </div>
       {open && (
-        <div className="absolute top-full left-2 translate-y-2 transform bg-white rounded-md grid grid-cols-[max-content_1fr] divide-y divide-black divide-opacity-20 z-50">
+        <div className="absolute top-full left-2 translate-y-2 transform bg-white rounded-md grid grid-cols-[max-content_1fr] divide-y divide-black divide-opacity-20 z-50 max-h-56 overflow-y-auto overscroll-contain">
           {filteredCountries.map((country) => (
             <div
               key={country}

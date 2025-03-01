@@ -143,7 +143,7 @@ function CharacteristicsPage() {
         <div className="flex flex-row gap-4 self-center">
           <div
             className="button font-bold bg-transparent border border-primary text-black"
-            onClick={history.back}
+            onClick={() => history.back()}
           >
             {t('Regresar')}
           </div>

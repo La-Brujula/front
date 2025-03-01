@@ -1,6 +1,7 @@
 import { UserDTO } from '@/modules/search/queries/searchQuery';
 import { EnumGender } from './genders';
 import { lang, proficiency } from './languages';
+import { Country } from 'react-phone-number-input';
 
 export type UserType = 'fisica' | 'moral';
 
@@ -11,7 +12,7 @@ export interface IBackendProfile {
   biography?: string;
   certifications?: string;
   city?: string;
-  country?: string;
+  country?: Country;
   externalLinks?: string[];
   facebook?: string;
   firstName?: string;
@@ -61,7 +62,7 @@ export interface IUpdateBackendProfile {
   certifications?: string;
   characteristics?: string;
   city?: string;
-  country?: string;
+  country?: Country;
   facebook?: string;
   firstName?: string;
   gender?: EnumGender;
