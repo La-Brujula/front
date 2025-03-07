@@ -4,9 +4,8 @@ import { searchQueryOptions } from '@/modules/search/queries/searchQuery';
 
 export const Route = createFileRoute('/search/')({
   validateSearch: (search) => searchSchema.parse(search),
-  loaderDeps: ({ search }: { search: Search }) => search,
-  loader: ({ context, deps: searchParams }) =>
-    context?.queryClient.prefetchInfiniteQuery(
-      searchQueryOptions(searchParams)
-    ),
+  loaderDeps: (opts) => opts.search as Search,
+  loader: ({ context: { queryClient }, deps }) => {
+    queryClient.prefetchInfiniteQuery(searchQueryOptions(deps));
+  },
 });

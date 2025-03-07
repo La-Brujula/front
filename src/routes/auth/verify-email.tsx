@@ -18,9 +18,8 @@ export const Route = createFileRoute('/auth/verify-email')({
   loaderDeps: (opts) => opts.search,
   loader: async (match) => {
     await verifyEmail(match.deps.code).then((res) => res.entity);
-    match.context.queryClient.refetchQueries({
-      queryKey: ['profiles', 'me'],
-      type: 'all',
+    match.context.queryClient.resetQueries({
+      queryKey: ['profiles'],
     });
   },
   errorComponent: WrongCode,

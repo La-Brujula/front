@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import countries from '@/shared/constants/countryFlags.json';
 import { TFunction } from 'i18next';
 import { useCallback } from 'react';
+import { Search } from '../types/searchParams';
 
 const COUNTRIES = (['MX', 'CO'] as const).map((country) => ({
   key: country,
@@ -15,9 +16,9 @@ const COUNTRIES = (['MX', 'CO'] as const).map((country) => ({
 
 export const NameSearchField = () => {
   const { t } = useTranslation(['landing', 'countries']);
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit } = useForm<Search>({
     defaultValues: {
-      search: '',
+      query: '',
       location: 'MX',
     },
   });
@@ -25,14 +26,13 @@ export const NameSearchField = () => {
   const navigate = useNavigate();
 
   const goToSearch = useCallback(
-    () =>
-      handleSubmit((values) => {
-        navigate({
-          to: '/search',
-          search: { query: values.search, country: values.location },
-          resetScroll: true,
-        });
-      }),
+    (values: Search) => {
+      navigate({
+        to: '/search',
+        search: { query: values.query, country: values.country },
+        resetScroll: true,
+      });
+    },
     [navigate, handleSubmit]
   );
 
@@ -40,7 +40,7 @@ export const NameSearchField = () => {
     <form
       action="/search"
       method="get"
-      onSubmit={goToSearch}
+      onSubmit={handleSubmit(goToSearch)}
       className="grid grid-cols-2 md:grid-cols-[1fr_6rem_5rem]
       gap-4 justify-items-stretch flex-grow w-full
       bg-primary p-4 rounded-lg"
@@ -48,7 +48,7 @@ export const NameSearchField = () => {
     >
       <input
         type="text"
-        {...register('search')}
+        {...register('query')}
         className="font-bold border-2 col-span-full md:col-span-1 border-white bg-transparent
         text-white placeholder:text-white"
         style={{
