@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import countries from '@/shared/constants/countryFlags.json';
 import { useCallback } from 'react';
 import CountrySelect from '@/shared/components/countrySelect';
+import { Search } from '../types/searchParams';
 
 const COUNTRIES = (['MX', 'CO'] as const).map((country) => ({
   key: country,
@@ -19,42 +20,41 @@ type LandingSearchForm = {
 
 export const NameSearchField = () => {
   const { t } = useTranslation(['landing', 'countries']);
-  const { register, handleSubmit, setValue, watch } =
-    useForm<LandingSearchForm>({
-      defaultValues: {
-        search: '',
-        location: 'MX',
-      },
-    });
-
-  const country = watch('location');
+  const { register, handleSubmit } = useForm<Search>({
+    defaultValues: {
+      query: '',
+      location: 'MX',
+    },
+  });
 
   const navigate = useNavigate();
 
-  const goToSearch: SubmitHandler<LandingSearchForm> = useCallback(
-    (values) => {
+  const goToSearch = useCallback(
+    (values: Search) => {
       navigate({
         to: '/search',
-        search: { query: values.search, country: values.location },
+        search: { query: values.query, country: values.country },
         resetScroll: true,
       });
     },
-    [navigate, country]
+    [navigate, handleSubmit]
   );
 
   return (
     <form
+      action="/search"
+      method="get"
       onSubmit={handleSubmit(goToSearch)}
-      className="grid grid-cols-[1fr_max-content] sm:grid-cols-[1fr_max-content_max-content]
-      gap-4 justify-items-end sm:justify-items-stretch flex-grow w-full
+      className="grid grid-cols-2 md:grid-cols-[1fr_6rem_5rem]
+      gap-4 justify-items-stretch flex-grow w-full
       bg-primary p-4 rounded-lg"
       style={{ fontWeight: '700' }}
     >
       <input
         type="text"
-        {...register('search')}
-        className="font-bold col-span-2 sm:col-span-1 border-2 border-white bg-transparent
-        text-white placeholder:text-white placeholder:opacity-80 text-2xl w-full"
+        {...register('query')}
+        className="font-bold border-2 col-span-full md:col-span-1 border-white bg-transparent
+        text-white placeholder:text-white"
         style={{
           backgroundColor: 'rgb(45 123 191 / var(--tw-bg-opacity))',
           fontWeight: '700',

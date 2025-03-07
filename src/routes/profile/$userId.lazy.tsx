@@ -40,12 +40,7 @@ export function UserProfilePage() {
   const navigate = useNavigate();
 
   const account = useLoggedInAccount();
-  let assignedProfileId: string;
-  if (account?.ProfileId === userId) {
-    assignedProfileId = 'me';
-  } else {
-    assignedProfileId = userId;
-  }
+  let assignedProfileId = account?.ProfileId === userId ? 'me' : userId;
 
   const queryOptions = useMemo(
     () => profileQueryOptions(assignedProfileId),
