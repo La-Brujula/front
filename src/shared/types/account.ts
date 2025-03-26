@@ -1,4 +1,9 @@
+import { z } from 'zod';
+
 export type AccountRoleTypes = 'user' | 'editor' | 'manager' | 'admin';
+
+export const ACCOUNT_CONTACT_METHODS = ['email', 'whatsapp'] as const;
+export type AccountContactMethod = (typeof ACCOUNT_CONTACT_METHODS)[number];
 
 export interface IAccount {
   email: string;
@@ -18,10 +23,19 @@ export interface IUpdateAccount {
   passwordRecoveryAttempts?: number;
 }
 
+export const UpdateAccountRequestParams = z.object({
+  contactMethod: z.optional(z.enum(ACCOUNT_CONTACT_METHODS)),
+  jobNotifications: z.boolean({ coerce: true }),
+});
+
+export type UpdateAccountRequest = z.infer<typeof UpdateAccountRequestParams>;
+
 export interface IAccountDTO {
   email: string;
   role: AccountRoleTypes;
   ProfileId: string;
+  contactMethod: AccountContactMethod;
+  jobNotifications: boolean;
 }
 
 export interface IAuthenticationRequestBody {

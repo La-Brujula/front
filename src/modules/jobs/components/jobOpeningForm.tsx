@@ -81,11 +81,17 @@ export default function JobOpeningForm(props: {
         required={true}
         error={errors?.probono}
         items={[
-          { label: t('Sí'), value: '' },
+          { label: t('Sí'), value: 'false' },
           { label: t('No'), value: 'true' },
         ]}
         setValue={props.setValue}
-        value={props.initialValues?.probono ? 'true' : ''}
+        value={
+          props.initialValues?.probono !== undefined
+            ? props.initialValues.probono
+              ? 'true'
+              : 'false'
+            : ''
+        }
       />
       {!showMore ? (
         <div

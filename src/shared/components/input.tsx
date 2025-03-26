@@ -87,6 +87,7 @@ const internalProps = [
   'divClass',
   'labelClass',
   'required',
+  'setValue',
 ];
 function buildGroupedSelect<T extends FieldValues>(
   props: InputProps<'groupedSelect', T>,

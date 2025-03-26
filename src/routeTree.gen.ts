@@ -14,6 +14,7 @@ import { createFileRoute } from '@tanstack/react-router';
 
 import { Route as rootRoute } from './routes/__root';
 import { Route as MeImport } from './routes/me';
+import { Route as AlertsImport } from './routes/alerts';
 import { Route as SearchIndexImport } from './routes/search/index';
 import { Route as JobsIndexImport } from './routes/jobs/index';
 import { Route as SearchLabelImport } from './routes/search/$label';
@@ -63,6 +64,12 @@ const MeRoute = MeImport.update({
   path: '/me',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/me.lazy').then((d) => d.Route));
+
+const AlertsRoute = AlertsImport.update({
+  id: '/alerts',
+  path: '/alerts',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/alerts.lazy').then((d) => d.Route));
 
 const IndexLazyRoute = IndexLazyImport.update({
   id: '/',
@@ -273,6 +280,13 @@ declare module '@tanstack/react-router' {
       path: '/';
       fullPath: '/';
       preLoaderRoute: typeof IndexLazyImport;
+      parentRoute: typeof rootRoute;
+    };
+    '/alerts': {
+      id: '/alerts';
+      path: '/alerts';
+      fullPath: '/alerts';
+      preLoaderRoute: typeof AlertsImport;
       parentRoute: typeof rootRoute;
     };
     '/me': {
@@ -530,6 +544,7 @@ const JobsLazyRouteWithChildren = JobsLazyRoute._addFileChildren(
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute;
+  '/alerts': typeof AlertsRoute;
   '/me': typeof MeRouteWithChildren;
   '/jobs': typeof JobsLazyRouteWithChildren;
   '/auth/login': typeof AuthLoginRoute;
@@ -564,6 +579,7 @@ export interface FileRoutesByFullPath {
 
 export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute;
+  '/alerts': typeof AlertsRoute;
   '/me': typeof MeRouteWithChildren;
   '/auth/login': typeof AuthLoginRoute;
   '/auth/new-password': typeof AuthNewPasswordRoute;
@@ -598,6 +614,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRoute;
   '/': typeof IndexLazyRoute;
+  '/alerts': typeof AlertsRoute;
   '/me': typeof MeRouteWithChildren;
   '/jobs': typeof JobsLazyRouteWithChildren;
   '/auth/login': typeof AuthLoginRoute;
@@ -634,6 +651,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath;
   fullPaths:
     | '/'
+    | '/alerts'
     | '/me'
     | '/jobs'
     | '/auth/login'
@@ -667,6 +685,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo;
   to:
     | '/'
+    | '/alerts'
     | '/me'
     | '/auth/login'
     | '/auth/new-password'
@@ -699,6 +718,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/alerts'
     | '/me'
     | '/jobs'
     | '/auth/login'
@@ -734,6 +754,7 @@ export interface FileRouteTypes {
 
 export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute;
+  AlertsRoute: typeof AlertsRoute;
   MeRoute: typeof MeRouteWithChildren;
   JobsLazyRoute: typeof JobsLazyRouteWithChildren;
   AuthLoginRoute: typeof AuthLoginRoute;
@@ -758,6 +779,7 @@ export interface RootRouteChildren {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
+  AlertsRoute: AlertsRoute,
   MeRoute: MeRouteWithChildren,
   JobsLazyRoute: JobsLazyRouteWithChildren,
   AuthLoginRoute: AuthLoginRoute,
@@ -791,6 +813,7 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/alerts",
         "/me",
         "/jobs",
         "/auth/login",
@@ -815,6 +838,9 @@ export const routeTree = rootRoute
     },
     "/": {
       "filePath": "index.lazy.tsx"
+    },
+    "/alerts": {
+      "filePath": "alerts.tsx"
     },
     "/me": {
       "filePath": "me.tsx",
