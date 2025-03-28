@@ -5,13 +5,12 @@ import {
   FieldPath,
   FieldValues,
   Path,
-  SetFieldValue,
   UseFormRegister,
   UseFormRegisterReturn,
 } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import 'react-phone-number-input/style.css';
 import PhoneInput, { Country } from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 
 // t(errors:invalid_enum_value)
 // t(errors:invalid_type)

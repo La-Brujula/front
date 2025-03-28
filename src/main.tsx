@@ -1,15 +1,15 @@
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 
-import { PostHogProvider } from 'posthog-js/react';
 import posthog from 'posthog-js';
+import { PostHogProvider } from 'posthog-js/react';
 
-import './index.css';
 import './i18n.ts';
+import './index.css';
 
-import QueryProvider from './shared/providers/queryProvider';
-import { UserProvider } from './shared/providers/authProvider';
 import App from './App';
+import { UserProvider } from './shared/providers/authProvider';
+import QueryProvider from './shared/providers/queryProvider';
 
 !import.meta.env.DEV &&
   posthog.init('phc_T1b8Jh0gnQ6NsNQeqxBKiWCrYW5UygDG2n5RlTQbWBA', {

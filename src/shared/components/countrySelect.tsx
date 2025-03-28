@@ -1,9 +1,9 @@
-import { useCallback, useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import countries from '@/shared/constants/countryCodes';
-import { FieldValues, Path, SetFieldValue } from 'react-hook-form';
-import CountryFlag from './countryFlag';
 import { ArrowDropDownOutlined } from '@mui/icons-material';
+import { useCallback, useMemo, useState } from 'react';
+import { FieldValues, Path, SetFieldValue } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
+import CountryFlag from './countryFlag';
 
 function CountrySelect<T extends FieldValues>(props: {
   setValue: SetFieldValue<T>;

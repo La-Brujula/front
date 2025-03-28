@@ -3,7 +3,7 @@ import { useNavigate } from '@tanstack/react-router';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import countries from '@/shared/constants/countryFlags.json';
-import { FormEvent, useCallback } from 'react';
+import { useCallback } from 'react';
 import CountrySelect from '@/shared/components/countrySelect';
 
 const COUNTRIES = (['MX', 'CO'] as const).map((country) => ({

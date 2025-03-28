@@ -1,13 +1,13 @@
-import { Trans, useTranslation } from 'react-i18next';
-import { Container } from '../layout/container';
 import {
   ErrorComponentProps,
   Navigate,
   useRouter,
 } from '@tanstack/react-router';
-import useReportError from '../hooks/useSendBugReport';
-import { useMemo } from 'react';
 import { usePostHog } from 'posthog-js/react';
+import { useMemo } from 'react';
+import { Trans, useTranslation } from 'react-i18next';
+import useReportError from '../hooks/useSendBugReport';
+import { Container } from '../layout/container';
 
 function ErrorHandler(props: ErrorComponentProps) {
   const posthog = usePostHog();

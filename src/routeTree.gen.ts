@@ -13,18 +13,18 @@ import { createFileRoute } from '@tanstack/react-router';
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root';
-import { Route as MeImport } from './routes/me';
 import { Route as AlertsImport } from './routes/alerts';
-import { Route as SearchIndexImport } from './routes/search/index';
-import { Route as JobsIndexImport } from './routes/jobs/index';
-import { Route as SearchLabelImport } from './routes/search/$label';
-import { Route as ProfileUserIdImport } from './routes/profile/$userId';
-import { Route as JobsJobIdImport } from './routes/jobs/$jobId';
-import { Route as AuthVerifyEmailImport } from './routes/auth/verify-email';
-import { Route as AuthSignupImport } from './routes/auth/signup';
-import { Route as AuthNewPasswordImport } from './routes/auth/new-password';
 import { Route as AuthLoginImport } from './routes/auth/login';
+import { Route as AuthNewPasswordImport } from './routes/auth/new-password';
+import { Route as AuthSignupImport } from './routes/auth/signup';
+import { Route as AuthVerifyEmailImport } from './routes/auth/verify-email';
+import { Route as JobsJobIdImport } from './routes/jobs/$jobId';
+import { Route as JobsIndexImport } from './routes/jobs/index';
 import { Route as JobsJobIdEditImport } from './routes/jobs_.$jobId.edit';
+import { Route as MeImport } from './routes/me';
+import { Route as ProfileUserIdImport } from './routes/profile/$userId';
+import { Route as SearchLabelImport } from './routes/search/$label';
+import { Route as SearchIndexImport } from './routes/search/index';
 
 // Create Virtual Routes
 

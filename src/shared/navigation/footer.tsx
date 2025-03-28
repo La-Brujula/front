@@ -1,6 +1,6 @@
+import { Link } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
 import { SocialLinks } from '../components/socials';
-import { Link } from '@tanstack/react-router';
 
 export const Footer = () => {
   const { t } = useTranslation('navigation');

@@ -1,7 +1,6 @@
 import { FieldErrorsImpl, Path, SubmitHandler, useForm } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 import {
-  JobPosting,
   JobPostingForm,
   TJobForm,
   TJobOpening,

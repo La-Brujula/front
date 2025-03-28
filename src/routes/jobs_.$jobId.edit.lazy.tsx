@@ -1,8 +1,4 @@
-import { createLazyFileRoute, useNavigate } from '@tanstack/react-router';
-import { useCallback } from 'react';
-import { Container } from '@/shared/layout/container';
 import JobEditingForm from '@/modules/jobs/components/jobEditingForm';
-import { useTranslation } from 'react-i18next';
 import {
   JobDetailDTO,
   jobDetailOptions,
@@ -10,7 +6,11 @@ import {
 } from '@/modules/jobs/queries/jobSearchQuery';
 import DataSuspense from '@/shared/components/dataSuspense';
 import { LoadingSpinner } from '@/shared/components/loadingSpinner';
+import { Container } from '@/shared/layout/container';
 import { useQuery } from '@tanstack/react-query';
+import { createLazyFileRoute, useNavigate } from '@tanstack/react-router';
+import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const Route = createLazyFileRoute('/jobs_/$jobId/edit')({
   component: EditJobPostingPage,

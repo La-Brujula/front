@@ -1,9 +1,9 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { useAuth } from '../providers/authProvider';
-import { IBackendProfile, IUpdateBackendProfile } from '../types/user';
-import { updateMe } from '../services/profileServices';
-import { ApiError, BackendResponse } from '../services/backendFetcher';
 import { AxiosError } from 'axios';
+import { useAuth } from '../providers/authProvider';
+import { ApiError, BackendResponse } from '../services/backendFetcher';
+import { updateMe } from '../services/profileServices';
+import { IBackendProfile, IUpdateBackendProfile } from '../types/user';
 
 export function useUpdateMe() {
   const { isLoggedIn } = useAuth(['isLoggedIn']);

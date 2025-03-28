@@ -1,10 +1,10 @@
 import { useMutation } from '@tanstack/react-query';
+import { AxiosError } from 'axios';
 import {
   ApiError,
   BackendResponse,
   postFetch,
 } from '../services/backendFetcher';
-import { AxiosError } from 'axios';
 
 type ErrorReport = {
   pathname: string;

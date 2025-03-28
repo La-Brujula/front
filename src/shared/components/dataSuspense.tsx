@@ -1,7 +1,6 @@
 import { Skeleton } from '@mui/material';
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { ErrorMessage } from './errorMessage';
-import React from 'react';
 
 type DataSuspenseProps = {
   loading: boolean;

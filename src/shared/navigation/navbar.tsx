@@ -2,10 +2,10 @@ import PersonOutline from '@mui/icons-material/PersonOutline';
 import { Link, useRouterState } from '@tanstack/react-router';
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useAuth } from '../providers/authProvider';
-import { AnnouncementBanner } from './banner';
 import LocalizationMenu from '../components/localizationMenu';
 import contactInformation from '../constants/brujulaInformation.json';
+import { useAuth } from '../providers/authProvider';
+import { AnnouncementBanner } from './banner';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

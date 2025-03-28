@@ -1,11 +1,7 @@
-import { useCallback, useEffect, useState } from 'react';
-import { TJobForm, TJobOpening, TJobPosting } from '../types/searchParams';
+import { useCallback, useState } from 'react';
+import { TJobForm, TJobOpening } from '../types/searchParams';
 import {
-  FieldError,
   FieldErrorsImpl,
-  Merge,
-  Path,
-  useForm,
   UseFormRegister,
   UseFormSetValue,
 } from 'react-hook-form';

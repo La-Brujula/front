@@ -2,7 +2,6 @@ import StatsBar from '@/modules/jobs/components/statsBar';
 import DataSuspense from '@/shared/components/dataSuspense';
 import { useCurrentProfile } from '@/shared/hooks/useCurrentProfile';
 import { useLoggedInAccount } from '@/shared/hooks/useLoggedInAccount';
-import { Container } from '@/shared/layout/container';
 import { createLazyFileRoute, Link, Outlet } from '@tanstack/react-router';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';

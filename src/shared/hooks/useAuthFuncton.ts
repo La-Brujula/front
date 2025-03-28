@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
+import { AxiosError } from 'axios';
 import { IAuthResponse } from '../services/authServices';
 import { ApiError } from '../services/backendFetcher';
-import { AxiosError } from 'axios';
 
 export function useAuthFunction<T extends (...args: any) => Promise<any>>(
   authFunction: T

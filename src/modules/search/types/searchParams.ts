@@ -1,5 +1,4 @@
 import countryCodes from '@/shared/constants/countryCodes';
-import { Country } from 'react-phone-number-input';
 import { z } from 'zod';
 
 export const searchSchema = z.object({

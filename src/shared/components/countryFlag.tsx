@@ -1,7 +1,7 @@
 import countries from '@/shared/constants/countryCodes';
 import { Tooltip } from '@mui/material';
-import { useTranslation } from 'react-i18next';
 import 'flag-icons/css/flag-icons.min.css';
+import { useTranslation } from 'react-i18next';
 
 export default function CountryFlag(props: {
   country: (typeof countries)[number];

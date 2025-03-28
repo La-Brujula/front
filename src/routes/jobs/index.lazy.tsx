@@ -1,4 +1,4 @@
-import { createLazyFileRoute, Link, useNavigate } from '@tanstack/react-router';
+import { createLazyFileRoute, useNavigate } from '@tanstack/react-router';
 import { useCallback, useEffect, useMemo } from 'react';
 import { LoadingSpinner } from '@/shared/components/loadingSpinner';
 import { useInView } from 'react-intersection-observer';

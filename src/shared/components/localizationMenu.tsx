@@ -1,4 +1,3 @@
-import TranslateOutlined from '@mui/icons-material/TranslateOutlined';
 import { MouseEventHandler, useCallback } from 'react';
 import useLocalization, { SupportedLocal } from '../hooks/useLocalization';
 
