@@ -104,6 +104,7 @@ export default function JobCreationForm(props: {
       })),
     [t]
   );
+
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}

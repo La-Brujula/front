@@ -1,4 +1,4 @@
-import { createLazyFileRoute, useNavigate } from '@tanstack/react-router';
+import { createLazyFileRoute, Link, useNavigate } from '@tanstack/react-router';
 import { useCallback, useEffect, useMemo } from 'react';
 import { LoadingSpinner } from '@/shared/components/loadingSpinner';
 import { useInView } from 'react-intersection-observer';
@@ -24,6 +24,10 @@ function SearchHomepage() {
 
   const { t } = useTranslation('jobs');
   const { data: profile } = useCurrentProfile();
+
+  const isVerified = useMemo(() => {
+    profile?.verified;
+  }, [profile?.verified]);
 
   const queryOptions = useMemo(
     () => jobSearchQueryOptions(search, !!profile),
