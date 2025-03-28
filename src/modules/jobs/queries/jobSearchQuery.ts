@@ -86,9 +86,9 @@ export type JobDTO = {
 export const getCreatedJobs = () =>
   queryOptions({
     queryKey: ['jobs', { requesterId: 'me' }],
-    queryFn: async (ctx) => {
+    queryFn: async ({ signal }) => {
       return getFetch<JobDTO[]>('/jobs/me', {
-        signal: ctx.signal,
+        signal,
       }).then((data) => ({
         isSuccess: data.isSuccess,
         meta: data.meta,
@@ -109,8 +109,8 @@ export const jobSearchQueryOptions = (search: JobSearch, enabled: boolean) =>
     initialPageParam: 0,
     queryKey: ['jobs', search],
     refetchOnWindowFocus: true,
-    queryFn: async (queryParams) => {
-      return getFetch<JobDTO[]>('/jobs', {
+    queryFn: async (queryParams) =>
+      getFetch<JobDTO[]>('/jobs', {
         params: {
           ...search,
           offset: queryParams.pageParam,
@@ -126,8 +126,7 @@ export const jobSearchQueryOptions = (search: JobSearch, enabled: boolean) =>
           jobStartDate: new Date(job.jobStartDate),
           jobEndDate: job.jobEndDate ? new Date(job.jobEndDate) : undefined,
         })),
-      }));
-    },
+      })),
     getPreviousPageParam: (firstPage) => {
       const next = firstPage.meta.offset - firstPage.meta.limit;
       if (next <= 0) {
@@ -165,9 +164,9 @@ export const jobDetailOptions = (jobId: string) =>
 export const jobApplicantsOptions = (jobId: string) =>
   queryOptions({
     queryKey: ['jobs', { jobId }, 'applicants'],
-    queryFn: (queryOptions) =>
+    queryFn: ({ signal }) =>
       getFetch<UserDTO[]>(`/jobs/${jobId}/applicants`, {
-        signal: queryOptions.signal,
+        signal,
       }).then((res) => res.entity),
   });
 
@@ -181,6 +180,10 @@ export const useCreateJob = () => {
       await queryClient.invalidateQueries({
         queryKey: ['jobs'],
         type: 'all',
+        refetchType: 'active',
+      });
+      await queryClient.refetchQueries({
+        queryKey: ['jobs'],
         refetchType: 'active',
       });
     },
@@ -211,7 +214,10 @@ export const useUpdateJob = (jobId: string) => {
         (res) => res.entity
       ),
     onSuccess: (job) => {
-      queryClient.invalidateQueries({ queryKey: ['jobs', { jobId }] });
+      queryClient.invalidateQueries({
+        queryKey: ['jobs', { jobId }],
+        refetchType: 'active',
+      });
       queryClient.setQueryData(['jobs', { jobId }], job);
     },
   });

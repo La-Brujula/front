@@ -31,7 +31,7 @@ export default function JobOpeningForm(props: {
         shouldValidate: true,
       });
     },
-    [props.setValue]
+    [props.setValue, props.i]
   );
 
   return (
@@ -84,14 +84,6 @@ export default function JobOpeningForm(props: {
           { label: t('Sí'), value: 'false' },
           { label: t('No'), value: 'true' },
         ]}
-        setValue={props.setValue}
-        value={
-          props.initialValues?.probono !== undefined
-            ? props.initialValues.probono
-              ? 'true'
-              : 'false'
-            : ''
-        }
       />
       {!showMore ? (
         <div

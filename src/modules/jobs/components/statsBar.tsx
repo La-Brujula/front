@@ -4,7 +4,6 @@ import { useQuery } from '@tanstack/react-query';
 import { getCreatedJobs } from '../queries/jobSearchQuery';
 import DataSuspense from '@/shared/components/dataSuspense';
 import { useTranslation } from 'react-i18next';
-import { EditOutlined } from '@mui/icons-material';
 import { Link } from '@tanstack/react-router';
 
 export default function StatsBar() {
@@ -16,18 +15,16 @@ export default function StatsBar() {
   const { data: results, isLoading: loading, error } = useQuery(queryOptions);
 
   return (
-    <div className="grid grid-cols-1 text-center [&>*]:border-r [&>*]:border-black [&>*]:border-opacity-20 [&>*:last-child]:border-none">
-      <Link to="/jobs/me">
-        <div className="grid gap-2 p-4 justify-center justify-items-center">
-          <DataSuspense
-            loading={loading}
-            error={error}
-          >
-            {results?.meta?.total || 0}
-          </DataSuspense>
-          <p>{t('empleos creados')}</p>
-        </div>
-      </Link>
-    </div>
+    <Link to="/jobs/me">
+      <div className="grid gap-2 p-4 justify-center justify-items-center">
+        <DataSuspense
+          loading={loading}
+          error={error}
+        >
+          {results?.meta?.total || 0}
+        </DataSuspense>
+        <p>{t('empleos creados')}</p>
+      </div>
+    </Link>
   );
 }

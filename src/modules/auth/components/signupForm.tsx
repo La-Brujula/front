@@ -139,8 +139,6 @@ export const SignUpForm = (props: { referal?: string }) => {
           required
           items={personTypeOptions}
           error={formState.errors.persona}
-          setValue={setValue}
-          value={persona}
         />
       </div>
       {error !== null && (

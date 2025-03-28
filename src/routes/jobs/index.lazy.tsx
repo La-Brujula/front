@@ -13,6 +13,7 @@ import DataSuspense from '@/shared/components/dataSuspense';
 import { JobsList } from '@/modules/jobs/components/jobList';
 import { JobSearch } from '@/modules/jobs/types/searchParams';
 import { useCurrentProfile } from '@/shared/hooks/useCurrentProfile';
+import { LoginForm } from '@/modules/auth/components/loginForm';
 
 export const Route = createLazyFileRoute('/jobs/')({
   component: SearchHomepage,
@@ -22,13 +23,11 @@ function SearchHomepage() {
   const search = Route.useSearch();
 
   const { t } = useTranslation('jobs');
-  const { data: profile, isLoading } = useCurrentProfile();
-
-  const isVerified = useMemo(() => !!profile?.verified, [profile, isLoading]);
+  const { data: profile } = useCurrentProfile();
 
   const queryOptions = useMemo(
     () => jobSearchQueryOptions(search, !!profile),
-    [search]
+    [search, profile]
   );
 
   const {
@@ -100,35 +99,6 @@ function SearchHomepage() {
 
   return (
     <>
-      <Container className="flex flex-row justify-center items-center">
-        <div className="flex flex-row justify-center !p-0">
-          {profile ? (
-            isVerified ? (
-              <Link
-                to="/jobs/create"
-                className="px-8 py-4 rounded-md bg-primary text-white text-base font-bold text-center"
-              >
-                {t('Crea una nueva oferta laboral')}
-              </Link>
-            ) : (
-              <Link
-                to="/auth/send-verification"
-                className="px-8 py-4 rounded-md bg-secondary text-white text-base font-bold text-center"
-              >
-                {t('Verifica tu cuenta para crear una oferta')}
-              </Link>
-            )
-          ) : (
-            <Link
-              to="/auth/login"
-              search={{ redirect: '/jobs' }}
-              className="px-8 py-4 rounded-md bg-primary text-white text-base font-bold text-center"
-            >
-              {t('Inicia sesión')}
-            </Link>
-          )}
-        </div>
-      </Container>
       <Container
         className="relative"
         bodyClass="w-full flex flex-col md:grid grid-cols-[1fr_10rem] gap-4 text-white font-bold items-center px-4"
@@ -183,20 +153,7 @@ function SearchHomepage() {
               <p>
                 {t('Para ver las ofertas laborales por favor inicia sesión')}
               </p>
-              <div className="grid grid-cols-2">
-                <Link
-                  to="/auth/login"
-                  className="px-4 py-2 w-fit mx-auto rounded-md bg-primary text-white my-8"
-                >
-                  {t('Iniciar sesión')}
-                </Link>
-                <Link
-                  to="/auth/signup"
-                  className="px-4 py-2 w-fit mx-auto rounded-md bg-secondary text-white my-8"
-                >
-                  {t('Crear cuenta')}
-                </Link>
-              </div>
+              <LoginForm redirectUrl="/jobs" />
             </div>
           )}
           {!!profile && (

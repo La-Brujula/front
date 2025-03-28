@@ -52,8 +52,6 @@ type InputProps<
       : Type extends 'radioGroup'
         ? {
             items: { label: string; value: string | number }[];
-            setValue: SetFieldValue<AssignedFormFields>;
-            value: string;
           }
         : Type extends 'custom'
           ?
@@ -182,44 +180,28 @@ function buildInput<T extends FieldValues>(
   );
 }
 
-const radioGroupInvalidProps = [...internalProps, 'type', 'items', 'error'];
 function buildRadioGroup<T extends FieldValues>(
   props: InputProps<'radioGroup', T>,
-  setValue: SetFieldValue<T>,
-  value: string
+  registerReturn: UseFormRegisterReturn
 ) {
-  const allowedProps = Object.fromEntries(
-    Object.entries(props).filter(
-      ([k, _]) => !radioGroupInvalidProps.includes(k)
-    )
-  );
   return (
-    <div className="flex flex-row flex-wrap gap-4 items-stretch md:items-center justify-center">
+    <fieldset className="flex flex-row flex-wrap gap-4 items-stretch md:items-center justify-center">
       {props.items.map((item) => {
-        const checked = item.value === value;
         return (
-          <div
-            {...allowedProps}
-            className={[
-              'relative w-fit rounded-md ring-2 ring-primary',
-              'text-primary cursor-pointer',
-              'flex items-center justify-center py-2 px-4',
-              checked && 'bg-primary text-white',
-            ].join(' ')}
-            key={item.value}
-            id={props.fieldName + item.value}
-            onClick={() =>
-              setValue(props.fieldName, item.value, {
-                shouldValidate: true,
-                shouldTouch: true,
-              })
-            }
-          >
+          <div className="has-[*:checked]:bg-primary has-[*:checked]:!text-white  relative w-fit rounded-md ring ring-primary text-primary cursor-pointer flex items-center justify-center py-2 px-4">
+            <input
+              {...props.register(props.fieldName, props)}
+              type="radio"
+              className="absolute w-full h-full cursor-pointer opacity-0"
+              key={item.value}
+              id={props.fieldName + item.value}
+              value={item.value}
+            />
             <span>{item.label}</span>
           </div>
         );
       })}
-    </div>
+    </fieldset>
   );
 }
 
@@ -261,9 +243,8 @@ function Input<F extends InputTypes, T extends FieldValues>(
       break;
     case 'radioGroup':
       inputElement = buildRadioGroup(
-        { ...props, ...registerReturn } as InputProps<'radioGroup', T>,
-        (props as InputProps<'radioGroup', T>).setValue,
-        (props as InputProps<'radioGroup', T>).value
+        props as InputProps<'radioGroup', T>,
+        registerReturn
       );
       break;
     case 'custom':

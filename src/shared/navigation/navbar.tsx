@@ -26,9 +26,11 @@ export const Navbar = () => {
 
   useEffect(() => {
     const localStorageBanner = localStorage.getItem('banner');
-    if (localStorageBanner === null || localStorageBanner === 'true') {
-      setBannerOpen(true);
+    if (localStorageBanner === null) {
       localStorage.setItem('banner', 'true');
+    }
+    if (localStorageBanner === 'true') {
+      setBannerOpen(true);
     }
   }, []);
 

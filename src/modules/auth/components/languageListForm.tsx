@@ -109,7 +109,7 @@ export function LanguageListForm<T extends FieldValues>(props: {
       props.fieldName,
       state.map((v) => ({ lang: v.lang, proficiency: v.proficiency }))
     );
-  });
+  }, []);
 
   return (
     <div className="col-span-2">

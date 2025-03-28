@@ -91,8 +91,6 @@ export default function JobOpeningForm(props: {
           { label: t('Sí'), value: '' },
           { label: t('No'), value: 'true' },
         ]}
-        setValue={props.setValue}
-        value={props.initialValues?.probono ? 'true' : ''}
       />
       {!showMore ? (
         <div

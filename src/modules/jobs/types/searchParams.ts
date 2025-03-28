@@ -5,7 +5,7 @@ import { z } from 'zod';
 export const JobOpening = z.object({
   activity: z.string().length(6),
   count: z.number({ coerce: true }).min(0).max(99),
-  probono: z.boolean({ coerce: true }),
+  probono: z.preprocess((val) => val === 'true', z.boolean()),
   gender: z.optional(z.enum(['male', 'female', 'other'])).catch(undefined),
   ageRangeMin: z.optional(z.number({ coerce: true }).min(0).max(120)),
   ageRangeMax: z.optional(z.number({ coerce: true }).min(0).max(120)),

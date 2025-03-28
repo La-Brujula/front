@@ -42,6 +42,8 @@ const INITIAL_VALUES: TJobPosting = {
   notes: undefined,
 };
 
+const today = new Date().toLocaleDateString('fr-ca');
+
 export default function JobCreationForm(props: {
   onSubmit: Function;
   isPending: boolean;
@@ -102,6 +104,7 @@ export default function JobCreationForm(props: {
       })),
     [t]
   );
+
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -119,6 +122,7 @@ export default function JobCreationForm(props: {
             fieldName="contactStartDate"
             required={true}
             error={formState.errors.contactStartDate}
+            min={today}
           />
 
           <Input
@@ -129,6 +133,7 @@ export default function JobCreationForm(props: {
             fieldName="contactEndDate"
             required={true}
             error={formState.errors.contactEndDate}
+            min={today}
           />
         </div>
         <p className="mt-4">
@@ -144,19 +149,17 @@ export default function JobCreationForm(props: {
         />
         <Input
           label={t('Whatsapp de contacto')}
-          type="text"
+          type="tel"
           register={register}
           fieldName="whatsapp"
-          autoComplete=""
           required={false}
           error={formState.errors.whatsapp}
         />
         <Input
           label={t('Teléfono de contacto')}
-          type="text"
+          type="tel"
           register={register}
           fieldName="phoneNumbers"
-          autoComplete=""
           required={false}
           error={formState.errors.phoneNumbers}
         />
@@ -217,8 +220,6 @@ export default function JobCreationForm(props: {
             value: location,
             label: t(location),
           }))}
-          setValue={setValue}
-          value={values.location}
         />
         {location === 'online' && (
           <Input
@@ -231,8 +232,6 @@ export default function JobCreationForm(props: {
               value: radius,
               label: t(radius),
             }))}
-            setValue={setValue}
-            value={values.workRadius || ''}
           />
         )}
         <Input
@@ -243,8 +242,6 @@ export default function JobCreationForm(props: {
           required={true}
           error={formState.errors.employment}
           items={EMPLOYMENT_RADIO_OPTIONS}
-          setValue={setValue}
-          value={values.employment}
         />
         <Input
           label={t('Descripción de empleo / proyecto')}
@@ -275,6 +272,7 @@ export default function JobCreationForm(props: {
             fieldName="jobStartDate"
             required={true}
             error={formState.errors.jobStartDate}
+            min={today}
           />
           <Input
             label={t('Fecha tentativa de terminación')}
@@ -284,6 +282,7 @@ export default function JobCreationForm(props: {
             fieldName="jobEndDate"
             required={false}
             error={formState.errors.jobEndDate}
+            min={today}
           />
         </div>
         <div className="grid grid-cols-2 gap-x-4 gap-y-1">

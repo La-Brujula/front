@@ -9,8 +9,12 @@ export const searchSchema = z.object({
   schools: z.string().optional().catch(''),
   associations: z.string().optional().catch(''),
   type: z.enum(['fisica', 'moral', '']).optional().catch(''),
-  remote: z.boolean({ coerce: true }).optional().catch(undefined),
-  socialService: z.boolean({ coerce: true }).optional().catch(undefined),
+  remote: z
+    .optional(z.preprocess((val) => val === 'true', z.boolean()))
+    .catch(undefined),
+  socialService: z
+    .optional(z.preprocess((val) => val === 'true', z.boolean()))
+    .catch(undefined),
   location: z.string().optional().catch(''),
   area: z.string().optional().catch(''),
   category: z.string().optional().catch(''),

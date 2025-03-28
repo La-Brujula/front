@@ -55,7 +55,7 @@ export function JobDetailPage() {
   return (
     <>
       <Container
-        bg="light-gray"
+        bg="light"
         bodyClass="grid sm:grid-cols-[4rem_1fr_4rem] items-center"
         className="!p-4"
       >
@@ -82,10 +82,7 @@ export function JobDetailPage() {
           <div />
         )}
       </Container>
-      <Container
-        bg="light"
-        bodyClass="grid justify-center"
-      >
+      <Container bodyClass="grid justify-center">
         <DataSuspense
           loading={loading}
           error={error}
