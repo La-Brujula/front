@@ -1,6 +1,6 @@
 import genders from '@shared/constants/genders.json';
-import regiones from '@shared/constants/regiones.json';
-import { useState } from 'react';
+import estados from '@shared/constants/estados.json';
+import { useMemo, useState } from 'react';
 import { ExtraFilters } from './extraFilters';
 import { Search } from '../types/searchParams';
 import Input from '@/shared/components/input';
@@ -10,28 +10,11 @@ import { useTranslation } from 'react-i18next';
 import { UseFormRegister } from 'react-hook-form';
 import ActivityFilter from './activityFilter';
 
-const LOCATION_SELECT_ITEMS = [
-  {
-    key: 'MX',
-    label: 'MX',
-    className: '!font-bold text-2xl !uppercase',
-  },
-  ...regiones?.flatMap((region) => {
-    const estados = region.estados?.map((estado) => ({
-      key: estado,
-      label: estado,
-      className: '!pl-6',
-    }));
-    return [
-      {
-        key: region.nombre,
-        label: region.nombre,
-        className: '!font-bold !uppercase',
-      },
-      ...estados,
-    ];
-  }),
-];
+const LOCATION_SELECT_ITEMS = (country: 'MX' | 'CO') =>
+  estados[country].flatMap((estado) => ({
+    key: estado,
+    label: estado,
+  }));
 
 export const ResultsFilter = (props: {
   filters: Search;
@@ -41,6 +24,11 @@ export const ResultsFilter = (props: {
   const [isVisible, setIsVisible] = useState(false);
   const [moreFiltersVisible, setMoreFiltersVisible] = useState(false);
   const { t } = useTranslation(['search', 'genders']);
+
+  const locationOptions = useMemo(
+    () => LOCATION_SELECT_ITEMS(props.filters.country as 'MX' | 'CO'),
+    [props.filters.country]
+  );
 
   return (
     <div className="">
@@ -83,7 +71,7 @@ export const ResultsFilter = (props: {
             fieldName="location"
             register={props.register}
             type="select"
-            items={LOCATION_SELECT_ITEMS}
+            items={locationOptions}
             value={props.filters.location}
           />
           <Input

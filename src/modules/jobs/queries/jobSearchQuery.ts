@@ -189,6 +189,7 @@ export const useCreateJob = () => {
     },
   });
 };
+
 export const useApplyToJob = (jobId: string) => {
   const queryClient = useQueryClient();
   return useMutation({
@@ -200,7 +201,7 @@ export const useApplyToJob = (jobId: string) => {
     onSuccess: () => {
       queryClient.refetchQueries({
         queryKey: ['jobs', { jobId }],
-        type: 'all',
+        type: 'active',
       });
     },
   });
@@ -215,7 +216,7 @@ export const useUpdateJob = (jobId: string) => {
       ),
     onSuccess: (job) => {
       queryClient.invalidateQueries({
-        queryKey: ['jobs', { jobId }],
+        queryKey: ['jobs'],
         refetchType: 'active',
       });
       queryClient.setQueryData(['jobs', { jobId }], job);
