@@ -25,7 +25,7 @@ export const SearchModules = () => {
         <div className="grid grid-cols-1 gap-8">
           <NameSearchField />
         </div>
-        <p className="mb-4 font-bold text-xl text-primary mt-10 lg:text-center">
+        {/* <p className="mb-4 font-bold text-xl text-primary mt-10 lg:text-center">
           {t('Ofrece o consulta empleos')}:
         </p>
         <Link
@@ -37,7 +37,7 @@ export const SearchModules = () => {
             className="!size-14"
           />{' '}
           <span className="text-4xl">{t('Bolsa de trabajo')}</span>
-        </Link>
+        </Link> */}
       </Container>
       <LoginOrProfile />
       <Container
