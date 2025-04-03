@@ -5,6 +5,7 @@
   "trademark": "La Brújula es una marca registrada.\nTodos los derechos reservados © 2024",
   "login": "Inicia Sesión",
   "search": "Buscar",
+  "jobs": "Bolsa de trabajo",
   "home": "Inicio",
   "createUser": "Crear usuario",
   "myUser": "Mi usuario",
@@ -13,6 +14,5 @@
   "announcements": "Avisos",
   "privacyH": "Aviso legal y de privacidad",
   "contact": "Contacto",
-  "logout": "Cerrar sesión",
-  "jobs": "Bolsa de trabajo"
+  "logout": "Cerrar sesión"
 }

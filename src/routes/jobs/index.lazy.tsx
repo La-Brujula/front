@@ -1,4 +1,4 @@
-import { createLazyFileRoute, useNavigate } from '@tanstack/react-router';
+import { createLazyFileRoute, Link, useNavigate } from '@tanstack/react-router';
 import { useCallback, useEffect, useMemo } from 'react';
 import { LoadingSpinner } from '@/shared/components/loadingSpinner';
 import { useInView } from 'react-intersection-observer';
@@ -105,7 +105,7 @@ function SearchHomepage() {
     <>
       <Container className="flex flex-row justify-center items-center">
         <div className="flex flex-row justify-center !p-0">
-          {isVerified ? (
+          {profile?.verified ? (
             <Link
               to="/jobs/create"
               className="px-8 py-4 rounded-md bg-primary text-white text-base font-bold text-center"
