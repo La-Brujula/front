@@ -103,11 +103,7 @@ function SearchHomepage() {
           setValue={setValue}
           fieldName="country"
           value={filters.country}
-          filterFn={(countryArray) =>
-            countryArray.filter(
-              (country) => country === 'CO' || country === 'MX'
-            )
-          }
+          filterFn={() => ['CO', 'MX', 'CL']}
           className="!size-10"
         />
         <div

@@ -1,27 +1,23 @@
-import Input from '@/shared/components/input';
 import { SearchOutlined } from '@mui/icons-material';
 import { useNavigate } from '@tanstack/react-router';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import countries from '@/shared/constants/countryFlags.json';
 import { Search } from '@/modules/search/types/searchParams';
+import CountrySelect from '@/shared/components/countrySelect';
 
-const COUNTRIES = (['MX', 'CO'] as (keyof typeof countries)[]).map(
-  (country) => ({
-    key: country,
-    label: countries[country],
-    className: '!text-5xl',
-  })
-);
+const COUNTRIES = ['MX', 'CO', 'CL'];
 
 export const NameSearchField = () => {
   const { t } = useTranslation('landing');
-  const { register, handleSubmit } = useForm<Search>({
+  const { register, handleSubmit, setValue, watch } = useForm<Search>({
     defaultValues: {
       query: '',
       country: 'MX',
     },
   });
+
+  const country = watch('country');
 
   const navigate = useNavigate();
 
@@ -59,14 +55,11 @@ export const NameSearchField = () => {
         }}
         placeholder={t('search')}
       />
-      <Input
-        type="select"
-        register={register}
-        label={''}
+      <CountrySelect
+        setValue={setValue}
         fieldName="country"
-        defaultValue={'MX'}
-        items={COUNTRIES}
-        inputClass="!text-5xl *:!py-0"
+        value={country}
+        filterFn={() => ['MX', 'CO', 'CL']}
       />
       <button
         type="submit"

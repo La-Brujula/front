@@ -13,7 +13,7 @@ function BrujulaBio() {
           i18nKey="landingParagraph"
           t={t}
         >
-          Durante 14 años nos hemos dedicado a reunir a las personas, empresas e
+          Durante 15 años nos hemos dedicado a reunir a las personas, empresas e
           instituciones del medio audiovisual y cinematográfico de México para
           que las puedas encontrar en un solo lugar.
           <br />

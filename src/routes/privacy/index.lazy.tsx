@@ -422,10 +422,10 @@ function PrivacyPage() {
           funciones nuevas de los Servicios o por motivos legales, que entrarán
           en vigor inmediatamente. Si el usuario utiliza de manera continuada
           los Servicios una vez publicadas las Condiciones de uso revisadas,
-          estará aceptando los cambios y otorgando su acuerdo con ellos. En este
-          sentido se espera que los usuarios revisen periódicamente esta página
-          para estar al corriente de los cambios, puesto que estarán obligados a
-          cumplirlos.
+          estará acewptando los cambios y otorgando su acuerdo con ellos. En
+          este sentido se espera que los usuarios revisen periódicamente esta
+          página para estar al corriente de los cambios, puesto que estarán
+          obligados a cumplirlos.
         </p>
         <h2>Acceso a los servicios y seguridad de la cuenta</h2>
         <p>
