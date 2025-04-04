@@ -182,7 +182,7 @@ export const useCreateJob = () => {
         type: 'all',
         refetchType: 'active',
       });
-      await queryClient.refetchQueries({
+      await queryClient.invalidateQueries({
         queryKey: ['jobs'],
         refetchType: 'active',
       });
