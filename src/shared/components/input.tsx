@@ -5,6 +5,7 @@ import {
   FieldPath,
   FieldValues,
   Path,
+  PathValue,
   UseFormRegister,
   UseFormRegisterReturn,
 } from 'react-hook-form';
@@ -50,7 +51,13 @@ type InputProps<
         }
       : Type extends 'radioGroup'
         ? {
-            items: { label: string; value: string | number }[];
+            items: {
+              label: string;
+              value: PathValue<
+                AssignedFormFields,
+                FieldPath<AssignedFormFields>
+              >;
+            }[];
           }
         : Type extends 'custom'
           ?
@@ -184,27 +191,24 @@ function buildRadioGroup<T extends FieldValues>(
   registerReturn: UseFormRegisterReturn
 ) {
   return (
-    <fieldset className="flex flex-row flex-wrap gap-4 items-stretch md:items-center justify-center">
+    <div className="flex flex-row flex-wrap gap-4 items-stretch md:items-center justify-center">
       {props.items.map((item) => {
         return (
           <div
-            key={`${registerReturn.name}-${item.value}`}
-            className="has-[*:checked]:bg-primary has-[*:checked]:!text-white  relative w-fit rounded-md border-2 border-primary text-primary cursor-pointer flex items-center justify-center py-2 px-4"
+            key={`${props.fieldName}-${item.value}`}
+            className="has-[*:checked]:bg-primary has-[*:checked]:!text-white relative w-fit rounded-md border-2 border-primary text-primary cursor-pointer flex items-center justify-center py-2 px-4"
           >
             <input
               {...registerReturn}
               type="radio"
               className="absolute w-full h-full cursor-pointer opacity-0"
-              id={`${registerReturn.name}-${item.value}`}
               value={item.value}
             />
-            <label htmlFor={`${registerReturn.name}-${item.value}`}>
-              {item.label}
-            </label>
+            <span>{item.label}</span>
           </div>
         );
       })}
-    </fieldset>
+    </div>
   );
 }
 
@@ -222,7 +226,7 @@ function Input<F extends InputTypes, T extends FieldValues>(
   const { t } = useTranslation('errors');
 
   const registerReturn = useMemo(
-    () => props.register(props.fieldName, { required: props.required }),
+    () => props.register(props.fieldName),
     [props.register, props.fieldName, props.required]
   );
 

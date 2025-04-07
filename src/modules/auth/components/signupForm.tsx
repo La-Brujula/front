@@ -26,7 +26,7 @@ const personTypeOptionsGenerator = (t: TFunction) => [
 
 export const SignUpForm = (props: { referal?: string }) => {
   const { signup } = useAuth(['signup']);
-  const { register, handleSubmit, watch, formState, setError, setValue } =
+  const { register, handleSubmit, watch, formState, setError } =
     useForm<SignupForm>({
       defaultValues: {
         referal: props.referal,
@@ -43,8 +43,6 @@ export const SignUpForm = (props: { referal?: string }) => {
 
   const personTypeOptions = useMemo(() => personTypeOptionsGenerator(t), [t]);
 
-  const persona = watch('persona');
-
   const onSubmit = async (data: SignupForm) => {
     if (data.password !== data.confirmPassword) {
       setError('confirmPassword', {
@@ -53,36 +51,38 @@ export const SignUpForm = (props: { referal?: string }) => {
       });
       return;
     }
-    mutate(
-      {
-        email: data.email,
-        password: data.password,
-        type: data.persona,
-        referal: data.referal,
-      },
-      {
-        onError: (err) => {
-          if (
-            isApiError(err) &&
-            err.errorCode === 'SE01' &&
-            typeof err.message !== 'string'
-          ) {
-            for (const error of err.message) {
-              if (error.path == 'type') {
-                error.path = 'persona';
-              }
-              setError(error.path as Path<SignupForm>, {
-                type: 'custom',
-                message: error.msg,
-              });
-            }
-          }
-        },
-        onSuccess: () => {
-          navigate({ to: '/me/basic', resetScroll: true });
-        },
-      }
-    );
+    console.log(data);
+
+    // mutate(
+    //   {
+    //     email: data.email,
+    //     password: data.password,
+    //     type: data.persona,
+    //     referal: data.referal,
+    //   },
+    //   {
+    //     onError: (err) => {
+    //       if (
+    //         isApiError(err) &&
+    //         err.errorCode === 'SE01' &&
+    //         typeof err.message !== 'string'
+    //       ) {
+    //         for (const error of err.message) {
+    //           if (error.path == 'type') {
+    //             error.path = 'persona';
+    //           }
+    //           setError(error.path as Path<SignupForm>, {
+    //             type: 'custom',
+    //             message: error.msg,
+    //           });
+    //         }
+    //       }
+    //     },
+    //     onSuccess: () => {
+    //       navigate({ to: '/me/basic', resetScroll: true });
+    //     },
+    //   }
+    // );
   };
 
   return (
@@ -161,7 +161,7 @@ export const SignUpForm = (props: { referal?: string }) => {
       )}
       {acceptedPrivacy !== true && <PrivacyPolicy />}
       <input
-        disabled={loading || !formState.isValid}
+        disabled={loading}
         type="submit"
         className="max-w-xs mx-auto bg-primary disabled:bg-black disabled:bg-opacity-20"
         value={t('Crear usuario')}
