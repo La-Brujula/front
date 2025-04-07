@@ -1,5 +1,12 @@
-export type lang = 'es' | 'en' | 'fr' | 'de' | 'it' | 'zh';
-export type proficiency = 'basic' | 'intermediate' | 'advanced' | 'native';
+export const LANGUAGES = ['es', 'en', 'fr', 'de', 'it', 'zh'] as const;
+export type lang = (typeof LANGUAGES)[number];
+export const PROFICIENCY = [
+  'basic',
+  'intermediate',
+  'advanced',
+  'native',
+] as const;
+export type proficiency = (typeof PROFICIENCY)[number];
 
 // t("languages:es")
 // t("languages:en")

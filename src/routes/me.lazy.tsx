@@ -15,21 +15,23 @@ function BaseStepPage() {
   const { t } = useTranslation('auth');
 
   return (
-    <DataSuspense
-      loading={loading}
-      error={error}
-      errorComponent={
-        <ErrorMessage message={error?.message || t('Could not find user')} />
-      }
-    >
-      <Container>
-        <div className="max-w-3xl mx-auto">
+    <Container>
+      <div className="max-w-3xl mx-auto">
+        <DataSuspense
+          loading={loading}
+          error={error}
+          errorComponent={
+            <ErrorMessage
+              message={error?.message || t('Could not find user')}
+            />
+          }
+        >
           <ProfileBadge user={user!} />
-          <div className="mb-8"></div>
-          <Outlet />
-        </div>
-      </Container>
-    </DataSuspense>
+        </DataSuspense>
+        <div className="mb-8"></div>
+        <Outlet />
+      </div>
+    </Container>
   );
 }
 

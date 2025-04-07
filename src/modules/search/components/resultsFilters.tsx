@@ -1,4 +1,4 @@
-import genders from '@shared/constants/genders.json';
+import genders from '@/shared/constants/genders';
 import estados from '@shared/constants/estados.json';
 import { useMemo, useState } from 'react';
 import { ExtraFilters } from './extraFilters';

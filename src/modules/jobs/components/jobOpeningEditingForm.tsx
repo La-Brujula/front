@@ -8,7 +8,7 @@ import {
 import AreaForms from '@/modules/auth/components/areaForm';
 import { useTranslation } from 'react-i18next';
 import Input from '@/shared/components/input';
-import GENDERS from '@/shared/constants/genders.json';
+import GENDERS from '@/shared/constants/genders';
 import { LanguageListForm } from '@/modules/auth/components/languageListForm';
 import { UniversidadesSelect } from '@/modules/auth/components/universidadesSelect';
 

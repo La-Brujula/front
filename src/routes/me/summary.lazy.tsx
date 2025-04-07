@@ -94,7 +94,7 @@ function ProfileSummary() {
             {t(user?.country || 'MX', { ns: 'countries' })}
           </p>
         </div>
-        {user?.phoneNumbers?.map((tel) => (
+        {user?.phoneNumbers?.map((tel, i) => (
           <div className="grid grid-cols-subgrid col-span-full">
             <h3>
               <PhoneOutlined />
@@ -102,7 +102,7 @@ function ProfileSummary() {
             <a
               href={`tel:${tel}`}
               className="text-left text-primary underline"
-              key={tel}
+              key={tel + i}
             >
               {tel}
             </a>

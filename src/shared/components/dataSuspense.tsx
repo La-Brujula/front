@@ -11,10 +11,13 @@ type DataSuspenseProps = {
 };
 
 function DataSuspense(props: DataSuspenseProps) {
-  if (props.loading === true) return props.fallback || <Skeleton></Skeleton>;
+  if (props.loading === true) {
+    return props.fallback ?? <Skeleton></Skeleton>;
+  }
   if (!!props.error) {
-    if (props.errorComponent) return props.errorComponent;
-    return <ErrorMessage message={props.error?.message} />;
+    return (
+      props.errorComponent ?? <ErrorMessage message={props.error?.message} />
+    );
   }
   return props.children;
 }

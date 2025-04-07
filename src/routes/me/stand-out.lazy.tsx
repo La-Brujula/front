@@ -1,19 +1,14 @@
 import { UniversidadesSelect } from '@/modules/auth/components/universidadesSelect';
+import useUpdateProfile from '@/modules/me/hooks/updateProfileHook';
 import { ErrorMessage } from '@/shared/components/errorMessage';
 import Input from '@/shared/components/input';
-import { useCurrentProfile } from '@/shared/hooks/useCurrentProfile';
-import { useUpdateMe } from '@/shared/hooks/useUpdateMe';
 import { isApiError } from '@/shared/services/backendFetcher';
-import { IUpdateBackendProfile } from '@/shared/types/user';
-import { ButtonSelect } from '@shared/components/buttonSelect';
-import { LoadingSpinner } from '@shared/components/loadingSpinner';
+import { TProfileUpdateForm, TProfileUpdateRequest } from '@/shared/types/user';
 import {
   createLazyFileRoute,
   useNavigate,
   useRouter,
 } from '@tanstack/react-router';
-import { useCallback } from 'react';
-import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 export const Route = createLazyFileRoute('/me/stand-out')({
@@ -25,57 +20,38 @@ function StandoutPage() {
   const { t } = useTranslation('auth');
   const navigate = useNavigate();
 
-  const { data: user, isLoading: loading } = useCurrentProfile();
-
   const {
-    register: formRegister,
+    user,
+    register,
     handleSubmit,
     formState,
-  } = useForm<IUpdateBackendProfile>({
-    defaultValues: {
-      ...user,
-      remote:
-        user?.remote === undefined
-          ? undefined
-          : user?.remote === true
-            ? 'true'
-            : 'false',
-      probono:
-        user?.probono === undefined
-          ? undefined
-          : user?.probono === true
-            ? 'true'
-            : 'false',
-    },
-  });
+    updateProfile,
+    isPending,
+    error,
+  } = useUpdateProfile();
 
-  const register = useCallback(formRegister, [formRegister]);
-
-  const { mutate, isPending, error: mutateError } = useUpdateMe();
-
-  const onSubmit = async (data: IUpdateBackendProfile) => {
-    mutate(data, {
+  const onSubmit = async (data: TProfileUpdateForm) => {
+    updateProfile(data, {
       onSuccess: () => navigate({ to: '/me/contact', resetScroll: true }),
     });
   };
 
-  return loading ? (
-    <LoadingSpinner />
-  ) : (
+  return (
     <form
       onSubmit={handleSubmit(onSubmit)}
       className="flex flex-col text-left gap-8 mx-auto max-w-lg"
     >
       <p className="col-span-full">*{t('Information')}</p>
       <Input
-        label={t('Agrega un lema o mensaje corto')}
         type="textArea"
+        register={register}
         fieldName="headline"
+        label={t('Agrega un lema o mensaje corto')}
         rows={3}
         maxLength={60}
         inputClass="rounded-md bg-black bg-opacity-20 resize-none col-span-2 p-4 w-full"
-        register={register}
         divClass="w-full"
+        error={formState.errors.headline}
       />
       <div className="flex flex-col gap-4">
         <h3 className="text-primary text-md">
@@ -84,62 +60,58 @@ function StandoutPage() {
         <Input
           divClass="grid grid-cols-subgrid col-span-2 items-center gap-x-4 w-full"
           label={t('¿Cuál es tu radio de trabajo?')}
-          type="select"
+          type="radioGroup"
           fieldName="workRadius"
           register={register}
           items={[
-            ['local', t('Local')],
-            ['state', t('Estatal')],
-            ['national', t('Nacional')],
-            ['international', t('Internacional')],
-          ].map(([key, label]) => ({ key, label }))}
+            { value: 'local', label: t('Local') },
+            { value: 'state', label: t('Estatal') },
+            { value: 'national', label: t('Nacional') },
+            { value: 'international', label: t('Internacional') },
+          ]}
+          error={formState.errors.workRadius}
+        />
+      </div>
+      <div className="flex flex-col gap-4">
+        <h3 className="text-primary text-base">{t('Servicios a distancia')}</h3>
+        <Input
+          label={t('¿Trabajas online?')}
+          type="radioGroup"
+          fieldName="remote"
+          register={register}
+          items={[
+            { value: 'true', label: t('Sí') },
+            { value: 'false', label: t('No') },
+          ]}
+          error={formState.errors.remote}
         />
       </div>
       {user?.type != 'moral' && (
         <div className="flex flex-col gap-4">
           <Input
             label={t('¿Te interesa ser becario o hacer servicio social?')}
-            type="custom"
+            type="radioGroup"
             register={register}
             fieldName="probono"
-            component={ButtonSelect<IUpdateBackendProfile>}
-            buttonDivClass="!justify-start"
             items={[
               { value: 'true', label: t('Sí') },
               { value: 'false', label: t('No') },
             ]}
+            error={formState.errors.probono}
           />
           <Input
             label={t('¿Estudias o estudiaste en alguna de estas escuelas?')}
             type="custom"
             register={register}
             fieldName="university"
-            component={UniversidadesSelect<IUpdateBackendProfile>}
+            component={UniversidadesSelect<TProfileUpdateForm>}
+            error={formState.errors.probono}
           />
         </div>
       )}
-      <div className="flex flex-col gap-4">
-        <h3 className="text-primary text-base">{t('Servicios a distancia')}</h3>
-        <Input
-          label={t('¿Trabajas online?')}
-          type="custom"
-          fieldName="remote"
-          register={register}
-          component={ButtonSelect<IUpdateBackendProfile>}
-          buttonDivClass="!justify-start"
-          items={[
-            { value: 'true', label: t('Sí') },
-            { value: 'false', label: t('No') },
-          ]}
-        />
-      </div>
-      {mutateError && (
+      {error && (
         <ErrorMessage
-          message={
-            isApiError(mutateError)
-              ? mutateError.errorCode
-              : mutateError.message
-          }
+          message={isApiError(error) ? error.errorCode : error.message}
         />
       )}
       <div className="flex flex-row gap-4 self-center">
@@ -151,7 +123,7 @@ function StandoutPage() {
         </div>
         <input
           type="submit"
-          disabled={user === undefined || isPending}
+          disabled={isPending}
           className="border-none"
           value={t('Continuar')}
         />

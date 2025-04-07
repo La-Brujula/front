@@ -3,7 +3,7 @@ import { AxiosError } from 'axios';
 import { useAuth } from '../providers/authProvider';
 import { ApiError, BackendResponse } from '../services/backendFetcher';
 import { updateMe } from '../services/profileServices';
-import { IBackendProfile, IUpdateBackendProfile } from '../types/user';
+import { IBackendProfile, TProfileUpdateRequest } from '../types/user';
 
 export function useUpdateMe() {
   const { isLoggedIn } = useAuth(['isLoggedIn']);
@@ -14,13 +14,15 @@ export function useUpdateMe() {
   return useMutation<
     BackendResponse<IBackendProfile>,
     ApiError | AxiosError,
-    IUpdateBackendProfile
+    TProfileUpdateRequest
   >({
     mutationKey: ['currentUser'],
-    mutationFn: (userInfo: IUpdateBackendProfile) => updateMe(userInfo),
-    onSuccess: (res) => {
-      if (res.isSuccess === false) return;
-      queryClient.setQueryData(['profiles', 'me'], res.entity);
+    mutationFn: (userInfo: TProfileUpdateRequest) => updateMe(userInfo),
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ['profiles', 'me'],
+        refetchType: 'active',
+      });
     },
   });
 }
