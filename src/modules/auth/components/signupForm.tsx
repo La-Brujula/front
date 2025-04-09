@@ -51,38 +51,37 @@ export const SignUpForm = (props: { referal?: string }) => {
       });
       return;
     }
-    console.log(data);
 
-    // mutate(
-    //   {
-    //     email: data.email,
-    //     password: data.password,
-    //     type: data.persona,
-    //     referal: data.referal,
-    //   },
-    //   {
-    //     onError: (err) => {
-    //       if (
-    //         isApiError(err) &&
-    //         err.errorCode === 'SE01' &&
-    //         typeof err.message !== 'string'
-    //       ) {
-    //         for (const error of err.message) {
-    //           if (error.path == 'type') {
-    //             error.path = 'persona';
-    //           }
-    //           setError(error.path as Path<SignupForm>, {
-    //             type: 'custom',
-    //             message: error.msg,
-    //           });
-    //         }
-    //       }
-    //     },
-    //     onSuccess: () => {
-    //       navigate({ to: '/me/basic', resetScroll: true });
-    //     },
-    //   }
-    // );
+    mutate(
+      {
+        email: data.email,
+        password: data.password,
+        type: data.persona,
+        referal: data.referal,
+      },
+      {
+        onError: (err) => {
+          if (
+            isApiError(err) &&
+            err.errorCode === 'SE01' &&
+            typeof err.message !== 'string'
+          ) {
+            for (const error of err.message) {
+              if (error.path == 'type') {
+                error.path = 'persona';
+              }
+              setError(error.path as Path<SignupForm>, {
+                type: 'custom',
+                message: error.msg,
+              });
+            }
+          }
+        },
+        onSuccess: () => {
+          navigate({ to: '/me/basic', resetScroll: true });
+        },
+      }
+    );
   };
 
   return (
