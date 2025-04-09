@@ -28,6 +28,7 @@ function StandoutPage() {
     updateProfile,
     isPending,
     error,
+    setValue,
   } = useUpdateProfile();
 
   const onSubmit = async (data: TProfileUpdateForm) => {
@@ -70,6 +71,7 @@ function StandoutPage() {
             { value: 'international', label: t('Internacional') },
           ]}
           error={formState.errors.workRadius}
+          setValue={setValue}
         />
       </div>
       <div className="flex flex-col gap-4">
@@ -84,6 +86,7 @@ function StandoutPage() {
             { value: 'false', label: t('No') },
           ]}
           error={formState.errors.remote}
+          setValue={setValue}
         />
       </div>
       {user?.type != 'moral' && (
@@ -98,6 +101,7 @@ function StandoutPage() {
               { value: 'false', label: t('No') },
             ]}
             error={formState.errors.probono}
+            setValue={setValue}
           />
           <Input
             label={t('¿Estudias o estudiaste en alguna de estas escuelas?')}

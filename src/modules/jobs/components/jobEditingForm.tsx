@@ -226,6 +226,7 @@ function JobEditingForm(props: {
             value: location,
             label: t(location),
           }))}
+          setValue={setValue}
         />
         {values.job?.location === 'online' && (
           <Input
@@ -238,6 +239,7 @@ function JobEditingForm(props: {
               value: radius,
               label: t(radius),
             }))}
+            setValue={setValue}
           />
         )}
         <Input
@@ -248,6 +250,7 @@ function JobEditingForm(props: {
           required={true}
           error={formState.errors.job?.employment}
           items={EMPLOYMENT_RADIO_OPTIONS}
+          setValue={setValue}
         />
         <Input
           label={t('Descripción de empleo / proyecto')}

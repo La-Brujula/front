@@ -220,6 +220,7 @@ export default function JobCreationForm(props: {
             value: location,
             label: t(location),
           }))}
+          setValue={setValue}
         />
         {location === 'online' && (
           <Input
@@ -232,6 +233,7 @@ export default function JobCreationForm(props: {
               value: radius,
               label: t(radius),
             }))}
+            setValue={setValue}
           />
         )}
         <Input
@@ -242,6 +244,7 @@ export default function JobCreationForm(props: {
           required={true}
           error={formState.errors.employment}
           items={EMPLOYMENT_RADIO_OPTIONS}
+          setValue={setValue}
         />
         <Input
           label={t('Descripción de empleo / proyecto')}

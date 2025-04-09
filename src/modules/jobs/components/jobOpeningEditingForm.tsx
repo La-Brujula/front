@@ -29,7 +29,7 @@ export default function JobOpeningForm(props: {
   errors?: FieldErrorsImpl<TJobOpening>;
   setValue: UseFormSetValue<TJobForm>;
 }) {
-  const { register, errors } = props;
+  const { register, errors, setValue } = props;
   const { t } = useTranslation('jobs');
 
   const [showMore, setShowMore] = useState(false);
@@ -87,6 +87,7 @@ export default function JobOpeningForm(props: {
           { label: t('Sí'), value: '' },
           { label: t('No'), value: 'true' },
         ]}
+        setValue={setValue}
       />
       {!showMore ? (
         <div

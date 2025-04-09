@@ -8,6 +8,7 @@ import {
   PathValue,
   UseFormRegister,
   UseFormRegisterReturn,
+  UseFormSetValue,
 } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import PhoneInput, { Country } from 'react-phone-number-input';
@@ -58,6 +59,7 @@ type InputProps<
                 FieldPath<AssignedFormFields>
               >;
             }[];
+            setValue: UseFormSetValue<AssignedFormFields>;
           }
         : Type extends 'custom'
           ?
@@ -199,7 +201,13 @@ function buildRadioGroup<T extends FieldValues>(
             className="has-[*:checked]:bg-primary has-[*:checked]:!text-white relative w-fit rounded-md border-2 border-primary text-primary cursor-pointer flex items-center justify-center py-2 px-4"
           >
             <input
-              {...registerReturn}
+              {...props.register(props.fieldName, {
+                required: props.required,
+                onChange: (ev) => {
+                  if (!ev.target.checked) return;
+                  props.setValue(props.fieldName, ev.target.value);
+                },
+              })}
               type="radio"
               className="absolute w-full h-full cursor-pointer opacity-0"
               value={item.value}

@@ -26,7 +26,7 @@ const personTypeOptionsGenerator = (t: TFunction) => [
 
 export const SignUpForm = (props: { referal?: string }) => {
   const { signup } = useAuth(['signup']);
-  const { register, handleSubmit, watch, formState, setError } =
+  const { register, handleSubmit, watch, formState, setError, setValue } =
     useForm<SignupForm>({
       defaultValues: {
         referal: props.referal,
@@ -138,6 +138,7 @@ export const SignUpForm = (props: { referal?: string }) => {
           required
           items={personTypeOptions}
           error={formState.errors.persona}
+          setValue={setValue}
         />
       </div>
       {error !== null && (
