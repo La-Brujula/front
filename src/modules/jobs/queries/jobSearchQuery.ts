@@ -109,6 +109,8 @@ export const jobSearchQueryOptions = (search: JobSearch, enabled: boolean) =>
     initialPageParam: 0,
     queryKey: ['jobs', search],
     refetchOnWindowFocus: true,
+    refetchOnMount: true,
+    staleTime: 3000,
     queryFn: async (queryParams) =>
       getFetch<JobDTO[]>('/jobs', {
         params: {
