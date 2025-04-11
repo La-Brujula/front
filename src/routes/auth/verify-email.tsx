@@ -1,15 +1,16 @@
+import {
+  ErrorComponentProps,
+  ErrorRouteComponent,
+  createFileRoute,
+} from '@tanstack/react-router';
+import { useTranslation } from 'react-i18next';
+import { z } from 'zod';
+
 import { verifyEmail } from '@/modules/auth/hooks/emailVerification';
 import { ErrorMessage } from '@/shared/components/errorMessage';
 import { LoadingSpinner } from '@/shared/components/loadingSpinner';
 import { Container } from '@/shared/layout/container';
 import { ApiError } from '@/shared/services/backendFetcher';
-import {
-  createFileRoute,
-  ErrorComponentProps,
-  ErrorRouteComponent,
-} from '@tanstack/react-router';
-import { useTranslation } from 'react-i18next';
-import { z } from 'zod';
 
 const verifyEmailSchema = z.object({
   code: z.string().length(64, 'Badly formatted code, please check again'),
@@ -38,7 +39,7 @@ function WrongCode({ error }: ErrorComponentProps) {
   return (
     <Container
       bg="blue"
-      className="text-white min-h-96"
+      className="min-h-96 text-white"
     >
       <h1>{t('Algo salió mal')}</h1>
       {(error !== undefined && (

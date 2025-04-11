@@ -1,48 +1,32 @@
-import { MouseEventHandler, useCallback } from 'react';
-import useLocalization, { SupportedLocal } from '../hooks/useLocalization';
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 
-const LocaleList = (props: {
-  currentLocale: SupportedLocal;
-  locales: SupportedLocal[];
-  setLocale: (locale: SupportedLocal) => MouseEventHandler;
-}) => {
-  return props.locales.map((locale) => (
-    <button
-      key={locale}
-      className={[
-        'px-2 py-1',
-        props.currentLocale == locale ? 'bg-secondary' : 'bg-transparent',
-      ].join(' ')}
-      onClick={props.setLocale(locale)}
-    >
-      <p className="text-sm">{locale.toUpperCase()}</p>
-    </button>
-  ));
-};
+import useLocalization from '../hooks/useLocalization';
 
-export default function LocalizationMenu(props: {
-  onLocaleCallback?: Function;
-}) {
-  const { locale, locales, setLanguage } = useLocalization();
-
-  const setLocale = useCallback(
-    (lang: SupportedLocal) => () => {
-      setLanguage(lang);
-      props.onLocaleCallback !== undefined && props.onLocaleCallback();
-    },
-    [props.onLocaleCallback, setLanguage]
-  );
+export default function LocalizationMenu() {
+  const { locale: currentLocale, locales, setLanguage } = useLocalization();
 
   return (
     <div
       id="locale-menu"
       className="relative flex flex-row gap-1"
     >
-      <LocaleList
-        currentLocale={locale}
-        locales={locales}
-        setLocale={setLocale}
-      />
+      <ToggleGroup
+        type="single"
+        onValueChange={setLanguage}
+      >
+        {locales.map((locale) => (
+          <ToggleGroupItem
+            key={locale}
+            value={locale}
+            className={[
+              'px-2 py-1',
+              currentLocale == locale ? 'bg-secondary' : 'bg-transparent',
+            ].join(' ')}
+          >
+            {locale.toUpperCase()}
+          </ToggleGroupItem>
+        ))}
+      </ToggleGroup>
     </div>
   );
 }

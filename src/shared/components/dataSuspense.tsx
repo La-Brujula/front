@@ -1,5 +1,7 @@
-import { Skeleton } from '@mui/material';
 import React, { ReactNode } from 'react';
+
+import { Skeleton } from '@/components/ui/skeleton';
+
 import { ErrorMessage } from './errorMessage';
 
 type DataSuspenseProps = {
@@ -11,7 +13,9 @@ type DataSuspenseProps = {
 };
 
 function DataSuspense(props: DataSuspenseProps) {
-  if (props.loading === true) return props.fallback || <Skeleton></Skeleton>;
+  if (props.loading === true) {
+    return props.fallback ?? <Skeleton className="h-12 w-full" />;
+  }
   if (!!props.error) {
     if (props.errorComponent) return props.errorComponent;
     return <ErrorMessage message={props.error?.message} />;

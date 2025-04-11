@@ -1,26 +1,25 @@
-import universidades from '@shared/constants/universidades.json';
-import { FieldValues, Path, UseFormRegister } from 'react-hook-form';
+import { FieldValues, Path, UseFormReturn } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
+import Input from '@/shared/components/input';
+
+import universidades from '@shared/constants/universidades.json';
+
 export function UniversidadesSelect<T extends FieldValues>(props: {
-  register: UseFormRegister<T>;
+  form: UseFormReturn<T>;
   fieldName: Path<T>;
   placeholder?: string;
+  label?: string;
 }) {
   const { t } = useTranslation('auth');
   return (
-    <select {...props.register(props.fieldName)}>
-      <option value="">
-        {props.placeholder || t('Seleccione una opción')}
-      </option>
-      {universidades.map((uni) => (
-        <option
-          value={uni}
-          key={uni}
-        >
-          {uni}
-        </option>
-      ))}
-    </select>
+    <Input
+      type="select"
+      fieldName={props.fieldName}
+      form={props.form}
+      label={props.label}
+      items={universidades.map((uni) => ({ value: uni, label: uni }))}
+      placeholder={props.placeholder || t('Seleccione una opción')}
+    />
   );
 }

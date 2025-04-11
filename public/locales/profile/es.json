@@ -8,8 +8,7 @@
   "Dejar de recomendar": "Dejar de recomendar",
   "Recomendar": "Recomendar",
   "Brújulas de recomendación": "Brújulas de recomendación",
-  "Ocultar recomendaciones": "Ocultar recomendaciones",
-  "Mostrar recomendaciones": "Mostrar recomendaciones",
+  "Recomendaciones": "Recomendaciones",
   "Editar foto de fondo": "Editar foto de fondo",
   "Editar foto de perfil": "Editar foto de perfil",
   "Universidad": "Universidad",
@@ -20,5 +19,7 @@
   "Asociaciones": "Asociaciones",
   "Certificaciones": "Certificaciones",
   "Reconocimientos": "Reconocimientos",
-  "Borrar cuenta": "Borrar cuenta"
+  "Borrar cuenta": "Borrar cuenta",
+  "Ocultar recomendaciones": "Ocultar recomendaciones",
+  "Mostrar recomendaciones": "Mostrar recomendaciones"
 }

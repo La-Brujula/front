@@ -1,16 +1,50 @@
-import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import React, { HTMLInputTypeAttribute, useMemo } from 'react';
+
+import { ChevronsUpDownIcon } from 'lucide-react';
 import {
+  ControllerRenderProps,
   FieldError,
   FieldPath,
   FieldValues,
-  Path,
-  UseFormRegister,
-  UseFormRegisterReturn,
+  PathValue,
+  UseFormReturn,
 } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import PhoneInput, { Country } from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
+
+import { Button } from '@/components/ui/button';
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from '@/components/ui/command';
+import {
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
+import { Input as InputComponent } from '@/components/ui/input';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import { Switch } from '@/components/ui/switch';
+import { Textarea } from '@/components/ui/textarea';
 
 // t(errors:invalid_enum_value)
 // t(errors:invalid_type)
@@ -20,15 +54,14 @@ type InputProps<
   Type extends
     | 'textArea'
     | 'select'
-    | 'groupedSelect'
     | 'custom'
     | 'radioGroup'
     | HTMLInputTypeAttribute,
   AssignedFormFields extends FieldValues,
 > = {
   type: Type;
-  label: string;
-  register: UseFormRegister<AssignedFormFields>;
+  label?: string;
+  form: UseFormReturn<AssignedFormFields>;
   fieldName: FieldPath<AssignedFormFields>;
   inputClass?: string;
   divClass?: string;
@@ -37,170 +70,124 @@ type InputProps<
   error?: FieldError;
   helperText?: string;
   hiddenLabel?: boolean;
-} & (Type extends 'textArea'
-  ? React.TextareaHTMLAttributes<HTMLTextAreaElement>
-  : Type extends 'select'
+  placeholder?: string;
+} & (Type extends 'select'
+  ? {
+      items: {
+        label: string;
+        value: string;
+      }[];
+    }
+  : Type extends 'radioGroup'
     ? {
-        items: { key: string; label: string; className?: string }[];
-      } & React.SelectHTMLAttributes<HTMLSelectElement>
-    : Type extends 'groupedSelect'
-      ? {
-          value: string;
-          groupedItems: { [k: string]: { key: string; label: string }[] };
-        }
-      : Type extends 'radioGroup'
+        items: {
+          label: string;
+          value: PathValue<AssignedFormFields, FieldPath<AssignedFormFields>>;
+        }[];
+      }
+    : Type extends 'tel'
+      ? { country?: Country }
+      : Type extends HTMLInputTypeAttribute
         ? {
-            items: { label: string; value: string | number }[];
+            maxLength?: number;
+            autoComplete?: string;
           }
-        : Type extends 'custom'
-          ?
-              | {
-                  component: React.FunctionComponent<
-                    | {
-                        register: UseFormRegister<AssignedFormFields>;
-                        fieldName: Path<AssignedFormFields>;
-                      }
-                    | { [k: string]: any }
-                  >;
-                }
-              | { [k: string]: any }
-          : Type extends 'tel'
-            ? { country?: Country; value?: string }
-            : Type extends HTMLInputTypeAttribute
-              ? {
-                  maxLength?: number;
-                  autoComplete?: string;
-                } & React.DetailedHTMLProps<
-                  React.InputHTMLAttributes<HTMLInputElement>,
-                  HTMLInputElement
-                >
-              : {});
+        : {});
 
-const internalProps = [
-  'label',
-  'register',
-  'fieldName',
-  'inputClass',
-  'divClass',
-  'labelClass',
-  'required',
-  'setValue',
-];
-function buildGroupedSelect<T extends FieldValues>(
-  props: InputProps<'groupedSelect', T>,
-  registerReturn: UseFormRegisterReturn
-) {
-  return (
-    <FormControl size="small">
-      <InputLabel>{props.label}</InputLabel>
-      <Select
-        {...registerReturn}
-        id={props.fieldName}
-        className={props.inputClass}
-        value={props.value}
-        label={props.label}
-      >
-        {Object.entries(props.groupedItems).map(([group, items]) => (
-          <>
-            {/* <ListSubheader>{group}</ListSubheader> */}
-            {items.map(({ key, label }) => (
-              <MenuItem
-                key={key}
-                value={key}
-              >
-                {label}
-              </MenuItem>
-            ))}
-          </>
-        ))}
-      </Select>
-    </FormControl>
-  );
-}
-
-function buildSelect<T extends FieldValues>(
-  props: InputProps<'select', T>,
-  registerReturn: UseFormRegisterReturn
-) {
-  return (
-    <select
-      {...registerReturn}
-      id={props.fieldName}
-      className={props.inputClass}
+function buildSelect<T extends FieldValues>(props: InputProps<'select', T>) {
+  return (field: ControllerRenderProps<T>) => (
+    <Select
+      onValueChange={field.onChange}
+      defaultValue={field.value}
     >
-      <option
-        value=""
-        disabled
-        selected
-      >
-        Selecciona una opción
-      </option>
-      {props.items.map(({ key, label, className }) => (
-        <option
-          key={key}
-          value={key}
-          className={className}
-        >
-          {label}
-        </option>
-      ))}
-    </select>
+      <FormControl>
+        <SelectTrigger>
+          <SelectValue placeholder={props.placeholder} />
+        </SelectTrigger>
+      </FormControl>
+      <SelectContent>
+        {props.items.map(({ value, label }) => (
+          <SelectItem
+            key={value}
+            value={value}
+          >
+            {label}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
   );
 }
 
 function buildTextArea<T extends FieldValues>(
-  props: InputProps<'textArea', T>,
-  registerReturn: UseFormRegisterReturn
+  props: InputProps<'textArea', T>
 ) {
-  return (
-    <textarea
+  return (field: ControllerRenderProps<T>) => (
+    <Textarea
       id={props.fieldName}
-      className={props.inputClass}
-      rows={props.rows || 3}
-      {...registerReturn}
+      placeholder={props.placeholder}
+      {...field}
     />
   );
 }
 
 function buildInput<T extends FieldValues>(
-  props: InputProps<HTMLInputTypeAttribute, T>,
-  registerReturn: UseFormRegisterReturn
+  props: InputProps<HTMLInputTypeAttribute, T>
 ) {
-  const allowedProps = Object.fromEntries(
-    Object.entries(props).filter(([k, _]) => !internalProps.includes(k))
-  );
-  return (
-    <input
-      className={props.inputClass}
-      {...allowedProps}
+  return (field: ControllerRenderProps<T>) => (
+    <InputComponent
+      {...field}
+      type={props.type}
       id={props.fieldName}
-      {...registerReturn}
     />
   );
 }
 
+function buildTelInput<T extends FieldValues>(props: InputProps<'tel', T>) {
+  return (field: ControllerRenderProps<T>) => (
+    <PhoneInput
+      defaultCountry={props.country}
+      value={field.value}
+      international={true}
+      withCountryCallingCode={true}
+      onChange={(value) => {
+        field.onChange({ target: { value } });
+      }}
+    />
+  );
+}
+
+function buildSwitchInput<T extends FieldValues>() {
+  return (field: ControllerRenderProps<T>) => (
+    <div className="">
+      <Switch
+        checked={field.value}
+        onCheckedChange={field.onChange}
+      />
+    </div>
+  );
+}
+
 function buildRadioGroup<T extends FieldValues>(
-  props: InputProps<'radioGroup', T>,
-  registerReturn: UseFormRegisterReturn
+  props: InputProps<'radioGroup', T>
 ) {
-  return (
-    <fieldset className="flex flex-row flex-wrap gap-4 items-stretch md:items-center justify-center">
-      {props.items.map((item) => {
-        return (
-          <div className="has-[*:checked]:bg-primary has-[*:checked]:!text-white  relative w-fit rounded-md ring ring-primary text-primary cursor-pointer flex items-center justify-center py-2 px-4">
-            <input
-              {...props.register(props.fieldName, props)}
-              type="radio"
-              className="absolute w-full h-full cursor-pointer opacity-0"
-              key={item.value}
-              id={props.fieldName + item.value}
-              value={item.value}
-            />
-            <span>{item.label}</span>
-          </div>
-        );
-      })}
-    </fieldset>
+  return (field: ControllerRenderProps<T>) => (
+    <RadioGroup
+      onValueChange={field.onChange}
+      defaultValue={field.value}
+    >
+      {props.items.map((item) => (
+        <FormItem
+          key={`${props.fieldName}-${item.value}`}
+          className="relative flex w-fit cursor-pointer items-center justify-center rounded-md border-2 border-primary px-4 py-2 text-primary has-[*:checked]:bg-primary has-[*:checked]:!text-white"
+        >
+          <FormControl>
+            <RadioGroupItem value={item.value} />
+          </FormControl>
+          <FormLabel>{item.label}</FormLabel>
+        </FormItem>
+      ))}
+    </RadioGroup>
   );
 }
 
@@ -210,95 +197,51 @@ type InputTypes =
   | 'groupedSelect'
   | 'radioGroup'
   | 'custom'
+  | 'switch'
   | HTMLInputTypeAttribute;
 
 function Input<F extends InputTypes, T extends FieldValues>(
   props: InputProps<F, T>
 ) {
-  const { t } = useTranslation('errors');
-  const registerReturn = useMemo(
-    () => props.register(props.fieldName, { required: props.required }),
-    [props]
-  );
-  let inputElement;
-  switch (props.type) {
-    case 'textArea':
-      inputElement = buildTextArea(
-        props as InputProps<'textArea', T>,
-        registerReturn
-      );
-      break;
-    case 'select':
-      inputElement = buildSelect(
-        props as InputProps<'select', T>,
-        registerReturn
-      );
-      break;
-    case 'groupedSelect':
-      inputElement = buildGroupedSelect(
-        props as InputProps<'groupedSelect', T>,
-        registerReturn
-      );
-      break;
-    case 'radioGroup':
-      inputElement = buildRadioGroup(
-        props as InputProps<'radioGroup', T>,
-        registerReturn
-      );
-      break;
-    case 'custom':
-      const CustomElement = (props as InputProps<'custom', T>).component;
-      inputElement = <CustomElement {...props} />;
-      break;
-    case 'tel':
-      inputElement = (
-        <PhoneInput
-          defaultCountry={(props as InputProps<'tel', T>).country}
-          {...props}
-          {...registerReturn}
-          value=""
-          onChange={(value) => {
-            registerReturn.onChange({ target: { value } });
-          }}
-        />
-      );
-      break;
-    default:
-      inputElement = buildInput(
-        {
+  let inputElement = useMemo(() => {
+    switch (props.type) {
+      case 'textArea':
+        return buildTextArea(props as InputProps<'textArea', T>);
+      case 'select':
+        return buildSelect(props as InputProps<'select', T>);
+      case 'radioGroup':
+        return buildRadioGroup(props as InputProps<'radioGroup', T>);
+      case 'tel':
+        return buildTelInput(props as InputProps<'tel', T>);
+      case 'switch':
+        return buildSwitchInput<T>();
+      default:
+        return buildInput({
           ...props,
           inputClass: [props.inputClass, 'w-full'].join(' '),
-        } as InputProps<HTMLInputTypeAttribute, T>,
-        registerReturn
-      );
-      break;
-  }
+        } as InputProps<HTMLInputTypeAttribute, T>);
+    }
+  }, [props]);
 
   return (
-    <div
-      className={['flex flex-col gap-2 text-left', props.divClass].join(' ')}
-    >
-      {!props.hiddenLabel && (
-        <label
-          htmlFor={props.fieldName}
-          className={[
-            props.labelClass,
-            props.required !== true && ' opacity-80 font-normal',
-            props.error !== undefined && ' text-red-500',
-          ].join(' ')}
-        >
-          {props.label}
-          {props.required && ' *'}
-        </label>
+    <FormField
+      control={props.form.control}
+      name={props.fieldName}
+      render={({ field }) => (
+        <FormItem>
+          {!!props.label && !props.hiddenLabel && (
+            <FormLabel>
+              {props.label} {props.required && ' *'}
+            </FormLabel>
+          )}
+          <FormControl>{inputElement(field)}</FormControl>
+          {props.helperText !== undefined && (
+            <FormDescription>{props.helperText}</FormDescription>
+          )}
+          <FormMessage />
+        </FormItem>
       )}
-      {inputElement}
-      {props.helperText !== undefined && props.error === undefined && (
-        <p className="text-xs">{props.helperText}</p>
-      )}
-      {props.error !== undefined && (
-        <p className="text-red-500">{t(props.error.message || '')}</p>
-      )}
-    </div>
+    ></FormField>
   );
 }
 

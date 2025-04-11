@@ -1,15 +1,17 @@
-import areas from '@/shared/constants/areas';
-
-import { UseFormRegister } from 'react-hook-form';
-import { Search } from '../types/searchParams';
-import { useTranslation } from 'react-i18next';
-import Input from '@/shared/components/input';
-import { getSubAreaObjectFromId, getTitle } from '@/shared/utils/areaUtils';
 import { useMemo } from 'react';
+
+import { UseFormReturn } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
+
+import Input from '@/shared/components/input';
+import areas from '@/shared/constants/areas';
 import useLocalization from '@/shared/hooks/useLocalization';
+import { getSubAreaObjectFromId, getTitle } from '@/shared/utils/areaUtils';
+
+import { Search } from '../types/searchParams';
 
 function ActivityFilter(props: {
-  register: UseFormRegister<Search>;
+  form: UseFormReturn<Search>;
   filters: Search;
 }) {
   const { t } = useTranslation(['search', 'activityMatrix']);
@@ -18,9 +20,8 @@ function ActivityFilter(props: {
   const areasOptions = useMemo(
     () =>
       areas.map((area) => ({
-        key: area.id,
+        value: area.id,
         label: t(area.name, { ns: 'activityMatrix' }),
-        className: 'font-bold text-xs',
       })),
     [areas]
   );
@@ -30,7 +31,7 @@ function ActivityFilter(props: {
         ? areas
             .find((area) => area.id == props.filters.area)
             ?.subareas.map((subarea) => ({
-              key: subarea.id,
+              value: subarea.id,
               label: t(subarea.name, { ns: 'activityMatrix' }),
             }))
         : undefined,
@@ -43,7 +44,7 @@ function ActivityFilter(props: {
         ? Object.keys(getSubAreaObjectFromId(props.filters.category))
             .filter((activity) => getTitle(activity, 'other'))
             .map((activity) => ({
-              key: activity,
+              value: activity,
               label: getTitle(activity, 'other', locale),
             }))
         : undefined,
@@ -54,30 +55,27 @@ function ActivityFilter(props: {
     <>
       <Input
         label={t('Área')}
-        register={props.register}
+        form={props.form}
         fieldName="area"
         type="select"
         items={areasOptions}
-        value={props.filters.area}
       />
       {categories !== undefined && (
         <Input
           label={t('Categoría')}
-          register={props.register}
+          form={props.form}
           fieldName="category"
           type="select"
           items={categories}
-          value={props.filters.category}
         />
       )}
       {activities !== undefined && (
         <Input
           label={t('Actividad')}
-          register={props.register}
+          form={props.form}
           fieldName="activity"
           type="select"
           items={activities}
-          value={props.filters.activity}
         />
       )}
     </>

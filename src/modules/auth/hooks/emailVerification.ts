@@ -1,5 +1,6 @@
-import { postFetch } from '@/shared/services/backendFetcher';
 import { useMutation } from '@tanstack/react-query';
+
+import { postFetch } from '@/shared/services/backendFetcher';
 
 const BASE_URL = '/auth/verifyEmail';
 

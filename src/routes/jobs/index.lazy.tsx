@@ -1,19 +1,21 @@
-import { createLazyFileRoute, Link, useNavigate } from '@tanstack/react-router';
 import { useCallback, useEffect, useMemo } from 'react';
-import { LoadingSpinner } from '@/shared/components/loadingSpinner';
-import { useInView } from 'react-intersection-observer';
-import ErrorMessage from '@/shared/components/errorMessage';
+
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { useTranslation } from 'react-i18next';
+import { Link, createLazyFileRoute, useNavigate } from '@tanstack/react-router';
+import { SearchIcon } from 'lucide-react';
 import { Controller, useForm } from 'react-hook-form';
-import { SearchOutlined } from '@mui/icons-material';
-import { Container } from '@/shared/layout/container';
-import { jobSearchQueryOptions } from '@/modules/jobs/queries/jobSearchQuery';
-import DataSuspense from '@/shared/components/dataSuspense';
-import { JobsList } from '@/modules/jobs/components/jobList';
-import { JobSearch } from '@/modules/jobs/types/searchParams';
-import { useCurrentProfile } from '@/shared/hooks/useCurrentProfile';
+import { useTranslation } from 'react-i18next';
+import { useInView } from 'react-intersection-observer';
+
 import { LoginForm } from '@/modules/auth/components/loginForm';
+import { JobsList } from '@/modules/jobs/components/jobList';
+import { jobSearchQueryOptions } from '@/modules/jobs/queries/jobSearchQuery';
+import { JobSearch } from '@/modules/jobs/types/searchParams';
+import DataSuspense from '@/shared/components/dataSuspense';
+import ErrorMessage from '@/shared/components/errorMessage';
+import { LoadingSpinner } from '@/shared/components/loadingSpinner';
+import { useCurrentProfile } from '@/shared/hooks/useCurrentProfile';
+import { Container } from '@/shared/layout/container';
 
 export const Route = createLazyFileRoute('/jobs/')({
   component: SearchHomepage,
@@ -103,19 +105,19 @@ function SearchHomepage() {
 
   return (
     <>
-      <Container className="flex flex-row justify-center items-center">
+      <Container className="flex flex-row items-center justify-center">
         <div className="flex flex-row justify-center !p-0">
           {profile?.verified ? (
             <Link
               to="/jobs/create"
-              className="px-8 py-4 rounded-md bg-primary text-white text-base font-bold text-center"
+              className="rounded-md bg-primary px-8 py-4 text-center text-base font-bold text-white"
             >
               {t('Crea una nueva oferta laboral')}
             </Link>
           ) : (
             <Link
               to="/auth/send-verification"
-              className="px-8 py-4 rounded-md bg-secondary text-white text-base font-bold text-center"
+              className="rounded-md bg-secondary px-8 py-4 text-center text-base font-bold text-white"
             >
               {t('Verifica tu cuenta para crear una oferta')}
             </Link>
@@ -127,16 +129,11 @@ function SearchHomepage() {
         bodyClass="w-full flex flex-col md:grid grid-cols-[1fr_10rem] gap-4 text-white font-bold items-center px-4"
         bg="light-gray"
       >
-        <h3 className="col-span-full text-primary font-bold text-xl">
+        <h3 className="col-span-full text-xl font-bold text-primary">
           {t('o encuentra un empleo')}:
         </h3>
-        <div
-          className="font-bold border-2 border-black bg-transparent
-          text-black placeholder:text-black flex flex-row gap-1
-          justify-start items-center px-2 mx-auto rounded-md
-          z-10 w-full"
-        >
-          <SearchOutlined />
+        <div className="z-10 mx-auto flex w-full flex-row items-center justify-start gap-1 rounded-md border-2 border-black bg-transparent px-2 font-bold text-black placeholder:text-black">
+          <SearchIcon />
           <Controller
             name="query"
             control={control}
@@ -145,8 +142,7 @@ function SearchHomepage() {
                 type="text"
                 {...field}
                 id="search-field"
-                className="border-none bg-transparent focus:outline-none w-full
-              placeholder:text-black placeholder:opacity-50"
+                className="w-full border-none bg-transparent placeholder:text-black placeholder:opacity-50 focus:outline-none"
                 placeholder={t('Ingresa tu búsqueda')}
                 onChange={(ev) => {
                   if (ev.target.value === '') {
@@ -160,7 +156,7 @@ function SearchHomepage() {
             )}
           />
         </div>
-        <div className="flex flex-row gap-2 items-center text-black">
+        <div className="flex flex-row items-center gap-2 text-black">
           <p>
             {t('{{count}} resultado', {
               count: results?.pages[0].meta?.total || 0,
@@ -169,7 +165,7 @@ function SearchHomepage() {
         </div>
       </Container>
       <Container className="relative !pt-0">
-        <div className="grid grid-cols-1 gap-12 mt-16">
+        <div className="mt-16 grid grid-cols-1 gap-12">
           {!profile && (
             <div className="flex flex-col">
               <h1>{t('Sesión no iniciada')}</h1>
@@ -180,14 +176,8 @@ function SearchHomepage() {
             </div>
           )}
           {!!profile && (
-            <div
-              className="flex flex-col gap-8 text-left bg-black bg-opacity-20
-          rounded-l-3xl px-8 pb-8 w-full relative"
-            >
-              <div
-                className="w-[50vw] absolute left-[100%] top-0 h-full bg-black
-            bg-opacity-20 -z-10 hidden"
-              ></div>
+            <div className="relative flex w-full flex-col gap-8 rounded-l-3xl bg-black bg-opacity-20 px-8 pb-8 text-left">
+              <div className="absolute left-[100%] top-0 -z-10 hidden h-full w-[50vw] bg-black bg-opacity-20"></div>
               <DataSuspense
                 loading={loading}
                 error={error}

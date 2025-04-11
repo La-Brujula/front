@@ -1,8 +1,10 @@
-import { IBackendProfile } from '@/shared/types/user';
-import ErrorMessage from '@shared/components/errorMessage';
-import { getTitle } from '@shared/utils/areaUtils';
 import { Link } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
+
+import { IBackendProfile } from '@/shared/types/user';
+
+import ErrorMessage from '@shared/components/errorMessage';
+import { getTitle } from '@shared/utils/areaUtils';
 
 export const ProfileBadge = ({
   user,
@@ -11,14 +13,13 @@ export const ProfileBadge = ({
 }) => {
   const { t } = useTranslation('profile');
   return !!user?.id ? (
-    <div className="flex flex-row gap-6 max-w-xs mx-auto items-center">
+    <div className="mx-auto flex max-w-xs flex-row items-center gap-6">
       {!!user.profilePictureUrl ? (
         <img
           src={user.profilePictureUrl}
           crossOrigin="anonymous"
           alt={`${user.nickName || user.fullName} profile picture`}
-          className="size-20 rounded-full shrink-0 row-span-2 object-cover
-          object-center"
+          className="row-span-2 size-20 shrink-0 rounded-full object-cover object-center"
         />
       ) : (
         <img
@@ -28,8 +29,7 @@ export const ProfileBadge = ({
               : '/guias/fotoDePerfil/Monito.jpg'
           }
           alt="ImagenPredeterminada"
-          className="size-20 rounded-full bg-white shrink-0 row-span-2
-          object-cover object-center"
+          className="row-span-2 size-20 shrink-0 rounded-full bg-white object-cover object-center"
           loading="eager"
         />
       )}

@@ -1,7 +1,9 @@
 import { infiniteQueryOptions } from '@tanstack/react-query';
-import { Search } from '../types/searchParams';
+
+import countryCodes from '@/shared/constants/countryCodes';
 import { getFetch } from '@/shared/services/backendFetcher';
-import countries from '@/shared/constants/countryFlags.json';
+
+import { Search } from '../types/searchParams';
 
 export type UserDTO = {
   id: string;
@@ -15,7 +17,7 @@ export type UserDTO = {
   secondaryActivity?: string;
   thirdActivity?: string;
   gender?: 'male' | 'female' | 'other';
-  country?: keyof typeof countries;
+  country?: (typeof countryCodes)[number];
   location?: string;
   profilePictureUrl?: string;
   headline?: string;

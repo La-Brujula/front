@@ -1,8 +1,12 @@
-import { IBackendProfile } from '@/shared/types/user';
-import { CancelOutlined, SaveOutlined } from '@mui/icons-material';
 import { Dispatch, useCallback, useMemo } from 'react';
-import ImageField from './uploadImage';
+
+import { RotateCcwIcon, SaveIcon } from 'lucide-react';
+
+import { Button } from '@/components/ui/button';
+import { IBackendProfile } from '@/shared/types/user';
+
 import { useUploadProfileImage } from '../hooks/useUploadProfileImage';
+import ImageField from './uploadImage';
 
 export function UpdateImageControls(props: {
   user: IBackendProfile;
@@ -46,7 +50,7 @@ export function UpdateImageControls(props: {
   }, [upload, props]);
 
   return (
-    <div className="flex flex-row gap-4 justify-end">
+    <div className="flex flex-row justify-end gap-4">
       {currentPicture === props.imageUrl ? (
         <ImageField
           setImageUrl={props.setImageUrl}
@@ -54,22 +58,24 @@ export function UpdateImageControls(props: {
         />
       ) : (
         <>
-          <button
+          <Button
+            size="icon"
             onClick={resetInput}
-            className="p-2 rounded-md bg-red-500 text-white"
+            className="rounded-md bg-red-500 p-2 text-white"
           >
-            <CancelOutlined />
-          </button>
-          <button
+            <RotateCcwIcon />
+          </Button>
+          <Button
+            size="icon"
             onClick={uploadImage}
-            className="p-2 rounded-md bg-green-500 text-white"
+            className="rounded-md bg-green-500 p-2 text-white"
           >
             {isPending ? (
-              <div className="size-4 border rounded-xl border-dashed border-white" />
+              <div className="size-4 rounded-xl border border-dashed border-white" />
             ) : (
-              <SaveOutlined />
+              <SaveIcon />
             )}
-          </button>
+          </Button>
         </>
       )}
     </div>

@@ -1,12 +1,18 @@
-import { lang, proficiency } from '@/shared/types/languages';
-import { DeleteOutline } from '@mui/icons-material';
-import CloseOutlined from '@mui/icons-material/CloseOutlined';
-import { Tooltip } from '@mui/material';
-import IconButton from '@mui/material/IconButton';
-import languages from '@shared/constants/languages.json';
 import { ChangeEvent, useEffect, useReducer } from 'react';
+
+import { TrashIcon, XIcon } from 'lucide-react';
 import { FieldValues, Path, SetFieldValue } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+
+import { Button } from '@/components/ui/button';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
+import { lang, proficiency } from '@/shared/types/languages';
+
+import languages from '@shared/constants/languages.json';
 
 interface language {
   id: number;
@@ -120,8 +126,8 @@ export function LanguageListForm<T extends FieldValues>(props: {
               key={value.id}
               className="mb-8"
             >
-              <div className="mb-4 flex flex-col md:flex-row gap-4">
-                <div className="flex flex-col gap-4 w-full">
+              <div className="mb-4 flex flex-col gap-4 md:flex-row">
+                <div className="flex w-full flex-col gap-4">
                   {value.type == 'select' ? (
                     <select
                       onChange={updateValue(value.id, 'lang')}
@@ -147,7 +153,7 @@ export function LanguageListForm<T extends FieldValues>(props: {
                         className="grow"
                         value={value.lang}
                       />
-                      <IconButton
+                      <Button
                         onClick={() =>
                           dispatch({
                             type: 'change',
@@ -156,15 +162,20 @@ export function LanguageListForm<T extends FieldValues>(props: {
                           })
                         }
                       >
-                        <Tooltip title={t('Volver a lista')}>
-                          <DeleteOutline />
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <TrashIcon />
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>{t('Volver a lista')}</p>
+                          </TooltipContent>
                         </Tooltip>
-                      </IconButton>
+                      </Button>
                     </div>
                   )}
                 </div>
                 {(state.length > 1 || props.allowNull) && (
-                  <IconButton
+                  <Button
                     onClick={() =>
                       dispatch({
                         type: 'remove',
@@ -172,14 +183,19 @@ export function LanguageListForm<T extends FieldValues>(props: {
                       })
                     }
                   >
-                    <Tooltip title={t('Borrar')}>
-                      <CloseOutlined />
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <XIcon />
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>{t('Borrar')}</p>
+                      </TooltipContent>
                     </Tooltip>
-                  </IconButton>
+                  </Button>
                 )}
               </div>
               <div className="grow">
-                <div className="flex flex-row flex-wrap gap-4 items-stretch md:items-center justify-center mb-4">
+                <div className="mb-4 flex flex-row flex-wrap items-stretch justify-center gap-4 md:items-center">
                   {(
                     [
                       'basic',
@@ -194,7 +210,7 @@ export function LanguageListForm<T extends FieldValues>(props: {
                         'flex flex-col gap-2 text-left',
                         'relative w-fit rounded-md ring-2 ring-primary',
                         'text-primary has-[:checked]:bg-primary has-[:checked]:text-white',
-                        'flex items-center justify-center py-2 px-4',
+                        'flex items-center justify-center px-4 py-2',
                       ].join(' ')}
                     >
                       <label>{t(proficiency)}</label>
@@ -212,8 +228,7 @@ export function LanguageListForm<T extends FieldValues>(props: {
             </div>
           ))}
         <div
-          className="cursor-pointer mt-6 px-4 py-2 bg-secondary text-white
-        rounded-md mx-auto w-fit"
+          className="mx-auto mt-6 w-fit cursor-pointer rounded-md bg-secondary px-4 py-2 text-white"
           onClick={() => dispatch({ type: 'add' })}
         >
           {t('Agregar otro idioma')}

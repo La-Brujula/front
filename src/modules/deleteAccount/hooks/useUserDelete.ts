@@ -1,8 +1,9 @@
-import { useAuth } from '@/shared/providers/authProvider';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
+
+import { useAuth } from '@/shared/providers/authProvider';
 import { deleteFetch } from '@/shared/services/backendFetcher';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 export function useDeleteMyUser() {
   const { t } = useTranslation();

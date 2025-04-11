@@ -1,8 +1,10 @@
+import React, { useEffect } from 'react';
+
+import { Link, createLazyFileRoute, useNavigate } from '@tanstack/react-router';
+import { useTranslation } from 'react-i18next';
+
 import { useLoggedInAccount } from '@/shared/hooks/useLoggedInAccount';
 import { Container } from '@/shared/layout/container';
-import { createLazyFileRoute, Link, useNavigate } from '@tanstack/react-router';
-import React, { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 
 export const Route = createLazyFileRoute('/auth/verify-email')({
   component: React.memo(VerifyEmail),
@@ -28,7 +30,7 @@ function VerifyEmail() {
       bg="light"
       className="min-h-96"
     >
-      <div className="bg-emerald-500 bg-opacity-25 border border-emerald-500">
+      <div className="border border-emerald-500 bg-emerald-500 bg-opacity-25">
         <h2>{t('Se verificó tu correo existósamente')}</h2>
         <Link
           to={account !== null ? '/profile/$userId' : '/auth/login'}

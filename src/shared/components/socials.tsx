@@ -1,23 +1,24 @@
 import { useTranslation } from 'react-i18next';
+
 import contactInformation from '../constants/brujulaInformation.json';
 
 export function SocialLinks() {
   const { t } = useTranslation();
   return (
-    <div className="flex flex-col gap-2 lg:gap-4 -order-10 md:order-none">
+    <div className="-order-10 flex flex-col gap-2 md:order-none lg:gap-4">
       <a
         target="_blank"
         href={contactInformation.whatsapp}
-        className="flex flex-row gap-4 items-center self-center mb-4 px-4 py-2 rounded-full bg-primary text-white"
+        className="mb-4 flex flex-row items-center gap-4 self-center rounded-full bg-primary px-4 py-2 text-white"
       >
         <img
           src={import.meta.env.BASE_URL + 'img/support.svg'}
           alt="Soporte"
           className="h-10"
         />
-        <p className="font-bold text-2xl">Soporte</p>
+        <p className="text-2xl font-bold">Soporte</p>
       </a>
-      <div className="flex flex-row gap-8 mx-auto order-last md:order-none">
+      <div className="order-last mx-auto flex flex-row gap-8 md:order-none">
         <a
           target="_blank"
           href={contactInformation.facebook}

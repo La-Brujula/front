@@ -1,31 +1,36 @@
-import { ReactChild } from 'react';
-import { Carousel as ResponsiveCarousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+import { Children, ReactNode } from 'react';
 
-function Carousel(props: { children: ReactChild[]; noBackground?: boolean }) {
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
+
+function ResponsiveCarousel(props: {
+  children: ReactNode;
+  noBackground?: boolean;
+}) {
   const { children, noBackground } = props;
   return (
     <div
       className={[
-        noBackground || 'bg-[linear-gradient(180deg,_#fff0_80%,_#2d7bbf_80%)]',
-        'flex items-center justify-center overflow-hidden',
+        noBackground || 'bg-transparent',
+        'flex items-center justify-center overflow-hidden p-8 px-16',
       ].join(' ')}
     >
-      <ResponsiveCarousel
-        showArrows={true}
-        showThumbs={false}
-        showStatus={false}
-        axis="horizontal"
-        // dynamicHeight={true}
-        infiniteLoop={true}
-        autoPlay={true}
-        interval={5000}
-        stopOnHover={true}
-      >
-        {children}
-      </ResponsiveCarousel>
+      <Carousel opts={{ loop: true }}>
+        <CarouselContent>
+          {Children.map(children, (child) => (
+            <CarouselItem>{child}</CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselNext />
+        <CarouselPrevious />
+      </Carousel>
     </div>
   );
 }
 
-export default Carousel;
+export default ResponsiveCarousel;

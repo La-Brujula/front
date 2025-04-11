@@ -1,18 +1,22 @@
-import ErrorMessage from '@shared/components/errorMessage';
 import { useCallback, useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import AreaForms from '../../modules/auth/components/areaForm.js';
-import { useAreasReducer } from '../../modules/auth/hooks/useAreasReducer.js';
-import { useCurrentProfile } from '@/shared/hooks/useCurrentProfile.js';
+
 import {
   createLazyFileRoute,
   useNavigate,
   useRouter,
 } from '@tanstack/react-router';
-import { useUpdateMe } from '@/shared/hooks/useUpdateMe.js';
-import DataSuspense from '@/shared/components/dataSuspense.js';
-import { Button } from '@/shared/components/button.js';
-import { isApiError } from '@/shared/services/backendFetcher.js';
+import { useTranslation } from 'react-i18next';
+
+import { Button } from '@/components/ui/button';
+import DataSuspense from '@/shared/components/dataSuspense';
+import { useCurrentProfile } from '@/shared/hooks/useCurrentProfile';
+import { useUpdateMe } from '@/shared/hooks/useUpdateMe';
+import { isApiError } from '@/shared/services/backendFetcher';
+
+import ErrorMessage from '@shared/components/errorMessage';
+
+import AreaForms from '../../modules/auth/components/areaForm';
+import { useAreasReducer } from '../../modules/auth/hooks/useAreasReducer';
 
 export const Route = createLazyFileRoute('/me/areas')({
   component: AreasRegistration,
@@ -85,17 +89,14 @@ function AreasRegistration() {
       loading={loading}
       error={userError}
     >
-      <div
-        className="grid grid-cols-[max-content_minmax(12rem,_24rem)]
-        text-left gap-8 mx-auto max-w-lg"
-      >
-        <h2 className="text-primary col-span-full">{t('Áreas')}</h2>
+      <div className="mx-auto grid max-w-lg grid-cols-[max-content_minmax(12rem,_24rem)] gap-8 text-left">
+        <h2 className="col-span-full text-primary">{t('Áreas')}</h2>
         {activities?.map((activity, i) => (
           <div
             key={activity}
-            className="grid grid-cols-1 md:grid-cols-subgrid col-span-full gap-4"
+            className="col-span-full grid grid-cols-1 gap-4 md:grid-cols-subgrid"
           >
-            <h3 className="text-secondary col-span-full text-lg text-left">
+            <h3 className="col-span-full text-left text-lg text-secondary">
               {i === 0
                 ? t('Actividad primaria')
                 : i === 1
@@ -116,8 +117,7 @@ function AreasRegistration() {
           <Button
             onClick={() => dispatch({ type: 'add' })}
             color="primary"
-            variant="filled"
-            className="justify-self-center col-span-full"
+            className="col-span-full justify-self-center"
           >
             {t('Registrar otra actividad')}
           </Button>
@@ -138,20 +138,14 @@ function AreasRegistration() {
             />
           </div>
         )}
-        <div className="grid grid-cols-2 col-span-full">
-          <div
-            className="button font-bold bg-transparent border border-primary text-black"
-            onClick={() => history.back()}
-          >
-            {t('Regresar')}
-          </div>
-          <button
+        <div className="col-span-full grid grid-cols-2">
+          <Button onClick={() => history.back()}>{t('Regresar')}</Button>
+          <Button
             onClick={submitForm}
-            className="button font-bold"
             disabled={isPending}
           >
             {t('Continuar')}
-          </button>
+          </Button>
         </div>
       </div>
     </DataSuspense>

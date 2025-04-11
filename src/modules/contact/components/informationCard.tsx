@@ -1,11 +1,12 @@
-import EmailOutlined from '@mui/icons-material/EmailOutlined';
-import PhoneOutlined from '@mui/icons-material/PhoneOutlined';
-import PinOutlined from '@mui/icons-material/PinDropOutlined';
-import WhatsApp from '@mui/icons-material/WhatsApp';
+import { MailIcon, PhoneIcon, PinIcon } from 'lucide-react';
+import { Trans, useTranslation } from 'react-i18next';
+
+import WhatsApp from '@/shared/icons/whatsapp';
+
 import { SocialLinks } from '@shared/components/socials';
 import contactInformation from '@shared/constants/brujulaInformation.json';
 import { Container } from '@shared/layout/container';
-import { Trans, useTranslation } from 'react-i18next';
+
 //i18next-parser static types
 
 // name
@@ -17,13 +18,8 @@ export function InformationCard() {
   const { t } = useTranslation('contact');
   return (
     <Container bg="bottom-half-grey">
-      <h1 className="mb-8 text-secondary text-4xl">{t('Contacto')}</h1>
-      <div
-        className="bg-primary text-white p-8 grid max-w-6xl
-      gap-x-4 gap-y-4 grid-cols-1 mx-auto rounded-lg text-left
-      lg:grid-cols-[max-content_max-content_1fr] items-center
-      justify-center lg:justify-start mb-8"
-      >
+      <h1 className="mb-8 text-4xl text-secondary">{t('Contacto')}</h1>
+      <div className="mx-auto mb-8 grid max-w-6xl grid-cols-1 items-center justify-center gap-x-4 gap-y-4 rounded-lg bg-primary p-8 text-left text-white lg:grid-cols-[max-content_max-content_1fr] lg:justify-start">
         <WhatsApp />
         <h2 className="text-lg lg:px-4">{t('Whatsapp')}</h2>
         <a
@@ -33,7 +29,7 @@ export function InformationCard() {
           {contactInformation.phoneNumbers[0]}
         </a>
         <div className="h-[2px] rounded-lg bg-white lg:col-span-3" />
-        <PhoneOutlined />
+        <PhoneIcon />
         <h2 className="text-lg lg:px-4">{t('Teléfono')}</h2>
         <p>
           {contactInformation.phoneNumbers.map((phone) => (
@@ -43,15 +39,15 @@ export function InformationCard() {
           ))}
         </p>
         <div className="h-[2px] rounded-lg bg-white lg:col-span-3" />
-        <EmailOutlined />
+        <MailIcon />
         <h2 className="text-lg lg:px-4">{t('Correo electrónico')}</h2>
-        <div className="grid md:grid-cols-[max-content_1fr] gap-x-4">
+        <div className="grid gap-x-4 md:grid-cols-[max-content_1fr]">
           {contactInformation.emails.map(({ name, email }) => (
             <div key={email}>
               <p>{t(name)}</p>
               <a
                 href={`mailto:${email}`}
-                className="block text-white truncate"
+                className="block truncate text-white"
               >
                 {email}
               </a>
@@ -59,7 +55,7 @@ export function InformationCard() {
           ))}
         </div>
         <div className="h-[2px] rounded-lg bg-white lg:col-span-3" />
-        <PinOutlined />
+        <PinIcon />
         <h2 className="text-lg lg:px-4">{t('Visítanos')}</h2>
         <p>
           <Trans

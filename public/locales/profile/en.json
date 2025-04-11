@@ -8,8 +8,7 @@
   "Dejar de recomendar": "Stop recommending",
   "Recomendar": "Recommend",
   "Brújulas de recomendación": "Brújulas of recommendation",
-  "Ocultar recomendaciones": "Hide recommendations",
-  "Mostrar recomendaciones": "Show recommendations",
+  "Recomendaciones": "Recommendations",
   "Editar foto de fondo": "Edit background",
   "Editar foto de perfil": "Edit profile picture",
   "Universidad": "University",
@@ -20,5 +19,7 @@
   "Asociaciones": "Associations",
   "Certificaciones": "Certifications",
   "Reconocimientos": "Awards/Accolades",
-  "Borrar cuenta": "Delete account"
+  "Borrar cuenta": "Delete account",
+  "Ocultar recomendaciones": "Hide recommendations",
+  "Mostrar recomendaciones": "Show recommendations"
 }

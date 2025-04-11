@@ -1,8 +1,10 @@
+import React from 'react';
+
+import { Link } from '@tanstack/react-router';
+import { Trans, useTranslation } from 'react-i18next';
+
 import credits from '@shared/constants/credits.json';
 import { Container } from '@shared/layout/container';
-import { Link } from '@tanstack/react-router';
-import React from 'react';
-import { Trans, useTranslation } from 'react-i18next';
 
 // i18next-parser static types
 
@@ -50,14 +52,8 @@ function CreditsSection() {
   return (
     <Container>
       <div className="flex flex-row gap-8">
-        <div
-          className="bg-primary w-4 rounded-sm
-        lg:ml-16"
-        />
-        <div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4
-      text-left text-primary grow h-fit"
-        >
+        <div className="w-4 rounded-sm bg-primary lg:ml-16" />
+        <div className="grid h-fit grow grid-cols-1 gap-x-8 gap-y-4 text-left text-primary lg:grid-cols-2">
           {credits.map(({ title, name }) => (
             <Credit
               key={title}

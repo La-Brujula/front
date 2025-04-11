@@ -24,8 +24,8 @@ export interface IUpdateAccount {
 }
 
 export const UpdateAccountRequestParams = z.object({
-  contactMethod: z.optional(z.enum(ACCOUNT_CONTACT_METHODS)),
-  jobNotifications: z.preprocess((val) => val === 'true', z.boolean()),
+  contactMethod: z.enum(ACCOUNT_CONTACT_METHODS),
+  jobNotifications: z.boolean(),
 });
 
 export type UpdateAccountRequest = z.infer<typeof UpdateAccountRequestParams>;

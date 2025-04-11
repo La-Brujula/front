@@ -1,4 +1,5 @@
 import areas from '@shared/constants/areas.json';
+
 import { EnumGender } from '../types/genders';
 
 interface translations {

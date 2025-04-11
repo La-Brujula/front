@@ -49,9 +49,7 @@
   "Agregar otra vacante": "Add another opening",
   "Actividad": "Activity",
   "Número de vacantes": "Number of openings",
-  "Trabajo remunerado": "Payed work",
-  "Sí": "Yes",
-  "No": "No",
+  "Trabajo no remunerado": "Probono work",
   "Rango de edad": "Age Range",
   "Rango de edad mínimo": "Age from",
   "Rango de edad máximo": "Age to",
@@ -68,6 +66,7 @@
   "Description": "Description",
   "Fecha de publicación": "Fecha de publicación",
   "Fecha de inicio": "Fecha de inicio",
+  "Trabajo remunerado": "Payed work",
   "Notes": "Notes",
   "Benefits": "Benefits",
   "Special Requirements": "Special Requirements",
@@ -81,6 +80,8 @@
   "No se encontraron resultados": "No results were found",
   "Crear nueva oferta laboral": "Create New Job Opening",
   "Ofertas creadas": "Created offers",
+  "Sí": "Yes",
+  "No": "No",
   "{{requester}} busca a {{count}} {{title}}": "{{requester}} searching for {{count}} {{title}}",
   "Agregar solicitud": "Add Opening",
   "Buscando": "Searching",
@@ -89,6 +90,5 @@
   "Inicia sesión": "Log in",
   "Iniciar sesión": "Log in",
   "intereses de empleos": "Job interests",
-  "Quitar posición": "Remove Opening",
-  "Trabajo no remunerado": "Probono work"
+  "Quitar posición": "Remove Opening"
 }

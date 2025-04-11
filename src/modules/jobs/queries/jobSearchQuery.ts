@@ -4,14 +4,16 @@ import {
   useMutation,
   useQueryClient,
 } from '@tanstack/react-query';
-import { JobSearch, TJobOpening, TJobPosting } from '../types/searchParams';
+
+import { UserDTO } from '@/modules/profile/queries/userProfile';
 import {
   deleteFetch,
   getFetch,
   patchFetch,
   postFetch,
 } from '@/shared/services/backendFetcher';
-import { UserDTO } from '@/modules/profile/queries/userProfile';
+
+import { JobSearch, TJobOpening, TJobPosting } from '../types/searchParams';
 
 export type JobDetailDTO = {
   id: string;
@@ -180,10 +182,6 @@ export const useCreateJob = () => {
       await queryClient.invalidateQueries({
         queryKey: ['jobs'],
         type: 'all',
-        refetchType: 'active',
-      });
-      await queryClient.refetchQueries({
-        queryKey: ['jobs'],
         refetchType: 'active',
       });
     },

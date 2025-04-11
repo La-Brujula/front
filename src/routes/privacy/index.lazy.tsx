@@ -1,5 +1,6 @@
-import { Container } from '@/shared/layout/container';
 import { createLazyFileRoute } from '@tanstack/react-router';
+
+import { Container } from '@/shared/layout/container';
 
 export const Route = createLazyFileRoute('/privacy/')({
   component: PrivacyPage,
@@ -11,7 +12,7 @@ function PrivacyPage() {
       <h1 className="mb-8">
         Políticas de privacidad y uso legal de la Plataforma
       </h1>
-      <div className="*:mb-4 text-justify">
+      <div className="text-justify *:mb-4">
         <p>
           La protección los datos personales y el uso de los mismos es un
           Derecho Humano fundamental.<br></br>

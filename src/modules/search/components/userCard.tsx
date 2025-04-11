@@ -1,9 +1,13 @@
-import { getTitle } from '@shared/utils/areaUtils';
-import { useTranslation } from 'react-i18next';
-import { UserDTO } from '../queries/searchQuery';
-import { Link } from '@tanstack/react-router';
-import CountryFlag from '@/shared/components/countryFlag';
 import { useMemo } from 'react';
+
+import { Link } from '@tanstack/react-router';
+import { useTranslation } from 'react-i18next';
+
+import CountryFlag from '@/shared/components/countryFlag';
+
+import { getTitle } from '@shared/utils/areaUtils';
+
+import { UserDTO } from '../queries/searchQuery';
 
 export const UserCard = ({
   user,
@@ -23,8 +27,7 @@ export const UserCard = ({
             src={user.profilePictureUrl}
             crossOrigin="anonymous"
             alt={`${user.nickName || user.fullName} profile picture`}
-            className="size-20 rounded-full shrink-0 row-span-2 object-cover
-          object-center"
+            className="row-span-2 size-20 shrink-0 rounded-full object-cover object-center"
           />
         ) : (
           <img
@@ -34,26 +37,22 @@ export const UserCard = ({
                 : '/guias/fotoDePerfil/Monito.jpg'
             }
             alt="ImagenPredeterminada"
-            className="size-20 rounded-full bg-white shrink-0 row-span-2
-          object-cover object-center"
+            className="row-span-2 size-20 shrink-0 rounded-full bg-white object-cover object-center"
             loading="eager"
           />
         )}
-        <div
-          className="flex flex-row gap-8 text-left w-full border-b-black
-        border-opacity-40"
-        >
-          <div className="w-full flex flex-col gap-2">
-            <div className="flex flex-col gap-0 ">
-              <h2 className="font-normal text-xl lg:text-lg">
+        <div className="flex w-full flex-row gap-8 border-b-black border-opacity-40 text-left">
+          <div className="flex w-full flex-col gap-2">
+            <div className="flex flex-col gap-0">
+              <h2 className="text-xl font-normal lg:text-lg">
                 {!!user.nickName ? user.nickName : user.fullName}
               </h2>
               {!!user.nickName && (
-                <p className="font-normal text-xs">{user.fullName}</p>
+                <p className="text-xs font-normal">{user.fullName}</p>
               )}
             </div>
             {!!user.headline && (
-              <p className="text-sm opacity-70 text-black col-span-2 italic">
+              <p className="col-span-2 text-sm italic text-black opacity-70">
                 {user.headline}
               </p>
             )}
@@ -69,7 +68,7 @@ export const UserCard = ({
         </div>
         <div className="">
           {!!user.primaryActivity && (
-            <p className="text-sm opacity-80 font-bold">
+            <p className="text-sm font-bold opacity-80">
               {getTitle(user.primaryActivity, user.gender || 'other')}
             </p>
           )}
@@ -84,7 +83,7 @@ export const UserCard = ({
                 </p>
               )
           )}
-          <p className="text-xs mt-2 font-medium">
+          <p className="mt-2 text-xs font-medium">
             {user.country
               ? user.location?.replace(
                   `, ${user.country}`,
@@ -94,7 +93,7 @@ export const UserCard = ({
           </p>
         </div>
         {showRecommendations && (
-          <div className="grid lg:grid-cols-[4rem_1fr] lg:gap-4 items-center justify-center">
+          <div className="grid items-center justify-center lg:grid-cols-[4rem_1fr] lg:gap-4">
             <img
               src={import.meta.env.BASE_URL + 'img/LogoBlue.svg'}
               alt=""
@@ -104,7 +103,7 @@ export const UserCard = ({
               <span className="block text-xl font-bold">
                 {user.recommendationsCount || 0}
               </span>
-              <span className="text-xs leading-3 block">
+              <span className="block text-xs leading-3">
                 {t('Brujula(s) de recomendación')}
               </span>
             </p>
@@ -118,17 +117,13 @@ export const UserCard = ({
     <Link
       to={'/profile/$userId'}
       params={{ userId: user.id }}
-      className="grid grid-cols-[5rem_1fr_1fr] lg:grid-cols-[5rem_5fr_4fr] lg:gap-4
-      gap-4 pt-4 gap-y-4 items-center"
+      className="grid grid-cols-[5rem_1fr_1fr] items-center gap-4 gap-y-4 pt-4 lg:grid-cols-[5rem_5fr_4fr] lg:gap-4"
       resetScroll={false}
     >
       {content}
     </Link>
   ) : (
-    <div
-      className="grid grid-cols-[5rem_1fr_1fr] lg:grid-cols-[5rem_5fr_4fr] lg:gap-4
-      gap-4 pt-4 gap-y-4 items-center"
-    >
+    <div className="grid grid-cols-[5rem_1fr_1fr] items-center gap-4 gap-y-4 pt-4 lg:grid-cols-[5rem_5fr_4fr] lg:gap-4">
       {content}
     </div>
   );

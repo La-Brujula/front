@@ -1,7 +1,9 @@
-import { Container } from '@shared/layout/container';
-import { Trans, useTranslation } from 'react-i18next';
-import { SignUpForm } from '../../modules/auth/components/signupForm';
 import { createLazyFileRoute } from '@tanstack/react-router';
+import { Trans, useTranslation } from 'react-i18next';
+
+import { Container } from '@shared/layout/container';
+
+import { SignUpForm } from '../../modules/auth/components/signupForm';
 
 export const Route = createLazyFileRoute('/auth/signup')({
   component: SignUpPage,
@@ -11,7 +13,7 @@ function SignUpPage() {
   const { referal } = Route.useSearch();
   const { t } = useTranslation('auth');
   return (
-    <div className="flex flex-col xl:flex-row w-full">
+    <div className="flex w-full flex-col xl:flex-row">
       <div
         className={[
           'bg-primary bg-opacity-20',
@@ -26,8 +28,8 @@ function SignUpPage() {
           'transform',
         ].join(' ')}
       >
-        <div className="max-w-6xl mx-auto w-full">
-          <div className="transform h-full">
+        <div className="mx-auto w-full max-w-6xl">
+          <div className="h-full transform">
             <p>
               <Trans
                 i18nKey="signUpParagraph"
@@ -49,11 +51,11 @@ function SignUpPage() {
         <img
           src={import.meta.env.BASE_URL + 'img/HalfLogo.svg'}
           alt=""
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 hidden xl:block z-10"
+          className="absolute bottom-0 left-1/2 z-10 hidden w-2/3 -translate-x-1/2 xl:block"
         />
       </div>
       <Container>
-        <h1 className="mb-8 text-secondary text-4xl">{t('createUser')}</h1>
+        <h1 className="mb-8 text-4xl text-secondary">{t('createUser')}</h1>
         <SignUpForm referal={referal} />
       </Container>
     </div>

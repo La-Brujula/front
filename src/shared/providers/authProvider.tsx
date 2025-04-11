@@ -1,4 +1,8 @@
 import { ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
+
+import { usePostHog } from 'posthog-js/react';
+import { createContext, useContextSelector } from 'use-context-selector';
+
 import {
   Account,
   IAuthResponse,
@@ -8,9 +12,6 @@ import {
   signUpService,
 } from '../services/authServices';
 import { UserType } from '../types/user';
-
-import { createContext, useContextSelector } from 'use-context-selector';
-import { usePostHog } from 'posthog-js/react';
 
 interface IAuthContext {
   account: Account | null;

@@ -1,13 +1,17 @@
+import { ReactNode, useMemo } from 'react';
+import React from 'react';
+
 import {
   MutationCache,
   QueryCache,
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query';
-import { ReactNode, useMemo } from 'react';
-import { useAuth } from './authProvider';
-import React from 'react';
+
+import { useToast } from '@/hooks/use-toast';
+
 import { ApiError, isApiError } from '../services/backendFetcher';
+import { useAuth } from './authProvider';
 
 const unauthorizedStatuses = ['AE05'];
 
@@ -51,8 +55,13 @@ function useGlobalErrors({
 
 function QueryProvider({ children }: { children: ReactNode }) {
   const { logout } = useAuth(['logout']);
+  const { toast } = useToast();
   const { queryCache, mutationCache } = useGlobalErrors({
     onAuthError: logout,
+    onServerError: () =>
+      toast({
+        description: 'Error',
+      }),
   });
 
   const queryClient = useMemo(

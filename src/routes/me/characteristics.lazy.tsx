@@ -1,19 +1,21 @@
 import { useCallback, useMemo } from 'react';
-import { useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
-import { LanguageListForm } from '../../modules/auth/components/languageListForm';
-import { IUpdateBackendProfile } from '@/shared/types/user';
+
 import {
   createLazyFileRoute,
   useNavigate,
   useRouter,
 } from '@tanstack/react-router';
-import { useCurrentProfile } from '@/shared/hooks/useCurrentProfile';
-import { useUpdateMe } from '@/shared/hooks/useUpdateMe';
+import { useTranslation } from 'react-i18next';
+
+import { Button } from '@/components/ui/button';
+import { Form } from '@/components/ui/form';
+import useUpdateProfile from '@/modules/me/hooks/updateProfileHook';
 import { ErrorMessage } from '@/shared/components/errorMessage';
 import Input from '@/shared/components/input';
-import DataSuspense from '@/shared/components/dataSuspense';
 import { isApiError } from '@/shared/services/backendFetcher';
+import { TProfileUpdateForm } from '@/shared/types/user';
+
+import { LanguageListForm } from '../../modules/auth/components/languageListForm';
 
 export const Route = createLazyFileRoute('/me/characteristics')({
   component: CharacteristicsPage,
@@ -25,57 +27,39 @@ function CharacteristicsPage() {
 
   const { t } = useTranslation('auth');
 
-  const { data: user, isLoading, error } = useCurrentProfile();
-  const { register, handleSubmit, setValue, formState } =
-    useForm<IUpdateBackendProfile>({ defaultValues: user });
+  const { form, createOnSubmit, isPending, error, user } = useUpdateProfile();
 
-  useMemo(() => {
-    !!user &&
-      Object.entries(user).forEach(([key, value]) =>
-        setValue(key as keyof IUpdateBackendProfile, value)
-      );
-  }, [user]);
+  const onSuccess = useCallback(
+    () =>
+      navigate({
+        to: '/profile/$userId',
+        params: { userId: 'me' },
+        resetScroll: true,
+      }),
+    []
+  );
 
-  const { mutate, isPending, error: mutateError } = useUpdateMe();
-
-  const onSubmit = useCallback(
-    async (data: IUpdateBackendProfile) => {
-      if (user === undefined) throw Error('User is not loaded');
-      mutate(data, {
-        onSuccess: () =>
-          navigate({
-            to: '/profile/$userId',
-            params: { userId: 'me' },
-            resetScroll: true,
-          }),
-      });
-    },
-    [mutate, navigate, user]
+  const onSubmit = useMemo(
+    () => createOnSubmit(onSuccess),
+    [onSuccess, createOnSubmit]
   );
 
   return (
-    <DataSuspense
-      loading={isLoading}
-      error={error}
-    >
+    <Form {...form}>
       <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-8 w-full items-stretch"
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="flex w-full flex-col items-stretch gap-8"
       >
         <h2 className="col-span-full text-secondary">
           {t('Información Adicional')}
         </h2>
-        <div
-          className="grid grid-cols-[min-content_1fr]
-        text-left gap-4 mx-auto items-center gap-x-8 w-full"
-        >
+        <div className="mx-auto grid w-full grid-cols-[min-content_1fr] items-center gap-4 gap-x-8 text-left">
           <Input
             fieldName="biography"
             label={t('Semblanza')}
             type="textArea"
-            rows={5}
             maxLength={500}
-            register={register}
+            form={form}
             placeholder={t(
               'Escribe aquí las características que te identifican dentro de la industria'
             )}
@@ -89,7 +73,7 @@ function CharacteristicsPage() {
             {t('Idioma')}:
           </label>
           <LanguageListForm
-            setValue={setValue}
+            setValue={form.setValue}
             fieldName="languages"
             defaultState={user?.languages}
           />
@@ -97,9 +81,8 @@ function CharacteristicsPage() {
             fieldName="associations"
             label={t('Asociaciones')}
             type="textArea"
-            rows={3}
             maxLength={300}
-            register={register}
+            form={form}
             placeholder={t(
               'Escribe aquí a que asociaciones de la industria perteneces'
             )}
@@ -110,9 +93,8 @@ function CharacteristicsPage() {
             fieldName="certifications"
             label={t('Certificaciones')}
             type="textArea"
-            rows={3}
             maxLength={300}
-            register={register}
+            form={form}
             placeholder={t(
               'Escribe aquí las certificaciones que has concluido'
             )}
@@ -123,31 +105,26 @@ function CharacteristicsPage() {
             fieldName="awards"
             label={t('Reconocimientos')}
             type="textArea"
-            rows={3}
             maxLength={300}
-            register={register}
+            form={form}
             placeholder={t('Escribe aquí los reconocimientos que has obtenido')}
             divClass="grid grid-cols-subgrid col-span-2"
             inputClass="rounded-md bg-black bg-opacity-20 resize-none col-span-2 p-4"
           />
         </div>
-        {!!mutateError && (
+        {!!error && (
           <ErrorMessage
-            message={
-              isApiError(mutateError)
-                ? mutateError.errorCode
-                : mutateError.message
-            }
+            message={isApiError(error) ? error.errorCode : error.message}
           />
         )}
         <div className="flex flex-row gap-4 self-center">
-          <div
-            className="button font-bold bg-transparent border border-primary text-black"
+          <Button
+            className="button border border-primary bg-transparent font-bold text-black"
             onClick={() => history.back()}
           >
             {t('Regresar')}
-          </div>
-          <input
+          </Button>
+          <Button
             type="submit"
             className="border-none"
             disabled={user === undefined || isPending}
@@ -155,7 +132,7 @@ function CharacteristicsPage() {
           />
         </div>
       </form>
-    </DataSuspense>
+    </Form>
   );
 }
 

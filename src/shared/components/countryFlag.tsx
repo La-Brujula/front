@@ -1,7 +1,13 @@
-import countries from '@/shared/constants/countryCodes';
-import { Tooltip } from '@mui/material';
 import 'flag-icons/css/flag-icons.min.css';
 import { useTranslation } from 'react-i18next';
+
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
+import countries from '@/shared/constants/countryCodes';
 
 export default function CountryFlag(props: {
   country: (typeof countries)[number];
@@ -10,11 +16,18 @@ export default function CountryFlag(props: {
 }) {
   const { t } = useTranslation('countries');
   return (
-    <Tooltip title={props.noTooltip ? undefined : t(props.country)}>
-      <span
-        className={`fi fis rounded-full overflow-hidden fi-${props.country.toLowerCase()} size-8 ${props.className}`}
-        aria-label={t(props.country)}
-      ></span>
-    </Tooltip>
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger>
+          <span
+            className={`fi fis overflow-hidden rounded-full fi-${props.country.toLowerCase()} size-8 ${props.className}`}
+            aria-label={t(props.country)}
+          ></span>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>{props.noTooltip ? undefined : t(props.country)}</p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
   );
 }

@@ -1,9 +1,12 @@
-import { useAuth } from '@/shared/providers/authProvider';
-import { Container } from '@shared/layout/container';
+import { useEffect } from 'react';
+
 import { useQueryClient } from '@tanstack/react-query';
 import { createLazyFileRoute, useNavigate } from '@tanstack/react-router';
-import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { useAuth } from '@/shared/providers/authProvider';
+
+import { Container } from '@shared/layout/container';
 
 export const Route = createLazyFileRoute('/auth/logout')({
   component: LogoutPage,

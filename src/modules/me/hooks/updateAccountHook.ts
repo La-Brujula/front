@@ -1,6 +1,7 @@
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+
 import { patchFetch } from '@/shared/services/backendFetcher';
 import { IAccountDTO, UpdateAccountRequest } from '@/shared/types/account';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 export function useUpdateAccount() {
   const queryClient = useQueryClient();

@@ -1,5 +1,7 @@
-import RefList from '@shared/constants/inductiveReferents.json';
 import { useTranslation } from 'react-i18next';
+
+import RefList from '@shared/constants/inductiveReferents.json';
+
 import { TextSelectField } from '../../../shared/components/textSelect';
 
 export const ReferenceField = ({
@@ -15,7 +17,7 @@ export const ReferenceField = ({
     <TextSelectField
       placeholder={t('Ingresa una palabra clave')}
       items={Object.entries(RefList).map(([ref, ids]) => {
-        return { id: ids, name: ref };
+        return { value: ids, label: ref };
       })}
       defaultValue={defaultValue}
       setValue={setValue}

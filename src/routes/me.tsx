@@ -1,5 +1,6 @@
-import { profileQueryOptions } from '@/modules/profile/queries/userProfile';
 import { createFileRoute, redirect } from '@tanstack/react-router';
+
+import { profileQueryOptions } from '@/modules/profile/queries/userProfile';
 
 export const Route = createFileRoute('/me')({
   beforeLoad: async ({ location }) => {

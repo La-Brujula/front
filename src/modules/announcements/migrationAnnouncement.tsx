@@ -1,12 +1,14 @@
 import { Link } from '@tanstack/react-router';
 import { Trans, useTranslation } from 'react-i18next';
 
+import { Button } from '@/components/ui/button';
+
 function MigrationAnnouncement() {
   const { t } = useTranslation('migrationAnnouncement');
   return (
     <div className="">
       <h2>{t('La Brújula 2024')}</h2>
-      <div className="text-black max-w-2xl mx-auto text-justify [text-align-last:center] *:mb-4">
+      <div className="mx-auto max-w-2xl text-justify text-black [text-align-last:center] *:mb-4">
         <p>
           <Trans
             t={t}
@@ -39,7 +41,7 @@ function MigrationAnnouncement() {
         </p>
         <p>
           <Link to="/auth/reset-password">
-            <button>{t('Reiniciar contraseña')}</button>
+            <Button>{t('Reiniciar contraseña')}</Button>
           </Link>
         </p>
         <p>

@@ -1,7 +1,11 @@
-import { UserDTO } from '@/modules/search/queries/searchQuery';
-import { EnumGender } from './genders';
-import { lang, proficiency } from './languages';
 import { Country } from 'react-phone-number-input';
+import { z } from 'zod';
+
+import { UserDTO } from '@/modules/search/queries/searchQuery';
+
+import countryCodes from '../constants/countryCodes';
+import genders from '../constants/genders';
+import { PROFICIENCY, lang, proficiency } from './languages';
 
 export type UserType = 'fisica' | 'moral';
 
@@ -53,42 +57,98 @@ export interface IBackendProfile {
   youtube?: string;
   verified: boolean;
 }
-export interface IUpdateBackendProfile {
-  address?: string;
-  associations?: string;
-  awards?: string;
-  birthday?: string;
-  biography?: string;
-  certifications?: string;
-  characteristics?: string;
-  city?: string;
-  country?: Country;
-  facebook?: string;
-  firstName?: string;
-  gender?: EnumGender;
-  googleMapsLink?: string;
-  headline?: string;
-  imdb?: string;
-  instagram?: string;
-  languages?: { lang: lang; proficiency: proficiency }[];
-  lastName?: string;
-  linkedin?: string;
-  nickName?: string;
-  phoneNumbers?: string[];
-  postalCode?: string;
-  primaryActivity?: string;
-  probono?: string | boolean;
-  remote?: boolean | string;
-  secondaryActivity?: string;
-  secondaryEmails?: string[];
-  state?: string;
-  thirdActivity?: string;
-  tiktok?: string;
-  twitter?: string;
-  university?: string;
-  vimeo?: string;
-  externalLinks?: string[];
-  whatsapp?: string;
-  workRadius?: string;
-  youtube?: string;
-}
+
+export const ProfileUpdateForm = z.object({
+  address: z.optional(z.string()).catch(undefined),
+  associations: z.optional(z.string()).catch(undefined),
+  awards: z.optional(z.string()).catch(undefined),
+  birthday: z.optional(z.string()).catch(undefined),
+  biography: z.optional(z.string()).catch(undefined),
+  certifications: z.optional(z.string()).catch(undefined),
+  characteristics: z.optional(z.string()).catch(undefined),
+  city: z.optional(z.string()).catch(undefined),
+  country: z.optional(z.enum(countryCodes)),
+  facebook: z.optional(z.string()).catch(undefined),
+  firstName: z.optional(z.string()).catch(undefined),
+  gender: z.optional(z.enum(genders)),
+  googleMapsLink: z.optional(z.string()).catch(undefined),
+  headline: z.optional(z.string()).catch(undefined),
+  imdb: z.optional(z.string()).catch(undefined),
+  instagram: z.optional(z.string()).catch(undefined),
+  languages: z
+    .optional(
+      z.array(z.object({ lang: z.string(), proficiency: z.enum(PROFICIENCY) }))
+    )
+    .catch([]),
+  lastName: z.optional(z.string()).catch(undefined),
+  linkedin: z.optional(z.string()).catch(undefined),
+  nickName: z.optional(z.string()).catch(undefined),
+  phoneNumbers: z.optional(z.array(z.string()).catch([])),
+  postalCode: z.optional(z.string()).catch(undefined),
+  primaryActivity: z.optional(z.string()).catch(undefined),
+  probono: z.optional(z.boolean()),
+  remote: z.optional(z.boolean()),
+  secondaryActivity: z.optional(z.string()).catch(undefined),
+  secondaryEmails: z.optional(z.array(z.string()).catch([])),
+  state: z.optional(z.string()).catch(undefined),
+  thirdActivity: z.optional(z.string()).catch(undefined),
+  tiktok: z.optional(z.string()).catch(undefined),
+  twitter: z.optional(z.string()).catch(undefined),
+  university: z.optional(z.string()).catch(undefined),
+  vimeo: z.optional(z.string()).catch(undefined),
+  externalLinks: z.optional(z.array(z.string()).catch([])),
+  whatsapp: z.optional(z.string()).catch(undefined),
+  workRadius: z.optional(z.string()).catch(undefined),
+  youtube: z.optional(z.string()).catch(undefined),
+});
+
+export const ProfileUpdateRequest = z.object({
+  address: z.optional(z.string()).catch(undefined),
+  associations: z.optional(z.string()).catch(undefined),
+  awards: z.optional(z.string()).catch(undefined),
+  birthday: z.optional(z.string()).catch(undefined),
+  biography: z.optional(z.string()).catch(undefined),
+  certifications: z.optional(z.string()).catch(undefined),
+  characteristics: z.optional(z.string()).catch(undefined),
+  city: z.optional(z.string()).catch(undefined),
+  country: z.optional(z.enum(countryCodes)),
+  facebook: z.optional(z.string()).catch(undefined),
+  firstName: z.optional(z.string()).catch(undefined),
+  gender: z.optional(z.enum(genders)),
+  googleMapsLink: z.optional(z.string()).catch(undefined),
+  headline: z.optional(z.string()).catch(undefined),
+  imdb: z.optional(z.string()).catch(undefined),
+  instagram: z.optional(z.string()).catch(undefined),
+  languages: z
+    .optional(
+      z.array(z.object({ lang: z.string(), proficiency: z.enum(PROFICIENCY) }))
+    )
+    .catch([]),
+  lastName: z.optional(z.string()).catch(undefined),
+  linkedin: z.optional(z.string()).catch(undefined),
+  nickName: z.optional(z.string()).catch(undefined),
+  phoneNumbers: z.optional(z.array(z.string()).catch([])),
+  postalCode: z.optional(z.string()).catch(undefined),
+  primaryActivity: z.optional(z.string()).catch(undefined),
+  probono: z
+    .optional(z.preprocess((val) => val === 'true', z.boolean()))
+    .catch(undefined),
+  remote: z
+    .optional(z.preprocess((val) => val === 'true', z.boolean()))
+    .catch(undefined),
+  secondaryActivity: z.optional(z.string()).catch(undefined),
+  secondaryEmails: z.optional(z.array(z.string()).catch([])),
+  state: z.optional(z.string()).catch(undefined),
+  thirdActivity: z.optional(z.string()).catch(undefined),
+  tiktok: z.optional(z.string()).catch(undefined),
+  twitter: z.optional(z.string()).catch(undefined),
+  university: z.optional(z.string()).catch(undefined),
+  vimeo: z.optional(z.string()).catch(undefined),
+  externalLinks: z.optional(z.array(z.string()).catch([])),
+  whatsapp: z.optional(z.string()).catch(undefined),
+  workRadius: z.optional(z.string()).catch(undefined),
+  youtube: z.optional(z.string()).catch(undefined),
+});
+
+export type TProfileUpdateForm = z.infer<typeof ProfileUpdateForm>;
+export type TProfileUpdateRequest = z.infer<typeof ProfileUpdateRequest>;

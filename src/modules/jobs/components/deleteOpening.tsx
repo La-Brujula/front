@@ -1,10 +1,14 @@
-import DataSuspense from '@/shared/components/dataSuspense';
-import { useDeleteJob } from '../queries/jobSearchQuery';
-import { LoadingSpinner } from '@/shared/components/loadingSpinner';
-import { DeleteOutlined } from '@mui/icons-material';
 import { useCallback, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+
 import { useNavigate } from '@tanstack/react-router';
+import { TrashIcon } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+
+import { Button } from '@/components/ui/button';
+import DataSuspense from '@/shared/components/dataSuspense';
+import { LoadingSpinner } from '@/shared/components/loadingSpinner';
+
+import { useDeleteJob } from '../queries/jobSearchQuery';
 
 export default function DeleteOpening(props: { jobId: string }) {
   const { t } = useTranslation('jobs');
@@ -31,13 +35,13 @@ export default function DeleteOpening(props: { jobId: string }) {
           {t('Estás a punto de borrar esta oferta, esto no puede deshacerse')}
         </p>
       )}
-      <button
+      <Button
         onClick={deleteJob}
-        className="px-4 py-2 bg-red-500 text-white flex flex-row items-center gap-2 w-fit mx-auto"
+        className="mx-auto flex w-fit flex-row items-center gap-2 bg-red-500 px-4 py-2 text-white"
       >
-        <DeleteOutlined />
+        <TrashIcon />
         {!pressed ? t('Borrar oferta') : t('Confirmar')}
-      </button>
+      </Button>
     </DataSuspense>
   );
 }

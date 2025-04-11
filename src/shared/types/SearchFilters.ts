@@ -1,5 +1,5 @@
-import { EnumGender } from '../types/genders';
-import { lang } from '../types/languages';
+import { EnumGender } from './genders';
+import { lang } from './languages';
 
 export type SearchFilters =
   | {

@@ -1,12 +1,15 @@
+import { createLazyFileRoute } from '@tanstack/react-router';
+import { useTranslation } from 'react-i18next';
+
 import AccountUpdateForm from '@/modules/me/components/accountUpdateForm';
 import { useCurrentAccount } from '@/modules/me/hooks/getAccountHook';
 import DataSuspense from '@/shared/components/dataSuspense';
 import { useCurrentProfile } from '@/shared/hooks/useCurrentProfile';
 import { Container } from '@/shared/layout/container';
-import { ProfileBadge } from '@modules/profile/components/profileBadge';
+
 import ErrorMessage from '@shared/components/errorMessage';
-import { createLazyFileRoute } from '@tanstack/react-router';
-import { useTranslation } from 'react-i18next';
+
+import { ProfileBadge } from '@modules/profile/components/profileBadge';
 
 export const Route = createLazyFileRoute('/alerts')({
   component: AlertsPage,
@@ -29,7 +32,7 @@ function AlertsPage() {
 
   return (
     <Container>
-      <div className="max-w-3xl mx-auto">
+      <div className="mx-auto max-w-3xl">
         <DataSuspense
           loading={profileLoading}
           error={profileError}

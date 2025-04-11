@@ -1,17 +1,21 @@
 import { useCallback, useState } from 'react';
-import { TJobOpening, TJobPosting } from '../types/searchParams';
+
 import {
   FieldErrorsImpl,
   Path,
   UseFormRegister,
+  UseFormReturn,
   UseFormSetValue,
 } from 'react-hook-form';
-import AreaForms from '@/modules/auth/components/areaForm';
 import { useTranslation } from 'react-i18next';
-import Input from '@/shared/components/input';
-import GENDERS from '@/shared/constants/genders.json';
+
+import AreaForms from '@/modules/auth/components/areaForm';
 import { LanguageListForm } from '@/modules/auth/components/languageListForm';
 import { UniversidadesSelect } from '@/modules/auth/components/universidadesSelect';
+import Input from '@/shared/components/input';
+import GENDERS from '@/shared/constants/genders';
+
+import { TJobOpening, TJobPosting } from '../types/searchParams';
 
 const DEFAULT_VALUES: TJobOpening = {
   activity: '',
@@ -27,11 +31,11 @@ const DEFAULT_VALUES: TJobOpening = {
 export default function JobOpeningForm(props: {
   i: number;
   initialValues?: TJobOpening;
-  register: UseFormRegister<TJobPosting>;
+  form: UseFormReturn<TJobPosting>;
   errors?: FieldErrorsImpl<TJobOpening>;
   setValue: UseFormSetValue<TJobPosting>;
 }) {
-  const { register, errors } = props;
+  const { form, errors, setValue } = props;
   const { t } = useTranslation(['jobs', 'errors']);
 
   const [showMore, setShowMore] = useState(false);
@@ -50,7 +54,7 @@ export default function JobOpeningForm(props: {
       <p
         className={[
           'font-bold',
-          props.errors?.activity !== undefined && ' text-red-500',
+          props.errors?.activity !== undefined && 'text-red-500',
         ].join(' ')}
       >
         {t('Actividad')} *
@@ -63,11 +67,6 @@ export default function JobOpeningForm(props: {
         // t('Busca una actividad')
         placeholder="Busca una actividad"
       />
-      <input
-        type="hidden"
-        {...props.register(`openings.${props.i}.activity` as Path<TJobPosting>)}
-        value={props.initialValues?.activity}
-      />
       {props.errors?.activity !== undefined && (
         <p className="text-red-500">
           {t(`errors:${props.errors?.activity.type}` || '')}
@@ -77,28 +76,24 @@ export default function JobOpeningForm(props: {
         label={t('Número de vacantes')}
         type="text"
         autoComplete=""
-        register={register}
+        form={form}
         fieldName={`openings.${props.i}.count`}
         divClass=""
         required={true}
         error={errors?.count}
       />
       <Input
-        label={t('Trabajo remunerado')}
-        type="radioGroup"
-        register={register}
+        label={t('Trabajo no remunerado')}
+        type="switch"
+        form={form}
         fieldName={`openings.${props.i}.probono`}
         divClass=""
         required={true}
         error={errors?.probono}
-        items={[
-          { label: t('Sí'), value: 'false' },
-          { label: t('No'), value: 'true' },
-        ]}
       />
       {!showMore ? (
         <div
-          className="justify-self-center cursor-pointer text-lg font-bold bg-primary px-4 py-2 rounded-md text-white w-fit"
+          className="w-fit cursor-pointer justify-self-center rounded-md bg-primary px-4 py-2 text-lg font-bold text-white"
           onClick={() => setShowMore(true)}
         >
           +
@@ -106,31 +101,31 @@ export default function JobOpeningForm(props: {
       ) : (
         <>
           <div
-            className="justify-self-center cursor-pointer text-lg font-bold bg-primary px-4 py-2 rounded-md text-white w-fit"
+            className="w-fit cursor-pointer justify-self-center rounded-md bg-primary px-4 py-2 text-lg font-bold text-white"
             onClick={() => setShowMore(false)}
           >
             ^
           </div>
-          <div className="grid grid-cols-[1fr_1rem_1fr] gap-y-2 gap-x-2">
-            <p className="opacity-80 col-span-full">{t('Rango de edad')}</p>
+          <div className="grid grid-cols-[1fr_1rem_1fr] gap-x-2 gap-y-2">
+            <p className="col-span-full opacity-80">{t('Rango de edad')}</p>
             <Input
               label={t('Rango de edad mínimo')}
               hiddenLabel={true}
               type="text"
               autoComplete=""
-              register={register}
+              form={form}
               fieldName={`openings.${props.i}.ageRangeMin`}
               divClass=""
               required={true}
               error={errors?.ageRangeMin}
             />
-            <p className="text-center w-full font-bold">-</p>
+            <p className="w-full text-center font-bold">-</p>
             <Input
               label={t('Rango de edad máximo')}
               hiddenLabel={true}
               type="text"
               autoComplete=""
-              register={register}
+              form={form}
               fieldName={`openings.${props.i}.ageRangeMax`}
               divClass=""
               required={true}
@@ -140,15 +135,16 @@ export default function JobOpeningForm(props: {
           <Input
             label={t('Género')}
             type="select"
-            register={register}
+            form={form}
             fieldName={`openings.${props.i}.gender`}
-            divClass=""
-            items={GENDERS.map((gender) => ({ key: gender, label: t(gender) }))}
-            error={errors?.gender}
+            items={GENDERS.map((gender) => ({
+              value: gender,
+              label: t(gender),
+            }))}
           />
           <label
             htmlFor="languages"
-            className="opacity-80 font-normal"
+            className="font-normal opacity-80"
           >
             {t('Idioma')}:
           </label>
@@ -158,13 +154,10 @@ export default function JobOpeningForm(props: {
             defaultState={[]}
             allowNull={true}
           />
-          <Input
+          <UniversidadesSelect
             label={t('Escuela/Universidad')}
-            type="custom"
-            register={register}
+            form={form}
             fieldName={`openings.${props.i}.school`}
-            component={UniversidadesSelect<TJobPosting>}
-            error={errors?.school}
           />
         </>
       )}

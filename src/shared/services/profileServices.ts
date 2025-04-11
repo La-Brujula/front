@@ -1,4 +1,4 @@
-import { IBackendProfile, IUpdateBackendProfile } from '../types/user';
+import { IBackendProfile, TProfileUpdateRequest } from '../types/user';
 import { deleteFetch, getFetch, patchFetch, postFetch } from './backendFetcher';
 
 export async function recommendProfile(profileId: string) {
@@ -12,7 +12,7 @@ export async function getProfile(profileId: string) {
   return getFetch<IBackendProfile>(`/profiles/${profileId}`);
 }
 
-export async function updateMe(profileInfo: IUpdateBackendProfile) {
+export async function updateMe(profileInfo: TProfileUpdateRequest) {
   return patchFetch<IBackendProfile>('/profiles/me', profileInfo);
 }
 

@@ -1,17 +1,19 @@
-import { createLazyFileRoute, Link, useNavigate } from '@tanstack/react-router';
 import { useCallback, useEffect, useMemo } from 'react';
-import { LoadingSpinner } from '@/shared/components/loadingSpinner';
-import ErrorMessage from '@/shared/components/errorMessage';
+
 import { useQuery } from '@tanstack/react-query';
-import { useTranslation } from 'react-i18next';
+import { Link, createLazyFileRoute, useNavigate } from '@tanstack/react-router';
+import { SearchIcon } from 'lucide-react';
 import { Controller, useForm } from 'react-hook-form';
-import { SearchOutlined } from '@mui/icons-material';
-import { Container } from '@/shared/layout/container';
-import { getCreatedJobs } from '@/modules/jobs/queries/jobSearchQuery';
-import DataSuspense from '@/shared/components/dataSuspense';
+import { useTranslation } from 'react-i18next';
+
 import { JobsList } from '@/modules/jobs/components/jobList';
+import { getCreatedJobs } from '@/modules/jobs/queries/jobSearchQuery';
 import { JobSearch } from '@/modules/jobs/types/searchParams';
+import DataSuspense from '@/shared/components/dataSuspense';
+import ErrorMessage from '@/shared/components/errorMessage';
+import { LoadingSpinner } from '@/shared/components/loadingSpinner';
 import { useCurrentProfile } from '@/shared/hooks/useCurrentProfile';
+import { Container } from '@/shared/layout/container';
 
 export const Route = createLazyFileRoute('/jobs/me')({
   component: SearchHomepage,
@@ -73,29 +75,21 @@ function SearchHomepage() {
         {isVerified ? (
           <Link
             to="/jobs/create"
-            className="px-4 py-2 rounded-md bg-primary text-white my-8"
+            className="my-8 rounded-md bg-primary px-4 py-2 text-white"
           >
             {t('Crear nueva oferta laboral')}
           </Link>
         ) : (
           <Link
             to="/auth/send-verification"
-            className="px-4 py-2 rounded-md bg-secondary text-white my-8"
+            className="my-8 rounded-md bg-secondary px-4 py-2 text-white"
           >
             {t('Verifica tu cuenta para crear una oferta')}
           </Link>
         )}
-        <div
-          className="w-full grid grid-cols-[1fr_max-content]
-        gap-4 text-white font-bold items-center px-4"
-        >
-          <div
-            className="font-bold border-2 border-black bg-transparent
-          text-black placeholder:text-black flex flex-row gap-1
-          justify-start items-center px-2 mx-auto rounded-md
-          z-10 w-full"
-          >
-            <SearchOutlined />
+        <div className="grid w-full grid-cols-[1fr_max-content] items-center gap-4 px-4 font-bold text-white">
+          <div className="z-10 mx-auto flex w-full flex-row items-center justify-start gap-1 rounded-md border-2 border-black bg-transparent px-2 font-bold text-black placeholder:text-black">
+            <SearchIcon />
             <Controller
               name="query"
               control={control}
@@ -104,8 +98,7 @@ function SearchHomepage() {
                   type="text"
                   {...field}
                   id="search-field"
-                  className="border-none bg-transparent focus:outline-none w-full
-              placeholder:text-black placeholder:opacity-50"
+                  className="w-full border-none bg-transparent placeholder:text-black placeholder:opacity-50 focus:outline-none"
                   placeholder={t('Ingresa tu búsqueda')}
                   onChange={(ev) => {
                     if (ev.target.value === '') {
@@ -119,7 +112,7 @@ function SearchHomepage() {
               )}
             />
           </div>
-          <div className="flex flex-row gap-2 items-center text-black">
+          <div className="flex flex-row items-center gap-2 text-black">
             <p>
               {t('{{count}} resultado', {
                 count: res?.meta.total || 0,
@@ -129,16 +122,10 @@ function SearchHomepage() {
         </div>
       </Container>
       <Container className="relative !pt-0">
-        <div className="grid grid-cols-1 gap-12 mt-16">
+        <div className="mt-16 grid grid-cols-1 gap-12">
           <h1>{t('Ofertas creadas')}</h1>
-          <div
-            className="flex flex-col gap-8 text-left bg-black bg-opacity-20
-          rounded-l-3xl px-8 pb-8 w-full relative"
-          >
-            <div
-              className="w-[50vw] absolute left-[100%] top-0 h-full bg-black
-            bg-opacity-20 -z-10 hidden"
-            ></div>
+          <div className="relative flex w-full flex-col gap-8 rounded-l-3xl bg-black bg-opacity-20 px-8 pb-8 text-left">
+            <div className="absolute left-[100%] top-0 -z-10 hidden h-full w-[50vw] bg-black bg-opacity-20"></div>
             <DataSuspense
               loading={loading}
               error={error}

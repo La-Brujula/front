@@ -1,13 +1,28 @@
-import CloseOutlined from '@mui/icons-material/CloseOutlined';
-import { IconButton, Tooltip } from '@mui/material';
 import {
   ChangeEvent,
   HTMLInputTypeAttribute,
   useEffect,
   useReducer,
 } from 'react';
-import { FieldValues, Path, PathValue, UseFormSetValue } from 'react-hook-form';
+
+import { XIcon } from 'lucide-react';
+import {
+  FieldValues,
+  Path,
+  PathValue,
+  UseFormReturn,
+  UseFormSetValue,
+} from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+
+import { Button } from '@/components/ui/button';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
+import Input from '@/shared/components/input';
 
 interface ReducerItem {
   id: number;
@@ -85,39 +100,22 @@ export function StringArrayForm<T extends FieldValues>(props: {
       });
     };
 
-  useEffect(() => {
-    props.setValue(
-      props.name,
-      state.map((i) => i.value) as PathValue<T, Path<T>>
-    );
-  }, [state]);
-
-  useEffect(() => {
-    if (props.defaultState === null) return;
-    dispatch({
-      type: 'rebase',
-      state: props.defaultState?.map((v: string) => ({
-        id: Math.random(),
-        value: v,
-      })),
-    });
-  }, [props.defaultState]);
-
   return (
     <div className="flex flex-col gap-2">
-      {state?.map((item: ReducerItem) => (
+      {state?.map((item: ReducerItem, i) => (
         <div
           key={item.id}
-          className="flex flex-col md:flex-row gap-2 items-center"
+          className="flex flex-col items-center gap-2 md:flex-row"
         >
           <input
-            className="flex flex-col gap-4 w-full"
+            className="flex w-full flex-col gap-4"
             type={props.inputType}
             onChange={updateValue(item.id)}
             value={item.value}
           />
           {state.length > 1 && (
-            <IconButton
+            <Button
+              size="icon"
               aria-label={t('Borrar')}
               onClick={() =>
                 dispatch({
@@ -126,19 +124,13 @@ export function StringArrayForm<T extends FieldValues>(props: {
                 })
               }
             >
-              <Tooltip
-                title={t('Borrar')}
-                arrow
-              >
-                <CloseOutlined />
-              </Tooltip>
-            </IconButton>
+              <XIcon />
+            </Button>
           )}
         </div>
       ))}
       <div
-        className="cursor-pointer px-4 py-2 bg-secondary text-white
-        rounded-md mx-auto w-fit"
+        className="mx-auto w-fit cursor-pointer rounded-md bg-secondary px-4 py-2 text-white"
         onClick={() => dispatch({ type: 'add' })}
       >
         {t('Agregar otro {{label}}', { replace: { label: props.label } })}

@@ -1,7 +1,8 @@
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+
 import { postFetch } from '@/shared/services/backendFetcher';
 import { IBackendProfile } from '@/shared/types/user';
 import { compress } from '@/shared/utils/compressImage';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 export function useUploadProfileImage() {
   const queryClient = useQueryClient();

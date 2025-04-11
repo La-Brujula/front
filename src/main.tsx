@@ -1,15 +1,16 @@
 import { StrictMode } from 'react';
-import ReactDOM from 'react-dom/client';
 
 import posthog from 'posthog-js';
 import { PostHogProvider } from 'posthog-js/react';
+import ReactDOM from 'react-dom/client';
 
-import './i18n.ts';
-import './index.css';
+import { UserProvider } from '@shared/providers/authProvider';
+import QueryProvider from '@shared/providers/queryProvider';
 
 import App from './App';
-import { UserProvider } from './shared/providers/authProvider';
-import QueryProvider from './shared/providers/queryProvider';
+import { Toaster } from './components/ui/sonner';
+import './i18n.ts';
+import './index.css';
 
 !import.meta.env.DEV &&
   posthog.init('phc_T1b8Jh0gnQ6NsNQeqxBKiWCrYW5UygDG2n5RlTQbWBA', {
@@ -27,6 +28,7 @@ if (!rootElement.innerHTML) {
         <UserProvider>
           <QueryProvider>
             <App />
+            <Toaster />
           </QueryProvider>
         </UserProvider>
       </PostHogProvider>

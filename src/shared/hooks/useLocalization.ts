@@ -1,5 +1,6 @@
-import { changeLanguage } from 'i18next';
 import { useCallback } from 'react';
+
+import { changeLanguage } from 'i18next';
 import { useTranslation } from 'react-i18next';
 
 export type SupportedLocal = 'es' | 'en';

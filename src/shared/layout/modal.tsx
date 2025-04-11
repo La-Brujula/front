@@ -1,4 +1,5 @@
 import { ReactNode, useState } from 'react';
+
 import { createPortal } from 'react-dom';
 
 export const Modal = (props: {
@@ -11,7 +12,7 @@ export const Modal = (props: {
     createPortal(
       <div>
         <div
-          className="absolute top-0 left-0 w-full h-screen"
+          className="absolute left-0 top-0 h-screen w-full"
           onClick={() => setIsOpen(false)}
         ></div>
         {children}

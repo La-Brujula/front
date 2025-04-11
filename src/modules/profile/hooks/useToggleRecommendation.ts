@@ -1,10 +1,11 @@
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+
 import { useLoggedInAccount } from '@/shared/hooks/useLoggedInAccount';
 import {
   recommendProfile,
   unRecommendProfile,
 } from '@/shared/services/profileServices';
 import { IBackendProfile } from '@/shared/types/user';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 export function useToggleRecommendation(profileId: string) {
   const queryClient = useQueryClient();
@@ -24,8 +25,11 @@ export function useToggleRecommendation(profileId: string) {
         return unRecommendProfile(profileId);
       }
     },
-    onSuccess: (res) => {
-      queryClient.invalidateQueries({ queryKey: ['profiles', profileId] });
+    onSuccess: () => {
+      return queryClient.invalidateQueries({
+        queryKey: ['profiles', profileId],
+        refetchType: 'active',
+      });
     },
   });
 }

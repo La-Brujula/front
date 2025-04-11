@@ -1,20 +1,27 @@
-import { UniversidadesSelect } from '@/modules/auth/components/universidadesSelect';
-import { ErrorMessage } from '@/shared/components/errorMessage';
-import Input from '@/shared/components/input';
-import { useCurrentProfile } from '@/shared/hooks/useCurrentProfile';
-import { useUpdateMe } from '@/shared/hooks/useUpdateMe';
-import { isApiError } from '@/shared/services/backendFetcher';
-import { IUpdateBackendProfile } from '@/shared/types/user';
-import { ButtonSelect } from '@shared/components/buttonSelect';
-import { LoadingSpinner } from '@shared/components/loadingSpinner';
+import { useCallback } from 'react';
+
 import {
   createLazyFileRoute,
   useNavigate,
   useRouter,
 } from '@tanstack/react-router';
-import { useCallback } from 'react';
-import { useForm } from 'react-hook-form';
+import { Path, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+
+import { Button } from '@/components/ui/button';
+import { Form } from '@/components/ui/form';
+import { UniversidadesSelect } from '@/modules/auth/components/universidadesSelect';
+import useUpdateProfile from '@/modules/me/hooks/updateProfileHook';
+import { ErrorMessage } from '@/shared/components/errorMessage';
+import Input from '@/shared/components/input';
+import { useCurrentProfile } from '@/shared/hooks/useCurrentProfile';
+import { useUpdateMe } from '@/shared/hooks/useUpdateMe';
+import { isApiError } from '@/shared/services/backendFetcher';
+import {
+  ProfileUpdateRequest,
+  TProfileUpdateForm,
+  TProfileUpdateRequest,
+} from '@/shared/types/user';
 
 export const Route = createLazyFileRoute('/me/stand-out')({
   component: StandoutPage,
@@ -25,138 +32,108 @@ function StandoutPage() {
   const { t } = useTranslation('auth');
   const navigate = useNavigate();
 
-  const { data: user, isLoading: loading } = useCurrentProfile();
+  const { user, form, updateProfile, isPending, error } = useUpdateProfile();
 
-  const {
-    register: formRegister,
-    handleSubmit,
-    formState,
-  } = useForm<IUpdateBackendProfile>({
-    defaultValues: {
-      ...user,
-      remote:
-        user?.remote === undefined
-          ? undefined
-          : user?.remote === true
-            ? 'true'
-            : 'false',
-      probono:
-        user?.probono === undefined
-          ? undefined
-          : user?.probono === true
-            ? 'true'
-            : 'false',
-    },
-  });
-
-  const register = useCallback(formRegister, [formRegister]);
-
-  const { mutate, isPending, error: mutateError } = useUpdateMe();
-
-  const onSubmit = async (data: IUpdateBackendProfile) => {
-    mutate(data, {
+  const onSubmit = async (data: TProfileUpdateRequest) => {
+    const res = ProfileUpdateRequest.safeParse(data);
+    if (!res.success) {
+      for (const error of res.error.issues) {
+        form.setError(error.path.join('.') as Path<TProfileUpdateForm>, {
+          message: error.message,
+        });
+      }
+      return;
+    }
+    updateProfile(res.data, {
       onSuccess: () => navigate({ to: '/me/contact', resetScroll: true }),
     });
   };
 
-  return loading ? (
-    <LoadingSpinner />
-  ) : (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col text-left gap-8 mx-auto max-w-lg"
-    >
-      <p className="col-span-full">*{t('Information')}</p>
-      <Input
-        label={t('Agrega un lema o mensaje corto')}
-        type="textArea"
-        fieldName="headline"
-        rows={3}
-        maxLength={60}
-        inputClass="rounded-md bg-black bg-opacity-20 resize-none col-span-2 p-4 w-full"
-        register={register}
-        divClass="w-full"
-      />
-      <div className="flex flex-col gap-4">
-        <h3 className="text-primary text-md">
-          {t('Disponibilidad para viajar')}
-        </h3>
+  return (
+    <Form {...form}>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="mx-auto flex max-w-lg flex-col gap-8 text-left"
+      >
+        <p className="col-span-full">*{t('Information')}</p>
         <Input
-          divClass="grid grid-cols-subgrid col-span-2 items-center gap-x-4 w-full"
-          label={t('¿Cuál es tu radio de trabajo?')}
-          type="select"
-          fieldName="workRadius"
-          register={register}
-          items={[
-            ['local', t('Local')],
-            ['state', t('Estatal')],
-            ['national', t('Nacional')],
-            ['international', t('Internacional')],
-          ].map(([key, label]) => ({ key, label }))}
+          type="textArea"
+          form={form}
+          fieldName="headline"
+          label={t('Agrega un lema o mensaje corto')}
+          maxLength={60}
+          inputClass="rounded-md bg-black bg-opacity-20 resize-none col-span-2 p-4 w-full"
+          divClass="w-full"
         />
-      </div>
-      {user?.type != 'moral' && (
         <div className="flex flex-col gap-4">
+          <h3 className="text-md text-primary">
+            {t('Disponibilidad para viajar')}
+          </h3>
           <Input
-            label={t('¿Te interesa ser becario o hacer servicio social?')}
-            type="custom"
-            register={register}
-            fieldName="probono"
-            component={ButtonSelect<IUpdateBackendProfile>}
-            buttonDivClass="!justify-start"
+            divClass="grid grid-cols-subgrid col-span-2 items-center gap-x-4 w-full"
+            label={t('¿Cuál es tu radio de trabajo?')}
+            type="radioGroup"
+            fieldName="workRadius"
+            form={form}
             items={[
-              { value: 'true', label: t('Sí') },
-              { value: 'false', label: t('No') },
+              { value: 'local', label: t('Local') },
+              { value: 'state', label: t('Estatal') },
+              { value: 'national', label: t('Nacional') },
+              { value: 'international', label: t('Internacional') },
             ]}
           />
+        </div>
+        <div className="flex flex-col gap-4">
+          <h3 className="text-base text-primary">
+            {t('Servicios a distancia')}
+          </h3>
           <Input
-            label={t('¿Estudias o estudiaste en alguna de estas escuelas?')}
-            type="custom"
-            register={register}
-            fieldName="university"
-            component={UniversidadesSelect<IUpdateBackendProfile>}
+            label={t('¿Trabajas online?')}
+            type="switch"
+            fieldName="remote"
+            form={form}
           />
         </div>
-      )}
-      <div className="flex flex-col gap-4">
-        <h3 className="text-primary text-base">{t('Servicios a distancia')}</h3>
-        <Input
-          label={t('¿Trabajas online?')}
-          type="custom"
-          fieldName="remote"
-          register={register}
-          component={ButtonSelect<IUpdateBackendProfile>}
-          buttonDivClass="!justify-start"
-          items={[
-            { value: 'true', label: t('Sí') },
-            { value: 'false', label: t('No') },
-          ]}
-        />
-      </div>
-      {mutateError && (
-        <ErrorMessage
-          message={
-            isApiError(mutateError)
-              ? mutateError.errorCode
-              : mutateError.message
-          }
-        />
-      )}
-      <div className="flex flex-row gap-4 self-center">
-        <div
-          className="button font-bold bg-transparent border border-primary text-black"
-          onClick={() => history.back()}
-        >
-          {t('Regresar')}
+        {user?.type != 'moral' && (
+          <div className="flex flex-col gap-4">
+            <Input
+              label={t('¿Te interesa ser becario o hacer servicio social?')}
+              type="radioGroup"
+              form={form}
+              fieldName="probono"
+              items={[
+                { value: 'true', label: t('Sí') },
+                { value: 'false', label: t('No') },
+              ]}
+            />
+            <UniversidadesSelect
+              label={t('¿Estudias o estudiaste en alguna de estas escuelas?')}
+              form={form}
+              fieldName="university"
+            />
+          </div>
+        )}
+        {error && (
+          <ErrorMessage
+            message={isApiError(error) ? error.errorCode : error.message}
+          />
+        )}
+        <div className="flex flex-row gap-4 self-center">
+          <Button
+            className="button border border-primary bg-transparent font-bold text-black"
+            onClick={() => history.back()}
+          >
+            {t('Regresar')}
+          </Button>
+          <Button
+            type="submit"
+            disabled={isPending}
+            className="border-none"
+            value={t('Continuar')}
+          />
         </div>
-        <input
-          type="submit"
-          disabled={user === undefined || isPending}
-          className="border-none"
-          value={t('Continuar')}
-        />
-      </div>
-    </form>
+      </form>
+    </Form>
   );
 }
 

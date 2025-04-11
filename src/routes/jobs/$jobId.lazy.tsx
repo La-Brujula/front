@@ -1,17 +1,19 @@
-import { useTranslation } from 'react-i18next';
-import { Link, createLazyFileRoute } from '@tanstack/react-router';
 import { useMemo } from 'react';
+
 import { useQuery } from '@tanstack/react-query';
+import { Link, createLazyFileRoute } from '@tanstack/react-router';
+import { ChevronLeftIcon, EditIcon } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+
+import Applicants from '@/modules/jobs/components/applicants';
+import DeleteOpening from '@/modules/jobs/components/deleteOpening';
+import { jobDetailOptions } from '@/modules/jobs/queries/jobSearchQuery';
+import { UserCard } from '@/modules/search/components/userCard';
 import DataSuspense from '@/shared/components/dataSuspense';
 import { LoadingSpinner } from '@/shared/components/loadingSpinner';
-import { jobDetailOptions } from '@/modules/jobs/queries/jobSearchQuery';
+import { useLoggedInAccount } from '@/shared/hooks/useLoggedInAccount';
 import { Container } from '@/shared/layout/container';
 import { getTitle } from '@/shared/utils/areaUtils';
-import Applicants from '@/modules/jobs/components/applicants';
-import { ArrowBackIosOutlined, EditOutlined } from '@mui/icons-material';
-import { UserCard } from '@/modules/search/components/userCard';
-import { useLoggedInAccount } from '@/shared/hooks/useLoggedInAccount';
-import DeleteOpening from '@/modules/jobs/components/deleteOpening';
 
 // i18next-parser static types
 
@@ -63,10 +65,10 @@ export function JobDetailPage() {
           to="/jobs"
           className="flex flex-row gap-1"
         >
-          <ArrowBackIosOutlined />
+          <ChevronLeftIcon />
           {t('Regresar')}
         </Link>
-        <h1 className="font-normal text-primary text-4xl text-center">
+        <h1 className="text-center text-4xl font-normal text-primary">
           {t('Oferta laboral')}
         </h1>
         {ownOpening ? (
@@ -75,7 +77,7 @@ export function JobDetailPage() {
             params={{ jobId }}
             className="flex flex-row gap-1"
           >
-            <EditOutlined />
+            <EditIcon />
             {t('Editar')}
           </Link>
         ) : (
@@ -94,15 +96,12 @@ export function JobDetailPage() {
               showRecommendations={false}
             />
           )}
-          <div className="max-w-lg xl:max-w-4xl mx-auto px-8 w-full justify-start items-start mb-4">
-            <div className="flex flex-col xl:flex-row xl:gap-16 order-last xl:order-first xl:shrink">
-              <div
-                className="flex flex-col gap-6 w-full justify-items-stretch mt-8 max-w-lg
-              xl:max-w-3xl mx-auto xl:mx-0 text-left xl:-translate-y-42"
-              >
+          <div className="mx-auto mb-4 w-full max-w-lg items-start justify-start px-8 xl:max-w-4xl">
+            <div className="order-last flex flex-col xl:order-first xl:shrink xl:flex-row xl:gap-16">
+              <div className="xl:-translate-y-42 mx-auto mt-8 flex w-full max-w-lg flex-col justify-items-stretch gap-6 text-left xl:mx-0 xl:max-w-3xl">
                 {!!job?.activity && (
                   <div>
-                    <h2 className="font-normal text-primary text-xl">
+                    <h2 className="text-xl font-normal text-primary">
                       {t('Busca {{count}} {{title}}', {
                         replace: {
                           count: job.count,

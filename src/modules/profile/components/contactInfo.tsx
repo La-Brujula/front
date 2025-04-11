@@ -1,40 +1,40 @@
+import {
+  FacebookIcon,
+  InstagramIcon,
+  LinkIcon,
+  LinkedinIcon,
+  MailIcon,
+  PhoneIcon,
+  TwitterIcon,
+  YoutubeIcon,
+} from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+
 import IMDB from '@/shared/icons/imdb';
 import TikTok from '@/shared/icons/tiktok';
 import Vimeo from '@/shared/icons/vimeo';
-import EmailOutlined from '@mui/icons-material/EmailOutlined';
-import FacebookOutlined from '@mui/icons-material/FacebookOutlined';
-import Instagram from '@mui/icons-material/Instagram';
-import LinkOutlined from '@mui/icons-material/LinkOutlined';
-import Linkedin from '@mui/icons-material/LinkedIn';
-import PhoneOutlined from '@mui/icons-material/PhoneOutlined';
-import WhatsApp from '@mui/icons-material/WhatsApp';
-import Twitter from '@mui/icons-material/X';
-import YouTube from '@mui/icons-material/YouTube';
+import WhatsApp from '@/shared/icons/whatsapp';
 import { IBackendProfile } from '@/shared/types/user';
-import { useTranslation } from 'react-i18next';
 
 export const ContactSection = ({ user }: { user: IBackendProfile }) => {
   const { t } = useTranslation('profile');
   return (
-    <div
-      className="grid grid-cols-[max-content_1fr] max-w-md
-      text-left gap-4 mx-auto xl:mx-0 items-center gap-x-6 overflow-hidden"
-    >
+    <div className="mx-auto grid max-w-md grid-cols-[max-content_1fr] items-center gap-4 gap-x-6 overflow-hidden text-left xl:mx-0">
       <h3>{t('Contacto')}</h3>
       {!!user.phoneNumbers &&
         user.phoneNumbers.length > 0 &&
         user.phoneNumbers.map((phoneNumber) => (
           <div
-            className="grid grid-cols-subgrid col-span-2"
+            className="col-span-2 grid grid-cols-subgrid"
             key={phoneNumber}
           >
             <h3>
-              <PhoneOutlined />
+              <PhoneIcon />
             </h3>
             <div className="w-full">
               <a
                 target="_blank"
-                className="truncate block w-full"
+                className="block w-full truncate"
                 href={'tel:' + phoneNumber}
               >
                 {phoneNumber}
@@ -53,15 +53,15 @@ export const ContactSection = ({ user }: { user: IBackendProfile }) => {
         .map((email: string | undefined) =>
           email !== undefined ? (
             <div
-              className="grid grid-cols-subgrid col-span-2"
+              className="col-span-2 grid grid-cols-subgrid"
               key={email}
             >
               <h3>
-                <EmailOutlined />
+                <MailIcon />
               </h3>
               <a
                 target="_blank"
-                className="truncate block w-full"
+                className="block w-full truncate"
                 href={'mailto:' + email}
               >
                 {email}
@@ -74,15 +74,15 @@ export const ContactSection = ({ user }: { user: IBackendProfile }) => {
           (link) =>
             !!link && (
               <div
-                className="grid grid-cols-subgrid col-span-full"
+                className="col-span-full grid grid-cols-subgrid"
                 key={link}
               >
                 <h3>
-                  <LinkOutlined />
+                  <LinkIcon />
                 </h3>
                 <a
                   target="_blank"
-                  className="truncate block w-full"
+                  className="block w-full truncate"
                   href={link}
                 >
                   {link}
@@ -110,7 +110,7 @@ export const ContactSection = ({ user }: { user: IBackendProfile }) => {
           </h3>
           <a
             target="_blank"
-            className="truncate block w-full"
+            className="block w-full truncate"
             href={user.imdb}
           >
             {user.imdb}
@@ -120,11 +120,11 @@ export const ContactSection = ({ user }: { user: IBackendProfile }) => {
       {!!user.facebook && (
         <>
           <h3>
-            <FacebookOutlined />
+            <FacebookIcon />
           </h3>
           <a
             target="_blank"
-            className="truncate block w-full"
+            className="block w-full truncate"
             href={user.facebook}
           >
             {user.facebook}
@@ -134,11 +134,11 @@ export const ContactSection = ({ user }: { user: IBackendProfile }) => {
       {!!user.instagram && (
         <>
           <h3>
-            <Instagram />
+            <InstagramIcon />
           </h3>
           <a
             target="_blank"
-            className="truncate block w-full"
+            className="block w-full truncate"
             href={user.instagram}
           >
             {user.instagram}
@@ -152,7 +152,7 @@ export const ContactSection = ({ user }: { user: IBackendProfile }) => {
           </h3>
           <a
             target="_blank"
-            className="truncate block w-full"
+            className="block w-full truncate"
             href={user.vimeo}
           >
             {user.vimeo}
@@ -162,11 +162,11 @@ export const ContactSection = ({ user }: { user: IBackendProfile }) => {
       {!!user.youtube && (
         <>
           <h3>
-            <YouTube />
+            <YoutubeIcon />
           </h3>
           <a
             target="_blank"
-            className="truncate block w-full"
+            className="block w-full truncate"
             href={user.youtube}
           >
             {user.youtube}
@@ -175,10 +175,10 @@ export const ContactSection = ({ user }: { user: IBackendProfile }) => {
       )}
       {!!user.linkedin && (
         <>
-          <Linkedin />
+          <LinkedinIcon />
           <a
             target="_blank"
-            className="truncate block w-full"
+            className="block w-full truncate"
             href={user.linkedin}
           >
             {user.linkedin}
@@ -188,11 +188,11 @@ export const ContactSection = ({ user }: { user: IBackendProfile }) => {
       {!!user.twitter && (
         <>
           <h3>
-            <Twitter />
+            <TwitterIcon />
           </h3>
           <a
             target="_blank"
-            className="truncate block w-full"
+            className="block w-full truncate"
             href={user.twitter}
           >
             {user.twitter}
@@ -206,7 +206,7 @@ export const ContactSection = ({ user }: { user: IBackendProfile }) => {
           </h3>
           <a
             target="_blank"
-            className="truncate block w-full"
+            className="block w-full truncate"
             href={user.tiktok}
           >
             {user.tiktok}

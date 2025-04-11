@@ -1,13 +1,15 @@
-import { createLazyFileRoute, useNavigate } from '@tanstack/react-router';
 import { useCallback } from 'react';
-import { Search } from '@/modules/search/types/searchParams';
-import { Container } from '@/shared/layout/container';
-import JobCreationForm from '@/modules/jobs/components/jobForm';
+
+import { createLazyFileRoute, useNavigate } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
+
+import JobCreationForm from '@/modules/jobs/components/jobForm';
 import { useCreateJob } from '@/modules/jobs/queries/jobSearchQuery';
-import DataSuspense from '@/shared/components/dataSuspense';
 import { TJobPosting } from '@/modules/jobs/types/searchParams';
+import { Search } from '@/modules/search/types/searchParams';
+import DataSuspense from '@/shared/components/dataSuspense';
 import { LoadingSpinner } from '@/shared/components/loadingSpinner';
+import { Container } from '@/shared/layout/container';
 
 export const Route = createLazyFileRoute('/jobs/create')({
   component: CreateJobPostingPage,

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { useTranslation } from 'react-i18next';
 
 // t('timeout exceeded')
@@ -7,8 +8,8 @@ import { useTranslation } from 'react-i18next';
 export function ErrorMessage(props: { message: string }) {
   const { t } = useTranslation('errors');
   return (
-    <div className="bg-amber-300 px-8 py-4 rounded-md w-full max-w-[100vw]">
-      <p className="w-full text-sm text-black font-bold">{t(props.message)}</p>
+    <div className="w-full max-w-[100vw] rounded-md bg-amber-300 px-8 py-4">
+      <p className="w-full text-sm font-bold text-black">{t(props.message)}</p>
     </div>
   );
 }

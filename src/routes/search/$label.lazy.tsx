@@ -1,8 +1,5 @@
-import ErrorMessage from '@shared/components/errorMessage';
 import { useMemo } from 'react';
 
-import areas, { TArea, TSubArea } from '@shared/constants/areas';
-import useLocalization from '@/shared/hooks/useLocalization';
 import {
   Link,
   createLazyFileRoute,
@@ -12,7 +9,12 @@ import {
 } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
 import { z } from 'zod';
+
+import useLocalization from '@/shared/hooks/useLocalization';
 import { Container } from '@/shared/layout/container';
+
+import ErrorMessage from '@shared/components/errorMessage';
+import areas, { TArea, TSubArea } from '@shared/constants/areas';
 
 export const Route = createLazyFileRoute('/search/$label')({
   component: SubCategoryPage,
@@ -134,8 +136,8 @@ function SubCategoryPage() {
 
   return (
     <Container>
-      <h1 className="mb-8 text-secondary text-4xl ">{label}</h1>
-      <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 auto-rows-fr">
+      <h1 className="mb-8 text-4xl text-secondary">{label}</h1>
+      <div className="grid auto-rows-fr grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4">
         {linkList.map((linkObject, i) => (
           <Link
             resetScroll
@@ -143,7 +145,7 @@ function SubCategoryPage() {
             search={linkObject.search}
             key={encodeURI(linkObject.name)}
             className={[
-              'button font-bold flex flex-col items-center justify-center',
+              'flex flex-col items-center justify-center rounded-md p-4 font-bold text-white',
               !(i % 2) ? 'bg-primary' : 'bg-secondary',
             ].join(' ')}
           >

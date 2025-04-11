@@ -1,4 +1,5 @@
 'use strict';
+
 import referents from '@shared/constants/inductiveReferents.json';
 
 let INDEX: [RegExp, string][] = Object.entries(referents).map(([term, id]) => [

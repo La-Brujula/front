@@ -1,14 +1,15 @@
-import { Container } from '@/shared/layout/container';
 import { Trans, useTranslation } from 'react-i18next';
+
+import { Container } from '@/shared/layout/container';
 
 function BrujulaBio() {
   const { t } = useTranslation('landing');
   return (
     <Container bg="primary">
-      <p className="grow w-full font-medium text-center text-white text-5xl">
+      <p className="w-full grow text-center text-5xl font-medium text-white">
         🇲🇽 🇨🇴
       </p>
-      <p className="grow w-full font-medium text-lg text-justify text-white">
+      <p className="w-full grow text-justify text-lg font-medium text-white">
         <Trans
           i18nKey="landingParagraph"
           t={t}
@@ -17,7 +18,7 @@ function BrujulaBio() {
           instituciones del medio audiovisual y cinematográfico de México para
           que las puedas encontrar en un solo lugar.
           <br />
-          <span className="text-blue font-semibold block text-center">
+          <span className="block text-center font-semibold text-blue">
             ¡En La Brújula seguimos construyendo!
           </span>
         </Trans>

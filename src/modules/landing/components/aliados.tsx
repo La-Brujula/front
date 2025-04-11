@@ -1,6 +1,7 @@
+import { useTranslation } from 'react-i18next';
+
 import aliades from '@shared/constants/aliades.json';
 import { Container } from '@shared/layout/container';
-import { useTranslation } from 'react-i18next';
 
 export const SeccionAliades = () => {
   const { t } = useTranslation('landing');
@@ -12,10 +13,7 @@ export const SeccionAliades = () => {
           {t('Gracias por hacer posible La Brújula')}
         </p>
       </div>
-      <div
-        className="max-w-6xl grid grid-cols-2 sm:grid-cols-3
-        md:grid-cols-4 xl:grid-cols-6 mx-auto gap-8"
-      >
+      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6">
         {aliades.map((aliade, i) => (
           <a
             href={aliade.linkUrl}

@@ -1,16 +1,13 @@
 .strip {
-  @apply flex rounded-2xl overflow-hidden h-16 content-start
-    transform transition-all duration-300 relative isolate items-start
-    data-[linked="none"]:!cursor-not-allowed;
+  @apply relative isolate flex h-16 transform content-start items-start overflow-hidden rounded-2xl transition-all duration-300 data-[linked="none"]:!cursor-not-allowed;
 }
 
 .brujulas {
-  @apply grid grid-cols-3 gap-0 absolute bottom-0 bg-primary
-  w-full items-center justify-center -z-10 h-20;
+  @apply absolute bottom-0 -z-10 grid h-20 w-full grid-cols-3 items-center justify-center gap-0 bg-primary;
 }
 
 .brujula {
-  @apply !p-2 !fill-black flex items-center justify-center;
+  @apply flex items-center justify-center !fill-black !p-2;
 }
 
 .strip:hover {
@@ -18,31 +15,28 @@
 }
 
 .textTag {
-  @apply text-[#fff] flex items-center p-4
-  text-xl uppercase h-16 w-full -tracking-tighter;
+  @apply flex h-16 w-full items-center p-4 text-xl uppercase -tracking-tighter text-[#fff];
 }
 
 @media (min-width: 768px) {
   .strip {
-    @apply flex flex-row-reverse rounded-2xl overflow-hidden h-96 w-20 content-end
-      transform transition-all duration-300 relative isolate items-end;
+    @apply relative isolate flex h-96 w-16 transform flex-row-reverse content-end items-end overflow-hidden rounded-2xl transition-all duration-300;
   }
 
   .brujulas {
-    @apply grid grid-rows-3 grid-cols-1 gap-0 left-0 bg-primary
-    items-center justify-center -z-10 h-full w-24;
+    @apply left-0 -z-10 grid h-full w-24 grid-cols-1 grid-rows-3 items-center justify-center gap-0 bg-primary;
   }
 
   .brujula {
-    @apply !p-2 !fill-black h-full flex items-center justify-center;
+    @apply flex h-full items-center justify-center !fill-black !p-2;
   }
 
   .strip:hover {
-    @apply h-full w-48;
+    @apply h-96 w-44;
   }
 
   .textTag {
-    @apply h-full w-24 flex items-center justify-start self-end;
+    @apply flex h-full w-16 items-center justify-start self-end;
     writing-mode: vertical-lr;
   }
 }

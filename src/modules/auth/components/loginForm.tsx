@@ -1,27 +1,35 @@
 import { useCallback } from 'react';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Link, useNavigate } from '@tanstack/react-router';
 import { FieldValues, Path, useForm } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
-import { useAuth } from '@/shared/providers/authProvider';
-import { Link, useNavigate } from '@tanstack/react-router';
+import { z } from 'zod';
+
+import { Button } from '@/components/ui/button';
+import { Form } from '@/components/ui/form';
+import { ErrorMessage } from '@/shared/components/errorMessage';
 import Input from '@/shared/components/input';
 import useAuthFunction from '@/shared/hooks/useAuthFuncton';
-import { ErrorMessage } from '@/shared/components/errorMessage';
+import { useAuth } from '@/shared/providers/authProvider';
 import { isApiError } from '@/shared/services/backendFetcher';
 
-type LoginFormFields = {
-  email: string;
-  password: string;
-};
+const LoginFormFields = z.object({
+  email: z.string().email(),
+  password: z.string(),
+});
+
+type TLoginForm = z.infer<typeof LoginFormFields>;
 
 export const LoginForm = (props: { redirectUrl?: string }) => {
   const { t } = useTranslation('auth');
-  const { register, handleSubmit, formState, setError } =
-    useForm<LoginFormFields>({
-      defaultValues: {
-        email: undefined,
-        password: undefined,
-      },
-    });
+  const form = useForm<TLoginForm>({
+    resolver: zodResolver(LoginFormFields),
+    defaultValues: {
+      email: undefined,
+      password: undefined,
+    },
+  });
   const navigate = useNavigate();
   const { login } = useAuth(['login']);
   const { isPending: loading, error, mutate } = useAuthFunction(login);
@@ -46,7 +54,7 @@ export const LoginForm = (props: { redirectUrl?: string }) => {
               !(typeof error.message === 'string')
             ) {
               for (const err of error.message) {
-                setError(err.path as Path<LoginFormFields>, {
+                form.setError(err.path as Path<TLoginForm>, {
                   message: t(err.msg),
                 });
               }
@@ -59,31 +67,28 @@ export const LoginForm = (props: { redirectUrl?: string }) => {
   );
 
   return (
-    <>
+    <Form {...form}>
       <form
-        className="flex flex-col gap-4 lg:gap-8 justify-center items-center max-w-xs w-full mx-auto"
-        onSubmit={handleSubmit(attemptLogin)}
+        className="mx-auto flex w-full max-w-xs flex-col items-center justify-center gap-4 lg:gap-8"
+        onSubmit={form.handleSubmit(attemptLogin)}
       >
         <Input
           type="email"
           fieldName="email"
           label={t('email')}
-          register={register}
+          form={form}
           placeholder={t('ejemplo@labrujula.com')}
           autoComplete="email"
           required
-          error={formState.errors.email}
         />
         <Input
           type="password"
           fieldName="password"
           label={t('password')}
-          register={register}
+          form={form}
           placeholder={t('password')}
           autoComplete="password"
-          error={formState.errors.password}
           required
-          minLength={8}
         />
         {error !== null && (
           <>
@@ -120,18 +125,18 @@ export const LoginForm = (props: { redirectUrl?: string }) => {
             )}
           </>
         )}
-        <input
+        <Button
           type="submit"
-          disabled={loading || !formState.isValid}
-          className="max-w-xs mx-auto bg-primary disabled:bg-black disabled:bg-opacity-20 disabled:cursor-default"
+          disabled={loading || !form.formState.isValid}
+          className="mx-auto max-w-xs bg-primary disabled:cursor-default disabled:bg-black disabled:bg-opacity-20"
           onClick={attemptLogin}
           value={t('Inicia sesión')}
         />
       </form>
-      <div className="flex flex-col gap-2 mt-4 text-primary">
+      <div className="mt-4 flex flex-col gap-2 text-primary">
         <Link
           to="/auth/signup"
-          className="max-w-xs mx-auto mt-2 bg-secondary px-4 py-2 text-white rounded-md"
+          className="mx-auto mt-2 max-w-xs rounded-md bg-secondary px-4 py-2 text-white"
           resetScroll
         >
           {t('createUser')}
@@ -143,6 +148,6 @@ export const LoginForm = (props: { redirectUrl?: string }) => {
           {t('forgotPassword')}
         </Link>
       </div>
-    </>
+    </Form>
   );
 };

@@ -1,6 +1,8 @@
-import ResponsiveCarousel from '@shared/layout/carusel';
-import { AnuncioSlide } from './anuncioSlide';
 import React, { useMemo } from 'react';
+
+import ResponsiveCarousel from '@shared/layout/carusel';
+
+import { AnuncioSlide } from './anuncioSlide';
 
 function BannerAnuncios(props: {
   anuncios: {

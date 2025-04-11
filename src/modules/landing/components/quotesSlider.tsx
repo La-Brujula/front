@@ -1,22 +1,15 @@
+import ResponsiveCarousel from '@/shared/layout/carusel';
+
 import quotes from '@shared/constants/quotes.json';
 import { Container } from '@shared/layout/container';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+
+// requires a loader
 import QuoteSlide from './quoteSlide';
 
 function QuotesSlider() {
   return (
     <Container>
-      <Carousel
-        showArrows={true}
-        showThumbs={false}
-        showStatus={false}
-        axis="horizontal"
-        infiniteLoop={true}
-        autoPlay={true}
-        interval={1000 * 17}
-        stopOnHover={true}
-      >
+      <ResponsiveCarousel>
         {quotes
           .sort(() => Math.random() - 0.5)
           .map((quote) => (
@@ -28,7 +21,7 @@ function QuotesSlider() {
               title={quote.title}
             />
           ))}
-      </Carousel>
+      </ResponsiveCarousel>
     </Container>
   );
 }

@@ -1,12 +1,13 @@
-import { Container } from '@shared/layout/container';
 import { useTranslation } from 'react-i18next';
-import { NameSearchField } from '@modules/search/components/nameSearchField';
-import categories from '@shared/constants/categories.json';
+
 import { PorCategorias } from '@/modules/search/components/categorias';
+
+import categories from '@shared/constants/categories.json';
+import { Container } from '@shared/layout/container';
+
+import { NameSearchField } from '@modules/search/components/nameSearchField';
+
 import { LoginOrProfile } from './loginOrProfile';
-import { WorkOutline } from '@mui/icons-material';
-import { Link } from '@tanstack/react-router';
-import Work from '@/shared/icons/work';
 
 export const SearchModules = () => {
   const { t } = useTranslation(['landing', 'search']);
@@ -16,10 +17,10 @@ export const SearchModules = () => {
         bg="light"
         bodyClass="text-left"
       >
-        <h3 className="text-secondary font-bold text-2xl mb-4">
+        <h3 className="mb-4 text-2xl font-bold text-secondary">
           {t('Buscador')}
         </h3>
-        <h3 className="text-primary font-bold text-xl mb-4 lg:text-center">
+        <h3 className="mb-4 text-xl font-bold text-primary lg:text-center">
           {t('contactCTA')}:
         </h3>
         <div className="grid grid-cols-1 gap-8">
@@ -44,7 +45,7 @@ export const SearchModules = () => {
         bg="light"
         className="!py-0 md:py-8"
       >
-        <div className="flex justify-center items-center">
+        <div className="flex items-center justify-center">
           <iframe
             src="https://player.vimeo.com/video/1014498180?autoplay=1&muted=1&controls=0&loop=1"
             width="640"

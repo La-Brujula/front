@@ -1,21 +1,16 @@
 import { Link } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
+
 import { SocialLinks } from '../components/socials';
 
 export const Footer = () => {
   const { t } = useTranslation('navigation');
   return (
-    <div
-      className="w-full text-center flex flex-col
-    justify-center gap-4 py-8 px-6 bg-primary bg-opacity-20"
-    >
-      <div
-        className="grid grid-cols-1 md:grid-cols-[1fr,_3fr,_1fr]
-      max-w-6xl mx-auto w-full items-center gap-6 md:gap-0"
-      >
+    <div className="flex w-full flex-col justify-center gap-4 bg-primary-foreground px-6 py-8 text-center">
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-6 md:grid-cols-[1fr,_3fr,_1fr] md:gap-0">
         <Link
           to="/contact"
-          className="text-primary font-bold md:order-first"
+          className="font-bold text-primary md:order-first"
         >
           {t('contactUs')}
         </Link>

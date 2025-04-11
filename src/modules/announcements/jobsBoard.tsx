@@ -1,12 +1,14 @@
 import { Link } from '@tanstack/react-router';
 import { Trans, useTranslation } from 'react-i18next';
 
+import { Button } from '@/components/ui/button';
+
 function JobsAnnouncement() {
   const { t } = useTranslation('jobsAnnouncement');
   return (
     <div className="">
       <h2>{t('La Brújula 2025')}</h2>
-      <div className="text-black max-w-2xl mx-auto text-justify [text-align-last:center] *:mb-4">
+      <div className="mx-auto max-w-2xl text-justify text-black [text-align-last:center] *:mb-4">
         <p>
           <Trans
             t={t}
@@ -47,7 +49,7 @@ function JobsAnnouncement() {
         </p>
         <p>
           <Link to="/jobs">
-            <button>{t('La Bolsa de Trabajo')}</button>
+            <Button>{t('La Bolsa de Trabajo')}</Button>
           </Link>
         </p>
         <p>

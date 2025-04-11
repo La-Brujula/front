@@ -1,6 +1,7 @@
 export default [
   'MX',
   'CO',
+  'AC',
   'AD',
   'AE',
   'AF',
@@ -71,6 +72,7 @@ export default [
   'ET',
   'FI',
   'FJ',
+  'FK',
   'FM',
   'FO',
   'FR',
@@ -210,6 +212,7 @@ export default [
   'SX',
   'SY',
   'SZ',
+  'TA',
   'TC',
   'TD',
   'TF',

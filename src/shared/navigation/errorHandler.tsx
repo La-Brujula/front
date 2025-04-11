@@ -1,11 +1,15 @@
+import { useMemo } from 'react';
+
 import {
   ErrorComponentProps,
   Navigate,
   useRouter,
 } from '@tanstack/react-router';
 import { usePostHog } from 'posthog-js/react';
-import { useMemo } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
+
+import { Button } from '@/components/ui/button';
+
 import useReportError from '../hooks/useSendBugReport';
 import { Container } from '../layout/container';
 
@@ -51,10 +55,10 @@ function ErrorHandler(props: ErrorComponentProps) {
       <img
         src={import.meta.env.BASE_URL + 'img/HalfLogo.svg'}
         alt=""
-        className="absolute opacity-20 top-24 -translate-x-1/2 rotate-180 left-1/2 w-5/12 min-w-96 -z-10 pointer-events-none"
+        className="pointer-events-none absolute left-1/2 top-24 -z-10 w-5/12 min-w-96 -translate-x-1/2 rotate-180 opacity-20"
       />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 align-top">
-        <div className="text-left flex flex-col gap-8">
+      <div className="grid grid-cols-1 gap-8 align-top md:grid-cols-2">
+        <div className="flex flex-col gap-8 text-left">
           <h1>
             <Trans
               i18nKey="errorTitle"
@@ -66,21 +70,21 @@ function ErrorHandler(props: ErrorComponentProps) {
             </Trans>
           </h1>
           <div className="flex flex-row justify-start gap-8">
-            <button
+            <Button
               onClick={() => history.back()}
-              className="button bg-secondary text-current h-11"
+              className="button h-11 bg-secondary text-current"
             >
               {t('Regresar')}
-            </button>
-            <button
+            </Button>
+            <Button
               onClick={() => window.location.reload()}
-              className="button bg-secondary h-11"
+              className="button h-11 bg-secondary"
             >
               {t('Refrescar página actual')}
-            </button>
+            </Button>
           </div>
         </div>
-        <div className="flex flex-col gap-0 text-left shadow-lg border border-white rounded-md overflow-hidden border-opacity-25">
+        <div className="flex flex-col gap-0 overflow-hidden rounded-md border border-white border-opacity-25 text-left shadow-lg">
           {error !== undefined && (
             <>
               <p className="bg-primary p-4">
@@ -92,7 +96,7 @@ function ErrorHandler(props: ErrorComponentProps) {
                   pantalla con la siguiente información:
                 </Trans>
               </p>
-              <div className="p-4 bg-secondary text-sm flex flex-col gap-8">
+              <div className="flex flex-col gap-8 bg-secondary p-4 text-sm">
                 <b>{location.pathname}</b>
 
                 <div className="flex flex-col gap-2">

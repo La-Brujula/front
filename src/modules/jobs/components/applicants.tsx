@@ -1,10 +1,14 @@
-import DataSuspense from '@/shared/components/dataSuspense';
-import { useQuery } from '@tanstack/react-query';
 import { useCallback, useMemo } from 'react';
-import { jobApplicantsOptions, useApplyToJob } from '../queries/jobSearchQuery';
+
+import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
+
+import { Button } from '@/components/ui/button';
 import { UserCard } from '@/modules/search/components/userCard';
+import DataSuspense from '@/shared/components/dataSuspense';
 import { useLoggedInAccount } from '@/shared/hooks/useLoggedInAccount';
+
+import { jobApplicantsOptions, useApplyToJob } from '../queries/jobSearchQuery';
 
 export default function Applicants(props: {
   jobId: string;
@@ -48,23 +52,23 @@ export default function Applicants(props: {
       error={error}
       key={props.jobId}
     >
-      <div className="py-8 flex flex-col justify-center items-center gap-2">
+      <div className="flex flex-col items-center justify-center gap-2 py-8">
         <h2 className="font-normal text-primary">{t('Aplicantes')}</h2>
         {!alreadyApplied && !props.ownOpening && !!loggedInAccount && (
           <DataSuspense
             loading={isPending}
             error={applyError}
           >
-            <button
-              className="justify-self-center cursor-pointer text-lg font-bold bg-primary px-4 py-2 rounded-md text-white w-fit disabled:bg-slate-400"
+            <Button
+              className="w-fit cursor-pointer justify-self-center rounded-md bg-primary px-4 py-2 text-lg font-bold text-white disabled:bg-slate-400"
               onClick={applyToJob}
               disabled={isPending || loading}
             >
               {t('Aplicar')}
-            </button>
+            </Button>
           </DataSuspense>
         )}
-        <div className="flex flex-col gap-2 text-left [&>*]:pb-4 [&>*]:border-b [&>*]:border-b-black [&>*]:border-opacity-20">
+        <div className="flex flex-col gap-2 text-left [&>*]:border-b [&>*]:border-b-black [&>*]:border-opacity-20 [&>*]:pb-4">
           {applicants && applicants.length > 0 ? (
             applicants?.map((a) => (
               <UserCard

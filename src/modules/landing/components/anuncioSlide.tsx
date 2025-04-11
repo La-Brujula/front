@@ -6,7 +6,7 @@ export const AnuncioSlide = (props: {
 }) => {
   const { imageUrl, linkUrl, horizontalImage, verticalImage } = props;
   return (
-    <div className="max-w-3xl mx-auto">
+    <div className="mx-auto max-w-3xl">
       <a
         href={linkUrl}
         target={!!linkUrl ? '_blank' : ''}
@@ -20,11 +20,11 @@ export const AnuncioSlide = (props: {
           <img
             src={`${import.meta.env.BASE_URL}img${imageUrl}`}
             alt=""
-            className="w-full top-0 left-0 h-full object-contain"
+            className="left-0 top-0 h-full w-full object-contain"
           />
         ) : (
           <>
-            <picture className="h-full object-contain max-h-[75vw]">
+            <picture className="h-full max-h-[75vw] object-contain">
               <source
                 media="(max-width:465px)"
                 src={`${import.meta.env.BASE_URL}img${verticalImage}`}
@@ -36,7 +36,7 @@ export const AnuncioSlide = (props: {
               <img
                 src={`${import.meta.env.BASE_URL}img${verticalImage}`}
                 alt=""
-                className="w-full hidden md:block object-contain"
+                className="hidden w-full object-contain md:block"
               />
             </picture>
           </>

@@ -1,12 +1,16 @@
-import { PorCategorias } from '@modules/search/components/categorias';
-import { SearchOutlined } from '@mui/icons-material';
-import categories from '@shared/constants/categories.json';
-import { Container } from '@shared/layout/container';
+import { createLazyFileRoute, useNavigate } from '@tanstack/react-router';
+import { SearchIcon } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+
+import { Button } from '@/components/ui/button';
+
+import categories from '@shared/constants/categories.json';
+import { Container } from '@shared/layout/container';
 import { replaceSearchTermsFromIndex } from '@shared/utils/busqueda';
+
+import { PorCategorias } from '@modules/search/components/categorias';
 import { ReferenceField } from '@modules/search/components/referenceField';
-import { createLazyFileRoute, useNavigate } from '@tanstack/react-router';
 
 export const Route = createLazyFileRoute('/search/category')({
   component: SearchByCategory,
@@ -48,19 +52,18 @@ function SearchByCategory() {
               resetScroll: true,
             });
           })}
-          className="flex flex-col lg:flex-row items-center justify-center
-        gap-4 bg-primary p-4 rounded-lg lg:-mx-4 font-bold"
+          className="flex flex-col items-center justify-center gap-4 rounded-lg bg-primary p-4 font-bold lg:-mx-4 lg:flex-row"
         >
           <ReferenceField
             setValue={(value: string) => setValue('search', value)}
           />
-          <button
+          <Button
             type="submit"
+            size="icon"
             disabled={!buscar}
-            className="text-black bg-white p-4 size-16 rounded-full disabled:opacity-50"
           >
-            <SearchOutlined />
-          </button>
+            <SearchIcon />
+          </Button>
         </form>
         <div className="my-8"></div>
       </Container>

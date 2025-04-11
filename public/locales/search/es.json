@@ -24,10 +24,11 @@
   "Buscar por especialidad": "Buscar por especialidad",
   "¿No encuentras lo que buscas?": "¿No encuentras lo que buscas?",
   "Intenta buscando entre nuestras categorías": "Intenta buscando entre nuestras categorías",
-  "Ingresa tu búsqueda": "Ingresa tu búsqueda",
+  "Búsqueda": "Búsqueda",
   "{{count}} resultado_one": "{{count}} resultado",
   "{{count}} resultado_many": "{{count}} resultados",
   "{{count}} resultado_other": "{{count}} resultados",
   "No se encontraron resultados": "No se encontraron resultados",
-  "No se encontraron coincidencias": "No se encontraron coincidencias"
+  "No se encontraron coincidencias": "No se encontraron coincidencias",
+  "Ingresa tu búsqueda": "Ingresa tu búsqueda"
 }

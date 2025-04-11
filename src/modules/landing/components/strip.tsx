@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+
 import stripStyles from './strip.module.css';
 
 let Brujula = ({
@@ -90,7 +91,7 @@ function Strip(props: { colors: string[]; link?: string; label: string }) {
           backgroundColor={colors[0]}
           className={stripStyles.brujula}
         />
-        <div className="absolute text-white md:[writing-mode:vertical-lr] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-white md:[writing-mode:vertical-lr]">
           {t('Próximamente')}
         </div>
       </div>

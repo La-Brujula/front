@@ -1,8 +1,15 @@
-import { getImageURI, isValidImageType } from '@/shared/utils/fileTypeCheck';
-import { EditOutlined } from '@mui/icons-material';
-import { Tooltip } from '@mui/material';
 import { ChangeEvent, useCallback, useMemo, useRef } from 'react';
+
+import { EditIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
+import { getImageURI, isValidImageType } from '@/shared/utils/fileTypeCheck';
 
 function ImageField(props: {
   setImageUrl: (imageUrl: string) => void;
@@ -28,14 +35,21 @@ function ImageField(props: {
   }, [props.imageType]);
   return (
     <>
-      <label
-        htmlFor={props.imageType}
-        className="bg-primary p-2 rounded-md text-white cursor-pointer"
-      >
-        <Tooltip title={labelHover}>
-          <EditOutlined />
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <label
+              htmlFor={props.imageType}
+              className="cursor-pointer rounded-md bg-primary p-2 text-white"
+            >
+              <EditIcon />
+            </label>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>{labelHover}</p>
+          </TooltipContent>
         </Tooltip>
-      </label>
+      </TooltipProvider>
       <input
         id={props.imageType}
         type="file"

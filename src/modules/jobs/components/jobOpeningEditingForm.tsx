@@ -1,96 +1,73 @@
 import { useCallback, useState } from 'react';
-import { TJobForm, TJobOpening } from '../types/searchParams';
-import {
-  FieldErrorsImpl,
-  UseFormRegister,
-  UseFormSetValue,
-} from 'react-hook-form';
-import AreaForms from '@/modules/auth/components/areaForm';
+
+import { UseFormReturn } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import Input from '@/shared/components/input';
-import GENDERS from '@/shared/constants/genders.json';
+
+import AreaForms from '@/modules/auth/components/areaForm';
 import { LanguageListForm } from '@/modules/auth/components/languageListForm';
 import { UniversidadesSelect } from '@/modules/auth/components/universidadesSelect';
+import Input from '@/shared/components/input';
+import GENDERS from '@/shared/constants/genders';
 
-const DEFAULT_VALUES: TJobOpening = {
-  activity: '',
-  count: 0,
-  probono: false,
-  gender: undefined,
-  ageRangeMin: undefined,
-  ageRangeMax: undefined,
-  languages: [],
-  school: undefined,
-};
+import { TJobForm } from '../types/searchParams';
 
 export default function JobOpeningForm(props: {
-  initialValues?: TJobForm;
-  register: UseFormRegister<TJobForm>;
-  errors?: FieldErrorsImpl<TJobOpening>;
-  setValue: UseFormSetValue<TJobForm>;
+  form: UseFormReturn<TJobForm>;
 }) {
-  const { register, errors } = props;
   const { t } = useTranslation('jobs');
 
   const [showMore, setShowMore] = useState(false);
 
   const selectActivity = useCallback(
     (activity: string) => {
-      props.setValue('activity', activity);
+      props.form.setValue('activity', activity);
     },
-    [props.setValue]
+    [props.form.setValue]
   );
+
+  const activity = props.form.watch('activity');
 
   return (
     <div className="flex flex-col gap-4">
       <p
         className={[
           'font-bold',
-          props.errors?.activity !== undefined && ' text-red-500',
+          props.form.formState.errors?.activity !== undefined && 'text-red-500',
         ].join(' ')}
       >
         {t('Actividad')} *
       </p>
       <AreaForms
-        defaultValue={props.initialValues?.activity || ''}
+        defaultValue={activity ?? ''}
         changeListener={selectActivity}
         gender={'other'}
         removeElement={() => selectActivity('')}
       />
-      <input
+      <Input
         type="hidden"
-        {...props.register('activity')}
-        value={props.initialValues?.activity}
+        form={props.form}
+        fieldName="activity"
       />
-      {props.errors?.activity !== undefined && (
-        <p className="text-red-500">{t(props.errors?.activity.type || '')}</p>
-      )}
       <Input
         label={t('Número de vacantes')}
         type="text"
         autoComplete=""
-        register={register}
+        form={props.form}
         fieldName="count"
         divClass=""
         required={true}
-        error={errors?.count}
       />
       <Input
-        label={t('Trabajo remunerado')}
-        type="radioGroup"
-        register={register}
+        label={t('Trabajo no remunerado')}
+        type="switch"
+        form={props.form}
         fieldName="probono"
         divClass=""
         required={true}
-        error={errors?.probono}
-        items={[
-          { label: t('Sí'), value: '' },
-          { label: t('No'), value: 'true' },
-        ]}
       />
       {!showMore ? (
         <div
-          className="justify-self-center cursor-pointer text-lg font-bold bg-primary px-4 py-2 rounded-md text-white w-fit"
+          className="w-fit cursor-pointer justify-self-center rounded-md bg-primary px-4 py-2 text-lg font-bold text-white"
           onClick={() => setShowMore(true)}
         >
           +
@@ -98,65 +75,62 @@ export default function JobOpeningForm(props: {
       ) : (
         <>
           <div
-            className="justify-self-center cursor-pointer text-lg font-bold bg-primary px-4 py-2 rounded-md text-white w-fit"
+            className="w-fit cursor-pointer justify-self-center rounded-md bg-primary px-4 py-2 text-lg font-bold text-white"
             onClick={() => setShowMore(false)}
           >
             ^
           </div>
-          <div className="grid grid-cols-[1fr_1rem_1fr] gap-y-2 gap-x-2">
-            <p className="opacity-80 col-span-full">{t('Rango de edad')}</p>
+          <div className="grid grid-cols-[1fr_1rem_1fr] gap-x-2 gap-y-2">
+            <p className="col-span-full opacity-80">{t('Rango de edad')}</p>
             <Input
               label={t('Rango de edad mínimo')}
               hiddenLabel={true}
               type="text"
               autoComplete=""
-              register={register}
+              form={props.form}
               fieldName="ageRangeMin"
               divClass=""
               required={true}
-              error={errors?.ageRangeMin}
             />
-            <p className="text-center w-full font-bold">-</p>
+            <p className="w-full text-center font-bold">-</p>
             <Input
               label={t('Rango de edad máximo')}
               hiddenLabel={true}
               type="text"
               autoComplete=""
-              register={register}
+              form={props.form}
               fieldName="ageRangeMax"
               divClass=""
               required={true}
-              error={errors?.ageRangeMax}
             />
           </div>
           <Input
             label={t('Género')}
             type="select"
-            register={register}
+            form={props.form}
             fieldName="gender"
             divClass=""
-            items={GENDERS.map((gender) => ({ key: gender, label: t(gender) }))}
-            error={errors?.gender}
+            items={GENDERS.map((gender) => ({
+              value: gender,
+              label: t(gender),
+            }))}
           />
           <label
             htmlFor="languages"
-            className="opacity-80 font-normal"
+            className="font-normal opacity-80"
           >
             {t('Idioma')}:
           </label>
           <LanguageListForm
-            setValue={props.setValue}
+            setValue={props.form.setValue}
             fieldName="languages"
             defaultState={[]}
             allowNull={true}
           />
-          <Input
-            label={t('Escuela/Universidad')}
-            type="custom"
-            register={register}
+          <UniversidadesSelect
+            form={props.form}
             fieldName="school"
-            component={UniversidadesSelect<TJobForm>}
-            error={errors?.school}
+            label={t('Escuela/Universidad')}
           />
         </>
       )}

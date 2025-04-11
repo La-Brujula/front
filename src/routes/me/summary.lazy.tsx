@@ -1,11 +1,12 @@
+import { Link, createLazyFileRoute } from '@tanstack/react-router';
+import { MailIcon, PhoneIcon } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+
 import DataSuspense from '@/shared/components/dataSuspense';
 import { useCurrentProfile } from '@/shared/hooks/useCurrentProfile';
-import EmailOutlined from '@mui/icons-material/EmailOutlined';
-import PhoneOutlined from '@mui/icons-material/PhoneOutlined';
+
 import ErrorMessage from '@shared/components/errorMessage';
 import { getTitle } from '@shared/utils/areaUtils';
-import { Link, createLazyFileRoute } from '@tanstack/react-router';
-import { useTranslation } from 'react-i18next';
 
 export const Route = createLazyFileRoute('/me/summary')({
   component: ProfileSummary,
@@ -25,13 +26,10 @@ function ProfileSummary() {
         />
       }
     >
-      <div
-        className="flex flex-col gap-x-8 gap-y-4
-        mx-auto mt-8 w-auto text-left max-w-sm"
-      >
+      <div className="mx-auto mt-8 flex w-auto max-w-sm flex-col gap-x-8 gap-y-4 text-left">
         <div className="grid gap-2">
           <h3>
-            <EmailOutlined />
+            <MailIcon />
           </h3>
           <a
             href={`mailto:${user?.primaryEmail}`}
@@ -70,7 +68,7 @@ function ProfileSummary() {
         {user?.secondaryActivity && (
           <div className="grid gap-2">
             <h3>{t('Otras actividades')}</h3>
-            <p className="text-left text-primary grid gap-2">
+            <p className="grid gap-2 text-left text-primary">
               {[user.secondaryActivity, user.thirdActivity]
                 .filter((a) => a != undefined)
                 .map((activity) => (
@@ -94,10 +92,10 @@ function ProfileSummary() {
             {t(user?.country || 'MX', { ns: 'countries' })}
           </p>
         </div>
-        {user?.phoneNumbers?.map((tel) => (
-          <div className="grid grid-cols-subgrid col-span-full">
+        {user?.phoneNumbers?.map((tel, i) => (
+          <div className="col-span-full grid grid-cols-subgrid">
             <h3>
-              <PhoneOutlined />
+              <PhoneIcon />
             </h3>
             <a
               href={`tel:${tel}`}
@@ -109,7 +107,7 @@ function ProfileSummary() {
           </div>
         ))}
       </div>
-      <div className="flex flex-row gap-4 self-center justify-center my-8">
+      <div className="my-8 flex flex-row justify-center gap-4 self-center">
         <Link
           to="/me/stand-out"
           resetScroll

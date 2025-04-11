@@ -15,7 +15,6 @@
 // t('errors:PE04')
 // t('errors:AE05')
 // t('errors:AE06')
-
 import { Translation } from 'react-i18next';
 
 export function translateError(errorCode: string) {

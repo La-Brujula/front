@@ -1,13 +1,14 @@
-import RefList from '@shared/constants/inductiveReferents.json';
-
-import { Button } from '@/shared/components/button';
-import { EnumGender } from '@/shared/types/genders';
-import { getTitle } from '@shared/utils/areaUtils';
 import { useCallback, useMemo, useReducer } from 'react';
+
+import { TrashIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+
+import { Button } from '@/components/ui/button';
 import { TextSelectField } from '@/shared/components/textSelect';
-import { IconButton } from '@mui/material';
-import { DeleteOutlined } from '@mui/icons-material';
+import { EnumGender } from '@/shared/types/genders';
+
+import RefList from '@shared/constants/inductiveReferents.json';
+import { getTitle } from '@shared/utils/areaUtils';
 
 type ReducerAction =
   | {
@@ -54,10 +55,9 @@ export function CustomActivityLookupField({
       RefList &&
       Object.entries(RefList)
         .filter((a) => !!a && a[1].length > 6)
-        .map(([name, id], i) => ({
-          id: 'activityMap' + i,
-          name,
-          activity: id,
+        .map(([label, id], i) => ({
+          label,
+          value: id,
         })),
     [RefList]
   );
@@ -68,9 +68,6 @@ export function CustomActivityLookupField({
         placeholder={t(placeholder)}
         items={refToId}
         setValue={setValue}
-        onSelect={(item) => {
-          setValue(item.activity);
-        }}
       />
     </div>
   );
@@ -134,16 +131,16 @@ export const AreaForms = ({
   );
 
   return (
-    <div className="col-span-full grid md:grid-cols-2 items-start justify-stretch text-left gap-4 w-full">
+    <div className="col-span-full grid w-full items-start justify-stretch gap-4 text-left md:grid-cols-2">
       {!!validActivities && validActivities.length > 0 ? (
         validActivities.length === 1 ? (
-          <div className="grid grid-cols-[2rem_1fr] gap-2 items-center">
-            <IconButton
+          <div className="grid grid-cols-[2rem_1fr] items-center gap-2">
+            <Button
               onClick={clearInput}
               className="!p-2"
             >
-              <DeleteOutlined />
-            </IconButton>
+              <TrashIcon />
+            </Button>
             <p>{validActivities[0].label}</p>
           </div>
         ) : (
@@ -151,7 +148,6 @@ export const AreaForms = ({
             <Button
               onClick={setActivity(activity)}
               color={i % 2 === 0 ? 'primary' : 'secondary'}
-              variant="filled"
               className="w-full"
               key={activity}
             >

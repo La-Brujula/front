@@ -24,11 +24,11 @@ export const Container = (props: {
             case 'light':
               return 'bg-white';
             case 'primary':
-              return 'bg-primary';
+              return 'bg-primary text-white';
             case 'blue':
-              return 'bg-secondary';
+              return 'bg-secondary text-white';
             case 'lightblue':
-              return 'bg-primary bg-opacity-20';
+              return 'bg-primary-foreground';
             case 'top-half-blue':
               return 'bg-[linear-gradient(180deg,_rgba(255_255_255_0)_80%,_rgba(45_123_191_255)_80%)]';
             case 'bottom-half-grey':
@@ -54,7 +54,7 @@ export const Container = (props: {
         className,
       ].join(' ')}
     >
-      <div className={['max-w-6xl mx-auto w-full', props.bodyClass].join(' ')}>
+      <div className={['mx-auto w-full max-w-6xl', props.bodyClass].join(' ')}>
         {children}
       </div>
     </div>

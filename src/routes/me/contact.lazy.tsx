@@ -1,20 +1,19 @@
-import { useCurrentProfile } from '@/shared/hooks/useCurrentProfile';
-import { useUpdateMe } from '@/shared/hooks/useUpdateMe';
-import { IUpdateBackendProfile } from '@/shared/types/user';
-import EmailOutlined from '@mui/icons-material/EmailOutlined';
-import PhoneOutlined from '@mui/icons-material/PhoneOutlined';
 import {
   createLazyFileRoute,
   useNavigate,
   useRouter,
 } from '@tanstack/react-router';
-import { useForm } from 'react-hook-form';
+import { MailIcon, PhoneIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { StringArrayForm } from '../../modules/auth/components/stringArrayForm';
-import DataSuspense from '@/shared/components/dataSuspense';
+
+import { Form } from '@/components/ui/form';
+import useUpdateProfile from '@/modules/me/hooks/updateProfileHook';
 import ErrorMessage from '@/shared/components/errorMessage';
-import { isApiError } from '@/shared/services/backendFetcher';
 import Input from '@/shared/components/input';
+import { isApiError } from '@/shared/services/backendFetcher';
+import { TProfileUpdateForm } from '@/shared/types/user';
+
+import { StringArrayForm } from '../../modules/auth/components/stringArrayForm';
 
 export const Route = createLazyFileRoute('/me/contact')({
   component: ContactPage,
@@ -39,145 +38,121 @@ function ContactPage() {
   const { t } = useTranslation('auth');
   const navigate = useNavigate();
   const { history } = useRouter();
-  const { mutate, error, isPending } = useUpdateMe();
-  const { data: user, isLoading, error: profileError } = useCurrentProfile();
 
-  const { register, handleSubmit, setValue, formState } =
-    useForm<IUpdateBackendProfile>({
-      defaultValues: {
-        ...user,
-        externalLinks: user?.externalLinks ?? [],
-      },
-    });
+  const { form, updateProfile, isPending, error, user } = useUpdateProfile();
 
-  const onSubmit = async (data: IUpdateBackendProfile) => {
-    mutate(data, {
+  const onSubmit = async (data: TProfileUpdateForm) => {
+    updateProfile(data, {
       onSuccess: () =>
         navigate({ to: '/me/characteristics', resetScroll: true }),
     });
   };
 
   return (
-    <DataSuspense
-      loading={isLoading}
-      error={profileError}
-    >
+    <Form {...form}>
       <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-8 w-full items-stretch"
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="flex w-full flex-col items-stretch gap-8"
       >
-        <div
-          className="flex flex-col
-      text-right gap-4 mx-auto items-center"
-        >
-          <h2 className="text-secondary text-left">{t('Redes sociales')}</h2>
+        <div className="mx-auto flex flex-col items-center gap-4 text-right">
+          <h2 className="text-left text-secondary">{t('Redes sociales')}</h2>
           <Input
             divClass="w-full"
             type="url"
             label={t('Página web')}
             fieldName="externalLinks.0"
-            register={register}
+            form={form}
             autoComplete="externalLinks"
-            error={formState.errors.externalLinks?.[0]}
           />
           <Input
             divClass="w-full"
             type="tel"
             label={t('Whatsapp')}
             fieldName="whatsapp"
-            register={register}
-            error={formState.errors.whatsapp}
+            form={form}
             country={user?.country}
           />
           <Input
             divClass="w-full"
             type="text"
             label={t('IMDB')}
-            register={register}
+            form={form}
             fieldName="imdb"
-            error={formState.errors.imdb}
           />
           <Input
             divClass="w-full"
             type="text"
             label={t('Facebook')}
-            register={register}
+            form={form}
             fieldName="facebook"
-            error={formState.errors.facebook}
           />
           <Input
             divClass="w-full"
             type="text"
             label={t('Instagram')}
-            register={register}
+            form={form}
             fieldName="instagram"
-            error={formState.errors.instagram}
           />
           <Input
             divClass="w-full"
             type="text"
             label={t('Vimeo')}
-            register={register}
+            form={form}
             fieldName="vimeo"
-            error={formState.errors.vimeo}
           />
           <Input
             divClass="w-full"
             type="text"
             label={t('Youtube')}
-            register={register}
+            form={form}
             fieldName="youtube"
-            error={formState.errors.youtube}
           />
           <Input
             divClass="w-full"
             type="text"
             label={t('LinkedIn')}
-            register={register}
+            form={form}
             fieldName="linkedin"
-            error={formState.errors.linkedin}
           />
           <Input
             divClass="w-full"
             type="text"
             label={t('Twitter')}
-            register={register}
+            form={form}
             fieldName="twitter"
-            error={formState.errors.twitter}
           />
           <Input
             divClass="w-full"
             type="text"
             label={t('Tiktok')}
-            register={register}
+            form={form}
             fieldName="tiktok"
-            error={formState.errors.tiktok}
           />
         </div>
-        <div className="flex flex-col text-left gap-8 mx-auto">
+        <div className="mx-auto flex flex-col gap-8 text-left">
           <h2 className="col-span-full text-secondary">
             {t('Medios secundarios de contacto')}
           </h2>
           <div className="flex flex-col gap-4">
             <label htmlFor="altPhone">
-              <PhoneOutlined /> {t('Teléfonos')}
+              <PhoneIcon /> {t('Teléfonos')}
             </label>
             <StringArrayForm
               name="phoneNumbers"
-              setValue={setValue}
-              defaultState={user!.phoneNumbers}
+              setValue={form.setValue}
+              defaultState={user?.phoneNumbers}
               inputType="tel"
               label={t('teléfono')}
             />
           </div>
-          <div className="flex flex-col gap-4 w-full">
+          <div className="flex w-full flex-col gap-4">
             <label htmlFor="altEmail">
-              <EmailOutlined /> {t('Correos alternativos')}
+              <MailIcon /> {t('Correos alternativos')}
             </label>
             <StringArrayForm
               name="secondaryEmails"
-              setValue={setValue}
-              defaultState={user!.secondaryEmails}
+              setValue={form.setValue}
+              defaultState={user?.secondaryEmails}
               inputType="email"
               label={t('correo')}
             />
@@ -190,7 +165,7 @@ function ContactPage() {
         )}
         <div className="flex flex-row gap-4 self-center">
           <div
-            className="button font-bold bg-transparent border border-primary text-black"
+            className="button border border-primary bg-transparent font-bold text-black"
             onClick={() => history.back()}
           >
             {t('Regresar')}
@@ -203,7 +178,7 @@ function ContactPage() {
           />
         </div>
       </form>
-    </DataSuspense>
+    </Form>
   );
 }
 

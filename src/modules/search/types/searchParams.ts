@@ -1,7 +1,8 @@
-import countryCodes from '@/shared/constants/countryCodes';
 import { z } from 'zod';
 
-export const searchSchema = z.object({
+import countryCodes from '@/shared/constants/countryCodes';
+
+export const SearchSchema = z.object({
   name: z.string().optional().catch(''),
   query: z.string().optional().catch(''),
   gender: z.enum(['male', 'female', 'other', '']).optional().catch(''),
@@ -20,10 +21,10 @@ export const searchSchema = z.object({
   activity: z.string().optional().catch(''),
   certifications: z.string().optional().catch(''),
   language: z.string().optional().catch(''),
-  country: z.enum(countryCodes),
+  country: z.enum(countryCodes).default('MX'),
 });
 
-export const defaultSearch = {
+export const DEFAULT_SEARCH = {
   name: '',
   query: '',
   gender: '' as '',
@@ -41,4 +42,4 @@ export const defaultSearch = {
   country: 'MX' as const,
 };
 
-export type Search = z.infer<typeof searchSchema>;
+export type Search = z.infer<typeof SearchSchema>;

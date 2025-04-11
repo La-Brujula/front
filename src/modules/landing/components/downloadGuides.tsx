@@ -1,8 +1,10 @@
-import { Container } from '@shared/layout/container';
-import Strip from './strip';
 import { Trans, useTranslation } from 'react-i18next';
+
 import guides from '@shared/constants/guides.json';
+import { Container } from '@shared/layout/container';
+
 import HorizontalStrip from './horizontalStrip';
+import Strip from './strip';
 
 const BrujulasColors = {
   occidente: ['#63C7EB', '#1CAFE5', '#0091C8', '#006FAE'],
@@ -20,7 +22,7 @@ function DownloadGuides() {
   return (
     <Container bg="lightblue">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-        <div className="text-left flex flex-row justify-end w-full">
+        <div className="flex w-full flex-row justify-end text-left">
           <div className="md:max-w-lg">
             <h2 className="">
               <Trans
@@ -33,10 +35,7 @@ function DownloadGuides() {
             </h2>
           </div>
         </div>
-        <div
-          className="grid-cols-1 sm:grid-cols-2 md:flex md:flex-row md:col-span-2 grid justify-end gap-4 font-bold text-lg
-        text-right isolate transform overflow-hidden w-full"
-        >
+        <div className="isolate grid w-full transform grid-cols-1 justify-end gap-4 overflow-hidden text-right text-lg font-bold sm:grid-cols-2 md:col-span-2 md:flex md:flex-row">
           <Strip
             colors={BrujulasColors.occidente}
             label={t('Occidente')}
@@ -62,15 +61,15 @@ function DownloadGuides() {
             label={t('Sureste')}
             link="/guias/pdfs/La_Brujula_2024_SURESTE.pdf"
           />
-          <div className="w-11/12 bg-black opacity-20 h-0.5 justify-self-center sm:hidden" />
+          <div className="h-0.5 w-11/12 justify-self-center bg-black opacity-20 sm:hidden" />
           <Strip
             colors={BrujulasColors.colombia}
             label={t('Colombia')}
           />
         </div>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 mt-16 gap-4">
-        <div className="text-left flex lg:order-last flex-row justify-end w-full">
+      <div className="mt-16 grid grid-cols-1 gap-4 lg:grid-cols-3">
+        <div className="flex w-full flex-row justify-end text-left lg:order-last">
           <div className="text-left">
             <h2 className="text-xl">
               <Trans
@@ -83,10 +82,7 @@ function DownloadGuides() {
             </h2>
           </div>
         </div>
-        <div
-          className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 md:flex flex-row justify-start gap-4 font-bold text-lg
-        text-left isolate transform overflow-hidden w-full"
-        >
+        <div className="isolate grid w-full transform grid-cols-1 flex-row justify-start gap-4 overflow-hidden text-left text-lg font-bold sm:grid-cols-2 md:flex lg:col-span-2">
           {guides.specials.map((guide, i) => (
             <HorizontalStrip
               colors={

@@ -50,9 +50,7 @@
   "Agregar otra vacante": "Agregar otra vacante",
   "Actividad": "Actividad",
   "Número de vacantes": "Número de vacantes",
-  "Trabajo remunerado": "Trabajo remunerado",
-  "Sí": "Sí",
-  "No": "No",
+  "Trabajo no remunerado": "Trabajo no remunerado",
   "Rango de edad": "Rango de edad",
   "Rango de edad mínimo": "Rango de edad mínimo",
   "Rango de edad máximo": "Rango de edad máximo",
@@ -69,6 +67,7 @@
   "Description": "Descripción",
   "Fecha de publicación": "Fecha de publicación",
   "Fecha de inicio": "Fecha de inicio",
+  "Trabajo remunerado": "Trabajo remunerado",
   "Notes": "Notas",
   "Benefits": "Beneficios",
   "Special Requirements": "Requerimientos especiales",
@@ -83,6 +82,8 @@
   "No se encontraron resultados": "No se encontraron resultados",
   "Crear nueva oferta laboral": "Crear nueva oferta laboral",
   "Ofertas creadas": "Ofertas creadas",
+  "Sí": "Sí",
+  "No": "No",
   "{{requester}} busca a {{count}} {{title}}": "{{requester}} busca a {{count}} {{title}}",
   "Agregar solicitud": "Agregar solicitud",
   "Buscando": "Buscando",
@@ -91,6 +92,5 @@
   "Inicia sesión": "Inicia sesión",
   "Iniciar sesión": "Iniciar sesión",
   "intereses de empleos": "Intereses de empleos",
-  "Quitar posición": "Quitar posición",
-  "Trabajo no remunerado": "Trabajo no remunerado"
+  "Quitar posición": "Quitar posición"
 }

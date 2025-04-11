@@ -1,12 +1,16 @@
+import { useMemo, useState } from 'react';
+
+import { Link } from '@tanstack/react-router';
+import { ExternalLinkIcon } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+
 import { useLoggedInAccount } from '@/shared/hooks/useLoggedInAccount';
 import { IBackendProfile } from '@/shared/types/user';
+
 import ErrorMessage from '@shared/components/errorMessage';
 import { getTitle } from '@shared/utils/areaUtils';
-import { Link } from '@tanstack/react-router';
-import { useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+
 import { UpdateImageControls } from './UpdateImageControls';
-import { OpenInNewOutlined } from '@mui/icons-material';
 
 export const ProfileHeader = ({ user }: { user: IBackendProfile }) => {
   const { t } = useTranslation('user');
@@ -47,21 +51,17 @@ export const ProfileHeader = ({ user }: { user: IBackendProfile }) => {
   );
 
   return !!user ? (
-    <div className="max-w-2xl mx-auto w-full">
-      <div className="flex flex-col gap-2 mx-auto xl:ml-0 items-center max-w-xs">
+    <div className="mx-auto w-full max-w-2xl">
+      <div className="mx-auto flex max-w-xs flex-col items-center gap-2 xl:ml-0">
         {!!headerPictureUrl ? (
           <img
             src={headerPictureUrl || ''}
             alt=""
             crossOrigin="anonymous"
-            className="absolute left-0 -z-10 bg-black bg-opacity-20 w-full
-            h-48 object-cover object-center"
+            className="absolute left-0 -z-10 h-48 w-full bg-black bg-opacity-20 object-cover object-center"
           />
         ) : (
-          <div
-            className="absolute left-0 -z-10 bg-primary bg-opacity-20
-          w-full h-48"
-          />
+          <div className="absolute left-0 -z-10 h-48 w-full bg-primary bg-opacity-20" />
         )}
         {isCurrentUser && (
           <UpdateImageControls
@@ -76,7 +76,7 @@ export const ProfileHeader = ({ user }: { user: IBackendProfile }) => {
             <img
               src={profilePictureUrl}
               alt={`${user.fullName} profile picture`}
-              className="size-48 bg-blue rounded-[50%] object-cover object-center"
+              className="size-48 rounded-[50%] bg-blue object-cover object-center"
               loading="eager"
               crossOrigin="anonymous"
             />
@@ -88,7 +88,7 @@ export const ProfileHeader = ({ user }: { user: IBackendProfile }) => {
                   : '/guias/fotoDePerfil/Monito.jpg'
               }
               alt="ImagenPredeterminada"
-              className="size-48 bg-white rounded-[50%] object-cover object-center"
+              className="size-48 rounded-[50%] bg-white object-cover object-center"
               loading="eager"
             />
           )}
@@ -102,7 +102,7 @@ export const ProfileHeader = ({ user }: { user: IBackendProfile }) => {
           )}
         </div>
         {user.verified ? (
-          <p className="font-bold bg-emerald-200 border-2 border-emerald-500 text-emerald-500 p-1 px-2 rounded-full">
+          <p className="rounded-full border-2 border-emerald-500 bg-emerald-200 p-1 px-2 font-bold text-emerald-500">
             {t('Correo verificado')}
           </p>
         ) : (
@@ -110,18 +110,18 @@ export const ProfileHeader = ({ user }: { user: IBackendProfile }) => {
             to="/auth/send-verification"
             disabled={!isCurrentUser}
           >
-            <p className="font-bold bg-rose-200 border-2 border-rose-500 text-rose-500 p-1 px-2 rounded-full">
+            <p className="rounded-full border-2 border-rose-500 bg-rose-200 p-1 px-2 font-bold text-rose-500">
               {t('Correo no verificado')}{' '}
-              {isCurrentUser && <OpenInNewOutlined fontSize="small" />}
+              {isCurrentUser && <ExternalLinkIcon fontSize="small" />}
             </p>
           </Link>
         )}
         {!!user.headline && (
-          <p className="relative text-center italic text-sm mb-2">
+          <p className="relative mb-2 text-center text-sm italic">
             {user.headline}
           </p>
         )}
-        <div className="flex flex-col gap-1 text-center relative">
+        <div className="relative flex flex-col gap-1 text-center">
           <h3 className="text-md font-normal">
             {!!user.nickName ? user.nickName : user.fullName}
           </h3>
@@ -131,7 +131,7 @@ export const ProfileHeader = ({ user }: { user: IBackendProfile }) => {
         {isCurrentUser && (
           <Link
             to="/me/basic"
-            className="bg-primary p-4 py-2 rounded-md text-white"
+            className="rounded-md bg-primary p-4 py-2 text-white"
           >
             {t('Editar perfil')}
           </Link>

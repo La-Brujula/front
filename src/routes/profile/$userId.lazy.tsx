@@ -1,11 +1,13 @@
+import { useMemo } from 'react';
+
+import { useQuery } from '@tanstack/react-query';
+import { Link, createLazyFileRoute, useNavigate } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
+
 import { ContactSection } from '@/modules/profile/components/contactInfo';
 import { ProfileHeader } from '@/modules/profile/components/profileHeader';
 import { Recommendations } from '@/modules/profile/components/recommend';
-import { Link, createLazyFileRoute, useNavigate } from '@tanstack/react-router';
-import { useMemo } from 'react';
 import { profileQueryOptions } from '@/modules/profile/queries/userProfile';
-import { useQuery } from '@tanstack/react-query';
 import DataSuspense from '@/shared/components/dataSuspense';
 import { LoadingSpinner } from '@/shared/components/loadingSpinner';
 import { useLoggedInAccount } from '@/shared/hooks/useLoggedInAccount';
@@ -61,14 +63,14 @@ export function UserProfilePage() {
       key={userId}
     >
       <ProfileHeader user={user!} />
-      <div className="max-w-lg xl:max-w-4xl mx-auto px-8 w-full justify-start items-start mb-4">
-        <div className="flex flex-col xl:flex-row xl:gap-16 order-last xl:order-first xl:shrink">
-          <div className="flex flex-col gap-4 justify-items-stretch mt-8 max-w-sm w-full mx-auto text-left">
+      <div className="mx-auto mb-4 w-full max-w-lg items-start justify-start px-8 xl:max-w-4xl">
+        <div className="order-last flex flex-col xl:order-first xl:shrink xl:flex-row xl:gap-16">
+          <div className="mx-auto mt-8 flex w-full max-w-sm flex-col justify-items-stretch gap-4 text-left">
             <ContactSection user={user!} />
             {!!user?.university && user.type != 'moral' && (
               <div className="py-8">
-                <div className="absolute left-0 -z-10 -my-4 overflow-hidden transform w-full">
-                  <div className="bg-black bg-opacity-20 w-full h-20 xl:w-1/2 xl:rounded-r-md"></div>
+                <div className="absolute left-0 -z-10 -my-4 w-full transform overflow-hidden">
+                  <div className="h-20 w-full bg-black bg-opacity-20 xl:w-1/2 xl:rounded-r-md"></div>
                 </div>
                 <h4 className="font-normal text-primary">{t('Universidad')}</h4>
                 <p className="truncate">{user.university}</p>
@@ -76,8 +78,8 @@ export function UserProfilePage() {
             )}
             {!!user?.probono && (
               <div className="py-8">
-                <div className="absolute left-0 -z-10 -my-4 overflow-hidden transform w-full">
-                  <div className="bg-black bg-opacity-20 w-full h-20 xl:w-1/2 xl:rounded-r-md"></div>
+                <div className="absolute left-0 -z-10 -my-4 w-full transform overflow-hidden">
+                  <div className="h-20 w-full bg-black bg-opacity-20 xl:w-1/2 xl:rounded-r-md"></div>
                 </div>
                 <h4 className="font-normal text-primary">
                   {t('Interés en ser becario, servicio social')}
@@ -86,10 +88,7 @@ export function UserProfilePage() {
               </div>
             )}
           </div>
-          <div
-            className="flex flex-col gap-6 w-full justify-items-stretch mt-8 max-w-lg
-          xl:max-w-3xl mx-auto xl:mx-0 text-left xl:-translate-y-42"
-          >
+          <div className="xl:-translate-y-42 mx-auto mt-8 flex w-full max-w-lg flex-col justify-items-stretch gap-6 text-left xl:mx-0 xl:max-w-3xl">
             <Recommendations user={user!} />
             {!!user?.biography && (
               <div>
@@ -103,7 +102,7 @@ export function UserProfilePage() {
                 <div className="grid grid-cols-[max-content_max-content] gap-x-4 gap-y-2">
                   {user.languages.map(({ lang, proficiency }) => (
                     <div
-                      className="grid grid-cols-subgrid col-span-2"
+                      className="col-span-2 grid grid-cols-subgrid"
                       key={lang}
                     >
                       <h5 className="font-normal">
@@ -147,7 +146,7 @@ export function UserProfilePage() {
         {account?.email == user?.primaryEmail && (
           <Link
             to="/auth/delete-account"
-            className="!text-slate-400 text-sm text-center block"
+            className="block text-center text-sm !text-slate-400"
             resetScroll
           >
             {t('Borrar cuenta')}

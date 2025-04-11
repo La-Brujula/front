@@ -1,20 +1,24 @@
-import ErrorMessage from '@shared/components/errorMessage';
-import genders from '@shared/constants/genders.json';
-import { Path, useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
-import { IUpdateBackendProfile } from '@/shared/types/user';
-import Input from '@/shared/components/input';
-import CountrySelect from '@/shared/components/countrySelect';
+import { useCallback, useMemo } from 'react';
+
 import {
   createLazyFileRoute,
   useNavigate,
   useRouter,
 } from '@tanstack/react-router';
-import { useCurrentProfile } from '@/shared/hooks/useCurrentProfile';
-import { useUpdateMe } from '@/shared/hooks/useUpdateMe';
-import DataSuspense from '@/shared/components/dataSuspense';
-import { useCallback } from 'react';
-import { isApiError } from '@/shared/services/backendFetcher';
+import { AxiosError } from 'axios';
+import { Path } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
+
+import { Button } from '@/components/ui/button';
+import { Form } from '@/components/ui/form';
+import useUpdateProfile from '@/modules/me/hooks/updateProfileHook';
+import CountrySelect from '@/shared/components/countrySelect';
+import Input from '@/shared/components/input';
+import genders from '@/shared/constants/genders';
+import { ApiError, isApiError } from '@/shared/services/backendFetcher';
+import { TProfileUpdateRequest } from '@/shared/types/user';
+
+import ErrorMessage from '@shared/components/errorMessage';
 import estados from '@shared/constants/estados.json';
 
 export const Route = createLazyFileRoute('/me/basic')({
@@ -27,142 +31,108 @@ function BasicInfo() {
 
   const { t } = useTranslation(['auth', 'genders']);
 
-  const { mutate, isPending, error: mutateError } = useUpdateMe();
-  const { data: user, isLoading: loading, error } = useCurrentProfile();
+  const { createOnSubmit, form, isPending, user, error } = useUpdateProfile();
 
-  const { register, handleSubmit, formState, setError, watch, setValue } =
-    useForm<IUpdateBackendProfile>({
-      defaultValues: {
-        country: 'MX',
-        ...user,
-        gender: user?.type === 'moral' ? 'other' : user?.gender || 'other',
-        probono:
-          user?.probono !== undefined
-            ? user.probono === true
-              ? 'true'
-              : 'false'
-            : undefined,
-        birthday:
-          user?.birthday !== undefined ? user.birthday?.slice(0, 10) : '',
-      },
-    });
+  const country = form.watch('country');
 
-  const country = watch('country');
-
-  const onSubmit = useCallback(
-    async (data: IUpdateBackendProfile) => {
-      mutate(data, {
-        onSuccess: () => navigate({ to: '/me/areas', resetScroll: true }),
-        onError: (error) => {
-          if (
-            isApiError(error) &&
-            error.errorCode === 'SE01' &&
-            !(typeof error.message === 'string')
-          ) {
-            for (const err of error.message) {
-              setError(err.path as Path<IUpdateBackendProfile>, {
-                message: t(err.msg),
-              });
-            }
-          }
-        },
-      });
+  const onError = useCallback(
+    (error: ApiError | AxiosError | Error) => {
+      if (
+        isApiError(error) &&
+        error.errorCode === 'SE01' &&
+        !(typeof error.message === 'string')
+      ) {
+        for (const err of error.message) {
+          form.setError(err.path as Path<TProfileUpdateRequest>, {
+            message: t(err.msg),
+          });
+        }
+      }
     },
-    [navigate, mutate]
+    [form.setError, t]
+  );
+
+  const onSuccess = useCallback(
+    () => navigate({ to: '/me/areas', resetScroll: true }),
+    []
+  );
+
+  const onSubmit = useMemo(
+    () => createOnSubmit(onSuccess, onError),
+    [onSuccess, onError]
   );
 
   return (
-    <DataSuspense
-      loading={loading}
-      error={error}
-    >
+    <Form {...form}>
       <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col text-left gap-8 mx-auto max-w-lg w-full"
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="mx-auto flex w-full max-w-lg flex-col gap-8 text-left"
       >
         <p className="text-sm">*{t('información obligatoria')}</p>
-        <div className="flex flex-col gap-4 w-full">
+        <div className="flex w-full flex-col gap-4">
           <h2 className="text-primary">{t('Información básica')}</h2>
           {user?.type == 'moral' ? (
-            <>
-              <Input
-                label={t('Razón Social')}
-                type="text"
-                autoComplete=""
-                register={register}
-                fieldName="firstName"
-                divClass=""
-                required={true}
-                error={formState.errors?.firstName}
-              />
-              <input
-                type="hidden"
-                {...register('gender', { required: true })}
-                value="other"
-              />
-            </>
+            <Input
+              label={t('Razón Social')}
+              type="text"
+              autoComplete=""
+              form={form}
+              fieldName="firstName"
+              divClass=""
+              required={true}
+            />
           ) : (
             <>
-              <div className="flex flex-col md:grid md:grid-cols-2 gap-4">
+              <div className="flex flex-col gap-4 md:grid md:grid-cols-2">
                 <Input
                   label={t('Nombre (s)')}
                   type="text"
                   autoComplete="given-name"
-                  defaultValue={formState.defaultValues?.firstName}
-                  register={register}
+                  form={form}
                   fieldName="firstName"
                   divClass=""
                   required={true}
-                  error={formState.errors?.firstName}
                 />
                 <Input
                   label={t('Apellido (s)')}
                   type="text"
                   autoComplete="family-name"
-                  register={register}
+                  form={form}
                   fieldName="lastName"
                   required={true}
-                  defaultValue={formState.defaultValues?.lastName}
-                  error={formState.errors?.lastName}
                 />
               </div>
               <Input
                 label={t('Nombre con el que quieres aparecer')}
                 type="text"
                 autoComplete={undefined}
-                register={register}
+                form={form}
                 fieldName="nickName"
                 divClass=""
                 required={false}
-                defaultValue={formState.defaultValues?.nickName}
-                error={formState.errors?.nickName}
               />
               <Input
                 label={t('Género')}
                 type="select"
-                register={register}
+                form={form}
                 fieldName="gender"
                 divClass=""
                 required={true}
-                defaultValue={formState.defaultValues?.gender}
                 items={genders.map((gender) => ({
-                  key: gender == 'Prefiero no decir' ? 'other' : gender,
+                  value: gender,
                   label: t(gender, { ns: 'genders' }),
                 }))}
-                error={formState.errors?.gender}
               />
               <Input
                 label={t('Fecha de nacimiento')}
                 type="date"
-                register={register}
+                form={form}
                 fieldName="birthday"
                 autoComplete="birthday"
                 divClass=""
                 required={false}
-                defaultValue={formState.defaultValues?.birthday}
-                error={formState.errors?.birthday}
               />
-              <p className="text-xs -mt-2">
+              <p className="-mt-2 text-xs">
                 {t('Este dato solamente es para uso interno')}
               </p>
             </>
@@ -170,33 +140,22 @@ function BasicInfo() {
         </div>
         <div className="flex flex-col gap-4 text-left">
           <h2 className="text-primary">{t('Ubicación')}</h2>
-          <Input
-            label={t('País')}
-            type="custom"
-            register={register}
+          <CountrySelect
+            form={form}
             fieldName="country"
-            autoComplete="country"
-            divClass=""
-            component={CountrySelect<IUpdateBackendProfile>}
-            value={country}
-            setValue={setValue}
-            required={true}
-            error={formState.errors?.country}
+            hasLabel={true}
           />
           {country !== undefined && Object.keys(estados).includes(country) ? (
             <Input
               key={country}
               label={t('Estado')}
               type="select"
-              register={register}
+              form={form}
               fieldName="state"
-              autoComplete="state"
               divClass=""
               required={true}
-              error={formState.errors?.state}
-              defaultValue={formState.defaultValues?.state}
               items={estados[country as 'MX' | 'CO'].flatMap((estado) => ({
-                key: estado,
+                value: estado,
                 label: estado,
               }))}
             />
@@ -204,23 +163,21 @@ function BasicInfo() {
             <Input
               label={t('Estado')}
               type="text"
-              register={register}
+              form={form}
               fieldName="state"
               autoComplete="state"
               divClass=""
               required={true}
-              error={formState.errors?.state}
             />
           )}
           <Input
             label={t('Ciudad')}
             type="text"
-            register={register}
+            form={form}
             fieldName="city"
             autoComplete="city"
             divClass=""
             required={true}
-            error={formState.errors?.city}
           />
           <Input
             divClass=""
@@ -228,40 +185,35 @@ function BasicInfo() {
             type="text"
             fieldName="postalCode"
             autoComplete="postal-code"
-            register={register}
-            error={formState.errors?.postalCode}
+            form={form}
           />
         </div>
-        {mutateError !== null && (
+        {error !== null && (
           <ErrorMessage
-            message={
-              isApiError(mutateError)
-                ? mutateError.errorCode
-                : mutateError.message
-            }
+            message={isApiError(error) ? error.errorCode : error.message}
           />
         )}
-        {!formState.isValid && (
-          <p className="text-center w-full ">
+        {!form.formState.isValid && (
+          <p className="w-full text-center">
             {t('Llena todos los campos marcados con "*"')}
           </p>
         )}
-        <div className="flex flex-row gap-4 justify-center">
-          <div
-            className="button font-bold bg-transparent border border-primary text-black"
+        <div className="flex flex-row justify-center gap-4">
+          <Button
+            className="button border border-primary bg-transparent font-bold text-black"
             onClick={() => history.back()}
           >
             {t('Regresar')}
-          </div>
-          <input
+          </Button>
+          <Button
             type="submit"
             className="border-none"
-            disabled={isPending || !formState.isValid}
+            disabled={isPending || !form.formState.isValid}
             value={t('Continuar')}
           />
         </div>
       </form>
-    </DataSuspense>
+    </Form>
   );
 }
 
