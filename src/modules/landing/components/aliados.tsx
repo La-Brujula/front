@@ -31,3 +31,5 @@ export const SeccionAliades = () => {
     </Container>
   );
 };
+
+export default SeccionAliades;

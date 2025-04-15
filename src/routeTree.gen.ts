@@ -14,6 +14,7 @@ import { Route as AuthLoginImport } from './routes/auth/login';
 import { Route as AuthNewPasswordImport } from './routes/auth/new-password';
 import { Route as AuthSignupImport } from './routes/auth/signup';
 import { Route as AuthVerifyEmailImport } from './routes/auth/verify-email';
+import { Route as JobsJobIdImport } from './routes/jobs/$jobId';
 import { Route as JobsIndexImport } from './routes/jobs/index';
 import { Route as JobsJobIdEditImport } from './routes/jobs_.$jobId.edit';
 import { Route as MeImport } from './routes/me';
@@ -39,7 +40,6 @@ const MeBasicLazyImport = createFileRoute('/me/basic')();
 const MeAreasLazyImport = createFileRoute('/me/areas')();
 const JobsMeLazyImport = createFileRoute('/jobs/me')();
 const JobsCreateLazyImport = createFileRoute('/jobs/create')();
-const JobsJobIdLazyImport = createFileRoute('/jobs/$jobId')();
 const AuthSendVerificationLazyImport = createFileRoute(
   '/auth/send-verification'
 )();
@@ -179,12 +179,6 @@ const JobsCreateLazyRoute = JobsCreateLazyImport.update({
   getParentRoute: () => JobsLazyRoute,
 } as any).lazy(() => import('./routes/jobs/create.lazy').then((d) => d.Route));
 
-const JobsJobIdLazyRoute = JobsJobIdLazyImport.update({
-  id: '/$jobId',
-  path: '/$jobId',
-  getParentRoute: () => JobsLazyRoute,
-} as any).lazy(() => import('./routes/jobs/$jobId.lazy').then((d) => d.Route));
-
 const AuthSendVerificationLazyRoute = AuthSendVerificationLazyImport.update({
   id: '/auth/send-verification',
   path: '/auth/send-verification',
@@ -230,6 +224,12 @@ const ProfileUserIdRoute = ProfileUserIdImport.update({
 } as any).lazy(() =>
   import('./routes/profile/$userId.lazy').then((d) => d.Route)
 );
+
+const JobsJobIdRoute = JobsJobIdImport.update({
+  id: '/$jobId',
+  path: '/$jobId',
+  getParentRoute: () => JobsLazyRoute,
+} as any).lazy(() => import('./routes/jobs/$jobId.lazy').then((d) => d.Route));
 
 const AuthVerifyEmailRoute = AuthVerifyEmailImport.update({
   id: '/auth/verify-email',
@@ -327,6 +327,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthVerifyEmailImport;
       parentRoute: typeof rootRoute;
     };
+    '/jobs/$jobId': {
+      id: '/jobs/$jobId';
+      path: '/$jobId';
+      fullPath: '/jobs/$jobId';
+      preLoaderRoute: typeof JobsJobIdImport;
+      parentRoute: typeof JobsLazyImport;
+    };
     '/profile/$userId': {
       id: '/profile/$userId';
       path: '/profile/$userId';
@@ -368,13 +375,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/auth/send-verification';
       preLoaderRoute: typeof AuthSendVerificationLazyImport;
       parentRoute: typeof rootRoute;
-    };
-    '/jobs/$jobId': {
-      id: '/jobs/$jobId';
-      path: '/$jobId';
-      fullPath: '/jobs/$jobId';
-      preLoaderRoute: typeof JobsJobIdLazyImport;
-      parentRoute: typeof JobsLazyImport;
     };
     '/jobs/create': {
       id: '/jobs/create';
@@ -521,14 +521,14 @@ const MeRouteChildren: MeRouteChildren = {
 const MeRouteWithChildren = MeRoute._addFileChildren(MeRouteChildren);
 
 interface JobsLazyRouteChildren {
-  JobsJobIdLazyRoute: typeof JobsJobIdLazyRoute;
+  JobsJobIdRoute: typeof JobsJobIdRoute;
   JobsCreateLazyRoute: typeof JobsCreateLazyRoute;
   JobsMeLazyRoute: typeof JobsMeLazyRoute;
   JobsIndexRoute: typeof JobsIndexRoute;
 }
 
 const JobsLazyRouteChildren: JobsLazyRouteChildren = {
-  JobsJobIdLazyRoute: JobsJobIdLazyRoute,
+  JobsJobIdRoute: JobsJobIdRoute,
   JobsCreateLazyRoute: JobsCreateLazyRoute,
   JobsMeLazyRoute: JobsMeLazyRoute,
   JobsIndexRoute: JobsIndexRoute,
@@ -547,13 +547,13 @@ export interface FileRoutesByFullPath {
   '/auth/new-password': typeof AuthNewPasswordRoute;
   '/auth/signup': typeof AuthSignupRoute;
   '/auth/verify-email': typeof AuthVerifyEmailRoute;
+  '/jobs/$jobId': typeof JobsJobIdRoute;
   '/profile/$userId': typeof ProfileUserIdRoute;
   '/search/$label': typeof SearchLabelRoute;
   '/auth/delete-account': typeof AuthDeleteAccountLazyRoute;
   '/auth/logout': typeof AuthLogoutLazyRoute;
   '/auth/reset-password': typeof AuthResetPasswordLazyRoute;
   '/auth/send-verification': typeof AuthSendVerificationLazyRoute;
-  '/jobs/$jobId': typeof JobsJobIdLazyRoute;
   '/jobs/create': typeof JobsCreateLazyRoute;
   '/jobs/me': typeof JobsMeLazyRoute;
   '/me/areas': typeof MeAreasLazyRoute;
@@ -581,13 +581,13 @@ export interface FileRoutesByTo {
   '/auth/new-password': typeof AuthNewPasswordRoute;
   '/auth/signup': typeof AuthSignupRoute;
   '/auth/verify-email': typeof AuthVerifyEmailRoute;
+  '/jobs/$jobId': typeof JobsJobIdRoute;
   '/profile/$userId': typeof ProfileUserIdRoute;
   '/search/$label': typeof SearchLabelRoute;
   '/auth/delete-account': typeof AuthDeleteAccountLazyRoute;
   '/auth/logout': typeof AuthLogoutLazyRoute;
   '/auth/reset-password': typeof AuthResetPasswordLazyRoute;
   '/auth/send-verification': typeof AuthSendVerificationLazyRoute;
-  '/jobs/$jobId': typeof JobsJobIdLazyRoute;
   '/jobs/create': typeof JobsCreateLazyRoute;
   '/jobs/me': typeof JobsMeLazyRoute;
   '/me/areas': typeof MeAreasLazyRoute;
@@ -617,13 +617,13 @@ export interface FileRoutesById {
   '/auth/new-password': typeof AuthNewPasswordRoute;
   '/auth/signup': typeof AuthSignupRoute;
   '/auth/verify-email': typeof AuthVerifyEmailRoute;
+  '/jobs/$jobId': typeof JobsJobIdRoute;
   '/profile/$userId': typeof ProfileUserIdRoute;
   '/search/$label': typeof SearchLabelRoute;
   '/auth/delete-account': typeof AuthDeleteAccountLazyRoute;
   '/auth/logout': typeof AuthLogoutLazyRoute;
   '/auth/reset-password': typeof AuthResetPasswordLazyRoute;
   '/auth/send-verification': typeof AuthSendVerificationLazyRoute;
-  '/jobs/$jobId': typeof JobsJobIdLazyRoute;
   '/jobs/create': typeof JobsCreateLazyRoute;
   '/jobs/me': typeof JobsMeLazyRoute;
   '/me/areas': typeof MeAreasLazyRoute;
@@ -654,13 +654,13 @@ export interface FileRouteTypes {
     | '/auth/new-password'
     | '/auth/signup'
     | '/auth/verify-email'
+    | '/jobs/$jobId'
     | '/profile/$userId'
     | '/search/$label'
     | '/auth/delete-account'
     | '/auth/logout'
     | '/auth/reset-password'
     | '/auth/send-verification'
-    | '/jobs/$jobId'
     | '/jobs/create'
     | '/jobs/me'
     | '/me/areas'
@@ -687,13 +687,13 @@ export interface FileRouteTypes {
     | '/auth/new-password'
     | '/auth/signup'
     | '/auth/verify-email'
+    | '/jobs/$jobId'
     | '/profile/$userId'
     | '/search/$label'
     | '/auth/delete-account'
     | '/auth/logout'
     | '/auth/reset-password'
     | '/auth/send-verification'
-    | '/jobs/$jobId'
     | '/jobs/create'
     | '/jobs/me'
     | '/me/areas'
@@ -721,13 +721,13 @@ export interface FileRouteTypes {
     | '/auth/new-password'
     | '/auth/signup'
     | '/auth/verify-email'
+    | '/jobs/$jobId'
     | '/profile/$userId'
     | '/search/$label'
     | '/auth/delete-account'
     | '/auth/logout'
     | '/auth/reset-password'
     | '/auth/send-verification'
-    | '/jobs/$jobId'
     | '/jobs/create'
     | '/jobs/me'
     | '/me/areas'
@@ -870,6 +870,10 @@ export const routeTree = rootRoute
     "/auth/verify-email": {
       "filePath": "auth/verify-email.tsx"
     },
+    "/jobs/$jobId": {
+      "filePath": "jobs/$jobId.tsx",
+      "parent": "/jobs"
+    },
     "/profile/$userId": {
       "filePath": "profile/$userId.tsx"
     },
@@ -887,10 +891,6 @@ export const routeTree = rootRoute
     },
     "/auth/send-verification": {
       "filePath": "auth/send-verification.lazy.tsx"
-    },
-    "/jobs/$jobId": {
-      "filePath": "jobs/$jobId.lazy.tsx",
-      "parent": "/jobs"
     },
     "/jobs/create": {
       "filePath": "jobs/create.lazy.tsx",

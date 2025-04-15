@@ -1,14 +1,15 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import {
   FieldErrorsImpl,
   Path,
-  UseFormRegister,
+  PathValue,
   UseFormReturn,
-  UseFormSetValue,
+  useForm,
 } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
+import { Button } from '@/components/ui/button';
 import AreaForms from '@/modules/auth/components/areaForm';
 import { LanguageListForm } from '@/modules/auth/components/languageListForm';
 import { UniversidadesSelect } from '@/modules/auth/components/universidadesSelect';
@@ -30,113 +31,118 @@ const DEFAULT_VALUES: TJobOpening = {
 
 export default function JobOpeningForm(props: {
   i: number;
-  initialValues?: TJobOpening;
   form: UseFormReturn<TJobPosting>;
-  errors?: FieldErrorsImpl<TJobOpening>;
-  setValue: UseFormSetValue<TJobPosting>;
 }) {
-  const { form, errors, setValue } = props;
+  const { form: parentForm } = props;
+
+  const form = useForm<TJobOpening>({
+    values: parentForm.getValues().openings[props.i],
+  });
   const { t } = useTranslation(['jobs', 'errors']);
 
   const [showMore, setShowMore] = useState(false);
 
   const selectActivity = useCallback(
     (activity: string) => {
-      props.setValue(`openings.${props.i}.activity`, activity, {
+      form.setValue('activity', activity, {
         shouldValidate: true,
       });
     },
-    [props.setValue, props.i]
+    [form.setValue]
   );
+
+  useEffect(() => {
+    const sub = form.watch((values) => {
+      for (const [field, value] of Object.entries(values)) {
+        parentForm.setValue(
+          `openings.${props.i}.${field}` as Path<TJobPosting>,
+          value as PathValue<TJobPosting, Path<TJobPosting>>
+        );
+      }
+    });
+    return () => sub.unsubscribe();
+  }, [parentForm]);
 
   return (
     <div className="flex flex-col gap-4">
       <p
         className={[
           'font-bold',
-          props.errors?.activity !== undefined && 'text-red-500',
+          form.formState.errors.activity !== undefined && 'text-red-500',
         ].join(' ')}
       >
         {t('Actividad')} *
       </p>
       <AreaForms
-        defaultValue={props.initialValues?.activity || ''}
+        defaultValue={form.getValues().activity || ''}
         changeListener={selectActivity}
-        gender={'other'}
+        gender="other"
         removeElement={() => selectActivity('')}
-        // t('Busca una actividad')
-        placeholder="Busca una actividad"
+        placeholder={t('Busca una actividad')}
       />
-      {props.errors?.activity !== undefined && (
+      {form.formState.errors.activity !== undefined && (
         <p className="text-red-500">
-          {t(`errors:${props.errors?.activity.type}` || '')}
+          {t(`errors:${form.formState.errors.activity.type}` || '')}
         </p>
       )}
       <Input
-        label={t('Número de vacantes')}
         type="text"
-        autoComplete=""
         form={form}
-        fieldName={`openings.${props.i}.count`}
-        divClass=""
+        fieldName="count"
+        label={t('Número de vacantes')}
         required={true}
-        error={errors?.count}
       />
       <Input
-        label={t('Trabajo no remunerado')}
         type="switch"
         form={form}
-        fieldName={`openings.${props.i}.probono`}
-        divClass=""
+        fieldName="probono"
+        label={t('Trabajo no remunerado')}
         required={true}
-        error={errors?.probono}
       />
       {!showMore ? (
-        <div
-          className="w-fit cursor-pointer justify-self-center rounded-md bg-primary px-4 py-2 text-lg font-bold text-white"
+        <Button
+          size="icon"
+          className="w-fit justify-self-center rounded-md bg-primary px-4 py-2 text-lg font-bold text-white"
           onClick={() => setShowMore(true)}
         >
           +
-        </div>
+        </Button>
       ) : (
         <>
-          <div
-            className="w-fit cursor-pointer justify-self-center rounded-md bg-primary px-4 py-2 text-lg font-bold text-white"
+          <Button
+            size="icon"
+            className="w-fit justify-self-center rounded-md bg-primary px-4 py-2 text-lg font-bold text-white"
             onClick={() => setShowMore(false)}
           >
             ^
-          </div>
+          </Button>
           <div className="grid grid-cols-[1fr_1rem_1fr] gap-x-2 gap-y-2">
             <p className="col-span-full opacity-80">{t('Rango de edad')}</p>
             <Input
-              label={t('Rango de edad mínimo')}
-              hiddenLabel={true}
               type="text"
-              autoComplete=""
               form={form}
-              fieldName={`openings.${props.i}.ageRangeMin`}
-              divClass=""
-              required={true}
-              error={errors?.ageRangeMin}
+              fieldName="ageRangeMin"
+              label={t('Rango de edad mínimo')}
+              hiddenLabel
+              autoComplete=""
+              required
             />
             <p className="w-full text-center font-bold">-</p>
             <Input
-              label={t('Rango de edad máximo')}
-              hiddenLabel={true}
               type="text"
-              autoComplete=""
               form={form}
-              fieldName={`openings.${props.i}.ageRangeMax`}
-              divClass=""
+              fieldName="ageRangeMax"
+              label={t('Rango de edad máximo')}
+              autoComplete=""
+              hiddenLabel
               required={true}
-              error={errors?.ageRangeMax}
             />
           </div>
           <Input
-            label={t('Género')}
             type="select"
             form={form}
-            fieldName={`openings.${props.i}.gender`}
+            fieldName="gender"
+            label={t('Género')}
             items={GENDERS.map((gender) => ({
               value: gender,
               label: t(gender),
@@ -149,15 +155,13 @@ export default function JobOpeningForm(props: {
             {t('Idioma')}:
           </label>
           <LanguageListForm
-            setValue={props.setValue}
-            fieldName={`openings.${props.i}.languages`}
-            defaultState={[]}
+            form={form}
             allowNull={true}
           />
           <UniversidadesSelect
-            label={t('Escuela/Universidad')}
             form={form}
-            fieldName={`openings.${props.i}.school`}
+            fieldName="school"
+            label={t('Escuela/Universidad')}
           />
         </>
       )}

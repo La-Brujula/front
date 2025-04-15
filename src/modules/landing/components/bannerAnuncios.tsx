@@ -1,33 +1,31 @@
 import React, { useMemo } from 'react';
 
+import { Container } from '@/shared/layout/container';
+
+import anuncios from '@shared/constants/anuncios.json';
 import ResponsiveCarousel from '@shared/layout/carusel';
 
 import { AnuncioSlide } from './anuncioSlide';
 
-function BannerAnuncios(props: {
-  anuncios: {
-    horizontalImage?: string;
-    verticalImage?: string;
-    image?: string;
-    linkUrl?: string;
-  }[];
-}) {
-  const anuncios = useMemo(
+function BannerAnuncios() {
+  const parsedAnuncios = useMemo(
     () =>
-      props.anuncios
+      [...anuncios.hero, ...anuncios.bottom]
         .sort(() => Math.random() - 0.5)
         .map((anuncio, i) => (
           <AnuncioSlide
             key={anuncio.linkUrl + '' + i}
-            horizontalImage={anuncio.horizontalImage}
             verticalImage={anuncio.verticalImage}
-            imageUrl={anuncio.image}
             linkUrl={anuncio.linkUrl}
           />
         )),
-    [props.anuncios]
+    [anuncios]
   );
-  return <ResponsiveCarousel>{anuncios}</ResponsiveCarousel>;
+  return (
+    <Container>
+      <ResponsiveCarousel>{parsedAnuncios}</ResponsiveCarousel>
+    </Container>
+  );
 }
 
-export default React.memo(BannerAnuncios);
+export default BannerAnuncios;

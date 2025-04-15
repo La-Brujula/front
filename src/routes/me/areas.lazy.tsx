@@ -138,8 +138,13 @@ function AreasRegistration() {
             />
           </div>
         )}
-        <div className="col-span-full grid grid-cols-2">
-          <Button onClick={() => history.back()}>{t('Regresar')}</Button>
+        <div className="col-span-full mx-auto flex flex-row justify-center gap-4">
+          <Button
+            onClick={() => history.back()}
+            variant="outline"
+          >
+            {t('Regresar')}
+          </Button>
           <Button
             onClick={submitForm}
             disabled={isPending}

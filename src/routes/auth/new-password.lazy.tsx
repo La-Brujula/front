@@ -6,6 +6,7 @@ import { Path, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { z } from 'zod';
 
+import { Button } from '@/components/ui/button';
 import Input from '@/shared/components/input';
 import useAuthFunction from '@/shared/hooks/useAuthFuncton';
 import { useAuth } from '@/shared/providers/authProvider';
@@ -109,12 +110,13 @@ function NewPasswordPage() {
             message={isApiError(error) ? error.errorCode : error.message}
           />
         )}
-        <input
+        <Button
           type="submit"
           disabled={isPending || !form.formState.isValid}
-          value={t('Cambiar contraseña')}
           className="mx-auto w-fit"
-        />
+        >
+          {t('Cambiar contraseña')}
+        </Button>
       </form>
     </Container>
   );

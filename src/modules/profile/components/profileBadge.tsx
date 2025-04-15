@@ -6,13 +6,12 @@ import { IBackendProfile } from '@/shared/types/user';
 import ErrorMessage from '@shared/components/errorMessage';
 import { getTitle } from '@shared/utils/areaUtils';
 
-export const ProfileBadge = ({
-  user,
-}: {
-  user: IBackendProfile | undefined;
-}) => {
+export const ProfileBadge = ({ user }: { user?: IBackendProfile }) => {
   const { t } = useTranslation('profile');
-  return !!user?.id ? (
+
+  if (!user?.id) return <ErrorMessage message={t('No User')} />;
+
+  return (
     <div className="mx-auto flex max-w-xs flex-row items-center gap-6">
       {!!user.profilePictureUrl ? (
         <img
@@ -56,7 +55,5 @@ export const ProfileBadge = ({
         )}
       </div>
     </div>
-  ) : (
-    <ErrorMessage message={t('No User')} />
   );
 };

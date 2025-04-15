@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useSuspenseQuery } from '@tanstack/react-query';
 import { createLazyFileRoute, useNavigate } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
 
@@ -27,7 +27,7 @@ function EditJobPostingPage() {
     data: job,
     isLoading,
     error: jobError,
-  } = useQuery(jobDetailOptions(jobId));
+  } = useSuspenseQuery(jobDetailOptions(jobId));
   const { mutate, isPending, error } = useUpdateJob(jobId);
 
   const navigate = useNavigate();

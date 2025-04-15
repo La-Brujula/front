@@ -2,6 +2,7 @@ import { Link, createLazyFileRoute } from '@tanstack/react-router';
 import { MailIcon, PhoneIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
+import { Button } from '@/components/ui/button';
 import DataSuspense from '@/shared/components/dataSuspense';
 import { useCurrentProfile } from '@/shared/hooks/useCurrentProfile';
 
@@ -112,7 +113,7 @@ function ProfileSummary() {
           to="/me/stand-out"
           resetScroll
         >
-          <div className="button font-bold">{t('Continuar')}</div>
+          <Button>{t('Continuar')}</Button>
         </Link>
       </div>
     </DataSuspense>

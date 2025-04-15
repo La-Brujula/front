@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo } from 'react';
 
-import { useInfiniteQuery } from '@tanstack/react-query';
+import { useSuspenseInfiniteQuery } from '@tanstack/react-query';
 import { createLazyFileRoute, useNavigate } from '@tanstack/react-router';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -17,7 +17,6 @@ import DataSuspense from '@/shared/components/dataSuspense';
 import ErrorMessage from '@/shared/components/errorMessage';
 import Input from '@/shared/components/input';
 import { LoadingSpinner } from '@/shared/components/loadingSpinner';
-import useDebounce from '@/shared/hooks/useDebounce';
 import { Container } from '@/shared/layout/container';
 
 export const Route = createLazyFileRoute('/search/')({
@@ -38,7 +37,7 @@ function SearchHomepage() {
     error,
     fetchNextPage,
     hasNextPage,
-  } = useInfiniteQuery(queryOptions);
+  } = useSuspenseInfiniteQuery(queryOptions);
 
   const users = useMemo(
     () =>

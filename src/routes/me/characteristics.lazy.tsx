@@ -13,7 +13,6 @@ import useUpdateProfile from '@/modules/me/hooks/updateProfileHook';
 import { ErrorMessage } from '@/shared/components/errorMessage';
 import Input from '@/shared/components/input';
 import { isApiError } from '@/shared/services/backendFetcher';
-import { TProfileUpdateForm } from '@/shared/types/user';
 
 import { LanguageListForm } from '../../modules/auth/components/languageListForm';
 
@@ -50,21 +49,16 @@ function CharacteristicsPage() {
         onSubmit={form.handleSubmit(onSubmit)}
         className="flex w-full flex-col items-stretch gap-8"
       >
-        <h2 className="col-span-full text-secondary">
-          {t('Información Adicional')}
-        </h2>
-        <div className="mx-auto grid w-full grid-cols-[min-content_1fr] items-center gap-4 gap-x-8 text-left">
+        <h2 className="text-secondary">{t('Información Adicional')}</h2>
+        <div className="mx-auto grid w-full items-center gap-4 gap-x-8 text-left">
           <Input
             fieldName="biography"
             label={t('Semblanza')}
             type="textArea"
-            maxLength={500}
             form={form}
             placeholder={t(
               'Escribe aquí las características que te identifican dentro de la industria'
             )}
-            divClass="grid grid-cols-subgrid col-span-2"
-            inputClass="rounded-md bg-black bg-opacity-20 resize-none col-span-2 p-4"
           />
           <label
             htmlFor="languages"
@@ -72,44 +66,31 @@ function CharacteristicsPage() {
           >
             {t('Idioma')}:
           </label>
-          <LanguageListForm
-            setValue={form.setValue}
-            fieldName="languages"
-            defaultState={user?.languages}
-          />
+          <LanguageListForm form={form} />
           <Input
             fieldName="associations"
             label={t('Asociaciones')}
             type="textArea"
-            maxLength={300}
             form={form}
             placeholder={t(
               'Escribe aquí a que asociaciones de la industria perteneces'
             )}
-            divClass="grid grid-cols-subgrid col-span-2"
-            inputClass="rounded-md bg-black bg-opacity-20 resize-none col-span-2 p-4"
           />
           <Input
             fieldName="certifications"
             label={t('Certificaciones')}
             type="textArea"
-            maxLength={300}
             form={form}
             placeholder={t(
               'Escribe aquí las certificaciones que has concluido'
             )}
-            divClass="grid grid-cols-subgrid col-span-2"
-            inputClass="rounded-md bg-black bg-opacity-20 resize-none col-span-2 p-4"
           />
           <Input
             fieldName="awards"
             label={t('Reconocimientos')}
             type="textArea"
-            maxLength={300}
             form={form}
             placeholder={t('Escribe aquí los reconocimientos que has obtenido')}
-            divClass="grid grid-cols-subgrid col-span-2"
-            inputClass="rounded-md bg-black bg-opacity-20 resize-none col-span-2 p-4"
           />
         </div>
         {!!error && (
@@ -119,17 +100,17 @@ function CharacteristicsPage() {
         )}
         <div className="flex flex-row gap-4 self-center">
           <Button
-            className="button border border-primary bg-transparent font-bold text-black"
+            variant="outline"
             onClick={() => history.back()}
           >
             {t('Regresar')}
           </Button>
           <Button
             type="submit"
-            className="border-none"
             disabled={user === undefined || isPending}
-            value={t('Finalizar')}
-          />
+          >
+            {t('Finalizar')}
+          </Button>
         </div>
       </form>
     </Form>

@@ -118,9 +118,10 @@ function PasswordResetPage() {
             <Button
               type="submit"
               disabled={loading || !form.formState.isValid}
-              value={t('Enviar Correo')}
               className="mx-auto w-fit"
-            />
+            >
+              {t('Enviar Correo')}
+            </Button>
           </form>
         </Form>
       ) : (

@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useSuspenseQuery } from '@tanstack/react-query';
 import { Link, createLazyFileRoute } from '@tanstack/react-router';
 import { ChevronLeftIcon, EditIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -33,12 +33,8 @@ import { getTitle } from '@/shared/utils/areaUtils';
 
 export const Route = createLazyFileRoute('/jobs/$jobId')({
   component: JobDetailPage,
-  pendingComponent: PendingUserProfilePage,
+  pendingComponent: LoadingSpinner,
 });
-
-function PendingUserProfilePage() {
-  return <LoadingSpinner />;
-}
 
 export function JobDetailPage() {
   const { jobId } = Route.useParams();
@@ -47,7 +43,11 @@ export function JobDetailPage() {
 
   const queryOptions = useMemo(() => jobDetailOptions(jobId), [jobId]);
 
-  const { data: job, isLoading: loading, error } = useQuery(queryOptions);
+  const {
+    data: job,
+    isLoading: loading,
+    error,
+  } = useSuspenseQuery(queryOptions);
 
   const ownOpening = useMemo(() => {
     if (job === undefined || loggedInAccount === null) return false;

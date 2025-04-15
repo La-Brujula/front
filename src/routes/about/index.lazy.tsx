@@ -19,7 +19,7 @@ function AboutUsPage() {
       <hr className="mx-auto h-[2px] max-w-4xl bg-primary" />
       <CreditsSection />
       <hr className="mx-auto h-[2px] max-w-4xl bg-primary" />
-      <BannerAnuncios anuncios={anuncios} />
+      <BannerAnuncios />
       <SeccionAliades />
     </>
   );

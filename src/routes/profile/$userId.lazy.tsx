@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useSuspenseQuery } from '@tanstack/react-query';
 import { Link, createLazyFileRoute, useNavigate } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
 
@@ -49,7 +49,11 @@ export function UserProfilePage() {
     [assignedProfileId]
   );
 
-  const { data: user, isLoading: loading, error } = useQuery(queryOptions);
+  const {
+    data: user,
+    isLoading: loading,
+    error,
+  } = useSuspenseQuery(queryOptions);
   const { t } = useTranslation('profile');
 
   if (userId == 'me' && account === null) {
@@ -57,11 +61,7 @@ export function UserProfilePage() {
   }
 
   return (
-    <DataSuspense
-      loading={loading}
-      error={error}
-      key={userId}
-    >
+    <div key={userId}>
       <ProfileHeader user={user!} />
       <div className="mx-auto mb-4 w-full max-w-lg items-start justify-start px-8 xl:max-w-4xl">
         <div className="order-last flex flex-col xl:order-first xl:shrink xl:flex-row xl:gap-16">
@@ -153,6 +153,6 @@ export function UserProfilePage() {
           </Link>
         )}
       </div>
-    </DataSuspense>
+    </div>
   );
 }

@@ -138,6 +138,7 @@ export const AreaForms = ({
             <Button
               onClick={clearInput}
               className="!p-2"
+              variant="destructive"
             >
               <TrashIcon />
             </Button>

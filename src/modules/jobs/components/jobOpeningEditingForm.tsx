@@ -122,9 +122,7 @@ export default function JobOpeningForm(props: {
             {t('Idioma')}:
           </label>
           <LanguageListForm
-            setValue={props.form.setValue}
-            fieldName="languages"
-            defaultState={[]}
+            form={props.form}
             allowNull={true}
           />
           <UniversidadesSelect

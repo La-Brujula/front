@@ -1,73 +1,35 @@
-import {
-  ChangeEvent,
-  HTMLInputTypeAttribute,
-  useEffect,
-  useReducer,
-} from 'react';
+import { HTMLInputTypeAttribute, useReducer } from 'react';
 
 import { XIcon } from 'lucide-react';
-import {
-  FieldValues,
-  Path,
-  PathValue,
-  UseFormReturn,
-  UseFormSetValue,
-} from 'react-hook-form';
+import { FieldValues, Path, PathValue, UseFormReturn } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/components/ui/button';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip';
 import Input from '@/shared/components/input';
-
-interface ReducerItem {
-  id: number;
-  value: string;
-}
 
 type ReducerAction =
   | {
       type: 'add';
+      field: string;
     }
   | {
       type: 'remove';
-      id: number;
-    }
-  | {
-      type: 'change';
-      id: number;
-      value: string;
+      field: string;
     }
   | {
       type: 'rebase';
-      state: ReducerItem[];
+      state: string[];
     };
 
-const reducer = (
-  state: ReducerItem[],
-  action: ReducerAction
-): ReducerItem[] => {
+const reducer = (state: string[], action: ReducerAction): string[] => {
   const newArray = !!state ? state.slice() : [];
   switch (action.type) {
     case 'add':
-      newArray.splice(newArray.length, 0, { id: Math.random(), value: '' });
+      newArray.splice(newArray.length, 0, action.field);
       return newArray;
     case 'remove':
-      if (action.id === undefined) throw 'Missing id';
-      return newArray.filter((item) => item.id != action.id);
-    case 'change':
-      if (action.id === undefined) throw 'Missing id';
-      if (action.value === undefined) throw 'Missing value';
-      return newArray.map((item) => {
-        if (item.id !== action.id) {
-          return item;
-        }
-        return { ...item, value: action.value };
-      });
+      if (action.field === undefined) throw 'Missing field';
+      return newArray.filter((item) => item != action.field);
     case 'rebase':
       if (action.state === undefined) return [];
       return action.state;
@@ -75,9 +37,8 @@ const reducer = (
 };
 
 export function StringArrayForm<T extends FieldValues>(props: {
-  name: Path<T>;
-  setValue: UseFormSetValue<T>;
-  defaultState?: PathValue<T, Path<T>>;
+  fieldName: Path<T>;
+  form: UseFormReturn<T>;
   inputType: HTMLInputTypeAttribute;
   label: string;
 }) {
@@ -85,56 +46,55 @@ export function StringArrayForm<T extends FieldValues>(props: {
 
   const [state, dispatch] = useReducer(
     reducer,
-    (props.defaultState || ['']).map((value) => ({
-      id: Math.random(),
-      value: value,
-    }))
+    Object.keys(props.form.getValues()).filter(
+      (field) => field.includes(props.fieldName + '.') ?? ['']
+    )
   );
-
-  const updateValue =
-    (i: number) => (ev: ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
-      dispatch({
-        type: 'change',
-        id: i,
-        value: ev.currentTarget.value || '',
-      });
-    };
 
   return (
     <div className="flex flex-col gap-2">
-      {state?.map((item: ReducerItem, i) => (
+      {state?.map((field: string, i) => (
         <div
-          key={item.id}
+          key={field}
           className="flex flex-col items-center gap-2 md:flex-row"
         >
-          <input
-            className="flex w-full flex-col gap-4"
+          <Input
             type={props.inputType}
-            onChange={updateValue(item.id)}
-            value={item.value}
+            form={props.form}
+            label={props.label}
+            fieldName={field as Path<T>}
           />
           {state.length > 1 && (
             <Button
               size="icon"
+              variant="destructive"
               aria-label={t('Borrar')}
-              onClick={() =>
+              onClick={(ev) => {
+                ev.preventDefault();
                 dispatch({
                   type: 'remove',
-                  id: item.id,
-                })
-              }
+                  field,
+                });
+              }}
             >
               <XIcon />
             </Button>
           )}
         </div>
       ))}
-      <div
-        className="mx-auto w-fit cursor-pointer rounded-md bg-secondary px-4 py-2 text-white"
-        onClick={() => dispatch({ type: 'add' })}
+      <Button
+        variant="secondary"
+        className="mx-auto"
+        onClick={(ev) => {
+          ev.preventDefault();
+          props.form.setValue(
+            `${props.fieldName}.${state.length}` as Path<T>,
+            '' as PathValue<T, Path<T>>
+          );
+        }}
       >
         {t('Agregar otro {{label}}', { replace: { label: props.label } })}
-      </div>
+      </Button>
     </div>
   );
 }

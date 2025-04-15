@@ -16,8 +16,8 @@ export function useUploadProfileImage() {
       const compressedImage = await compress(
         vars.imageFile,
         0.98,
-        vars.imageType === 'profile' ? 384 : 768,
-        vars.imageType === 'profile' ? 384 : 3072,
+        vars.imageType === 'profile' ? 192 : 300,
+        vars.imageType === 'profile' ? 192 : 1500,
         512 * 1024 // 512Kb
       );
       formdata.append('image', compressedImage, vars.imageType);

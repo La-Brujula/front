@@ -6,8 +6,8 @@ import { JobSearch, jobSearchSchema } from '@/modules/jobs/types/searchParams';
 export const Route = createFileRoute('/jobs/')({
   validateSearch: (search) => jobSearchSchema.parse(search),
   loaderDeps: ({ search }: { search: JobSearch }) => search,
-  loader: ({ context, deps: searchParams }) =>
-    context?.queryClient.prefetchInfiniteQuery(
+  loader: async ({ context, deps: searchParams }) =>
+    await context?.queryClient.prefetchInfiniteQuery(
       jobSearchQueryOptions(searchParams, true)
     ),
 });

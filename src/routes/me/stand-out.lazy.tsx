@@ -55,7 +55,6 @@ function StandoutPage() {
         onSubmit={form.handleSubmit(onSubmit)}
         className="mx-auto flex max-w-lg flex-col gap-8 text-left"
       >
-        <p className="col-span-full">*{t('Information')}</p>
         <Input
           type="textArea"
           form={form}
@@ -98,13 +97,9 @@ function StandoutPage() {
           <div className="flex flex-col gap-4">
             <Input
               label={t('¿Te interesa ser becario o hacer servicio social?')}
-              type="radioGroup"
+              type="switch"
               form={form}
               fieldName="probono"
-              items={[
-                { value: 'true', label: t('Sí') },
-                { value: 'false', label: t('No') },
-              ]}
             />
             <UniversidadesSelect
               label={t('¿Estudias o estudiaste en alguna de estas escuelas?')}
@@ -120,7 +115,7 @@ function StandoutPage() {
         )}
         <div className="flex flex-row gap-4 self-center">
           <Button
-            className="button border border-primary bg-transparent font-bold text-black"
+            variant="outline"
             onClick={() => history.back()}
           >
             {t('Regresar')}
@@ -128,9 +123,9 @@ function StandoutPage() {
           <Button
             type="submit"
             disabled={isPending}
-            className="border-none"
-            value={t('Continuar')}
-          />
+          >
+            {t('Continuar')}
+          </Button>
         </div>
       </form>
     </Form>

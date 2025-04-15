@@ -10,9 +10,9 @@
   "createUser": "Crear usuario",
   "myUser": "Mi usuario",
   "La Brújula en PDF": "La Brújula en PDF",
+  "logout": "Cerrar sesión",
   "aboutUs": "Quiénes somos",
   "announcements": "Avisos",
   "privacyH": "Aviso legal y de privacidad",
-  "contact": "Contacto",
-  "logout": "Cerrar sesión"
+  "contact": "Contacto"
 }

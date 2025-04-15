@@ -32,7 +32,7 @@
   }
 
   .strip:hover {
-    @apply h-96 w-44;
+    @apply h-96 w-40;
   }
 
   .textTag {

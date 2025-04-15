@@ -6,6 +6,7 @@ import {
 import { MailIcon, PhoneIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
+import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
 import useUpdateProfile from '@/modules/me/hooks/updateProfileHook';
 import ErrorMessage from '@/shared/components/errorMessage';
@@ -54,7 +55,7 @@ function ContactPage() {
         onSubmit={form.handleSubmit(onSubmit)}
         className="flex w-full flex-col items-stretch gap-8"
       >
-        <div className="mx-auto flex flex-col items-center gap-4 text-right">
+        <div className="mx-auto flex flex-col items-center gap-4 text-left">
           <h2 className="text-left text-secondary">{t('Redes sociales')}</h2>
           <Input
             divClass="w-full"
@@ -138,9 +139,8 @@ function ContactPage() {
               <PhoneIcon /> {t('Teléfonos')}
             </label>
             <StringArrayForm
-              name="phoneNumbers"
-              setValue={form.setValue}
-              defaultState={user?.phoneNumbers}
+              fieldName="phoneNumbers"
+              form={form}
               inputType="tel"
               label={t('teléfono')}
             />
@@ -150,9 +150,8 @@ function ContactPage() {
               <MailIcon /> {t('Correos alternativos')}
             </label>
             <StringArrayForm
-              name="secondaryEmails"
-              setValue={form.setValue}
-              defaultState={user?.secondaryEmails}
+              fieldName="secondaryEmails"
+              form={form}
               inputType="email"
               label={t('correo')}
             />
@@ -164,18 +163,18 @@ function ContactPage() {
           />
         )}
         <div className="flex flex-row gap-4 self-center">
-          <div
-            className="button border border-primary bg-transparent font-bold text-black"
+          <Button
+            variant="outline"
             onClick={() => history.back()}
           >
             {t('Regresar')}
-          </div>
-          <input
+          </Button>
+          <Button
             type="submit"
-            className="border-none"
-            disabled={user === undefined || isPending}
-            value={t('Continuar')}
-          />
+            disabled={isPending}
+          >
+            {t('Continuar')}
+          </Button>
         </div>
       </form>
     </Form>

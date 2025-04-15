@@ -46,7 +46,8 @@ export const NameSearchField = () => {
         />
         <Button
           type="submit"
-          className="size-12 rounded-full bg-white p-4 text-black"
+          size="icon"
+          className="rounded-full bg-white p-4 text-black"
         >
           <SearchIcon />
         </Button>

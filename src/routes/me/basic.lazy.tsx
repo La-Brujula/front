@@ -200,7 +200,7 @@ function BasicInfo() {
         )}
         <div className="flex flex-row justify-center gap-4">
           <Button
-            className="button border border-primary bg-transparent font-bold text-black"
+            variant="outline"
             onClick={() => history.back()}
           >
             {t('Regresar')}
@@ -209,8 +209,9 @@ function BasicInfo() {
             type="submit"
             className="border-none"
             disabled={isPending || !form.formState.isValid}
-            value={t('Continuar')}
-          />
+          >
+            {t('Continuar')}
+          </Button>
         </div>
       </form>
     </Form>

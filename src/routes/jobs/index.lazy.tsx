@@ -1,6 +1,9 @@
 import { useCallback, useEffect, useMemo } from 'react';
 
-import { useInfiniteQuery } from '@tanstack/react-query';
+import {
+  useInfiniteQuery,
+  useSuspenseInfiniteQuery,
+} from '@tanstack/react-query';
 import { Link, createLazyFileRoute, useNavigate } from '@tanstack/react-router';
 import { SearchIcon } from 'lucide-react';
 import { Controller, useForm } from 'react-hook-form';
@@ -42,7 +45,7 @@ function SearchHomepage() {
     error,
     fetchNextPage,
     hasNextPage,
-  } = useInfiniteQuery(queryOptions);
+  } = useSuspenseInfiniteQuery(queryOptions);
 
   const { ref, inView } = useInView();
 
@@ -105,25 +108,6 @@ function SearchHomepage() {
 
   return (
     <>
-      <Container className="flex flex-row items-center justify-center">
-        <div className="flex flex-row justify-center !p-0">
-          {profile?.verified ? (
-            <Link
-              to="/jobs/create"
-              className="rounded-md bg-primary px-8 py-4 text-center text-base font-bold text-white"
-            >
-              {t('Crea una nueva oferta laboral')}
-            </Link>
-          ) : (
-            <Link
-              to="/auth/send-verification"
-              className="rounded-md bg-secondary px-8 py-4 text-center text-base font-bold text-white"
-            >
-              {t('Verifica tu cuenta para crear una oferta')}
-            </Link>
-          )}
-        </div>
-      </Container>
       <Container
         className="relative"
         bodyClass="w-full flex flex-col md:grid grid-cols-[1fr_10rem] gap-4 text-white font-bold items-center px-4"

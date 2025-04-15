@@ -181,8 +181,6 @@ export default function JobCreationForm(props: {
                   key={o.activity}
                   i={i}
                   form={form}
-                  setValue={form.setValue}
-                  initialValues={o}
                 />
                 <hr />
               </>
@@ -332,8 +330,9 @@ export default function JobCreationForm(props: {
             type="submit"
             className="border-none"
             disabled={props.isPending || isParsing}
-            value={t('Continuar')}
-          />
+          >
+            {t('Continuar')}
+          </Button>
         </div>
       </form>
     </Form>

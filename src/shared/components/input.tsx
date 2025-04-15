@@ -179,7 +179,7 @@ function buildRadioGroup<T extends FieldValues>(
       {props.items.map((item) => (
         <FormItem
           key={`${props.fieldName}-${item.value}`}
-          className="relative flex w-fit cursor-pointer items-center justify-center rounded-md border-2 border-primary px-4 py-2 text-primary has-[*:checked]:bg-primary has-[*:checked]:!text-white"
+          className="space-x-2"
         >
           <FormControl>
             <RadioGroupItem value={item.value} />
@@ -231,7 +231,9 @@ function Input<F extends InputTypes, T extends FieldValues>(
         <FormItem>
           {!!props.label && !props.hiddenLabel && (
             <FormLabel>
-              {props.label} {props.required && ' *'}
+              <span className={props.required ? 'font-bold' : ''}>
+                {props.label} {props.required && ' *'}
+              </span>
             </FormLabel>
           )}
           <FormControl>{inputElement(field)}</FormControl>

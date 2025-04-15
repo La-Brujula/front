@@ -4,6 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
+import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
 import { ErrorMessage } from '@/shared/components/errorMessage';
 import Input from '@/shared/components/input';
@@ -91,12 +92,13 @@ export default function AccountUpdateForm({
             <></>
           )}
         </div>
-        <input
+        <Button
           type="submit"
-          value={t('Guardar')}
           disabled={isPending}
           className="w-fit self-center"
-        />
+        >
+          {t('Guardar')}
+        </Button>
         {isSuccess && !form.formState.isDirty && (
           <p>{t('Ajustes actualizados')}</p>
         )}

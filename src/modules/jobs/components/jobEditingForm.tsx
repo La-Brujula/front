@@ -347,8 +347,9 @@ function JobEditingForm(props: {
             type="submit"
             className="border-none"
             disabled={props.isPending || isParsing}
-            value={t('Continuar')}
-          />
+          >
+            {t('Continuar')}
+          </Button>
         </div>
       </form>
     </Form>

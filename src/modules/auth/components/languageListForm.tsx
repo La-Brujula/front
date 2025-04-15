@@ -1,7 +1,13 @@
 import { ChangeEvent, useEffect, useReducer } from 'react';
 
 import { TrashIcon, XIcon } from 'lucide-react';
-import { FieldValues, Path, SetFieldValue } from 'react-hook-form';
+import {
+  FieldValues,
+  Path,
+  PathValue,
+  SetFieldValue,
+  UseFormReturn,
+} from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/components/ui/button';
@@ -10,14 +16,16 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
-import { lang, proficiency } from '@/shared/types/languages';
+import { TJobOpening, TJobPosting } from '@/modules/jobs/types/searchParams';
+import Input from '@/shared/components/input';
+import { PROFICIENCY, lang, proficiency } from '@/shared/types/languages';
+import { TProfileUpdateForm } from '@/shared/types/user';
 
 import languages from '@shared/constants/languages.json';
 
 interface language {
-  id: number;
-  type: 'select' | 'custom';
-  lang: lang | 'other';
+  i: number;
+  lang: string;
   proficiency: proficiency;
 }
 
@@ -27,16 +35,11 @@ type ReducerAction =
     }
   | {
       type: 'remove';
-      id: number;
-    }
-  | {
-      type: 'change';
-      id: number;
-      item: { lang: lang } | { proficiency: proficiency };
+      i: number;
     }
   | {
       type: 'switchType';
-      id: number;
+      i: number;
       newType: 'select' | 'custom';
     }
   | {
@@ -49,28 +52,14 @@ function reducer(state: language[], action: ReducerAction): language[] {
   switch (action.type) {
     case 'add':
       newArray.splice(newArray.length, 0, {
-        id: Math.random(),
-        type: 'select',
-        lang: 'en',
+        i: state.length,
+        lang: '',
         proficiency: 'basic',
       });
       return newArray;
     case 'remove':
-      if (action.id === undefined) throw 'Missing id';
-      return newArray.filter((v) => v.id !== action.id);
-    case 'change':
-      if (action.id === undefined) throw 'Missing id';
-      if (action.item === undefined) throw 'Missing item';
-      return newArray.map((item) => {
-        if (item.id !== action.id) {
-          return { ...item };
-        }
-        const newItem = { ...item, ...action.item };
-        return {
-          ...newItem,
-          type: languages.includes(newItem.lang) ? 'select' : 'custom',
-        };
-      });
+      if (action.i === undefined) throw 'Missing id';
+      return newArray.filter((v) => v.i !== action.i);
     case 'rebase':
       if (action.state === undefined) return [];
       return action.state;
@@ -79,161 +68,85 @@ function reducer(state: language[], action: ReducerAction): language[] {
   }
 }
 
-export function LanguageListForm<T extends FieldValues>(props: {
-  setValue: SetFieldValue<T>;
-  fieldName: Path<T>;
-  defaultState?: { lang: lang; proficiency: proficiency }[];
-  allowNull?: boolean;
-}) {
+export function LanguageListForm<
+  T extends TProfileUpdateForm | TJobOpening,
+>(props: { form: UseFormReturn<T>; allowNull?: boolean }) {
   const { t } = useTranslation('auth');
   const [state, dispatch] = useReducer(
     reducer,
-    (props.defaultState || [{ lang: 'es', proficiency: 'native' }]).map(
-      (v) => ({
-        id: Math.random(),
-        type: languages.includes(v.lang) ? 'select' : 'custom',
-        ...v,
-      })
-    ) as language[]
+    (
+      props.form.getValues().languages ?? [
+        { lang: 'es', proficiency: 'native' },
+      ]
+    ).map((v, i) => ({
+      i,
+      ...v,
+    }))
   );
 
-  const updateValue =
-    (i: number, property: 'lang' | 'proficiency') =>
-    (ev: ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
-      dispatch({
-        type: 'change',
-        id: i,
-        item:
-          property == 'lang'
-            ? { lang: ev.currentTarget.value as lang }
-            : { proficiency: ev.currentTarget.value as proficiency },
-      });
-    };
-
-  useEffect(() => {
-    props.setValue(
-      props.fieldName,
-      state.map((v) => ({ lang: v.lang, proficiency: v.proficiency }))
-    );
-  }, []);
-
   return (
-    <div className="col-span-2">
-      <>
-        {!!state &&
-          state.map((value: language, i: number) => (
-            <div
-              key={value.id}
-              className="mb-8"
-            >
-              <div className="mb-4 flex flex-col gap-4 md:flex-row">
-                <div className="flex w-full flex-col gap-4">
-                  {value.type == 'select' ? (
-                    <select
-                      onChange={updateValue(value.id, 'lang')}
-                      className="w-full"
-                      value={value.type === 'select' ? value.lang : 'other'}
-                    >
-                      <option value="">{t('Otro')}</option>
-                      {languages.map((defLang) => (
-                        <option
-                          value={defLang}
-                          key={defLang}
-                        >
-                          {t(defLang, { ns: 'languages' })}
-                        </option>
-                      ))}
-                    </select>
-                  ) : (
-                    <div className="flex flex-row gap-4">
-                      <input
-                        type="text"
-                        onChange={updateValue(value.id, 'lang')}
-                        placeholder={t('Escribe aquí el nombre de tu idioma')}
-                        className="grow"
-                        value={value.lang}
-                      />
-                      <Button
-                        onClick={() =>
-                          dispatch({
-                            type: 'change',
-                            id: value.id,
-                            item: { lang: 'es' },
-                          })
-                        }
-                      >
-                        <Tooltip>
-                          <TooltipTrigger asChild>
-                            <TrashIcon />
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>{t('Volver a lista')}</p>
-                          </TooltipContent>
-                        </Tooltip>
-                      </Button>
-                    </div>
-                  )}
-                </div>
-                {(state.length > 1 || props.allowNull) && (
-                  <Button
-                    onClick={() =>
-                      dispatch({
-                        type: 'remove',
-                        id: value.id,
-                      })
-                    }
-                  >
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <XIcon />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>{t('Borrar')}</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </Button>
-                )}
+    <>
+      {!!state &&
+        state.map((value: language, i: number) => (
+          <div
+            key={value.i}
+            className="mb-8"
+          >
+            <div className="mb-4 flex flex-col gap-4 md:flex-row">
+              <div className="flex w-full flex-col gap-4">
+                <Input
+                  type="select"
+                  fieldName={`languages.${i}.lang` as Path<T>}
+                  form={props.form}
+                  label={t('Idioma')}
+                  items={languages.map((defLang) => ({
+                    value: defLang,
+                    label: t(defLang, { ns: 'languages' }),
+                  }))}
+                />
               </div>
-              <div className="grow">
-                <div className="mb-4 flex flex-row flex-wrap items-stretch justify-center gap-4 md:items-center">
-                  {(
-                    [
-                      'basic',
-                      'intermediate',
-                      'advanced',
-                      'native',
-                    ] as proficiency[]
-                  ).map((proficiency) => (
-                    <div
-                      key={value.id + proficiency}
-                      className={[
-                        'flex flex-col gap-2 text-left',
-                        'relative w-fit rounded-md ring-2 ring-primary',
-                        'text-primary has-[:checked]:bg-primary has-[:checked]:text-white',
-                        'flex items-center justify-center px-4 py-2',
-                      ].join(' ')}
-                    >
-                      <label>{t(proficiency)}</label>
-                      <input
-                        checked={value.proficiency === proficiency}
-                        onChange={updateValue(value.id, 'proficiency')}
-                        className="absolute h-full w-full cursor-pointer opacity-0"
-                        type="radio"
-                        value={proficiency}
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
+              {(state.length > 1 || props.allowNull) && (
+                <Button
+                  variant="destructive"
+                  size="icon"
+                  onClick={() =>
+                    dispatch({
+                      type: 'remove',
+                      i: value.i,
+                    })
+                  }
+                >
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <XIcon />
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{t('Borrar')}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </Button>
+              )}
             </div>
-          ))}
-        <div
-          className="mx-auto mt-6 w-fit cursor-pointer rounded-md bg-secondary px-4 py-2 text-white"
-          onClick={() => dispatch({ type: 'add' })}
-        >
-          {t('Agregar otro idioma')}
-        </div>
-      </>
-    </div>
+            <div className="grow">
+              <Input
+                type="radioGroup"
+                fieldName={`languages.${i}.proficiency` as Path<T>}
+                form={props.form}
+                items={PROFICIENCY.map((proficiency) => ({
+                  value: proficiency as PathValue<T, Path<T>>,
+                  label: t(proficiency),
+                }))}
+              />
+            </div>
+          </div>
+        ))}
+      <Button
+        variant="secondary"
+        className="mx-auto"
+        onClick={() => dispatch({ type: 'add' })}
+      >
+        {t('Agregar otro idioma')}
+      </Button>
+    </>
   );
 }

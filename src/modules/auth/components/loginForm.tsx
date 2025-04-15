@@ -130,8 +130,9 @@ export const LoginForm = (props: { redirectUrl?: string }) => {
           disabled={loading || !form.formState.isValid}
           className="mx-auto max-w-xs bg-primary disabled:cursor-default disabled:bg-black disabled:bg-opacity-20"
           onClick={attemptLogin}
-          value={t('Inicia sesión')}
-        />
+        >
+          {t('Inicia sesión')}
+        </Button>
       </form>
       <div className="mt-4 flex flex-col gap-2 text-primary">
         <Link

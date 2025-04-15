@@ -1,7 +1,17 @@
 import { useCallback, useEffect, useState } from 'react';
 
 import { Link, useRouterState } from '@tanstack/react-router';
-import { UserIcon, XIcon } from 'lucide-react';
+import {
+  BookOpenTextIcon,
+  BriefcaseBusinessIcon,
+  HomeIcon,
+  LogOutIcon,
+  MenuIcon,
+  SearchIcon,
+  UserIcon,
+  UserPlus,
+  XIcon,
+} from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/components/ui/button';
@@ -45,9 +55,9 @@ export const Navbar = () => {
 
   return (
     <>
-      <div className="sticky top-0 z-50">
+      <div className="sticky top-0 z-20">
         {bannerOpen && <AnnouncementBanner closeBanner={closeBanner} />}
-        <div className="flex w-full items-center justify-between bg-primary px-8 py-2 text-white">
+        <div className="flex w-full items-center justify-between gap-4 bg-primary px-8 py-2 text-white">
           <Link
             resetScroll
             to="/"
@@ -64,13 +74,13 @@ export const Navbar = () => {
               className="h-16 md:hidden"
             />
           </Link>
-          <div className="mr-8 hidden grow flex-row justify-end gap-8 md:flex">
+          <div className="hidden grow flex-row justify-end gap-4 md:flex">
             {!isLoggedIn ? (
               <Link
                 resetScroll
                 to="/auth/login"
                 search={{ redirect: location.pathname }}
-                className="font-bold text-white"
+                className="text-white"
               >
                 {t('login')}
               </Link>
@@ -88,7 +98,7 @@ export const Navbar = () => {
               to="/search"
               search={{ country: 'MX' }}
               resetScroll
-              className="font-bold text-white"
+              className="text-white"
             >
               {t('search')}
             </Link>
@@ -96,174 +106,149 @@ export const Navbar = () => {
               <Link
                 to="/jobs"
                 resetScroll
-                className="font-bold leading-relaxed text-white"
+                className="leading-relaxed text-white"
               >
                 {t('jobs')}
               </Link>
             )}
           </div>
           <LocalizationMenu />
-          <div className="z-100">
-            <Button
-              size="icon"
-              variant="ghost"
-              onClick={toggleOpen}
-              className="z-10 flex cursor-pointer flex-col items-end gap-1 bg-transparent"
-            >
-              <div className="h-1 w-8 rounded-md bg-white" />
-              <div className="h-1 w-6 rounded-md bg-white" />
-              <div className="h-1 w-8 rounded-md bg-white" />
-            </Button>
-            <nav
-              className={[
-                isOpen
-                  ? 'opacity-1 translate-x-0'
-                  : 'pointer-events-none translate-x-64 opacity-0',
-                '¡transition-all fixed w-full max-w-md duration-300',
-                'z-100 right-0 top-0 flex h-screen bg-blue px-16 py-4',
-                'z-10 max-h-[100vh] flex-col gap-4 overflow-y-auto !text-white',
-              ].join(' ')}
-            >
-              <Button
-                onClick={toggleOpen}
-                size="icon"
-                variant="ghost"
-                className="z-10 flex cursor-pointer flex-col items-end gap-1 self-end bg-transparent"
-              >
-                <XIcon />
-              </Button>
-              <Link
-                onClick={() => toggleOpen()}
-                to="/"
-                resetScroll
-                className="font-bold leading-relaxed text-white"
-              >
-                {t('home')}
-              </Link>
-              {!isLoggedIn ? (
-                <>
-                  <Link
-                    onClick={() => toggleOpen()}
-                    to="/auth/login"
-                    search={{ redirect: location.pathname }}
-                    className="font-bold leading-relaxed text-white"
-                  >
-                    {t('login')}
-                  </Link>
-                  <Link
-                    onClick={() => toggleOpen()}
-                    to="/auth/signup"
-                    resetScroll
-                    className="font-bold leading-relaxed text-white"
-                  >
-                    {t('createUser')}
-                  </Link>
-                </>
-              ) : (
-                <Link
-                  onClick={() => toggleOpen()}
-                  to="/profile/$userId"
-                  resetScroll
-                  params={{ userId: account!.ProfileId }}
-                  className="font-bold leading-relaxed text-white"
-                >
-                  {t('myUser')}
-                </Link>
-              )}
-              <Link
-                onClick={() => toggleOpen()}
-                to="/search"
-                search={{ country: 'MX' }}
-                resetScroll
-                className="font-bold leading-relaxed text-white"
-              >
-                {t('search')}
-              </Link>
-              {isLoggedIn && (
-                <Link
-                  onClick={() => toggleOpen()}
-                  to="/jobs"
-                  resetScroll
-                  className="font-bold leading-relaxed text-white"
-                >
-                  {t('jobs')}
-                </Link>
-              )}
-              <Link
-                onClick={() => toggleOpen()}
-                to="/guides"
-                resetScroll
-                className="font-bold leading-relaxed text-white"
-              >
-                {t('La Brújula en PDF')}
-              </Link>
-              <Link
-                onClick={() => toggleOpen()}
-                to="/about"
-                resetScroll
-                className="font-bold leading-relaxed text-white"
-              >
-                {t('aboutUs')}
-              </Link>
-              <Link
-                to="/announcements"
-                resetScroll
-                className="font-bold text-white"
-              >
-                {t('announcements')}
-              </Link>
-              <Link
-                onClick={() => toggleOpen()}
-                to="/privacy"
-                className="font-bold leading-relaxed text-white"
-              >
-                {t('privacyH')}
-              </Link>
-              <Link
-                onClick={() => toggleOpen()}
-                to="/contact"
-                resetScroll
-                className="font-bold leading-relaxed text-white"
-              >
-                {t('contact')}
-              </Link>
-              <hr />
-              <a
-                target="_blank"
-                href={contactInformation.whatsapp}
-                className="flex flex-row items-center gap-4 self-center rounded-full bg-primary px-4 py-2 text-white"
-              >
-                <img
-                  src={import.meta.env.BASE_URL + 'img/support.svg'}
-                  alt="Soporte"
-                  className="h-10"
-                />
-                <p className="text-2xl font-bold">Soporte</p>
-              </a>
-              {isLoggedIn && (
-                <>
-                  <hr />
-                  <Link
-                    onClick={() => toggleOpen()}
-                    to="/auth/logout"
-                    resetScroll
-                    className="mt-6 block font-bold leading-relaxed text-white"
-                  >
-                    {t('logout')}
-                    <hr />
-                  </Link>
-                </>
-              )}
-            </nav>
-          </div>
+          <Button
+            variant="ghost"
+            onClick={toggleOpen}
+            className="z-10 flex cursor-pointer flex-col items-end gap-1 bg-transparent"
+          >
+            <MenuIcon size={64} />
+          </Button>
         </div>
       </div>
+      <nav
+        data-open={isOpen}
+        className="¡transition-all z-100 pointer-events-none fixed right-0 top-0 z-30 flex h-screen max-h-[100vh] w-full max-w-xs translate-x-64 flex-col gap-4 overflow-y-auto bg-blue p-8 !text-white opacity-0 duration-300 data-[open=true]:translate-x-0 data-[open=true]:opacity-100"
+      >
+        <Button
+          size="icon"
+          variant="ghost"
+          onClick={toggleOpen}
+          className="z-10 flex cursor-pointer flex-col items-end gap-1 self-end bg-transparent"
+        >
+          <XIcon size="32" />
+        </Button>
+        <Link
+          to="/"
+          resetScroll
+          className="flex flex-row gap-4 leading-relaxed text-white"
+        >
+          <HomeIcon />
+          {t('home')}
+        </Link>
+        <Link
+          to="/search"
+          search={{ country: 'MX' }}
+          resetScroll
+          className="flex flex-row gap-4 leading-relaxed text-white"
+        >
+          <SearchIcon />
+          {t('search')}
+        </Link>
+        {!isLoggedIn ? (
+          <>
+            <Link
+              to="/auth/login"
+              search={{ redirect: location.pathname }}
+              className="flex flex-row gap-4 leading-relaxed text-white"
+            >
+              <UserIcon />
+              {t('login')}
+            </Link>
+            <Link
+              to="/auth/signup"
+              resetScroll
+              className="flex flex-row gap-4 leading-relaxed text-white"
+            >
+              <UserPlus />
+              {t('createUser')}
+            </Link>
+          </>
+        ) : (
+          <Link
+            to="/profile/$userId"
+            resetScroll
+            params={{ userId: account!.ProfileId }}
+            className="flex flex-row gap-4 leading-relaxed text-white"
+          >
+            <UserIcon />
+            {t('myUser')}
+          </Link>
+        )}
+
+        {isLoggedIn && (
+          <Link
+            to="/jobs"
+            resetScroll
+            className="flex flex-row gap-4 leading-relaxed text-white"
+          >
+            <BriefcaseBusinessIcon />
+            {t('jobs')}
+          </Link>
+        )}
+        <Link
+          to="/guides"
+          resetScroll
+          className="flex flex-row gap-4 leading-relaxed text-white"
+        >
+          <BookOpenTextIcon />
+          {t('La Brújula en PDF')}
+        </Link>
+        {isLoggedIn && (
+          <Link
+            to="/auth/logout"
+            resetScroll
+            className="mt-4 flex flex-row gap-4 leading-relaxed text-white"
+          >
+            <LogOutIcon />
+            {t('logout')}
+          </Link>
+        )}
+
+        <div className="min-h-16 grow"></div>
+        <hr />
+        <a
+          target="_blank"
+          href={contactInformation.whatsapp}
+          className="flex flex-row items-center gap-4 self-center rounded-full bg-primary px-4 py-2 text-white"
+        >
+          <img
+            src={import.meta.env.BASE_URL + 'img/support.svg'}
+            alt="Soporte"
+            className="h-10"
+          />
+          <p className="text-2xl font-bold">Soporte</p>
+        </a>
+        <Link
+          to="/about"
+          resetScroll
+          className="leading-relaxed text-white"
+        >
+          {t('aboutUs')}
+        </Link>
+        <Link
+          to="/announcements"
+          resetScroll
+          className="flex flex-row gap-4 text-white"
+        >
+          {t('announcements')}
+        </Link>
+        <Link
+          to="/privacy"
+          className="flex flex-row gap-4 leading-relaxed text-white"
+        >
+          {t('privacyH')}
+        </Link>
+      </nav>
       <div
-        className={`${
-          isOpen
-            ? 'left-0 opacity-100'
-            : 'left-100 pointer-events-none opacity-0'
-        } fixed left-0 top-0 z-10 h-screen w-full bg-white bg-opacity-20 backdrop-blur-sm transition-all duration-300`}
+        data-open={isOpen}
+        className="left-100 pointer-events-none fixed left-0 top-24 z-10 h-full w-full bg-white bg-opacity-5 opacity-0 backdrop-blur-md transition-all duration-300 data-[open=true]:pointer-events-auto data-[open=true]:left-0 data-[open=true]:opacity-100"
         onClick={toggleOpen}
       />
     </>

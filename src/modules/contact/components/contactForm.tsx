@@ -127,9 +127,10 @@ export function ContactForm() {
           <Button
             type="submit"
             disabled={isPending || !form.formState.isValid}
-            value={t('Enviar')}
             className="w-fit self-center bg-secondary"
-          />
+          >
+            {t('Enviar')}
+          </Button>
         </form>
       </Form>
     </Container>
