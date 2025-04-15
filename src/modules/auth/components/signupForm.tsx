@@ -30,10 +30,10 @@ export const SignUpForm = (props: { referal?: string }) => {
     useForm<SignupForm>({
       defaultValues: {
         referal: props.referal,
-        email: undefined,
-        password: undefined,
-        confirmPassword: undefined,
-        persona: undefined,
+        email: '',
+        password: '',
+        confirmPassword: '',
+        persona: 'fisica',
       },
     });
   const { t } = useTranslation('auth');
@@ -48,6 +48,13 @@ export const SignUpForm = (props: { referal?: string }) => {
       setError('confirmPassword', {
         type: 'custom',
         message: t('Las contraseñas no son iguales'),
+      });
+      return;
+    }
+    if (!data.persona) {
+      setError('persona', {
+        type: 'custom',
+        message: t('Selecciona tu tipo de perfil'),
       });
       return;
     }
@@ -135,7 +142,6 @@ export const SignUpForm = (props: { referal?: string }) => {
           register={register}
           fieldName="persona"
           type="radioGroup"
-          required
           items={personTypeOptions}
           error={formState.errors.persona}
           setValue={setValue}
@@ -161,7 +167,7 @@ export const SignUpForm = (props: { referal?: string }) => {
       )}
       {acceptedPrivacy !== true && <PrivacyPolicy />}
       <input
-        disabled={loading}
+        disabled={loading || !formState.isValid}
         type="submit"
         className="max-w-xs mx-auto bg-primary disabled:bg-black disabled:bg-opacity-20"
         value={t('Crear usuario')}
