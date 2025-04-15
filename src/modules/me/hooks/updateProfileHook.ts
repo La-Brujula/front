@@ -1,4 +1,4 @@
-import { useCurrentProfile } from '@/shared/hooks/useCurrentProfile';
+import { profileQueryOptions } from '@/modules/profile/queries/userProfile';
 import { useUpdateMe } from '@/shared/hooks/useUpdateMe';
 import { ApiError, BackendResponse } from '@/shared/services/backendFetcher';
 import {
@@ -8,13 +8,13 @@ import {
   TProfileUpdateForm,
   TProfileUpdateRequest,
 } from '@/shared/types/user';
-import { MutateOptions } from '@tanstack/react-query';
+import { MutateOptions, useSuspenseQuery } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
-import { useCallback, useEffect, useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { Path, useForm } from 'react-hook-form';
 
 export default function useUpdateProfile() {
-  const { data: user, error } = useCurrentProfile();
+  const { data: user, error } = useSuspenseQuery(profileQueryOptions('me'));
   const { mutate, isPending, error: mutateError } = useUpdateMe();
 
   const {
@@ -48,8 +48,6 @@ export default function useUpdateProfile() {
       >
     ) => {
       const res = ProfileUpdateRequest.safeParse(data);
-
-      console.log(data, res);
 
       if (res.success) {
         return mutate(res.data, mutationOpts);

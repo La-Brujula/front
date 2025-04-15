@@ -1,6 +1,6 @@
 import ErrorMessage from '@shared/components/errorMessage';
 import genders from '@/shared/constants/genders';
-import { Path, useForm } from 'react-hook-form';
+import { Path } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { TProfileUpdateForm, TProfileUpdateRequest } from '@/shared/types/user';
 import Input from '@/shared/components/input';
@@ -10,14 +10,10 @@ import {
   useNavigate,
   useRouter,
 } from '@tanstack/react-router';
-import { useCurrentProfile } from '@/shared/hooks/useCurrentProfile';
-import { useUpdateMe } from '@/shared/hooks/useUpdateMe';
-import DataSuspense from '@/shared/components/dataSuspense';
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { isApiError } from '@/shared/services/backendFetcher';
 import estados from '@shared/constants/estados.json';
 import useUpdateProfile from '@/modules/me/hooks/updateProfileHook';
-import { error } from 'console';
 
 export const Route = createLazyFileRoute('/me/basic')({
   component: BasicInfo,
@@ -66,6 +62,12 @@ function BasicInfo() {
     [navigate, updateProfile]
   );
 
+  useEffect(() => {
+    if (user.type === 'moral') {
+      setValue('gender', 'other');
+    }
+  }, []);
+
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -112,7 +114,6 @@ function BasicInfo() {
                 autoComplete="family-name"
                 register={register}
                 fieldName="lastName"
-                required={true}
                 defaultValue={formState.defaultValues?.lastName}
                 error={formState.errors?.lastName}
               />
@@ -124,7 +125,6 @@ function BasicInfo() {
               register={register}
               fieldName="nickName"
               divClass=""
-              required={false}
               defaultValue={formState.defaultValues?.nickName}
               error={formState.errors?.nickName}
             />
@@ -148,8 +148,6 @@ function BasicInfo() {
               register={register}
               fieldName="birthday"
               autoComplete="birthday"
-              divClass=""
-              required={false}
               defaultValue={formState.defaultValues?.birthday}
               error={formState.errors?.birthday}
             />

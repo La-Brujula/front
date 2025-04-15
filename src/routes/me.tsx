@@ -16,6 +16,6 @@ export const Route = createFileRoute('/me')({
     }
   },
   loader: async ({ context }) => {
-    await context.queryClient.ensureQueryData(profileQueryOptions('me'));
+    await context.queryClient.prefetchQuery(profileQueryOptions('me'));
   },
 });
