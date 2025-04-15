@@ -204,10 +204,14 @@ function buildRadioGroup<T extends FieldValues>(
               {...props.register(props.fieldName, {
                 required: props.required,
                 onChange: (ev) => {
-                  if (!ev.target.checked) return;
-                  props.setValue(props.fieldName, ev.target.value);
+                  props.setValue(props.fieldName, ev.target.value, {
+                    shouldDirty: true,
+                    shouldTouch: true,
+                    shouldValidate: true,
+                  });
                 },
               })}
+              id={`${props.fieldName}-${item.value}`}
               type="radio"
               className="absolute w-full h-full cursor-pointer opacity-0"
               value={item.value}
