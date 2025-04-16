@@ -28,14 +28,13 @@
           "en": "Scriptwriting"
         },
         "Referentes": [
-          "Escritores cine y TV",
-          "Asesoría de guión",
-          "Sinopsis",
-          "Guionistas",
-          "Screenwriters",
-          "Scénaristes",
-          "Script",
-          "Screenplay"
+          "Escritor de cine",
+          "Escritor de TV",
+          "Guionista",
+          "Screenwriter",
+          "Escritora de cine",
+          "Escritora de TV",
+          "Guionismo"
         ]
       },
       "101-02": {
@@ -65,14 +64,13 @@
           "en": "Screenplay"
         },
         "Referentes": [
-          "Escritores cine y TV",
-          "Asesoría de guión",
-          "Sinopsis",
-          "Guionistas",
-          "Screenwriters",
-          "Scénaristes",
-          "Script",
-          "Screenplay"
+          "Escritor de cine",
+          "Escritor de TV",
+          "Guionista",
+          "Screenwriter",
+          "Escritora de cine",
+          "Escritora de TV",
+          "Guionismo"
         ]
       },
       "101-03": {
@@ -102,17 +100,13 @@
           "en": "TV Scriptwriting"
         },
         "Referentes": [
-          "Escritores cine y TV",
-          "Asesoría de guión",
-          "Sinopsis",
-          "Guionistas",
-          "Screenwriters",
-          "Scénaristes",
-          "Script",
-          "Screenplay",
-          "Broadcast",
-          "Showrunner",
-          "Serie"
+          "Escritor de cine",
+          "Escritor de TV",
+          "Guionista",
+          "Screenwriter",
+          "Escritora de cine",
+          "Escritora de TV",
+          "Guionismo"
         ]
       },
       "101-05": {
@@ -142,16 +136,12 @@
           "en": "Script Doctor"
         },
         "Referentes": [
-          "Escritores cine y TV",
-          "Asesoría de guión",
-          "Sinopsis",
-          "Guionistas",
-          "Screenwriters",
-          "Scénaristes",
-          "Script",
-          "Screenplay",
-          "Script Doctor",
-          "Supervisores de guion"
+          "Asesor de guión",
+          "Guionista",
+          "Supervisor de guion",
+          "Asesora de guión",
+          "Supervisora de guion",
+          "Asesoría"
         ]
       }
     },
@@ -185,10 +175,10 @@
         "Referentes": [
           "Desarrollo creativo",
           "Copy",
-          "Copies",
           "Boutique creativa",
-          "Eslógan",
-          "Slogan"
+          "Directora creativa",
+          "Director creativo",
+          "Creatividad"
         ]
       },
       "102-02": {
@@ -220,10 +210,9 @@
         "Referentes": [
           "Desarrollo creativo",
           "Copy",
-          "Copies",
-          "Boutique creativa",
-          "Eslógan",
-          "Slogan"
+          "Creativa Sr",
+          "Creativo Sr",
+          "Creatividad"
         ]
       },
       "102-03": {
@@ -255,10 +244,9 @@
         "Referentes": [
           "Desarrollo creativo",
           "Copy",
-          "Copies",
-          "Boutique creativa",
-          "Eslógan",
-          "Slogan"
+          "Creativa Jr",
+          "Creativo Jr",
+          "Creatividad"
         ]
       }
     },
@@ -290,10 +278,14 @@
           "en": "Researchers"
         },
         "Referentes": [
-          "Escritores",
-          "Investigadores",
-          "Reporteros",
-          "Periodistas"
+          "Escritor",
+          "Investigador",
+          "Reportero",
+          "Periodista",
+          "Escritora",
+          "Investigadora",
+          "Reportera",
+          "Periodismo"
         ]
       },
       "103-02": {
@@ -323,10 +315,14 @@
           "en": "Reporters"
         },
         "Referentes": [
-          "Escritores",
-          "Investigadores",
-          "Reporteros",
-          "Periodistas"
+          "Escritor",
+          "Investigador",
+          "Reportero",
+          "Periodista",
+          "Escritora",
+          "Investigadora",
+          "Reportera",
+          "Periodismo"
         ]
       },
       "103-03": {
@@ -357,12 +353,13 @@
         },
         "Referentes": [
           "Copy",
-          "Copies",
-          "Redacción",
-          "Redactores",
-          "Escritura",
-          "Escritores",
-          "Corrección de estilo"
+          "Redactor",
+          "Escritor",
+          "Corrector de estilo",
+          "Redactora",
+          "Escritora",
+          "Correctora de estilo",
+          "Correcccióbn de estilo"
         ]
       },
       "103-04": {
@@ -392,11 +389,11 @@
           "en": "Translators"
         },
         "Referentes": [
-          "Traducción",
-          "Intérpretes-traductores",
-          "Traductores",
-          "Translators",
-          "Traducteurs"
+          "Intérprete-traductor",
+          "Traductor",
+          "Intérprete-traductora",
+          "Traductora",
+          "Traducción"
         ]
       },
       "103-05": {
@@ -425,12 +422,7 @@
           "es": "Transcriptores",
           "en": "Transcriptors"
         },
-        "Referentes": [
-          "Transcripción",
-          "Transcriptores",
-          "Word",
-          "Procesamiento de texto"
-        ]
+        "Referentes": ["Transcriptor", "Transcriptora", "Transcripción"]
       }
     },
     "Arte gráfico": {
@@ -461,11 +453,9 @@
           "en": "Graphic Designers"
         },
         "Referentes": [
-          "Diseño",
-          "Diseñadores",
-          "Diseño gráfico",
-          "Graphic Design",
-          "Design Graphique"
+          "Diseñadora gráfica",
+          "Diseñador gráfico",
+          "Diseño gráfico"
         ]
       },
       "104-02": {
@@ -494,15 +484,7 @@
           "es": "Ilustradores",
           "en": "Illustration Artists"
         },
-        "Referentes": [
-          "Dibujo",
-          "Ilustración",
-          "Ilustradores",
-          "Cómic",
-          "Ánime",
-          "Manga",
-          "Storyboard"
-        ]
+        "Referentes": ["Ilustradora", "Ilustrador", "Ilustración"]
       },
       "104-03": {
         "Femenino": {
@@ -530,14 +512,7 @@
           "es": "Dibujantes",
           "en": "Cartoonists"
         },
-        "Referentes": [
-          "Dibujantes",
-          "Ilustración",
-          "Cómic",
-          "Ánime",
-          "Manga",
-          "Storyboard"
-        ]
+        "Referentes": ["Dibujante", "Dibujo", "Ilustración"]
       },
       "104-04": {
         "Femenino": {
@@ -565,12 +540,7 @@
           "es": "Bordistas",
           "en": "Storyboard Artists"
         },
-        "Referentes": [
-          "Storyboard",
-          "Tabla d` Histoire",
-          "Dibujo",
-          "Dibujantes"
-        ]
+        "Referentes": ["Bordista", "Storyboards"]
       },
       "104-05": {
         "Femenino": {
@@ -599,15 +569,9 @@
           "en": "Editorial Designers"
         },
         "Referentes": [
-          "Diseño",
-          "Diseñadores",
-          "Diseño gráfico",
-          "Graphic design",
-          "Design Graphique",
-          "Diseño editorial",
-          "Formado",
-          "Galeras",
-          "InDesign"
+          "Diseñadora editorial",
+          "Diseñador editorial",
+          "Diseño editorial"
         ]
       }
     },
@@ -638,14 +602,7 @@
           "es": "Asesores legales",
           "en": "Legal Advisors"
         },
-        "Referentes": [
-          "Asesores legales",
-          "Abogados",
-          "Derechos de autor",
-          "Copyrights",
-          "Droits D’ Auteur",
-          "Guilds"
-        ]
+        "Referentes": ["Asesora legal", "Asesor legal", "Asesoría legal"]
       },
       "105-02": {
         "Femenino": {
@@ -674,12 +631,9 @@
           "en": "Copyright Advisors"
         },
         "Referentes": [
-          "Asesores legales",
-          "Abogados",
-          "Derechos de autor",
-          "Copyrights",
-          "Droits D’ Auteur",
-          "Guilds"
+          "Asesora legal en derechos de autor",
+          "Asesor legal en derechos de autor",
+          "Asesoría legal en derechos de autor"
         ]
       },
       "105-03": {
@@ -709,11 +663,9 @@
           "en": "Financial Advisor"
         },
         "Referentes": [
-          "Asesores financieros",
-          "Impuestos",
-          "Asesoría financiera",
-          "Financial advising",
-          "Assesorant financier"
+          "Asesora financiera",
+          "Asesor financiero",
+          "Asesoría financiera"
         ]
       },
       "105-04": {
@@ -743,13 +695,9 @@
           "en": "Administrative Advisors"
         },
         "Referentes": [
-          "Asesores administrativos",
-          "Administración",
-          "Sistemas de administración",
-          "Contabilidad",
-          "Asesoría financiera",
-          "Financial Advising",
-          "Assesorant financier"
+          "Asesora administrativa",
+          "Asesor administrativo",
+          "Asesoría administrativa"
         ]
       },
       "105-05": {
@@ -779,10 +727,9 @@
           "en": "Accountants"
         },
         "Referentes": [
-          "Contadores de producción",
-          "Contabilidad para películas",
-          "Impuestos",
-          "Devolución de IVA"
+          "Contadora de producción",
+          "Contador de producción",
+          "Contabilidad de producción"
         ]
       },
       "105-06": {
@@ -812,16 +759,9 @@
           "en": "Production Advisors"
         },
         "Referentes": [
-          "Asesores de producción",
-          "Carpetas de producción",
-          "Proyectos",
-          "Eficine",
-          "Fidecine",
-          "Foprocine",
-          "Desarrollo de carpetas",
-          "Conception de dossier",
-          "Guilds",
-          "Product Placement"
+          "Asesora de producción",
+          "Asesor de producción",
+          "Asesoría de producción"
         ]
       },
       "105-07": {
@@ -851,25 +791,9 @@
           "en": "Film Promoters"
         },
         "Referentes": [
-          "Promotores",
-          "Fundraiser",
-          "Eficine",
-          "Gestión Estratégica",
-          "Strategic management",
-          "Gestion estrategie",
-          "Promoción",
-          "Media",
-          "Moyens",
-          "Junkets",
-          "Gestión cultural",
-          "Promotores culturales",
-          "Cortometrajes",
-          "Festivales",
-          "Product Placement",
-          "Relaciones públicas",
-          "PR",
-          "RRPP",
-          "Publirrelacionistas"
+          "Promotora cinematográfica",
+          "Promotor cinematográfico",
+          "Promoción de producción"
         ]
       }
     }
@@ -903,16 +827,11 @@
           "en": "Casting"
         },
         "Referentes": [
-          "Castineras",
-          "Búsqueda de talento",
-          "Cast",
-          "Reparto",
-          "Actores",
-          "Actrices",
-          "Modelos",
-          "Extras",
-          "Figurantes",
-          "Agencias"
+          "Agencia de actores",
+          "Agencia de modelos",
+          "Agencia de extras",
+          "Agencia de casting",
+          "Agencia"
         ]
       },
       "201-02": {
@@ -941,16 +860,7 @@
           "es": "Agencias de actores",
           "en": "Actors Agencies"
         },
-        "Referentes": [
-          "Cast",
-          "Búsqueda de talento",
-          "Reparto",
-          "Actores",
-          "Actrices",
-          "Extras",
-          "Figurantes",
-          "Agencias"
-        ]
+        "Referentes": ["Agencia de actores", "Agencia"]
       },
       "201-03": {
         "Femenino": {
@@ -978,16 +888,7 @@
           "es": "Agencias de modelos",
           "en": "Modeling Agencies"
         },
-        "Referentes": [
-          "Bits de acción",
-          "Cast",
-          "Búsqueda de talento",
-          "Reparto",
-          "Modelos",
-          "Extras",
-          "Figurantes",
-          "Agencias"
-        ]
+        "Referentes": ["Agencia de modelos", "Agencia"]
       },
       "201-04": {
         "Femenino": {
@@ -1015,17 +916,7 @@
           "es": "Agencias de locutores",
           "en": "Voiceover Agencies"
         },
-        "Referentes": [
-          "Casting de voz",
-          "Doblaje",
-          "Locutores",
-          "Voice Over",
-          "Voz Off",
-          "VO",
-          "Narración",
-          "Narradores",
-          "Agencias"
-        ]
+        "Referentes": ["Agencia de locutores", "Agencia"]
       },
       "201-05": {
         "Femenino": {
@@ -1053,7 +944,7 @@
           "es": "Agencias de edecanes",
           "en": "Hostess Agencies"
         },
-        "Referentes": ["Eventos", "Modelos", "Hostess", "Edecanes", "Agencias"]
+        "Referentes": ["Agencia de edecanes", "Agencia"]
       },
       "201-06": {
         "Femenino": {
@@ -1082,15 +973,9 @@
           "en": "Acting Academies"
         },
         "Referentes": [
-          "Actores",
-          "Actrices",
-          "Maestros de actuación",
-          "Teatro",
-          "Entrenamiento actoral",
-          "Escuelas de actuación",
-          "Academias de actores",
-          "Actors Academy",
-          "Acteurs et ecole"
+          "Academia de actuación",
+          "Escuela de actuación",
+          "Escuela"
         ]
       },
       "201-07": {
@@ -1120,14 +1005,11 @@
           "en": "Talent Agents"
         },
         "Referentes": [
-          "Talent handlers",
-          "Representantes",
-          "Agentes",
-          "PR",
-          "RP",
-          "Promotores",
-          "Cast",
-          "Reparto"
+          "Representante artística",
+          "Representante artístico",
+          "Representación artística",
+          "Representante",
+          "Agencia"
         ]
       },
       "201-08": {
@@ -1156,16 +1038,35 @@
           "es": "Agentes artísticos",
           "en": "Artists Agents"
         },
-        "Referentes": [
-          "Talent handlers",
-          "Representantes",
-          "Agentes",
-          "PR",
-          "RP",
-          "Promotores",
-          "Cast",
-          "Reparto"
-        ]
+        "Referentes": ["Agente artística", "Agente artístico", "Agencia"]
+      },
+      "201-09": {
+        "Femenino": {
+          "fr": null,
+          "es": "Directora de casting",
+          "en": null
+        },
+        "Masculino": {
+          "fr": null,
+          "es": "Director de casting",
+          "en": null
+        },
+        "No Binario": {
+          "fr": null,
+          "es": "Dirección de casting",
+          "en": null
+        },
+        "Persona Moral": {
+          "fr": null,
+          "es": null,
+          "en": null
+        },
+        "Alias Genérico": {
+          "fr": "",
+          "es": "Directores de casting",
+          "en": ""
+        },
+        "Referentes": ["Director de casting", "Directora de casting"]
       }
     },
     "Actuación": {
@@ -1195,15 +1096,7 @@
           "es": "Actores",
           "en": "Actors"
         },
-        "Referentes": [
-          "Actores",
-          "Actrices",
-          "Actors",
-          "Acteurs",
-          "Películas",
-          "Largometrajes",
-          "Cortometrajes"
-        ]
+        "Referentes": ["Actriz", "Actor"]
       },
       "202-02": {
         "Femenino": {
@@ -1231,14 +1124,7 @@
           "es": "Modelos",
           "en": "Models"
         },
-        "Referentes": [
-          "Modelos",
-          "Models",
-          "Modèles",
-          "Modelaje",
-          "Body Double",
-          "Bit Part"
-        ]
+        "Referentes": ["Modelo", "Body Double"]
       },
       "202-03": {
         "Femenino": {
@@ -1266,14 +1152,7 @@
           "es": "Modelos lencería",
           "en": "Lingerie Models"
         },
-        "Referentes": [
-          "Modelos",
-          "Models",
-          "Modèles",
-          "Modelaje",
-          "Lencería",
-          "Body Double"
-        ]
+        "Referentes": ["Modelo de lencería", "Body Double"]
       },
       "202-04": {
         "Femenino": {
@@ -1301,7 +1180,7 @@
           "es": "Modelos pasarela",
           "en": "Runway Models"
         },
-        "Referentes": ["Modelos", "Models", "Modèles", "Modelaje", "Pasarela"]
+        "Referentes": ["Modelo de pasarela", "Modelo de moda"]
       }
     },
     "Especialistas": {
@@ -1331,14 +1210,7 @@
           "es": "Coreografía",
           "en": "Choreographers"
         },
-        "Referentes": [
-          "Coreografía",
-          "Coreógrafos",
-          "Baile",
-          "Bailarinas",
-          "Bailarines",
-          "Dancers"
-        ]
+        "Referentes": ["Coreógrafa", "Coreógrafo"]
       },
       "203-02": {
         "Femenino": {
@@ -1366,13 +1238,7 @@
           "es": "Bailarines",
           "en": "Dancers"
         },
-        "Referentes": [
-          "Baile",
-          "Bailarinas",
-          "Bailarines",
-          "Strippers",
-          "Dancers"
-        ]
+        "Referentes": ["Bailarina", "Bailarín"]
       },
       "203-03": {
         "Femenino": {
@@ -1400,16 +1266,7 @@
           "es": "Dobles de riesgo",
           "en": "Stunt Doubles"
         },
-        "Referentes": [
-          "Stunts",
-          "Dobles de riesgo",
-          "Stunt double",
-          "Cascadeurs",
-          "Dobles de acción",
-          "Acción",
-          "Escenas de acción",
-          "Body Double"
-        ]
+        "Referentes": ["Stunt", "Doble de riesgo"]
       },
       "203-04": {
         "Femenino": {
@@ -1438,13 +1295,10 @@
           "en": "Action Directors"
         },
         "Referentes": [
-          "Stunts",
-          "Dobles de riesgo",
-          "Stunt double",
-          "Cascadeurs",
-          "Dobles de acción",
-          "Acción",
-          "Escenas de acción"
+          "Stunt",
+          "Doble de riesgo",
+          "Director de acción",
+          "Directora de acción"
         ]
       },
       "203-05": {
@@ -1473,7 +1327,7 @@
           "es": "Acróbatas",
           "en": "Acrobats"
         },
-        "Referentes": ["Cirqueros", "Zanqueros", "Circo", "Acróbatas"]
+        "Referentes": ["Cirquero", "Zanquero", "Acróbata"]
       },
       "203-06": {
         "Femenino": {
@@ -1501,14 +1355,7 @@
           "es": "Entrenadores de animales",
           "en": "Wranglers"
         },
-        "Referentes": [
-          "Animales entrenados",
-          "Entrenadores de animales",
-          "Wrangler",
-          "Animales",
-          "Animaleros",
-          "Semovientes"
-        ]
+        "Referentes": ["Entrenador de animales", "Entrenadora de animales"]
       },
       "203-07": {
         "Femenino": {
@@ -1536,12 +1383,7 @@
           "es": "Pilotos automovilistas",
           "en": "Car Pilots"
         },
-        "Referentes": [
-          "Action Drivers",
-          "Pilotos",
-          "Conductores de acción",
-          "Automovilistas"
-        ]
+        "Referentes": ["Conductor de acción", "Conductora de acción"]
       }
     },
     "Conductores y locutores": {
@@ -1572,15 +1414,12 @@
           "en": "TV Hosting"
         },
         "Referentes": [
-          "Maestros de ceremonias",
-          "Presentadores",
-          "TV Hosting",
-          "Conductores a cuadro",
-          "Televisión",
-          "Broadcast",
-          "Talk show",
-          "Programas de TV",
-          "Transmisión en vivo"
+          "Presentador",
+          "Presentadora",
+          "Conductor a cuadro",
+          "Conductora a cuadro",
+          "Conductor de TV",
+          "Conductora de TV"
         ]
       },
       "204-02": {
@@ -1609,18 +1448,7 @@
           "es": "Locución",
           "en": "Voice-Over"
         },
-        "Referentes": [
-          "Voz Off",
-          "Voice Over",
-          "VO",
-          "Narración",
-          "Narradores",
-          "Actores de voz",
-          "Doblaje",
-          "Voice Actors",
-          "Acteurs de la voix",
-          "Doublage"
-        ]
+        "Referentes": ["Locutor", "Locutora"]
       },
       "204-03": {
         "Femenino": {
@@ -1648,16 +1476,7 @@
           "es": "Doblaje",
           "en": "Dubbing"
         },
-        "Referentes": [
-          "Doblaje",
-          "Dobladores",
-          "Actores de voz",
-          "Voice Actors",
-          "Acteurs de la voix",
-          "Doublage",
-          "Dubbing",
-          "ADR (Automatic Dialogue Replacement)"
-        ]
+        "Referentes": ["Actor de voz", "Actriz de voz"]
       },
       "204-04": {
         "Femenino": {
@@ -1685,32 +1504,22 @@
           "es": "Directores de doblaje",
           "en": "Dubbing Directors"
         },
-        "Referentes": [
-          "Doblaje",
-          "Dobladores",
-          "Actores de voz",
-          "Voice Actors",
-          "Acteurs de la voix",
-          "Doublage",
-          "Dubbing",
-          "Directores de doblaje",
-          "Supervisión de doblaje"
-        ]
+        "Referentes": ["Director de doblaje", "Directora de doblaje"]
       },
       "204-05": {
         "Femenino": {
           "fr": null,
-          "es": "Conductora en radio",
+          "es": "Locutora radiofónica",
           "en": null
         },
         "Masculino": {
           "fr": null,
-          "es": "Conductor en radio",
+          "es": "Locutor radiofónico",
           "en": null
         },
         "No Binario": {
           "fr": null,
-          "es": "Conducción en radio",
+          "es": "Locución radiofónica",
           "en": null
         },
         "Persona Moral": {
@@ -1720,22 +1529,14 @@
         },
         "Alias Genérico": {
           "fr": "",
-          "es": "Conducción de radio",
+          "es": "Locución radiofónica",
           "en": "Radio Host"
         },
         "Referentes": [
-          "Voz Off",
-          "Voice Over",
-          "VO",
-          "Narración",
-          "Narradores",
-          "Conductores de radio",
-          "Radio hosting",
-          "Radio DJ",
-          "Talk shows",
-          "Programas de radio",
-          "Radio personality",
-          "Broadcasting"
+          "Locutor radiofónico",
+          "Locutora radiofónica",
+          "Conductor radiofónico",
+          "Conductora radiofónica"
         ]
       }
     },
@@ -1766,17 +1567,7 @@
           "es": "Producción musical",
           "en": "Musical Production"
         },
-        "Referentes": [
-          "Producción musical",
-          "Productores musicales",
-          "Coposición musical",
-          "Jingles",
-          "Música original",
-          "Original Motion Picture Soundtrack",
-          "Musique originale",
-          "Conciertos",
-          "Live Performance"
-        ]
+        "Referentes": ["Productora musical", "Productor musical"]
       },
       "205-02": {
         "Femenino": {
@@ -1805,16 +1596,9 @@
           "en": "Music Composers"
         },
         "Referentes": [
-          "Producción musical",
-          "Productores musicales",
-          "Coposición musical",
-          "Jingles",
-          "Música original",
-          "Original Motion Picture Soundtrack",
-          "Musique originale",
-          "Composers",
-          "Musicians",
-          "Score"
+          "Compositor musical",
+          "Compositora musical",
+          "Composición musical"
         ]
       },
       "205-03": {
@@ -1843,17 +1627,7 @@
           "es": "Intérpretes",
           "en": "Singers"
         },
-        "Referentes": [
-          "Música original",
-          "Musique originale",
-          "Intérpretes",
-          "Cantantes",
-          "Ejecutantes",
-          "Instrumentistas",
-          "Conciertos",
-          "Live Performance",
-          "Musicians"
-        ]
+        "Referentes": ["Intérprete", "Cantante"]
       }
     }
   },
@@ -1886,19 +1660,9 @@
           "en": "Film Producers"
         },
         "Referentes": [
-          "Producción cinematográfica",
-          "Productores cinematográficos",
-          "Productores",
-          "Producer",
-          "Largometrajes",
-          "Feature Films",
-          "Películas",
-          "Line producers",
-          "Productores ejecutivos",
-          "Filmmaking",
-          "Telefilm",
-          "Cortometrajes",
-          "Serie"
+          "Productora cinematográfica",
+          "Productor cinematográfico",
+          "Producción cinematográfica"
         ]
       },
       "301-02": {
@@ -1928,14 +1692,10 @@
           "en": "Video Production"
         },
         "Referentes": [
-          "Line producers",
-          "Productores",
-          "Producer",
-          "Line Producers",
-          "Logística",
-          "Telefilm",
-          "Videos",
-          "Producción de videos"
+          "Productora audiovisual",
+          "Productor audiovisual",
+          "Producción audiovisual",
+          "Producción de video"
         ]
       },
       "301-03": {
@@ -1965,10 +1725,12 @@
           "en": "Agency / Executive Producer"
         },
         "Referentes": [
-          "Agencias",
-          "Productores",
-          "Producer",
-          "Productores ejecutivos"
+          "Productor en agencia",
+          "Productora en agencia",
+          "Productor de comerciales",
+          "Productora de comerciales",
+          "Productor ejecutivo",
+          "Productora ejecutiva"
         ]
       },
       "301-04": {
@@ -1998,12 +1760,9 @@
           "en": "Line Producers"
         },
         "Referentes": [
-          "Line Producers",
-          "Productores",
-          "Producer",
-          "Gerentes de producción",
-          "Logística",
-          "Coordinación de producción"
+          "Gerente de producción cinematográfica",
+          "Gerencia de producción cinematográfica",
+          "Line Producer"
         ]
       },
       "301-05": {
@@ -2033,12 +1792,10 @@
           "en": "Production Coordinators"
         },
         "Referentes": [
-          "Line producers",
-          "Coordinadores de producción",
-          "Production Coordinator",
-          "Coordonnatrice de production",
-          "Logística",
-          "Coordinación de producción"
+          "Coordinadora de producción",
+          "Coordinador de producción",
+          "Coordinación de producción",
+          "Producción audiovisual"
         ]
       },
       "301-06": {
@@ -2067,14 +1824,7 @@
           "es": "Gerencia de locaciones",
           "en": "Location Managers"
         },
-        "Referentes": [
-          "Locaciones",
-          "Managers de locaciones",
-          "Locations",
-          "Emplacements",
-          "Gerentes de locaciones",
-          "Logística"
-        ]
+        "Referentes": ["Gerente de locaciones", "Gerencia de locaciones"]
       },
       "301-07": {
         "Femenino": {
@@ -2102,14 +1852,7 @@
           "es": "Scouting",
           "en": "Scouting"
         },
-        "Referentes": [
-          "Locaciones",
-          "Managers de locaciones",
-          "Locations",
-          "Emplacements",
-          "Gerentes de locaciones",
-          "Scouters"
-        ]
+        "Referentes": ["Scouter"]
       },
       "301-08": {
         "Femenino": {
@@ -2137,13 +1880,7 @@
           "es": "Agentes de locaciones",
           "en": "Location Agents"
         },
-        "Referentes": [
-          "Locaciones",
-          "Manager de locaciones",
-          "Locations",
-          "Emplacements",
-          "Scouters"
-        ]
+        "Referentes": ["Agente de locaciones", "Agencia de locaciones"]
       },
       "301-09": {
         "Femenino": {
@@ -2171,13 +1908,7 @@
           "es": "Asistentes de producción",
           "en": "Production Assistants"
         },
-        "Referentes": [
-          "Asistentes",
-          "PA (Production Assistants)",
-          "Asistentes de producción",
-          "Runners",
-          "Logística"
-        ]
+        "Referentes": ["Asistente de producción", "Asistencia de producción"]
       },
       "301-10": {
         "Femenino": {
@@ -2206,11 +1937,9 @@
           "en": "Transport Coordinators"
         },
         "Referentes": [
-          "Transporte de producción",
-          "Capitanes de transporte",
-          "Coordinadores de transporte",
-          "Choferes",
-          "Logística"
+          "Capitana de transporte",
+          "Capitán de transporte",
+          "Coordinación de transporte"
         ]
       },
       "301-11": {
@@ -2239,7 +1968,7 @@
           "es": "Choferes de producción",
           "en": "Production Drivers"
         },
-        "Referentes": ["Transporte", "Choferes", "Runners", "Logística"]
+        "Referentes": ["Chofer de producción"]
       },
       "301-12": {
         "Femenino": {
@@ -2267,12 +1996,7 @@
           "es": "Seguridad en locación",
           "en": "On-site Security"
         },
-        "Referentes": [
-          "Personal de seguridad",
-          "Guardias",
-          "Logística",
-          "Seguridad en locación"
-        ]
+        "Referentes": ["Seguridad en locaciones"]
       },
       "301-13": {
         "Femenino": {
@@ -2301,13 +2025,9 @@
           "en": "Set Doctor"
         },
         "Referentes": [
-          "Personal de seguridad",
-          "Logística",
-          "Seguridad en locación",
-          "Médicos de producción",
-          "Atención médica en el set",
-          "Primeros auxilios",
-          "Paramédicos"
+          "Médica de producción",
+          "Médico de producción",
+          "Atención médica en producción"
         ]
       }
     },
@@ -2338,7 +2058,7 @@
           "es": "Directores",
           "en": "Directors"
         },
-        "Referentes": ["Realizadores", "Directores", "Directors", "Réalisateur"]
+        "Referentes": ["Directora", "Director", "Dirección"]
       },
       "302-02": {
         "Femenino": {
@@ -2366,13 +2086,7 @@
           "es": "Primeros asistentes de dirección",
           "en": "First Direction Assistants"
         },
-        "Referentes": [
-          "DA",
-          "Asistentes de dirección",
-          "Assistant Director",
-          "Assistant réalisateur",
-          "1º asistente"
-        ]
+        "Referentes": ["1º Asistente de dirección", "Asistente de dirección"]
       },
       "302-03": {
         "Femenino": {
@@ -2400,15 +2114,7 @@
           "es": "Continuistas",
           "en": "Script Supervisors"
         },
-        "Referentes": [
-          "Script",
-          "Scripts",
-          "Script Supervisors",
-          "Continuistas",
-          "Continuity",
-          "Raccord",
-          "Continuistas"
-        ]
+        "Referentes": ["Continuista", "Script"]
       },
       "302-04": {
         "Femenino": {
@@ -2436,12 +2142,7 @@
           "es": "Documentalistas",
           "en": "Documentalists"
         },
-        "Referentes": [
-          "Realizadores",
-          "Documentalistas",
-          "Documentary",
-          "Documentariste"
-        ]
+        "Referentes": ["Documentalista"]
       },
       "302-05": {
         "Femenino": {
@@ -2470,23 +2171,9 @@
           "en": "TV Producers"
         },
         "Referentes": [
-          "Realizadores",
-          "Productores",
-          "TV Producer",
-          "Producer",
-          "Productores de televisión",
-          "Videos",
-          "Producción de video",
-          "TX",
-          "Transmisión",
-          "Streaming",
-          "Transmisión en directo",
-          "Transmisión en directo",
-          "Transmisión en vivo",
-          "Transmisión de señal",
-          "Distribución de señal",
-          "Showrunner",
-          "Broadcast"
+          "Productora de televisión",
+          "Productor de televisión",
+          "Producción de televisión"
         ]
       },
       "302-06": {
@@ -2516,22 +2203,9 @@
           "en": "TV Directors"
         },
         "Referentes": [
-          "Realizadores",
-          "TV Producer",
-          "Productores de televisión",
-          "Directores de cámaras",
-          "Videos",
-          "Producción de video",
-          "Live Performance",
-          "Conciertos",
-          "TX",
-          "Transmisión",
-          "Streaming",
-          "Transmisión en directo",
-          "Transmisión en directo",
-          "Transmisión en vivo",
-          "Distribución de señal",
-          "Broadcast"
+          "Directora de cámaras",
+          "Director de cámaras",
+          "Dirección de cámaras"
         ]
       },
       "302-07": {
@@ -2561,13 +2235,9 @@
           "en": "Stage Managers"
         },
         "Referentes": [
-          "Realizadores",
-          "TV Producer",
-          "Productores de televisión",
-          "Directores de escena",
-          "Televisión",
-          "Teatro",
-          "Actuación"
+          "Directora de escena",
+          "Director de escena",
+          "Dirección de escena"
         ]
       },
       "302-08": {
@@ -2596,13 +2266,7 @@
           "es": "Segundos asistentes de dirección",
           "en": "Second Direction Assistants"
         },
-        "Referentes": [
-          "DA",
-          "Asistentes de dirección",
-          "Assistant Director",
-          "Assistant réalisateur",
-          "2º asistente"
-        ]
+        "Referentes": ["2º Asistente de dirección", "Asistente de dirección"]
       },
       "302-09": {
         "Femenino": {
@@ -2631,13 +2295,9 @@
           "en": "Intimacy Coordinator"
         },
         "Referentes": [
-          "Coordinadores",
-          "Intimidad",
-          "Privacidad",
-          "Derechos Humanos",
-          "Perspectiva de género",
-          "Desnudos",
-          "#MeToo"
+          "Coordinadora de intimidad",
+          "Coordinador de intimidad",
+          "Coordinación de intimidad"
         ]
       }
     },
@@ -2669,12 +2329,9 @@
           "en": "Directors of Photography"
         },
         "Referentes": [
-          "DP (Directors of Photography)",
-          "Cinefotógrafos",
-          "Directores de fotografía",
-          "Cinematographers",
-          "Head Cameraman",
-          "Chef opérateur"
+          "Directora de fotografía",
+          "Director de fotografía",
+          "Dirección de fotografía"
         ]
       },
       "303-02": {
@@ -2704,11 +2361,9 @@
           "en": "Head Camera Operators"
         },
         "Referentes": [
-          "Cinefotógrafos",
-          "Cameraman",
-          "Operadores de cámara cinematográfica",
-          "Focus puller",
-          "Foquistas"
+          "Operadora de cámara cinematográfica",
+          "Operador de cámara cinematográfica",
+          "Operación de cámara cinematográfica"
         ]
       },
       "303-03": {
@@ -2738,13 +2393,8 @@
           "en": "Focus Pullers"
         },
         "Referentes": [
-          "Primer asistente",
-          "Asistente de fotografía",
-          "Foquistas",
-          "Focus puller",
-          "Clapper loader",
-          "Assistant chef operateur",
-          "Asistentes de cámara cinamtográfica"
+          "Asistente de cámara cinematográfica",
+          "Asistencia de cámara cinematográfica"
         ]
       },
       "303-04": {
@@ -2773,13 +2423,7 @@
           "es": "Fotógrafos aéreos",
           "en": "Aerial Photographers"
         },
-        "Referentes": [
-          "Cinefotógrafos",
-          "Fotografía aérea",
-          "Fotógrafos aéreos",
-          "Drones",
-          "Helicópteros"
-        ]
+        "Referentes": ["Fotógrafa aérea", "Fotógrafo aéreo", "Fotografía aérea"]
       },
       "303-05": {
         "Femenino": {
@@ -2808,11 +2452,9 @@
           "en": "Underwater Photographers"
         },
         "Referentes": [
-          "Cinefotógrafos",
-          "Fotografía submarina",
-          "Fotógrafos submarinos",
-          "Buzos",
-          "Buceo"
+          "Fotógrafa submarina",
+          "Fotógrafo submarino",
+          "Fotografía submarina"
         ]
       },
       "303-06": {
@@ -2841,19 +2483,7 @@
           "es": "Fotógrafos",
           "en": "Photographers"
         },
-        "Referentes": [
-          "Cinefotógrafos",
-          "Foto fija",
-          "Still photography",
-          "Photographe",
-          "Exposición fotográfica",
-          "Fotografía artística",
-          "Taste Shot",
-          "Product Shot",
-          "Table Top",
-          "Fotografía publicitaria",
-          "Fotógrafos"
-        ]
+        "Referentes": ["Fotógrafa", "Fotógrafo", "Fotografía"]
       },
       "303-07": {
         "Femenino": {
@@ -2881,7 +2511,12 @@
           "es": "Camarógrafos",
           "en": "Cameramen"
         },
-        "Referentes": ["Operadores de cámara", "Camarógrafos", "Fotógrafos"]
+        "Referentes": [
+          "Camarógrafa",
+          "Camarógrafo",
+          "Operadora de cámara",
+          "Operador de cámara"
+        ]
       },
       "303-08": {
         "Femenino": {
@@ -2909,12 +2544,7 @@
           "es": "Operadores Steadicam",
           "en": "Steadicam Operators"
         },
-        "Referentes": [
-          "Operadores de cámara",
-          "Camarógrafos",
-          "Fotógrafos",
-          "Operadores de Steadycam"
-        ]
+        "Referentes": ["Operadora Steadicam", "Operador Steadicam"]
       },
       "303-09": {
         "Femenino": {
@@ -2943,11 +2573,9 @@
           "en": "Drone Pilots"
         },
         "Referentes": [
-          "Operadores de dron",
-          "Drones",
-          "Fotografía aérea",
-          "Fotógrafos aéreos",
-          "Aerial shots"
+          "Piloto de dron",
+          "Operadora de dron",
+          "Operador de dron"
         ]
       },
       "303-10": {
@@ -2976,21 +2604,7 @@
           "es": "Fotógrafos still",
           "en": "Still Photographers"
         },
-        "Referentes": [
-          "Foto fija",
-          "Fotografía publicitaria",
-          "Fotografía artística",
-          "Foto fija",
-          "Still Photography",
-          "Photographe",
-          "Fotografía de estudio",
-          "Retratos",
-          "Fotoperiodismo",
-          "Fotógrafos",
-          "Taste Shot",
-          "Table Top",
-          "Exposición fotográfica"
-        ]
+        "Referentes": ["Fotógrafa still", "Fotógrafo still", "Fotografía still"]
       },
       "303-11": {
         "Femenino": {
@@ -3019,20 +2633,9 @@
           "en": "Data Managers"
         },
         "Referentes": [
-          "Data",
-          "Data Manager",
+          "Data manager",
           "Técnico en imagen digital",
-          "Data Manager",
-          "Data Wrangler",
-          "DIT (Digital Imaging Technician)",
-          "Manager de données",
-          "Technicien en imagerie numérique",
-          "Workflow",
-          "Rushes",
-          "Daylies",
-          "RAW",
-          "Formatos",
-          "Códecs"
+          "Técnica en imagen digital"
         ]
       }
     },
@@ -3063,13 +2666,7 @@
           "es": "Gaffers",
           "en": "Gaffers"
         },
-        "Referentes": [
-          "Gaffers",
-          "Jefes de staff",
-          "Best Boy",
-          "Riggers",
-          "Iluminadores"
-        ]
+        "Referentes": ["Gaffer"]
       },
       "304-02": {
         "Femenino": {
@@ -3097,15 +2694,7 @@
           "es": "Crew eléctrico",
           "en": "Electrical Crew"
         },
-        "Referentes": [
-          "Gaffers",
-          "Jefes de staff",
-          "Best Boy",
-          "Key Grip",
-          "Grip",
-          "Riggers",
-          "Iluminadores"
-        ]
+        "Referentes": ["Jefa de staff", "Jefe de staff"]
       },
       "304-03": {
         "Femenino": {
@@ -3133,15 +2722,7 @@
           "es": "Staff",
           "en": "Grip Crew"
         },
-        "Referentes": [
-          "Eléctricos",
-          "Personal",
-          "Best Boy",
-          "Key Grip",
-          "Grip",
-          "Riggers",
-          "Iluminadores"
-        ]
+        "Referentes": ["Staff"]
       }
     },
     "Sonido": {
@@ -3172,19 +2753,9 @@
           "en": "Sound Engineers"
         },
         "Referentes": [
-          "Audio",
-          "Sonido sincrónico",
-          "Sonido directo",
-          "Sound",
-          "Sounoists",
-          "Ingenieros de sonido",
-          "Diseño de audio",
-          "Grabación de audio",
-          "Grabación musical",
-          "Producción musical",
-          "Conciertos",
-          "Live Performance",
-          "Sonorización"
+          "Ingeniera de sonido",
+          "Ingeniero de sonido",
+          "Ingeniería de sonido"
         ]
       },
       "305-02": {
@@ -3213,17 +2784,7 @@
           "es": "Sonidistas",
           "en": "Recordists"
         },
-        "Referentes": [
-          "Sonidistas",
-          "Audio",
-          "Sonido sincrónico",
-          "Sonido directo",
-          "Sound",
-          "Sounoists",
-          "Ingenieros de sonido",
-          "Diseño de audio",
-          "Grabación de audio"
-        ]
+        "Referentes": ["Sonidista"]
       },
       "305-03": {
         "Femenino": {
@@ -3251,15 +2812,7 @@
           "es": "Sonido",
           "en": "Sound Technicians"
         },
-        "Referentes": [
-          "Sonidistas",
-          "Audio",
-          "Sonido sincrónico",
-          "Sonido directo",
-          "Sound",
-          "Sounoists",
-          "Grabación de audio"
-        ]
+        "Referentes": ["Microfonista"]
       },
       "305-04": {
         "Femenino": {
@@ -3287,7 +2840,7 @@
           "es": "Apuntadores",
           "en": "Prompters"
         },
-        "Referentes": ["Aparatos", "Apuntadores", "Prompters", "Script"]
+        "Referentes": ["Apuntador", "Apuntadora"]
       },
       "305-05": {
         "Femenino": {
@@ -3315,21 +2868,7 @@
           "es": "Sonorizadores",
           "en": "Sound Technicians"
         },
-        "Referentes": [
-          "Sonido",
-          "Audio",
-          "Sound",
-          "Sounoists",
-          "Ingenieros de sonido",
-          "Grabación musical",
-          "Producción musical",
-          "Conciertos",
-          "Live Performance",
-          "Sonorización",
-          "Secres",
-          "Backstage",
-          "Performance Support"
-        ]
+        "Referentes": ["Sonorizadora", "Sonorizador", "Sonorización"]
       }
     },
     "Arte": {
@@ -3360,11 +2899,9 @@
           "en": "Production Designers"
         },
         "Referentes": [
-          "Diseño de producción",
-          "Production Design",
-          "Création des décors",
-          "Diseñadores de producción",
-          "Atmósfera"
+          "Diseñadora de producción",
+          "Diseñador de producción",
+          "Diseño de producción"
         ]
       },
       "306-02": {
@@ -3394,12 +2931,9 @@
           "en": "Art Directors"
         },
         "Referentes": [
-          "Dirección de arte",
-          "Art Direction",
-          "Direction artistique",
-          "Diseñadores de producción",
-          "Directores de arte",
-          "Atmósfera"
+          "Directora de arte",
+          "Director de arte",
+          "Dirección de arte"
         ]
       },
       "306-03": {
@@ -3428,15 +2962,7 @@
           "es": "Asistentes de arte",
           "en": "Art Assistants"
         },
-        "Referentes": [
-          "Dirección de arte",
-          "Art Direction",
-          "Direction artistique",
-          "Asistentes",
-          "Decorado",
-          "Atrezzo",
-          "Swings"
-        ]
+        "Referentes": ["Asistente de arte", "Asistencia de arte"]
       },
       "306-04": {
         "Femenino": {
@@ -3464,14 +2990,7 @@
           "es": "Escenógrafos",
           "en": "Set Designers"
         },
-        "Referentes": [
-          "Escenografía",
-          "Escenógrafos",
-          "Scenery",
-          "Decorado",
-          "Constructores",
-          "Swings"
-        ]
+        "Referentes": ["Escenógrafa", "Escenógrafo", "Escenografía"]
       },
       "306-05": {
         "Femenino": {
@@ -3500,13 +3019,9 @@
           "en": "Set Builders"
         },
         "Referentes": [
-          "Escenografía",
-          "Swings",
-          "Carpinteros",
-          "Carpenters",
-          "Charpentiers",
-          "Escenógrafos",
-          "Constructores"
+          "Constructora",
+          "Constructor",
+          "Construcción de escenografía"
         ]
       },
       "306-06": {
@@ -3535,15 +3050,7 @@
           "es": "Ambientadores",
           "en": "Ambiance Production"
         },
-        "Referentes": [
-          "Ambientación",
-          "Ambientadores",
-          "Decoradores",
-          "Decorado",
-          "Atmósfera",
-          "Atrezzo",
-          "Atrecistas"
-        ]
+        "Referentes": ["Ambientadora", "Ambientador", "Ambientación"]
       },
       "306-07": {
         "Femenino": {
@@ -3571,15 +3078,7 @@
           "es": "Utileros",
           "en": "Prop Masters"
         },
-        "Referentes": [
-          "Utilería",
-          "Utileros",
-          "Props",
-          "Prop Master",
-          "Props Man",
-          "Atrezzo",
-          "Atrecistas"
-        ]
+        "Referentes": ["Utilera", "Utilero", "Utilería"]
       },
       "306-08": {
         "Femenino": {
@@ -3607,7 +3106,7 @@
           "es": "Armeros",
           "en": "Gunsmiths"
         },
-        "Referentes": ["Armas", "Armeros", "Estopines"]
+        "Referentes": ["Armera", "Armero"]
       },
       "306-09": {
         "Femenino": {
@@ -3635,13 +3134,7 @@
           "es": "Ecónomos",
           "en": "Food Stylists"
         },
-        "Referentes": [
-          "Ecónomos",
-          "Estilistas de alimentos",
-          "Food Styling",
-          "Stylisme Culinare",
-          "Taste Shots"
-        ]
+        "Referentes": ["Ecónoma", "Ecónomo"]
       },
       "306-10": {
         "Femenino": {
@@ -3669,13 +3162,7 @@
           "es": "Vestuaristas",
           "en": "Customs"
         },
-        "Referentes": [
-          "Vestuario",
-          "Vestuaristas",
-          "Costume Designers",
-          "Wardrobe",
-          "Customs"
-        ]
+        "Referentes": ["Vestuarista"]
       },
       "306-11": {
         "Femenino": {
@@ -3703,14 +3190,7 @@
           "es": "Maquillistas",
           "en": "Make-up Artists"
         },
-        "Referentes": [
-          "Maquillaje",
-          "Makeup",
-          "Maquillistas",
-          "Makeup artist",
-          "Maquilleuse",
-          "Caracterizadores"
-        ]
+        "Referentes": ["Maquillista"]
       },
       "306-12": {
         "Femenino": {
@@ -3738,13 +3218,7 @@
           "es": "Peinados",
           "en": "Hairstylists"
         },
-        "Referentes": [
-          "Maquillaje",
-          "Peinados",
-          "Peinadores",
-          "Hairdo",
-          "Estilistas"
-        ]
+        "Referentes": ["Peinadora", "Peinador", "Peinados"]
       },
       "306-13": {
         "Femenino": {
@@ -3773,13 +3247,8 @@
           "en": "Characterization"
         },
         "Referentes": [
-          "Maquillaje",
-          "Postizos",
-          "Prostéticos",
-          "Maquillistas",
-          "Make up artist",
-          "Maquilleuse",
-          "Caracterizadores",
+          "Caracterizadora",
+          "Caracterizador",
           "Caracterización de personajes"
         ]
       },
@@ -3810,12 +3279,9 @@
           "en": "Costume Designers"
         },
         "Referentes": [
-          "Vestuario",
-          "Vestuaristas",
-          "Costume Designers",
-          "Wardrobe",
-          "Diseñadores",
-          "Costumes"
+          "Diseñadora de vestuario",
+          "Diseñador de vestuario",
+          "Diseño de vestuario"
         ]
       }
     },
@@ -3847,18 +3313,9 @@
           "en": "Video Post-Producers"
         },
         "Referentes": [
-          "Postproductores",
-          "Postproduction",
-          "Directores de postproduction",
-          "Editores",
-          "Etalonaje",
-          "LUT",
-          "DaVinci Resolve",
-          "RAW",
-          "Formatos",
-          "Códecs",
-          "Coordinadores de postproducción",
-          "Postproduction Managers"
+          "Postproductora de video",
+          "Postproductor de video",
+          "Postproducción de video"
         ]
       },
       "307-02": {
@@ -3888,23 +3345,9 @@
           "en": "Image Editors"
         },
         "Referentes": [
-          "Postproductores",
-          "Editores de video",
-          "Edición",
-          "Edition",
-          "Montage",
-          "Editores",
-          "Editores de imagen",
-          "Avid",
-          "FinalCut",
-          "Adobe Premiere",
-          "Sony Vegas",
-          "DaVinci Resolve",
-          "RAW",
-          "Formatos",
-          "Códecs",
-          "Rushes",
-          "Daylies"
+          "Editora de imagen",
+          "Editor de imagen",
+          "Edición de imagen"
         ]
       },
       "307-03": {
@@ -3934,19 +3377,9 @@
           "en": "Film Post-Producers"
         },
         "Referentes": [
-          "Procesos cinematográficos",
-          "DCP",
-          "Digital Cinema Package",
-          "Postproductores cinematográficos",
-          "Etalonaje",
-          "LUT",
-          "Rushes",
-          "Daylies",
-          "RAW",
-          "Formatos",
-          "Códecs",
-          "Coordinadores de postproducción",
-          "Postproduction Managers"
+          "Postproductora cinematográfica",
+          "Postproductor cinematográfico",
+          "Postproducción cinematográfica"
         ]
       },
       "307-04": {
@@ -3975,7 +3408,7 @@
           "es": "Coloristas",
           "en": "Color Technician"
         },
-        "Referentes": ["Corrección de color", "Coloristas", "Etalonaje", "LUT"]
+        "Referentes": ["Colorista"]
       },
       "307-05": {
         "Femenino": {
@@ -4004,16 +3437,9 @@
           "en": "Animation Directors"
         },
         "Referentes": [
-          "Animación",
-          "Diseño de animación",
-          "Personajes de animacíon",
-          "Efectos visuales",
-          "Visual Effects",
-          "Effects visuels",
-          "Directores de animación",
-          "Animadores",
-          "2D",
-          "3D"
+          "Directora de animación",
+          "Director de animación",
+          "Dirección de animación"
         ]
       },
       "307-06": {
@@ -4042,18 +3468,7 @@
           "es": "Animadores",
           "en": "Animation Artists"
         },
-        "Referentes": [
-          "Animación",
-          "Diseño de animación",
-          "Personajes de animacíon",
-          "Efectos visuales",
-          "Visual Effects",
-          "Effects visuels",
-          "Directores de animación",
-          "Animadores",
-          "2D",
-          "3D"
-        ]
+        "Referentes": ["Animadora", "Animador", "Animación"]
       },
       "307-07": {
         "Femenino": {
@@ -4082,18 +3497,9 @@
           "en": "Postproduction Managers"
         },
         "Referentes": [
-          "Postproductores",
-          "Postproduction",
-          "Directores de postproduction",
-          "Editores",
-          "Etalonaje",
-          "LUT",
-          "DaVinci Resolve",
-          "RAW",
-          "Formatos",
-          "Códecs",
-          "Coordinadores de postproducción",
-          "Postproduction Managers"
+          "Coordinadora de postproducción",
+          "Coordinador de postproducción",
+          "Coordinación de postproducción"
         ]
       }
     },
@@ -4125,19 +3531,12 @@
           "en": "Audio Post-Producers"
         },
         "Referentes": [
-          "Diseño sonoro",
-          "Sound design",
-          "Design sonore",
-          "Productores de radio",
-          "Productores de sonido",
-          "ProTools",
-          "Radio",
-          "Mezcla",
-          "Audio mixing",
-          "Foley Artists",
-          "Incidentalistas",
-          "Broadcast",
-          "Webcast"
+          "Productora de audio",
+          "radio",
+          "Productor de audio",
+          "radio",
+          "Producción de audio",
+          "radio"
         ]
       },
       "308-02": {
@@ -4167,18 +3566,9 @@
           "en": "Audio/ Radio Producers"
         },
         "Referentes": [
-          "Diseño sonoro",
-          "Sound design",
-          "Design sonore",
-          "Postproductores de audio",
-          "ProTools",
-          "Banda sonora",
-          "Mezcla",
-          "Audio mixing",
-          "THX",
-          "Sistemas 5.1",
-          "Foley Astists",
-          "incidentalistas"
+          "Postproductora de audio",
+          "Postproductor de audio",
+          "Postproducción de audio"
         ]
       },
       "308-03": {
@@ -4208,19 +3598,9 @@
           "en": "Sound Designers"
         },
         "Referentes": [
-          "Diseño sonoro",
-          "Sound design",
-          "Design sonore",
-          "Productores de radio",
-          "Productores de sonido",
-          "ProTools",
-          "Banda sonora",
-          "Mezcla",
-          "Audio mixing",
-          "THX",
-          "Sistemas 5.1",
-          "Foley Aristis",
-          "Incidentalistas"
+          "Diseñadora de sonido",
+          "Diseñador de sonido",
+          "Diseño de sonido"
         ]
       },
       "308-04": {
@@ -4250,21 +3630,9 @@
           "en": "Music Supervisors"
         },
         "Referentes": [
-          "Asesoría musical",
-          "Asesores musicales",
-          "Supervisores músicales",
-          "Soundtrack",
-          "Banda sonora",
-          "Original Motion Picture Soundtrack",
-          "Derechos de autor",
-          "Derechos de uso de música",
-          "Licencias",
-          "Regalías",
-          "Royalties",
-          "ASCAP",
-          "SACM",
-          "Somexfon",
-          "Audio mixing"
+          "Supervisora musical",
+          "Supervisor musical",
+          "Supervisión musical"
         ]
       },
       "308-05": {
@@ -4293,19 +3661,7 @@
           "es": "Musicalizadores",
           "en": "Musicalizers"
         },
-        "Referentes": [
-          "Postproducción de audio",
-          "Musicalizadores",
-          "Stock de audio",
-          "Librerías",
-          "Librerías musicales",
-          "Clips de audio",
-          "Música",
-          "Musicalización",
-          "ProTools",
-          "Banda sonora",
-          "Audio mixing"
-        ]
+        "Referentes": ["Musicalizadora", "Musicalizador", "Musicalización"]
       }
     }
   },
@@ -4337,27 +3693,7 @@
           "es": "Casas productoras",
           "en": "Production Companies"
         },
-        "Referentes": [
-          "Comerciales",
-          "TV Spots",
-          "Filmadoras",
-          "Compañías productoras",
-          "Películas",
-          "Documentales",
-          "Series",
-          "Miniseries",
-          "Casas productoras",
-          "Production Companies",
-          "Maison de production",
-          "Productoras",
-          "Televisión",
-          "Telefilm",
-          "Filmmaking",
-          "Videos",
-          "Producción de videos",
-          "Cortometrajes",
-          "Coordinación de producción"
-        ]
+        "Referentes": ["Casa productora"]
       },
       "401-02": {
         "Femenino": {
@@ -4385,16 +3721,7 @@
           "es": "Productoras de audio",
           "en": "Audio Production Companies"
         },
-        "Referentes": [
-          "Audio Post",
-          "Sonido",
-          "Diseño de audio",
-          "Audio Mix",
-          "Productoras de audio",
-          "Estudios de sonido",
-          "Grabación de audio",
-          "Radio"
-        ]
+        "Referentes": ["Productora de audio", "Estudio de sonido"]
       },
       "401-03": {
         "Femenino": {
@@ -4422,21 +3749,7 @@
           "es": "Productoras de eventos",
           "en": "Event Production Companies"
         },
-        "Referentes": [
-          "Eventos",
-          "BTL",
-          "Templetes",
-          "Sonido local",
-          "Sonorización",
-          "Productoras de eventos",
-          "Activaciones",
-          "Relaciones públicas",
-          "Presentaciones",
-          "Conciertos",
-          "Live Performance",
-          "Performance Support",
-          "Webcast"
-        ]
+        "Referentes": ["Productora de eventos"]
       },
       "401-04": {
         "Femenino": {
@@ -4464,16 +3777,7 @@
           "es": "Estudios de fotografía",
           "en": "Photography Studios"
         },
-        "Referentes": [
-          "Fotografía publicitaria",
-          "Fotografía artística",
-          "Fotógráfos",
-          "Fotografía still",
-          "Retratos",
-          "Estudios de fotografía",
-          "Acervos fotográficos",
-          "Stock fotográfico"
-        ]
+        "Referentes": ["Estudio de fotografía"]
       },
       "401-05": {
         "Femenino": {
@@ -4501,17 +3805,7 @@
           "es": "Agencias de locaciones",
           "en": "Location Agencies"
         },
-        "Referentes": [
-          "Scouting",
-          "Scouters",
-          "Locaciones",
-          "Agencias de locaciones",
-          "Managers de locaciones",
-          "Locations",
-          "Emplacements",
-          "Scouters",
-          "Agencias"
-        ]
+        "Referentes": ["Agencia de locaciones"]
       },
       "401-06": {
         "Femenino": {
@@ -4539,17 +3833,7 @@
           "es": "Seguridad para talento",
           "en": "Security for Talent"
         },
-        "Referentes": [
-          "Seguridad",
-          "Talent handler",
-          "Escoltas",
-          "Bodyguards",
-          "Seguridad para talento",
-          "Logística",
-          "Conciertos",
-          "Live Performance",
-          "Performance Support"
-        ]
+        "Referentes": ["Seguridad para talento"]
       },
       "401-07": {
         "Femenino": {
@@ -4577,13 +3861,7 @@
           "es": "Seguridad en locaciones",
           "en": "Location Security"
         },
-        "Referentes": [
-          "Seguridad",
-          "Personal de seguridad",
-          "Guardias",
-          "Seguridad en locación",
-          "Performance Support"
-        ]
+        "Referentes": ["Seguridad en locaciones"]
       },
       "401-08": {
         "Femenino": {
@@ -4611,18 +3889,7 @@
           "es": "Servicios de alimentación",
           "en": "Catering"
         },
-        "Referentes": [
-          "Catering",
-          "Comida producción",
-          "Box lunch",
-          "Café",
-          "Meseros",
-          "Atención al cliente",
-          "Crafty",
-          "Alimentación",
-          "Catering",
-          "Cantine"
-        ]
+        "Referentes": ["Servicios de alimentación"]
       },
       "401-09": {
         "Femenino": {
@@ -4650,14 +3917,7 @@
           "es": "Seguros de producción",
           "en": "Production Insurances"
         },
-        "Referentes": [
-          "Brokers",
-          "Seguros de producción",
-          "Insurances",
-          "Assurances",
-          "Aseguradoras",
-          "Rain Day"
-        ]
+        "Referentes": ["Seguros de producción"]
       },
       "401-10": {
         "Femenino": {
@@ -4685,27 +3945,7 @@
           "es": "Servicios de producción",
           "en": "Production services"
         },
-        "Referentes": [
-          "Comerciales",
-          "TV Spots",
-          "Filmadoras",
-          "Compañías productoras",
-          "Películas",
-          "Documentales",
-          "Series",
-          "Miniseries",
-          "Casas productoras",
-          "Production Companies",
-          "Maison de production",
-          "Productoras",
-          "Televisión",
-          "Telefilm",
-          "Filmmaking",
-          "Videos",
-          "Producción de videos",
-          "Cortometrajes",
-          "Coordinación de producción"
-        ]
+        "Referentes": ["Servicios de producción"]
       },
       "401-11": {
         "Femenino": {
@@ -4733,15 +3973,7 @@
           "es": "Pruebas Covid",
           "en": "Covid Test"
         },
-        "Referentes": [
-          "Covid",
-          "Pruebas de laboratorio",
-          "Coronavirus",
-          "Test",
-          "CV-19",
-          "Exámenes en locación",
-          "Médicos de producción"
-        ]
+        "Referentes": ["Pruebas Covid"]
       }
     },
     "Transportación": {
@@ -4771,15 +4003,7 @@
           "es": "Transportes de producción",
           "en": "Production Transportation"
         },
-        "Referentes": [
-          "Transportes",
-          "Camionetas de producción",
-          "Choferes de producción",
-          "Runners",
-          "Choferes",
-          "Coordinadores de transporte",
-          "Logística"
-        ]
+        "Referentes": ["Transporte de producción"]
       },
       "402-02": {
         "Femenino": {
@@ -4807,14 +4031,7 @@
           "es": "Transportes para clientes",
           "en": "Clients Transportation"
         },
-        "Referentes": [
-          "Transportación VIP",
-          "Transportes para clientes",
-          "Camionetas",
-          "Suburbans",
-          "Choferes",
-          "Logística"
-        ]
+        "Referentes": ["Transporte para clientes"]
       },
       "402-03": {
         "Femenino": {
@@ -4842,7 +4059,7 @@
           "es": "Transportes de escenografía",
           "en": "Set Design Transportation"
         },
-        "Referentes": ["Carga", "Vanettes", "Transportes", "Logística"]
+        "Referentes": ["Transporte de escenografía"]
       },
       "402-04": {
         "Femenino": {
@@ -4870,14 +4087,7 @@
           "es": "Transportes",
           "en": "Transportation"
         },
-        "Referentes": [
-          "Autobuses",
-          "Microbuses",
-          "Sprinters",
-          "Transportes",
-          "Choferes",
-          "Logística"
-        ]
+        "Referentes": ["Transportación"]
       },
       "402-05": {
         "Femenino": {
@@ -4905,13 +4115,7 @@
           "es": "Campers",
           "en": "Campers"
         },
-        "Referentes": [
-          "Oficinas móviles",
-          "Campers",
-          "Remolques",
-          "Camerinos",
-          "Logística"
-        ]
+        "Referentes": ["Campers"]
       },
       "402-06": {
         "Femenino": {
@@ -4939,13 +4143,7 @@
           "es": "Camerinos",
           "en": "Dressing Rooms"
         },
-        "Referentes": [
-          "Oficinas móviles",
-          "Campers",
-          "Remolques",
-          "Camerinos",
-          "Logística"
-        ]
+        "Referentes": ["Camerinos"]
       },
       "402-07": {
         "Femenino": {
@@ -4973,14 +4171,7 @@
           "es": "Sanitarios móviles",
           "en": "Mobile Toilets"
         },
-        "Referentes": [
-          "Sanitarios móviles",
-          "Mobile Toilets",
-          "Sales de bain mobiles",
-          "Baños en locación",
-          "Logística",
-          "10-200"
-        ]
+        "Referentes": ["Sanitarios móviles"]
       }
     },
     "Proveedores de producción": {
@@ -5010,14 +4201,7 @@
           "es": "Foros",
           "en": "Film Stages"
         },
-        "Referentes": [
-          "Foros",
-          "Studios",
-          "Estudios",
-          "Plató",
-          "Sets",
-          "Plateaux"
-        ]
+        "Referentes": ["Foro"]
       },
       "403-02": {
         "Femenino": {
@@ -5045,12 +4229,7 @@
           "es": "Estudios de TV",
           "en": "TV Studios"
         },
-        "Referentes": [
-          "Estudios de TV",
-          "TV Studios",
-          "Televisión",
-          "Broadcast"
-        ]
+        "Referentes": ["Estudio de TV"]
       },
       "403-03": {
         "Femenino": {
@@ -5078,14 +4257,7 @@
           "es": "Diseño de producción",
           "en": "Production Design"
         },
-        "Referentes": [
-          "Arte",
-          "Diseño de producción",
-          "Escenografía",
-          "Production Design",
-          "Création des décors",
-          "Diseñadores de producción"
-        ]
+        "Referentes": ["Diseño de producción"]
       },
       "403-04": {
         "Femenino": {
@@ -5113,15 +4285,7 @@
           "es": "Desarrollo escenográfico",
           "en": "Set Design"
         },
-        "Referentes": [
-          "Arte",
-          "Diseño de producción",
-          "Escenografía",
-          "Production Design",
-          "Création des décors",
-          "Diseñadores de producción",
-          "Constructores"
-        ]
+        "Referentes": ["Desarrollo escenográfico"]
       },
       "403-05": {
         "Femenino": {
@@ -5149,7 +4313,7 @@
           "es": "Video Assistants",
           "en": "Video Assistants"
         },
-        "Referentes": ["Video Assistant", "Videoasist", "Monitoreo"]
+        "Referentes": ["Video Assistant"]
       },
       "403-06": {
         "Femenino": {
@@ -5177,7 +4341,7 @@
           "es": "Teleprompters",
           "en": "Teleprompters"
         },
-        "Referentes": ["Teleprompters", "Apuntadores"]
+        "Referentes": ["Teleprompter"]
       },
       "403-07": {
         "Femenino": {
@@ -5205,16 +4369,7 @@
           "es": "Animales entrenados",
           "en": "Wranglers"
         },
-        "Referentes": [
-          "Animales",
-          "Animals",
-          "Animaux",
-          "Animales entrenados",
-          "Entrenadores de animales",
-          "Wranglers",
-          "Animaleros",
-          "Semovientes"
-        ]
+        "Referentes": ["Animales entrenados"]
       },
       "403-08": {
         "Femenino": {
@@ -5242,16 +4397,7 @@
           "es": "Efectos especiales",
           "en": "Special Effects"
         },
-        "Referentes": [
-          "FX",
-          "Estopines",
-          "Sangre",
-          "Explosiones",
-          "Efectos especiales",
-          "Special Effects",
-          "Effets spéciaux",
-          "Máquinas de humo"
-        ]
+        "Referentes": ["Efectos especiales"]
       },
       "403-09": {
         "Femenino": {
@@ -5279,7 +4425,7 @@
           "es": "Fabricantes de dummies",
           "en": "Dummy Manufacturers"
         },
-        "Referentes": ["Dummies", "Maquetas"]
+        "Referentes": ["Fabricante de dummies"]
       },
       "403-10": {
         "Femenino": {
@@ -5307,13 +4453,7 @@
           "es": "Disfraces y pelucas",
           "en": "Costumes and Wigs"
         },
-        "Referentes": [
-          "Disfraces",
-          "Pelucas",
-          "Costumes",
-          "Costumes",
-          "Caracterización de personajes"
-        ]
+        "Referentes": ["Disfraces y pelucas"]
       },
       "403-11": {
         "Femenino": {
@@ -5341,17 +4481,7 @@
           "es": "Alquiler de utilería",
           "en": "Props Rental"
         },
-        "Referentes": [
-          "Alquiler de utilería",
-          "Arte",
-          "Utilería",
-          "Utileros",
-          "Props",
-          "Prop Master",
-          "Props Man",
-          "Atrezzo",
-          "Atrecistas"
-        ]
+        "Referentes": ["Alquiler de utilería"]
       },
       "403-12": {
         "Femenino": {
@@ -5379,14 +4509,7 @@
           "es": "Alquiler de muebles",
           "en": "Furniture Rental"
         },
-        "Referentes": [
-          "Muebles en renta",
-          "Furniture Rental",
-          "Location de meublés",
-          "Escenografía",
-          "Ambientación",
-          "Atrezzo"
-        ]
+        "Referentes": ["Alquiler de muebles"]
       },
       "403-13": {
         "Femenino": {
@@ -5414,7 +4537,7 @@
           "es": "Maquetas",
           "en": "Dioramas"
         },
-        "Referentes": ["Dummies", "Maquetas"]
+        "Referentes": ["Maquetas"]
       },
       "403-14": {
         "Femenino": {
@@ -5442,7 +4565,7 @@
           "es": "Máquinas de humo",
           "en": "Smoke Machines"
         },
-        "Referentes": ["Máquinas de humo", "FX", "Efectos especiales"]
+        "Referentes": ["Máquinas de humo"]
       },
       "403-15": {
         "Femenino": {
@@ -5470,14 +4593,7 @@
           "es": "Pipas de agua",
           "en": "Water Tankers"
         },
-        "Referentes": [
-          "Pipas de agua",
-          "Water Tankers",
-          "Conduites D eau",
-          "Lluvia",
-          "FX",
-          "Efectos especiales"
-        ]
+        "Referentes": ["Pipas de agua"]
       },
       "403-16": {
         "Femenino": {
@@ -5505,17 +4621,7 @@
           "es": "Estudios de maquillaje",
           "en": "Makeup Studios"
         },
-        "Referentes": [
-          "Maquillaje",
-          "Makeup",
-          "Maquillistas",
-          "Makeup artist",
-          "Maquilleuse",
-          "Caracterizadores",
-          "Peinados",
-          "Hairdo",
-          "Estilistas"
-        ]
+        "Referentes": ["Estudio de maquillaje"]
       },
       "403-17": {
         "Femenino": {
@@ -5543,21 +4649,7 @@
           "es": "Almacenaje de arte",
           "en": "Warehouses"
         },
-        "Referentes": [
-          "Alquiler de utilería",
-          "Arte",
-          "Utilería",
-          "Utileros",
-          "Atrezzo",
-          "Muebles en renta",
-          "Furniture Rental",
-          "Location de meublés",
-          "Escenografía",
-          "Ambientación",
-          "Almacenamiento para arte",
-          "Bodegas para arte",
-          "Almacenaje de producción"
-        ]
+        "Referentes": ["Almacén de arte"]
       },
       "403-18": {
         "Femenino": {
@@ -5585,18 +4677,7 @@
           "es": "Vehículos de acción",
           "en": "Action Cars"
         },
-        "Referentes": [
-          "Automóviles",
-          "Autos antiguos",
-          "Ambientación",
-          "Autos clásicos",
-          "Diseño de producción",
-          "Arte",
-          "Diseño de producción",
-          "Production Design",
-          "Création des décors",
-          "Diseñadores de producción"
-        ]
+        "Referentes": ["Vehículos de acción"]
       }
     },
     "Venta de materiales": {
@@ -5626,15 +4707,7 @@
           "es": "Venta de artículos especializados",
           "en": "Specialized items for sale"
         },
-        "Referentes": [
-          "Jardinería",
-          "Gardening",
-          "Jardinage",
-          "Plantas",
-          "Ambientación",
-          "Escenografía",
-          "Atmósfera"
-        ]
+        "Referentes": ["Venta de artículos especializados"]
       },
       "404-02": {
         "Femenino": {
@@ -5662,13 +4735,7 @@
           "es": "Materiales ópticos / magnéticos",
           "en": "Optical / Magnetic Stock"
         },
-        "Referentes": [
-          "Discos",
-          "Hard disk",
-          "Materiales ópticos",
-          "Materiales magnéticos",
-          "Venta"
-        ]
+        "Referentes": ["Material óptico", "magnético"]
       },
       "404-03": {
         "Femenino": {
@@ -5696,17 +4763,7 @@
           "es": "Materiales cinematográficos",
           "en": "Film Stock"
         },
-        "Referentes": [
-          "Película",
-          "Film",
-          "Negativo",
-          "35 mm",
-          "16 mm",
-          "Material cinematográfico",
-          "Film material",
-          "Pelicule filmique",
-          "Venta"
-        ]
+        "Referentes": ["Material cinematográfico"]
       },
       "404-04": {
         "Femenino": {
@@ -5734,41 +4791,7 @@
           "es": "Expendables",
           "en": "Expendables"
         },
-        "Referentes": [
-          "Consumibles",
-          "Gaffer tape",
-          "Filtros",
-          "Filters",
-          "Black foil",
-          "Black wrap",
-          "Roscoe",
-          "Lee",
-          "Dicroicos",
-          "Difusores",
-          "Baterías",
-          "Hot set",
-          "Pasacables",
-          "Aire comprimido",
-          "Chamoix",
-          "Expendables",
-          "Consommables",
-          "Materiales de iluminación",
-          "Gel",
-          "Gelatinas",
-          "Filtros",
-          "Aire comprimido",
-          "Dust off",
-          "Lens tissue",
-          "Dulling spray",
-          "Cinta gaffer",
-          "Masking tape",
-          "Materiales de iluminación",
-          "Pizarras",
-          "Slate",
-          "Clapper",
-          "Artículos especializados",
-          "Venta"
-        ]
+        "Referentes": ["Expendables"]
       },
       "404-05": {
         "Femenino": {
@@ -5796,19 +4819,7 @@
           "es": "Lámparas y materiales de iluminación",
           "en": "Lamps and lighting materials"
         },
-        "Referentes": [
-          "Repuestos para lámparas",
-          "Luminarias",
-          "Lámparas",
-          "Focos",
-          "Refacciones",
-          "Tungsteno",
-          "Cuarzo",
-          "HMI",
-          "Materiales de iluminación",
-          "Artículos especializados",
-          "Venta"
-        ]
+        "Referentes": ["Lámparas y materiales de iluminación"]
       },
       "404-06": {
         "Femenino": {
@@ -5836,31 +4847,7 @@
           "es": "Tramoya",
           "en": "Grip Manufacturers"
         },
-        "Referentes": [
-          "Tramoya",
-          "Distribuidores de tramoya",
-          "Fabricantes de tramoya",
-          "Arri",
-          "Mathews",
-          "Colortran",
-          "Century",
-          "Mole Richardson",
-          "Tripiés",
-          "Stands",
-          "Banderas",
-          "Marcos",
-          "Textiles",
-          "Grifos",
-          "Apple Boxes",
-          "Flags",
-          "Bounce",
-          "Cookies",
-          "C-Stand",
-          "Slate",
-          "Clapper",
-          "Pizarras",
-          "Venta"
-        ]
+        "Referentes": ["Tramoya"]
       }
     }
   },
@@ -5892,25 +4879,7 @@
           "es": "Equipos cinematográficos",
           "en": "Film Equipment"
         },
-        "Referentes": [
-          "Cinematografía digital",
-          "Cinematography Equipment",
-          "Equipment cinematographique",
-          "Cámaras cinematográficas",
-          "Cámaras de alto perfil",
-          "Cámaras",
-          "Iluminación",
-          "Lighting",
-          "Iluminación cinematográfica",
-          "Klieg lights",
-          "Chimera",
-          "Soft Boxes",
-          "Lentes",
-          "Óptica cinematográfica",
-          "Lenses",
-          "Ultraprime",
-          "Cook"
-        ]
+        "Referentes": ["Equipo cinematográfico"]
       },
       "501-02": {
         "Femenino": {
@@ -5938,20 +4907,7 @@
           "es": "Equipos de video profesional",
           "en": "Professional Video Equipment"
         },
-        "Referentes": [
-          "Cámaras profesionales",
-          "Cámaras de televisión",
-          "Cámaras de alto perfil",
-          "Cámaras",
-          "Lentes",
-          "Lenses",
-          "Fujinon",
-          "Televisión",
-          "Iluminación",
-          "Iluminación para TV",
-          "TV Lighting",
-          "Broadcast"
-        ]
+        "Referentes": ["Equipos de video profesional"]
       },
       "501-03": {
         "Femenino": {
@@ -5979,14 +4935,7 @@
           "es": "Cámaras Hi Profile",
           "en": "Hi Profile Cameras"
         },
-        "Referentes": [
-          "Cinematografía digital",
-          "Cinematography Equipment",
-          "Equipment cinematographique",
-          "Cámaras cinematográficas",
-          "Cámaras de alto perfil",
-          "Cámaras"
-        ]
+        "Referentes": ["Cámaras Hi Profile"]
       },
       "501-04": {
         "Femenino": {
@@ -6014,14 +4963,7 @@
           "es": "Otras cámaras",
           "en": "Special Cameras"
         },
-        "Referentes": [
-          "POV Cameras",
-          "Microcámaras",
-          "Lipstick",
-          "Cámaras especiales",
-          "Fotografía científica",
-          "Cámaras"
-        ]
+        "Referentes": ["Otras cámaras"]
       }
     },
     "Equipo televisivo": {
@@ -6051,19 +4993,7 @@
           "es": "Equipos de producción de video",
           "en": "Video Production Equipment"
         },
-        "Referentes": [
-          "Producción de TV",
-          "Televisión",
-          "Video",
-          "Switchers",
-          "Video Mixers",
-          "Equipos de producción de video",
-          "Tricaster",
-          "Streaming",
-          "TX",
-          "Broadcast",
-          "Webcast"
-        ]
+        "Referentes": ["Equipos de producción de video"]
       },
       "502-02": {
         "Femenino": {
@@ -6091,19 +5021,7 @@
           "es": "Suites de producción de video",
           "en": "Workstations"
         },
-        "Referentes": [
-          "Producción de TV",
-          "Televisión",
-          "Video",
-          "Switchers",
-          "Video Mixers",
-          "Equipos de producción de video",
-          "Tricaster",
-          "Streaming",
-          "TX",
-          "Broadcast",
-          "Webcast"
-        ]
+        "Referentes": ["Suites de producción de video"]
       },
       "502-03": {
         "Femenino": {
@@ -6131,21 +5049,7 @@
           "es": "Unidades móviles",
           "en": "OB Units"
         },
-        "Referentes": [
-          "Unidades móviles",
-          "OB (Outside Broadcasting Vehicles)",
-          "Producción de TV",
-          "Televisión",
-          "Video",
-          "Switchers",
-          "Video Mixers",
-          "Equipos de producción de video",
-          "Tricaster",
-          "Streaming",
-          "TX",
-          "Broadcast",
-          "Webcast"
-        ]
+        "Referentes": ["Unidades móviles"]
       },
       "502-04": {
         "Femenino": {
@@ -6173,24 +5077,7 @@
           "es": "Sistemas de transmisión satelital",
           "en": "Satellite Trucks"
         },
-        "Referentes": [
-          "Transmisión de señal",
-          "Distribución de señal",
-          "Flyaway",
-          "Trasmisión satelital",
-          "TX",
-          "Transmisión en vivo",
-          "Transmisión en directo",
-          "Televisión",
-          "Transmisión",
-          "Enlaces",
-          "Conducción deseñal",
-          "Microondas",
-          "Streaming",
-          "Diffusion",
-          "Broadcast",
-          "Starlink"
-        ]
+        "Referentes": ["Sistemas de transmisión satelital"]
       },
       "502-05": {
         "Femenino": {
@@ -6218,19 +5105,7 @@
           "es": "Sistemas de transmisión digital",
           "en": "Webcasting"
         },
-        "Referentes": [
-          "Transmisión de señal",
-          "Distribución de señal",
-          "TX",
-          "Transmisión en vivo",
-          "Transmisión en directo",
-          "Televisión",
-          "Transmisión",
-          "Streaming",
-          "Diffusion",
-          "Broadcast",
-          "Webcast"
-        ]
+        "Referentes": ["Sistemas de transmisión digital"]
       }
     },
     "Equipos especializados": {
@@ -6260,19 +5135,7 @@
           "es": "Óptica y accesorios de cámara",
           "en": "Lenses and Accesories"
         },
-        "Referentes": [
-          "Óptica",
-          "Accesorios de cámara",
-          "Angenieux",
-          "Ultraprime",
-          "Cook",
-          "Canon",
-          "Rokinon",
-          "Fuji",
-          "Fujinon",
-          "DJ",
-          "Zoom"
-        ]
+        "Referentes": ["Óptica y accesorios de cámara"]
       },
       "503-02": {
         "Femenino": {
@@ -6300,22 +5163,7 @@
           "es": "Equipos para cámara",
           "en": "Camera Rigs"
         },
-        "Referentes": [
-          "Accesorios de cámara",
-          "Equipos de cámara",
-          "Rigs",
-          "Power Pod",
-          "Cammate",
-          "Jibs",
-          "Grúas",
-          "Crane",
-          "Steadicam",
-          "Rigs",
-          "Dollies",
-          "Monturas aéreas",
-          "Snorkel",
-          "Lowboy"
-        ]
+        "Referentes": ["Equipos para cámara"]
       },
       "503-03": {
         "Femenino": {
@@ -6343,7 +5191,7 @@
           "es": "Motion Control",
           "en": "Motion Control"
         },
-        "Referentes": ["Snorkel", "Power Pod", "Motion Control"]
+        "Referentes": ["Motion Control"]
       },
       "503-04": {
         "Femenino": {
@@ -6371,12 +5219,7 @@
           "es": "Fotografía aérea",
           "en": "Aerial Photography"
         },
-        "Referentes": [
-          "Helicópteros",
-          "Drones",
-          "Fotografía aérea",
-          "Aerial shots"
-        ]
+        "Referentes": ["Fotografía aérea"]
       },
       "503-05": {
         "Femenino": {
@@ -6404,7 +5247,7 @@
           "es": "Fotografía submarina",
           "en": "Underwater Photography"
         },
-        "Referentes": ["Fotografía submarina", "Buzos", "Cámaras submarinas"]
+        "Referentes": ["Fotografía submarina"]
       },
       "503-06": {
         "Femenino": {
@@ -6432,27 +5275,7 @@
           "es": "Equipos de iluminación",
           "en": "Lighting Equipment"
         },
-        "Referentes": [
-          "Móvil de iluminación",
-          "Minimóvil",
-          "Equipos de iluminación",
-          "Lighting",
-          "LED",
-          "PAR lights",
-          "HMI",
-          "Arri",
-          "Tungsteno",
-          "Kino",
-          "Mole Richardson",
-          "Colortran",
-          "Dedolight",
-          "Chimera",
-          "Smith Victor",
-          "K 5600",
-          "Joker",
-          "Klieg lights",
-          "Iluminación"
-        ]
+        "Referentes": ["Equipos de iluminación"]
       },
       "503-07": {
         "Femenino": {
@@ -6480,19 +5303,7 @@
           "es": "Iluminación especial",
           "en": "Special Lighting"
         },
-        "Referentes": [
-          "Lighting",
-          "Iluminación especial",
-          "Stage Lighting",
-          "PAR lights",
-          "Moving Heads",
-          "Strobes",
-          "Lasers",
-          "LED Strips",
-          "DJ Lighting",
-          "Xenon",
-          "Venta"
-        ]
+        "Referentes": ["Iluminación especial"]
       },
       "503-08": {
         "Femenino": {
@@ -6520,15 +5331,7 @@
           "es": "Generadores de electricidad",
           "en": "Power Generators"
         },
-        "Referentes": [
-          "Plantas de luz",
-          "Plantas eléctricas",
-          "Generadores eléctricos",
-          "Electrical generator",
-          "Des générateurs électriques",
-          "Iluminación",
-          "Lighting"
-        ]
+        "Referentes": ["Generadores de electricidad"]
       },
       "503-09": {
         "Femenino": {
@@ -6556,12 +5359,7 @@
           "es": "Otros equipos",
           "en": "Other Equipment"
         },
-        "Referentes": [
-          "Equipos especiales",
-          "Snorkel",
-          "Power Pod",
-          "Motion Control"
-        ]
+        "Referentes": ["Otros equipos"]
       },
       "503-10": {
         "Femenino": {
@@ -6576,7 +5374,7 @@
         },
         "No Binario": {
           "fr": null,
-          "es": null,
+          "es": " ",
           "en": null
         },
         "Persona Moral": {
@@ -6589,25 +5387,7 @@
           "es": "Equipos de sonido",
           "en": "Sound Recording Equipment"
         },
-        "Referentes": [
-          "Equipos de sonido",
-          "Mezcladoras",
-          "Micrófonos",
-          "Boom pole",
-          "Jirafas",
-          "Lavalier",
-          "Shotgun",
-          "Zeppelin",
-          "Fostex",
-          "Tascam",
-          "Sony",
-          "Sennheiser",
-          "Grabadoras de audio",
-          "Amplificadores",
-          "Sonorización",
-          "Mezcladoras",
-          "Audio mixing"
-        ]
+        "Referentes": ["Equipos de sonido"]
       },
       "503-11": {
         "Femenino": {
@@ -6635,21 +5415,7 @@
           "es": "Equipos de sonorización",
           "en": "Sound Amplifying Equipment"
         },
-        "Referentes": [
-          "Equipos de sonido",
-          "Consolas",
-          "Amplificadores",
-          "Sonorización",
-          "Eventos",
-          "Bocinas",
-          "Speakers",
-          "Audio mixing",
-          "Live Performance",
-          "Conciertos",
-          "Sonorizadores",
-          "Secres",
-          "Backstage"
-        ]
+        "Referentes": ["Equipos de sonorización"]
       },
       "503-12": {
         "Femenino": {
@@ -6677,17 +5443,7 @@
           "es": "Equipos de comunicación",
           "en": "Communication Equipment"
         },
-        "Referentes": [
-          "Equipos de comunicación",
-          "Walkie-talkies",
-          "Radios",
-          "Intercom",
-          "Logística",
-          "Internet",
-          "Starlink",
-          "Proveedores de internet",
-          "ISP (Internet Service Providers)"
-        ]
+        "Referentes": ["Equipos de comunicación"]
       },
       "503-13": {
         "Femenino": {
@@ -6715,15 +5471,7 @@
           "es": "Pantallas y módulos LED",
           "en": "Screen Rentals"
         },
-        "Referentes": [
-          "Pantallas de LED",
-          "LED",
-          "Módulos LED",
-          "Eventos",
-          "Pantallas",
-          "Live Performance",
-          "Conciertos"
-        ]
+        "Referentes": ["Alquiler de pantallas"]
       },
       "503-14": {
         "Femenino": {
@@ -6751,19 +5499,7 @@
           "es": "Equipos de proyección",
           "en": "Screening Equipment"
         },
-        "Referentes": [
-          "Equipos de proyección",
-          "Pantallas",
-          "Proyectores",
-          "Jumbotrón",
-          "Barco",
-          "Salas cinematográficas",
-          "Proyección",
-          "Screening",
-          "Eventos",
-          "Conciertos",
-          "Live Performance"
-        ]
+        "Referentes": ["Equipos de proyección"]
       },
       "503-15": {
         "Femenino": {
@@ -6791,14 +5527,7 @@
           "es": "Video 360",
           "en": "360 degrees video"
         },
-        "Referentes": [
-          "360-degree video",
-          "Cámaras 360",
-          "Cámaras omnidireccionales",
-          "Video inmersivo",
-          "Video esférico",
-          "Surround video"
-        ]
+        "Referentes": ["Video 360"]
       }
     },
     "Venta de equipos profesionales": {
@@ -6828,32 +5557,22 @@
           "es": "Venta de equipos profesionales",
           "en": "Professional equipment for sale"
         },
-        "Referentes": [
-          "Equipos profesionales",
-          "Equipos de video",
-          "Equipos de sonido",
-          "Equipos de cámara",
-          "Equipos de postproducción",
-          "Iluminación",
-          "Lighting",
-          "Micrófonos",
-          "Venta"
-        ]
+        "Referentes": ["Venta de equipos profesionales"]
       },
       "504-02": {
         "Femenino": {
           "fr": null,
-          "es": "Alquiler de equipos",
+          "es": "Alquiler de equipos profesionales",
           "en": null
         },
         "Masculino": {
           "fr": null,
-          "es": "Alquiler de equipos",
+          "es": "Alquiler de equipos profesionales",
           "en": null
         },
         "No Binario": {
           "fr": null,
-          "es": "Alquiler de equipos",
+          "es": "Alquiler de equipos profesionales",
           "en": null
         },
         "Persona Moral": {
@@ -6863,23 +5582,10 @@
         },
         "Alias Genérico": {
           "fr": "Location de matériel",
-          "es": "Alquiler de equipos",
+          "es": "Alquiler de equipos profesionales",
           "en": "Video Equipment Rental"
         },
-        "Referentes": [
-          "Equipos profesionales",
-          "Equipos de video",
-          "Equipos de sonido",
-          "Equipos de cámara",
-          "Equipos de postproducción",
-          "Iluminación",
-          "Lighting",
-          "Micrófonos",
-          "Zeppelin",
-          "Lavalier",
-          "Boom pole",
-          "Shotgun"
-        ]
+        "Referentes": ["Alquiler de equipos profesionales"]
       },
       "504-03": {
         "Femenino": {
@@ -6907,12 +5613,7 @@
           "es": "Servicio y reparación de equipos",
           "en": "Equipment maintenance and repair"
         },
-        "Referentes": [
-          "Servicio a equipos",
-          "Reparación de equipos",
-          "Refacciones",
-          "Repuestos"
-        ]
+        "Referentes": ["Servicio y reparación de equipos"]
       }
     }
   },
@@ -6944,11 +5645,7 @@
           "es": "Agencias de viaje",
           "en": "Travel Agencies"
         },
-        "Referentes": [
-          "Agencias de viaje",
-          "Travel agencies",
-          "Agences de voyages"
-        ]
+        "Referentes": ["Agencia de viajes", "Agente de viajes"]
       },
       "601-02": {
         "Femenino": {
@@ -6976,13 +5673,7 @@
           "es": "Aerolíneas",
           "en": "Airlines"
         },
-        "Referentes": [
-          "Aerolíneas",
-          "Airlines",
-          "Compagnies aériennes",
-          "Boletaje",
-          "Billetes de avión"
-        ]
+        "Referentes": ["Aerolínea"]
       },
       "601-03": {
         "Femenino": {
@@ -7010,12 +5701,7 @@
           "es": "Autos en renta",
           "en": "Car Rentals"
         },
-        "Referentes": [
-          "Autos en renta",
-          "Car Rental",
-          "Location de voitures",
-          "Transportación"
-        ]
+        "Referentes": ["Arrendadora de autos"]
       },
       "601-04": {
         "Femenino": {
@@ -7043,12 +5729,7 @@
           "es": "Renta de helicópteros",
           "en": "Helicopter Rentals"
         },
-        "Referentes": [
-          "Helicópteros",
-          "Helicopters",
-          "Hélicotères",
-          "Transportación VIP"
-        ]
+        "Referentes": ["Alquiler de helicópteros"]
       },
       "601-05": {
         "Femenino": {
@@ -7076,7 +5757,7 @@
           "es": "Aviones privados",
           "en": "Private Airplanes"
         },
-        "Referentes": ["Aviones privados", "Transportación VIP"]
+        "Referentes": ["Aviones privados"]
       },
       "601-06": {
         "Femenino": {
@@ -7104,15 +5785,7 @@
           "es": "Espectaculares",
           "en": "Billboards"
         },
-        "Referentes": [
-          "Carteleras",
-          "Billboards",
-          "BTL",
-          "Outdoor Publicity",
-          "Espectaculares",
-          "Billboards",
-          "Panneaux d’affichage"
-        ]
+        "Referentes": ["Espectaculares"]
       },
       "601-07": {
         "Femenino": {
@@ -7140,14 +5813,7 @@
           "es": "Eventos",
           "en": "Events"
         },
-        "Referentes": [
-          "Eventos",
-          "Events",
-          "Événements",
-          "Conciertos",
-          "Liev Performance",
-          "Sonorización"
-        ]
+        "Referentes": ["Eventos"]
       },
       "601-08": {
         "Femenino": {
@@ -7175,7 +5841,7 @@
           "es": "Renta de oficinas",
           "en": "Office Rentals"
         },
-        "Referentes": ["Renta de oficinas", "Oficinas de producción"]
+        "Referentes": ["Renta de oficinas"]
       },
       "601-09": {
         "Femenino": {
@@ -7203,7 +5869,7 @@
           "es": "Hospitales",
           "en": "Hospitals"
         },
-        "Referentes": ["Hospitales", "Hospitals", "Hopitaux"]
+        "Referentes": ["Hospital"]
       },
       "601-10": {
         "Femenino": {
@@ -7231,7 +5897,7 @@
           "es": "Hoteles",
           "en": "Hotels"
         },
-        "Referentes": ["Hoteles", "Hotels", "Hoatels", "Logística"]
+        "Referentes": ["Hotel"]
       },
       "601-11": {
         "Femenino": {
@@ -7259,15 +5925,7 @@
           "es": "Imprentas",
           "en": "Printing"
         },
-        "Referentes": [
-          "Imprentas",
-          "Printing",
-          "Impression",
-          "Impresiones",
-          "Hard Copies",
-          "Plotters",
-          "Ploteo"
-        ]
+        "Referentes": ["Imprenta"]
       },
       "601-12": {
         "Femenino": {
@@ -7295,12 +5953,7 @@
           "es": "Instrumentos musicales",
           "en": "Musical Instruments"
         },
-        "Referentes": [
-          "Instrumentos musicales",
-          "Musical instruments",
-          "Instruments de musique",
-          "Venta"
-        ]
+        "Referentes": ["Instrumentos musicales"]
       },
       "601-13": {
         "Femenino": {
@@ -7328,14 +5981,7 @@
           "es": "Madererías",
           "en": "Lumber stores"
         },
-        "Referentes": [
-          "Madererías",
-          "Timber Merchants",
-          "Négociants en bois",
-          "Construcción",
-          "Escenografía",
-          "Venta"
-        ]
+        "Referentes": ["Maderería"]
       },
       "601-14": {
         "Femenino": {
@@ -7363,7 +6009,7 @@
           "es": "Carpinterías",
           "en": "Carpentry"
         },
-        "Referentes": ["Carpinteros", "Constructores", "Construcción"]
+        "Referentes": ["Carpintera", "Carpintero", "Carpintería"]
       },
       "601-15": {
         "Femenino": {
@@ -7391,7 +6037,7 @@
           "es": "Papelerías",
           "en": "Stationers"
         },
-        "Referentes": ["Papelerías", "Stationery", "Papeterie"]
+        "Referentes": ["Papelería"]
       },
       "601-16": {
         "Femenino": {
@@ -7419,7 +6065,7 @@
           "es": "Viveros",
           "en": "Plant Nurseries"
         },
-        "Referentes": ["Plantas", "Jardinería", "Escenografía", "Ambientación"]
+        "Referentes": ["Vivero"]
       },
       "601-17": {
         "Femenino": {
@@ -7447,13 +6093,7 @@
           "es": "Transportación de carga",
           "en": "Cargo Transportation"
         },
-        "Referentes": [
-          "Transportación",
-          "Cargo",
-          "Transportación de carga",
-          "Cargo transportation",
-          "Transport de marchandises"
-        ]
+        "Referentes": ["Transportación de carga"]
       },
       "601-18": {
         "Femenino": {
@@ -7481,12 +6121,7 @@
           "es": "Transportación de pasajeros",
           "en": "Passenger Transportation"
         },
-        "Referentes": [
-          "Transportación",
-          "Transportación de pasajeros",
-          "Passenger transportation",
-          "Transport de passengers"
-        ]
+        "Referentes": ["Transportación de pasajeros"]
       },
       "601-19": {
         "Femenino": {
@@ -7514,12 +6149,7 @@
           "es": "Terminales y compañías de autobuses",
           "en": "Bus Stations"
         },
-        "Referentes": [
-          "Transportación",
-          "Terminales y compañías de autobuses",
-          "Bus terminals and bus transportation",
-          "Gare de bus"
-        ]
+        "Referentes": ["Terminales y compañías de autobuses"]
       },
       "601-20": {
         "Femenino": {
@@ -7547,15 +6177,7 @@
           "es": "Jardinería",
           "en": "Gardening"
         },
-        "Referentes": [
-          "Jardinería",
-          "Gardening",
-          "Jardinage",
-          "Plantas",
-          "Ambientación",
-          "Escenografía",
-          "Atmósfera"
-        ]
+        "Referentes": ["Jardinería", "Jardinera", "Jardinero"]
       },
       "601-21": {
         "Femenino": {
@@ -7583,13 +6205,7 @@
           "es": "Compañías de seguros",
           "en": "Insurance companies"
         },
-        "Referentes": [
-          "Seguros",
-          "Insurances",
-          "Assurances",
-          "Aseguradoras",
-          "Compañías de seguros"
-        ]
+        "Referentes": ["Aseguradora"]
       },
       "601-22": {
         "Femenino": {
@@ -7617,16 +6233,7 @@
           "es": "Mensajería",
           "en": "Courier"
         },
-        "Referentes": [
-          "Envíos",
-          "Paquetería",
-          "FedEx",
-          "UPS",
-          "Courier",
-          "DHL",
-          "Estafeta",
-          "Pakmail"
-        ]
+        "Referentes": ["Mensajería"]
       },
       "601-23": {
         "Femenino": {
@@ -7654,24 +6261,12 @@
           "es": "Ambulancias",
           "en": "Ambulance"
         },
-        "Referentes": [
-          "Ambulancia",
-          "Protección civil",
-          "Seguridad",
-          "",
-          "Personal de seguridad",
-          "Logística",
-          "Seguridad en locación",
-          "Médicos de producción",
-          "Atención médica en el set",
-          "Primeros auxilios",
-          "Paramédicos"
-        ]
+        "Referentes": ["Ambulancias"]
       }
     }
   },
   "Compañías de postproducción": {
-    "Postproducción de imagen": {
+    "Compañías de postproducción de imagen": {
       "701-01": {
         "Femenino": {
           "fr": null,
@@ -7698,20 +6293,7 @@
           "es": "Estudios de postproducción",
           "en": "Post-Production Studios"
         },
-        "Referentes": [
-          "Casas de postproducción",
-          "Estudios de postproducción",
-          "Postproduction",
-          "Animación",
-          "Efectos visuales",
-          "Colorization",
-          "Captions",
-          "Rushes",
-          "Daylies",
-          "RAW",
-          "Formatos",
-          "Códecs"
-        ]
+        "Referentes": ["Estudio de postproducción"]
       },
       "701-02": {
         "Femenino": {
@@ -7739,14 +6321,7 @@
           "es": "Corrección de color",
           "en": "Color Grading"
         },
-        "Referentes": [
-          "Postproduction",
-          "Corrección de color",
-          "Coloristas",
-          "Etalonaje",
-          "LUT",
-          "Colorization"
-        ]
+        "Referentes": ["Corrección de color"]
       },
       "701-03": {
         "Femenino": {
@@ -7774,21 +6349,7 @@
           "es": "Postproducción cinematográfica",
           "en": "Film Post-Production"
         },
-        "Referentes": [
-          "Postproduction",
-          "Postproducción cinematográfica",
-          "DCP (Digital Cinema Package)",
-          "Laboratorios cinematográficos",
-          "Procesos cinematográficos",
-          "Corrección de color",
-          "Etalonaje",
-          "LUT",
-          "Rushes",
-          "Daylies",
-          "RAW",
-          "Formatos",
-          "Códecs"
-        ]
+        "Referentes": ["Postproducción cinematográfica"]
       },
       "701-04": {
         "Femenino": {
@@ -7816,31 +6377,7 @@
           "es": "Reproducciones y transferencias",
           "en": "Duplication & Transfers"
         },
-        "Referentes": [
-          "Multicopiado",
-          "Bulk",
-          "Reproducciones",
-          "Reproductions",
-          "Copiado de materiales",
-          "Formatos de video",
-          "DVC Pro",
-          "DVCam",
-          "Betacam",
-          "D2",
-          "MiniDV",
-          "Transfers",
-          "PAL",
-          "NTSC",
-          "SECAM",
-          "VHS",
-          "Betamax",
-          "DAT",
-          "Video 8mm",
-          "Rank",
-          "16 mm",
-          "35 mm",
-          "Súper 8"
-        ]
+        "Referentes": ["Reproducciones y transferencias"]
       },
       "701-05": {
         "Femenino": {
@@ -7868,7 +6405,7 @@
           "es": "Subtítulaje",
           "en": "Captions"
         },
-        "Referentes": ["Subtítulos", "Subtitles", "Sous-titre"]
+        "Referentes": ["Subtitulaje"]
       }
     },
     "Postproducción de negativo": {
@@ -7898,17 +6435,7 @@
           "es": "Laboratorios cinematográficos",
           "en": "Film Labs"
         },
-        "Referentes": [
-          "Revelado",
-          "Película",
-          "Laboratorios cinematográficos",
-          "Film Labs",
-          "Laboratoire de cinéma",
-          "Postproducción cinematográfica",
-          "Procesos cinematográficos",
-          "Rushes",
-          "Daylies"
-        ]
+        "Referentes": ["Laboratorio cinematográfico"]
       },
       "702-02": {
         "Femenino": {
@@ -7936,16 +6463,7 @@
           "es": "Laboratorios fotográficos",
           "en": "Photo Labs"
         },
-        "Referentes": [
-          "Revelado foto fija",
-          "Impresión de fotografías",
-          "C45",
-          "Laboratorios fotográficos",
-          "Photo Labs",
-          "Laboratoire photo",
-          "Rushes",
-          "Daylies"
-        ]
+        "Referentes": ["Laboratorio fotográfico"]
       },
       "702-03": {
         "Femenino": {
@@ -7973,17 +6491,7 @@
           "es": "Transferencia de material",
           "en": "Transcoding"
         },
-        "Referentes": [
-          "Conversiones",
-          "Rank",
-          "Digitalización",
-          "Transferencia de materiales",
-          "Rushes",
-          "Daylies",
-          "RAW",
-          "Formatos",
-          "Códecs"
-        ]
+        "Referentes": ["Transferencia de materiales"]
       }
     },
     "Animación": {
@@ -8013,25 +6521,7 @@
           "es": "Estudios de animación",
           "en": "Animation Studios"
         },
-        "Referentes": [
-          "3D",
-          "2D",
-          "2.5D",
-          "Modelado",
-          "Modelos 3D",
-          "Animation",
-          "Animations",
-          "Animadores",
-          "Casas de animación",
-          "Compañías de animación",
-          "Personajes de animación",
-          "Efectos visuales",
-          "Realidad virtual",
-          "CGI",
-          "Computer Generated Imagery",
-          "Producción virtual",
-          "Realidad extendida"
-        ]
+        "Referentes": ["Estudio de animación"]
       },
       "703-02": {
         "Femenino": {
@@ -8059,17 +6549,7 @@
           "es": "Animación tradicional",
           "en": "Traditional Animation"
         },
-        "Referentes": [
-          "Clay animation",
-          "Stop Motion",
-          "Pixilación",
-          "Dibujos animados",
-          "Animation",
-          "Dibujantes",
-          "Casas de animación",
-          "Animadores",
-          "Claymation"
-        ]
+        "Referentes": ["Animación tradicional"]
       },
       "703-03": {
         "Femenino": {
@@ -8097,21 +6577,7 @@
           "es": "Arte digital",
           "en": "Digital Art"
         },
-        "Referentes": [
-          "Arte",
-          "Ilustración",
-          "Efectos especiales",
-          "Efectos visuales",
-          "Visual Effects",
-          "Effects visuels",
-          "Realidad virtual",
-          "CGI",
-          "Computer Generated Imagery",
-          "AI",
-          "IA",
-          "Producción virtual",
-          "Realidad extendida"
-        ]
+        "Referentes": ["Arte digital"]
       },
       "703-04": {
         "Femenino": {
@@ -8139,20 +6605,10 @@
           "es": "Bancos de imágenes",
           "en": "Image Libraries"
         },
-        "Referentes": [
-          "Bancos de imágenes",
-          "Imágenes de stock",
-          "Stock de video",
-          "Stock Footage",
-          "Clips de video",
-          "Stock fotográfico",
-          "Librerías",
-          "Royalties",
-          "Regalías"
-        ]
+        "Referentes": ["Banco de imágenes"]
       }
     },
-    "Postproducción de sonido": {
+    "Compañías de postproducción de sonido": {
       "704-01": {
         "Femenino": {
           "fr": null,
@@ -8179,22 +6635,7 @@
           "es": "Estudios de sonido",
           "en": "Sound Studios"
         },
-        "Referentes": [
-          "Grabación de audio",
-          "Producción de audio",
-          "Audio",
-          "ProTools",
-          "Estudios de grabación",
-          "Audio Studios",
-          "Audio études",
-          "Foleys",
-          "Foley stage",
-          "Gaviras",
-          "Incidentalistas",
-          "ADR (Automatic Dialogue Replacement)",
-          "Sistemas 5.1",
-          "Dolby"
-        ]
+        "Referentes": ["Estudio de sonido"]
       },
       "704-02": {
         "Femenino": {
@@ -8222,24 +6663,7 @@
           "es": "Estudios de doblaje",
           "en": "Dubbing Studios"
         },
-        "Referentes": [
-          "Grabación de audio",
-          "Audio",
-          "Estudios de grabación",
-          "Audio Studios",
-          "Audio études",
-          "Foleys",
-          "Foley stage",
-          "Gaviras",
-          "Incidentalistas",
-          "Doublage",
-          "Doblaje",
-          "Dubbing",
-          "Dub Stage",
-          "ADR (Automatic Dialogue Replacement)",
-          "Actores de voz",
-          "Acteurs de la voix"
-        ]
+        "Referentes": ["Estudio de doblaje"]
       },
       "704-03": {
         "Femenino": {
@@ -8267,14 +6691,7 @@
           "es": "Estudios para ensayo",
           "en": "Rehearsal Studios"
         },
-        "Referentes": [
-          "Grabación de audio",
-          "Audio",
-          "Ensayos",
-          "Estudios de grabación",
-          "Audio Studios",
-          "Audio études"
-        ]
+        "Referentes": ["Estudio para ensayo"]
       },
       "704-04": {
         "Femenino": {
@@ -8302,16 +6719,7 @@
           "es": "Estudios de producción musical",
           "en": "Music Production Studios"
         },
-        "Referentes": [
-          "Grabación de audio",
-          "Producción de discos",
-          "Reproducción de CDs",
-          "Audio",
-          "Estudios de grabación",
-          "Audio Studios",
-          "Audio études",
-          "Música original"
-        ]
+        "Referentes": ["Estudio de producción musical"]
       },
       "704-05": {
         "Femenino": {
@@ -8339,13 +6747,7 @@
           "es": "Cabinas de locución",
           "en": "Voice-Over Booths"
         },
-        "Referentes": [
-          "Grabación de audio",
-          "Audio",
-          "Estudios de grabación",
-          "Audio Studios",
-          "Audio études"
-        ]
+        "Referentes": ["Cabina de locución"]
       },
       "704-06": {
         "Femenino": {
@@ -8373,18 +6775,7 @@
           "es": "Salas de audio",
           "en": "THX Studios"
         },
-        "Referentes": [
-          "Grabación de audio",
-          "Producción de audio",
-          "Audio",
-          "Estudios de grabación",
-          "Audio Studios",
-          "Audio études",
-          "THX",
-          "Postproductores de audio",
-          "Dolby",
-          "Atmos"
-        ]
+        "Referentes": ["Sala de audio"]
       },
       "704-07": {
         "Femenino": {
@@ -8412,20 +6803,7 @@
           "es": "Diseño sonoro",
           "en": "Sound Design"
         },
-        "Referentes": [
-          "Producción de audio",
-          "Diseño sonoro",
-          "Sound Design",
-          "Design sonore",
-          "Foleys",
-          "Foley stage",
-          "Gaviras",
-          "THX",
-          "Sistemas 5.1",
-          "Psotproductores de audio",
-          "Dolby",
-          "Atmos"
-        ]
+        "Referentes": ["Diseño sonoro"]
       },
       "704-08": {
         "Femenino": {
@@ -8453,15 +6831,7 @@
           "es": "Restauración de sonido",
           "en": "Sound Restoration"
         },
-        "Referentes": [
-          "Producción de audio",
-          "Diseño sonoro",
-          "Sound Design",
-          "Design sonore",
-          "Restauración de sonido",
-          "Ingenieros de sonido",
-          "Postproductores de audio"
-        ]
+        "Referentes": ["Restauración de sonido"]
       }
     },
     "Música": {
@@ -8491,17 +6861,7 @@
           "es": "Música original",
           "en": "Original Music Soundtracks"
         },
-        "Referentes": [
-          "Jingles",
-          "Música original",
-          "Composición musical",
-          "Score",
-          "Músicos",
-          "Grabación musical",
-          "Musicalización",
-          "Composers",
-          "Musicians"
-        ]
+        "Referentes": ["Música original"]
       },
       "705-02": {
         "Femenino": {
@@ -8529,16 +6889,7 @@
           "es": "Librerías musicales",
           "en": "Music Libraries"
         },
-        "Referentes": [
-          "Stock de audio",
-          "Librerías",
-          "Librerías musicales",
-          "Clips de audio",
-          "Música",
-          "Musicalización",
-          "Regalías",
-          "Royalties"
-        ]
+        "Referentes": ["Librería musical"]
       }
     }
   },
@@ -8571,14 +6922,9 @@
           "en": "Web Developers"
         },
         "Referentes": [
-          "Internet",
-          "Páginas web",
-          "Desarrolladores web",
-          "WordPress",
-          "Dreamweaver",
-          "Páginas de internet",
-          "Sites",
-          "Web pages"
+          "Desarrolladora digital",
+          "Desarrollador digital",
+          "Estudio digital"
         ]
       },
       "801-02": {
@@ -8608,12 +6954,9 @@
           "en": "Computer Progammers"
         },
         "Referentes": [
-          "Internet",
-          "Aplicaciones",
-          "Desarrollo de aplicaciones",
-          "Programadores",
-          "Escritura de código",
-          "Programación"
+          "Desarrolladora de aplicaciones",
+          "Desarrollador de aplicaciones",
+          "Desarrollo de aplicaciones"
         ]
       },
       "801-03": {
@@ -8643,15 +6986,9 @@
           "en": "Videogame Developers"
         },
         "Referentes": [
-          "Internet",
-          "Programación",
-          "Programadores",
-          "Aplicaciones",
-          "Videojuegos",
-          "Desarrollo de videojuegos",
-          "Diseño de videojuegos",
-          "CGI",
-          "Computer Generated Imagery"
+          "Desarrolladora de videojuegos",
+          "Desarrollador de videojuegos",
+          "Desarrollo de videojuegos"
         ]
       },
       "801-04": {
@@ -8681,16 +7018,9 @@
           "en": "Virtual Production Developers"
         },
         "Referentes": [
-          "AI",
-          "IA",
-          "Programación",
-          "Realidad virtual",
-          "Producción virtual",
-          "Inteligencia artificial",
-          "Prompting",
-          "Animación",
-          "CGI",
-          "Computer Generated Imagery"
+          "Desarrolladora de producción virtual",
+          "Desarrollador de producción virtual",
+          "Desarrollo de producción virtual"
         ]
       },
       "801-05": {
@@ -8720,16 +7050,9 @@
           "en": "Virtual Reality Developers"
         },
         "Referentes": [
-          "AI",
-          "IA",
-          "Programación",
-          "Realidad virtual",
-          "Producción virtual",
-          "Inteligencia artificial",
-          "Prompting",
-          "Animación",
-          "CGI",
-          "Computer Generated Imagery"
+          "Desarrolladora de realidad extendida",
+          "Desarrollador de realidad extendida",
+          "Desarrollo de realidad extendida"
         ]
       }
     },
@@ -8760,23 +7083,7 @@
           "es": "Agencias de marketing digital",
           "en": "Digital Marketing Agencies"
         },
-        "Referentes": [
-          "Internet",
-          "Medios online",
-          "Difusión",
-          "Campañas",
-          "Estrategia de redes",
-          "Community managers",
-          "Gestores de redes",
-          "Redes sociales",
-          "RRSS",
-          "Pauta en internet",
-          "Google Analytics",
-          "Mercadotecnia",
-          "Campañas digitales",
-          "Networks",
-          "Webcast"
-        ]
+        "Referentes": ["Agencia de marketing digital"]
       },
       "802-02": {
         "Femenino": {
@@ -8805,18 +7112,9 @@
           "en": "Network Managment"
         },
         "Referentes": [
-          "Internet",
-          "Estrategia de redes",
-          "Community managers",
-          "Gestores de redes",
-          "Redes sociales",
-          "RRSS",
-          "Pauta en internet",
-          "Google Analytics",
-          "Mercadotecnia",
-          "Campañas digitales",
-          "Networks",
-          "Webcast"
+          "Administradora de redes",
+          "Administrador de redes",
+          "Administración de redes"
         ]
       },
       "802-03": {
@@ -8845,20 +7143,7 @@
           "es": "Community managers",
           "en": "Community managers"
         },
-        "Referentes": [
-          "Internet",
-          "Estrategia de redes",
-          "Community managers",
-          "Gestores de redes",
-          "Redes sociales",
-          "RRSS",
-          "Pauta en internet",
-          "Google Analytics",
-          "Mercadotecnia",
-          "Campañas digitales",
-          "Networks",
-          "Webcast"
-        ]
+        "Referentes": ["Community manager"]
       }
     }
   },
@@ -8890,16 +7175,7 @@
           "es": "Agencias de publicidad",
           "en": "Advertising Agencies"
         },
-        "Referentes": [
-          "Agencias de publicidad",
-          "Advertising Agencies",
-          "Agences de publicité",
-          "Publicidad",
-          "Campañas",
-          "Marketing",
-          "Creatividad",
-          "Agencias"
-        ]
+        "Referentes": ["Agencia de publicidad"]
       },
       "901-02": {
         "Femenino": {
@@ -8927,16 +7203,7 @@
           "es": "Agencias de investigación de mercado",
           "en": "Marketing Research"
         },
-        "Referentes": [
-          "Grupos focales",
-          "Investigadores",
-          "Agencias de investigación de mercado",
-          "Marketing Research Agencies",
-          "Agences de recherche de marche",
-          "Marketing",
-          "Google Analytics",
-          "Agencias"
-        ]
+        "Referentes": ["Agencia de investigación de mercado"]
       },
       "901-03": {
         "Femenino": {
@@ -8964,21 +7231,7 @@
           "es": "Distribuidores",
           "en": "Film Distributors"
         },
-        "Referentes": [
-          "Distribuidoras cinematográficas",
-          "Distribuidores",
-          "Distributors",
-          "Distributeurs",
-          "Películas",
-          "Estrenos",
-          "Premiere",
-          "Canacine",
-          "Representates",
-          "Junkets",
-          "Largometrajes",
-          "Territorios",
-          "Regalías"
-        ]
+        "Referentes": ["Distribuidor cinematográfico"]
       },
       "901-04": {
         "Femenino": {
@@ -9006,23 +7259,7 @@
           "es": "Exhibidores",
           "en": "Film Exhibitors"
         },
-        "Referentes": [
-          "Circuitos de exhibición",
-          "Cinépolis",
-          "Cinemex",
-          "Salas de cine",
-          "Cinemas",
-          "Theaters",
-          "Películas",
-          "Exhibidores",
-          "IMAX",
-          "Cortometrajes",
-          "Largomentrajes",
-          "Territorios",
-          "Taquilla",
-          "Box Office",
-          "Premiere"
-        ]
+        "Referentes": ["Exhibidor"]
       },
       "901-05": {
         "Femenino": {
@@ -9050,13 +7287,7 @@
           "es": "Teatros",
           "en": "Theaters"
         },
-        "Referentes": [
-          "Escenarios",
-          "Teatros",
-          "Theaters",
-          "Salas",
-          "Actuación"
-        ]
+        "Referentes": ["Teatro"]
       },
       "901-06": {
         "Femenino": {
@@ -9084,18 +7315,7 @@
           "es": "Cámaras y asociaciones",
           "en": "Chambers and Associations"
         },
-        "Referentes": [
-          "Canacine",
-          "Agrupaciones",
-          "Amfi",
-          "Mujeres en el Cine y la TV",
-          "Women in Films and TV",
-          "Femmes au Cinéma et à la TV",
-          "Asociaciones",
-          "Associations",
-          "Cámara",
-          "Guilds"
-        ]
+        "Referentes": ["Asociación"]
       },
       "901-07": {
         "Femenino": {
@@ -9123,17 +7343,7 @@
           "es": "Medios",
           "en": "Media"
         },
-        "Referentes": [
-          "Promoción",
-          "Media",
-          "Moyens",
-          "Medios",
-          "Prensa",
-          "Radio",
-          "Televisión",
-          "Difusión",
-          "Broadcast"
-        ]
+        "Referentes": ["Medio"]
       },
       "901-08": {
         "Femenino": {
@@ -9161,20 +7371,7 @@
           "es": "Relaciones públicas",
           "en": "Public Relations Agencies"
         },
-        "Referentes": [
-          "Promoción",
-          "Media",
-          "Moyens",
-          "Medios",
-          "Relaciones públicas",
-          "Eventos",
-          "Agencias",
-          "Junkets",
-          "Webcast",
-          "PR",
-          "RRPP",
-          "Festivales"
-        ]
+        "Referentes": ["Relaciones públicas"]
       },
       "901-09": {
         "Femenino": {
@@ -9202,7 +7399,7 @@
           "es": "Operadoras de medios",
           "en": "Media Planning"
         },
-        "Referentes": ["Webcast", "Pauta en internet", "Media planning"]
+        "Referentes": ["Operador de medios"]
       },
       "901-10": {
         "Femenino": {
@@ -9230,14 +7427,7 @@
           "es": "Sindicatos",
           "en": "Unions"
         },
-        "Referentes": [
-          "Agrupaciones",
-          "Organizaciones",
-          "Sindicatos",
-          "Unions",
-          "Syndicats",
-          "Guilds"
-        ]
+        "Referentes": ["Sindicato"]
       }
     },
     "Comisiones y escuelas": {
@@ -9267,16 +7457,7 @@
           "es": "Comisiones fílmicas",
           "en": "Film Commissions"
         },
-        "Referentes": [
-          "Permisos de filmación",
-          "Avisos de filmación",
-          "Autoridades",
-          "Comisiones de filmación",
-          "Film Commissions",
-          "Des commissions de filage",
-          "Gobierno",
-          "Comsiones fílmicas"
-        ]
+        "Referentes": ["Comisión fílmica"]
       },
       "902-02": {
         "Femenino": {
@@ -9304,16 +7485,7 @@
           "es": "Secretarías de Cultura",
           "en": "Culture Ministries"
         },
-        "Referentes": [
-          "Autoridades",
-          "Instituciones",
-          "Institutes",
-          "Instituts",
-          "Promoción cultural",
-          "Gobierno",
-          "IMCINE",
-          "Filmotecas"
-        ]
+        "Referentes": ["Secretaría de Cultura"]
       },
       "902-03": {
         "Femenino": {
@@ -9341,15 +7513,7 @@
           "es": "Organismos de gobierno",
           "en": "Government Agencies"
         },
-        "Referentes": [
-          "Autoridades",
-          "Instituciones",
-          "Institutes",
-          "Instituts",
-          "Gobierno",
-          "IMCINE",
-          "Filmotecas"
-        ]
+        "Referentes": ["Organismo de gobierno"]
       },
       "902-04": {
         "Femenino": {
@@ -9377,19 +7541,7 @@
           "es": "Escuelas y universidades",
           "en": "Schools and Universities"
         },
-        "Referentes": [
-          "Capacitación",
-          "Escuelas y universidades",
-          "Schools and Universities",
-          "Écoles et universités",
-          "Talleres",
-          "Workshops",
-          "Ateliers",
-          "Instituciones",
-          "Academias",
-          "Filmotecas",
-          "Cortometrajes"
-        ]
+        "Referentes": ["Escuela"]
       },
       "902-05": {
         "Femenino": {
@@ -9417,17 +7569,7 @@
           "es": "Talleres",
           "en": "Workshops"
         },
-        "Referentes": [
-          "Capacitación",
-          "Escuelas",
-          "Talleres",
-          "Workshops",
-          "Ateliers",
-          "Especialización",
-          "Actualización",
-          "Entrenamiento",
-          "Cortometrajes"
-        ]
+        "Referentes": ["Taller"]
       }
     },
     "Festivales y mercados": {
@@ -9457,21 +7599,7 @@
           "es": "Festivales nacionales de cine",
           "en": "National Film Festivals"
         },
-        "Referentes": [
-          "Festivales de cine en México",
-          "Film Festivals in Mexico",
-          "Festivals de cinéma",
-          "Mercados",
-          "Películas",
-          "Concursos",
-          "Exhibición",
-          "Festivales",
-          "Cortometrajes",
-          "Largometrajes",
-          "Muestras",
-          "Encuentros",
-          "Competencia"
-        ]
+        "Referentes": ["Festival de cine"]
       },
       "903-02": {
         "Femenino": {
@@ -9499,21 +7627,7 @@
           "es": "Foros nacionales de cine",
           "en": "National Film Forums"
         },
-        "Referentes": [
-          "Festivales de cine en México",
-          "Film Festivals in Mexico",
-          "Festivals de cinéma",
-          "Mercados",
-          "Películas",
-          "Concursos",
-          "Exhibición",
-          "Festivales",
-          "Cortometrajes",
-          "Largometrajes",
-          "Muestras",
-          "Encuentros",
-          "Competencia"
-        ]
+        "Referentes": ["Foro de cine"]
       },
       "903-03": {
         "Femenino": {
@@ -9541,21 +7655,7 @@
           "es": "Encuentros de cine",
           "en": "Filmmaking Symposia"
         },
-        "Referentes": [
-          "Festivales de cine en México",
-          "Film Festivals in Mexico",
-          "Festivals de cinéma",
-          "Mercados",
-          "Películas",
-          "Concursos",
-          "Exhibición",
-          "Festivales",
-          "Cortometrajes",
-          "Largometrajes",
-          "Muestras",
-          "Encuentros",
-          "Competencia"
-        ]
+        "Referentes": ["Encuentro de cine"]
       },
       "903-04": {
         "Femenino": {
@@ -9583,21 +7683,7 @@
           "es": "Muestras de cine nacional",
           "en": "National Film Showcases"
         },
-        "Referentes": [
-          "Festivales de cine en México",
-          "Film Festivals in Mexico",
-          "Festivals de cinéma",
-          "Mercados",
-          "Películas",
-          "Concursos",
-          "Exhibición",
-          "Festivales",
-          "Cortometrajes",
-          "Largometrajes",
-          "Muestras",
-          "Encuentros",
-          "Competencia"
-        ]
+        "Referentes": ["Muestra de cine"]
       },
       "903-05": {
         "Femenino": {
@@ -9625,21 +7711,7 @@
           "es": "Concursos de cine universitario",
           "en": "Film School Contests"
         },
-        "Referentes": [
-          "Festivales de cine en México",
-          "Film Festivals in Mexico",
-          "Festivals de cinéma",
-          "Mercados",
-          "Películas",
-          "Concursos",
-          "Exhibición",
-          "Festivales",
-          "Cortometrajes",
-          "Largometrajes",
-          "Muestras",
-          "Encuentros",
-          "Competencia"
-        ]
+        "Referentes": ["Concurso de cine universitario"]
       },
       "903-06": {
         "Femenino": {
@@ -9667,21 +7739,7 @@
           "es": "Concursos de cine nacional",
           "en": "Local Film Contests"
         },
-        "Referentes": [
-          "Festivales de cine en México",
-          "Film Festivals in Mexico",
-          "Festivals de cinéma",
-          "Mercados",
-          "Películas",
-          "Concursos",
-          "Exhibición",
-          "Festivales",
-          "Cortometrajes",
-          "Largometrajes",
-          "Muestras",
-          "Encuentros",
-          "Competencia"
-        ]
+        "Referentes": ["Concurso de cine nacional"]
       },
       "903-07": {
         "Femenino": {
@@ -9709,21 +7767,7 @@
           "es": "Mercados cinematográficos locales",
           "en": "Local Film Markets"
         },
-        "Referentes": [
-          "Festivales de cine en México",
-          "Film Festivals in Mexico",
-          "Festivals de cinéma",
-          "Mercados",
-          "Películas",
-          "Concursos",
-          "Exhibición",
-          "Festivales",
-          "Cortometrajes",
-          "Largometrajes",
-          "Muestras",
-          "Encuentros",
-          "Competencia"
-        ]
+        "Referentes": ["Mercado cinematográfico"]
       },
       "903-08": {
         "Femenino": {
@@ -9751,21 +7795,7 @@
           "es": "Festivales de cine en el mundo",
           "en": "Film Festivals Around the World"
         },
-        "Referentes": [
-          "Festivales de cine en México",
-          "Film Festivals in Mexico",
-          "Festivals de cinéma",
-          "Mercados",
-          "Películas",
-          "Concursos",
-          "Exhibición",
-          "Festivales",
-          "Cortometrajes",
-          "Largometrajes",
-          "Muestras",
-          "Encuentros",
-          "Competencia"
-        ]
+        "Referentes": ["Festival internacional de cine"]
       },
       "903-09": {
         "Femenino": {
@@ -9793,21 +7823,7 @@
           "es": "Mercados internacionales de cine",
           "en": "International Film & TV Markets"
         },
-        "Referentes": [
-          "Festivales de cine en México",
-          "Film Festivals in Mexico",
-          "Festivals de cinéma",
-          "Mercados",
-          "Películas",
-          "Concursos",
-          "Exhibición",
-          "Festivales",
-          "Cortometrajes",
-          "Largometrajes",
-          "Muestras",
-          "Encuentros",
-          "Competencia"
-        ]
+        "Referentes": ["Mercado internacional de cine"]
       }
     },
     "Personas en la industria": {
@@ -9837,15 +7853,7 @@
           "es": "Académicos",
           "en": "Faculty"
         },
-        "Referentes": [
-          "Academias",
-          "Escuelas y universidades",
-          "Enseñanza",
-          "Escuelas",
-          "Investigadores",
-          "Profesores",
-          "Cortometrajes"
-        ]
+        "Referentes": ["Académica", "Académico"]
       },
       "904-02": {
         "Femenino": {
@@ -9873,19 +7881,7 @@
           "es": "Ejecutivos",
           "en": "Executives"
         },
-        "Referentes": [
-          "Decision Makers",
-          "Ejecutivos",
-          "Organizaciones",
-          "Largometrajes",
-          "Festivales",
-          "Mercados",
-          "Distribución",
-          "Contratos",
-          "Territorios",
-          "Licencias",
-          "Regalías"
-        ]
+        "Referentes": ["Ejecutiva", "Ejecutivo"]
       },
       "904-03": {
         "Femenino": {
@@ -9914,12 +7910,9 @@
           "en": "Goverment Officials"
         },
         "Referentes": [
-          "Gobierno",
-          "Imcine",
-          "Funcionarios",
-          "Ejecutivos",
-          "Autoridades",
-          "Festivales"
+          "Funcionaria pública",
+          "Funcionario público",
+          "Servicio público"
         ]
       },
       "904-04": {
@@ -9949,14 +7942,12 @@
           "en": "Research / Teaching"
         },
         "Referentes": [
-          "Investigadores",
-          "Docentes",
-          "Maestros",
-          "Escuelas",
-          "Capacitación",
-          "Profesores",
-          "Enseñanza",
-          "Escuelas y universidades"
+          "Investigadora",
+          "docente",
+          "Investigador",
+          "docente",
+          "Investigación",
+          "docencia"
         ]
       },
       "904-05": {
@@ -9986,18 +7977,9 @@
           "en": "Film Critics and Journalists"
         },
         "Referentes": [
-          "Promoción",
-          "Media",
-          "Moyens",
-          "Medios",
-          "Prensa",
-          "Radio",
-          "Televisión",
-          "Difusión",
-          "Críticos cinematográficos",
-          "Periodistas",
-          "Largometrajes",
-          "Crítica"
+          "Crítica de cine",
+          "Crítico de cine",
+          "Crítica cinematográfica"
         ]
       }
     }
